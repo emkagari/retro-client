@@ -15,7 +15,7 @@
  * another property) — tools/deob/src/check-accessors.ts.
  */
 import { execFileSync } from "node:child_process";
-import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, relative, resolve, sep } from "node:path";
 import { ROOT, SRC, base, compileErrors, config, ffdec, fromFfdec, rootByName, sha256, sourceFiles, sourceHash, toFfdec } from "./lib.mjs";
 import { declaredSymbols, exportNames, withSymbols } from "./symbols.mjs";
@@ -31,6 +31,13 @@ const DEV_FILES = {
 const sourceOf = (f) => DEV_FILES[f] ?? join(SRC, f);
 const out = resolve(args.includes("--out") ? args[args.indexOf("--out") + 1] : join(ROOT, "build", "loader.swf"));
 const cfg = config();
+// Each build has its own work files (dev.mjs rebuilds in the background while you may build by hand),
+// and the output appears in one rename: never half-written, never removed by another build.
+const work = join(ROOT, ".tmp", `build-${process.pid}`);
+const tmpOut = join(work, "loader.swf");
+mkdirSync(work, { recursive: true });
+process.on("exit", () => rmSync(work, { recursive: true, force: true }));
+const publish = () => { renameSync(tmpOut, out); console.log(`\n${out}\nsha256 ${sha256(out)}`); };
 const b = base(cfg.version);
 
 // What changed since the base.
@@ -43,7 +50,8 @@ for (const f of removed) console.warn(`warning: ${f} was deleted — a build can
 mkdirSync(dirname(out), { recursive: true });
 const symbols = declaredSymbols();
 if (changed.length === 0 && symbols.length === 0) {
-  copyFileSync(b.loader, out);
+  copyFileSync(b.loader, tmpOut);
+  renameSync(tmpOut, out);
   console.log(`no change since base ${cfg.version}: ${out} is the base loader`);
   process.exit(0);
 }
@@ -56,20 +64,20 @@ const newClasses = changed.filter((f) => f.startsWith("classes/")).map(classPath
 const newSymbols = symbols.filter((s) => !baseNames.has(s));
 for (const s of symbols.filter((s) => baseNames.has(s))) console.warn(`warning: symbol ${s} (src/symbols.json) already exists in the base`);
 if (newClasses.length || newSymbols.length) {
-  input = join(ROOT, ".tmp", "base-with-symbols.swf");
+  input = join(work, "base-with-symbols.swf");
   mkdirSync(dirname(input), { recursive: true });
   writeFileSync(input, withSymbols(b.loader, newClasses, newSymbols));
   for (const c of newClasses) console.log(`new class ${c}`);
   for (const s of newSymbols) console.log(`new symbol ${s}`);
 }
 if (changed.length === 0) {
-  copyFileSync(input, out);
-  console.log(`\n${out}\nsha256 ${sha256(out)}`);
+  copyFileSync(input, tmpOut);
+  publish();
   process.exit(0);
 }
 
 // FFDec compiles a whole folder into the SWF, in its own layout: the changed files only.
-const stage = join(ROOT, ".tmp", "build-src");
+const stage = join(work, "src");
 rmSync(stage, { recursive: true, force: true });
 // `_root` by name in what's compiled (lib.mjs rootByName): src/ stays as written.
 for (const f of changed) {
@@ -82,10 +90,9 @@ console.log(`compiling ${changed.length} file${changed.length > 1 ? "s" : ""} in
 for (const f of changed.slice(0, 30)) console.log(`  ${f}`);
 if (changed.length > 30) console.log(`  … ${changed.length - 30} more`);
 
-rmSync(out, { force: true });
-const r = ffdec(cfg, ["-importScript", input, out, stage]);
+const r = ffdec(cfg, ["-importScript", input, tmpOut, stage]);
 const errors = compileErrors(r.log);
-if (!r.ok || errors.length || !existsSync(out)) {
+if (!r.ok || errors.length || !existsSync(tmpOut)) {
   console.error("\ncompile errors:");
   // FFDec names the staged file: show the one in src/.
   const shown = (e) => e.replace(/file: (.+)$/, (_, f) => {
@@ -93,17 +100,15 @@ if (!r.ok || errors.length || !existsSync(out)) {
     return `file: ${DEV_FILES[rel] ? relative(ROOT, DEV_FILES[rel]) : `src/${rel}`}`;
   });
   for (const e of errors.length ? errors : [r.log.trim().split("\n").slice(-5).join("\n")]) console.error(`  ${shown(e)}`);
-  rmSync(out, { force: true });
   process.exit(1);
 }
 
 // Preloaded `_root` / `_parent` registers: never more than the base (tools/deob/src/check-preload.ts).
 const preload = (swf) => JSON.parse(execFileSync(process.execPath, [join(ROOT, "tools/deob/src/check-preload.ts"), swf], { encoding: "utf8" }));
-const [pb, po] = [preload(b.loader), preload(out)];
+const [pb, po] = [preload(b.loader), preload(tmpOut)];
 if (po.root > pb.root || po.parent > pb.parent) {
   console.error(`\nfunctions reading _root/_parent from a preloaded register: base ${pb.root}/${pb.parent}, build ${po.root}/${po.parent} — ` +
     "in the loader these are the preloader's: write them so they compile by name (see rootByName in tools/lib.mjs)");
-  rmSync(out, { force: true });
   process.exit(1);
 }
 
@@ -113,11 +118,10 @@ const mismatches = (swf) => {
   catch (e) { return String(e.stdout).split("\n").filter((l) => l.includes(": property")); }
 };
 const before = new Set(mismatches(b.loader));
-const added = mismatches(out).filter((l) => !before.has(l));
+const added = mismatches(tmpOut).filter((l) => !before.has(l));
 if (added.length) {
   console.error("\naccessors that no longer match their property (rename the get/set or the property in the source):");
   for (const l of added) console.error(`  ${l}`);
-  rmSync(out, { force: true });
   process.exit(1);
 }
-console.log(`\n${out}\nsha256 ${sha256(out)}`);
+publish();

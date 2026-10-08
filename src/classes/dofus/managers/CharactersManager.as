@@ -107,6 +107,7 @@ class dofus.managers.CharactersManager extends dofus.utils.ApiElement
       _loc5_.hasBuff = oData.hasBuff;
       _loc5_.xpMultiplicator = oData.xpMultiplicator;
       _loc5_.glowFilter = oData.glowFilter;
+      _loc5_.ornament = oData.ornament;
       this.setSpriteAccessories(_loc5_,oData.accessories);
       if(oData.LP != undefined)
       {

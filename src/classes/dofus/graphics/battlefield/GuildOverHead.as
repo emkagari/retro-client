@@ -5,11 +5,11 @@ class dofus.graphics.battlefield.GuildOverHead extends dofus.graphics.battlefiel
    var _txtTitle;
    var attachMovie;
    var createTextField;
-   function GuildOverHead(sText, sSpriteName, oEmblem, sFile, nFrame, nPvpGain, title)
+   function GuildOverHead(sText, sSpriteName, oEmblem, sFile, nFrame, nPvpGain, title, nOrnament)
    {
       super();
       this.initialize(title != undefined);
-      this.drawClip(sText,sSpriteName,oEmblem,sFile,nFrame,nPvpGain,title);
+      this.drawClip(sText,sSpriteName,oEmblem,sFile,nFrame,nPvpGain,title,nOrnament);
    }
    function initialize(displayTitle)
    {
@@ -22,7 +22,7 @@ class dofus.graphics.battlefield.GuildOverHead extends dofus.graphics.battlefiel
          this._txtTitle.embedFonts = true;
       }
    }
-   function drawClip(sGuildName, sSpriteName, oEmblem, sFile, nFrame, nPvpGain, title)
+   function drawClip(sGuildName, sSpriteName, oEmblem, sFile, nFrame, nPvpGain, title, nOrnament)
    {
       var _loc9_ = sFile != undefined && nFrame != undefined;
       if(nPvpGain == undefined)
@@ -67,6 +67,7 @@ class dofus.graphics.battlefield.GuildOverHead extends dofus.graphics.battlefiel
          this._txtGuildName._x = this._txtSpriteName._x = (- _loc11_) / 2 + 30 + dofus.graphics.battlefield.AbstractTextOverHead.WIDTH_SPACER * 2;
       }
       this.drawBackground(_loc11_,_loc10_,dofus.graphics.battlefield.AbstractTextOverHead.BACKGROUND_COLOR);
+      this.drawOrnament(nOrnament,_loc11_,_loc10_);
       this.attachMovie("Emblem","_eEmblem",100,{_x:Math.ceil((- _loc11_) / 2) + dofus.graphics.battlefield.AbstractTextOverHead.WIDTH_SPACER,_y:dofus.graphics.battlefield.AbstractTextOverHead.HEIGHT_SPACER,_height:30,_width:30,data:oEmblem,shadow:true});
       if(_loc9_)
       {

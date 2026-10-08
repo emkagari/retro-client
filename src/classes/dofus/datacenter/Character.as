@@ -28,6 +28,8 @@ class dofus.datacenter.Character extends dofus.datacenter.PlayableCharacter
    static var MAX_WATER_RESISTANCE_MIXED = 50;
    static var MAX_FIRE_RESISTANCE_MIXED = 50;
    static var MAX_AIR_RESISTANCE_MIXED = 50;
+   // Retro: Dofus 2-style nameplate frame (clips/ornaments/<id>.swf), 0 for none.
+   var ornament = 0;
    var xtraClipTopAnimations = {staticF:true};
    function Character(sID, clipClass, sGfxFile, cellNum, dir, gfxID, title)
    {

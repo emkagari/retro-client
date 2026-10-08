@@ -13,6 +13,8 @@ rem (retro.local.json's "upstream.windows") at /upstream/windows, your local ove
 rem ("overlay") at /overlay. The game runs here.
 setlocal enabledelayedexpansion
 cd /d "%~dp0"
+rem This script's path, before any shift (shift moves %0 too).
+set SELF=%~f0
 set IMAGE=retro-client
 set PLATFORM=windows
 set CLIENT=dist\%PLATFORM%
@@ -49,7 +51,7 @@ set NAME=retro-dev-%RANDOM%
 rem The watcher runs here (Ctrl+C to stop); a waiter in the background starts
 rem the game once the first build is packaged. The first run copies the
 rem official client into dist\windows (about 700 MB): a few minutes.
-start "" /b cmd /c call "%~f0" :waitgame %NAME%
+start "" /b cmd /c call "%SELF%" :waitgame %NAME%
 docker run --rm -it --name %NAME% -v "%CD%:/work" %MOUNTS% %IMAGE% dev --platform %PLATFORM% --no-run %1 %2 %3
 exit /b %errorlevel%
 

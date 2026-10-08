@@ -21,7 +21,7 @@ set CLIENT=dist\%PLATFORM%
 set HOT=%CLIENT%\resources\app\retroclient\hot\version.txt
 if "%~1"==":waitgame" goto waitgame
 
-docker build -q -t %IMAGE% . >nul || exit /b 1
+docker build -t %IMAGE% . || exit /b 1
 
 rem The official client and the local overlay, from retro.local.json.
 set UPSTREAM=
@@ -60,9 +60,11 @@ rem Until the watcher writes the first version.txt; gives up once it has stopped
 set /a WAITED=0
 :waitloop
 if exist "%HOT%" goto waitdone
-ping -n 3 127.0.0.1 >nul
+powershell -NoProfile -Command "Start-Sleep -Seconds 2"
 set /a WAITED+=2
-docker inspect %2 >nul 2>&1 && goto waitloop
+set RUNNING=
+for /f %%c in ('docker ps -q -f "name=%2"') do set RUNNING=1
+if defined RUNNING goto waitloop
 rem Not running: not started yet (30 s to do it), or stopped.
 if %WAITED% lss 30 goto waitloop
 exit /b 1
@@ -72,8 +74,10 @@ exit /b %errorlevel%
 
 :startgame
 rem The first .exe of the client folder (uninstallers and crash reporters aside).
-for %%f in ("%CLIENT%\*.exe") do (
-  echo %%~nxf | findstr /i "unins crash" >nul || (start "" "%%f" & exit /b 0)
+for /f "delims=" %%f in ('dir /b "%CLIENT%\*.exe" ^| findstr /i /v "unins crash"') do (
+  echo starting %%f
+  start "" "%CLIENT%\%%f"
+  exit /b 0
 )
 echo no executable found in %CLIENT%
 exit /b 1

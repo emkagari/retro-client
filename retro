@@ -16,7 +16,7 @@ cd "$(dirname "$0")"
 IMAGE=retro-client
 PLATFORM=linux
 
-docker build -q -t "$IMAGE" . >/dev/null
+docker build -t "$IMAGE" .
 
 # The official client and the local overlay, mounted where retro.local.json says they are.
 mounts=()
@@ -44,14 +44,14 @@ case "${1:-help}" in
     rm -f "$hot"
     # The watcher in Docker (detached), the game here once the first build is packaged.
     docker run -d --name "$name" --user "$(id -u):$(id -g)" -v "$PWD:/work" "${mounts[@]}" \
-      "$IMAGE" dev --platform "$PLATFORM" --no-run "$@" >/dev/null
-    trap 'docker rm -f "$name" >/dev/null 2>&1' EXIT
+      "$IMAGE" dev --platform "$PLATFORM" --no-run "$@"
+    trap 'docker rm -f "$name"' EXIT
     docker logs -f "$name" &
     until [ -f "$hot" ]; do
-      if [ "$(docker inspect -f '{{.State.Running}}' "$name" 2>/dev/null)" != "true" ]; then exit 1; fi
+      if [ "$(docker inspect -f '{{.State.Running}}' "$name")" != "true" ]; then exit 1; fi
       sleep 1
     done
-    (cd "$client" && ./dofus1electron >/dev/null 2>&1 &)
+    (cd "$client" && ./dofus1electron &)
     wait
     ;;
   *)

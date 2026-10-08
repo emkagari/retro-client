@@ -6,5 +6,6 @@
     "linux": "/home/me/Ankama/Retro"
   },
   "overlay": "C:/Users/me/retro-overlay",
-  "executable": { "windows": "Dofus Retro.exe" }
+  "executable": { "windows": "Dofus Retro.exe" },
+  "dev": { "login": "admin1", "password": "admin", "server": 2, "character": "MyCharacter" }
 }

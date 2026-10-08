@@ -1,13 +1,17 @@
 /**
  * Development loop with hot reload:
  *
- *   node tools/dev.mjs [--platform linux|windows] [--no-run]
+ *   node tools/dev.mjs [--platform linux|windows] [--no-run] [--no-login]
  *
  * Builds with the hot reload class (build --dev), packages, starts the game,
  * then watches src/. A saved class is compiled into a patch (tools/hot.mjs),
  * written to the client's hot/ folder with hot/version.txt; the game loads it
  * within a second and says so in the chat (tools/dev/HotReload.as). The
  * loader is rebuilt behind, so a restarted game has every change too.
+ *
+ * With "dev": { "login", "password", "server", "character" } in
+ * retro.local.json, the game logs in and enters the world by itself
+ * (tools/dev/AutoLogin.as).
  *
  * Hot: method and get/set bodies, static functions, new classes. An open
  * interface shows its new createChildren once reopened. Not hot (restart):
@@ -32,6 +36,12 @@ rmSync(hot, { recursive: true, force: true });
 mkdirSync(hot, { recursive: true });
 let version = 0;
 writeFileSync(join(hot, "version.txt"), `n=${version}&classes=`);
+// Auto login (tools/dev/AutoLogin.as): retro.local.json's "dev", for this machine's client only (dist/ isn't in git).
+const dev = args.includes("--no-login") ? {} : cfg.dev ?? {};
+writeFileSync(join(hot, "dev.txt"), new URLSearchParams(Object.entries({
+  login: dev.login ?? "", password: dev.password ?? "", server: dev.server ?? "", character: dev.character ?? "",
+}).map(([k, v]) => [k, String(v)])).toString());
+if (dev.login) console.log(`auto login: ${dev.login}${dev.character ? ` → ${dev.character}` : ""} (--no-login to type it yourself)`);
 if (!args.includes("--no-run")) node("package.mjs", ["--no-build", "--platform", platform, "--run"]);
 
 console.log(`\n[${time()}] watching src/ — save a class to hot reload it (Ctrl+C to stop)`);

@@ -22,9 +22,12 @@ import { declaredSymbols, exportNames, withSymbols } from "./symbols.mjs";
 
 const args = process.argv.slice(2);
 const full = args.includes("--full");
-// --dev: plus the hot reload class (tools/dev/HotReload.as), for tools/dev.mjs — never in a normal build.
+// --dev: plus the dev classes (tools/dev/: hot reload, auto login), for tools/dev.mjs — never in a normal build.
 const dev = args.includes("--dev");
-const DEV_FILES = { "classes/dofus/dev/HotReload.as": join(ROOT, "tools", "dev", "HotReload.as") };
+const DEV_FILES = {
+  "classes/dofus/dev/HotReload.as": join(ROOT, "tools", "dev", "HotReload.as"),
+  "classes/dofus/dev/AutoLogin.as": join(ROOT, "tools", "dev", "AutoLogin.as"),
+};
 const sourceOf = (f) => DEV_FILES[f] ?? join(SRC, f);
 const out = resolve(args.includes("--out") ? args[args.indexOf("--out") + 1] : join(ROOT, "build", "loader.swf"));
 const cfg = config();

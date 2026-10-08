@@ -81,7 +81,13 @@ the new code into the existing class, so objects already created use it:
 | startup code (`DofusCore`…), `src/timeline/`, `src/symbols.json` | no: restart the game |
 
 The loader is rebuilt behind each change, so restarting the game keeps them.
-Hot reload lives in `tools/dev/HotReload.as`, added by `build.mjs --dev`
+
+**Auto login**: with `"dev": { "login": "…", "password": "…", "server": 2,
+"character": "…" }` in retro.local.json, the game started by dev.mjs logs in,
+picks the server and enters the world by itself (`server` and `character`
+are optional: the first one then). `--no-login` to type it yourself. The
+password stays on your machine (retro.local.json and dist/ aren't in git).
+Hot reload and auto login live in `tools/dev/`, added by `build.mjs --dev`
 only: a normal build or package never contains it.
 
 ## Writing code

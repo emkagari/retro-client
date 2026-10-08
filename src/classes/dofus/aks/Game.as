@@ -593,10 +593,13 @@ class dofus.aks.Game extends dofus.aks.Handler
       {
          dofus.SaveTheWorld.getInstance().nextAction();
       }
-      if(this.api.datacenter.Game.isRunning && this.api.datacenter.Game.isTacticMode)
+      // Every map, in or out of fight: the tactic mode stays on until switched off.
+      if(this.api.datacenter.Game.isTacticMode)
       {
          this.api.gfx.activateTacticMode(this.api,true);
       }
+      // Top layer: loaded before the banner, it would be drawn under it.
+      this.api.ui.loadUIComponent("TacticToggle","TacticToggle",undefined,{bStayIfPresent:true,bAlwaysOnTop:true});
    }
    function onMonsterList(sExtraData)
    {

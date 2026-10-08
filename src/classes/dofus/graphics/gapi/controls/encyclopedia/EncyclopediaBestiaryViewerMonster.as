@@ -173,8 +173,6 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryViewerMonste
    }
    function click(oEvent_)
    {
-      var _loc0_;
-      §§push(_loc0_ = oEvent_.target);
       var _loc3_ = oEvent_.target.contentData;
       var _loc4_;
       var _loc5_;
@@ -191,7 +189,6 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryViewerMonste
             this.api.ui.loadUIComponent("EncyclopediaDetailsWindow","EncyclopediaDetailsWindow",{component:_loc5_,data:_loc4_},{bStayIfPresent:true,bAlwaysOnTop:true});
          }
       }
-      §§pop();
    }
    function initialization(oEvent_)
    {
@@ -231,8 +228,6 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryViewerMonste
    }
    function over(oEvent_)
    {
-      var _loc0_;
-      §§push(_loc0_ = oEvent_.target);
       var _loc3_ = oEvent_.target.contentData;
       var _loc4_;
       if(_loc3_ != undefined)
@@ -245,7 +240,6 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryViewerMonste
       {
          this.api.ui.showTooltip("GFX : " + this._oItem.gfxID);
       }
-      §§pop();
    }
    function out(oEvent_)
    {

@@ -115,15 +115,12 @@ class dofus.graphics.gapi.ui.ServerEvenemential extends dofus.graphics.gapi.core
    {
       this._mcTabViewer.removeMovieClip();
       this.api.datacenter.ServerEvenemential.lastTab = this._sCurrentTab;
-      var _loc0_;
-      §§push(_loc0_ = this._sCurrentTab);
       var _loc2_ = this._aTabComponents[Number(this._sCurrentTab.substr(-1))];
       if(_loc2_ == "Temporis_ItemUpgrader" && dofus.Constants.TRIPLEFRAMERATE)
       {
          _loc2_ += "_TripleFramerate";
       }
       this.attachMovie(_loc2_,"_mcTabViewer",this.getNextHighestDepth(),{_x:this._mcPlacer._x,_y:this._mcPlacer._y});
-      §§pop();
    }
    function setCurrentTab(sNewTab)
    {

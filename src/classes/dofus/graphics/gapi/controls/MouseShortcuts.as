@@ -784,8 +784,6 @@ class dofus.graphics.gapi.controls.MouseShortcuts extends dofus.graphics.gapi.co
    }
    function drop(oEvent)
    {
-      var _loc0_;
-      §§push(_loc0_ = oEvent.target);
       var _loc3_;
       var _loc4_;
       var _loc5_;
@@ -853,7 +851,6 @@ class dofus.graphics.gapi.controls.MouseShortcuts extends dofus.graphics.gapi.co
                this.api.network.InventoryShortcuts.sendInventoryShortcutAdd(_loc7_,_loc9_);
             }
       }
-      §§pop();
    }
    function modelChanged(oEvent)
    {

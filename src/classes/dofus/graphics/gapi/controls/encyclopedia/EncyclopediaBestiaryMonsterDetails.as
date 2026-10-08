@@ -467,8 +467,6 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryMonsterDetai
    }
    function selectItem(oEvent_)
    {
-      var _loc0_;
-      §§push(_loc0_ = oEvent_.target);
       var _loc3_ = oEvent_.target.contentData;
       var _loc4_;
       var _loc5_;
@@ -485,7 +483,6 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryMonsterDetai
             this.api.ui.loadUIComponent("EncyclopediaDetailsWindow","EncyclopediaDetailsWindow",{component:_loc5_,data:_loc4_},{bStayIfPresent:true,bAlwaysOnTop:true});
          }
       }
-      §§pop();
    }
    function scrollGrid(oEvent_)
    {

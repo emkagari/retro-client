@@ -5,6 +5,11 @@ class dofus.graphics.gapi.ui.TitleAndOrnament extends dofus.graphics.gapi.core.D
    var _btnReset;
    var _btnSave;
    var _btnShowWings;
+   var _btnTabOrnaments;
+   var _btnTabTitles;
+   var _nSelectedOrnament;
+   var _oOrnament;
+   var _sTab;
    var _lblShowWings;
    var _lblTitle;
    var _lstTitle;
@@ -16,6 +21,7 @@ class dofus.graphics.gapi.ui.TitleAndOrnament extends dofus.graphics.gapi.core.D
    var _tiSearch;
    var _winBg;
    var addToQueue;
+   var attachMovie;
    var createEmptyMovieClip;
    var drawRoundRect;
    var gapi;
@@ -33,6 +39,13 @@ class dofus.graphics.gapi.ui.TitleAndOrnament extends dofus.graphics.gapi.core.D
    static var TEXT_HEIGHT = 16;
    static var EMBLEM_WIDTH = 30;
    static var CLASS_NAME = "TitleAndOrnament";
+   // Retro: tabs above the list panel, like the guild window's.
+   static var TAB_X = 192;
+   static var TAB_Y = 72;
+   static var TAB_WIDTH = 100;
+   static var TAB_HEIGHT = 20;
+   static var ORNAMENTS_TEXT = "Ornements";
+   static var ORNAMENT_TEXT = "Ornement ";
    function TitleAndOrnament()
    {
       super();
@@ -52,14 +65,36 @@ class dofus.graphics.gapi.ui.TitleAndOrnament extends dofus.graphics.gapi.core.D
    }
    function createChildren()
    {
+      this.createTabs();
       this.addToQueue({object:this,method:this.initTexts});
       this.addToQueue({object:this,method:this.addListeners});
       this.addToQueue({object:this,method:this.initData});
    }
+   function createTabs()
+   {
+      var c = dofus.graphics.gapi.ui.TitleAndOrnament;
+      var tab = {styleName:"MiddleBrownTabButton",backgroundUp:"ButtonTabUp",backgroundDown:"ButtonTabDown",toggle:true,_y:c.TAB_Y};
+      tab._x = c.TAB_X;
+      this.attachMovie("Button","_btnTabTitles",this.getNextHighestDepth(),tab);
+      tab._x = c.TAB_X + c.TAB_WIDTH;
+      this.attachMovie("Button","_btnTabOrnaments",this.getNextHighestDepth(),tab);
+      this._btnTabTitles.setSize(c.TAB_WIDTH,c.TAB_HEIGHT);
+      this._btnTabOrnaments.setSize(c.TAB_WIDTH,c.TAB_HEIGHT);
+      this.selectTabButtons("titles");
+   }
+   function selectTabButtons(sTab)
+   {
+      // Like the guild window: the open tab is the unselected, disabled one.
+      this._sTab = sTab;
+      this._btnTabTitles.selected = this._btnTabTitles.enabled = sTab != "titles";
+      this._btnTabOrnaments.selected = this._btnTabOrnaments.enabled = sTab != "ornaments";
+   }
    function initTexts()
    {
-      this._winBg.title = this.api.lang.getText("TITLES");
+      this._winBg.title = this.api.lang.getText("TITLES") + " / " + dofus.graphics.gapi.ui.TitleAndOrnament.ORNAMENTS_TEXT;
       this._lblTitle.text = this.api.lang.getText("TITLES");
+      this._btnTabTitles.label = this.api.lang.getText("TITLES");
+      this._btnTabOrnaments.label = dofus.graphics.gapi.ui.TitleAndOrnament.ORNAMENTS_TEXT;
       this._lblShowWings.text = this.api.lang.getText("WINGS_IN_PREVIEW");
       this._btnSave.label = this.api.lang.getText("SAVE");
       this._btnReset.label = this.api.lang.getText("REINIT_WORD");
@@ -71,6 +106,9 @@ class dofus.graphics.gapi.ui.TitleAndOrnament extends dofus.graphics.gapi.core.D
       this._btnShowWings.addEventListener("click",this);
       this._btnSave.addEventListener("click",this);
       this._btnReset.addEventListener("click",this);
+      this._btnTabTitles.addEventListener("click",this);
+      this._btnTabOrnaments.addEventListener("click",this);
+      this.api.datacenter.NameCustomization.addEventListener("updateOrnaments",this);
       this._lstTitle.addEventListener("itemSelected",this);
       this.api.datacenter.NameCustomization.addEventListener("updateData",this);
       this._tiSearch.addEventListener("change",this);
@@ -81,14 +119,17 @@ class dofus.graphics.gapi.ui.TitleAndOrnament extends dofus.graphics.gapi.core.D
       this._btnShowWings.enabled = !this.api.datacenter.Player._nCriticalHitBonus ? this.api.datacenter.Player.alignment.index > 0 : this.api.datacenter.Player.fakeAlignment.index > 0;
       this._btnShowWings.selected = this.api.datacenter.Player.rank.enable;
       this.refreshSpriteViewer();
+      this._nSelectedOrnament = 0;
       this.api.network.NameCustomization.getTitles();
+      this.api.network.NameCustomization.getOrnaments();
    }
    function get selectedIndex()
    {
+      var selected = this._sTab == "ornaments" ? (this._nSelectedOrnament > 0 ? this._nSelectedOrnament : -1) : this._nSelectedId;
       var _loc2_ = 0;
       while(_loc2_ < this._lstTitle.dataProvider.length)
       {
-         if(this._lstTitle.dataProvider[_loc2_].id == this._nSelectedId)
+         if(this._lstTitle.dataProvider[_loc2_].id == selected)
          {
             return _loc2_;
          }
@@ -98,13 +139,63 @@ class dofus.graphics.gapi.ui.TitleAndOrnament extends dofus.graphics.gapi.core.D
    }
    function get selectedTitle()
    {
-      return this._lstTitle.dataProvider[this.selectedIndex];
+      var titles = this.api.datacenter.NameCustomization.titles;
+      for(var i in titles)
+      {
+         if(titles[i].id == this._nSelectedId)
+         {
+            return titles[i];
+         }
+      }
+      return undefined;
    }
    function updateData()
    {
       this._nSelectedId = this.api.datacenter.NameCustomization.selectedId;
-      this.updateTitleList();
+      this.updateList();
       this.drawPreview();
+   }
+   function updateOrnaments()
+   {
+      this._nSelectedOrnament = this.api.datacenter.NameCustomization.selectedOrnament;
+      this.updateList();
+      this.drawPreview();
+   }
+   function updateList()
+   {
+      if(this._sTab == "ornaments")
+      {
+         this.updateOrnamentList();
+      }
+      else
+      {
+         this.updateTitleList();
+      }
+   }
+   function updateOrnamentList()
+   {
+      var list = new ank.utils.ExtendedArray();
+      var ids = this.api.datacenter.NameCustomization.ornaments;
+      var text;
+      var i = 0;
+      while(i < ids.length)
+      {
+         text = dofus.graphics.gapi.ui.TitleAndOrnament.ORNAMENT_TEXT + ids[i];
+         if(!(this._sCurrentEntityNameSearch.length >= 1 && text.toUpperCase().indexOf(this._sCurrentEntityNameSearch) == -1))
+         {
+            list.push({id:ids[i],text:text});
+         }
+         i++;
+      }
+      list.unshift({id:-1,text:this.api.lang.getText("NONE")});
+      this._lstTitle.dataProvider = list;
+      this._lstTitle.selectedIndex = this.selectedIndex;
+   }
+   function showTab(sTab)
+   {
+      this.selectTabButtons(sTab);
+      this._lblTitle.text = sTab == "ornaments" ? dofus.graphics.gapi.ui.TitleAndOrnament.ORNAMENTS_TEXT : this.api.lang.getText("TITLES");
+      this.updateList();
    }
    function updateTitleList()
    {
@@ -170,7 +261,7 @@ class dofus.graphics.gapi.ui.TitleAndOrnament extends dofus.graphics.gapi.core.D
       _loc4_ += _loc6_.textHeight + dofus.graphics.gapi.ui.TitleAndOrnament.HEIGHT_SPACER;
       var _loc7_;
       var _loc8_;
-      if(this._nSelectedId != -1)
+      if(this._nSelectedId != -1 && this.selectedTitle != undefined)
       {
          this._mcPreview.createTextField("_txtTitle",50,0,-3 + dofus.graphics.gapi.ui.TitleAndOrnament.HEIGHT_SPACER + dofus.graphics.gapi.ui.TitleAndOrnament.TEXT_HEIGHT + (!_loc5_ ? 0 : dofus.graphics.gapi.ui.TitleAndOrnament.TEXT_HEIGHT + dofus.graphics.gapi.ui.TitleAndOrnament.HEIGHT_SPACER),0,0);
          _loc7_ = this.selectedTitle;
@@ -209,6 +300,11 @@ class dofus.graphics.gapi.ui.TitleAndOrnament extends dofus.graphics.gapi.core.D
       var _loc12_ = Math.ceil(_loc3_ + dofus.graphics.gapi.ui.TitleAndOrnament.WIDTH_SPACER * 2);
       this._mcPreview.createEmptyMovieClip("_background",20);
       this.drawRoundRect(this._mcPreview._background,(- _loc12_) / 2,0,_loc12_,_loc11_,3,dofus.graphics.gapi.ui.TitleAndOrnament.BACKGROUND_COLOR,dofus.graphics.gapi.ui.TitleAndOrnament.BACKGROUND_ALPHA);
+      if(this._nSelectedOrnament > 0)
+      {
+         this._oOrnament = new dofus.graphics.battlefield.Ornament(this._mcPreview,25,this._nSelectedOrnament,this._mcPreview._background,this,dofus.graphics.gapi.ui.TitleAndOrnament.BACKGROUND_COLOR,dofus.graphics.gapi.ui.TitleAndOrnament.BACKGROUND_ALPHA);
+         this._oOrnament.setPlate(_loc12_,_loc11_);
+      }
       this._mcPreview._x = this._previewCenter._x;
       this._mcPreview._y = this._previewCenter._y - _loc11_ / 2;
       var _loc13_ = !this.api.datacenter.Player._nCriticalHitBonus ? this.api.datacenter.Player.alignment.index : this.api.datacenter.Player.fakeAlignment.index;
@@ -248,11 +344,25 @@ class dofus.graphics.gapi.ui.TitleAndOrnament extends dofus.graphics.gapi.core.D
             this.callClose();
             break;
          case this._btnSave:
-            this.api.network.NameCustomization.setTitle(this._nSelectedId);
+            if(this._sTab == "ornaments")
+            {
+               this.api.network.NameCustomization.setOrnament(this._nSelectedOrnament);
+            }
+            else
+            {
+               this.api.network.NameCustomization.setTitle(this._nSelectedId);
+            }
             break;
          case this._btnReset:
+            this._nSelectedOrnament = this.api.datacenter.NameCustomization.selectedOrnament;
             this._nSelectedId = this.api.datacenter.NameCustomization.selectedId;
             this.updateData();
+            break;
+         case this._btnTabTitles:
+            this.showTab("titles");
+            break;
+         case this._btnTabOrnaments:
+            this.showTab("ornaments");
             break;
          case this._btnShowWings:
             this.drawPreview();
@@ -265,7 +375,14 @@ class dofus.graphics.gapi.ui.TitleAndOrnament extends dofus.graphics.gapi.core.D
       var _loc0_;
       if((_loc0_ = oEvent_.target) === this._lstTitle)
       {
-         this._nSelectedId = oEvent_.item.id;
+         if(this._sTab == "ornaments")
+         {
+            this._nSelectedOrnament = oEvent_.item.id > 0 ? oEvent_.item.id : 0;
+         }
+         else
+         {
+            this._nSelectedId = oEvent_.item.id;
+         }
          this.drawPreview();
       }
    }
@@ -286,7 +403,7 @@ class dofus.graphics.gapi.ui.TitleAndOrnament extends dofus.graphics.gapi.core.D
          {
             this._sCurrentEntityNameSearch = "";
          }
-         this.updateTitleList();
+         this.updateList();
       }
    }
 }

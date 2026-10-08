@@ -52,6 +52,7 @@ class dofus.graphics.battlefield.TextOverHead extends dofus.graphics.battlefield
          _loc10_ = Math.ceil(this._txtText.textWidth + dofus.graphics.battlefield.AbstractTextOverHead.WIDTH_SPACER * 2);
       }
       this.drawBackground(_loc10_,_loc9_,dofus.graphics.battlefield.AbstractTextOverHead.BACKGROUND_COLOR);
+      this.drawOrnament(this._oSprite.ornament,_loc10_,_loc9_);
       if(_loc8_)
       {
          this.drawGfx(sFile,nFrame);
@@ -77,5 +78,6 @@ class dofus.graphics.battlefield.TextOverHead extends dofus.graphics.battlefield
       var _loc4_ = Math.ceil(this._txtText.textHeight + dofus.graphics.battlefield.AbstractTextOverHead.HEIGHT_SPACER * 2);
       var _loc5_ = Math.ceil(this._txtText.textWidth + dofus.graphics.battlefield.AbstractTextOverHead.WIDTH_SPACER * 2);
       this.drawBackground(_loc5_,_loc4_,dofus.graphics.battlefield.AbstractTextOverHead.BACKGROUND_COLOR);
+      this.drawOrnament(this._oSprite.ornament,_loc5_,_loc4_);
    }
 }

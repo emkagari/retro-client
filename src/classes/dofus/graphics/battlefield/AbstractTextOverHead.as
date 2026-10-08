@@ -4,6 +4,7 @@ class dofus.graphics.battlefield.AbstractTextOverHead extends ank.gapi.core.UIBa
    var _height;
    var _mcGfx;
    var _mcTxtBackground;
+   var _oOrnament;
    var _width;
    var createEmptyMovieClip;
    var drawRoundRect;
@@ -36,6 +37,18 @@ class dofus.graphics.battlefield.AbstractTextOverHead extends ank.gapi.core.UIBa
    function drawBackground(nWidth, nHeight, nColor)
    {
       this.drawRoundRect(this._mcTxtBackground,(- nWidth) / 2,0,nWidth,nHeight,3,nColor,dofus.graphics.battlefield.AbstractTextOverHead.BACKGROUND_ALPHA);
+   }
+   function drawOrnament(nOrnament, nWidth, nHeight)
+   {
+      if(this._oOrnament == undefined)
+      {
+         if(!(nOrnament > 0))
+         {
+            return undefined;
+         }
+         this._oOrnament = new dofus.graphics.battlefield.Ornament(this,25,nOrnament,this._mcTxtBackground,this,dofus.graphics.battlefield.AbstractTextOverHead.BACKGROUND_COLOR,dofus.graphics.battlefield.AbstractTextOverHead.BACKGROUND_ALPHA);
+      }
+      this._oOrnament.setPlate(nWidth,nHeight);
    }
    function drawGfx(sFile, nFrame)
    {

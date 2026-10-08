@@ -2,6 +2,8 @@
 class dofus.managers.NameCustomizationManager extends Object
 {
    var _eaTitles;
+   var _aOrnaments;
+   var _nSelectedOrnament;
    var _nSelectedId;
    var api;
    var dispatchEvent;
@@ -20,6 +22,20 @@ class dofus.managers.NameCustomizationManager extends Object
    {
       this._nSelectedId = nSelectedId;
       this.dispatchEvent({type:"updateData"});
+   }
+   function setOrnaments(nSelected, aIds)
+   {
+      this._nSelectedOrnament = nSelected;
+      this._aOrnaments = aIds;
+      this.dispatchEvent({type:"updateOrnaments"});
+   }
+   function get ornaments()
+   {
+      return this._aOrnaments;
+   }
+   function get selectedOrnament()
+   {
+      return this._nSelectedOrnament;
    }
    function get titles()
    {

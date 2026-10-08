@@ -13,6 +13,28 @@ class dofus.aks.NameCustomization extends dofus.aks.Handler
    {
       this.aks.send("nT",true);
    }
+   function getOrnaments()
+   {
+      this.aks.send("nO",true);
+   }
+   function setOrnament(nId)
+   {
+      this.aks.send("no" + nId);
+   }
+   // nO<shown>|<id>,<id>,...: the ornaments this character can show.
+   function onOrnaments(sExtraData)
+   {
+      var parts = sExtraData.split("|");
+      var ids = new Array();
+      var list = parts[1].length > 0 ? parts[1].split(",") : new Array();
+      var i = 0;
+      while(i < list.length)
+      {
+         ids.push(Number(list[i]));
+         i++;
+      }
+      this.api.datacenter.NameCustomization.setOrnaments(Number(parts[0]),ids);
+   }
    function onTitles(sExtraData)
    {
       var _loc3_ = sExtraData.split("|");

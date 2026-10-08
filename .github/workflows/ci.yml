@@ -1,0 +1,67 @@
+# Build on every push and pull request; release only on a version tag.
+#
+# - push / pull request: build the loader (tools/build.mjs: compile + checks),
+#   keep it as an artifact for 14 days. No release.
+# - tag v<official version>-r<n> (v1.49.5-r1…): build, then publish a GitHub
+#   release with the patch archive (tools/release.mjs). -rcN / -betaN: prerelease.
+#
+# Built in the Dockerfile's image (Node, Java, FFDec), as ./retro does
+# locally. Nothing of Ankama's client is needed: the base loader and src/
+# are in the repository.
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+    tags: ["v*"]
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # The same environment as ./retro and retro.cmd: the Dockerfile's image.
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true
+          tags: retro-client
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build
+        if: "!startsWith(github.ref, 'refs/tags/v')"
+        run: docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/work" retro-client build
+
+      - name: Release files
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/work" retro-client release "$GITHUB_REF_NAME"
+          cd dist/release && zip -qr "retro-client-$GITHUB_REF_NAME.zip" "retro-client-$GITHUB_REF_NAME"
+
+      - name: Loader artifact
+        if: "!startsWith(github.ref, 'refs/tags/v')"
+        uses: actions/upload-artifact@v4
+        with:
+          name: loader-${{ github.sha }}
+          path: build/loader.swf
+          retention-days: 14
+
+      - name: GitHub release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          flags=""
+          case "$GITHUB_REF_NAME" in *-rc*|*-beta*) flags="--prerelease" ;; esac
+          gh release create "$GITHUB_REF_NAME" "dist/release/retro-client-$GITHUB_REF_NAME.zip" \
+            --title "$GITHUB_REF_NAME" --generate-notes $flags

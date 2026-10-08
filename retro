@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+# The project's tools in Docker: nothing to install but Docker (Linux, macOS).
+#
+#   ./retro build                 src/ → build/loader.swf
+#   ./retro play                  build, package from your official client, start the game
+#   ./retro dev                   the same with hot reload and auto login (Ctrl+C to stop)
+#   ./retro release v1.49.5-r1    prepare a release (dist/release/)
+#   ./retro help                  every command
+#
+# The image (Node, Java, FFDec) is built on first use, and again when the
+# Dockerfile changes. The repository is mounted at /work; your official client
+# (retro.local.json's "upstream") at the same path. The game runs here, not in Docker.
+set -euo pipefail
+cd "$(dirname "$0")"
+IMAGE=retro-client
+PLATFORM=linux
+
+docker build -q -t "$IMAGE" . >/dev/null
+
+# The official client, mounted where retro.local.json says it is.
+mounts=()
+if [ -f retro.local.json ]; then
+  upstream=$(docker run --rm -v "$PWD:/work" --entrypoint node "$IMAGE" -e \
+    'try { process.stdout.write(require("/work/retro.local.json").upstream?.linux ?? "") } catch {}')
+  if [ -n "$upstream" ] && [ -d "$upstream" ]; then mounts+=(-v "$upstream:$upstream:ro"); fi
+fi
+
+tty=(); if [ -t 0 ] && [ -t 1 ]; then tty=(-it); fi
+run() { docker run --rm "${tty[@]}" --user "$(id -u):$(id -g)" -v "$PWD:/work" "${mounts[@]}" "$@"; }
+client="dist/$PLATFORM"
+
+case "${1:-help}" in
+  play)
+    run "$IMAGE" package --platform "$PLATFORM"
+    cd "$client" && exec ./dofus1electron
+    ;;
+  dev)
+    shift
+    name="retro-dev-$$"
+    hot="$client/resources/app/retroclient/hot/version.txt"
+    rm -f "$hot"
+    # The watcher in Docker (detached), the game here once the first build is packaged.
+    docker run -d --name "$name" --user "$(id -u):$(id -g)" -v "$PWD:/work" "${mounts[@]}" \
+      "$IMAGE" dev --platform "$PLATFORM" --no-run "$@" >/dev/null
+    trap 'docker rm -f "$name" >/dev/null 2>&1' EXIT
+    docker logs -f "$name" &
+    until [ -f "$hot" ]; do
+      if [ "$(docker inspect -f '{{.State.Running}}' "$name" 2>/dev/null)" != "true" ]; then exit 1; fi
+      sleep 1
+    done
+    (cd "$client" && ./dofus1electron >/dev/null 2>&1 &)
+    wait
+    ;;
+  *)
+    run "$IMAGE" "$@"
+    ;;
+esac

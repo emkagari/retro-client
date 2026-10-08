@@ -1,3 +1,4 @@
 * text=auto eol=lf
 *.as text eol=lf
 *.swf binary
+*.cmd text eol=crlf

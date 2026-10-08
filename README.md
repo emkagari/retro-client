@@ -23,6 +23,22 @@ official Electron app — for Linux and Windows.
 
 ## Setup
 
+**With Docker** (simplest: nothing else to install, Linux or Windows): the
+`retro` / `retro.cmd` commands run every tool in an image holding Node, Java
+and FFDec, built on first use; the game itself starts on your machine.
+
+```bash
+./retro build        # Windows: retro build
+./retro play         # build, package from your official client, start the game
+./retro dev          # the same with hot reload and auto login
+./retro help
+```
+
+You still need `retro.local.json` (below) for `upstream` — your official
+client — and `dev`; `ffdec` isn't needed with Docker.
+
+**Without Docker**:
+
 - **Node 24** (runs the tools and the toolkit's TypeScript directly, no `npm install`).
 - **Java 11+** and **FFDec** (JPEXS Free Flash Decompiler, ≥ 26): it compiles
   the ActionScript. Windows: `ffdec-cli.exe` works too.
@@ -115,6 +131,8 @@ only: a normal build or package never contains it.
   with a name the code already used: keep them, they're not typos.
 
 New interfaces: docs/NEW-UI.md (the `/hello` window, on branch `feat/hello-ui`, is the template).
+
+Builds and releases (GitHub Actions, version tags): docs/RELEASES.md.
 
 See docs/WORKFLOW.md for git (branches, reviews, the `upstream` branch) and
 docs/UPGRADING.md to move to a newer official client.

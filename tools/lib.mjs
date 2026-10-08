@@ -7,12 +7,22 @@ import { join, relative, resolve, sep } from "node:path";
 export const ROOT = resolve(import.meta.dirname, "..");
 export const SRC = join(ROOT, "src");
 
-/** retro.json (shared, in git) + retro.local.json (this machine's paths, not in git). */
+/**
+ * retro.json (shared, in git) + retro.local.json (this machine's paths, not in
+ * git); RETRO_FFDEC and RETRO_UPSTREAM_<PLATFORM> win (the Docker image's paths).
+ */
 export function config() {
   const shared = JSON.parse(readFileSync(join(ROOT, "retro.json"), "utf8"));
   const localFile = join(ROOT, "retro.local.json");
   const local = existsSync(localFile) ? JSON.parse(readFileSync(localFile, "utf8")) : {};
-  return { ...shared, ...local, upstream: { ...shared.upstream, ...local.upstream } };
+  const cfg = { ...shared, ...local, upstream: { ...shared.upstream, ...local.upstream } };
+  // In the Docker image (./retro, retro.cmd), paths differ from the host's.
+  if (process.env.RETRO_FFDEC) cfg.ffdec = process.env.RETRO_FFDEC;
+  for (const platform of ["linux", "windows"]) {
+    const dir = process.env[`RETRO_UPSTREAM_${platform.toUpperCase()}`];
+    if (dir) cfg.upstream[platform] = dir;
+  }
+  return cfg;
 }
 
 /** The base of a client version: the deobfuscated loader the sources come from. */

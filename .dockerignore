@@ -1,0 +1,3 @@
+# The image holds the tools only; the repository is mounted at run time.
+*
+!Dockerfile

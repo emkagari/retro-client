@@ -286,6 +286,37 @@ function renameClipActions(b: Buffer, version: number, rn: (s: string) => string
 }
 
 /**
+ * A button's actions (`on(release)`…: DefineButton2's BUTTONCONDACTIONs),
+ * cleaned then renamed; record sizes follow. Null: no actions.
+ *
+ *   ButtonId u16, flags u8, ActionOffset u16 (from this field to the first
+ *   record; 0: none), characters…, then records: CondActionSize u16 (from
+ *   this field to the next record; 0: last), conditions u16, actions…End.
+ */
+function renameButtonActions(d: Buffer, rn: (s: string) => string): Buffer | null {
+  const offset = d.readUInt16LE(3);
+  if (offset === 0) return null;
+  let p = 3 + offset;
+  const records: Buffer[] = [];
+  for (;;) {
+    const size = d.readUInt16LE(p);
+    const end = size === 0 ? d.length : p + size;
+    const cond = d.subarray(p + 2, p + 4);
+    const code = renameCode(cleanCode(d.subarray(p + 4, end), { folded: 0, realBranches: 0, overlaps: 0, outside: 0 }), rn);
+    records.push(Buffer.concat([cond, code]));
+    if (size === 0) break;
+    p = end;
+  }
+  const out: Buffer[] = [d.subarray(0, 3 + offset)];
+  records.forEach((r, i) => {
+    const n = Buffer.alloc(2);
+    n.writeUInt16LE(i === records.length - 1 ? 0 : 2 + r.length);
+    out.push(n, r);
+  });
+  return Buffer.concat(out);
+}
+
+/**
  * Names outside the code: instance names (PlaceObject), text field variables,
  * frame labels and clip-action code. The obfuscator renamed them with the
  * code, and the code finds a clip by its instance name.
@@ -295,7 +326,10 @@ export function renameTimeline(swf: Swf, rn: (s: string) => string): { renamed: 
   for (const { tag, replace } of namedTags(swf)) {
     const d = tag.data;
     try {
-      if (tag.code === TAG.FrameLabel) {
+      if (tag.code === TAG.DefineButton2) {
+        const actions = renameButtonActions(d, rn);
+        if (actions && !actions.equals(d)) { replace(actions); renamed++; }
+      } else if (tag.code === TAG.FrameLabel) {
         const [s, q] = cstr(d, 0);
         const n = rn(s);
         if (n !== s) { replace(Buffer.concat([zstr(n), d.subarray(q)])); renamed++; }

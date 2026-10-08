@@ -134,7 +134,7 @@ changes nothing but ids:
 
 | trap | what breaks | rule |
 |---|---|---|
-| ids outside the code: instance names (PlaceObject), text variables, frame labels, `onClipEvent` code | the code looks for `_btnClose`, the clip is still `\x18\x1c\x06` → every UI | the TIMELINE is renamed with the code (`renameTimeline`); clip actions are cleaned first |
+| ids outside the code: instance names (PlaceObject), text variables, frame labels, `onClipEvent` code, BUTTON actions (DefineButton2 `on(release)`) | the code looks for `_btnClose`, the clip is still `\x18\x1c\x06` → every UI | the TIMELINE is renamed with the code (`renameTimeline`); clip and button actions are cleaned first (a missed button: Retro's fight Ready button did nothing) |
 | text that looks like an id: `"\n"`, `"\r\n"`, `".\n"` | text splitting, HTML, chat | ids are control characters only, separators alone never; unknown ids keep their bytes |
 | a recovered name that exists in clear (`enabled`, `data`…) | two members merged | suffix it (`enabled_`); accessors follow their property's suffix |
 | a name used by OTHER files (`core.swf` instance names, lang keys) | lookups from outside | readable names from outside are never ids: don't rename INTO them |

@@ -1,19 +1,3 @@
 on(release){
-   while(true)
-   {
-      if(false)
-      {
-         if(false)
-         {
-            break;
-         }
-      }
-      else
-      {
-         §§push(0);
-         §§push("\x1a\x13\x1a");
-      }
-      §§pop()();
-      break;
-   }
+   sendCancel();
 }

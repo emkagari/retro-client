@@ -1,19 +1,3 @@
 on(release){
-   while(true)
-   {
-      if(!(true or true))
-      {
-         if(!ord("\x03"))
-         {
-            break;
-         }
-      }
-      else
-      {
-         §§push(0);
-         §§push("\x1a\x14\x04");
-      }
-      §§pop()();
-      break;
-   }
+   sendReadyState();
 }

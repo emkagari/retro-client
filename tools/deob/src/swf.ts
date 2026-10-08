@@ -8,7 +8,7 @@ export interface Tag { code: number; data: Buffer }
 export interface Swf { version: number; compressed: boolean; header: Buffer; tags: Tag[] }
 
 export const TAG = { End: 0, ShowFrame: 1, DoAction: 12, DefineSprite: 39, DoInitAction: 59, ExportAssets: 56,
-  PlaceObject2: 26, PlaceObject3: 70, DefineEditText: 37, FrameLabel: 43 } as const;
+  PlaceObject2: 26, PlaceObject3: 70, DefineEditText: 37, FrameLabel: 43, DefineButton2: 34 } as const;
 
 function readTags(b: Buffer, p: number, end: number): Tag[] {
   const tags: Tag[] = [];
@@ -109,13 +109,13 @@ export function exportsOf(swf: Swf): Map<number, string> {
   return out;
 }
 
-/** A display-list tag that carries names (instance names, text variables, frame labels, clip actions). */
+/** A tag that carries names or code outside DoAction/DoInitAction (instance names, text variables, frame labels, clip and button actions). */
 export interface NamedTag { tag: Tag; replace(data: Buffer): void }
 
 /** Every PlaceObject2/3, DefineEditText and FrameLabel, at the root and inside sprites. */
 export function namedTags(swf: Swf): NamedTag[] {
   const out: NamedTag[] = [];
-  const kinds: number[] = [TAG.PlaceObject2, TAG.PlaceObject3, TAG.DefineEditText, TAG.FrameLabel];
+  const kinds: number[] = [TAG.PlaceObject2, TAG.PlaceObject3, TAG.DefineEditText, TAG.FrameLabel, TAG.DefineButton2];
   const visit = (tags: Tag[], rebuild: () => void) => {
     tags.forEach((t, i) => {
       if (kinds.includes(t.code)) out.push({ tag: t, replace: (d) => { tags[i] = { code: t.code, data: d }; rebuild(); } });

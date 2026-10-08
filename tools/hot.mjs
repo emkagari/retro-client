@@ -6,10 +6,14 @@
  * exported as `__Packages.<class>` with its DoInitAction — what defines a
  * class when the SWF is loaded. FFDec compiles the sources into it, `_root`
  * by name as in the build.
+ *
+ * Every other class gets an empty holder too: FFDec compiles `pkg.Class(x)`
+ * as a cast (CastOp) only for a class the SWF has, and as a call of the
+ * constructor (which returns undefined) otherwise.
  */
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, relative, sep } from "node:path";
-import { ROOT, SRC, compileErrors, ffdec, fromFfdec, rootByName, toFfdec } from "./lib.mjs";
+import { ROOT, SRC, compileErrors, ffdec, fromFfdec, rootByName, sourceFiles, toFfdec } from "./lib.mjs";
 import { withSymbols } from "./symbols.mjs";
 import { writeSwf } from "./deob/src/swf.ts";
 
@@ -36,7 +40,8 @@ export function makePatch(cfg, files) {
   const classes = files.map(classPath);
   const empty = join(TMP, "empty.swf"), holders = join(TMP, "holders.swf"), out = join(TMP, "patch.swf");
   writeFileSync(empty, emptySwf());
-  writeFileSync(holders, withSymbols(empty, classes, []));
+  const all = sourceFiles().filter((f) => f.startsWith("classes/")).map(classPath);
+  writeFileSync(holders, withSymbols(empty, all, []));
 
   const stage = join(TMP, "src");
   for (const f of files) {

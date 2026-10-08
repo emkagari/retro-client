@@ -70,5 +70,7 @@ if (args.includes("--run")) {
     : "dofus1electron");
   if (!exe || !existsSync(join(dist, exe))) throw new Error(`no executable in dist/${platform}: set executable.${platform} in retro.local.json`);
   console.log(`starting ${exe}…`);
-  spawn(join(dist, exe), [], { cwd: dist, stdio: "inherit", detached: platform !== "windows" }).unref?.();
+  // Detached everywhere: on Windows, Node puts a child in a job object that
+  // kills it when this process ends, which it does right after.
+  spawn(join(dist, exe), [], { cwd: dist, stdio: platform === "windows" ? "ignore" : "inherit", detached: true }).unref();
 }

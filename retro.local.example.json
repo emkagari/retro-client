@@ -1,0 +1,10 @@
+{
+  "ffdec": "C:/tools/ffdec/ffdec.jar",
+  "java": "java",
+  "upstream": {
+    "windows": "C:/Users/me/AppData/Local/Programs/Dofus Retro",
+    "linux": "/home/me/Ankama/Retro"
+  },
+  "overlay": "C:/Users/me/retro-overlay",
+  "executable": { "windows": "Dofus Retro.exe" }
+}

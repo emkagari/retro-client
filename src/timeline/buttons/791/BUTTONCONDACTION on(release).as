@@ -1,0 +1,19 @@
+on(release){
+   while(true)
+   {
+      if(false)
+      {
+         if(!(true or true))
+         {
+            break;
+         }
+      }
+      else
+      {
+         §§push(0);
+         §§push("\x16\x1d\t");
+      }
+      §§pop()();
+      break;
+   }
+}

@@ -1,0 +1,7 @@
+# Built and packaged outputs
+build/
+dist/
+.tmp/
+# This machine's paths
+retro.local.json
+node_modules/

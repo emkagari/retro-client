@@ -1,0 +1,7 @@
+on(construct){
+   cellRenderer = "UI_SpellForgetItem";
+   enabled = true;
+   multipleSelection = false;
+   rowHeight = 25;
+   styleName = "LightBrownList";
+}

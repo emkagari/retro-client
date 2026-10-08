@@ -1,0 +1,3 @@
+count++;
+gotoAndStop("spin");
+play();

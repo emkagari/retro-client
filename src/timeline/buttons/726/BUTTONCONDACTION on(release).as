@@ -1,0 +1,20 @@
+on(release){
+   while(true)
+   {
+      if(!ord("\x03"))
+      {
+         if(false)
+         {
+            break;
+         }
+      }
+      else
+      {
+         §§push(2);
+         §§push(1);
+         §§push("\x16\x06\f");
+      }
+      §§pop()();
+      break;
+   }
+}

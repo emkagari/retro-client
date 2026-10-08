@@ -9,7 +9,8 @@
 #
 # The image (Node, Java, FFDec) is built on first use, and again when the
 # Dockerfile changes. The repository is mounted at /work; your official client
-# (retro.local.json's "upstream") at the same path. The game runs here, not in Docker.
+# (retro.local.json's "upstream") and your local overlay ("overlay") at the same
+# paths. The game runs here, not in Docker.
 set -euo pipefail
 cd "$(dirname "$0")"
 IMAGE=retro-client
@@ -17,12 +18,14 @@ PLATFORM=linux
 
 docker build -q -t "$IMAGE" . >/dev/null
 
-# The official client, mounted where retro.local.json says it is.
+# The official client and the local overlay, mounted where retro.local.json says they are.
 mounts=()
 if [ -f retro.local.json ]; then
-  upstream=$(docker run --rm -v "$PWD:/work" --entrypoint node "$IMAGE" -e \
-    'try { process.stdout.write(require("/work/retro.local.json").upstream?.linux ?? "") } catch {}')
+  local_path() { docker run --rm -v "$PWD:/work" --entrypoint node "$IMAGE" /work/tools/local.mjs "$1"; }
+  upstream=$(local_path upstream.linux)
   if [ -n "$upstream" ] && [ -d "$upstream" ]; then mounts+=(-v "$upstream:$upstream:ro"); fi
+  overlay=$(local_path overlay)
+  if [ -n "$overlay" ] && [ -d "$overlay" ]; then mounts+=(-v "$overlay:$overlay:ro"); fi
 fi
 
 tty=(); if [ -t 0 ] && [ -t 1 ]; then tty=(-it); fi

@@ -18,6 +18,7 @@ export function config() {
   const cfg = { ...shared, ...local, upstream: { ...shared.upstream, ...local.upstream } };
   // In the Docker image (./retro, retro.cmd), paths differ from the host's.
   if (process.env.RETRO_FFDEC) cfg.ffdec = process.env.RETRO_FFDEC;
+  if (process.env.RETRO_OVERLAY) cfg.overlay = process.env.RETRO_OVERLAY;
   for (const platform of ["linux", "windows"]) {
     const dir = process.env[`RETRO_UPSTREAM_${platform.toUpperCase()}`];
     if (dir) cfg.upstream[platform] = dir;

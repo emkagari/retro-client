@@ -1,7 +1,7 @@
 /**
  * Builds the client's loader.swf from src/:
  *
- *   node tools/build.mjs [--full] [--out build/loader.swf]
+ *   node tools/build.mjs [--full] [--dev] [--out build/loader.swf]
  *
  * Only the files that differ from the base (base/<version>/manifest.json) are
  * compiled, into a copy of the base loader: the others keep the base's
@@ -22,13 +22,18 @@ import { declaredSymbols, exportNames, withSymbols } from "./symbols.mjs";
 
 const args = process.argv.slice(2);
 const full = args.includes("--full");
+// --dev: plus the hot reload class (tools/dev/HotReload.as), for tools/dev.mjs — never in a normal build.
+const dev = args.includes("--dev");
+const DEV_FILES = { "classes/dofus/dev/HotReload.as": join(ROOT, "tools", "dev", "HotReload.as") };
+const sourceOf = (f) => DEV_FILES[f] ?? join(SRC, f);
 const out = resolve(args.includes("--out") ? args[args.indexOf("--out") + 1] : join(ROOT, "build", "loader.swf"));
 const cfg = config();
 const b = base(cfg.version);
 
 // What changed since the base.
 const files = sourceFiles(SRC);
-const changed = full ? files : files.filter((f) => b.manifest.files[f] !== sourceHash(join(SRC, f)));
+const changed = (full ? files : files.filter((f) => b.manifest.files[f] !== sourceHash(join(SRC, f))))
+  .concat(dev ? Object.keys(DEV_FILES) : []);
 const removed = Object.keys(b.manifest.files).filter((f) => !existsSync(join(SRC, f)));
 for (const f of removed) console.warn(`warning: ${f} was deleted — a build can't remove code, the base's stays`);
 
@@ -67,7 +72,7 @@ rmSync(stage, { recursive: true, force: true });
 for (const f of changed) {
   const to = join(stage, toFfdec(f));
   mkdirSync(dirname(to), { recursive: true });
-  writeFileSync(to, rootByName(readFileSync(join(SRC, f), "utf8")));
+  writeFileSync(to, rootByName(readFileSync(sourceOf(f), "utf8")));
 }
 
 console.log(`compiling ${changed.length} file${changed.length > 1 ? "s" : ""} into base ${cfg.version}${full ? " (full)" : ""}:`);
@@ -80,7 +85,10 @@ const errors = compileErrors(r.log);
 if (!r.ok || errors.length || !existsSync(out)) {
   console.error("\ncompile errors:");
   // FFDec names the staged file: show the one in src/.
-  const shown = (e) => e.replace(/file: (.+)$/, (_, f) => `file: src/${fromFfdec(relative(stage, f).split(sep).join("/"))}`);
+  const shown = (e) => e.replace(/file: (.+)$/, (_, f) => {
+    const rel = fromFfdec(relative(stage, f).split(sep).join("/"));
+    return `file: ${DEV_FILES[rel] ? relative(ROOT, DEV_FILES[rel]) : `src/${rel}`}`;
+  });
   for (const e of errors.length ? errors : [r.log.trim().split("\n").slice(-5).join("\n")]) console.error(`  ${shown(e)}`);
   rmSync(out, { force: true });
   process.exit(1);

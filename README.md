@@ -60,6 +60,30 @@ Two fixes and checks keep a recompiled class equal to the original:
 the loader and overlay are replaced). Ankama's launcher must not update it —
 start it with `--run` or its executable, not through the launcher.
 
+## Hot reload
+
+```bash
+node tools/dev.mjs                   # build (with hot reload), start the game, watch src/
+```
+
+Save a class: within a second or two the running game takes the new code
+and says `hot reload: <class>` in the chat — no restart, no login. It copies
+the new code into the existing class, so objects already created use it:
+
+| change | hot? |
+|---|---|
+| method / `get` / `set` bodies, static functions, a new method or class | yes |
+| static constants — UPPER_CASE names (`WIDTH`, `CLASS_NAME`) | yes |
+| an interface's layout (`createChildren`…) | yes, once the interface is reopened |
+| other static values (`_instance`, counters: the game's state) | no, kept on purpose |
+| a function already handed out (`addToQueue`, `setInterval`, `onRelease = function…`) | not until its owner is recreated |
+| a field's initial value, for objects already created | no (new ones yes) |
+| startup code (`DofusCore`…), `src/timeline/`, `src/symbols.json` | no: restart the game |
+
+The loader is rebuilt behind each change, so restarting the game keeps them.
+Hot reload lives in `tools/dev/HotReload.as`, added by `build.mjs --dev`
+only: a normal build or package never contains it.
+
 ## Writing code
 
 - Classes are AS2 (`class dofus.datacenter.Item extends Object { … }`), one per

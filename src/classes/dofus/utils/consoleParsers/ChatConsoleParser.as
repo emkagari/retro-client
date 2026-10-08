@@ -124,6 +124,9 @@ class dofus.utils.consoleParsers.ChatConsoleParser extends dofus.utils.consolePa
                }
                this.api.network.Evenemential.sendRollDice(_loc12_,_loc13_,!_loc11_ ? "*" : "%");
                break;
+			case "HELLO":
+               this.api.ui.loadUIComponent("Hello","Hello",{text:"Bonjour monde"});
+               break;
             case "VERSION":
             case "VER":
             case "ABOUT":

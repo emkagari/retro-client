@@ -957,7 +957,7 @@ class dofus.graphics.battlefield.DofusBattlefield extends ank.battlefield.Battle
          if(_loc6_.guildName != undefined && _loc6_.guildName.length != 0)
          {
             _loc10_ = "";
-            this.addSpriteOverHeadItem(_loc6_.id,"text",dofus.graphics.battlefield.GuildOverHead,[_loc6_.guildName,_loc6_.name,_loc6_.emblem,_loc4_,_loc5_,_loc6_.pvpGain,_loc8_],undefined,true);
+            this.addSpriteOverHeadItem(_loc6_.id,"text",dofus.graphics.battlefield.GuildOverHead,[_loc6_.guildName,_loc6_.name,_loc6_.emblem,_loc4_,_loc5_,_loc6_.pvpGain,_loc8_,_loc6_.ornament],undefined,true);
          }
       }
       else if(_loc6_ instanceof dofus.datacenter.TaxCollector)

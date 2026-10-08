@@ -80,13 +80,17 @@ class dofus.aks.DataProcessor extends dofus.aks.Handler
             }
             break;
          case "n":
-            if((_loc0_ = sAction) !== "T")
+            if((_loc0_ = sAction) === "T")
             {
-               this.defaultProcessAction(sType,sAction,bError,sData);
+               this.aks.NameCustomization.onTitles(sData.substr(2));
+            }
+            else if(_loc0_ === "O")
+            {
+               this.aks.NameCustomization.onOrnaments(sData.substr(2));
             }
             else
             {
-               this.aks.NameCustomization.onTitles(sData.substr(2));
+               this.defaultProcessAction(sType,sAction,bError,sData);
             }
             break;
          case "k":

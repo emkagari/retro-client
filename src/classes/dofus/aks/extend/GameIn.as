@@ -551,6 +551,8 @@ class dofus.aks.extend.GameIn extends dofus.aks.Handler
                         _loc73_ = new dofus.datacenter.Title(Number(_loc74_[0]),_loc74_[1],undefined,_loc49_.sex);
                      }
                      _loc49_.title = _loc73_;
+                     // Retro: the ornament id follows the title ("class,title,ornament").
+                     _loc49_.ornament = Number(_loc21_[2]);
                      _loc28_ = this.api.kernel.CharactersManager.createCharacter(_loc13_,_loc14_,_loc49_);
                      dofus.datacenter.Character(_loc28_).isClear = false;
                      _loc28_.allowGhostMode = _loc18_;

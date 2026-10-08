@@ -3,6 +3,8 @@
  * row: after its last visible button (emotes, sit down, temporary event),
  * drawn like them — a white tab rounded at the bottom — with the fight
  * button's icon (FightOptionButtons) inside, pressed while the mode is on.
+ * The icon takes the sub-area's tactic colors when it's created (its frame
+ * script calls applyTacticColor): it's created again on every map.
  * Both buttons switch the same state (dofus.datacenter.Game.isTacticMode,
  * static: it outlives fights), which dofus.aks.Game.onMapLoaded applies
  * again on every map.
@@ -23,6 +25,8 @@ class dofus.graphics.gapi.ui.TacticToggle extends dofus.graphics.gapi.core.Dofus
    var _mcIconDown;
    var _nWidth = 0;
    var _nHeight = 0;
+   /** The map the icons were colored for. */
+   var _oColoredFor;
    var api;
    var gapi;
    var createEmptyMovieClip;
@@ -40,8 +44,6 @@ class dofus.graphics.gapi.ui.TacticToggle extends dofus.graphics.gapi.core.Dofus
       this._mcButton = this.createEmptyMovieClip("_mcButton",10);
       this._mcButton._visible = false;
       this._mcTab = this._mcButton.createEmptyMovieClip("_mcTab",10);
-      this._mcIconUp = this._mcButton.attachMovie("UI_FightOptionTacticModeUp","_mcIconUp",20);
-      this._mcIconDown = this._mcButton.attachMovie("UI_FightOptionTacticModeDown","_mcIconDown",30);
       var self = this;
       this._mcButton.onRelease = function()
       {
@@ -72,6 +74,13 @@ class dofus.graphics.gapi.ui.TacticToggle extends dofus.graphics.gapi.core.Dofus
       if(!visible)
       {
          return undefined;
+      }
+      // A new map (datacenter.Map is replaced): icons created again, in its sub-area's colors.
+      var map = this.api.datacenter.Map;
+      if(map != this._oColoredFor && map.subarea != undefined)
+      {
+         this._oColoredFor = map;
+         this.createIcons();
       }
       this.place(chat);
       var on = this.api.datacenter.Game.isTacticMode == true;
@@ -116,6 +125,19 @@ class dofus.graphics.gapi.ui.TacticToggle extends dofus.graphics.gapi.core.Dofus
          this._nWidth = w;
          this._nHeight = h;
          this.drawTab(w,h);
+      }
+   }
+   function createIcons()
+   {
+      this._mcIconUp = this._mcButton.attachMovie("UI_FightOptionTacticModeUp","_mcIconUp",20);
+      this._mcIconDown = this._mcButton.attachMovie("UI_FightOptionTacticModeDown","_mcIconDown",30);
+      var on = this.api.datacenter.Game.isTacticMode == true;
+      this._mcIconDown._visible = on;
+      this._mcIconUp._visible = !on;
+      if(this._nHeight > 0)
+      {
+         this.fit(this._mcIconUp,this._nWidth,this._nHeight);
+         this.fit(this._mcIconDown,this._nWidth,this._nHeight);
       }
    }
    function drawTab(w, h)

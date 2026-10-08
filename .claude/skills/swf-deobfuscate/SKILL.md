@@ -139,6 +139,7 @@ changes nothing but ids:
 | a recovered name that exists in clear (`enabled`, `data`…) | two members merged | suffix it (`enabled_`); accessors follow their property's suffix |
 | a name used by OTHER files (`core.swf` instance names, lang keys) | lookups from outside | readable names from outside are never ids: don't rename INTO them |
 | accessors named unlike their property | a recompiled class registers another property | `check-accessors.ts`; `source-accessors.ts` fixes the sources |
+| FFDec compiles a bare `_root` in a function to a PRELOADED register (Ankama's compiler never does) | that register ignores `_lockroot`: in a loader loaded by another SWF it's the other root → DofusCore attaches its clips there, the client stops at startup | compile `eval("_root")` (the repo's build does it: `rootByName`); `check-preload.ts` must show no more preloaded `_root`/`_parent` than the base |
 
 1. Use `runnable.swf`, never `deob.swf`.
 2. `node tools/deob/src/check-runnable.ts .tmp/deob-<v> [<file.swf>]` must say

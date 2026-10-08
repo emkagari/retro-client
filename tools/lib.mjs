@@ -81,3 +81,30 @@ export function ffdec(cfg, args) {
 /** FFDec's compile errors, one line each ("<message>, file: <path>"). */
 export const compileErrors = (log) =>
   log.split("\n").filter((l) => l.includes("SEVERE:")).map((l) => l.replace(/.*SEVERE:\s*/, ""));
+
+/**
+ * `_root` read by name, as Ankama's compiler does: FFDec compiles a bare
+ * `_root` inside a function to a preloaded register, which ignores
+ * `_lockroot` — in the loader (loaded by preloader.swf) it's the preloader's
+ * root, and nothing works (DofusCore attaches its clips there). `eval("_root")`
+ * compiles to GetVariable "_root". Strings and comments are left alone.
+ */
+export function rootByName(code) {
+  let out = "", i = 0;
+  const n = code.length;
+  while (i < n) {
+    const c = code[i], d = code[i + 1];
+    if (c === '"' || c === "'") {                       // string literal
+      let j = i + 1;
+      while (j < n && code[j] !== c) j += code[j] === "\\" ? 2 : 1;
+      out += code.slice(i, j + 1); i = j + 1; continue;
+    }
+    if (c === "/" && d === "/") { const j = code.indexOf("\n", i); const e = j < 0 ? n : j; out += code.slice(i, e); i = e; continue; }
+    if (c === "/" && d === "*") { const j = code.indexOf("*/", i + 2); const e = j < 0 ? n : j + 2; out += code.slice(i, e); i = e; continue; }
+    if (code.startsWith("_root", i) && !/[\w$.]/.test(code[i - 1] ?? "") && !/[\w$]/.test(code[i + 5] ?? "")) {
+      out += 'eval("_root")'; i += 5; continue;
+    }
+    out += c; i++;
+  }
+  return out;
+}

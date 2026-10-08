@@ -48,8 +48,13 @@ your file: `Missing operand on line 74, file: src/classes/…`. `--full`
 compiles every file (works, but the decompiled `_locN_` locals become named
 variables: slower; for tests).
 
-After compiling, the build checks that every `get x()` / `set x()` still
-matches its property (the compiler registers properties from accessor names).
+Two fixes and checks keep a recompiled class equal to the original:
+- `_root` is compiled by name (`eval("_root")` in the staged copy, src/ isn't
+  touched): FFDec would read it from a preloaded register, which in the loader
+  (loaded by preloader.swf) is the preloader's root — the client stops at
+  startup. The build refuses any function that still preloads `_root`.
+- every `get x()` / `set x()` must still match its property (the compiler
+  registers properties from accessor names).
 
 `dist/<platform>/` is a full copy of the official client (made once, then only
 the loader and overlay are replaced). Ankama's launcher must not update it —
@@ -78,6 +83,8 @@ start it with `--run` or its executable, not through the launcher.
   code from the base (the build warns).
 - Names ending in `_` (`enabled_`, `api_`) are recovered names that clashed
   with a name the code already used: keep them, they're not typos.
+
+New interfaces: docs/NEW-UI.md (the `/hello` window, on branch `feat/hello-ui`, is the template).
 
 See docs/WORKFLOW.md for git (branches, reviews, the `upstream` branch) and
 docs/UPGRADING.md to move to a newer official client.

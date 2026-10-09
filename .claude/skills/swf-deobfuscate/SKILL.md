@@ -87,7 +87,7 @@ against the reference; votes/total close to 1 with several votes = reliable.
 
 ## 5. Name what's left
 
-Two passes, both `--extra` files for `rename-only.ts` (hand names win and stay
+Three passes, all `--extra` files for `rename-only.ts` (hand names win and stay
 unique):
 
 1. **Accessors, mechanically** — `node tools/deob/src/accessors.ts .tmp/deob-<v>`
@@ -95,17 +95,26 @@ unique):
    accessors `__get__x` / `__set__x`, an unnamed PROPERTY from its accessors,
    and CORRECTS the matcher (it names accessors after their property:
    `function classID(n)` is `set classID`). Retro 1.49.5: 1 024 unnamed ids →
-   116, 500 matcher names corrected.
-2. **By role, by hand** — `node tools/deob/src/leftovers.ts .tmp/deob-<v>/scripts/scripts/__Packages`
+   116, 500 matcher names corrected. With `--extra by-role.json` it also names
+   the accessors of a property named by hand (run it again after pass 3).
+2. **From the previous sources** (an upgrade) — `node tools/deob/src/align.ts
+   .tmp/deob-<v> --ref src/classes --out .tmp/deob-<v>/by-role.json` names a
+   leftover from the same line of the previous sources (by-role names, setter
+   parameters, clip names). Run it on sources decompiled with the accessors
+   named (`rename-only.ts --extra accessors.json`). Retro 1.49.6: 66 → 43.
+3. **By role, by hand** — `node tools/deob/src/leftovers.ts .tmp/deob-<v>/scripts/scripts/__Packages`
    lists the `_o<hex>` placeholders; read the code around each and name it by
    what it does (`{ "_o1b1812": "_nLoadingCount" }`). Rules:
    - **never name a property or an accessor** here — `accessors.ts` owns them,
      and an accessor that doesn't carry its property's name changes the class
      when it's recompiled (`check-accessors.ts` lists mismatches); name an
      unnamed property only, its accessors follow;
-   - **no clash**: a hand name evicts the id that had it — check against
-     `names.json` + `accessors.json` first; parameters clash most (`nID`,
-     `sData`): pick a contextual variant;
+   - **no clash**: a hand name evicts the id that had it — never use a name
+     already **present in the decompiled code** (`grep -rw`). The obfuscator
+     reuses an id for different members across classes, so a name the
+     previous sources gave here may belong to another id now: giving it twice
+     merges two members (`align.ts` drops those itself). Parameters clash
+     most (`nID`, `sData`): pick a contextual variant;
    - **never a Flash built-in** for a member called on a built-in object
      (`this._so.<id>(…)`): the original calls nothing there, the renamed one
      would call the real method.

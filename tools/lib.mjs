@@ -100,6 +100,19 @@ export const compileErrors = (log) =>
  * root, and nothing works (DofusCore attaches its clips there). `eval("_root")`
  * compiles to GetVariable "_root". Strings and comments are left alone.
  */
+/** Where the expression starting at i ends: the first ; or newline outside strings and brackets. */
+function statementEnd(code, i) {
+  let depth = 0;
+  for (; i < code.length; i++) {
+    const c = code[i];
+    if (c === '"' || c === "'") { let j = i + 1; while (j < code.length && code[j] !== c) j += code[j] === "\\" ? 2 : 1; i = j; continue; }
+    if ("([{".includes(c)) depth++;
+    else if (")]}".includes(c)) { if (depth === 0) return i; depth--; }
+    else if ((c === ";" || c === "\n") && depth === 0) return i;
+  }
+  return i;
+}
+
 export function rootByName(code) {
   let out = "", i = 0;
   const n = code.length;
@@ -113,6 +126,14 @@ export function rootByName(code) {
     if (c === "/" && d === "/") { const j = code.indexOf("\n", i); const e = j < 0 ? n : j; out += code.slice(i, e); i = e; continue; }
     if (c === "/" && d === "*") { const j = code.indexOf("*/", i + 2); const e = j < 0 ? n : j + 2; out += code.slice(i, e); i = e; continue; }
     if (code.startsWith("_root", i) && !/[\w$.]/.test(code[i - 1] ?? "") && !/[\w$]/.test(code[i + 5] ?? "")) {
+      // An assignment, `_root = x;`: set("_root", x), a SetVariable as the
+      // original compiler wrote it (eval("_root") = x doesn't compile).
+      const assign = /^\s*=(?!=)/.exec(code.slice(i + 5));
+      if (assign) {
+        const start = i + 5 + assign[0].length;
+        const end = statementEnd(code, start);
+        out += `set("_root",${code.slice(start, end)})`; i = end; continue;
+      }
       out += 'eval("_root")'; i += 5; continue;
     }
     out += c; i++;

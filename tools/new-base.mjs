@@ -7,15 +7,19 @@
  * 1. base/<version>/loader.swf ← runnable.swf (and names/ ← --names dir);
  * 2. FFDec export of it, line endings LF, accessors made recompilable
  *    (tools/deob/src/source-accessors.ts);
- * 3. compiles every file to list what the decompiler got wrong;
- * 4. src/ ← the export, in the repo's layout (classes/, timeline/…);
- * 5. retro.json → this version.
+ * 3. the previous base's hand fixes carried over: the previous base is
+ *    exported the same way, and wherever src/ differs from that export (a
+ *    decompiler artifact fixed by hand), the change is merged into the new
+ *    export (git merge-file); conflicts are listed;
+ * 4. compiles every file to list what the decompiler got wrong;
+ * 5. src/ ← the export, in the repo's layout (classes/, timeline/…);
+ * 6. retro.json → this version.
  *
  * Fix those files by hand (they're few: 2 for 1.49.5), until
  * `node tools/build.mjs --full` passes, then record the baseline:
  * `node tools/manifest.mjs <version> --upstream <official loader.swf>`.
  */
-import { execFileSync } from "node:child_process";
+import { execFileSync, spawnSync } from "node:child_process";
 import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, relative, sep } from "node:path";
 import { ROOT, SRC, compileErrors, config, ffdec, fromFfdec, sourceFiles } from "./lib.mjs";
@@ -35,19 +39,50 @@ copyFileSync(runnable, join(dir, "loader.swf"));
 if (opt("--names")) cpSync(opt("--names"), join(dir, "names"), { recursive: true });
 console.log(`base/${version}/loader.swf installed`);
 
-// Sources: FFDec export (its layout), LF, accessors made recompilable.
-const tmp = join(ROOT, ".tmp", "export");
-rmSync(tmp, { recursive: true, force: true });
-const exp = ffdec(cfg, ["-export", "script", tmp, join(dir, "loader.swf")]);
-if (!exp.ok) { console.error(exp.log); process.exit(1); }
-const exported = join(tmp, "scripts");
-const files = sourceFiles(exported);
-for (const f of files) {
-  const p = join(exported, f);
-  const s = readFileSync(p, "utf8");
-  if (s.includes("\r\n")) writeFileSync(p, s.replace(/\r\n/g, "\n"));
+/** FFDec export of a base (its layout), LF, accessors made recompilable: what src/ starts from. */
+function exportSources(loader, tmp) {
+  rmSync(tmp, { recursive: true, force: true });
+  const exp = ffdec(cfg, ["-export", "script", tmp, loader]);
+  if (!exp.ok) { console.error(exp.log); process.exit(1); }
+  const exported = join(tmp, "scripts");
+  for (const f of sourceFiles(exported)) {
+    const p = join(exported, f);
+    const s = readFileSync(p, "utf8");
+    if (s.includes("\r\n")) writeFileSync(p, s.replace(/\r\n/g, "\n"));
+  }
+  execFileSync(process.execPath, [join(ROOT, "tools/deob/src/source-accessors.ts"), loader, join(exported, "__Packages")], { stdio: "inherit" });
+  return exported;
 }
-execFileSync(process.execPath, [join(ROOT, "tools/deob/src/source-accessors.ts"), join(dir, "loader.swf"), join(exported, "__Packages")], { stdio: "inherit" });
+
+const tmp = join(ROOT, ".tmp", "export");
+const exported = exportSources(join(dir, "loader.swf"), tmp);
+const files = sourceFiles(exported);
+
+// The previous base's hand fixes: src/ against that base's own export.
+const previous = cfg.version;
+const previousLoader = join(ROOT, "base", previous, "loader.swf");
+const carried = [], conflicts = [], gone = [];
+if (previous !== version && existsSync(previousLoader)) {
+  const oldTmp = join(ROOT, ".tmp", "export-previous");
+  const old = exportSources(previousLoader, oldTmp);
+  for (const f of sourceFiles(old)) {
+    const mine = join(SRC, fromFfdec(f));
+    if (!existsSync(mine)) continue;
+    const fixed = readFileSync(mine, "utf8").replace(/\r\n/g, "\n");
+    if (fixed === readFileSync(join(old, f), "utf8")) continue;
+    const target = join(exported, f);
+    if (!existsSync(target)) { gone.push(fromFfdec(f)); continue; }
+    const fixedCopy = join(oldTmp, "fixed.as");
+    writeFileSync(fixedCopy, fixed);
+    // Their side: the new export; base: the previous export; ours: the fix.
+    const m = spawnSync("git", ["merge-file", "-L", `base ${version}`, "-L", `base ${previous}`, "-L", "hand fix", target, join(old, f), fixedCopy]);
+    (m.status === 0 ? carried : conflicts).push(fromFfdec(f));
+  }
+  rmSync(oldTmp, { recursive: true, force: true });
+  console.log(`hand fixes of base ${previous}: ${carried.length} carried over` +
+    (conflicts.length ? `, ${conflicts.length} with conflicts (<<<<<<< markers) to resolve:\n${conflicts.map((f) => `  src/${f}`).join("\n")}` : "") +
+    (gone.length ? `\n  files gone in ${version}: ${gone.join(", ")}` : ""));
+}
 
 // What doesn't compile back: decompiler artifacts to fix by hand.
 const out = join(ROOT, ".tmp", "full.swf");
@@ -68,6 +103,7 @@ console.log(`src/: ${files.length} files`);
 const retro = JSON.parse(readFileSync(join(ROOT, "retro.json"), "utf8"));
 writeFileSync(join(ROOT, "retro.json"), JSON.stringify({ ...retro, version }, null, 2) + "\n");
 
+if (conflicts.length) console.log(`\n${conflicts.length} carried-over fix(es) in conflict: resolve the <<<<<<< markers in ${conflicts.map((f) => `src/${f}`).join(", ")}`);
 console.log(errors.length
   ? `\n${errors.length} file(s) to fix by hand, then run node tools/build.mjs --full:\n${errors.map((e) => `  ${e}`).join("\n")}`
   : "\neverything compiles");

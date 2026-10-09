@@ -1,7 +1,7 @@
 /**
  * Names AS2 accessors from their registration, not from a reference:
  *
- *   node src/accessors.ts <run dir> [--out <run>/accessors.json]
+ *   node src/accessors.ts <run dir> [--out <run>/accessors.json] [--extra <names.json>[,…]]
  *
  * The compiler turns `get value()` / `set value(v)` into two methods,
  * `__get__value` / `__set__value`, and registers them at the end of the class:
@@ -14,6 +14,9 @@
  * getter/setter gets its real name. Writes an `--extra` file (escaped raw
  * keys), including CORRECTIONS of matcher names that contradict it
  * (`__set__data` named `data`).
+ *
+ * --extra: names given by hand (by-role.json, same format as rename-only's):
+ * a property named there gets its getter and setter named too.
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -26,6 +29,12 @@ const args = process.argv.slice(3);
 const out = args.includes("--out") ? args[args.indexOf("--out") + 1]! : join(run, "accessors.json");
 const json = JSON.parse(readFileSync(join(run, "names.json"), "utf8")) as Record<string, { name: string }>;
 const known = new Map(Object.entries(json).map(([k, v]) => [JSON.parse(`"${k}"`) as string, v.name]));
+const extraOpt = args.includes("--extra") ? args[args.indexOf("--extra") + 1]! : "";
+for (const file of extraOpt.split(",").filter(Boolean)) {
+  for (const [k, name] of Object.entries(JSON.parse(readFileSync(file, "utf8")) as Record<string, string>)) {
+    known.set(/^_o[0-9a-f]+$/.test(k) ? Buffer.from(k.slice(2), "hex").toString("latin1") : JSON.parse(`"${k}"`) as string, name);
+  }
+}
 const swf = parseSwf(readFileSync(join(run, "clean.swf")));
 
 /** obfuscated string → every name the registrations give it (accessor, or property). */

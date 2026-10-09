@@ -1,3 +1,4 @@
+235987051 - 1;
 class dofus.graphics.gapi.ui.AskReportMessage extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnCancel;
@@ -31,11 +32,11 @@ class dofus.graphics.gapi.ui.AskReportMessage extends dofus.graphics.gapi.core.D
    }
    function get messageId()
    {
-      return this._lblGonnaReport;
+      return this._taMessage;
    }
    function set messageId(nObjectID)
    {
-      this._lblGonnaReport = nObjectID;
+      this._taMessage = nObjectID;
    }
    function get authorId_()
    {
@@ -47,11 +48,11 @@ class dofus.graphics.gapi.ui.AskReportMessage extends dofus.graphics.gapi.core.D
    }
    function get authorId()
    {
-      return this._taMessage;
+      return this._sMessageId;
    }
-   function set authorId(nObjectID)
+   function set authorId(sAuthorId)
    {
-      this._taMessage = nObjectID;
+      this._sMessageId = sAuthorId;
    }
    function get authorName()
    {
@@ -79,7 +80,7 @@ class dofus.graphics.gapi.ui.AskReportMessage extends dofus.graphics.gapi.core.D
    function initTexts()
    {
       this._winBackground.title = this.api.lang.getText("REPORT_A_SENTANCE");
-      this._sChannelId.text = this.api.lang.getText("GONNA_REPORT_THIS_MESSAGE");
+      this._lblGonnaReport.text = this.api.lang.getText("GONNA_REPORT_THIS_MESSAGE");
       this._lblReason.text = this.api.lang.getText("REASON_WORD") + ":";
       this._lblIgnoreToo.text = this.api.lang.getText("BLACKLIST_MESSAGE_AUTHOR");
       this._btnOk.label = this.api.lang.getText("VALIDATE");
@@ -87,7 +88,7 @@ class dofus.graphics.gapi.ui.AskReportMessage extends dofus.graphics.gapi.core.D
    }
    function initData()
    {
-      this._sMessageId.text = this._sMessage.split("<br/>").join("");
+      this._sChannelId.text = this._sMessage.split("<br/>").join("");
       this._btnIgnoreToo.selected = true;
       var _loc2_ = new ank.utils.ExtendedArray();
       var _loc3_ = this.api.lang.getAbuseReasons();
@@ -126,7 +127,7 @@ class dofus.graphics.gapi.ui.AskReportMessage extends dofus.graphics.gapi.core.D
       if((_loc0_ = oEvent.target._name) === "AskYesNoReportMessage")
       {
          _loc3_ = this._sMessage.substring(this._sMessage.indexOf(": ") + 7,this._sMessage.indexOf("</font>"));
-         this.api.network.Chat.reportMessage(this._sCharacterName,this._lblGonnaReport,_loc3_,this._cbReason.selectedItem.id);
+         this.api.network.Chat.reportMessage(this._sCharacterName,this._taMessage,_loc3_,this._cbReason.selectedItem.id);
          if(this._btnIgnoreToo.selected)
          {
             this.api.kernel.ChatManager.addToBlacklist(this._sCharacterName);

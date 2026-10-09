@@ -1,3 +1,4 @@
+221460220 - 1;
 class dofus.aks.Job extends dofus.aks.Handler
 {
    var api;
@@ -154,7 +155,6 @@ class dofus.aks.Job extends dofus.aks.Handler
             this.api.gfx.getSprite(_loc5_).mc.setAnim(_loc8_);
             break;
          case 1:
-            org.flashdevelop.utils.FlashConnect.trace("dead ? " + this.api.gfx.getSprite(_loc5_).mc.currentJobAnim,"dofus.aks.Job::onAnim","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Job.as",226);
             this.api.gfx.getSprite(_loc5_).mc.currentJobAnim.gotoAndPlay(2);
          default:
             return;

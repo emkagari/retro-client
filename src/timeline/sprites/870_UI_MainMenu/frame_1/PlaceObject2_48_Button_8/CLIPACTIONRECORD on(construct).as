@@ -1,5 +1,4 @@
 on(construct){
-   676339095 - 1;
    backgroundDown = "ButtonMainMenuDown";
    backgroundUp = "ButtonMainMenuUp";
    enabled = true;

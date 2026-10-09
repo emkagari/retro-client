@@ -1,5 +1,4 @@
 on(construct){
-   442660502 - 1;
    backgroundRenderer = "UI_StatsJobContainerBackground";
    borderRenderer = "";
    dragAndDrop = false;

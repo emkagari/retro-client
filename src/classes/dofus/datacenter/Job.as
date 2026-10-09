@@ -104,9 +104,9 @@ class dofus.datacenter.Job extends Object
    {
       return this._nXPTotal;
    }
-   function set xpTotal(nValue_)
+   function set xpTotal(nValue)
    {
-      this._nXPTotal = nValue_;
+      this._nXPTotal = nValue;
    }
    function initialize(nID, eaSkills, options)
    {

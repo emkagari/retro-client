@@ -1,4 +1,5 @@
 on(construct){
+   876584192 - 1;
    backgroundRenderer = "UI_BannerContainerBackground";
    borderRenderer = "UI_BannerContainerBorder";
    dragAndDrop = true;

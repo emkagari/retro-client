@@ -159,13 +159,13 @@ class ank.battlefield.VisualEffectHandler
             var halfg = g * 0.5;
             var t = 0;
             var vx = _loc17_(abs(halfg * (xDest * xDest) / abs(yDest - _loc18_(_loc24_) * xDest)));
-            var vy = _loc18_(_loc24_) * vx;
+            var vy_ = _loc18_(_loc24_) * vx;
             var invVx = 1 / vx;
             mc.onEnterFrame = function()
             {
-               vyi = vy + g * t;
+               vyi = vy_ + g * t;
                x = t * vx;
-               y = halfg * (t * t) + vy * t;
+               y = halfg * (t * t) + vy_ * t;
                t += speed;
                if(abs(y) >= abs(yDest) && x >= xDest || x > xDest)
                {

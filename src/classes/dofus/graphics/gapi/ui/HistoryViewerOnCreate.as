@@ -40,9 +40,9 @@ class dofus.graphics.gapi.ui.HistoryViewerOnCreate extends dofus.graphics.gapi.c
    }
    function initText()
    {
-      this._ldrClassBg.text = this.api.lang.getText("HISTORY_CLASS_WORD");
+      this._txtHistoryDescription.text = this.api.lang.getText("HISTORY_CLASS_WORD");
       this._lblBreedName.text = this.api.lang.getClassText(this._nBreed).sn;
-      this._txtHistoryDescription.text = this.api.lang.getClassText(this._nBreed).d;
+      this._ldrClassBg.text = this.api.lang.getClassText(this._nBreed).d;
       this._lblBreedHistory.content._alpha = 50;
       this._lblBreedHistory.contentPath = dofus.Constants.BREEDS_BACK_PATH + this._nBreed + ".swf";
    }

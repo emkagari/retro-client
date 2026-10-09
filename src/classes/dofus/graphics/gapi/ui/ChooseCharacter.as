@@ -1,3 +1,4 @@
+690035145 - 1;
 class dofus.graphics.gapi.ui.ChooseCharacter extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _aSpriteList;
@@ -17,11 +18,11 @@ class dofus.graphics.gapi.ui.ChooseCharacter extends dofus.graphics.gapi.core.Do
    var _lblAccount;
    var _lblCopyright;
    var _lblLogin;
+   var _lblMigrationTitle;
    var _lblRemainingTime;
    var _lblServer;
    var _lblTitle;
    var _mcGiftsWarning;
-   var _nCharacterCount;
    var _nCharacterStartIndex;
    var _nRemainingTime;
    var _nSaveLastClick;
@@ -56,7 +57,7 @@ class dofus.graphics.gapi.ui.ChooseCharacter extends dofus.graphics.gapi.core.Do
    }
    function set characterCount(nCharacterCount)
    {
-      this._nCharacterCount = nCharacterCount;
+      this._lblMigrationTitle = nCharacterCount;
    }
    function init()
    {

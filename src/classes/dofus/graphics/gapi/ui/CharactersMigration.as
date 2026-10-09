@@ -39,7 +39,7 @@ class dofus.graphics.gapi.ui.CharactersMigration extends dofus.graphics.gapi.cor
    }
    function set characterCount(nCharacterCount)
    {
-      this._nCharacterCount = nCharacterCount;
+      this._lblMigrationTitle = nCharacterCount;
    }
    function set setNewName(sName)
    {
@@ -134,8 +134,8 @@ class dofus.graphics.gapi.ui.CharactersMigration extends dofus.graphics.gapi.cor
       this._lblAccount.text = this.api.lang.getText("ACCOUNT_INFO");
       this._lblLogin.text = this.api.datacenter.Basics.dofusPseudo;
       this._lblServer.text = this.api.lang.getText("CURRENT_SERVER",[this.api.datacenter.Basics.aks_current_server.label]);
-      this._taMigrationDesc.text = this.api.lang.getText("CHARACTER_MIGRATION_DESC");
-      this._lblMigrationTitle.text = this.api.lang.getText("CHARACTER_MIGRATION_TITLE");
+      this._nCharacterCount.text = this.api.lang.getText("CHARACTER_MIGRATION_DESC");
+      this._taMigrationDesc.text = this.api.lang.getText("CHARACTER_MIGRATION_TITLE");
       this._lstCharacters.columnsNames = ["",this.api.lang.getText("NAME").substr(0,1).toUpperCase() + this.api.lang.getText("NAME").substr(1),this.api.lang.getText("LEVEL"),this.api.lang.getText("STATE")];
    }
    function changeSpriteOrientation(mcSprite)

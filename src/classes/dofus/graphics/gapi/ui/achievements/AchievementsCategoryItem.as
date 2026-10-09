@@ -1,4 +1,3 @@
-298068507 - 1;
 class dofus.graphics.gapi.ui.achievements.AchievementsCategoryItem extends ank.gapi.core.UIBasicComponent
 {
    var _bAlreadyShifted;

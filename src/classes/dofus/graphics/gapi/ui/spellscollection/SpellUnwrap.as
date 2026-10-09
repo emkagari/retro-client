@@ -1,4 +1,3 @@
-331588111 - 1;
 class dofus.graphics.gapi.ui.spellscollection.SpellUnwrap extends ank.gapi.core.UIBasicComponent
 {
    var _bOver;

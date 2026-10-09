@@ -313,9 +313,9 @@ class dofus.graphics.gapi.controls.BannerSpriteInfos extends dofus.graphics.gapi
    function complete(oEvent)
    {
       var ref = this;
-      this._ldrSprite.content.stringCourseColor = function(mc_, nColorIndex)
+      this._ldrSprite.content.stringCourseColor = function(mc_, nStringCourseColor)
       {
-         ref.applyColor(mc_,nColorIndex);
+         ref.applyColor(mc_,nStringCourseColor);
       };
       var _loc3_;
       if(this._oSprite.glowFilter != undefined && this._oSprite.glowFilter != "")

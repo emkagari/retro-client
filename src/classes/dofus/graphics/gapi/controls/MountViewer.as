@@ -191,7 +191,7 @@ class dofus.graphics.gapi.controls.MountViewer extends dofus.graphics.gapi.core.
       this._lblXP.text = this.api.lang.getText("EXPERIMENT");
       this._lblModel.text = this.api.lang.getText("TYPE");
       this._lblEnergy.text = this.api.lang.getText("ENERGY");
-      this._lblSex.text = this.api.lang.getText("TIRE");
+      this._lblSexValue.text = this.api.lang.getText("TIRE");
       this._btnTabGeneral.label = this.api.lang.getText("OPTIONS_GENERAL");
       this._btnTabStats.label = this.api.lang.getText("STATS");
       this._btnTabCapacities.label = this.api.lang.getText("CAPACITIES");
@@ -220,8 +220,8 @@ class dofus.graphics.gapi.controls.MountViewer extends dofus.graphics.gapi.core.
          this._pbTired.value = this._oMount.tired;
          this._pbReproductions.maximum = this._oMount.reprodMax <= -1 ? 0 : this._oMount.reprodMax;
          this._pbReproductions.value = this._oMount.reprodMax <= -1 ? 0 : this._oMount.reprod;
-         this._lblWildValue.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "94.swf";
-         this._lblTired.text = this._oMount.modelName;
+         this._ldrMaturity.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "94.swf";
+         this._lblMountableValue.text = this._oMount.modelName;
          _loc3_ = this._oMount.fecondation > 0;
          if(_loc3_)
          {
@@ -304,25 +304,25 @@ class dofus.graphics.gapi.controls.MountViewer extends dofus.graphics.gapi.core.
    {
       this._lblName.text = this.api.lang.getText("NAME_BIG");
       this._lblNameValue.text = this._oMount.name;
-      this._lblMountableValue.text = this.api.lang.getText("CREATE_SEX");
-      this._ldrStamina2.text = !this._oMount.sex ? this.api.lang.getText("ANIMAL_MEN") : this.api.lang.getText("ANIMAL_WOMEN");
+      this._lblTired.text = this.api.lang.getText("CREATE_SEX");
+      this._lblWild.text = !this._oMount.sex ? this.api.lang.getText("ANIMAL_MEN") : this.api.lang.getText("ANIMAL_WOMEN");
       this._lblSerenity.text = this.api.lang.getText("MOUNTABLE");
-      this._ldrEnergy.text = !this._oMount.mountable ? this.api.lang.getText("NO") : this.api.lang.getText("YES");
-      this._lblSexValue.text = this.api.lang.getText("WILD");
-      this._lblMountable.text = !this._oMount.wild ? this.api.lang.getText("NO") : this.api.lang.getText("YES");
+      this._lblSex.text = !this._oMount.mountable ? this.api.lang.getText("NO") : this.api.lang.getText("YES");
+      this._ldrAgressivity.text = this.api.lang.getText("WILD");
+      this._ldrEnergy.text = !this._oMount.wild ? this.api.lang.getText("NO") : this.api.lang.getText("YES");
    }
    function switchToStatsTab()
    {
-      this._ldrStamina.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "98.swf";
-      this._lblWild.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "99.swf";
+      this._ldrStamina2.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "98.swf";
+      this._ldrLove2.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "99.swf";
+      this._ldrMaturity2.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "97.swf";
       this._ldrSerenity.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "97.swf";
-      this._ldrAgressivity.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "97.swf";
-      this._ldrMaturity.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "96.swf";
-      this._ldrMaturity2.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "96.swf";
-      this._ldrLove.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "95.swf";
-      this._ldrLove2.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "95.swf";
-      this._mcEnergy.text = this.api.lang.getText("AGRESSIVITY");
-      this._lblModelValue.text = this.api.lang.getText("SERENITY");
+      this._mcLove.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "96.swf";
+      this._mcMaturity.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "96.swf";
+      this._mcEnergy.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "95.swf";
+      this._ldrStamina.contentPath = dofus.Constants.SMILEYS_ICONS_PATH + "95.swf";
+      this._lblMountable.text = this.api.lang.getText("AGRESSIVITY");
+      this._lblWildValue.text = this.api.lang.getText("SERENITY");
       this._lblMaturity.text = this.api.lang.getText("MATURITY");
       this._lblStamina.text = this.api.lang.getText("STAMINA");
       this._lblLove.text = this.api.lang.getText("LOVE");
@@ -343,19 +343,19 @@ class dofus.graphics.gapi.controls.MountViewer extends dofus.graphics.gapi.core.
       {
          this._parent.gapi.hideTooltip();
       };
-      this._mcLove.onRollOver = function()
+      this._lblModelValue.onRollOver = function()
       {
          this._parent.gapi.showTooltip(new ank.utils.ExtendedString(this._parent._oMount.love).addMiddleChar(this._parent.api.lang.getConfigText("THOUSAND_SEPARATOR"),3) + " / " + new ank.utils.ExtendedString(this._parent._oMount.loveMax).addMiddleChar(this._parent.api.lang.getConfigText("THOUSAND_SEPARATOR"),3));
       };
-      this._mcLove.onRollOut = function()
+      this._lblModelValue.onRollOut = function()
       {
          this._parent.gapi.hideTooltip();
       };
-      this._mcMaturity.onRollOver = function()
+      this._ldrLove.onRollOver = function()
       {
          this._parent.gapi.showTooltip(new ank.utils.ExtendedString(this._parent._oMount.maturity).addMiddleChar(this._parent.api.lang.getConfigText("THOUSAND_SEPARATOR"),3) + " / " + new ank.utils.ExtendedString(this._parent._oMount.maturityMax).addMiddleChar(this._parent.api.lang.getConfigText("THOUSAND_SEPARATOR"),3));
       };
-      this._mcMaturity.onRollOut = function()
+      this._ldrLove.onRollOut = function()
       {
          this._parent.gapi.hideTooltip();
       };

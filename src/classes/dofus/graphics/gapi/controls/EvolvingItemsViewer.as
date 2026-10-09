@@ -1,4 +1,3 @@
-179182802 - 1;
 class dofus.graphics.gapi.controls.EvolvingItemsViewer extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnDissociate;

@@ -432,15 +432,15 @@ class dofus.graphics.gapi.ui.StatsJob extends dofus.graphics.gapi.core.DofusAdva
                if(Key.isDown(Key.CONTROL) || Key.isDown(Key.SHIFT))
                {
                   _loc5_ = "POPUP_QUANTITY_STATS_BOOST_DESCRIPTION";
-                  _loc6_ = [this.getStatsCostString(oBoost),function(nMin, nMax, nValue_)
+                  _loc6_ = [this.getStatsCostString(oBoost),function(nMin, nMax, nValue)
                   {
-                     return String(nValue_ * nCost);
-                  },function(nMin, nMax, nValue_)
+                     return String(nValue * nCost);
+                  },function(nMin, nMax, nValue)
                   {
-                     return String(nCapital - nValue_ * nCost);
-                  },function(nMin, nMax, nValue_)
+                     return String(nCapital - nValue * nCost);
+                  },function(nMin, nMax, nValue)
                   {
-                     return String(nValue_ * oBoost.count);
+                     return String(nValue * oBoost.count);
                   }];
                   _loc7_ = this.gapi.loadUIComponent("PopupQuantityWithDescription","PopupQuantity",{descriptionLangKey:_loc5_,descriptionLangKeyParams:_loc6_,value:1,max:_loc4_,isMaxButtonValidationEnabled:false,params:{targetType:"charac",characteristicID:_loc3_}});
                   _loc7_.addEventListener("validate",this);
@@ -707,7 +707,7 @@ class dofus.graphics.gapi.ui.StatsJob extends dofus.graphics.gapi.core.DofusAdva
    }
    function lpMaxChanged(oEvent)
    {
-      this._ctrJob0.text = String(oEvent.value);
+      this._mcMoreStats.text = String(oEvent.value);
    }
    function apChanged(oEvent)
    {
@@ -749,7 +749,7 @@ class dofus.graphics.gapi.ui.StatsJob extends dofus.graphics.gapi.core.DofusAdva
    }
    function bonusPointsChanged(oEvent)
    {
-      this._mcMoreStats.text = String(oEvent.value);
+      this._ctrJob0.text = String(oEvent.value);
    }
    function energyChanged(oEvent)
    {
@@ -774,11 +774,11 @@ class dofus.graphics.gapi.ui.StatsJob extends dofus.graphics.gapi.core.DofusAdva
    }
    function initiativeChanged(oEvent)
    {
-      this._ctrJob2.text = String(oEvent.value);
+      this._lblWisdom.text = String(oEvent.value);
    }
    function discernmentChanged(oEvent)
    {
-      this._lblWisdom.text = String(oEvent.value);
+      this._ctrJob2.text = String(oEvent.value);
    }
    function rangeChanged(oEvent_)
    {

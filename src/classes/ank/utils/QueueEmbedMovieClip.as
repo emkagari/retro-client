@@ -1,4 +1,3 @@
-211978016 - 1;
 class ank.utils.QueueEmbedMovieClip extends MovieClip
 {
    static var _aQueue = [];

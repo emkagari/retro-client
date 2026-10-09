@@ -1,4 +1,5 @@
 on(construct){
+   55764996 - 1;
    backgroundRenderer = "ItemSetViewerItemBackground";
    borderRenderer = "";
    dragAndDrop = true;

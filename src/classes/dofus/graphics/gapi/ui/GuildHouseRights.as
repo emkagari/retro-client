@@ -59,20 +59,20 @@ class dofus.graphics.gapi.ui.GuildHouseRights extends dofus.graphics.gapi.core.D
    function initTexts()
    {
       this._winBackground.title = this.api.lang.getText("GUILD_HOUSE");
-      this._lblOtherTitle.text = this.api.lang.getText("GUILD_HOUSE_ENABLE_FOR_THIS_HOUSE");
-      this._lblDenyOtherToAccessHouse.text = this.api.lang.getText("GUILD_HOUSE_NOTICE");
-      this._lblDisplayLabelForGuild.text = this.api.lang.getText("GUILD_HOUSE_DISPLAY_EMBLEM_ON_DOOR_TITLE") + ":";
-      this._lblAllowGuildToAccessHouse.text = this.api.lang.getText("GUILD_HOUSE_DISPLAY_EMBLEM_FOR_OTHERS");
-      this._lblHouseAccessTitle.text = this.api.lang.getText("GUILD_HOUSE_DISPLAY_EMBLEM_FOR_GUILD");
+      this._lblAllowGuildToAccessSafes.text = this.api.lang.getText("GUILD_HOUSE_ENABLE_FOR_THIS_HOUSE");
+      this._lblOtherTitle.text = this.api.lang.getText("GUILD_HOUSE_NOTICE");
+      this._lblDisplayLabelForOthers.text = this.api.lang.getText("GUILD_HOUSE_DISPLAY_EMBLEM_ON_DOOR_TITLE") + ":";
+      this._lblHouseAccessTitle.text = this.api.lang.getText("GUILD_HOUSE_DISPLAY_EMBLEM_FOR_OTHERS");
+      this._lblGuildHouseNotice.text = this.api.lang.getText("GUILD_HOUSE_DISPLAY_EMBLEM_FOR_GUILD");
       this._lblSafesAccessTitle.text = this.api.lang.getText("GUILD_HOUSE_HOUSE_ACCESS_TITLE") + ":";
       this._lblAllowRespawn.text = this.api.lang.getText("GUILD_HOUSE_ACCESS_HOUSE_ALLOW_GUILDMATES");
       this._lblDisplayEmblemTitle.text = this.api.lang.getText("GUILD_HOUSE_ACCESS_HOUSE_DENY_OTHERS");
-      this._lblAllowGuildToAccessSafes.text = this.api.lang.getText("GUILD_HOUSE_SAFES_ACCESS_TITLE") + ":";
+      this._lblAllowGuildToAccessHouse.text = this.api.lang.getText("GUILD_HOUSE_SAFES_ACCESS_TITLE") + ":";
       this._lblAllowTeleport.text = this.api.lang.getText("GUILD_HOUSE_ACCESS_SAFES_ALLOW_GUILDMATES");
-      this._lblDisplayLabelForOthers.text = this.api.lang.getText("GUILD_HOUSE_ACCESS_SAFES_DENY_OTHERS");
+      this._lblDisplayLabelForGuild.text = this.api.lang.getText("GUILD_HOUSE_ACCESS_SAFES_DENY_OTHERS");
       this._lblAddThisHouseToGuildSystem.text = this.api.lang.getText("GUILD_HOUSE_OTHER_TITLE") + ":";
-      this._lblDenyOtherToAccessSafes.text = this.api.lang.getText("GUILD_HOUSE_ALLOW_RESPAWN");
-      this._lblGuildHouseNotice.text = this.api.lang.getText("GUILD_HOUSE_ALLOW_TELEPORT");
+      this._lblDenyOtherToAccessHouse.text = this.api.lang.getText("GUILD_HOUSE_ALLOW_RESPAWN");
+      this._lblDenyOtherToAccessSafes.text = this.api.lang.getText("GUILD_HOUSE_ALLOW_TELEPORT");
       this._btnCancel.label = this.api.lang.getText("CANCEL_SMALL");
       this._btnValidate.label = this.api.lang.getText("VALIDATE");
    }

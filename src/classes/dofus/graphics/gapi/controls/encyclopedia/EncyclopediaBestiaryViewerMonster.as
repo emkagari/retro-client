@@ -1,4 +1,3 @@
-676219726 - 1;
 class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryViewerMonster extends ank.gapi.core.UIBasicComponent
 {
    var _bUsed;
@@ -207,9 +206,9 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryViewerMonste
    function complete(oEvent_)
    {
       var ref = this;
-      this._ldrIcon.content.stringCourseColor = function(mc_, nColorIndex)
+      this._ldrIcon.content.stringCourseColor = function(mc_, nStringCourseColor)
       {
-         ref.applyColor(mc_,nColorIndex);
+         ref.applyColor(mc_,nStringCourseColor);
       };
    }
    function updatePartyProspection(oEvent_)

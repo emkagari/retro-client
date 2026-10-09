@@ -325,7 +325,6 @@ class dofus.managers.KeyManager extends dofus.utils.ApiElement
       var _loc4_ = this.api.lang.getKeyboardShortcuts();
       this._aNoChatShortcuts = [];
       this._aAnyTimeShortcuts = [];
-      org.flashdevelop.utils.FlashConnect.trace("Vidage des raccourcis...","dofus.managers.KeyManager::loadShortcuts","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/KeyManager.as",378);
       var _loc5_;
       var _loc6_;
       var _loc7_;
@@ -381,7 +380,6 @@ class dofus.managers.KeyManager extends dofus.utils.ApiElement
       var _loc10_;
       if(this._aNoChatShortcuts.length == 0 && this._aAnyTimeShortcuts.length == 0)
       {
-         org.flashdevelop.utils.FlashConnect.trace("No shortcuts...","dofus.managers.KeyManager::loadShortcuts","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/KeyManager.as",431);
          this._aAnyTimeShortcuts.push({k:38,c:0,o:true,d:"HISTORY_UP"});
          this._aAnyTimeShortcuts.push({k:40,c:0,o:true,d:"HISTORY_DOWN"});
          this._aAnyTimeShortcuts.push({k:13,c:1,o:true,d:"GUILD_MESSAGE"});

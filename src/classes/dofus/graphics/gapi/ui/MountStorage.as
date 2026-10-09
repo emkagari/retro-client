@@ -1,3 +1,4 @@
+174679579 - 1;
 class dofus.graphics.gapi.ui.MountStorage extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnCertificate;
@@ -113,23 +114,23 @@ class dofus.graphics.gapi.ui.MountStorage extends dofus.graphics.gapi.core.Dofus
       this._btnCertificate.addEventListener("click",this);
       this._btnInventory.addEventListener("click",this);
       this._ldrSprite.addEventListener("initialization",this);
-      this._mcRectanglePreview.onRelease = function()
+      this._lblInventoryNoMount.onRelease = function()
       {
          this._parent.click({target:this._parent._btnInventoryMount});
       };
    }
    function initTexts()
    {
-      this._winMountViewer.title = this.api.lang.getText("MOUNT_CERTIFICATES");
-      this._lblInventoryNoMount.title = this.api.lang.getText("MOUNT_PARK");
+      this._winMountPark.title = this.api.lang.getText("MOUNT_CERTIFICATES");
+      this._winShed.title = this.api.lang.getText("MOUNT_PARK");
       this._winInventory.title = this.api.lang.getText("MOUNT_INVENTORY");
-      this._winShed.title = this.api.lang.getText("MOUNT_SHED");
+      this._mcArrowCertificate.title = this.api.lang.getText("MOUNT_SHED");
       this._btnShed.label = this.api.lang.getText("MOUNT_SHED_ACTION");
       this._btnMountPark.label = this.api.lang.getText("MOUNT_PARK_ACTION");
       this._btnCertificate.label = this.api.lang.getText("MOUNT_CERTIFICATE_ACTION");
       this._btnInventory.label = this.api.lang.getText("MOUNT_INVENTORY_ACTION");
       this._lblTitle.text = this.api.lang.getText("MOUNT_MANAGER");
-      this._winMountPark.text = this.api.lang.getText("MOUNT_NO_EQUIP");
+      this._lblInventoryMountModel.text = this.api.lang.getText("MOUNT_NO_EQUIP");
       this.fillTypeCombobox(this._cbFilterShed,this.mounts.concat(this.parkMounts));
       this.fillTypeCombobox(this._cbFilterPark,this.mounts.concat(this.parkMounts));
    }
@@ -164,22 +165,22 @@ class dofus.graphics.gapi.ui.MountStorage extends dofus.graphics.gapi.core.Dofus
    }
    function hideMountParkButton(bHide)
    {
-      this._mcArrowCertificate._visible = !bHide;
+      this._mcRectanglePreview._visible = !bHide;
       this._btnMountPark._visible = !bHide;
    }
    function hideCertificateButton(bHide)
    {
-      this._mcArrowShed._visible = !bHide;
+      this._mcArrowMountPark._visible = !bHide;
       this._btnCertificate._visible = !bHide;
    }
    function hideInventoryButton(bHide)
    {
-      this._mcArrowMountPark._visible = !bHide;
+      this._mcArrowShed._visible = !bHide;
       this._btnInventory._visible = !bHide;
    }
    function hideMountViewer(bHide)
    {
-      this._lblInventoryMountModel._visible = !bHide;
+      this._winMountViewer._visible = !bHide;
       this._mvMountViewer._visible = !bHide;
       if(!bHide)
       {
@@ -401,11 +402,11 @@ class dofus.graphics.gapi.ui.MountStorage extends dofus.graphics.gapi.core.Dofus
          _loc5_.mount = _loc3_;
          this.api.colors.addSprite(this._ldrSprite,_loc5_);
       }
-      this._winMountPark._visible = !_loc4_;
+      this._lblInventoryMountModel._visible = !_loc4_;
       this._winCertificate._visible = _loc4_;
       this._lblInventoryMountName._visible = _loc4_;
       this._ldrSprite._visible = _loc4_;
-      this._mcRectanglePreview._visible = _loc4_;
+      this._lblInventoryNoMount._visible = _loc4_;
    }
    function modelChanged(oEvent)
    {

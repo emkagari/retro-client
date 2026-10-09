@@ -1,4 +1,3 @@
-548561346 - 1;
 class dofus.utils.DofusConfiguration
 {
    var _aCacheAsBitmap;
@@ -19,13 +18,13 @@ class dofus.utils.DofusConfiguration
          _global[dofus.Constants.GLOBAL_SO_OPTIONS_NAME] = ank.utils.SharedObjectFix.getLocal(dofus.Constants.OPTIONS_SHAREDOBJECT_NAME);
       }
    }
-   function set dataServers(b)
+   function set dataServers(aHosts)
    {
-      this._bSkipLanguageVerification = b;
+      this._aDataServers = aHosts;
    }
    function get dataServers()
    {
-      return this._bSkipLanguageVerification;
+      return this._aDataServers;
    }
    function set language(sLanguage)
    {
@@ -145,30 +144,30 @@ class dofus.utils.DofusConfiguration
    {
       return this._aXmlLanguages;
    }
-   function set skipLanguageCheck(bExpo)
+   function set skipLanguageCheck(b)
    {
-      this._bIsExpo = bExpo;
+      this._bSkipLanguageVerification = b;
       return this.skipLanguageCheck;
    }
    function get skipLanguageCheck()
    {
-      return this._bIsExpo;
+      return this._bSkipLanguageVerification;
    }
-   function set cacheAsBitmap(aHosts)
-   {
-      this._aDataServers = aHosts;
-   }
-   function get cacheAsBitmap()
-   {
-      return this._aDataServers;
-   }
-   function set isExpo(aCache)
+   function set cacheAsBitmap(aCache)
    {
       this._aCacheAsBitmap = aCache;
    }
-   function get isExpo()
+   function get cacheAsBitmap()
    {
       return this._aCacheAsBitmap;
+   }
+   function set isExpo(bExpo)
+   {
+      this._bIsExpo = bExpo;
+   }
+   function get isExpo()
+   {
+      return this._bIsExpo;
    }
    function set isStreaming(bStreaming)
    {

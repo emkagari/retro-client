@@ -1,4 +1,3 @@
-844906709 - 1;
 class ank.battlefield.datacenter.Map extends Object
 {
    var _aLineOfSightCells;

@@ -1,5 +1,5 @@
 on(construct){
-   69033990 - 1;
+   382045075 - 1;
    cellRenderer = "EncyclopediaRessourcesViewerRessource";
    columnsProperties = [];
    columnsProperties[0] = "gfxID";

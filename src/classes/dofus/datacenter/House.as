@@ -106,12 +106,12 @@ class dofus.datacenter.House extends Object
    }
    function set guildEmblem(oGuildEmblem)
    {
-      this._aSkills = oGuildEmblem;
+      this._oGuildEmblem = oGuildEmblem;
       this.dispatchEvent({type:"guild",value:this});
    }
    function get guildEmblem()
    {
-      return this._aSkills;
+      return this._oGuildEmblem;
    }
    function set guildRights(nRights)
    {
@@ -142,12 +142,12 @@ class dofus.datacenter.House extends Object
    }
    function set isShared(bShared)
    {
-      this._oGuildEmblem = bShared;
+      this._aSkills = bShared;
       this.dispatchEvent({type:"shared",value:bShared});
    }
    function get isShared()
    {
-      return this._oGuildEmblem;
+      return this._aSkills;
    }
    function set coords(pCoords)
    {

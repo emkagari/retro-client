@@ -21,19 +21,19 @@ class dofus.datacenter.Rank extends Object
    }
    function get honour()
    {
-      return this._nDisgrace;
+      return this._nHonour;
    }
    function set honour(v)
    {
-      this._nDisgrace = v;
+      this._nHonour = v;
    }
    function get disgrace()
    {
-      return this._nHonour;
+      return this._nDisgrace;
    }
    function set disgrace(v)
    {
-      this._nHonour = v;
+      this._nDisgrace = v;
    }
    function get enable()
    {
@@ -46,12 +46,12 @@ class dofus.datacenter.Rank extends Object
    function initialize(nValue, nHonour, nDisgrace, bEnabled)
    {
       this._nValue = !(_global.isNaN(nValue) || nValue == undefined) ? nValue : 0;
-      this._nDisgrace = !(_global.isNaN(nHonour) || nHonour == undefined) ? nHonour : 0;
-      this._nHonour = !(_global.isNaN(nDisgrace) || nDisgrace == undefined) ? nDisgrace : 0;
+      this._nHonour = !(_global.isNaN(nHonour) || nHonour == undefined) ? nHonour : 0;
+      this._nDisgrace = !(_global.isNaN(nDisgrace) || nDisgrace == undefined) ? nDisgrace : 0;
       this._bEnabled = bEnabled != undefined ? bEnabled : false;
    }
    function clone()
    {
-      return new dofus.datacenter.Rank(this._nValue,this._nDisgrace,this._nHonour,this._bEnabled);
+      return new dofus.datacenter.Rank(this._nValue,this._nHonour,this._nDisgrace,this._bEnabled);
    }
 }

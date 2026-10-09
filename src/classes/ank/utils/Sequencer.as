@@ -1,4 +1,3 @@
-579110374 - 1;
 class ank.utils.Sequencer extends Object
 {
    var _aActions;

@@ -63,27 +63,27 @@ class dofus.graphics.gapi.controls.GuildBoostsViewer extends dofus.graphics.gapi
    {
       this._lblLP.text = this.api.lang.getText("LIFEPOINTS");
       this._lblBonus.text = this.api.lang.getText("DAMAGES_BONUS");
-      this._lblTaxSpells.text = this.api.lang.getText("DISCERNMENT");
-      this._lblBoostPodValue.text = this.api.lang.getText("WISDOM");
-      this._lblBoostPP.text = this.api.lang.getText("WEIGHT");
-      this._lblBoostPoints.text = this.api.lang.getText("TAX_COLLECTOR_COUNT");
-      this._lblBoostPod.text = this.api.lang.getText("GUILD_BONUSPOINTS");
+      this._lblBoostPopValue.text = this.api.lang.getText("DISCERNMENT");
+      this._lblBoostWisdomValue.text = this.api.lang.getText("WISDOM");
+      this._lblBoostPPValue.text = this.api.lang.getText("WEIGHT");
+      this._lblBoostPointsValue.text = this.api.lang.getText("TAX_COLLECTOR_COUNT");
+      this._lblBoostPodValue.text = this.api.lang.getText("GUILD_BONUSPOINTS");
       this._lblLevel.text = this.api.lang.getText("LEVEL_SMALL");
-      this._lblBoostPointsValue.text = this.api.lang.getText("GUILD_TAXSPELLS");
-      this._lblBoostPopValue.text = this.api.lang.getText("GUILD_TAXCHARACTERISTICS");
+      this._lblTaxCharacteristics.text = this.api.lang.getText("GUILD_TAXSPELLS");
+      this._lblTaxSpells.text = this.api.lang.getText("GUILD_TAXCHARACTERISTICS");
       this._lblDescription.text = this.api.lang.getText("GUILD_RIGHTS_BOOST") + " " + this.api.lang.getText("OF") + " " + this.api.lang.getText("TAXCOLLECTOR").toLowerCase();
    }
    function updateData()
    {
       this.gapi.hideTooltip();
       var _loc2_ = this.api.datacenter.Player.guildInfos;
-      this._lblLPValue.text = _loc2_.taxBonus + "";
-      this._lblBoostPPValue.text = _loc2_.boostProspection + "";
-      this._lblBoostWisdom.text = _loc2_.taxPod + "";
-      this._lblTaxCharacteristics.text = _loc2_.taxPP + "";
-      this._lblBonusValue.text = _loc2_.taxWisdom + "";
-      this._lblBoostWisdomValue.text = _loc2_.boostWisdom + "";
-      this._lblBoostPop.text = ank.utils.PatternDecoder.combine(this.api.lang.getText("POINTS",[_loc2_.boostPoints]),"m",_loc2_.boostPoints < 2);
+      this._lblLPValue.text = _loc2_.taxPP + "";
+      this._lblBoostPP.text = _loc2_.boostProspection + "";
+      this._lblBoostPod.text = _loc2_.taxPod + "";
+      this._lblBoostWisdom.text = _loc2_.taxWisdom + "";
+      this._lblBonusValue.text = _loc2_.taxCollectorWisdom + "";
+      this._lblBoostPop.text = _loc2_.maxMountParks + "";
+      this._lblBoostPoints.text = ank.utils.PatternDecoder.combine(this.api.lang.getText("POINTS",[_loc2_.boostPoints]),"m",_loc2_.boostPoints < 2);
       this._lstSpells.dataProvider = _loc2_.taxSpells;
       var _loc3_ = _loc2_.playerRights.canManageBoost && _loc2_.boostPoints > 0;
       this._btnBoostPod._visible = _loc3_ && _loc2_.canBoost("w");

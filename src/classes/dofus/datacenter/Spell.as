@@ -66,13 +66,13 @@ class dofus.datacenter.Spell extends Object
    {
       return this._nPosition;
    }
-   function set animID(nAnimID)
+   function set inFrontOfSprite(bInFrontOfSprite_)
    {
-      this._nAnimID = nAnimID;
+      this._bInFrontOfSprite = bInFrontOfSprite_;
    }
-   function get animID()
+   function get inFrontOfSprite()
    {
-      return this._nAnimID;
+      return this._bInFrontOfSprite;
    }
    function get summonSpell()
    {
@@ -86,13 +86,13 @@ class dofus.datacenter.Spell extends Object
    {
       return this.searchIfTrap(this.getSpellLevelText(0));
    }
-   function set inFrontOfSprite(bInFrontOfSprite_)
+   function set animID(nAnimID)
    {
-      this._bInFrontOfSprite = bInFrontOfSprite_;
+      this._nAnimID = nAnimID;
    }
-   function get inFrontOfSprite()
+   function get animID()
    {
-      return this._bInFrontOfSprite;
+      return this._nAnimID;
    }
    function get iconFile()
    {
@@ -108,7 +108,7 @@ class dofus.datacenter.Spell extends Object
    }
    function get file()
    {
-      return dofus.Constants.SPELLS_PATH + this._nAnimID + ".swf";
+      return dofus.Constants.SPELLS_PATH + this._bInFrontOfSprite + ".swf";
    }
    function get name()
    {

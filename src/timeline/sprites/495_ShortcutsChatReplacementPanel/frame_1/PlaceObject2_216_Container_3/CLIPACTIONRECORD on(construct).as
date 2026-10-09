@@ -1,5 +1,4 @@
 on(construct){
-   192077299 - 1;
    backgroundRenderer = "UI_ShortcutsPanelContainerBackground";
    borderRenderer = "UI_ShortcutsPanelContainerBorder";
    dragAndDrop = true;

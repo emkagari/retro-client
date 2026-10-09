@@ -5,9 +5,9 @@ class dofus.managers.GameManager extends dofus.utils.ApiElement
    var _nLastActivity;
    var _sLastClickedMessage;
    static var _sSelf = null;
-   var _bIsAllowingScale = [];
+   var _bAllowingScale = [];
    var _bIsFullScreen = false;
-   var _bAllowingScale = true;
+   var _bScaleAllowed = true;
    var _nLastSpellLaunch = 0;
    var _aTimeout = [];
    static var FIGHT_TYPE_CHALLENGE = 0;
@@ -34,11 +34,11 @@ class dofus.managers.GameManager extends dofus.utils.ApiElement
    }
    function get isAllowingScale()
    {
-      return this._bAllowingScale;
+      return this._bScaleAllowed;
    }
    function set isAllowingScale(value)
    {
-      this._bAllowingScale = value;
+      this._bScaleAllowed = value;
    }
    function set lastSpellLaunch(n)
    {
@@ -122,7 +122,6 @@ class dofus.managers.GameManager extends dofus.utils.ApiElement
       {
          _loc3_.pvpGain = 0;
       }
-      org.flashdevelop.utils.FlashConnect.trace("SHOW_PVP_GAIN_WARNING_POPUP : " + this.api.lang.getConfigText("SHOW_PVP_GAIN_WARNING_POPUP") + " (" + _loc3_.pvpGain + ")","dofus.managers.GameManager::askAttack","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/GameManager.as",207);
       switch(_loc3_.pvpGain)
       {
          case -1:
@@ -562,7 +561,6 @@ class dofus.managers.GameManager extends dofus.utils.ApiElement
                   _loc9_ = this.api.kernel.SpellsBoostsManager.getSpellModificator(dofus.managers.SpellsBoostsManager.ACTION_BOOST_SPELL_DMG,nSpell);
                }
             }
-            org.flashdevelop.utils.FlashConnect.trace("getSpellEffects " + _loc7_,"dofus.managers.GameManager::getSpellEffects","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/GameManager.as",824);
             _loc10_ = new dofus.datacenter.Effect(undefined,_loc8_,_loc7_[1],_loc7_[2],_loc7_[3],_loc7_[8],_loc7_[4],undefined,_loc9_,_loc7_[6],_loc7_[7]);
             _loc10_.probability = _loc7_[5];
             _loc4_.push(_loc10_);
@@ -1244,7 +1242,7 @@ class dofus.managers.GameManager extends dofus.utils.ApiElement
    }
    function getLastModified(nSlot)
    {
-      var _loc3_ = this._bIsAllowingScale[nSlot];
+      var _loc3_ = this._bAllowingScale[nSlot];
       if(_loc3_ == undefined || _global.isNaN(_loc3_))
       {
          return 0;
@@ -1257,7 +1255,7 @@ class dofus.managers.GameManager extends dofus.utils.ApiElement
       {
          return undefined;
       }
-      this._bIsAllowingScale[nSlot] = getTimer();
+      this._bAllowingScale[nSlot] = getTimer();
    }
    function getCriticalHitChance(nDice)
    {
@@ -1583,7 +1581,7 @@ class dofus.managers.GameManager extends dofus.utils.ApiElement
          this.stopInactivityDetector();
       }
    }
-   function get _aLastModified()
+   function get _bIsAllowingScale()
    {
       var _loc2_ = this.api.datacenter.Basics.team(this.api.datacenter.Sprites.getItemAt(this.api.datacenter.Player.ID).Team);
       var _loc3_ = 0;
@@ -1598,7 +1596,7 @@ class dofus.managers.GameManager extends dofus.utils.ApiElement
    }
    function get autoSkip()
    {
-      return !this._bFightActivity && (this._nFightTurnInactivity > 0 && (this._aLastModified > 1 && this.api.lang.getConfigText("FIGHT_AUTO_SKIP")));
+      return !this._bFightActivity && (this._nFightTurnInactivity > 0 && (this._bIsAllowingScale > 1 && this.api.lang.getConfigText("FIGHT_AUTO_SKIP")));
    }
    function signalFightActivity()
    {
@@ -1606,7 +1604,7 @@ class dofus.managers.GameManager extends dofus.utils.ApiElement
    }
    function onTurnEnd()
    {
-      if(!this._bFightActivity && (this.api.lang.getConfigText("FIGHT_AUTO_SKIP") && this._aLastModified > 1))
+      if(!this._bFightActivity && (this.api.lang.getConfigText("FIGHT_AUTO_SKIP") && this._bIsAllowingScale > 1))
       {
          this._nFightTurnInactivity = this._nFightTurnInactivity + 1;
          this.api.kernel.showMessage(undefined,this.api.lang.getText("INFIGHT_INACTIVITY_AUTO_SKIP"),"ERROR_CHAT");

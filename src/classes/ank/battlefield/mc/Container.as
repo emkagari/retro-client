@@ -33,8 +33,8 @@ class ank.battlefield.mc.Container extends MovieClip
    }
    function clear(bForceReload)
    {
-      this._sObjectsFile = 0;
-      this.maxDepth = -1000;
+      this.maxDepth = 0;
+      this._sObjectsFile = -1000;
       this.zoom(100);
       var _loc3_;
       var _loc4_;
@@ -48,7 +48,6 @@ class ank.battlefield.mc.Container extends MovieClip
          {
             this.ExternalContainer.clear();
          }
-         org.flashdevelop.utils.FlashConnect.trace("LOAD " + this.minDepth,"ank.battlefield.mc.Container::clear","C:\\Dev\\Projects\\client\\src\\ank-common\\classes/ank/battlefield/mc/Container.as",89);
          _loc3_.loadClip(this.minDepth,this.ExternalContainer);
       }
       else

@@ -1,4 +1,3 @@
-11094243 - 1;
 class dofus.ZaapConnect extends dofus.utils.ApiElement
 {
    var _api;

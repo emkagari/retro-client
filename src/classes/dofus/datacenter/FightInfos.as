@@ -30,11 +30,11 @@ class dofus.datacenter.FightInfos extends Object
    }
    function get team1IconFile()
    {
-      return dofus.Constants.getTeamFileFromType(this._nTeam1Count,this._nTeam1Type);
+      return dofus.Constants.getTeamFileFromType(this._nTeam1Type,this._nTeam1AlignmentIndex);
    }
    function get team1Count()
    {
-      return this._nTeam1AlignmentIndex;
+      return this._nTeam1Count;
    }
    function get team1Players()
    {
@@ -53,11 +53,11 @@ class dofus.datacenter.FightInfos extends Object
    }
    function get team2IconFile()
    {
-      return dofus.Constants.getTeamFileFromType(this._nTeam2Count,this._nTeam2Type);
+      return dofus.Constants.getTeamFileFromType(this._nTeam2Type,this._nTeam2AlignmentIndex);
    }
    function get team2Count()
    {
-      return this._nTeam2AlignmentIndex;
+      return this._nTeam2Count;
    }
    function get team2Players()
    {
@@ -85,14 +85,14 @@ class dofus.datacenter.FightInfos extends Object
       switch(nIndex)
       {
          case 1:
-            this._nTeam1Count = nType;
-            this._nTeam1Type = nAlignmentIndex;
-            this._nTeam1AlignmentIndex = nCount;
+            this._nTeam1Type = nType;
+            this._nTeam1AlignmentIndex = nAlignmentIndex;
+            this._nTeam1Count = nCount;
             break;
          case 2:
-            this._nTeam2Count = nType;
-            this._nTeam2Type = nAlignmentIndex;
-            this._nTeam2AlignmentIndex = nCount;
+            this._nTeam2Type = nType;
+            this._nTeam2AlignmentIndex = nAlignmentIndex;
+            this._nTeam2Count = nCount;
          default:
             return;
       }

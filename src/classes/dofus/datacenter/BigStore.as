@@ -55,13 +55,13 @@ class dofus.datacenter.BigStore extends dofus.datacenter.Shop
       }
       return _loc2_;
    }
-   function set tax(nTax)
+   function set tax(nTaxRate)
    {
-      this._eaInventory2 = nTax;
+      this._nTax = nTaxRate;
    }
    function get tax()
    {
-      return this._eaInventory2;
+      return this._nTax;
    }
    function set maxLevel(nMaxLevel)
    {
@@ -71,22 +71,22 @@ class dofus.datacenter.BigStore extends dofus.datacenter.Shop
    {
       return this._nMaxLevel;
    }
-   function set maxItemCount(nMaxItemCount)
+   function set maxItemCount(nTax)
    {
-      this._nMaxItemCount = nMaxItemCount;
+      this._eaInventory2 = nTax;
    }
    function get maxItemCount()
    {
-      return this._nMaxItemCount;
+      return this._eaInventory2;
    }
    function set inventory2(eaInventory)
    {
-      this._nTax = eaInventory;
+      this._nMaxItemCount = eaInventory;
       this.dispatchEvent({type:"modelChanged2"});
    }
    function get inventory2()
    {
-      return this._nTax;
+      return this._nMaxItemCount;
    }
    function refreshInventory(sEventType)
    {

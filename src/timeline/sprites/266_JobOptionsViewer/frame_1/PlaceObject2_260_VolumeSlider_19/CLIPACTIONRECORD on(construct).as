@@ -1,5 +1,4 @@
 on(construct){
-   740194817 - 1;
    enabled = true;
    markerCount = 7;
    markerSkin = "VolumeSliderMarkerDefault";

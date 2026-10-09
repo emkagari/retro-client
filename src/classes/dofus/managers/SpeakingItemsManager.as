@@ -1,4 +1,3 @@
-82026832 - 1;
 class dofus.managers.SpeakingItemsManager extends dofus.utils.ApiElement
 {
    var _eaItems;

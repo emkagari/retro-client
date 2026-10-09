@@ -1,3 +1,4 @@
+32845731 - 1;
 class dofus.graphics.gapi.ui.MakeReport extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _bAllAccounts;

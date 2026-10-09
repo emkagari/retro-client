@@ -1,4 +1,3 @@
-996643632 - 1;
 class dofus.graphics.gapi.ui.AchievementRewards extends dofus.graphics.gapi.core.MovableComponent
 {
    var _btnAchievementRewards;

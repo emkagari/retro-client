@@ -1,5 +1,4 @@
 on(construct){
-   199178511 - 1;
    cellRenderer = "UI_CharactersMigrationItem";
    columnsProperties = [];
    columnsProperties[0] = "sortIcon";

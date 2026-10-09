@@ -1,4 +1,3 @@
-462598660 - 1;
 class dofus.utils.consoleParsers.consoleCommands.ConsoleCommandNetwork
 {
    function ConsoleCommandNetwork()

@@ -1,3 +1,4 @@
+815249399 - 1;
 class dofus.Kernel extends dofus.utils.ApiElement
 {
    var AdminManager;
@@ -33,7 +34,6 @@ class dofus.Kernel extends dofus.utils.ApiElement
    function Kernel(oAPI)
    {
       super();
-      org.flashdevelop.utils.FlashConnect.trace("Kernel constructor " + oAPI,"dofus.Kernel::Kernel","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/Kernel.as",57);
       this.initialize(oAPI);
       if(this.AudioManager == null)
       {
@@ -169,7 +169,6 @@ class dofus.Kernel extends dofus.utils.ApiElement
       }
       if(this.api.config.isStreaming)
       {
-         org.flashdevelop.utils.FlashConnect.trace("[?!!] Mode streaming activé (" + this.api.config.streamingMethod + ")!","dofus.Kernel::start","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/Kernel.as",217);
          if(this.api.config.streamingMethod == "explod")
          {
             this.api.gfx.setStreaming(true,dofus.Constants.GFX_OBJECTS_PATH,dofus.Constants.GFX_GROUNDS_PATH);

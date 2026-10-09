@@ -1,4 +1,3 @@
-670451621 - 1;
 class dofus.graphics.gapi.ui.gameresult.GameResultPlayerLight extends ank.gapi.core.UIBasicComponent
 {
    var _lblKama;

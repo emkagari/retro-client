@@ -52,17 +52,17 @@ class dofus.graphics.gapi.ui.AutomaticServer extends dofus.graphics.gapi.core.Do
    {
       if(this.api.datacenter.Basics.first_connection_from_miniclip)
       {
-         this._taTitleLong.text = this.api.lang.getText("SERVER_FIRST_CONNECTION_MINICLIP");
-         this._mcBgTitle._visible = false;
+         this._lblAutomaticSelect.text = this.api.lang.getText("SERVER_FIRST_CONNECTION_MINICLIP");
+         this._taTitleLong._visible = false;
       }
       else
       {
          this._lblTitle.text = this.api.lang.getText("CHOOSE_GAME_SERVER");
-         this._lblManualSelect._visible = false;
+         this._mcBgLongTitle._visible = false;
       }
       this._lblCopyright.text = this.api.lang.getText("COPYRIGHT",[new Date().getUTCFullYear()]);
-      this._mcBgLongTitle.text = this.api.lang.getText("AUTOMATIC_SERVER_SELECTION");
-      this._lblAutomaticSelect.text = this.api.lang.getText("MANUAL_SERVER_SELECT");
+      this._lblManualSelect.text = this.api.lang.getText("AUTOMATIC_SERVER_SELECTION");
+      this._mcBgTitle.text = this.api.lang.getText("MANUAL_SERVER_SELECT");
    }
    function getLessPopulatedServer(eaServers)
    {

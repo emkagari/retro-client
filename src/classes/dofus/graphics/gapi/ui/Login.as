@@ -226,13 +226,13 @@ class dofus.graphics.gapi.ui.Login extends dofus.graphics.gapi.core.DofusAdvance
       this._cbPorts._visible = false;
       this._lblRememberMe._visible = false;
       this._btnRememberMe._visible = false;
-      this._mcAdvancedBackground._visible = false;
+      this._mcMembersBackground._visible = false;
       this._btnTestServer._visible = dofus.Constants.TEST;
       if(!dofus.Constants.TEST && !dofus.Constants.ALPHA)
       {
          this._lblTestServer._visible = false;
          this._lblTestServerInfo._visible = false;
-         this._mcMembersBackground._visible = false;
+         this._mcBgServerStatus._visible = false;
       }
       this._mcBanner.gotoAndStop(random(5) + 1);
       this.addToQueue({object:this,method:this.addListeners});
@@ -453,7 +453,6 @@ class dofus.graphics.gapi.ui.Login extends dofus.graphics.gapi.core.DofusAdvance
       this._btnBackToNews.label = this.api.lang.getText("BACK_TO_NEWS");
       this._lblGoToStatus.text = this.api.lang.getText("GO_TO_STATUS");
       this._lblRememberMe.text = this.api.lang.getText("REMEMBER_ME");
-      org.flashdevelop.utils.FlashConnect.trace("api.config.isStreaming : " + _global.CONFIG.isStreaming,"dofus.graphics.gapi.ui.Login::initTexts","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/Login.as",584);
       if(_global.CONFIG.isStreaming)
       {
          this._lblAccount.text = this.api.lang.getText("STREAMING_LOGIN_ACCOUNT");
@@ -696,7 +695,7 @@ class dofus.graphics.gapi.ui.Login extends dofus.graphics.gapi.core.DofusAdvance
    }
    function showServerStatus()
    {
-      this._mcBgServerStatus._visible = true;
+      this._mcBackgroundHidder._visible = true;
       this._mcServerStateBackground._visible = true;
       this._lblServerStatusTitle._visible = true;
       this._taServerStatus._visible = true;
@@ -707,7 +706,7 @@ class dofus.graphics.gapi.ui.Login extends dofus.graphics.gapi.core.DofusAdvance
    }
    function hideServerStatus()
    {
-      this._mcBgServerStatus._visible = false;
+      this._mcBackgroundHidder._visible = false;
       this._mcServerStateBackground._visible = false;
       this._lblServerStatusTitle._visible = false;
       this._taServerStatus._visible = false;
@@ -818,7 +817,6 @@ class dofus.graphics.gapi.ui.Login extends dofus.graphics.gapi.core.DofusAdvance
    {
       var _loc3_ = this.api.ui.getUIComponent("ChooseNickName");
       var _loc4_ = this.api.ui.getUIComponent("AskOkOnLogin");
-      org.flashdevelop.utils.FlashConnect.trace(sShortcut,"dofus.graphics.gapi.ui.Login::onShortcut","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/Login.as",1017);
       if(sShortcut == "ACCEPT_CURRENT_DIALOG" && (Selection.getFocus() != undefined && (_loc3_ == undefined && _loc4_ == undefined || _loc3_ == null && _loc4_ == null)))
       {
          this.onLogin(this._tiAccount.text,this._tiPassword.text);
@@ -959,7 +957,6 @@ class dofus.graphics.gapi.ui.Login extends dofus.graphics.gapi.core.DofusAdvance
             _loc7_.push(_loc6_[(_loc8_ + _loc9_) % _loc6_.length]);
             _loc9_ = _loc9_ + 1;
          }
-         org.flashdevelop.utils.FlashConnect.trace("[Login] (onLogin) IP : " + _loc7_,"dofus.graphics.gapi.ui.Login::onLogin","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/Login.as",1240);
          this.api.datacenter.Basics.aks_connection_server = _loc7_;
          this._sServerIP = String(_loc7_.shift());
       }
@@ -1037,7 +1034,6 @@ class dofus.graphics.gapi.ui.Login extends dofus.graphics.gapi.core.DofusAdvance
             }
             else
             {
-               org.flashdevelop.utils.FlashConnect.trace("open : " + this.api.lang.getConfigText("REGISTER_POPUP_LINK"),"dofus.graphics.gapi.ui.Login::click","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/Login.as",1336);
                this.getURL(this.api.lang.getConfigText("REGISTER_POPUP_LINK"),"_blank");
             }
             return;
@@ -1099,10 +1095,10 @@ class dofus.graphics.gapi.ui.Login extends dofus.graphics.gapi.core.DofusAdvance
                this._mcMaskNL._visible = this.api.datacenter.Basics.aks_community_id != 7;
                this._mcMaskIT._visible = this.api.datacenter.Basics.aks_community_id != 9;
             }
-            this._mcBackgroundHidder._y += !this._btnDetails.selected ? -30 : 30;
+            this._mcAdvancedBackground._y += !this._btnDetails.selected ? -30 : 30;
             this._lblRememberMe._visible = this._btnDetails.selected;
             this._btnRememberMe._visible = this._btnDetails.selected;
-            this._mcAdvancedBackground._visible = this._btnDetails.selected;
+            this._mcMembersBackground._visible = this._btnDetails.selected;
             this._cbPorts._visible = this._btnDetails.selected;
             this._btnTestServer._visible = !dofus.Constants.TEST ? this._btnDetails.selected && (this.api.lang.getConfigText("TEST_SERVER_ACCESS") && !this.api.config.isStreaming) : true;
             this._lblDetails.text = !this._btnDetails.selected ? this.api.lang.getText("ADVANCED_LOGIN") + " >>" : "<< " + this.api.lang.getText("ADVANCED_LOGIN");

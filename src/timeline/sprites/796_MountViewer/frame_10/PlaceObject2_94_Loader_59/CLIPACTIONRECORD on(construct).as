@@ -1,5 +1,4 @@
 on(construct){
-   824636799 - 1;
    autoLoad = true;
    centerContent = false;
    contentPath = "";

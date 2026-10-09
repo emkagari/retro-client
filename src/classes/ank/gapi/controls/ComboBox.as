@@ -1,4 +1,3 @@
-536744724 - 1;
 class ank.gapi.controls.ComboBox extends ank.gapi.core.UIBasicComponent
 {
    var __height;

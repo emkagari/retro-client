@@ -39,7 +39,7 @@ class dofus.graphics.gapi.ui.JoinFriend extends dofus.graphics.gapi.core.DofusAd
    function addListeners()
    {
       var ref = this;
-      this._mcJoinButton.onRelease = function()
+      this._lblDirectPlay.onRelease = function()
       {
          this._parent.click({target:this});
       };
@@ -69,8 +69,8 @@ class dofus.graphics.gapi.ui.JoinFriend extends dofus.graphics.gapi.core.DofusAd
    {
       this._lblTitle.text = this.api.lang.getText("JOIN_FRIEND_SERVER");
       this._lblCopyright.text = this.api.lang.getText("COPYRIGHT",[new Date().getUTCFullYear()]);
-      this._lblDownload.text = this.api.lang.getText("DIRECT_PLAY");
-      this._lblDirectPlay.text = this.api.lang.getText("JOIN_FRIEND_INVITE");
+      this._mcJoinButton.text = this.api.lang.getText("DIRECT_PLAY");
+      this._lblDownload.text = this.api.lang.getText("JOIN_FRIEND_INVITE");
    }
    function getLessPopulatedServer(eaServers)
    {

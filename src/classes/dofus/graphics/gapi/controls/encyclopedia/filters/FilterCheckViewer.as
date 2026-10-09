@@ -1,4 +1,3 @@
-649530823 - 1;
 class dofus.graphics.gapi.controls.encyclopedia.filters.FilterCheckViewer extends dofus.graphics.gapi.controls.encyclopedia.filters.UIBasicFilter
 {
    var _btnCheck;

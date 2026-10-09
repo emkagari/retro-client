@@ -1,4 +1,4 @@
-76931638 - 1;
+987652468 - 1;
 class dofus.managers.NameCustomizationManager extends Object
 {
    var _eaTitles;

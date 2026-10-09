@@ -1,4 +1,3 @@
-294475174 - 1;
 class dofus.datacenter.modreport.ModReportPlayerEntityInfos
 {
    var _bIsOnline;

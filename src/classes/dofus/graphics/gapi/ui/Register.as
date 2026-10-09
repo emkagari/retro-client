@@ -1,4 +1,3 @@
-781066968 - 1;
 class dofus.graphics.gapi.ui.Register extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _aHearAboutIDs;

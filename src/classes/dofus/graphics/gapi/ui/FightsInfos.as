@@ -63,7 +63,7 @@ class dofus.graphics.gapi.ui.FightsInfos extends dofus.graphics.gapi.core.DofusA
       this.addToQueue({object:this,method:this.initData});
       this.addToQueue({object:this.api.network.Fights,method:this.api.network.Fights.getList});
       this.setMovieClipColor(this._mcSquare1,dofus.Constants.TEAMS_COLOR[0]);
-      this.setMovieClipColor(this._mcSquare2,dofus.Constants.TEAMS_COLOR[1]);
+      this.setMovieClipColor(this._lblPlayers,dofus.Constants.TEAMS_COLOR[1]);
    }
    function initTexts()
    {
@@ -71,7 +71,7 @@ class dofus.graphics.gapi.ui.FightsInfos extends dofus.graphics.gapi.core.DofusA
       this._btnJoin.label = this.api.lang.getText("JOIN_SMALL");
       this._winBg.title = this.api.lang.getText("CURRENT_FIGTHS");
       this._dgFights.columnsNames = [this.api.lang.getText("FIGHTERS_COUNT"),this.api.lang.getText("DURATION")];
-      this._lblPlayers.text = this.api.lang.getText("FIGHTERS");
+      this._mcBackTeam.text = this.api.lang.getText("FIGHTERS");
       this._txtSelectFight.text = this.api.lang.getText("SELECT_FIGHT_FOR_SPECTATOR");
       if(this._lblTeam1Level.text != undefined)
       {
@@ -102,9 +102,9 @@ class dofus.graphics.gapi.ui.FightsInfos extends dofus.graphics.gapi.core.DofusA
       this._lblTeam2Level._visible = bShow;
       this._lstTeam1._visible = bShow;
       this._lstTeam2._visible = bShow;
-      this._mcBackTeam._visible = bShow;
-      this._mcSquare1._visible = bShow;
       this._mcSquare2._visible = bShow;
+      this._mcSquare1._visible = bShow;
+      this._lblPlayers._visible = bShow;
       this._txtSelectFight._visible = !bShow;
       this._btnJoin.enabled = bShow;
       if(bShow)

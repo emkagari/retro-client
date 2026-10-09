@@ -1,6 +1,5 @@
 class dofus.graphics.gapi.Gapi extends ank.gapi.Gapi
 {
-   var api;
    function Gapi()
    {
       super();

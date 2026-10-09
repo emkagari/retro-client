@@ -126,7 +126,7 @@ class dofus.graphics.gapi.controls.ConquestStatsViewer extends dofus.graphics.ga
       _loc2_.push({type:this.api.lang.getText("EXPERIMENT"),bonus:(_loc4_.drop != 0 ? "+" + _loc3_.xp * _loc4_.xp + "% (" + _loc3_.xp + "% x" + _loc4_.xp + ")" : "0%"),malus:_loc5_.xp + "%"});
       _loc2_.push({type:this.api.lang.getText("COLLECT"),bonus:(_loc4_.drop != 0 ? "+" + _loc3_.drop_ * _loc4_.drop_ + "% (" + _loc3_.drop_ + "% x" + _loc4_.drop_ + ")" : "0%"),malus:_loc5_.drop_ + "%"});
       _loc2_.push({type:this.api.lang.getText("LOOT"),bonus:(_loc4_.drop != 0 ? "+" + _loc3_.drop * _loc4_.drop + "% (" + _loc3_.drop + "% x" + _loc4_.drop + ")" : "0%"),malus:_loc5_.drop + "%"});
-      this._lstBonuses.dataProvider = _loc2_;
+      this._mcDishonour.dataProvider = _loc2_;
    }
    function updatePvPHuntFinderButtons()
    {
@@ -164,11 +164,11 @@ class dofus.graphics.gapi.controls.ConquestStatsViewer extends dofus.graphics.ga
       };
       this._pbDishonour.maximum = this.api.lang.getMaxDisgracePoints();
       this._pbDishonour.value = this._oRank.disgrace;
-      this._mcDishonour.onRollOver = function()
+      this._lstBonuses.onRollOver = function()
       {
          this._parent.gapi.showTooltip(new ank.utils.ExtendedString(this._parent._oRank.disgrace).addMiddleChar(this._parent.api.lang.getConfigText("THOUSAND_SEPARATOR"),3) + " / " + new ank.utils.ExtendedString(this._parent._pbDishonour.maximum).addMiddleChar(this._parent.api.lang.getConfigText("THOUSAND_SEPARATOR"),3));
       };
-      this._mcDishonour.onRollOut = function()
+      this._lstBonuses.onRollOut = function()
       {
          this._parent.gapi.hideTooltip();
       };

@@ -1,3 +1,4 @@
+581595560 - 1;
 class dofus.graphics.gapi.ui.AskYesNo extends ank.gapi.ui.FlyWindow
 {
    var _sText;

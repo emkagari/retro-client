@@ -1,3 +1,4 @@
+278477260 - 1;
 class dofus.datacenter.Team extends ank.battlefield.datacenter.Sprite
 {
    var _aPlayers;
@@ -58,7 +59,7 @@ class dofus.datacenter.Team extends ank.battlefield.datacenter.Sprite
       }
       return _loc2_.substr(1);
    }
-   function get _nBonusValue()
+   function get _bForceWalk()
    {
       var _loc2_ = 0;
       for(var k in this._aPlayers)

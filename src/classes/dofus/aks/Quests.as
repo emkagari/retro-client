@@ -1,4 +1,3 @@
-14565283 - 1;
 class dofus.aks.Quests extends dofus.aks.Handler
 {
    var aks;

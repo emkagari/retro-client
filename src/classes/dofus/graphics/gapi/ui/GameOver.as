@@ -25,7 +25,7 @@ class dofus.graphics.gapi.ui.GameOver extends dofus.graphics.gapi.core.DofusAdva
    }
    function initTexts()
    {
-      this._btnReplay.text = this.api.lang.getText("REPLAY_WORD");
+      this._lblReplay.text = this.api.lang.getText("REPLAY_WORD");
    }
    function addListeners()
    {
@@ -37,7 +37,7 @@ class dofus.graphics.gapi.ui.GameOver extends dofus.graphics.gapi.core.DofusAdva
    }
    function initBg()
    {
-      this._lblReplay.contentPath = dofus.Constants.ILLU_PATH + "gameover.swf";
+      this._btnReplay.contentPath = dofus.Constants.ILLU_PATH + "gameover.swf";
    }
    function initLol()
    {

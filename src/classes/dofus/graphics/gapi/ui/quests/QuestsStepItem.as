@@ -1,4 +1,3 @@
-760017082 - 1;
 class dofus.graphics.gapi.ui.quests.QuestsStepItem extends ank.gapi.core.UIBasicComponent
 {
    var _lblName;

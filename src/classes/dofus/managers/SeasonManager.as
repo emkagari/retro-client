@@ -20,9 +20,9 @@ class dofus.managers.SeasonManager extends Object
    {
       return this.eaRewards;
    }
-   function set score(nValue_)
+   function set score(nValue)
    {
-      this.nScore = nValue_;
+      this.nScore = nValue;
    }
    function get score()
    {

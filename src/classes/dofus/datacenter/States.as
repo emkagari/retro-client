@@ -1,3 +1,4 @@
+406355188 - 1;
 class dofus.datacenter.States
 {
    static var STATE_TEMPORIS_1_NEW_SRAM = 1073;

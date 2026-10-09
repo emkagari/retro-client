@@ -261,7 +261,7 @@ class dofus.graphics.gapi.ui.BigStoreBuy extends dofus.graphics.gapi.core.DofusA
       this._winBackground.title = this.api.lang.getText("BIGSTORE") + (this._oData != undefined ? " (" + this.api.lang.getText("BIGSTORE_MAX_LEVEL") + " : " + this._oData.maxLevel + ")" : "");
       this._lblItems.text = this.api.lang.getText("BIGSTORE_ITEM_LIST");
       this._lblItemType.text = this.api.lang.getText("ITEM_TYPE");
-      this._lblTypes.text = this.api.lang.getText("WALLET") + " :";
+      this._lblKamas.text = this.api.lang.getText("WALLET") + " :";
       this._btnClose2.label = this.api.lang.getText("CLOSE");
       this._btnSearch.label = this.api.lang.getText("SEARCH");
       this._btnSwitchToSell.label = this.api.lang.getText("BIGSTORE_MODE_SELL");
@@ -556,7 +556,7 @@ class dofus.graphics.gapi.ui.BigStoreBuy extends dofus.graphics.gapi.core.DofusA
    }
    function kamaChanged(oEvent)
    {
-      this._lblKamas.text = new ank.utils.ExtendedString(oEvent.value).addMiddleChar(this.api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
+      this._lblTypes.text = new ank.utils.ExtendedString(oEvent.value).addMiddleChar(this.api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
    }
    function over(oEvent)
    {

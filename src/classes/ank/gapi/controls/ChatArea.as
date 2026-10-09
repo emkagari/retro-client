@@ -18,11 +18,11 @@ class ank.gapi.controls.ChatArea extends ank.gapi.core.UIBasicComponent
    static var CLASS_NAME = "ChatArea";
    static var STOP_SCROLL_LENGTH = 6;
    var _bSelectable = false;
-   var _bWordWrap = true;
+   var getStyle_ = true;
    var _sScrollBarSide = "right";
    var _nScrollBarMargin = 0;
    var _bHideScrollBar = false;
-   var _bUseMouseWheel = true;
+   var _bWordWrap = true;
    var _bInvalidateMaxScrollStop = false;
    var _nPreviousMaxscroll = 1;
    var _nScrollPosition = 1;
@@ -53,7 +53,7 @@ class ank.gapi.controls.ChatArea extends ank.gapi.core.UIBasicComponent
    }
    function set wordWrap(bWordWrap)
    {
-      this._bWordWrap = bWordWrap;
+      this.getStyle_ = bWordWrap;
       if(this._bInitialized)
       {
          this.addToQueue({object:this,method:this.setTextFieldProperties});
@@ -61,7 +61,7 @@ class ank.gapi.controls.ChatArea extends ank.gapi.core.UIBasicComponent
    }
    function get wordWrap()
    {
-      return this._bWordWrap;
+      return this.getStyle_;
    }
    function set text(sText)
    {
@@ -103,13 +103,13 @@ class ank.gapi.controls.ChatArea extends ank.gapi.core.UIBasicComponent
    {
       return this._bHideScrollBar;
    }
-   function set useMouseWheel(bUseMouseWheel)
+   function set chatWordWrap(bChatWordWrap)
    {
-      this._bUseMouseWheel = bUseMouseWheel;
+      this._bWordWrap = bChatWordWrap;
    }
-   function get useMouseWheel()
+   function get chatWordWrap()
    {
-      return this._bUseMouseWheel;
+      return this._bWordWrap;
    }
    function init()
    {
@@ -172,7 +172,7 @@ class ank.gapi.controls.ChatArea extends ank.gapi.core.UIBasicComponent
       }
       this._tText._visible = false;
       this._tText.selectable = this._bSelectable;
-      this._tText.wordWrap = !this._bWordWrap ? false : true;
+      this._tText.wordWrap = !this.getStyle_ ? false : true;
       this._tText.multiline = true;
       this._tText.embedFonts = this.getStyle().embedfonts;
       this._tText.type = "dynamic";
@@ -243,7 +243,7 @@ class ank.gapi.controls.ChatArea extends ank.gapi.core.UIBasicComponent
       {
          return undefined;
       }
-      if(!this._bUseMouseWheel)
+      if(!this._bWordWrap)
       {
          return undefined;
       }

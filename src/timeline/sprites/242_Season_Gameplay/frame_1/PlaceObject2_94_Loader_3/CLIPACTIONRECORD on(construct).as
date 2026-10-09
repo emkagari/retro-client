@@ -1,5 +1,4 @@
 on(construct){
-   799135002 - 1;
    autoLoad = true;
    centerContent = false;
    contentPath = "clips/evenementials/season/1/ui/1.swf";

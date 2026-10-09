@@ -22,17 +22,14 @@ class dofus.sounds.AudioElement extends Sound implements com.ankamagames.interfa
    {
       if(uniqID == undefined)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.NullPointerException(this,"AudioElement","","uniqID"),"dofus.sounds.AudioElement::AudioElement","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioElement.as",245);
          return;
       }
       if(file == undefined)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.NullPointerException(this,"AudioElement","","file"),"dofus.sounds.AudioElement::AudioElement","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioElement.as",250);
          return;
       }
       if(linkedClip == undefined)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.NullPointerException(this,"AudioElement","","linkedClip"),"dofus.sounds.AudioElement::AudioElement","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioElement.as",255);
          return;
       }
       this._nUniqID = uniqID;
@@ -75,7 +72,6 @@ class dofus.sounds.AudioElement extends Sound implements com.ankamagames.interfa
    {
       if(nValue < 0 || nValue > 100)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.ValueOutOfRangeException(this,"AudioElement","set volume","nValue",nValue,0,100),"dofus.sounds.AudioElement::volume","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioElement.as",115);
          return undefined;
       }
       if(!this._bMute && super.setVolume != undefined)
@@ -117,7 +113,6 @@ class dofus.sounds.AudioElement extends Sound implements com.ankamagames.interfa
    {
       if(nValue < dofus.sounds.AudioElement.ONESHOT_SAMPLE || nValue > dofus.sounds.AudioElement.INFINITE_LOOP)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.ValueOutOfRangeException(this,"AudioElement","set loops","nValue",nValue,dofus.sounds.AudioElement.ONESHOT_SAMPLE,dofus.sounds.AudioElement.INFINITE_LOOP),"dofus.sounds.AudioElement::loops","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioElement.as",172);
          return;
       }
       this._nLoops = nValue;
@@ -126,27 +121,25 @@ class dofus.sounds.AudioElement extends Sound implements com.ankamagames.interfa
    {
       return this._nOffset;
    }
-   function set offset(nValue_)
+   function set offset(nValue)
    {
-      if(nValue_ < 0 || this._nMaxLength != null && nValue_ > this._nMaxLength)
+      if(nValue < 0 || this._nMaxLength != null && nValue > this._nMaxLength)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.ValueOutOfRangeException(this,"AudioElement","set offset","nValue",nValue_,0,this._nMaxLength != null ? this._nMaxLength : Number.POSITIVE_INFINITY),"dofus.sounds.AudioElement::offset","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioElement.as",197);
          return;
       }
-      this._nOffset = nValue_;
+      this._nOffset = nValue;
    }
    function get maxLength()
    {
       return this._nMaxLength;
    }
-   function set maxLength(nValue_)
+   function set maxLength(nValue)
    {
-      if(nValue_ < 0)
+      if(nValue < 0)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.ValueOutOfRangeException(this,"AudioElement","set maxLength","nValue",nValue_,0,Number.POSITIVE_INFINITY),"dofus.sounds.AudioElement::maxLength","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioElement.as",222);
          return;
       }
-      this._nMaxLength = nValue_;
+      this._nMaxLength = nValue;
    }
    function dispose(Void)
    {
@@ -226,7 +219,6 @@ class dofus.sounds.AudioElement extends Sound implements com.ankamagames.interfa
    {
       if(!bSuccess)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.FileLoadException(this,"AudioElement","onLoad",this._sFile),"dofus.sounds.AudioElement::onLoad","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioElement.as",429);
          return undefined;
       }
       this._bLoaded = true;

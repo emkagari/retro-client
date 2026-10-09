@@ -1,5 +1,4 @@
 on(construct){
-   65984999 - 1;
    autoLoad = true;
    centerContent = false;
    contentPath = "EbonyDofus";

@@ -1,3 +1,4 @@
+285245284 - 1;
 class ank.battlefield.utils.SpriteDepthFinder
 {
    function SpriteDepthFinder()

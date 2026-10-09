@@ -137,7 +137,6 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaConsumablesViewer ex
    function updateData()
    {
       var _loc2_ = new ank.utils.ExtendedArray();
-      org.flashdevelop.utils.FlashConnect.trace("Filtre de " + dofus.graphics.gapi.controls.encyclopedia.EncyclopediaConsumablesViewer._eaData.length + " consommables","dofus.graphics.gapi.controls.encyclopedia.EncyclopediaConsumablesViewer::updateData","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/controls/encyclopedia/EncyclopediaConsumablesViewer.as",209);
       var _loc3_ = 0;
       var _loc4_;
       while(_loc3_ < dofus.graphics.gapi.controls.encyclopedia.EncyclopediaConsumablesViewer._eaData.length)

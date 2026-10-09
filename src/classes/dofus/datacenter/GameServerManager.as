@@ -1,4 +1,3 @@
-564897362 - 1;
 class dofus.datacenter.GameServerManager extends Object
 {
    var _nDropBonusForServer = 100;

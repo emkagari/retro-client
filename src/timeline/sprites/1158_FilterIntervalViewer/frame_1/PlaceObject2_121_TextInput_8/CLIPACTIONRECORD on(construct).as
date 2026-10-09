@@ -1,4 +1,5 @@
 on(construct){
+   319739691 - 1;
    enabled = true;
    html = false;
    maxChars = 4;

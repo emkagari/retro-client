@@ -1,5 +1,4 @@
 on(construct){
-   464440413 - 1;
    backgroundDown = "ButtonMinimizeDown";
    backgroundUp = "ButtonMinimizeUp";
    enabled = true;

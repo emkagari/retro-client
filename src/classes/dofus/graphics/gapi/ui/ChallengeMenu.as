@@ -19,7 +19,7 @@ class dofus.graphics.gapi.ui.ChallengeMenu extends dofus.graphics.gapi.core.Dofu
    }
    function set labelReady(sReadyLabel)
    {
-      this._btnReady = sReadyLabel;
+      this._sLabelCancel = sReadyLabel;
    }
    function set labelCancel(sLabelReady)
    {
@@ -29,7 +29,7 @@ class dofus.graphics.gapi.ui.ChallengeMenu extends dofus.graphics.gapi.core.Dofu
    {
       this._bCancelButton = bCancelButton;
       this._btnCancel._visible = bCancelButton;
-      this._sLabelCancel._visible = bCancelButton;
+      this._btnReady._visible = bCancelButton;
       if(!bCancelButton)
       {
          this._mcBackground._x += dofus.graphics.gapi.ui.ChallengeMenu.X_OFFSET;
@@ -53,10 +53,10 @@ class dofus.graphics.gapi.ui.ChallengeMenu extends dofus.graphics.gapi.core.Dofu
    }
    function setLabels()
    {
-      this._lblReady.text = this._btnReady;
+      this._lblReady.text = this._sLabelCancel;
       if(this._bCancelButton)
       {
-         this._sLabelCancel.text = this._sLabelReady;
+         this._btnReady.text = this._sLabelReady;
       }
    }
    function sendReadyState()

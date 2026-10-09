@@ -1,4 +1,3 @@
-168514332 - 1;
 class ank.gapi.controls.VolumeSlider extends ank.gapi.core.UIBasicComponent
 {
    var __height;

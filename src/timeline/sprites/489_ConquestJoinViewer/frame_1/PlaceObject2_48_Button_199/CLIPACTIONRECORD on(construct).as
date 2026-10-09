@@ -1,5 +1,4 @@
 on(construct){
-   892275021 - 1;
    backgroundDown = "ButtonJoinTaxCollectorDown";
    backgroundUp = "ButtonJoinTaxCollectorUp";
    enabled = true;

@@ -1,4 +1,3 @@
-852191840 - 1;
 class dofus.graphics.battlefield.SmileyOverHead extends MovieClip
 {
    function SmileyOverHead(nSmileyID)

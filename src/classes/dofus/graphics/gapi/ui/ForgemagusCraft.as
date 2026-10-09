@@ -89,7 +89,7 @@ class dofus.graphics.gapi.ui.ForgemagusCraft extends dofus.graphics.gapi.core.Do
       this._eaDataProvider.addEventListener("modelChanged",this);
       this.modelChanged();
    }
-   function set distantDataProvider(eaDistantDataProvider)
+   function set _nDistantReadyState(eaDistantDataProvider)
    {
       this._eaLocalDataProvider.removeEventListener("modelChanged",this);
       this._eaLocalDataProvider = eaDistantDataProvider;
@@ -211,7 +211,7 @@ class dofus.graphics.gapi.ui.ForgemagusCraft extends dofus.graphics.gapi.core.Do
    function initData()
    {
       this.dataProvider = this.api.datacenter.Exchange.inventory;
-      this.distantDataProvider = this.api.datacenter.Exchange.localGarbage;
+      this._nDistantReadyState = this.api.datacenter.Exchange.localGarbage;
       this._mcBlinkPay = this.api.datacenter.Exchange.distantGarbage;
       this.updateData(true);
    }

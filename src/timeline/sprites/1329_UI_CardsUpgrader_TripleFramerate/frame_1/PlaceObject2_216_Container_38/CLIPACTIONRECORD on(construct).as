@@ -1,5 +1,4 @@
 on(construct){
-   94397639 - 1;
    backgroundRenderer = "UI_CardGridBackground";
    borderRenderer = "";
    dragAndDrop = true;

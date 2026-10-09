@@ -1,5 +1,4 @@
 on(construct){
-   726560808 - 1;
    enabled = true;
    scrollBar = false;
    selectable = true;

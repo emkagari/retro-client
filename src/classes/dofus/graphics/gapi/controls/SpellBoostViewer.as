@@ -55,18 +55,18 @@ class dofus.graphics.gapi.controls.SpellBoostViewer extends dofus.graphics.gapi.
          this._ldrIcon.contentParams = this._oSpell.params;
          this._ldrIcon.contentPath = this._oSpell.iconFile;
          this._lblName.text = this._oSpell.name;
-         this._lblRange1.text = this.api.lang.getText("LEVEL") + " " + this._oSpell.level;
-         this._lblLevel1.text = this._oSpell.apCost + " " + this.api.lang.getText("AP");
-         this._lblLevel2.text = this._oSpell.rangeStr + " " + this.api.lang.getText("RANGE");
-         this._txtDamages2.text = this._oSpell.descriptionNormalHit;
-         this._txtCritical2.text = this._oSpell.descriptionCriticalHit != undefined ? this._oSpell.descriptionCriticalHit : "";
-         this._lblRange2._visible = this._oSpell.descriptionCriticalHit != undefined;
+         this._lblNew.text = this.api.lang.getText("LEVEL") + " " + this._oSpell.level;
+         this._lblLevel2.text = this._oSpell.apCost + " " + this.api.lang.getText("AP");
+         this._txtDamages1.text = this._oSpell.rangeStr + " " + this.api.lang.getText("RANGE");
+         this._lblLevel1.text = this._oSpell.descriptionNormalHit;
+         this._txtDamages2.text = this._oSpell.descriptionCriticalHit != undefined ? this._oSpell.descriptionCriticalHit : "";
+         this._txtCritical2._visible = this._oSpell.descriptionCriticalHit != undefined;
          this._oSpell.level += 1;
-         this._txtDamages1.text = this.api.lang.getText("LEVEL") + " " + this._oSpell.level;
-         this._lblAP1.text = this._oSpell.apCost + " " + this.api.lang.getText("AP");
-         this._lblAP2.text = this._oSpell.rangeStr + " " + this.api.lang.getText("RANGE");
-         this._lblNew.text = this._oSpell.descriptionNormalHit;
-         this._txtCritical1.text = this._oSpell.descriptionCriticalHit != undefined ? this._oSpell.descriptionCriticalHit : "";
+         this._lblRange1.text = this.api.lang.getText("LEVEL") + " " + this._oSpell.level;
+         this._lblRange2.text = this._oSpell.apCost + " " + this.api.lang.getText("AP");
+         this._txtCritical1.text = this._oSpell.rangeStr + " " + this.api.lang.getText("RANGE");
+         this._lblAP1.text = this._oSpell.descriptionNormalHit;
+         this._lblAP2.text = this._oSpell.descriptionCriticalHit != undefined ? this._oSpell.descriptionCriticalHit : "";
          this._oSpell.level -= 1;
       }
    }

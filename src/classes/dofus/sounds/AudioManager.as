@@ -39,7 +39,6 @@ class dofus.sounds.AudioManager extends dofus.utils.ApiElement
       super();
       if(dofus.sounds.AudioManager._mcSoundNest == null)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.NullPointerException(this,"AudioManager","","_mcSoundNest"),"dofus.sounds.AudioManager::AudioManager","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioManager.as",200);
          return;
       }
    }
@@ -184,7 +183,6 @@ class dofus.sounds.AudioManager extends dofus.utils.ApiElement
    {
       if(!dofus.sounds.AudioManager._bInitialized)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.InvalidOperationException(null,"AudioManager","getInstance","Can\'t request an AudioManager\'s instance before initializing it."),"dofus.sounds.AudioManager::getInstance","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioManager.as",238);
          return null;
       }
       if(dofus.sounds.AudioManager.instance == null)
@@ -218,7 +216,6 @@ class dofus.sounds.AudioManager extends dofus.utils.ApiElement
       {
          if(!dofus.Constants.USING_PACKED_SOUNDS)
          {
-            org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.NullPointerException(this,"AudioManager","playSound","nEffect"),"dofus.sounds.AudioManager::playSound","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioManager.as",279);
             return undefined;
          }
          this.playEffectFromElement(this.getElementFromLinkname(sOldSoundID));
@@ -245,7 +242,6 @@ class dofus.sounds.AudioManager extends dofus.utils.ApiElement
       var _loc4_ = this.api.lang.getEnvironment(environmentID);
       if(_loc4_ == null)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.NullPointerException(this,"AudioManager","playEnvironment","oEnvironment"),"dofus.sounds.AudioManager::playEnvironment","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioManager.as",310);
          return undefined;
       }
       this._aLatestEnvironmentBackground = [];
@@ -357,7 +353,6 @@ class dofus.sounds.AudioManager extends dofus.utils.ApiElement
    {
       if(file == undefined)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.NullPointerException(this,"AudioManager","createAudioElement","file"),"dofus.sounds.AudioManager::createAudioElement","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioManager.as",464);
          return null;
       }
       var _loc6_ = !music ? this.getNextSoundIndex() : this.getNextMusicIndex();
@@ -368,7 +363,6 @@ class dofus.sounds.AudioManager extends dofus.utils.ApiElement
    {
       if(soundElement == undefined)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.NullPointerException(this,"AudioManager","playSound","soundElement"),"dofus.sounds.AudioManager::playElement","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioManager.as",483);
          return undefined;
       }
       if(!this._bAudioEnabled)
@@ -448,7 +442,6 @@ class dofus.sounds.AudioManager extends dofus.utils.ApiElement
       _global.clearInterval(this._nEnvironmentNoisesTimer);
       if(oEnvironment == undefined)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.NullPointerException(this,"AudioManager","nextEnvironmentNoise","oEnvironment"),"dofus.sounds.AudioManager::nextEnvironmentNoise","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioManager.as",608);
          return undefined;
       }
       var _loc3_ = (oEnvironment.mind + Math.round(Math.random() * oEnvironment.maxd)) * 1000;
@@ -459,7 +452,6 @@ class dofus.sounds.AudioManager extends dofus.utils.ApiElement
    {
       if(environment == undefined)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.NullPointerException(this,"AudioManager","onPlayNoise","environment"),"dofus.sounds.AudioManager::onPlayNoise","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/sounds/AudioManager.as",631);
          return undefined;
       }
       var _loc3_ = environment.n[Math.floor(environment.n.length * Math.random())];

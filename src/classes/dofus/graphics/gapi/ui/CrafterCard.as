@@ -63,14 +63,14 @@ class dofus.graphics.gapi.ui.CrafterCard extends dofus.graphics.gapi.core.DofusA
       this._btnClose2.label = this.api.lang.getText("CLOSE");
       this._btnPrivateMessage.label = this.api.lang.getText("WISPER_MESSAGE");
       this._btnLocate.label = this.api.lang.getText("LOCATE");
-      this._lblMinSlots.text = this.api.lang.getText("LOCALISATION");
+      this._lblLocalization.text = this.api.lang.getText("LOCALISATION");
       this._lblSubarea.text = this.api.lang.getText("SUBAREA");
       this._lblWorkshop.text = this.api.lang.getText("IN_WORKSHOP");
       this._lblCoord.text = this.api.lang.getText("COORDINATES");
       this._lblJobOptions.text = this.api.lang.getText("JOB_OPTIONS");
       this._lbNotFree.text = this.api.lang.getText("NOT_FREE");
       this._lblFreeIfFailed.text = this.api.lang.getText("FREE_IF_FAILED");
-      this._lblLocalization.text = this.api.lang.getText("MIN_ITEM_IN_RECEIPT");
+      this._lblMinSlots.text = this.api.lang.getText("MIN_ITEM_IN_RECEIPT");
    }
    function addListeners()
    {

@@ -281,11 +281,11 @@ class dofus.graphics.gapi.ui.customset.CustomSet extends dofus.graphics.gapi.cor
    }
    function initiativeChanged(oEvent)
    {
-      this._ctrJob2.text = String(oEvent.value);
+      this._lblWisdom.text = String(oEvent.value);
    }
    function discernmentChanged(oEvent)
    {
-      this._lblWisdom.text = String(oEvent.value);
+      this._ctrJob2.text = String(oEvent.value);
    }
    function forceXtraChanged(oEvent)
    {

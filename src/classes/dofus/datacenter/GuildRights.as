@@ -1,4 +1,3 @@
-480780853 - 1;
 class dofus.datacenter.GuildRights extends Object
 {
    var _nRights;

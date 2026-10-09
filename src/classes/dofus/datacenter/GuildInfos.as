@@ -44,8 +44,8 @@ class dofus.datacenter.GuildInfos extends Object
       mx.events.EventDispatcher.initialize(this);
       this.initialize(false,sName,nBackEmblemID,nBackEmblemColor,nUpEmblemID,nUpEmblemColor,nPlayerRights);
       this._eaMountParks = new ank.utils.ExtendedArray();
-      this._nUpEmblemColor = new ank.utils.ExtendedArray();
-      this._bValid = new ank.utils.ExtendedArray();
+      this._eaTaxSpells = new ank.utils.ExtendedArray();
+      this._eaTaxCollectors = new ank.utils.ExtendedArray();
       this._oRanksName = new dofus.datacenter.GuildRanks();
    }
    function get name()
@@ -54,7 +54,7 @@ class dofus.datacenter.GuildInfos extends Object
    }
    function get isValid()
    {
-      return this._eaTaxCollectors;
+      return this._eaHouses;
    }
    function get emblem()
    {
@@ -70,11 +70,11 @@ class dofus.datacenter.GuildInfos extends Object
    }
    function get xpmin()
    {
-      return this._nDefendedTaxCollectorID;
+      return this._nBoostPoints;
    }
    function get xpmax()
    {
-      return this._eaHouses;
+      return this._nXPMin;
    }
    function get xp()
    {
@@ -94,19 +94,19 @@ class dofus.datacenter.GuildInfos extends Object
    }
    function get taxCountMax()
    {
-      return this._eaTaxSpells;
+      return this._nTaxHireCost;
    }
    function set taxCountMax(nMaxTaxCount)
    {
-      this._eaTaxSpells = nMaxTaxCount;
+      this._nTaxHireCost = nMaxTaxCount;
    }
    function get taxSpells()
    {
-      return this._eaMembers;
+      return this._grPlayerRights;
    }
-   function get taxBonus()
+   function get taxPP()
    {
-      return this._nTaxBonusDamage;
+      return this._nTaxPP;
    }
    function get boostProspection()
    {
@@ -124,49 +124,49 @@ class dofus.datacenter.GuildInfos extends Object
    {
       return this._nTaxPods;
    }
-   function get taxPP()
-   {
-      return this._nTaxPP;
-   }
    function get taxWisdom()
    {
       return this._nTaxSagesse;
    }
-   function get boostWisdom()
-   {
-      return this._nTaxHireCost;
-   }
-   function get boostPoints()
-   {
-      return this._nBoostPoints;
-   }
-   function get taxCollectors()
+   function get taxCollectorWisdom()
    {
       return this._nUpEmblemColor;
-   }
-   function get mountParks()
-   {
-      return this._bValid;
    }
    function get maxMountParks()
    {
       return this._nTaxPercepteur;
    }
+   function get boostPoints()
+   {
+      return this._nDefendedTaxCollectorID;
+   }
+   function get taxCollectors()
+   {
+      return this._eaTaxSpells;
+   }
+   function get mountParks()
+   {
+      return this._eaTaxCollectors;
+   }
+   function get taxBonus()
+   {
+      return this._nTaxBonusDamage;
+   }
    function get houses()
    {
-      return this._grPlayerRights;
+      return this._bValid;
    }
    function set defendedTaxCollectorID(nTaxCollectorID)
    {
-      this._nXPMin = nTaxCollectorID;
+      this._eaMembers = nTaxCollectorID;
    }
    function get defendedTaxCollectorID()
    {
-      return this._nXPMin;
+      return this._eaMembers;
    }
    function get isLocalPlayerDefender()
    {
-      return this._nXPMin != undefined;
+      return this._eaMembers != undefined;
    }
    function get note()
    {
@@ -210,11 +210,11 @@ class dofus.datacenter.GuildInfos extends Object
    }
    function setGeneralInfos(bValid, nLevel, nXPMin, nXP, nXPMax)
    {
-      this._eaTaxCollectors = bValid;
+      this._eaHouses = bValid;
       this._nLevel = nLevel;
-      this._nDefendedTaxCollectorID = nXPMin;
+      this._nBoostPoints = nXPMin;
       this._nXP = nXP;
-      this._eaHouses = nXPMax;
+      this._nXPMin = nXPMax;
       this.dispatchEvent({type:"modelChanged",eventName:"general"});
    }
    function setNote(sNote, sNoteMember, nNoteLastModification)
@@ -237,20 +237,20 @@ class dofus.datacenter.GuildInfos extends Object
    }
    function setMountParks(nMaxMountParks, eaMountParks)
    {
-      this._nTaxPercepteur = nMaxMountParks;
-      this._bValid = eaMountParks;
+      this._nTaxBonusDamage = nMaxMountParks;
+      this._eaTaxCollectors = eaMountParks;
       this.dispatchEvent({type:"modelChanged",eventName:"mountParks"});
    }
    function setBoosts(nLP, nBonusDamage, nPods, nPP, nSagesse, nPercepteur, nBoostPoints, eaSpells)
    {
-      this._nTaxBonusDamage = nLP;
+      this._nTaxPP = nLP;
       this._nTaxCount = nBonusDamage;
       this._nTaxPods = nPods;
-      this._nTaxPP = nPP;
-      this._nTaxSagesse = nSagesse;
-      this._nTaxHireCost = nPercepteur;
-      this._nBoostPoints = nBoostPoints;
-      this._eaMembers = eaSpells;
+      this._nTaxSagesse = nPP;
+      this._nUpEmblemColor = nSagesse;
+      this._nTaxPercepteur = nPercepteur;
+      this._nDefendedTaxCollectorID = nBoostPoints;
+      this._grPlayerRights = eaSpells;
       this.dispatchEvent({type:"modelChanged",eventName:"boosts"});
    }
    function setNoBoosts()
@@ -260,7 +260,7 @@ class dofus.datacenter.GuildInfos extends Object
    function canBoost(sCharac, nParams)
    {
       var _loc4_ = this.getBoostCostAndCountForCharacteristic(sCharac,nParams).cost;
-      if(this._nBoostPoints >= _loc4_ && _loc4_ != undefined)
+      if(this._nDefendedTaxCollectorID >= _loc4_ && _loc4_ != undefined)
       {
          return true;
       }
@@ -279,16 +279,16 @@ class dofus.datacenter.GuildInfos extends Object
             _loc7_ = this._nTaxPods;
             break;
          case "p":
-            _loc7_ = this._nTaxPP;
-            break;
-         case "c":
-            _loc7_ = this._nTaxHireCost;
-            break;
-         case "x":
             _loc7_ = this._nTaxSagesse;
             break;
+         case "c":
+            _loc7_ = this._nTaxPercepteur;
+            break;
+         case "x":
+            _loc7_ = this._nUpEmblemColor;
+            break;
          case "s":
-            _loc8_ = this._eaMembers.findFirstItem("ID",nParams);
+            _loc8_ = this._grPlayerRights.findFirstItem("ID",nParams);
             if(_loc8_ != -1)
             {
                _loc7_ = _loc8_.item.level;
@@ -325,12 +325,12 @@ class dofus.datacenter.GuildInfos extends Object
    }
    function setHouses(eaHouses)
    {
-      this._grPlayerRights = eaHouses;
+      this._bValid = eaHouses;
       this.dispatchEvent({type:"modelChanged",eventName:"houses"});
    }
    function setNoHouses()
    {
-      this._grPlayerRights = new ank.utils.ExtendedArray();
+      this._bValid = new ank.utils.ExtendedArray();
       this.dispatchEvent({type:"modelChanged",eventName:"nohouses"});
    }
    function setRankName(nID, sRankName)

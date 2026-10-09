@@ -138,9 +138,9 @@ class dofus.graphics.gapi.ui.NpcDialog extends dofus.graphics.gapi.core.DofusAdv
    function complete(oEvent)
    {
       var ref = this;
-      this._ldrArtwork.content.stringCourseColor = function(mc_, nColorIndex)
+      this._ldrArtwork.content.stringCourseColor = function(mc_, nStringCourseColor)
       {
-         ref.applyColor(mc_,nColorIndex);
+         ref.applyColor(mc_,nStringCourseColor);
       };
    }
    function resize(oEvent)

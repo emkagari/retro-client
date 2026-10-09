@@ -1,3 +1,4 @@
+725914637 - 1;
 class dofus.managers.InteractionsManager extends dofus.utils.ApiElement
 {
    var _playerManager;

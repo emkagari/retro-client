@@ -41,30 +41,30 @@ class dofus.graphics.gapi.controls.GuildHousesViewer extends dofus.graphics.gapi
    function initTexts()
    {
       this._lblDescription.text = this.api.lang.getText("GUILD_HOUSES_LIST");
-      this._lblOwnerTitle.text = this.api.lang.getText("HOUSE_WORD");
+      this._lblHouseCoords.text = this.api.lang.getText("HOUSE_WORD");
       this._lblOwner.text = this.api.lang.getText("OWNER_WORD");
-      this._lblHouse.text = this.api.lang.getText("COORDINATES");
-      this._lstHouses.text = this.api.lang.getText("OWNER_WORD");
-      this._lblHouseOwner.text = this.api.lang.getText("SKILLS");
-      this._lblHouseName.text = this.api.lang.getText("RIGHTS");
-      this._lblCoordsTitle.text = this.api.lang.getText("SELECT_A_HOUSE");
+      this._lblCoordsTitle.text = this.api.lang.getText("COORDINATES");
+      this._lblRightsTitle.text = this.api.lang.getText("OWNER_WORD");
+      this._lstHouses.text = this.api.lang.getText("SKILLS");
+      this._lblSelectHouse.text = this.api.lang.getText("RIGHTS");
+      this._lblHouse.text = this.api.lang.getText("SELECT_A_HOUSE");
       this._btnTeleport.label = this.api.lang.getText("JOIN_SMALL");
    }
    function addListeners()
    {
-      this._lblHouseCoords.addEventListener("itemSelected",this);
+      this._lblSkillsTitle.addEventListener("itemSelected",this);
       this._btnTeleport.addEventListener("click",this);
    }
    function updateData(eaHouses)
    {
-      this._lblHouseCoords.dataProvider = eaHouses;
+      this._lblSkillsTitle.dataProvider = eaHouses;
    }
    function itemSelected(oEvent)
    {
       this._hSelectedHouse = dofus.datacenter.House(oEvent.row.item);
-      this._lblRightsTitle.text = this._hSelectedHouse.name;
-      this._lblSkillsTitle.text = this._hSelectedHouse.coords.x + ";" + this._hSelectedHouse.coords.y;
-      this._lblSelectHouse.text = this._hSelectedHouse.ownerName;
+      this._lblHouseOwner.text = this._hSelectedHouse.name;
+      this._lblHouseName.text = this._hSelectedHouse.coords.x + ";" + this._hSelectedHouse.coords.y;
+      this._lblOwnerTitle.text = this._hSelectedHouse.ownerName;
       var _loc3_ = new ank.utils.ExtendedArray();
       var _loc4_ = 0;
       var _loc5_;
@@ -89,7 +89,7 @@ class dofus.graphics.gapi.controls.GuildHousesViewer extends dofus.graphics.gapi
          }
       }
       this._mcMask._visible = false;
-      this._lblCoordsTitle._visible = false;
+      this._lblHouse._visible = false;
    }
    function click(oEvent)
    {

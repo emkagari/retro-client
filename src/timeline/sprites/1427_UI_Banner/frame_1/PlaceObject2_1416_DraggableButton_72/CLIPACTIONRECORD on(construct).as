@@ -1,4 +1,5 @@
 on(construct){
+   989139110 - 1;
    backgroundDown = "ButtonBannerRoundDown";
    backgroundUp = "ButtonBannerRoundUp";
    enabled = true;

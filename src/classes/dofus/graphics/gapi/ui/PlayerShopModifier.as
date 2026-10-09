@@ -1,4 +1,3 @@
-726214317 - 1;
 class dofus.graphics.gapi.ui.PlayerShopModifier extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnAdd;

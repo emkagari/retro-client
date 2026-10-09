@@ -1,4 +1,3 @@
-858026511 - 1;
 class com.ankamagames.exceptions.ValueOutOfRangeException extends com.ankamagames.exceptions.AbstractException
 {
    function ValueOutOfRangeException(objectErrorSource, className, methodName, variableName, invalidValue, minValue, maxValue)

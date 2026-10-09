@@ -1,5 +1,4 @@
 on(construct){
-   463724339 - 1;
    disableBackground = false;
    enabled = true;
    maximum = 100;

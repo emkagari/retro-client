@@ -28,7 +28,7 @@ class dofus.graphics.gapi.controls.GuildMountParkViewer extends dofus.graphics.g
    }
    function updateData(eaMountParks)
    {
-      this._lblCount.text = this.api.lang.getText("GUILD_MOUNTPARKS_COUNT",[eaMountParks.length,this.api.datacenter.Player.guildInfos.maxMountParks]);
+      this._lblCount.text = this.api.lang.getText("GUILD_MOUNTPARKS_COUNT",[eaMountParks.length,this.api.datacenter.Player.guildInfos.taxBonus]);
       eaMountParks.sortOn("size",Array.NUMERIC | Array.DESCENDING);
       this._dgMountParks.dataProvider = eaMountParks;
    }

@@ -1,4 +1,3 @@
-592610070 - 1;
 class dofus.datacenter.Server
 {
    var _bCanLog;

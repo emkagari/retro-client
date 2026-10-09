@@ -3,16 +3,16 @@ class dofus.datacenter.Character extends dofus.datacenter.PlayableCharacter
    var CharacteristicsManager;
    var _aMultiCraftSkillsID;
    var _aResistances;
+   var _bCraftPublicMode;
    var _bDied;
    var _bHasTtgCollection;
-   var _bIsMerchant;
-   var _nAuraValue;
-   var _nGuild;
+   var _nAuraLevel;
    var _nRestrictions;
    var _nServerID;
    var _nSex;
    var _nSpeedModerator;
    var _oAlignment;
+   var _oCharacterTitle;
    var _oEmblem;
    var _oRank;
    var _sCharacterTitle;
@@ -32,17 +32,17 @@ class dofus.datacenter.Character extends dofus.datacenter.PlayableCharacter
    function Character(sID, clipClass, sGfxFile, cellNum, dir, gfxID, title)
    {
       super();
-      this._sCharacterTitle = title;
+      this._oCharacterTitle = title;
       this.initialize(sID,clipClass,sGfxFile,cellNum,dir,gfxID);
    }
    function get speedModerator()
    {
       var _loc2_ = this._nSpeedModerator;
-      if(this._bMerchant)
+      if(this._nAuraValue)
       {
          _loc2_ /= 2;
       }
-      else if(this._nAura)
+      else if(this._bIsMerchant)
       {
          _loc2_ *= 5;
       }
@@ -58,11 +58,11 @@ class dofus.datacenter.Character extends dofus.datacenter.PlayableCharacter
    }
    function get Guild()
    {
-      return this._nGuild;
+      return this._bCraftPublicMode;
    }
    function set Guild(value)
    {
-      this._nGuild = Number(value);
+      this._bCraftPublicMode = Number(value);
    }
    function get Sex()
    {
@@ -74,11 +74,11 @@ class dofus.datacenter.Character extends dofus.datacenter.PlayableCharacter
    }
    function get Aura()
    {
-      return this._nAuraValue;
+      return this._nAuraLevel;
    }
    function set Aura(value)
    {
-      this._nAuraValue = Number(value);
+      this._nAuraLevel = Number(value);
    }
    function get alignment()
    {
@@ -90,11 +90,11 @@ class dofus.datacenter.Character extends dofus.datacenter.PlayableCharacter
    }
    function get Merchant()
    {
-      return this._bIsMerchant;
+      return this._sCharacterTitle;
    }
-   function set Merchant(value)
+   function set Merchant(value_)
    {
-      this._bIsMerchant = value;
+      this._sCharacterTitle = value_;
    }
    function get serverID()
    {
@@ -138,7 +138,7 @@ class dofus.datacenter.Character extends dofus.datacenter.PlayableCharacter
    }
    function get title()
    {
-      return this._sCharacterTitle;
+      return this._oCharacterTitle;
    }
    function set emblem(oEmblem)
    {
@@ -172,7 +172,7 @@ class dofus.datacenter.Character extends dofus.datacenter.PlayableCharacter
    {
       return (this._nRestrictions & 0x10) == 16;
    }
-   function get _bMerchant()
+   function get _nAuraValue()
    {
       return (this._nRestrictions & 0x20) == 32;
    }
@@ -184,7 +184,7 @@ class dofus.datacenter.Character extends dofus.datacenter.PlayableCharacter
    {
       return (this._nRestrictions & 0x80) == 128;
    }
-   function get _nAura()
+   function get _bIsMerchant()
    {
       return (this._nRestrictions & 0x0100) == 256;
    }

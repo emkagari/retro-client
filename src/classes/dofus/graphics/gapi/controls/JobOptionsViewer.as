@@ -75,7 +75,7 @@ class dofus.graphics.gapi.controls.JobOptionsViewer extends dofus.graphics.gapi.
    }
    function refreshCraftComplexityLabel(nMinSlot)
    {
-      this._lblCraftComplexity.text = nMinSlot.toString() + " " + ank.utils.PatternDecoder.combine(this.api.lang.getText("SLOT"),"m",nMinSlot < 2);
+      this._lblPublicMode.text = nMinSlot.toString() + " " + ank.utils.PatternDecoder.combine(this.api.lang.getText("SLOT"),"m",nMinSlot < 2);
    }
    function change(oEvent)
    {
@@ -144,10 +144,10 @@ class dofus.graphics.gapi.controls.JobOptionsViewer extends dofus.graphics.gapi.
    }
    function craftPublicModeChanged(oEvent)
    {
-      this._lblCraftComplexityValue.text = this.api.lang.getText("PUBLIC_MODE") + " (" + this.api.lang.getText(!this.api.datacenter.Player.craftPublicMode ? "INACTIVE" : "ACTIVE") + ")";
+      this._mcPublicDisable.text = this.api.lang.getText("PUBLIC_MODE") + " (" + this.api.lang.getText(!this.api.datacenter.Player.craftPublicMode ? "INACTIVE" : "ACTIVE") + ")";
       this.refreshBtnEnabledLabel();
-      this._lblPublicMode._visible = !this.api.datacenter.Player.craftPublicMode;
-      this._mcPublicDisable._visible = this.api.datacenter.Player.craftPublicMode;
+      this._lblCraftComplexity._visible = !this.api.datacenter.Player.craftPublicMode;
+      this._lblCraftComplexityValue._visible = this.api.datacenter.Player.craftPublicMode;
    }
    function over(oEvent)
    {

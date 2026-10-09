@@ -1,3 +1,4 @@
+261199009 - 1;
 class dofus.graphics.gapi.controls.guildmembersviewer.GuildMembersViewerMember extends ank.gapi.core.UIBasicComponent
 {
    var _btnBann;

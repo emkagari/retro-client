@@ -1,4 +1,4 @@
-358210685 - 1;
+704250687 - 1;
 class dofus.graphics.gapi.controls.guildhousesviewer.GuildHousesViewerHouses extends ank.gapi.core.UIBasicComponent
 {
    var _lblName;

@@ -436,7 +436,7 @@ class dofus.utils.consoleParsers.ChatConsoleParser extends dofus.utils.consolePa
                {
                   this.api.network.Game.freeMySoul();
                }
-               else if(this.api.datacenter.Player.data._bMerchant)
+               else if(this.api.datacenter.Player.data._nAuraValue)
                {
                   this.api.kernel.showMessage(undefined,this.api.lang.getText("ERROR_ALREADY_A_GHOST"),"ERROR_CHAT");
                }

@@ -158,7 +158,7 @@ class dofus.graphics.gapi.ui.Gifts extends dofus.graphics.gapi.core.DofusAdvance
    function initTexts()
    {
       this._pgBtnCheckAll.label = this.api.lang.getText("SELECT_UNSELECT_ALL_BUTTON");
-      this._lblTitleGift.text = this.api.lang.getText("THE_GIFT");
+      this._ldrGfx.text = this.api.lang.getText("THE_GIFT");
       this._btnClose.label = this.api.lang.getText("CLOSE");
       this._btnViewAllGifts.label = this.api.lang.getText("MY_GIFTS");
       this._btnSelect.label = this.api.lang.getText("SELECT");
@@ -233,12 +233,12 @@ class dofus.graphics.gapi.ui.Gifts extends dofus.graphics.gapi.core.DofusAdvance
       var _loc9_;
       if(_loc3_.length > 1)
       {
-         this._ldrGfx.text = this.api.lang.getText("GIFTS_UI_TITLE_ON_MASS",[_loc4_]);
+         this._lblItems_.text = this.api.lang.getText("GIFTS_UI_TITLE_ON_MASS",[_loc4_]);
          this._txtDescription.text = this.api.lang.getText("GIFTS_MASS_DISTRIBUTION_HELP",[_loc4_,_loc3_.join("\n- ")]);
       }
       else
       {
-         this._ldrGfx.text = this.api.lang.getText("GIFTS_TITLE");
+         this._lblItems_.text = this.api.lang.getText("GIFTS_TITLE");
          _loc9_ = _loc3_[0];
          this._txtDescription.text = _loc9_ == undefined ? "" : this.api.lang.getText("GIFT_DISTRIBUTION_HELP",[_loc9_]);
       }
@@ -271,7 +271,7 @@ class dofus.graphics.gapi.ui.Gifts extends dofus.graphics.gapi.core.DofusAdvance
          _loc6_ = _loc6_ + 1;
       }
       this._pgLstGifts.dataProvider = _loc2_;
-      this._lblItems_.text = this.api.lang.getText("GIFTS_SELECT_RECEIVER");
+      this._lblTitleGift.text = this.api.lang.getText("GIFTS_SELECT_RECEIVER");
       this._pgBtnChooseCharacter.label = this.api.lang.getText("GIFTS_SELECT_CHARACTER_MASS_GIFTS",[_loc5_]);
       this._mcGiftsWarning._visible = _loc4_;
       this.refreshGiftsSelected();

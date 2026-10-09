@@ -1,4 +1,3 @@
-57482462 - 1;
 class dofus.datacenter.OfflineCharacter extends ank.battlefield.datacenter.Sprite
 {
    var __proto__;

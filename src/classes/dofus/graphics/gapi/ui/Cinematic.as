@@ -1,4 +1,3 @@
-579107311 - 1;
 class dofus.graphics.gapi.ui.Cinematic extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnCancel;
@@ -166,7 +165,6 @@ class dofus.graphics.gapi.ui.Cinematic extends dofus.graphics.gapi.core.DofusAdv
    }
    function onSubtitle(tfSubtitle, nSubtitle)
    {
-      org.flashdevelop.utils.FlashConnect.trace("Sub : " + tfSubtitle,"dofus.graphics.gapi.ui.Cinematic::onSubtitle","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/Cinematic.as",249);
       var _loc4_ = this._sFile.substring(0,this._sFile.toLowerCase().indexOf(".swf"));
       while(_loc4_.indexOf("/") > -1)
       {

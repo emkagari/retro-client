@@ -1,3 +1,4 @@
+66716081 - 1;
 class dofus.graphics.battlefield.SpellFullIcon extends ank.utils.QueueEmbedMovieClip
 {
    var _ldrBackground;

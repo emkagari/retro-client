@@ -1,5 +1,4 @@
 on(construct){
-   658620570 - 1;
    autoLoad = true;
    centerContent = false;
    contentPath = "XPLockIcon";

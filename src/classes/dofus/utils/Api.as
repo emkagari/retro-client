@@ -35,7 +35,7 @@ class dofus.utils.Api extends Object
    }
    function get network()
    {
-      return this._oMouseClicksMemorizer;
+      return this._oUI;
    }
    function get gfx()
    {
@@ -47,7 +47,7 @@ class dofus.utils.Api extends Object
    }
    function get sounds()
    {
-      return this._oSounds;
+      return this._oMouseClicksMemorizer;
    }
    function get lang()
    {
@@ -59,11 +59,11 @@ class dofus.utils.Api extends Object
    }
    function get electron()
    {
-      return this._oUI;
+      return this._oElectron;
    }
    function get mouseClicksMemorizer()
    {
-      return this._oElectron;
+      return this._oSounds;
    }
    function initialize()
    {
@@ -72,13 +72,12 @@ class dofus.utils.Api extends Object
       var _loc2_ = dofus.DofusCore.getClip();
       this._oNetwork = _loc2_.GAPI;
       this._oNetwork.api = this;
-      org.flashdevelop.utils.FlashConnect.trace("[Api] (initializa) " + this._oNetwork.api,"dofus.utils.Api::initialize","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/utils/Api.as",144);
-      this._oUI = new dofus.Electron(this);
+      this._oElectron = new dofus.Electron(this);
       this._oLang = new dofus.Kernel(this);
-      this._oSounds = dofus.sounds.AudioManager.getInstance();
-      _global.SOMA = this._oSounds;
+      this._oMouseClicksMemorizer = dofus.sounds.AudioManager.getInstance();
+      _global.SOMA = this._oMouseClicksMemorizer;
       this._oDatacenter = new dofus.datacenter.Datacenter(this);
-      this._oMouseClicksMemorizer = new dofus.aks.Aks(this);
+      this._oUI = new dofus.aks.Aks(this);
       this._oGfx = _loc2_.BATTLEFIELD;
       if(this._oConfig.isStreaming && this._oConfig.streamingMethod == "explod")
       {
@@ -91,7 +90,7 @@ class dofus.utils.Api extends Object
       this._oColors = _global.GAC;
       this._oConfig.languages = this._oKernel.getConfigText("LANGUAGES_LIST");
       this._oConfig.languagesFullName = this._oKernel.getConfigText("LANGUAGES_FULLNAME_LIST");
-      this._oElectron = new ank.utils.MouseClicksMemorizer();
+      this._oSounds = new ank.utils.MouseClicksMemorizer();
       _root.menu = new ank.gapi.controls.RightClickContextMenu(this);
       if(this.ui.getUIComponent("Zoom") == undefined)
       {

@@ -7,14 +7,14 @@ class dofus.datacenter.TutorialAction extends dofus.datacenter.TutorialBloc
    function TutorialAction(sID, sActionCode, aParams, mNextBlocID, bKeepLastWaitingBloc)
    {
       super(sID,dofus.datacenter.TutorialBloc.TYPE_ACTION);
-      this._bKeepLastWaitingBloc = sActionCode;
+      this._sActionCode = sActionCode;
       this._aParams = aParams;
       this._mNextBlocID = mNextBlocID;
-      this._sActionCode = bKeepLastWaitingBloc;
+      this._bKeepLastWaitingBloc = bKeepLastWaitingBloc;
    }
    function get actionCode()
    {
-      return this._bKeepLastWaitingBloc;
+      return this._sActionCode;
    }
    function get params()
    {
@@ -26,6 +26,6 @@ class dofus.datacenter.TutorialAction extends dofus.datacenter.TutorialBloc
    }
    function get keepLastWaitingBloc()
    {
-      return this._sActionCode == true;
+      return this._bKeepLastWaitingBloc == true;
    }
 }

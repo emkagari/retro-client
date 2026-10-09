@@ -53,7 +53,6 @@ class dofus.graphics.gapi.controls.StatsViewer extends dofus.graphics.gapi.core.
    }
    function fullStatsChanged(oEvent_)
    {
-      org.flashdevelop.utils.FlashConnect.trace("fullStatsChanged!","dofus.graphics.gapi.controls.StatsViewer::fullStatsChanged","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/controls/StatsViewer.as",103);
       this.initData();
    }
 }

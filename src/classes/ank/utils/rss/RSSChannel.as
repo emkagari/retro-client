@@ -54,10 +54,10 @@ class ank.utils.rss.RSSChannel
                this._sDocs = _loc3_.childNodes.join("");
                break;
             case "generator":
-               this._sManagingEditor = _loc3_.childNodes.join("");
+               this._sGenerator = _loc3_.childNodes.join("");
                break;
             case "managingeditor":
-               this._sGenerator = _loc3_.childNodes.join("");
+               this._sManagingEditor = _loc3_.childNodes.join("");
                break;
             case "webmaster":
                this._sWebMaster = _loc3_.childNodes.join("");
@@ -113,13 +113,13 @@ class ank.utils.rss.RSSChannel
    {
       return this._sDocs;
    }
-   function getManagingEditor()
-   {
-      return this._sManagingEditor;
-   }
    function getGenerator()
    {
       return this._sGenerator;
+   }
+   function getManagingEditor()
+   {
+      return this._sManagingEditor;
    }
    function getWebMaster()
    {
@@ -138,8 +138,8 @@ class ank.utils.rss.RSSChannel
       this._dPubDate = null;
       this._dLastBuildDate = null;
       this._sDocs = "";
-      this._sManagingEditor = "";
       this._sGenerator = "";
+      this._sManagingEditor = "";
       this._sWebMaster = "";
       this._aItems = [];
    }

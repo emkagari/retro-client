@@ -65,12 +65,12 @@ class dofus.graphics.gapi.ui.ServerInformations extends dofus.graphics.gapi.core
    }
    function initText()
    {
-      this._lblBack.text = this.api.lang.getText("CHOOSEN_SERVER") + " :";
-      this._lblPopulationValue.text = this.api.lang.getText("SERVER_STATUS");
+      this._lblStatus.text = this.api.lang.getText("CHOOSEN_SERVER") + " :";
+      this._lblCommunityValue.text = this.api.lang.getText("SERVER_STATUS");
       this._lblPopulation.text = this.api.lang.getText("POPULATION");
       this._lblCommunity.text = this.api.lang.getText("COMMUNITY");
-      this._lblServerType.text = this.api.lang.getText("OPENING_DATE");
-      this._lblStatusValue.text = this.api.lang.getText("SERVER_GAME_TYPE",[this.api.lang.getText("SERVER_GAME_TYPE_" + this._sServer.typeNum)]);
+      this._lblOk.text = this.api.lang.getText("OPENING_DATE");
+      this._lblSelectedServerName.text = this.api.lang.getText("SERVER_GAME_TYPE",[this.api.lang.getText("SERVER_GAME_TYPE_" + this._sServer.typeNum)]);
       if(this._sServer.isHardcore())
       {
          this._taDescription.text = this.api.lang.getText("SERVER_RULES_" + this._sServer.typeNum);
@@ -83,8 +83,8 @@ class dofus.graphics.gapi.ui.ServerInformations extends dofus.graphics.gapi.core
          this._lblMoreInfo.text = this.api.lang.getText("RULES_SHORTCUT");
          this._bShowDescription = true;
       }
-      this._lblStatus.text = this.api.lang.getText("OK");
-      this._lblSelectedServer.text = this.api.lang.getText("BACK");
+      this._lblSelectedServer.text = this.api.lang.getText("OK");
+      this._lblHowOld.text = this.api.lang.getText("BACK");
       this._ldrSprite.contentPath = dofus.Constants.SERVER_SYMBOL_PATH + this._sServer.iconID + ".swf";
       if(this._sServer.isSeasonal())
       {
@@ -93,11 +93,11 @@ class dofus.graphics.gapi.ui.ServerInformations extends dofus.graphics.gapi.core
    }
    function initData()
    {
-      this._lblSelectedServerName.text = this._sServer.label;
-      this._lblCommunityValue.text = this._sServer.stateStr;
-      this._lblOk.text = this._sServer.populationStr;
+      this._lblStatusValue.text = this._sServer.label;
+      this._lblBack.text = this._sServer.stateStr;
+      this._lblServerType.text = this._sServer.populationStr;
       this._lblHowOldValue.text = this._sServer.communityStr;
-      this._lblHowOld.text = this._sServer.dateStr;
+      this._lblPopulationValue.text = this._sServer.dateStr;
    }
    function click(oEvent)
    {

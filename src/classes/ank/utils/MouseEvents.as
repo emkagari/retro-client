@@ -1,4 +1,3 @@
-125316602 - 1;
 class ank.utils.MouseEvents
 {
    function MouseEvents()

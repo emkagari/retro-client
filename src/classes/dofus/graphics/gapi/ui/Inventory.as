@@ -1110,9 +1110,9 @@ class dofus.graphics.gapi.ui.Inventory extends dofus.graphics.gapi.core.DofusAdv
       var _loc3_ = api.ui;
       var _loc4_ = "POPUP_QUANTITY_BATCH_USE_ITEM_DESCRIPTION";
       var _loc5_ = oItem.name;
-      var _loc6_ = [function(nMin, nMax, nValue_)
+      var _loc6_ = [function(nMin, nMax, nValue)
       {
-         return String(nValue_);
+         return String(nValue);
       },_loc5_];
       var _loc7_ = Math.min(dofus.aks.Items.MAX_BATCH_ITEM_USE,oItem.Quantity);
       var _loc8_ = _loc3_.loadUIComponent("PopupQuantityWithDescription","PopupQuantity",{descriptionLangKey:_loc4_,descriptionLangKeyParams:_loc6_,value:1,max:_loc7_,params:{type:"batchUseItem",item:oItem}},{bForceLoad:true});

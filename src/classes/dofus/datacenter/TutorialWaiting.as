@@ -1,4 +1,3 @@
-67932447 - 1;
 class dofus.datacenter.TutorialWaiting extends dofus.datacenter.TutorialBloc
 {
    var _nTimeout;

@@ -1,4 +1,3 @@
-725146799 - 1;
 class dofus.graphics.gapi.controls.Heart extends ank.gapi.core.UIBasicComponent
 {
    var _mcRectangle;

@@ -1,4 +1,3 @@
-930048304 - 1;
 class dofus.datacenter.Subarea extends Object
 {
    var _nID;

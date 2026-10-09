@@ -1,4 +1,3 @@
-587971195 - 1;
 class dofus.datacenter.ServerInformations extends Object
 {
    var _bOnFocus;

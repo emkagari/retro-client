@@ -15,11 +15,11 @@ class dofus.datacenter.Question extends Object
    }
    function get label()
    {
-      return this.api.lang.fetchString(this._eaResponsesObjects);
+      return this.api.lang.fetchString(this._sQuestionText);
    }
    function get responses()
    {
-      return this._sQuestionText;
+      return this._eaResponsesObjects;
    }
    function initialize(nQuestionID, aResponsesID, aQuestionParams)
    {
@@ -30,14 +30,14 @@ class dofus.datacenter.Question extends Object
       {
          _loc5_ = _loc5_ + " (" + nQuestionID + ")";
       }
-      this._eaResponsesObjects = _loc5_;
-      this._sQuestionText = new ank.utils.ExtendedArray();
+      this._sQuestionText = _loc5_;
+      this._eaResponsesObjects = new ank.utils.ExtendedArray();
       var _loc6_ = 0;
       var _loc7_;
       while(_loc6_ < aResponsesID.length)
       {
          _loc7_ = Number(aResponsesID[_loc6_]);
-         this._sQuestionText.push({label:this.api.lang.fetchString(this.api.lang.getDialogResponseText(_loc7_)),id:_loc7_});
+         this._eaResponsesObjects.push({label:this.api.lang.fetchString(this.api.lang.getDialogResponseText(_loc7_)),id:_loc7_});
          _loc6_ = _loc6_ + 1;
       }
    }

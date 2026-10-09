@@ -10,8 +10,8 @@ class dofus.datacenter.ConquestVillageData extends Object
       super();
       this._nSubAreaId = id;
       this._nAlignment = alignment;
-      this._bPrism = door;
-      this._bDoor = prism;
+      this._bDoor = door;
+      this._bPrism = prism;
       this.areaName = String(_global.API.lang.getMapAreaText(Number(_global.API.lang.getMapSubAreaText(this._nSubAreaId).a)).n);
    }
    function get id()
@@ -26,12 +26,12 @@ class dofus.datacenter.ConquestVillageData extends Object
    {
       return this._nAlignment;
    }
-   function get prism()
+   function get doorOpen()
    {
-      return this._bPrism;
+      return this._bDoor;
    }
    function get subway()
    {
-      return this._bDoor;
+      return this._bPrism;
    }
 }

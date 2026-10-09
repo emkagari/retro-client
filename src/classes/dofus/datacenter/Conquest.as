@@ -1,3 +1,4 @@
+651351098 - 1;
 class dofus.datacenter.Conquest extends Object
 {
    var _cbdAlignBonus;
@@ -15,59 +16,59 @@ class dofus.datacenter.Conquest extends Object
    }
    function clear()
    {
-      this._cwdDatas = new ank.utils.ExtendedArray();
-      this._cbdRankMultiplicator = new ank.utils.ExtendedArray();
+      this._cbdAlignBonus = new ank.utils.ExtendedArray();
+      this._eaPlayers = new ank.utils.ExtendedArray();
    }
    function get alignBonus()
    {
-      return this._eaAttackers;
+      return this._cbdAlignMalus;
    }
    function set alignBonus(cbd)
    {
-      this._eaAttackers = cbd;
+      this._cbdAlignMalus = cbd;
       this.dispatchEvent({type:"bonusChanged"});
    }
    function get alignMalus()
    {
-      return this._cbdAlignBonus;
+      return this._cbdRankMultiplicator;
    }
    function set alignMalus(cbd)
    {
-      this._cbdAlignBonus = cbd;
+      this._cbdRankMultiplicator = cbd;
       this.dispatchEvent({type:"bonusChanged"});
    }
    function get rankMultiplicator()
    {
-      return this._eaPlayers;
+      return this._cwdDatas;
    }
    function set rankMultiplicator(cbd)
    {
-      this._eaPlayers = cbd;
+      this._cwdDatas = cbd;
       this.dispatchEvent({type:"bonusChanged"});
    }
    function get players()
    {
-      return this._cwdDatas;
+      return this._cbdAlignBonus;
    }
    function set players(value)
    {
-      this._cwdDatas = value;
+      this._cbdAlignBonus = value;
    }
    function get attackers()
    {
-      return this._cbdRankMultiplicator;
+      return this._eaPlayers;
    }
    function set attackers(value)
    {
-      this._cbdRankMultiplicator = value;
+      this._eaPlayers = value;
    }
    function get worldDatas()
    {
-      return this._cbdAlignMalus;
+      return this._eaAttackers;
    }
    function set worldDatas(value_)
    {
-      this._cbdAlignMalus = value_;
+      this._eaAttackers = value_;
       this.dispatchEvent({type:"worldDataChanged",value:value_});
    }
 }

@@ -1,4 +1,3 @@
-375391610 - 1;
 class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaCeremonialViewer extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _aSearchedItemIDs;
@@ -132,7 +131,6 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaCeremonialViewer ext
    function updateData()
    {
       var _loc2_ = new ank.utils.ExtendedArray();
-      org.flashdevelop.utils.FlashConnect.trace("Filtre de " + dofus.graphics.gapi.controls.encyclopedia.EncyclopediaCeremonialViewer._eaData.length + " objets","dofus.graphics.gapi.controls.encyclopedia.EncyclopediaCeremonialViewer::updateData","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/controls/encyclopedia/EncyclopediaCeremonialViewer.as",205);
       var _loc3_ = 0;
       var _loc4_;
       while(_loc3_ < dofus.graphics.gapi.controls.encyclopedia.EncyclopediaCeremonialViewer._eaData.length)

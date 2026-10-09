@@ -1,3 +1,4 @@
+54435850 - 1;
 class ank.gapi.controls.Loader extends ank.gapi.core.UIBasicComponent
 {
    var __height;
@@ -108,7 +109,7 @@ class ank.gapi.controls.Loader extends ank.gapi.core.UIBasicComponent
    }
    function get bytesLoaded()
    {
-      return this._bInited;
+      return this._nBytesLoaded;
    }
    function get bytesTotal()
    {
@@ -157,8 +158,8 @@ class ank.gapi.controls.Loader extends ank.gapi.core.UIBasicComponent
       {
          this._bScaleContent = true;
       }
-      this._nBytesLoaded = true;
-      this._bInited = 0;
+      this._bInited = true;
+      this._nBytesLoaded = 0;
       this._nBytesTotal = 0;
       this._bLoaded = false;
       this._mvlLoader = new MovieClipLoader();
@@ -290,7 +291,7 @@ class ank.gapi.controls.Loader extends ank.gapi.core.UIBasicComponent
    }
    function onLoadProgress(mc, bl, bt)
    {
-      this._bInited = bl;
+      this._nBytesLoaded = bl;
       this._nBytesTotal = bt;
       this.dispatchEvent({type:"progress",target:this,clip:mc});
    }

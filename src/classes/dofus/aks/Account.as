@@ -314,7 +314,6 @@ class dofus.aks.Account extends dofus.aks.Handler
          _loc5_ = sExtraData.charAt(0);
          _loc6_ = this.api.lang.getText("LOGIN");
          _loc8_ = false;
-         org.flashdevelop.utils.FlashConnect.trace(_loc5_,"dofus.aks.Account::onLogin","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Account.as",442);
          switch(_loc5_)
          {
             case "n":
@@ -688,7 +687,6 @@ class dofus.aks.Account extends dofus.aks.Handler
          this.api.kernel.onFastServerSwitchFail("Could not find " + _loc20_ + " on this characters list !");
       }
       this.api.datacenter.Basics.oldCharList = _loc9_;
-      org.flashdevelop.utils.FlashConnect.trace("ignoreMigration 2 : " + this.api.datacenter.Basics.ignoreMigration,"dofus.aks.Account::onCharactersList","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Account.as",909);
       if((!bIsMigration || this.api.datacenter.Basics.ignoreMigration) && ((this.api.datacenter.Basics.createCharacter || !_loc8_) && !this.api.datacenter.Basics.ignoreCreateCharacter))
       {
          this.api.ui.loadUIComponent("CreateCharacter","CreateCharacter",{remainingTime:_loc7_});
@@ -805,7 +803,6 @@ class dofus.aks.Account extends dofus.aks.Handler
             _loc5_ = _loc16_.ip;
             _loc6_ = _loc16_.port;
          }
-         org.flashdevelop.utils.FlashConnect.trace(_loc5_ + "/" + _loc6_ + "/" + _loc7_,"dofus.aks.Account::onSelectServer","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Account.as",1064);
          this.api.datacenter.Basics.aks_ticket = _loc7_;
          this.api.datacenter.Basics.aks_gameserver_ip = _loc5_;
          this.api.datacenter.Basics.aks_gameserver_port = _loc6_;
@@ -887,7 +884,6 @@ class dofus.aks.Account extends dofus.aks.Handler
          }
          else if(_loc4_ == -1)
          {
-            org.flashdevelop.utils.FlashConnect.trace("[?!!] Le serveur semble ne pas connaître le protocole de cryptage!","dofus.aks.Account::onTicketResponse","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Account.as",1209);
          }
          this.api.datacenter.Basics.aks_current_regional_version = Number.POSITIVE_INFINITY;
          this.requestRegionalVersion();
@@ -1281,10 +1277,8 @@ class dofus.aks.Account extends dofus.aks.Handler
             _loc7_ = true;
       }
       var _loc8_ = Number(_loc3_[4]);
-      org.flashdevelop.utils.FlashConnect.trace("[Account] (onNewQueue) AskQueue","dofus.aks.Account::onNewQueue","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Account.as",1680);
       if(_loc4_ > 1)
       {
-         org.flashdevelop.utils.FlashConnect.trace("[Account] (onNewQueue) ShowQueue","dofus.aks.Account::onNewQueue","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Account.as",1684);
          this.api.ui.loadUIComponent("WaitingQueue","WaitingQueue",{queueInfos:{position:_loc4_,totalAbo:_loc5_,totalNonAbo:_loc6_,subscriber:_loc7_,queueId:_loc8_}},{bAlwaysOnTop:true,bForceLoad:true});
       }
    }

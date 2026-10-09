@@ -148,7 +148,6 @@ class dofus.aks.Aks extends dofus.utils.ApiElement
    }
    function connect(sHost, nPort, bSaveHost)
    {
-      org.flashdevelop.utils.FlashConnect.trace("connect " + sHost + ":" + nPort,"dofus.aks.Aks::connect","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Aks.as",196);
       if(bSaveHost == undefined)
       {
          bSaveHost = true;
@@ -260,7 +259,6 @@ class dofus.aks.Aks extends dofus.utils.ApiElement
       }
       if(dofus.Constants.DEBUG_DATAS && dofus.Constants.DEBUG_ENCRYPTION)
       {
-         org.flashdevelop.utils.FlashConnect.trace("SND (C) " + sData,com.ankamagames.tools.Logger.LEVEL_NETWORK,"dofus.aks.Aks::send","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Aks.as",324);
       }
    }
    function processCommand(sCmd)
@@ -285,15 +283,12 @@ class dofus.aks.Aks extends dofus.utils.ApiElement
       var _loc3_ = this._aKeys[_global.parseInt(s.substr(0,1),16)];
       if(_loc3_ == undefined)
       {
-         org.flashdevelop.utils.FlashConnect.trace("[?!!] Le serveur a demandé une clé que je n\'ai pas...","dofus.aks.Aks::unprepareData","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Aks.as",359);
          return s;
       }
       var _loc4_ = s.substr(1,1).toUpperCase();
       var _loc5_ = dofus.aks.Aks.decypherData(s.substr(2),_loc3_,_global.parseInt(_loc4_,16) * 2);
       if(dofus.aks.Aks.checksum(_loc5_) != _loc4_)
       {
-         org.flashdevelop.utils.FlashConnect.trace("[?!!] Checksum invalide! (Reçu : " + s.substr(1,1) + ", Calculé : " + dofus.aks.Aks.checksum(_loc5_) + ")","dofus.aks.Aks::unprepareData","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Aks.as",372);
-         org.flashdevelop.utils.FlashConnect.trace("[?!!] Données interpretées : " + _loc5_,"dofus.aks.Aks::unprepareData","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Aks.as",373);
          return s;
       }
       return _loc5_;
@@ -306,7 +301,6 @@ class dofus.aks.Aks extends dofus.utils.ApiElement
       }
       if(this._aKeys[this._nCurrentKey] == undefined)
       {
-         org.flashdevelop.utils.FlashConnect.trace("[?!!] La clé " + this._nCurrentKey + " définie en clé actuelle n\'existe pas dans le buffer...","dofus.aks.Aks::prepareData","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Aks.as",389);
          return s;
       }
       var _loc3_ = dofus.aks.Aks.HEX_CHARS[this._nCurrentKey];
@@ -555,7 +549,6 @@ class dofus.aks.Aks extends dofus.utils.ApiElement
       }
       if(dofus.Constants.DEBUG_DATAS && dofus.Constants.DEBUG_ENCRYPTION)
       {
-         org.flashdevelop.utils.FlashConnect.trace("RCV (C) " + sData,com.ankamagames.tools.Logger.LEVEL_NETWORK,"dofus.aks.Aks::onData","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Aks.as",689);
       }
       sData = this.unprepareData(sData);
       this.api.electron.onPacketReceived(sData);
@@ -571,7 +564,6 @@ class dofus.aks.Aks extends dofus.utils.ApiElement
          _loc3_ = getTimer() - this._nLastWaitingSend;
          if(_loc3_ > 100)
          {
-            org.flashdevelop.utils.FlashConnect.trace("[Aks] (onData) " + this._sDebug + " (since " + _loc3_ + "ms)","dofus.aks.Aks::onData","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Aks.as",706);
          }
          this._aLastPings.push(_loc3_);
          if(this._aLastPings.length > dofus.aks.Aks.EVALUATE_AVERAGE_PING_ON_COMMANDS)

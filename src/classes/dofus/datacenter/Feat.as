@@ -1,3 +1,4 @@
+150917769 - 1;
 class dofus.datacenter.Feat extends Object
 {
    var _aParams;

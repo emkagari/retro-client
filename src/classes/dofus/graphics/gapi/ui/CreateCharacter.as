@@ -208,8 +208,8 @@ class dofus.graphics.gapi.ui.CreateCharacter extends dofus.graphics.gapi.core.Do
       this._lblCharacterName.text = this.api.lang.getText("CREATE_CHARACTER_NAME");
       this._btnBack.label = this.api.lang.getText("BACK");
       this._btnValidate.label = this.api.lang.getText("VALIDATE");
-      this._lblHistoryButton.text = this.api.lang.getText("HISTORY_CLASS_WORD");
-      this._lblClassName.text = this.api.lang.getText("SPELLS_SHORTCUT");
+      this._lblSpellButton.text = this.api.lang.getText("HISTORY_CLASS_WORD");
+      this._lblHistoryButton.text = this.api.lang.getText("SPELLS_SHORTCUT");
       this._lblCopyright.text = this.api.lang.getText("COPYRIGHT",[new Date().getUTCFullYear()]);
    }
    function initComponent()
@@ -296,7 +296,7 @@ class dofus.graphics.gapi.ui.CreateCharacter extends dofus.graphics.gapi.core.Do
          this._csBreedSelection.updateColor(3,this._oColors.color3);
       }
       var _loc7_ = this.api.lang.getClassText(nClassID);
-      this._lblSpellButton.text = _loc7_.ln;
+      this._lblClassName.text = _loc7_.ln;
       this._txtClassDescription.text = _loc7_.d;
       this._txtShortClassDescription.text = _loc7_.sd;
       if(this.api.datacenter.Basics.aks_current_server.isTemporis())

@@ -8,7 +8,6 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryMonsterDetai
    var _btnMap;
    var _cgDrops;
    var _ctrJob1;
-   var _ctrJob2;
    var _ctrSpe1;
    var _lblAP;
    var _lblAir;
@@ -25,6 +24,7 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryMonsterDetai
    var _lblRes;
    var _lblResistances;
    var _lblSpells;
+   var _lblWisdom;
    var _ldrSprite;
    var _lstSpells;
    var _mcAboutWisdom;
@@ -378,7 +378,7 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryMonsterDetai
       this._lblLPValue.text = _loc2_.lp;
       this._ctrSpe1.text = _loc2_.ap;
       this._mcOverEnergy.text = _loc2_.mp;
-      this._ctrJob2.text = _loc2_.i;
+      this._lblWisdom.text = _loc2_.i;
       var _loc3_ = _loc2_.r;
       var _loc4_ = 0;
       var _loc5_;

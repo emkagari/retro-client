@@ -172,7 +172,7 @@ class dofus.graphics.gapi.ui.Party extends dofus.graphics.gapi.core.DofusAdvance
                this._aMembers[_loc6_] = oMemberTarget;
             }
             _loc8_.setData(_loc7_);
-            _loc8_.isFollowing = _loc7_.id == this._sFollowID;
+            _loc8_.following = _loc7_.id == this._sFollowID;
             _loc8_.isLeader = _loc7_.id == this._sLeaderID;
             if(_loc8_.isInGroup)
             {
@@ -200,7 +200,7 @@ class dofus.graphics.gapi.ui.Party extends dofus.graphics.gapi.core.DofusAdvance
                _loc12_ = this["_piMember" + _loc10_];
                _loc12_._visible = !this._btnOpenClose.selected;
                _loc12_.setData(this._aMembers[_loc10_]);
-               _loc12_.isFollowing = this._aMembers[_loc10_].id == this._sFollowID;
+               _loc12_.following = this._aMembers[_loc10_].id == this._sFollowID;
                _loc12_.isLeader = this._aMembers[_loc10_].id == this._sLeaderID;
                if(_loc12_.isInGroup)
                {

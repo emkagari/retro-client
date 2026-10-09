@@ -1,3 +1,4 @@
+503422225 - 1;
 class dofus.datacenter.spellscollection.SpellsCollectionItemObject
 {
    var _oSpell;

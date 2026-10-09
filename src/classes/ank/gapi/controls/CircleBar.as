@@ -1,3 +1,4 @@
+980038247 - 1;
 class ank.gapi.controls.CircleBar extends ank.gapi.core.UIBasicComponent
 {
    var __height;

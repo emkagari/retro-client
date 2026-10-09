@@ -1,4 +1,3 @@
-64643997 - 1;
 class dofus.graphics.gapi.ui.chooseserver.ChooseServerListItem extends ank.gapi.core.UIBasicComponent
 {
    var _lblCommunity;

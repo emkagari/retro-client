@@ -70,7 +70,7 @@ class dofus.graphics.gapi.ui.Spells extends dofus.graphics.gapi.core.DofusAdvanc
       this._winBackground.title = this.api.lang.getText("YOUR_SPELLS");
       this._dgSpells.columnsNames = [this.api.lang.getText("NAME_BIG"),this.api.lang.getText("LEVEL")];
       this._lblBonusTitle.text = this.api.lang.getText("SPELL_BOOST_POINT");
-      this._lblSpellType.text = this.api.lang.getText("SPELL_TYPE");
+      this._sbvSpellBoostViewer.text = this.api.lang.getText("SPELL_TYPE");
       var _loc2_ = new ank.utils.ExtendedArray();
       _loc2_.push({label:this.api.lang.getText("WITHOUT_TYPE_FILTER"),type:-2});
       _loc2_.push({label:this.api.lang.getText("UPGRADABLE"),type:-1});
@@ -137,10 +137,10 @@ class dofus.graphics.gapi.ui.Spells extends dofus.graphics.gapi.core.DofusAdvanc
    }
    function hideSpellBoostViewer(bHide, oSpell)
    {
-      this._sbvSpellBoostViewer._visible = !bHide;
+      this._lblSpellType._visible = !bHide;
       if(oSpell != undefined)
       {
-         this._sbvSpellBoostViewer.spell = oSpell;
+         this._lblSpellType.spell = oSpell;
       }
    }
    function showDetails(bShow)

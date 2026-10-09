@@ -1,4 +1,3 @@
-340462475 - 1;
 class dofus.graphics.gapi.ui.AskCancel extends ank.gapi.ui.FlyWindow
 {
    var _sText;

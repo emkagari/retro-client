@@ -23,7 +23,7 @@ class dofus.datacenter.Item extends Object
    var _nAveragePrice;
    var _nCustomMoneyItemId;
    var _nEvolvTokenId;
-   var _nHoursLeft;
+   var _nHoursRemaining;
    var _nID;
    var _nLivingXp;
    var _nMood;
@@ -171,11 +171,11 @@ class dofus.datacenter.Item extends Object
    }
    function set remainingHours(nHoursLeft)
    {
-      this._nHoursLeft = nHoursLeft;
+      this._nHoursRemaining = nHoursLeft;
    }
    function get remainingHours()
    {
-      return this._nHoursLeft;
+      return this._nHoursRemaining;
    }
    function set position(value)
    {
@@ -351,7 +351,7 @@ class dofus.datacenter.Item extends Object
       {
          return "ItemSet";
       }
-      if(this._itemPrice)
+      if(this._nHoursLeft)
       {
          return "Ethereal";
       }
@@ -361,7 +361,7 @@ class dofus.datacenter.Item extends Object
    {
       return this._oUnicInfos.tw == true;
    }
-   function get _itemPrice()
+   function get _nHoursLeft()
    {
       return this._oUnicInfos.et == true;
    }

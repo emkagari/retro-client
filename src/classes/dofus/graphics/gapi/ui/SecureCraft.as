@@ -2,7 +2,6 @@ class dofus.graphics.gapi.ui.SecureCraft extends dofus.graphics.gapi.core.DofusA
 {
    var _aSelectedSuperTypes;
    var _bFiligraneVisible;
-   var _bPayMode;
    var _btnClose;
    var _btnCraft;
    var _btnFilterCards;
@@ -42,6 +41,7 @@ class dofus.graphics.gapi.ui.SecureCraft extends dofus.graphics.gapi.core.DofusA
    var _itvItemViewer;
    var _lblFilter;
    var _lblKama;
+   var _lblKamaPayment;
    var _lblNewObject;
    var _lblPay;
    var _lblPayIfSuccess;
@@ -52,7 +52,6 @@ class dofus.graphics.gapi.ui.SecureCraft extends dofus.graphics.gapi.core.DofusA
    var _lblQty2;
    var _lblSkill;
    var _mcArrow_;
-   var _mcBlinkPayIfSuccess;
    var _mcBlinkPayIfSuccess_TripleFramerate;
    var _mcBlinkPay_TripleFramerate;
    var _mcFiligrane;
@@ -71,6 +70,7 @@ class dofus.graphics.gapi.ui.SecureCraft extends dofus.graphics.gapi.core.DofusA
    var _parent;
    var _sCurrentDragSource;
    var _sCurrentDragTarget;
+   var _sDropTargetGrid;
    var _srSearch;
    var _symbolKama;
    var _tiSearch;
@@ -82,7 +82,7 @@ class dofus.graphics.gapi.ui.SecureCraft extends dofus.graphics.gapi.core.DofusA
    var _winInventory;
    var _winItemViewer;
    var _winMarked;
-   var _winPay;
+   var _winOrder;
    var addToQueue;
    var attachMovie;
    var gapi;
@@ -145,7 +145,7 @@ class dofus.graphics.gapi.ui.SecureCraft extends dofus.graphics.gapi.core.DofusA
       this._eaDataProvider.addEventListener("modelChanged",this);
       this.modelChanged({target:this._eaDataProvider});
    }
-   function set distantDataProvider(eaDistantDataProvider)
+   function set _nDistantReadyState(eaDistantDataProvider)
    {
       this._eaLocalDataProvider.removeEventListener("modelChange",this);
       this._eaLocalDataProvider = eaDistantDataProvider;
@@ -166,21 +166,21 @@ class dofus.graphics.gapi.ui.SecureCraft extends dofus.graphics.gapi.core.DofusA
       this._eaCoopDataProvider.addEventListener("modelChanged",this);
       this.modelChanged({target:this._eaCoopDataProvider});
    }
-   function set _cgPayIfSuccess(eaPayDataProvider)
+   function set _bPayMode(eaPayDataProvider)
    {
       this._eaPayDataProvider.removeEventListener("modelChange",this);
       this._eaPayDataProvider = eaPayDataProvider;
       this._eaPayDataProvider.addEventListener("modelChanged",this);
       this.modelChanged({target:this._eaPayDataProvider});
    }
-   function set _btnPrivateMessagePay(eaPayIfSuccessDataProvider)
+   function set _mcBlinkPayIfSuccess(eaPayIfSuccessDataProvider)
    {
       this._eaPayIfSuccessDataProvider.removeEventListener("modelChange",this);
       this._eaPayIfSuccessDataProvider = eaPayIfSuccessDataProvider;
       this._eaPayIfSuccessDataProvider.addEventListener("modelChanged",this);
       this.modelChanged({target:this._eaPayIfSuccessDataProvider});
    }
-   function set _lblDistantKama(eaReadyDataProvider)
+   function set _winPay(eaReadyDataProvider)
    {
       this._eaReadyDataProvider.removeEventListener("modelChange",this);
       this._eaReadyDataProvider = eaReadyDataProvider;
@@ -312,10 +312,10 @@ class dofus.graphics.gapi.ui.SecureCraft extends dofus.graphics.gapi.core.DofusA
       this._winDistant.title = this.api.datacenter.Sprites.getItemAt(this.api.datacenter.Exchange.distantPlayerID).name;
       this._lblKama.text = new ank.utils.ExtendedString(this.api.datacenter.Player.Kama).addMiddleChar(this.api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
       this._mcArrow_.text = this.api.lang.getText("PAY");
-      this._sCurrentDragTarget.text = this.api.lang.getText("GRANT_IF_SUCCESS");
+      this._nKamaPaymentIfSuccess.text = this.api.lang.getText("GRANT_IF_SUCCESS");
       this._lblQty1.text = "" + this._nCurrentQuantity;
       this._lblQty2.text = "" + this._nCurrentQuantity;
-      this._nKamaPaymentIfSuccess.title = this.api.lang.getText("ORDER");
+      this._winOrder.title = this.api.lang.getText("ORDER");
       this._txtUseMarkRune.text = this.api.lang.getText("USE_MARKED_RUNE_IN_CRAFT");
       this._tiSearch.placeholder = ank.utils.PatternDecoder.combine(this.api.lang.getText("NAME_MINIMUM_CHARACTERS",[dofus.Constants.INV_SEARCH_MIN_CHARACTERS]),null,dofus.Constants.INV_SEARCH_MIN_CHARACTERS <= 1);
       this._tiSearch.restrict = dofus.Constants.INV_SEARCH_RESTRICT;
@@ -325,12 +325,12 @@ class dofus.graphics.gapi.ui.SecureCraft extends dofus.graphics.gapi.core.DofusA
    {
       this._aSelectedSuperTypes = dofus.Constants.FILTER_RESSOURCES;
       this.dataProvider = this.api.datacenter.Exchange.inventory;
-      this.distantDataProvider = this.api.datacenter.Exchange.localGarbage;
+      this._nDistantReadyState = this.api.datacenter.Exchange.localGarbage;
       this._mcBlinkPay = this.api.datacenter.Exchange.distantGarbage;
       this._winCoop = this.api.datacenter.Exchange.coopGarbage;
-      this._cgPayIfSuccess = this.api.datacenter.Exchange.payIfSuccessGarbage;
-      this._btnPrivateMessagePay = this.api.datacenter.Exchange.payGarbage;
-      this._lblDistantKama = this.api.datacenter.Exchange.readyStates;
+      this._bPayMode = this.api.datacenter.Exchange.payIfSuccessGarbage;
+      this._mcBlinkPayIfSuccess = this.api.datacenter.Exchange.payGarbage;
+      this._winPay = this.api.datacenter.Exchange.readyStates;
       this.switchPayBar(1);
       this.showPreview(undefined,false);
       this._winInventory._visible = this._cgPay;
@@ -539,7 +539,7 @@ class dofus.graphics.gapi.ui.SecureCraft extends dofus.graphics.gapi.core.DofusA
       {
          nValue = oItem.Quantity;
       }
-      this._mcBlinkPayIfSuccess = sToGrid;
+      this._sDropTargetGrid = sToGrid;
       switch(sToGrid)
       {
          case "_cgGrid":
@@ -818,7 +818,7 @@ class dofus.graphics.gapi.ui.SecureCraft extends dofus.graphics.gapi.core.DofusA
    {
       this._lblPayKamaTotal.text = new ank.utils.ExtendedString(this._nCurrentQuantity * this._btnPayIfSuccessKama).addMiddleChar(this.api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
       this._lblPayIfSuccessKamaTotal.text = new ank.utils.ExtendedString(this._nCurrentQuantity * this._nKamaPayment).addMiddleChar(this.api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
-      this._sCurrentDragSource.text = new ank.utils.ExtendedString(this._nKamaPayment).addMiddleChar(this.api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
+      this._lblKamaPayment.text = new ank.utils.ExtendedString(this._nKamaPayment).addMiddleChar(this.api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
       this._bFiligraneVisible.text = new ank.utils.ExtendedString(this._btnPayIfSuccessKama).addMiddleChar(this.api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
       if(this._cgPay)
       {
@@ -842,11 +842,11 @@ class dofus.graphics.gapi.ui.SecureCraft extends dofus.graphics.gapi.core.DofusA
       {
          if(idx == 1)
          {
-            this._bPayMode.play();
+            this._sCurrentDragSource.play();
          }
          if(idx == 2)
          {
-            this._winPay.play();
+            this._sCurrentDragTarget.play();
          }
       }
    }

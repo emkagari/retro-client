@@ -27,7 +27,7 @@ class ank.gapi.controls.TextArea extends ank.gapi.core.UIBasicComponent
    var _bEditable = true;
    var _bSelectable = true;
    var _bAutoHeight = false;
-   var _bWordWrap = true;
+   var getStyle_ = true;
    var _bScrollBarRight = true;
    var _bHTML = false;
    var _nScrollBarMargin = 0;
@@ -86,9 +86,9 @@ class ank.gapi.controls.TextArea extends ank.gapi.core.UIBasicComponent
          this.loadText();
       }
    }
-   function set editable(bEditable)
+   function set editable(bWordWrap)
    {
-      this._bEditable = bEditable;
+      this._bEditable = bWordWrap;
       if(this._bInitialized)
       {
          this.addToQueue({object:this,method:this.setTextFieldProperties});
@@ -98,9 +98,9 @@ class ank.gapi.controls.TextArea extends ank.gapi.core.UIBasicComponent
    {
       return this._bEditable;
    }
-   function set autoHeight(bAutoHeight)
+   function set autoHeight(bEditable)
    {
-      this._bAutoHeight = bAutoHeight;
+      this._bAutoHeight = bEditable;
       if(this._bInitialized)
       {
          this.addToQueue({object:this,method:this.setTextFieldProperties});
@@ -122,9 +122,9 @@ class ank.gapi.controls.TextArea extends ank.gapi.core.UIBasicComponent
    {
       return this._bSelectable;
    }
-   function set wordWrap(bWordWrap)
+   function set wordWrap(bAutoHeight)
    {
-      this._bWordWrap = bWordWrap;
+      this.getStyle_ = bAutoHeight;
       if(this._bInitialized)
       {
          this.addToQueue({object:this,method:this.setTextFieldProperties});
@@ -132,7 +132,7 @@ class ank.gapi.controls.TextArea extends ank.gapi.core.UIBasicComponent
    }
    function get wordWrap()
    {
-      return this._bWordWrap;
+      return this.getStyle_;
    }
    function set html(bHTML)
    {
@@ -313,7 +313,7 @@ class ank.gapi.controls.TextArea extends ank.gapi.core.UIBasicComponent
          {
             this._tText.autoSize = "left";
          }
-         this._tText.wordWrap = !this._bWordWrap ? false : true;
+         this._tText.wordWrap = !this.getStyle_ ? false : true;
          this._tText.multiline = true;
          this._tText.selectable = this._bSelectable;
          this._tText.type = !this._bEditable ? "dynamic" : "input";

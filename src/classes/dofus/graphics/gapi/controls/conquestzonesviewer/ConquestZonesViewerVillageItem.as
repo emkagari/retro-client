@@ -47,7 +47,7 @@ class dofus.graphics.gapi.controls.conquestzonesviewer.ConquestZonesViewerVillag
             this._ldrAlignment._alpha = 100;
             this._ldrAlignment.contentPath = dofus.Constants.ALIGNMENTS_MINI_PATH + oItem.alignment + ".swf";
          }
-         if(oItem.prism)
+         if(oItem.doorOpen)
          {
             this._mcDoorClose._alpha = 0;
             this._mcDoorOpen._alpha = 100;
@@ -116,7 +116,7 @@ class dofus.graphics.gapi.controls.conquestzonesviewer.ConquestZonesViewerVillag
             this.api.ui.showTooltip(this.api.lang.getText("ALIGNMENT") + ": " + (this._oItem.alignment <= 0 ? (this._oItem.alignment != -1 ? this.api.lang.getText("NEUTRAL_WORD") : this.api.lang.getText("NON_ALIGNED")) : new dofus.datacenter.Alignment(this._oItem.alignment,1).name));
             break;
          case this._mcDoorInteractivity:
-            this.api.ui.showTooltip(!this._oItem.prism ? this.api.lang.getText("CONQUEST_VILLAGE_DOOR_CLOSE") : this.api.lang.getText("CONQUEST_VILLAGE_DOOR_OPEN"));
+            this.api.ui.showTooltip(!this._oItem.doorOpen ? this.api.lang.getText("CONQUEST_VILLAGE_DOOR_CLOSE") : this.api.lang.getText("CONQUEST_VILLAGE_DOOR_OPEN"));
             break;
          case this._mcPrismInteractivity:
             this.api.ui.showTooltip(!this._oItem.subway ? this.api.lang.getText("CONQUEST_VILLAGE_PRISM_CLOSE") : this.api.lang.getText("CONQUEST_VILLAGE_PRISM_OPEN"));

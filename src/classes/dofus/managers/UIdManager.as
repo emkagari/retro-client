@@ -1,4 +1,4 @@
-35214956 - 1;
+733599815 - 1;
 class dofus.managers.UIdManager
 {
    var _connId;

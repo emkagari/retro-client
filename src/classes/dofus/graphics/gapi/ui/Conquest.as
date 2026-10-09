@@ -107,7 +107,7 @@ class dofus.graphics.gapi.ui.Conquest extends dofus.graphics.gapi.core.DofusAdva
    {
       this._lblTitle.text = this.api.lang.getText("CONQUEST_WORD") + " " + this.api.lang.getText("AND") + " " + this.api.lang.getText("HUNT");
       this._lblBalance.text = this.api.lang.getText("RANK");
-      this._lblBalanceValue.text = this.api.lang.getText("BALANCE_WORD");
+      this._lblGrade.text = this.api.lang.getText("BALANCE_WORD");
       this._btnTabStats.label = this.api.lang.getText("STATS");
       this._btnTabZones.label = this.api.lang.getText("ZONES_WORD");
       this._btnTabJoin.label = this.api.lang.getText("DEFEND");
@@ -178,7 +178,7 @@ class dofus.graphics.gapi.ui.Conquest extends dofus.graphics.gapi.core.DofusAdva
             this._sBalanceDescription = String(_loc2_[i].d);
          }
       }
-      this._lblGrade.text = this._nWorldBalance + "%" + (_loc3_.length <= 0 ? "" : " (" + _loc3_ + ")");
+      this._lblBalanceValue.text = this._nWorldBalance + "%" + (_loc3_.length <= 0 ? "" : " (" + _loc3_ + ")");
    }
    function destroy()
    {

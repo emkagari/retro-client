@@ -1,4 +1,3 @@
-437222597 - 1;
 class dofus.graphics.gapi.ui.FightOptionButtons extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnBlockJoiner;

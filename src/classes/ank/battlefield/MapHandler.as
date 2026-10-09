@@ -853,7 +853,6 @@ class ank.battlefield.MapHandler
       }
       if(_loc6_ > 0)
       {
-         org.flashdevelop.utils.FlashConnect.trace("[resetEmptyCells] " + _loc6_ + " dead cells cleaned...","ank.battlefield.MapHandler::resetEmptyCells","C:\\Dev\\Projects\\client\\src\\ank-common\\classes/ank/battlefield/MapHandler.as",1052);
       }
    }
    function adjustAndMaskMap()

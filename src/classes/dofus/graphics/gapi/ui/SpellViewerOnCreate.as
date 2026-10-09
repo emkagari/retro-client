@@ -53,7 +53,7 @@ class dofus.graphics.gapi.ui.SpellViewerOnCreate extends dofus.graphics.gapi.cor
    }
    function initText()
    {
-      this._lblBreedSpells.text = this.api.lang.getText("CLASS_SPELLS");
+      this._mcViewAllSpell.text = this.api.lang.getText("CLASS_SPELLS");
       this._lblBreedName.text = this.api.lang.getClassText(this._nBreed).sn;
       this._lbViewSpell.text = this.api.lang.getText("SEE_ALL_SPELLS");
    }
@@ -67,7 +67,7 @@ class dofus.graphics.gapi.ui.SpellViewerOnCreate extends dofus.graphics.gapi.cor
       {
       };
       this._mcWindowBg.useHandCursor = false;
-      this._mcViewAllSpell.onRelease = function()
+      this._lblBreedSpells.onRelease = function()
       {
          var aTarget = {};
          var _loc2_ = 0;
@@ -157,7 +157,7 @@ class dofus.graphics.gapi.ui.SpellViewerOnCreate extends dofus.graphics.gapi.cor
       }
       if(_loc2_.length < dofus.graphics.gapi.ui.SpellViewerOnCreate.SPELLS_DISPLAYED / 2 || this.api.datacenter.Basics.aks_current_server.isTemporis())
       {
-         this._mcViewAllSpell.onRelease();
+         this._lblBreedSpells.onRelease();
       }
       this._mcSpellDesc._ldrSpellBig.addEventListener("complete",this);
       this.showSpellInfo(_loc2_[0],1);

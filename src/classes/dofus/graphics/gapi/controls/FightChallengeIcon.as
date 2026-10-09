@@ -1,3 +1,4 @@
+5689400 - 1;
 class dofus.graphics.gapi.controls.FightChallengeIcon extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _ldr;

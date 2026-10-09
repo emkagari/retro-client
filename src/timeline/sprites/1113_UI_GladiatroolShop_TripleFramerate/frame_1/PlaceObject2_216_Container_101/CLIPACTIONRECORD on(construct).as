@@ -1,5 +1,4 @@
 on(construct){
-   672165204 - 1;
    backgroundRenderer = "UI_ExchangeGridBackground";
    borderRenderer = "";
    dragAndDrop = false;

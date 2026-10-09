@@ -10,8 +10,8 @@ class dofus.datacenter.TutorialIf extends dofus.datacenter.TutorialBloc
       super(sID,dofus.datacenter.TutorialBloc.TYPE_IF);
       this._mLeft = mLeft;
       this._sOperator = sOperator;
-      this._mNextBlocTrueID = mRight;
-      this._mRight = mNextBlocTrueID;
+      this._mRight = mRight;
+      this._mNextBlocTrueID = mNextBlocTrueID;
       this._mNextBlocFalseID = mNextBlocFalseID;
    }
    function get left()
@@ -24,11 +24,11 @@ class dofus.datacenter.TutorialIf extends dofus.datacenter.TutorialBloc
    }
    function get right()
    {
-      return this._mNextBlocTrueID;
+      return this._mRight;
    }
    function get right_()
    {
-      return this._mRight;
+      return this._mNextBlocTrueID;
    }
    function get nextBlocFalseID()
    {

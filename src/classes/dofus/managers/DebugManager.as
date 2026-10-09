@@ -1,4 +1,3 @@
-414777366 - 1;
 class dofus.managers.DebugManager extends dofus.utils.ApiElement
 {
    var _bDebugEnabled;
@@ -53,7 +52,6 @@ class dofus.managers.DebugManager extends dofus.utils.ApiElement
          default:
             _loc6_ = "DEBUG_INFO";
       }
-      org.flashdevelop.utils.FlashConnect.trace("[" + _loc6_ + "] " + _loc5_,"dofus.managers.DebugManager::print","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/DebugManager.as",96);
       this.api.kernel.showMessage(undefined,_loc5_,_loc6_);
    }
    function getFormattedMessage(sMsg, sCommandsDelimiter)

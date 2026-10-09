@@ -1,5 +1,4 @@
 on(construct){
-   714984537 - 1;
    cellRenderer = "TaxCollectorsViewerItem";
    columnsProperties = [];
    columnsProperties[0] = "sortState";

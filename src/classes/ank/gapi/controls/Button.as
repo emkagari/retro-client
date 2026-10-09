@@ -20,7 +20,7 @@ class ank.gapi.controls.Button extends ank.gapi.core.UIBasicComponent
    var setSize;
    static var CLASS_NAME = "Button";
    var _bToggle = false;
-   var _bRadio = false;
+   var _bDisabledStyle_ = false;
    var _sLabel = "";
    var _sBackgroundUp = "ButtonNormalUp";
    var _sBackgroundDown = "ButtonNormalDown";
@@ -63,11 +63,11 @@ class ank.gapi.controls.Button extends ank.gapi.core.UIBasicComponent
    }
    function set radio(bRadio)
    {
-      this._bRadio = bRadio;
+      this._bDisabledStyle_ = bRadio;
    }
    function get radio()
    {
-      return this._bRadio;
+      return this._bDisabledStyle_;
    }
    function set icon(sIcon)
    {
@@ -298,7 +298,7 @@ class ank.gapi.controls.Button extends ank.gapi.core.UIBasicComponent
       {
          return undefined;
       }
-      if(this._bRadio)
+      if(this._bDisabledStyle_)
       {
          this.selected = true;
       }

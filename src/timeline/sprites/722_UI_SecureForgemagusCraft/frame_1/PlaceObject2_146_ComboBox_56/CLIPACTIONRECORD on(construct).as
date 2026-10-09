@@ -1,5 +1,4 @@
 on(construct){
-   97254297 - 1;
    background = "ComboBoxNormal";
    buttonBackgroundDown = "ButtonTransparentUp";
    buttonBackgroundUp = "ButtonTransparentUp";

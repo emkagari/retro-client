@@ -1,3 +1,4 @@
+767312083 - 1;
 class dofus.aks.Mount extends dofus.aks.Handler
 {
    var api;

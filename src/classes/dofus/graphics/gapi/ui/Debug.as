@@ -1,3 +1,4 @@
+371750718 - 1;
 class dofus.graphics.gapi.ui.Debug extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnClear;

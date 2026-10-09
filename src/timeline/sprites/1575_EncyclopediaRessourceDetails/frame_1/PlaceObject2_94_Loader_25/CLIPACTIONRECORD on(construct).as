@@ -1,4 +1,5 @@
 on(construct){
+   485763633 - 1;
    autoLoad = false;
    centerContent = false;
    contentPath = "UI_ChatCautionIcon";

@@ -1,4 +1,3 @@
-385703066 - 1;
 class dofus.datacenter.PlayableCharacter extends ank.battlefield.datacenter.Sprite
 {
    var CharacteristicsManager;
@@ -7,7 +6,6 @@ class dofus.datacenter.PlayableCharacter extends ank.battlefield.datacenter.Spri
    var __proto__;
    var _aAccessories;
    var _ap;
-   var _apinit;
    var _gfxID;
    var _kama;
    var _lp;
@@ -22,6 +20,7 @@ class dofus.datacenter.PlayableCharacter extends ank.battlefield.datacenter.Spri
    var _xp;
    var api;
    var baseGfxFileName;
+   var baseGfxFileName_;
    var broadcastMessage;
    var creatureModeApplied;
    var dispatchEvent;
@@ -156,11 +155,11 @@ class dofus.datacenter.PlayableCharacter extends ank.battlefield.datacenter.Spri
    }
    function get Level()
    {
-      return this._apinit;
+      return this._kama;
    }
    function set Level(value)
    {
-      this._apinit = Number(value);
+      this._kama = Number(value);
       this.broadcastMessage("onSetLevel",value);
    }
    function get XP()
@@ -216,11 +215,11 @@ class dofus.datacenter.PlayableCharacter extends ank.battlefield.datacenter.Spri
    }
    function get APinit()
    {
-      return this._kama;
+      return this._team;
    }
    function set APinit(value)
    {
-      this._kama = Number(value);
+      this._team = Number(value);
    }
    function get MP()
    {
@@ -238,19 +237,19 @@ class dofus.datacenter.PlayableCharacter extends ank.battlefield.datacenter.Spri
    }
    function get MPinit()
    {
-      return this._team;
+      return this._mpinit;
    }
    function set MPinit(value)
    {
-      this._team = Number(value);
+      this._mpinit = Number(value);
    }
    function get Kama()
    {
-      return this._mpinit;
+      return this.baseGfxFileName_;
    }
    function set Kama(value)
    {
-      this._mpinit = Number(value);
+      this.baseGfxFileName_ = Number(value);
       this.broadcastMessage("onSetKama",value);
    }
    function get Team()
@@ -261,13 +260,13 @@ class dofus.datacenter.PlayableCharacter extends ank.battlefield.datacenter.Spri
    {
       this._summoned = Number(value);
    }
-   function get _level()
+   function get _apinit()
    {
       return this._aAccessories[0];
    }
    function get ToolAnimation()
    {
-      var _loc2_ = this._level.unicID;
+      var _loc2_ = this._apinit.unicID;
       var _loc3_ = this.api.lang.getItemUnicText(_loc2_);
       if(_loc3_.an == undefined)
       {

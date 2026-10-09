@@ -1,4 +1,4 @@
-41318046 - 1;
+220659250 - 1;
 class dofus.graphics.gapi.ui.PlayerShop extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnBuy;
@@ -316,9 +316,9 @@ class dofus.graphics.gapi.ui.PlayerShop extends dofus.graphics.gapi.core.DofusAd
    function complete(oEvent)
    {
       var ref = this;
-      this._ldrArtwork.content.stringCourseColor = function(mc_, nColorIndex)
+      this._ldrArtwork.content.stringCourseColor = function(mc_, nStringCourseColor)
       {
-         ref.applyColor(mc_,nColorIndex);
+         ref.applyColor(mc_,nStringCourseColor);
       };
    }
 }

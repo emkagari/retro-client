@@ -1,4 +1,4 @@
-33622055 - 1;
+648834142 - 1;
 class dofus.graphics.gapi.ui.ItemUtility extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _bgh;
@@ -77,11 +77,11 @@ class dofus.graphics.gapi.ui.ItemUtility extends dofus.graphics.gapi.core.DofusA
    }
    function initTexts()
    {
-      this._winReceipt.title = this._oItem.name;
-      this._lblReceiptFilter.text = this.api.lang.getText("ITEM_TYPE");
+      this._lblCrafts.title = this._oItem.name;
+      this._winReceipt.text = this.api.lang.getText("ITEM_TYPE");
       this._lblNoCrafts.text = this.api.lang.getText("ITEM_UTILITY_NO_CRAFTS");
       this._lblNoReceipt.text = this.api.lang.getText("ITEM_UTILITY_NO_RECEIPT");
-      this._lblCrafts.text = this.api.lang.getText("ITEM_UTILITY_CRAFTS");
+      this._lblReceiptFilter.text = this.api.lang.getText("ITEM_UTILITY_CRAFTS");
       this._lblReceipt.text = this.api.lang.getText("ITEM_UTILITY_RECEIPT");
       this._tiSearch.placeholder = ank.utils.PatternDecoder.combine(this.api.lang.getText("NAME_MINIMUM_CHARACTERS",[dofus.Constants.INV_SEARCH_MIN_CHARACTERS]),null,dofus.Constants.INV_SEARCH_MIN_CHARACTERS <= 1);
       this._tiSearch.restrict = dofus.Constants.INV_SEARCH_RESTRICT;

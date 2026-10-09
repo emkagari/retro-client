@@ -9,7 +9,7 @@ class dofus.graphics.gapi.ui.CenterInfo extends dofus.graphics.gapi.ui.CenterTex
    }
    function set textInfo(sText_)
    {
-      this._lblWhiteDesc = sText_;
+      this._sDesc = sText_;
    }
    function init()
    {
@@ -18,7 +18,6 @@ class dofus.graphics.gapi.ui.CenterInfo extends dofus.graphics.gapi.ui.CenterTex
    function initText()
    {
       super.initText();
-      this._sDesc.text = this._lblWhiteDesc;
-      org.flashdevelop.utils.FlashConnect.trace(this._lblWhiteDesc,"dofus.graphics.gapi.ui.CenterInfo::initText","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/CenterInfo.as",49);
+      this._lblWhiteDesc.text = this._sDesc;
    }
 }

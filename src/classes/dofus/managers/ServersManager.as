@@ -1,3 +1,4 @@
+772236386 - 1;
 class dofus.managers.ServersManager extends dofus.utils.ApiElement
 {
    var _aServers;
@@ -22,9 +23,9 @@ class dofus.managers.ServersManager extends dofus.utils.ApiElement
    function initialize(oAPI, sObjectName, sFolder)
    {
       super.initialize(oAPI);
-      this._oFailedURL = sObjectName;
+      this._sObjectName = sObjectName;
       this._sFolder = sFolder;
-      this._sObjectName = {};
+      this._oFailedURL = {};
    }
    function loadData(sFile)
    {

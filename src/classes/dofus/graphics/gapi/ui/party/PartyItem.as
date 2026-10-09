@@ -27,19 +27,19 @@ class dofus.graphics.gapi.ui.party.PartyItem extends dofus.graphics.gapi.core.Do
          this.updateData();
       }
    }
-   function set isFollowing(bIsFollowing)
+   function set following(bIsLeader)
    {
-      this._bIsFollowing = bIsFollowing;
-      this._mcFollow._visible = bIsFollowing;
-   }
-   function set isLeader(bIsLeader)
-   {
-      this._mcLeader = bIsLeader;
+      this._bIsFollowing = bIsLeader;
       this._bIsLeader._visible = bIsLeader;
+   }
+   function set isLeader(bIsFollowing)
+   {
+      this._mcFollow = bIsFollowing;
+      this._mcLeader._visible = bIsFollowing;
    }
    function get isLeader()
    {
-      return this._mcLeader;
+      return this._mcFollow;
    }
    function get isInGroup(bIsInGroup)
    {
@@ -106,7 +106,7 @@ class dofus.graphics.gapi.ui.party.PartyItem extends dofus.graphics.gapi.core.Do
    {
       this.addToQueue({object:this,method:this.addListeners});
       this._mcBack._visible = false;
-      this._mcFollow._visible = false;
+      this._bIsLeader._visible = false;
       this._mcHealth._visible = false;
       this._btn._visible = false;
    }
@@ -135,7 +135,7 @@ class dofus.graphics.gapi.ui.party.PartyItem extends dofus.graphics.gapi.core.Do
       {
          this._ldrSprite.contentPath = "";
          this._mcBack._visible = false;
-         this._mcFollow._visible = false;
+         this._bIsLeader._visible = false;
          this._btn.enabled = false;
          this._btn._visible = false;
          this._mcHealth._visible = false;

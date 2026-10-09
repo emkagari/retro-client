@@ -1,4 +1,3 @@
-140319662 - 1;
 class dofus.graphics.gapi.ui.charactersmigration.CharactersMigrationItem extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _lblLevel;

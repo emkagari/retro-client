@@ -26,7 +26,6 @@ class ank.battlefield.LoadManager extends MovieClip
          }
          if(ank.battlefield.LoadManager._aMovieClipLoader[_loc2_].state == ank.battlefield.LoadManager.STATE_WAITING)
          {
-            org.flashdevelop.utils.FlashConnect.trace("processLoad " + ank.battlefield.LoadManager._aMovieClipLoader[_loc2_].file,"ank.battlefield.LoadManager::processLoad","C:\\Dev\\Projects\\client\\src\\ank-common\\classes/ank/battlefield/LoadManager.as",49);
             ank.battlefield.LoadManager._aMovieClipLoader[_loc2_].state = ank.battlefield.LoadManager.STATE_LOADING;
             ank.battlefield.LoadManager._aMovieClipLoader[_loc2_].loader.loadClip(ank.battlefield.LoadManager._aMovieClipLoader[_loc2_].file,ank.battlefield.LoadManager._aMovieClipLoader[_loc2_].container);
          }
@@ -94,7 +93,6 @@ class ank.battlefield.LoadManager extends MovieClip
             return undefined;
          }
          _loc3_.state = ank.battlefield.LoadManager.STATE_LOADING;
-         org.flashdevelop.utils.FlashConnect.trace("Load : " + sFile,"ank.battlefield.LoadManager::loadFile","C:\\Dev\\Projects\\client\\src\\ank-common\\classes/ank/battlefield/LoadManager.as",122);
          _loc3_.loader.loadClip(sFile,_loc3_.container);
       }
    }
@@ -222,7 +220,6 @@ class ank.battlefield.LoadManager extends MovieClip
    function onLoadError(mc)
    {
       var _loc3_ = this.getFileByMc(mc);
-      org.flashdevelop.utils.FlashConnect.trace("onLoadError " + _loc3_.file,"ank.battlefield.LoadManager::onLoadError","C:\\Dev\\Projects\\client\\src\\ank-common\\classes/ank/battlefield/LoadManager.as",234);
       _loc3_.state = ank.battlefield.LoadManager.STATE_ERROR;
       delete _loc3_.loader;
       this.processLoad();

@@ -186,11 +186,11 @@ class dofus.datacenter.QuestStep extends Object
    {
       return this._nState == 0;
    }
-   function get hasNext()
+   function get hasPrevious()
    {
       return true;
    }
-   function get hasPrevious()
+   function get hasNext()
    {
       return true;
    }

@@ -18,10 +18,10 @@ class dofus.Constants extends Object
    static var SAVING_THE_WORLD = false;
    static var VERSION = 1;
    static var SUBVERSION = 49;
-   static var SUBSUBVERSION = 5;
+   static var SUBSUBVERSION = 6;
    static var BETAVERSION = 0;
    static var ALPHA = false;
-   static var VERSIONDATE = "17/09/2026 14:00 UTC+2";
+   static var VERSIONDATE = "29/09/2026 16:00 UTC+2";
    static var LANG_SHAREDOBJECT_NAME = "ANKLANGSO";
    static var XTRA_SHAREDOBJECT_NAME = "ANKXTRASO";
    static var OPTIONS_SHAREDOBJECT_NAME = "ANKOPTIONSSO";
@@ -210,7 +210,7 @@ class dofus.Constants extends Object
    static var DIFFICULTY_COLOR_0 = 65280;
    static var DIFFICULTY_COLOR_1 = 16777215;
    static var DIFFICULTY_COLOR_2 = 16711680;
-   static var MAX_UPDATER_CONNECTION_TRY = 5;
+   static var NEWBIE_MAX_LEVEL = 5;
    static var HUNT_LEVEL = 50;
    static var PLAYER_LEVEL_FOR_BOOST_SPELL_LEVEL_6 = 100;
    static var SPELL_BOOST_MAX_LEVEL = 6;
@@ -220,7 +220,7 @@ class dofus.Constants extends Object
    static var MEMBERS_COUNT_IN_PARTY = 8;
    static var UPDATER_PORT = 4583;
    static var UPDATER_CONNECTION_TRY_DELAY = 500;
-   static var NOVICE_LEVEL = 5;
+   static var MAX_UPDATER_CONNECTION_TRY = 5;
    static var EMBLEM_BACKS_COUNT = 17;
    static var EMBLEM_UPS_COUNT = 104;
    static var CUSTOM_SET_ICONS_COUNT = 40;

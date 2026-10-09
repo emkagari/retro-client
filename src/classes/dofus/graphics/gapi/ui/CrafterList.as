@@ -1,4 +1,3 @@
-96132950 - 1;
 class dofus.graphics.gapi.ui.CrafterList extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnClose;

@@ -117,13 +117,11 @@ class dofus.managers.TipsManager extends ank.utils.QueueEmbedMovieClip
    {
       if(!(this.api.datacenter.Basics.aks_current_map_id == nMapID || nMapID == -1))
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.InvalidOperationException(this,"TipsManager","pointCell","We are no more on the right map."),"dofus.managers.TipsManager::pointCell","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/TipsManager.as",259);
          return undefined;
       }
       var _loc5_ = this.api.gfx.mapHandler.getCellData(nCellID).mc;
       if(_loc5_ == undefined)
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.NullPointerException(this,"TipsManager","pointCell","mcCell"),"dofus.managers.TipsManager::pointCell","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/TipsManager.as",239);
          return undefined;
       }
       var _loc6_ = {x:_loc5_._x,y:_loc5_._y};
@@ -137,7 +135,6 @@ class dofus.managers.TipsManager extends ank.utils.QueueEmbedMovieClip
    {
       if(!(this.api.datacenter.Basics.aks_current_map_id == nMapID || nMapID == -1))
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.InvalidOperationException(this,"TipsManager","pointCell","We are no more on the right map."),"dofus.managers.TipsManager::pointSprite","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/TipsManager.as",299);
          return undefined;
       }
       var _loc4_ = this.api.gfx.spriteHandler.getSprites().getItems();
@@ -163,7 +160,6 @@ class dofus.managers.TipsManager extends ank.utils.QueueEmbedMovieClip
    {
       if(!(this.api.datacenter.Basics.aks_current_map_id == nMapID || nMapID == -1))
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.InvalidOperationException(this,"TipsManager","pointCell","We are no more on the right map."),"dofus.managers.TipsManager::pointPicto","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/TipsManager.as",330);
          return undefined;
       }
       var _loc4_ = this.api.gfx.mapHandler.getCellsData();

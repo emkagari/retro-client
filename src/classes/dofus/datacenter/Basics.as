@@ -1,4 +1,3 @@
-343839783 - 1;
 class dofus.datacenter.Basics extends dofus.utils.ApiElement
 {
    var _aks_infos_highlightCoords;
@@ -113,7 +112,7 @@ class dofus.datacenter.Basics extends dofus.utils.ApiElement
    }
    function set banner_targetCoords(aCoord)
    {
-      this.craftViewer_filter = aCoord;
+      this._banner_targetCoords = aCoord;
       var _loc3_ = dofus.graphics.gapi.ui.Banner(this.api.ui.getUIComponent("Banner"));
       _loc3_.illustration.updateFlags();
       _loc3_.chat.miniMapReplacementPanel.updateFlags();
@@ -121,7 +120,7 @@ class dofus.datacenter.Basics extends dofus.utils.ApiElement
    }
    function get banner_targetCoords()
    {
-      return this.craftViewer_filter;
+      return this._banner_targetCoords;
    }
    function team(nTeamNumber)
    {
@@ -260,7 +259,7 @@ class dofus.datacenter.Basics extends dofus.utils.ApiElement
       this.craftViewer_searchByJob = {};
       this.craftViewer_levelByJob = {};
       this.craftViewer_filterPossible = {};
-      this._banner_targetCoords = [true,true,true,true,true,false,true];
+      this.craftViewer_filter = [true,true,true,true,true,false,true];
       this.mapExplorer_zoom = 50;
       this.mapExplorer_coord = undefined;
       this.mapExplorer_grid = false;

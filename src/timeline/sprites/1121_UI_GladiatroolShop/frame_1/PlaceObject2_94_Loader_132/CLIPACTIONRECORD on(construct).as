@@ -1,5 +1,4 @@
 on(construct){
-   35650765 - 1;
    autoLoad = true;
    centerContent = false;
    contentPath = "QuestionMark";

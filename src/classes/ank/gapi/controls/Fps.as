@@ -1,4 +1,3 @@
-860136374 - 1;
 class ank.gapi.controls.Fps extends ank.gapi.core.UIBasicComponent
 {
    var __height;

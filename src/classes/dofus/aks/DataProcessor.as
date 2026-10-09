@@ -305,12 +305,10 @@ class dofus.aks.DataProcessor extends dofus.aks.Handler
                   else
                   {
                      _loc10_ = _global.parseInt(sData.charAt(2),10);
-                     org.flashdevelop.utils.FlashConnect.trace("GoToCongratulation " + _loc10_,"dofus.aks.DataProcessor::postProcess","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/DataProcessor.as",409);
                      if(_global.isNaN(_loc10_))
                      {
                         _loc10_ = 3;
                      }
-                     org.flashdevelop.utils.FlashConnect.trace("GoToCongratulation " + _loc10_,"dofus.aks.DataProcessor::postProcess","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/DataProcessor.as",412);
                      fscommand("GoToCongratulation",_loc10_);
                   }
                   break;

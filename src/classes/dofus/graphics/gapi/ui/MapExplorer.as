@@ -1,4 +1,3 @@
-850629077 - 1;
 class dofus.graphics.gapi.ui.MapExplorer extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _aCategories;
@@ -189,7 +188,7 @@ class dofus.graphics.gapi.ui.MapExplorer extends dofus.graphics.gapi.core.DofusA
    function initTexts()
    {
       this._winBg.title = this.api.lang.getText("WORLD_MAP");
-      this._mcTriangleN.text = this.api.lang.getText("ZOOM");
+      this._mcTriangleNW.text = this.api.lang.getText("ZOOM");
       this._lblHints.text = this.api.lang.getText("HINTS_FILTER");
    }
    function layoutContent()
@@ -369,7 +368,7 @@ class dofus.graphics.gapi.ui.MapExplorer extends dofus.graphics.gapi.core.DofusA
    }
    function hideArrows(bHide)
    {
-      this._mcTriangleS._visible = this._mcTriangleE._visible = this._mcTriangleSW._visible = this._sPointer._visible = this._mcTriangleW._visible = this._mcTriangleNE._visible = this._mcTriangleSE._visible = this._mcTriangleNW._visible = !bHide;
+      this._sPointer._visible = this._mcTriangleSW._visible = this._mcTriangleW._visible = this._mcTriangleE._visible = this._mcTriangleSE._visible = this._mcTriangleS._visible = this._mcTriangleN._visible = this._mcTriangleNE._visible = !bHide;
    }
    function setMapFilter(categoryID, bEnabled)
    {

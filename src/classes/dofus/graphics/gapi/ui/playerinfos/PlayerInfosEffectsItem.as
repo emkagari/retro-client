@@ -1,3 +1,4 @@
+489802560 - 1;
 class dofus.graphics.gapi.ui.playerinfos.PlayerInfosEffectsItem extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _lblDescription;

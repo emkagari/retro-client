@@ -426,7 +426,6 @@ class dofus.graphics.gapi.ui.BigStoreSell extends dofus.graphics.gapi.core.Dofus
             break;
          case this._btnAdd:
             _loc4_ = _global.parseInt(this._tiPrice.text,10);
-            org.flashdevelop.utils.FlashConnect.trace(_loc4_,"dofus.graphics.gapi.ui.BigStoreSell::click","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/BigStoreSell.as",575);
             _loc5_ = Number(this._cbQuantity.selectedItem.index);
             if(_global.isNaN(_loc4_) || _loc4_ == 0)
             {

@@ -13,58 +13,58 @@ class dofus.datacenter.ConquestWorldData extends Object
    }
    function get ownedAreas()
    {
-      return this._nPossibleAreas;
+      return this._nOwnedAreas;
    }
    function set ownedAreas(value_)
    {
-      this._nPossibleAreas = value_;
+      this._nOwnedAreas = value_;
    }
    function get totalAreas()
    {
-      return this._nTotalVillages;
+      return this._nTotalAreas;
    }
    function set totalAreas(value_)
    {
-      this._nTotalVillages = value_;
+      this._nTotalAreas = value_;
    }
    function get possibleAreas()
    {
-      return this._nOwnedVillages;
+      return this._nPossibleAreas;
    }
    function set possibleAreas(value_)
    {
-      this._nOwnedVillages = value_;
+      this._nPossibleAreas = value_;
    }
    function get areas()
    {
-      return this._nOwnedAreas;
+      return this._aAreas;
    }
    function set areas(value_)
    {
-      this._nOwnedAreas = value_;
+      this._aAreas = value_;
    }
    function get ownedVillages()
    {
-      return this._aAreas;
+      return this._nOwnedVillages;
    }
    function set ownedVillages(value_)
    {
-      this._aAreas = value_;
+      this._nOwnedVillages = value_;
    }
    function get totalVillages()
    {
-      return this._aVillages;
+      return this._nTotalVillages;
    }
    function set totalVillages(value_)
    {
-      this._aVillages = value_;
+      this._nTotalVillages = value_;
    }
    function get villages()
    {
-      return this._nTotalAreas;
+      return this._aVillages;
    }
    function set villages(value_)
    {
-      this._nTotalAreas = value_;
+      this._aVillages = value_;
    }
 }

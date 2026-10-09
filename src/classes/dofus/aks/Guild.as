@@ -1,4 +1,3 @@
-20567126 - 1;
 class dofus.aks.Guild extends dofus.aks.Handler
 {
    var aks;

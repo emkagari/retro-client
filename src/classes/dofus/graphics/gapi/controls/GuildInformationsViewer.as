@@ -1,3 +1,4 @@
+596728509 - 1;
 class dofus.graphics.gapi.controls.GuildInformationsViewer extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _bEmptyTextField;

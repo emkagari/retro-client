@@ -1,3 +1,4 @@
+825531112 - 1;
 class dofus.graphics.gapi.ui.ItemFound extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _alpha;

@@ -1,4 +1,4 @@
-635528874 - 1;
+598357247 - 1;
 class ank.battlefield.Battlefield extends MovieClip
 {
    var _bMapBuild;
@@ -32,9 +32,9 @@ class ank.battlefield.Battlefield extends MovieClip
    var visualEffectHandler;
    var zoneHandler;
    static var useCacheAsBitmapOnStaticAnim;
-   var _bUseCustomGroundGfxFile = false;
-   static var FRAMELOADTIMOUT = 500;
    var _bJumpActivate = false;
+   static var FRAMELOADTIMOUT = 500;
+   var _bUseCustomGroundGfxFile = false;
    var bGhostView = false;
    var bCustomFileLoaded = false;
    function Battlefield()
@@ -68,11 +68,11 @@ class ank.battlefield.Battlefield extends MovieClip
    }
    function set isJumpActivate(bJumpActivate)
    {
-      this._bUseCustomGroundGfxFile = bJumpActivate;
+      this._bJumpActivate = bJumpActivate;
    }
    function get isJumpActivate()
    {
-      return this._bUseCustomGroundGfxFile;
+      return this._bJumpActivate;
    }
    function get container()
    {
@@ -122,7 +122,7 @@ class ank.battlefield.Battlefield extends MovieClip
       if(sPathGfxGround && (sPathGfxGround != "" && this._sGroundFile != sPathGfxGround))
       {
          this._sGroundFile = sPathGfxGround;
-         this._bJumpActivate = true;
+         this._bUseCustomGroundGfxFile = true;
          this.bCustomFileLoaded = false;
       }
       if(sPathGfxObject && (sPathGfxObject != "" && this._sObjectFile != sPathGfxObject))
@@ -847,12 +847,10 @@ class ank.battlefield.Battlefield extends MovieClip
       }
       if(this.gridHandler.bGridVisible)
       {
-         org.flashdevelop.utils.FlashConnect.trace("[Battlefield] (drawGrid) Effacage de la grille","ank.battlefield.Battlefield::drawGrid","C:\\Dev\\Projects\\client\\src\\ank-common\\classes/ank/battlefield/Battlefield.as",1166);
          this.removeGrid();
       }
       else
       {
-         org.flashdevelop.utils.FlashConnect.trace("[Battlefield] (drawGrid) Dessin de la grille","ank.battlefield.Battlefield::drawGrid","C:\\Dev\\Projects\\client\\src\\ank-common\\classes/ank/battlefield/Battlefield.as",1171);
          this.gridHandler.draw(bAll);
       }
    }
@@ -929,7 +927,7 @@ class ank.battlefield.Battlefield extends MovieClip
       }
       else
       {
-         mc._parent.useCustomGroundGfxFile(this._bJumpActivate);
+         mc._parent.useCustomGroundGfxFile(this._bUseCustomGroundGfxFile);
          this.bCustomFileLoaded = true;
          this.onInitComplete();
       }

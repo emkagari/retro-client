@@ -1,5 +1,4 @@
 on(construct){
-   820223847 - 1;
    backgroundDown = "ButtonTransparentUp";
    backgroundUp = "ButtonTransparentUp";
    enabled = true;

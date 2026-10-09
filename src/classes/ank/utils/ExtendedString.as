@@ -94,24 +94,24 @@ class ank.utils.ExtendedString extends String
       _loc5_.reverse();
       return _loc5_.join(nChar);
    }
-   function lTrim($space)
-   {
-      this._clearOutOfRange();
-      this._lTrim(this.spaceStringToObject($space));
-      return this;
-   }
    function rTrim($space)
    {
       this._clearOutOfRange();
       this._rTrim(this.spaceStringToObject($space));
       return this;
    }
+   function lTrim($space)
+   {
+      this._clearOutOfRange();
+      this._lTrim(this.spaceStringToObject($space));
+      return this;
+   }
    function trim($space)
    {
       var _loc3_ = this.spaceStringToObject($space);
       this._clearOutOfRange();
-      this._rTrim(_loc3_);
       this._lTrim(_loc3_);
+      this._rTrim(_loc3_);
       return this;
    }
    function toString()
@@ -187,7 +187,7 @@ class ank.utils.ExtendedString extends String
       }
       return _loc3_;
    }
-   function _lTrim($space)
+   function _rTrim($space)
    {
       var _loc3_ = this._s.length;
       var _loc4_ = 0;
@@ -202,7 +202,7 @@ class ank.utils.ExtendedString extends String
       }
       this._s = this._s.slice(_loc4_);
    }
-   function _rTrim($space)
+   function _lTrim($space)
    {
       var _loc3_ = this._s.length;
       var _loc4_ = _loc3_ - 1;

@@ -1,6 +1,5 @@
 class dofus.graphics.gapi.ui.EditPlayer extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
-   var _bEditColors;
    var _btnCancel;
    var _btnClose;
    var _btnHideStuff;
@@ -11,6 +10,7 @@ class dofus.graphics.gapi.ui.EditPlayer extends dofus.graphics.gapi.core.DofusAd
    var _lblCharacterColors;
    var _lblCharacterName;
    var _lblClickToAnim;
+   var _lblClickToAnimate;
    var _lblShowMount;
    var _lblTitle;
    var _mcItCharacterNameBg;
@@ -118,7 +118,7 @@ class dofus.graphics.gapi.ui.EditPlayer extends dofus.graphics.gapi.core.DofusAd
    {
       this._winBg.title = this.api.lang.getText("CUSTOMIZE");
       this._lblTitle.text = this.api.lang.getText("CREATE_TITLE");
-      this._bEditColors.text = this.api.lang.getText("HIDE_STUFF");
+      this._lblClickToAnim.text = this.api.lang.getText("HIDE_STUFF");
       this._lblShowMount.text = this.api.lang.getText("SHOW_MOUNT");
       this._mcItCharacterNameBg.text = this.api.lang.getText("CLICK_TO_ANIMATE");
       this._lblCharacterColors.text = this.api.lang.getText("SPRITE_COLORS");
@@ -137,7 +137,7 @@ class dofus.graphics.gapi.ui.EditPlayer extends dofus.graphics.gapi.core.DofusAd
       {
          this._itCharacterName.enabled = false;
          this._mcRandomName._visible = false;
-         this._lblClickToAnim._visible = false;
+         this._lblClickToAnimate._visible = false;
       }
       if(!this._bColorsEditable)
       {

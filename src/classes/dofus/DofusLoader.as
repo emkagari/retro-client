@@ -94,7 +94,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
    }
    static function main(mcRoot)
    {
-      org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (main) START","dofus.DofusLoader::main","src/core/classes/dofus/DofusLoader.as",138);
       var _loc3_ = _global.API;
       var _loc4_;
       if(_loc3_ != undefined)
@@ -127,7 +126,7 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
    }
    function initLoader(mcRoot)
    {
-      this._cLoggerInit = this._url.substr(0,this._url.lastIndexOf("/") + 1);
+      this._sPrefixURL = this._url.substr(0,this._url.lastIndexOf("/") + 1);
       _global.CONFIG = new dofus.utils.DofusConfiguration();
       this.clearlogs();
       this.showMainLogger(false);
@@ -198,7 +197,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
    }
    function addLoadingBannersFiles(bShow)
    {
-      org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (addLoadingBannersFiles)","dofus.DofusLoader::addLoadingBannersFiles","src/core/classes/dofus/DofusLoader.as",329);
       var xDoc = new XML();
       xDoc.onLoad = function(bSuccess)
       {
@@ -328,7 +326,7 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
    function clearlogs()
    {
       this._cLogger.clear();
-      this._sPrefixURL.clear();
+      this._cLoggerInit.clear();
       this._cLoggerError.clear();
    }
    function setProgressBarValue(nValue, nMax)
@@ -461,7 +459,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
    }
    function nonCriticalError(sError, sTab)
    {
-      org.flashdevelop.utils.FlashConnect.trace("Non critical error : " + sError,"dofus.DofusLoader::nonCriticalError","src/core/classes/dofus/DofusLoader.as",637);
       this.logOrange(sTab + "<b>" + this.getText("WARNING") + "</b> : " + sError);
       this._bNonCriticalError = true;
    }
@@ -609,7 +606,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
    }
    function copyAndOrganizeDataBanks()
    {
-      org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (copyAndOrganizeDataBanks) aGlobalDataBanks.lenght = " + _global.CONFIG.dataBanks.length,"dofus.DofusLoader::copyAndOrganizeDataBanks","src/core/classes/dofus/DofusLoader.as",794);
       var _loc2_ = [];
       var _loc3_ = _global.CONFIG.dataBanks;
       var _loc4_ = 0;
@@ -626,7 +622,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
       var _loc10_;
       while(_loc5_ < _loc2_.length)
       {
-         org.flashdevelop.utils.FlashConnect.trace("=== Banque de données numéro " + _loc5_ + " ===","dofus.DofusLoader::copyAndOrganizeDataBanks","src/core/classes/dofus/DofusLoader.as",804);
          _loc6_ = _loc2_[_loc5_];
          _loc7_ = 0;
          while(_loc7_ < _loc6_.length)
@@ -644,7 +639,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
          _loc10_ = 0;
          while(_loc10_ < _loc6_.length)
          {
-            org.flashdevelop.utils.FlashConnect.trace(_loc6_[_loc10_].priority + " : " + _loc6_[_loc10_].url,"dofus.DofusLoader::copyAndOrganizeDataBanks","src/core/classes/dofus/DofusLoader.as",827);
             _loc10_ = _loc10_ + 1;
          }
          _loc5_ = _loc5_ + 1;
@@ -836,7 +830,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
    }
    function reboot()
    {
-      org.flashdevelop.utils.FlashConnect.trace("Loader reboot()","dofus.DofusLoader::reboot","src/core/classes/dofus/DofusLoader.as",1044);
       var _loc2_ = 0;
       while(_loc2_ < dofus.Constants.MODULES_LIST.length)
       {
@@ -854,7 +847,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
       {
          return undefined;
       }
-      org.flashdevelop.utils.FlashConnect.trace("Loader clearCache, " + _loc3_ + " databanks","dofus.DofusLoader::clearCache","src/core/classes/dofus/DofusLoader.as",1066);
       var _loc4_ = 0;
       var _loc5_;
       var _loc6_;
@@ -873,8 +865,7 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
    }
    function showBasicInformations(bContinue)
    {
-      org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (showBasicInformations) bContinue = " + bContinue,"dofus.DofusLoader::showBasicInformations","src/core/classes/dofus/DofusLoader.as",1086);
-      this._currentLogger = this._sPrefixURL;
+      this._currentLogger = this._cLoggerInit;
       this.logTitle(this.getText("STARTING"));
       this.log(this.TABULATION + "Dofus Retro <b>v" + dofus.Constants.VERSION + "." + dofus.Constants.SUBVERSION + "." + dofus.Constants.SUBSUBVERSION + "</b> " + (dofus.Constants.BETAVERSION <= 0 ? "" : "(<font color=\"#FF0000\"><i><b>BETA " + dofus.Constants.BETAVERSION + "</b></i></font>) ") + "(<b>" + dofus.Constants.VERSIONDATE + "</b>" + (!dofus.Constants.ALPHA ? "" : " <font color=\"#00FF00\"><i><b>ALPHA BUILD</b></i></font>") + ")");
       if(!this.checkFlashPlayer())
@@ -892,7 +883,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
    }
    function loadConfig()
    {
-      org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (loadConfig)","dofus.DofusLoader::loadConfig","src/core/classes/dofus/DofusLoader.as",1126);
       this.showLoader(true);
       this.moveProgressBar(0);
       this.logTitle(this.getText("LOADING_CONFIG_FILE"));
@@ -911,7 +901,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
    }
    function onConfigLoaded(bSuccess, xDoc)
    {
-      org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (onConfigLoaded) bSuccess = " + bSuccess,"dofus.DofusLoader::onConfigLoaded","src/core/classes/dofus/DofusLoader.as",1164);
       this.showWaitBar(false);
       if(dofus.Constants.USE_JS_LOG && _global.CONFIG.isNewAccount)
       {
@@ -1174,7 +1163,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
          }
          _loc4_ = _loc4_.nextSibling;
       }
-      org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (onConfigLoaded) XML parsed \n - eaConnServer : " + this._eaConnServer.length + "\n - eaPorts : " + this._eaPorts.length + "\n - eaLangUrl : " + this._eaLangUrl.length + "\n - eaLauncherConf : " + this._eaLauncherConf.length,"dofus.DofusLoader::onConfigLoaded","src/core/classes/dofus/DofusLoader.as",1479);
       if(this._eaLangUrl.length == 0 || this._eaLauncherConf.length == 0)
       {
          this.criticalError("CORRUPT_CONFIG_FILE",this.TABULATION,false);
@@ -1185,7 +1173,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
    }
    function askForConfiguration()
    {
-      org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (askForConfiguration) Dev config = " + (this._eaConnServer.length > 1),"dofus.DofusLoader::askForConfiguration","src/core/classes/dofus/DofusLoader.as",1508);
       if(this._eaLauncherConf.length == 1 && this._eaConnServer.length < 2)
       {
          this.chooseConfiguration(this._eaLauncherConf[0].data,this._eaConnServer[0].data,this._eaPorts[0].data,this._eaLangUrl[0].data,false);
@@ -1340,7 +1327,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
    }
    function chooseConfiguration(oConfLauncher, oConnServer, nPort, oLangUrl, bLog)
    {
-      org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (chooseConfiguration) " + oConfLauncher + " ( " + oConfLauncher.name + " : " + oConfLauncher.zaapConnectPort + " ) " + oConnServer + " " + nPort + " " + oLangUrl + " " + bLog,"dofus.DofusLoader::chooseConfiguration","src/core/classes/dofus/DofusLoader.as",1721);
       this.showConfigurationChoice(false);
       if(bLog)
       {
@@ -1456,7 +1442,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
          return undefined;
       }
       var sURL = oServer.url + "lang/versions_" + _global.CONFIG.language + ".txt" + "?wtf=" + Math.random();
-      org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (checkLanguageWithNextHost) " + sURL + " : " + nDataBank,"dofus.DofusLoader::checkLanguageWithNextHost","src/core/classes/dofus/DofusLoader.as",1875);
       var _loc6_ = new LoadVars();
       var loader = this;
       _loc6_.onLoad = function(bSuccess)
@@ -1485,7 +1470,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
          if(lv.f != "")
          {
             _loc9_ = _loc7_[2];
-            org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (onCheckLanguage) Version :" + _loc9_ + " (" + sServer + ")","dofus.DofusLoader::onCheckLanguage","src/core/classes/dofus/DofusLoader.as",1915);
             if(_global.CONFIG.language == this.getLangSharedObject(nDataBank).data.LANGUAGE && (this._aXtraCurrentVersion[nDataBank].lang != undefined && _loc9_ == this._aXtraCurrentVersion[nDataBank].lang))
             {
                _loc8_ = true;
@@ -1625,13 +1609,11 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
       var _loc5_ = {};
       _loc5_.onLoadInit = function(mc_)
       {
-         org.flashdevelop.utils.FlashConnect.trace("Chargement du fichier de version depuis " + sURL,"dofus.DofusLoader::checkLocalFileListWithNextHost","src/core/classes/dofus/DofusLoader.as",2130);
          loader.loadLanguage();
          loader._bLocalFileListLoaded = true;
       };
       _loc5_.onLoadError = function(mc_)
       {
-         org.flashdevelop.utils.FlashConnect.trace("Error on load " + sURL,"dofus.DofusLoader::checkLocalFileListWithNextHost","src/core/classes/dofus/DofusLoader.as",2136);
          loader.nonCriticalError(loader.getText("IMPOSSIBLE_TO_GET_FILE",[sURL]),loader.TABULATION + loader.TABULATION);
          loader.checkLocalFileListWithNextHost(sFiles);
       };
@@ -1755,35 +1737,25 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
                   {
                      this._mcProgressBarGroup.txtInfo.text = _loc6_;
                      _loc9_ = this._aXtraCurrentVersion[nDataBank][_loc6_];
-                     if(_global.CONFIG.language == this.getLangSharedObject(nDataBank).data.LANGUAGE && Number(_loc8_) == _loc9_)
+                     if(!(_global.CONFIG.language == this.getLangSharedObject(nDataBank).data.LANGUAGE && Number(_loc8_) == _loc9_))
                      {
-                        org.flashdevelop.utils.FlashConnect.trace("[        ] " + _loc6_,"dofus.DofusLoader::updateNextXtra","src/core/classes/dofus/DofusLoader.as",2288);
-                     }
-                     else
-                     {
-                        org.flashdevelop.utils.FlashConnect.trace(_loc6_ + ", locale : " + _loc9_ + " , distant : " + _loc8_ + ", databank : " + nDataBank,"dofus.DofusLoader::updateNextXtra","src/core/classes/dofus/DofusLoader.as",2292);
                         if(!this._bLocalFileListLoaded)
                         {
                            if(this._bSkipDistantLoad)
                            {
-                              org.flashdevelop.utils.FlashConnect.trace("erreur fatale","dofus.DofusLoader::updateNextXtra","src/core/classes/dofus/DofusLoader.as",2318);
                               return undefined;
                            }
-                           org.flashdevelop.utils.FlashConnect.trace("[serverDL] " + _loc6_,"dofus.DofusLoader::updateNextXtra","src/core/classes/dofus/DofusLoader.as",2322);
                            break;
                         }
                         if(!this._bSkipDistantLoad)
                         {
-                           org.flashdevelop.utils.FlashConnect.trace("[serverDL] " + _loc6_,"dofus.DofusLoader::updateNextXtra","src/core/classes/dofus/DofusLoader.as",2311);
                            break;
                         }
                         if(this._aXtraCurrentVersion[nDataBank][_loc6_] == 0)
                         {
-                           org.flashdevelop.utils.FlashConnect.trace("[localDL ] " + _loc6_,"dofus.DofusLoader::updateNextXtra","src/core/classes/dofus/DofusLoader.as",2302);
                            _loc8_ = this._mcLocalFileList.VERSIONS[_global.CONFIG.language][_loc6_];
                            break;
                         }
-                        org.flashdevelop.utils.FlashConnect.trace("[        ] " + _loc6_,"dofus.DofusLoader::updateNextXtra","src/core/classes/dofus/DofusLoader.as",2307);
                      }
                   }
                }
@@ -1867,7 +1839,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
          this.clearCache();
          this.getCacheDateSharedObject().data.clearDate = _loc3_;
          this.getCacheDateSharedObject().flush(100);
-         org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (checkCacheVersion) Cache cleared","dofus.DofusLoader::checkCacheVersion","src/core/classes/dofus/DofusLoader.as",2440);
          return false;
       }
       var _loc4_ = _global[dofus.Constants.GLOBAL_SO_LANG_NAME + "_" + dofus.utils.DofusTranslator.STANDARD_DATA_BANK];
@@ -1879,11 +1850,9 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
             this.getCacheDateSharedObject().data.clearDate = _loc4_.data.C.CLEAR_DATE;
             this.getCacheDateSharedObject().flush();
             this.reboot();
-            org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (checkCacheVersion) Cache cleared","dofus.DofusLoader::checkCacheVersion","src/core/classes/dofus/DofusLoader.as",2453);
             return false;
          }
       }
-      org.flashdevelop.utils.FlashConnect.trace("[DofusLoader] (checkCacheVersion) Cache checked","dofus.DofusLoader::checkCacheVersion","src/core/classes/dofus/DofusLoader.as",2457);
       return true;
    }
    function onLoadStart(mc)
@@ -1902,7 +1871,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
       this.showProgressBar(false);
       this.showWaitBar(false);
       var _loc6_ = oServer.dataBankId;
-      org.flashdevelop.utils.FlashConnect.trace("onLoadError -> " + errorCode,"dofus.DofusLoader::onLoadError","src/core/classes/dofus/DofusLoader.as",2494);
       var _loc7_;
       switch(this._sStep)
       {
@@ -2044,7 +2012,6 @@ class dofus.DofusLoader extends ank.utils.QueueEmbedMovieClip
             this._bSkipDistantLoad = true;
             break;
          case "XTRA":
-            org.flashdevelop.utils.FlashConnect.trace("## Passage en chargement local","dofus.DofusLoader::onAllLoadFailed","src/core/classes/dofus/DofusLoader.as",2660);
             this._bSkipDistantLoad = true;
             this.nonCriticalError("CANT_UPDATE_FILE",this.TABULATION + this.TABULATION,true,[this._aCurrentXtra[3]]);
             this.updateNextXtra();

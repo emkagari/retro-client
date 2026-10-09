@@ -1,3 +1,4 @@
+909523871 - 1;
 class dofus.graphics.gapi.ui.PopupText extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _bgHidder;

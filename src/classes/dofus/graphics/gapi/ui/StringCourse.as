@@ -23,7 +23,7 @@ class dofus.graphics.gapi.ui.StringCourse extends dofus.graphics.gapi.core.Dofus
    }
    function set level(nStringCourseLevel)
    {
-      this._mcAnim = nStringCourseLevel;
+      this._bFilters = nStringCourseLevel;
    }
    function set gfx(sGfx)
    {
@@ -79,11 +79,11 @@ class dofus.graphics.gapi.ui.StringCourse extends dofus.graphics.gapi.core.Dofus
    function complete(oEvent)
    {
       this._lblName.text = this._sName;
-      this._lblLevel.text = this._mcAnim;
+      this._lblLevel.text = this._bFilters;
       var ref = this;
-      this._ldrStringCourse.content.stringCourseColor = function(mc_, nColorIndex)
+      this._ldrStringCourse.content.stringCourseColor = function(mc_, nStringCourseColor)
       {
-         ref.applyColor(mc_,nColorIndex);
+         ref.applyColor(mc_,nStringCourseColor);
       };
       var _loc3_;
       if(this._nGlowFilter != undefined && this._nGlowFilter != "")
@@ -91,7 +91,7 @@ class dofus.graphics.gapi.ui.StringCourse extends dofus.graphics.gapi.core.Dofus
          _loc3_ = Number("0x" + this._nGlowFilter);
          this._ldrStringCourse.filters = [new flash.filters.GlowFilter(_loc3_,1,10,10,1.5)];
       }
-      this._bFilters.play();
+      this._mcAnim.play();
    }
    function error(oEvent)
    {

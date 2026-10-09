@@ -1,4 +1,3 @@
-719174486 - 1;
 class dofus.graphics.gapi.ui.FloatingTips extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnClose;

@@ -1,4 +1,3 @@
-622591298 - 1;
 class dofus.datacenter.ServerProblem extends Object
 {
    var _aHistory;
@@ -14,17 +13,17 @@ class dofus.datacenter.ServerProblem extends Object
    {
       super();
       this._nID = nID;
-      this._aHistory = nDate;
+      this._nDate = nDate;
       this._nType = nType;
       this._nStatus = nStatus;
       this._aServers = aServers;
-      this._nDate = aHistory;
+      this._aHistory = aHistory;
       var _loc9_ = _global.API;
       this._sType = _loc9_.lang.getText("STATUS_PROBLEM_" + this._nType);
       this._sStatus = _loc9_.lang.getText("STATUS_STATE_" + this._nStatus);
       var _loc10_ = _loc9_.lang.getConfigText("LONG_DATE_FORMAT");
       var _loc11_ = _loc9_.config.language;
-      var _loc12_ = String(this._aHistory);
+      var _loc12_ = String(this._nDate);
       var _loc13_ = new Date(Number(_loc12_.substr(0,4)),Number(_loc12_.substr(4,2)) - 1,Number(_loc12_.substr(6,2)));
       this._sDate = org.utils.SimpleDateFormatter.formatDate(_loc13_,_loc10_,_loc11_);
    }
@@ -50,6 +49,6 @@ class dofus.datacenter.ServerProblem extends Object
    }
    function get history()
    {
-      return this._nDate;
+      return this._aHistory;
    }
 }

@@ -1,4 +1,3 @@
-327486143 - 1;
 class dofus.datacenter.PrismSprite extends dofus.datacenter.PlayableCharacter
 {
    var _aAlignment;
@@ -14,23 +13,23 @@ class dofus.datacenter.PrismSprite extends dofus.datacenter.PlayableCharacter
    }
    function get name()
    {
-      return this.api.lang.getMonstersText(this._nLinkedMonsterId).n;
+      return this.api.lang.getMonstersText(this._aAlignment).n;
    }
    function set linkedMonster(value)
    {
-      this._nLinkedMonsterId = value;
+      this._aAlignment = value;
    }
    function get linkedMonster()
    {
-      return this._nLinkedMonsterId;
+      return this._aAlignment;
    }
    function set alignment(value)
    {
-      this._aAlignment = value;
+      this._nLinkedMonsterId = value;
    }
    function get alignment()
    {
-      return this._aAlignment;
+      return this._nLinkedMonsterId;
    }
    function get circleFilePath()
    {

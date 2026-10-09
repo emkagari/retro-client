@@ -1,4 +1,3 @@
-567138030 - 1;
 class ank.gapi.controls.Container extends ank.gapi.core.UIBasicComponent
 {
    var __height;

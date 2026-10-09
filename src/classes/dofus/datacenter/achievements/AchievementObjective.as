@@ -1,4 +1,3 @@
-313290192 - 1;
 class dofus.datacenter.achievements.AchievementObjective extends dofus.utils.ApiElement
 {
    var _bIsCountType;

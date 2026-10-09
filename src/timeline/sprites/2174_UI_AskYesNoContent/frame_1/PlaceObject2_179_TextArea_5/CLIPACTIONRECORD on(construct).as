@@ -1,5 +1,4 @@
 on(construct){
-   129910083 - 1;
    autoHeight = true;
    border = false;
    editable = false;

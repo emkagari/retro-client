@@ -1,4 +1,5 @@
 on(construct){
+   967970866 - 1;
    backgroundDown = "ViewAllGiftsDown";
    backgroundUp = "ViewAllGiftsUp";
    enabled = true;

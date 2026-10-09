@@ -131,7 +131,7 @@ class dofus.datacenter.LocalPlayer extends dofus.utils.ApiElement
    function clearSummon()
    {
       this._nSummonedCreatures = 0;
-      this._nEnergy = 1;
+      this._nXPHigh = 1;
       this.summonedCreaturesID = {};
    }
    function get clip()
@@ -194,11 +194,11 @@ class dofus.datacenter.LocalPlayer extends dofus.utils.ApiElement
    }
    function set Guild(value)
    {
-      this._nGuild = Number(value);
+      this._bCraftPublicMode = Number(value);
    }
    function get Guild()
    {
-      return this._nGuild;
+      return this._bCraftPublicMode;
    }
    function set Level(value)
    {
@@ -261,49 +261,49 @@ class dofus.datacenter.LocalPlayer extends dofus.utils.ApiElement
    }
    function set LPmax(value)
    {
-      this._nForceXtra = Number(value);
+      this._nInitiative = Number(value);
       this.dispatchEvent({type:"lpMaxChanged",value:value});
    }
    function get LPmax()
    {
-      return this._nForceXtra;
+      return this._nInitiative;
    }
    function set AP(value)
    {
-      this._agility = Number(value);
+      this._nAP = Number(value);
       this.data.AP = Number(value);
       this.dispatchEvent({type:"apChanged",value:value,id:this.ID});
    }
    function get AP()
    {
-      return this._agility;
+      return this._nAP;
    }
    function set MP(value)
    {
-      this._nDiscernment = Number(value);
+      this._nKama = Number(value);
       this.data.MP = Number(value);
       this.dispatchEvent({type:"mpChanged",value:value,id:this.ID});
    }
    function get MP()
    {
-      return this._nDiscernment;
+      return this._nKama;
    }
    function set Kama(value)
    {
-      this._nXPLow = Number(value);
+      this._nForceXtra = Number(value);
       this.dispatchEvent({type:"kamaChanged",value:value});
    }
    function get Kama()
    {
-      return this._nXPLow;
+      return this._nForceXtra;
    }
-   function set XPlow(value)
+   function set XPlow(value_)
    {
-      this._nAgilityTotal = Number(value);
+      this._nWisdom = Number(value_);
    }
    function get XPlow()
    {
-      return this._nAgilityTotal;
+      return this._nWisdom;
    }
    function set XP(value)
    {
@@ -314,105 +314,105 @@ class dofus.datacenter.LocalPlayer extends dofus.utils.ApiElement
    {
       return this._nXP;
    }
-   function set XPhigh(value)
+   function set XPhigh(value_)
    {
-      this._oFakeAlignment = Number(value);
+      this._nWisdomXtra = Number(value_);
    }
    function get XPhigh()
    {
-      return this._oFakeAlignment;
+      return this._nWisdomXtra;
    }
    function set Initiative(value)
    {
-      this._intelligence = Number(value);
+      this._nVitality = Number(value);
       this.dispatchEvent({type:"initiativeChanged",value:value});
    }
    function get Initiative()
    {
-      return this._intelligence;
+      return this._nVitality;
    }
    function set Discernment(value)
    {
-      this._nWisdomXtra = Number(value);
+      this._nAgilityXtra = Number(value);
       this.dispatchEvent({type:"discernmentChanged",value:value});
    }
    function get Discernment()
    {
-      return this._nWisdomXtra;
+      return this._nAgilityXtra;
    }
    function set Force(value)
    {
-      this._nForce = Number(value);
+      this._nChance = Number(value);
       this.dispatchEvent({type:"forceChanged",value:value});
    }
    function get Force()
    {
-      return this._nForce;
+      return this._nChance;
    }
    function set ForceXtra(value)
    {
-      this._nAgilityXtra = Number(value);
+      this._nEnergy = Number(value);
       this.dispatchEvent({type:"forceXtraChanged",value:value});
    }
    function get ForceXtra()
    {
-      return this._nAgilityXtra;
+      return this._nEnergy;
    }
    function set Vitality(value)
    {
-      this._nBonusPointsSpell = Number(value);
+      this._nIntelligenceXtra = Number(value);
       this.dispatchEvent({type:"vitalityChanged",value:value});
    }
    function get Vitality()
    {
-      return this._nBonusPointsSpell;
+      return this._nIntelligenceXtra;
    }
    function set VitalityXtra(value)
    {
-      this._nVitalityXtra = Number(value);
+      this._nMP = Number(value);
       this.dispatchEvent({type:"vitalityXtraChanged",value:value});
       return this.VitalityXtra;
    }
    function get VitalityXtra()
    {
-      return this._nVitalityXtra;
+      return this._nMP;
    }
    function set Wisdom(value)
    {
-      this._nWisdom = Number(value);
+      this._nEnergyMax = Number(value);
       this.dispatchEvent({type:"wisdomChanged",value:value});
    }
    function get Wisdom()
    {
-      return this._nWisdom;
+      return this._nEnergyMax;
    }
    function set WisdomXtra(value)
    {
-      this._oSpecialization = Number(value);
+      this._nRangeModerator = Number(value);
       this.dispatchEvent({type:"wisdomXtraChanged",value:value});
       return this.WisdomXtra;
    }
    function get WisdomXtra()
    {
-      return this._oSpecialization;
+      return this._nRangeModerator;
    }
    function set Chance(value)
    {
-      this._nXPHigh = Number(value);
+      this._nAgilityTotal = Number(value);
       this.dispatchEvent({type:"chanceChanged",value:value});
    }
    function get Chance()
    {
-      return this._nXPHigh;
+      return this._nAgilityTotal;
    }
    function set ChanceXtra(value)
    {
-      this._nInitiative = Number(value);
+      this._nGuild = Number(value);
       this.dispatchEvent({type:"chanceXtraChanged",value:value});
    }
    function get ChanceXtra()
    {
-      return this._nInitiative;
+      return this._nGuild;
    }
    function set Agility(value)
    {
@@ -425,39 +425,39 @@ class dofus.datacenter.LocalPlayer extends dofus.utils.ApiElement
    }
    function set AgilityXtra(value)
    {
-      this._nMP = Number(value);
+      this._nDiscernment = Number(value);
       this.dispatchEvent({type:"agilityXtraChanged",value:value});
    }
    function get AgilityXtra()
    {
-      return this._nMP;
+      return this._nDiscernment;
    }
-   function set AgilityTotal(value_)
+   function set AgilityTotal(value)
    {
-      this._nAP = Number(value_);
-      this.dispatchEvent({type:"agilityTotalChanged",value:value_});
+      this._intelligence = Number(value);
+      this.dispatchEvent({type:"agilityTotalChanged",value:value});
    }
    function get AgilityTotal()
    {
-      return this._nAP;
+      return this._intelligence;
    }
    function set Intelligence(value)
    {
-      this._nKama = Number(value);
+      this._agility = Number(value);
       this.dispatchEvent({type:"intelligenceChanged",value:value});
    }
    function get Intelligence()
    {
-      return this._nKama;
+      return this._agility;
    }
    function set IntelligenceXtra(value)
    {
-      this._nIntelligenceXtra = Number(value);
+      this._nVitalityXtra = Number(value);
       this.dispatchEvent({type:"intelligenceXtraChanged",value:value});
    }
    function get IntelligenceXtra()
    {
-      return this._nIntelligenceXtra;
+      return this._nVitalityXtra;
    }
    function set BonusPoints(value)
    {
@@ -470,39 +470,39 @@ class dofus.datacenter.LocalPlayer extends dofus.utils.ApiElement
    }
    function set BonusPointsSpell(value)
    {
-      this._nLPMax = Number(value);
+      this._nForce = Number(value);
       this.dispatchEvent({type:"bonusSpellsChanged",value:value});
    }
    function get BonusPointsSpell()
    {
-      return this._nLPMax;
+      return this._nForce;
    }
-   function set RangeModerator(value_)
+   function set RangeModerator(value)
    {
-      this._oWeaponItem = Number(value_);
-      this.dispatchEvent({type:"rangeChanged",value:value_});
+      this._oFakeAlignment = Number(value);
+      this.dispatchEvent({type:"rangeChanged",value:value});
    }
    function get RangeModerator()
    {
-      return this._oWeaponItem;
+      return this._oFakeAlignment;
    }
    function set Energy(value)
    {
-      this._nChance = Number(value);
+      this._nBonusPointsSpell = Number(value);
       this.dispatchEvent({type:"energyChanged",value:value});
    }
    function get Energy()
    {
-      return this._nChance;
+      return this._nBonusPointsSpell;
    }
    function set EnergyMax(value)
    {
-      this._nChanceXtra = Number(value);
+      this._nMountXPPercent = Number(value);
       this.dispatchEvent({type:"energyMaxChanged",value:value});
    }
    function get EnergyMax()
    {
-      return this._nChanceXtra;
+      return this._nMountXPPercent;
    }
    function set SummonedCreatures(value)
    {
@@ -512,35 +512,35 @@ class dofus.datacenter.LocalPlayer extends dofus.utils.ApiElement
    {
       return this._nSummonedCreatures;
    }
-   function set MaxSummonedCreatures(value)
+   function set MaxSummonedCreatures(value_)
    {
-      this._nEnergy = Number(value);
-      this.dispatchEvent({type:"summonChanged",value:value});
+      this._nXPHigh = Number(value_);
+      this.dispatchEvent({type:"summonChanged",value:value_});
    }
    function get MaxSummonedCreatures()
    {
-      return this._nEnergy;
+      return this._nXPHigh;
    }
    function set CriticalHitBonus(value)
    {
-      this._nVitality = Number(value);
+      this._nLPMax = Number(value);
    }
    function get CriticalHitBonus()
    {
-      return this._nVitality;
+      return this._nLPMax;
    }
    function get weaponItem()
    {
-      return this._nEnergyMax;
+      return this._oWeaponItem;
    }
    function set FullStats(value)
    {
-      this._bCraftPublicMode = value;
+      this._nChanceXtra = value;
       this.dispatchEvent({type:"fullStatsChanged",value:value});
    }
    function get FullStats()
    {
-      return this._bCraftPublicMode;
+      return this._nChanceXtra;
    }
    function set isDead(bDead)
    {
@@ -663,12 +663,12 @@ class dofus.datacenter.LocalPlayer extends dofus.utils.ApiElement
    }
    function set specialization(value)
    {
-      this._nRangeModerator = value;
+      this._oSpecialization = value;
       this.dispatchEvent({type:"specializationChanged",value:value});
    }
    function get specialization()
    {
-      return this._nRangeModerator;
+      return this._oSpecialization;
    }
    function set alignment(value)
    {
@@ -681,11 +681,11 @@ class dofus.datacenter.LocalPlayer extends dofus.utils.ApiElement
    }
    function set fakeAlignment(value)
    {
-      this._nMountXPPercent = value;
+      this._nXPLow = value;
    }
    function get fakeAlignment()
    {
-      return this._nMountXPPercent;
+      return this._nXPLow;
    }
    function set rank(value)
    {
@@ -1146,31 +1146,31 @@ class dofus.datacenter.LocalPlayer extends dofus.utils.ApiElement
       switch(nCharacID)
       {
          case 10:
-            _loc3_ = this._nForce;
+            _loc3_ = this._nChance;
             break;
          case 11:
-            _loc3_ = this._nBonusPointsSpell;
+            _loc3_ = this._nIntelligenceXtra;
             break;
          case 12:
-            _loc3_ = this._nWisdom;
+            _loc3_ = this._nEnergyMax;
             break;
          case 13:
-            _loc3_ = this._nXPHigh;
+            _loc3_ = this._nAgilityTotal;
             break;
          case 14:
             _loc3_ = this.ItemSets;
             break;
          case 15:
-            _loc3_ = this._nKama;
+            _loc3_ = this._agility;
             break;
          case 16:
-            _loc3_ = this._nWisdomXtra;
+            _loc3_ = this._nAgilityXtra;
       }
       return _loc3_;
    }
    function getBoostCostAndCountForCharacteristic(nCharacID)
    {
-      var _loc3_ = this.api.lang.getClassText(this._nGuild)["b" + nCharacID];
+      var _loc3_ = this.api.lang.getClassText(this._bCraftPublicMode)["b" + nCharacID];
       var _loc4_ = 1;
       var _loc5_ = 1;
       var _loc6_ = this.getCharacValueByID(nCharacID);
@@ -1245,11 +1245,11 @@ class dofus.datacenter.LocalPlayer extends dofus.utils.ApiElement
    }
    function updateCloseCombat()
    {
-      this.Spells[0] = new dofus.datacenter.CloseCombat(this._nEnergyMax,this._nGuild);
+      this.Spells[0] = new dofus.datacenter.CloseCombat(this._oWeaponItem,this._bCraftPublicMode);
    }
    function setWeaponItem(oItem)
    {
-      this._nEnergyMax = oItem;
+      this._oWeaponItem = oItem;
       this.updateCloseCombat();
    }
 }

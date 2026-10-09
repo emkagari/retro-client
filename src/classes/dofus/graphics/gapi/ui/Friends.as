@@ -200,12 +200,12 @@ class dofus.graphics.gapi.ui.Friends extends dofus.graphics.gapi.core.DofusAdvan
       this._btnTabEnemies.label = this.api.lang.getText("ENEMIES");
       this._btnTabIgnore.label = this.api.lang.getText("IGNORED");
       this._lblHelp.text = this.api.lang.getText("IGNORED_DESC");
-      this._lblTitleInfo.text = this.api.lang.getText("INFORMATIONS");
+      this._lblShowFriendsWarning.text = this.api.lang.getText("INFORMATIONS");
       this._dgOffLine.columnsNames = [this.api.lang.getText("PSEUDO_DOFUS_SIMPLE")];
       this._lblOnLine.text = this.api.lang.getText("ONLINE");
       this._lblOffLine.text = this.api.lang.getText("OFFLINE");
       this._btnAdd.label = this.api.lang.getText("ADD");
-      this._lblShowFriendsWarning.text = this.api.lang.getText("WARNING_WHEN_FRIENDS_COME_ONLINE");
+      this._lblTitleInfo.text = this.api.lang.getText("WARNING_WHEN_FRIENDS_COME_ONLINE");
       if(!this.api.lang.getConfigText("ENABLE_IGNORE_LIST"))
       {
          this._btnSwapMode._visible = false;

@@ -1,5 +1,4 @@
 on(construct){
-   491893886 - 1;
    cellRenderer = "StatsViewerStatItem";
    columnsWidths = [];
    columnsWidths[0] = 160;

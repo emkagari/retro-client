@@ -1,5 +1,4 @@
 on(construct){
-   88079270 - 1;
    enabled = true;
    html = false;
    maxChars = -1;

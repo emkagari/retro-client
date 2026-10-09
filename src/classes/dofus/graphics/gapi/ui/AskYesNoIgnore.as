@@ -1,4 +1,3 @@
-150624181 - 1;
 class dofus.graphics.gapi.ui.AskYesNoIgnore extends ank.gapi.ui.FlyWindow
 {
    var _sPlayer;

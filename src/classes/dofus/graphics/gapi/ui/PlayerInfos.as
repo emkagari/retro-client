@@ -43,7 +43,6 @@ class dofus.graphics.gapi.ui.PlayerInfos extends dofus.graphics.gapi.core.DofusA
       {
          this._winBackground.title = this.api.lang.getText("EFFECTS") + " " + this._oData.name + " (" + this.api.lang.getText("LEVEL_SMALL") + this._oData.Level + ")";
          this._lstEffects.dataProvider = this._oData.EffectsManager.getEffects();
-         org.flashdevelop.utils.FlashConnect.trace(this._oData.states,"dofus.graphics.gapi.ui.PlayerInfos::initData","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/PlayerInfos.as",92);
       }
    }
    function quit()

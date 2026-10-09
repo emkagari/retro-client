@@ -1,5 +1,4 @@
 on(construct){
-   723664112 - 1;
    backgroundDown = "ButtonToggleDown";
    backgroundUp = "ButtonToggleUp";
    enabled = true;

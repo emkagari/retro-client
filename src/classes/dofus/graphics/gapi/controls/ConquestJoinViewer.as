@@ -158,10 +158,10 @@ class dofus.graphics.gapi.controls.ConquestJoinViewer extends dofus.graphics.gap
    }
    function initTexts()
    {
-      this._lblReservists.text = this.api.lang.getText("CONQUEST_JOIN_FIGHTERS");
+      this._lblAttackersTitle.text = this.api.lang.getText("CONQUEST_JOIN_FIGHTERS");
       this._lblTeam.text = this.api.lang.getText("CONQUEST_JOIN_RESERVISTS");
       this._lblJoinFight.text = this.api.lang.getText("CONQUEST_JOIN_FIGHT");
-      this._lblAttackersTitle.text = this.api.lang.getText("ATTACKERS");
+      this._lblReservists.text = this.api.lang.getText("ATTACKERS");
    }
    function initData()
    {

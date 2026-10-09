@@ -36,11 +36,11 @@ class dofus.datacenter.Exchange extends Object
    }
    function get readyStates()
    {
-      return this._eaLocalGarbage;
+      return this._nDistantPlayerID;
    }
    function get distantPlayerID()
    {
-      return this._nDistantPlayerID;
+      return this._eaLocalGarbage;
    }
    function set localKama(nLocalKama)
    {
@@ -63,13 +63,13 @@ class dofus.datacenter.Exchange extends Object
    function initialize(nDistantPlayerID)
    {
       mx.events.EventDispatcher.initialize(this);
-      this._nDistantPlayerID = nDistantPlayerID;
+      this._eaLocalGarbage = nDistantPlayerID;
       this._eaReadyStates = new ank.utils.ExtendedArray();
       this._eaDistantGarbage = new ank.utils.ExtendedArray();
       this._eaCoopGarbage = new ank.utils.ExtendedArray();
-      this._eaLocalGarbage = new ank.utils.ExtendedArray();
-      this._eaLocalGarbage[0] = false;
-      this._eaLocalGarbage[1] = false;
+      this._nDistantPlayerID = new ank.utils.ExtendedArray();
+      this._nDistantPlayerID[0] = false;
+      this._nDistantPlayerID[1] = false;
    }
    function clearLocalGarbage()
    {

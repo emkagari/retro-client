@@ -45,11 +45,11 @@ class dofus.graphics.gapi.controls.LivingItemsViewer extends dofus.graphics.gapi
    }
    function initTexts()
    {
-      this._lblEatDate.text = this.api.lang.getText("STATE");
+      this._lblLevelTitle.text = this.api.lang.getText("STATE");
       this._lblState.text = this.api.lang.getText(this._oItemData.mood != 1 ? (this._oItemData.mood != 0 ? "FAT" : "LEAN") : "SATISFIED_WORD");
       this._lblXplTitle.text = this.api.lang.getText("LEVEL");
       this._lblLevel.text = String(this._oItemData.maxSkin) + " / " + this._oItemData.nbSkin;
-      this._lblExperiment.text = this.api.lang.getText("EXPERIMENT");
+      this._lblEatDate.text = this.api.lang.getText("EXPERIMENT");
       this._btnDissociate.label = this.api.lang.getText("DISSOCIATE");
       this._btnFeed.label = this.api.lang.getText("FEED_WORD");
       this._btnSkin.label = this.api.lang.getText("CHOOSE_SKIN");
@@ -58,7 +58,7 @@ class dofus.graphics.gapi.controls.LivingItemsViewer extends dofus.graphics.gapi
       {
          if(_loc2_[i].type == 808)
          {
-            this._lblLevelTitle.text = _loc2_[i].description;
+            this._lblExperiment.text = _loc2_[i].description;
             break;
          }
       }

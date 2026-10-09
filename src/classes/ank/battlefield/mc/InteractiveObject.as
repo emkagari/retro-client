@@ -1,4 +1,3 @@
-490737711 - 1;
 class ank.battlefield.mc.InteractiveObject extends MovieClip
 {
    var _bInteractive;

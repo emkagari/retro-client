@@ -1,5 +1,4 @@
 on(construct){
-   210003846 - 1;
    backgroundDown = "ButtonTabDown";
    backgroundUp = "ButtonTabUp";
    enabled = true;

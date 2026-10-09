@@ -37,7 +37,7 @@ class dofus.graphics.gapi.ui.Shortcuts extends dofus.graphics.gapi.core.DofusAdv
       this._btnClose2.label = this.api.lang.getText("CLOSE");
       this._lblDescription.text = this.api.lang.getText("SHORTCUTS_DESCRIPTION");
       this._lstShortcuts.text = this.api.lang.getText("SHORTCUTS_KEYS");
-      this._lblDefaultSet.text = this.api.lang.getText("SHORTCUTS_SET_CHOICE");
+      this._lblKeys.text = this.api.lang.getText("SHORTCUTS_SET_CHOICE");
       this._btnApplyDefault.label = this.api.lang.getText("SHORTCUTS_APPLY_DEFAULT");
    }
    function addListeners()
@@ -91,7 +91,7 @@ class dofus.graphics.gapi.ui.Shortcuts extends dofus.graphics.gapi.core.DofusAdv
          }
          _loc8_ = _loc8_ + 1;
       }
-      this._lblKeys.dataProvider = _loc7_;
+      this._lblDefaultSet.dataProvider = _loc7_;
       this._cbSetList.dataProvider = _loc2_;
    }
    function click(oEvent)

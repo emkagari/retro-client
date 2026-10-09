@@ -6,6 +6,6 @@ on(construct){
    selectable = true;
    styleName = "ChatDebugTextArea";
    text = "";
-   useMouseWheel = true;
+   chatWordWrap = true;
    wordWrap = true;
 }

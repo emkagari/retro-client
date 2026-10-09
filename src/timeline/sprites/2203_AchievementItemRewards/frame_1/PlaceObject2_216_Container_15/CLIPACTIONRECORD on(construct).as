@@ -1,4 +1,5 @@
 on(construct){
+   664508827 - 1;
    backgroundRenderer = "UI_AchievementRewardContainer";
    borderRenderer = "";
    dragAndDrop = false;

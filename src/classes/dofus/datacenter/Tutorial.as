@@ -1,3 +1,4 @@
+101786844 - 1;
 class dofus.datacenter.Tutorial extends Object
 {
    var _bCanCancel;

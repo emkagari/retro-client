@@ -37,12 +37,12 @@ class dofus.graphics.gapi.controls.ConquestZonesViewer extends dofus.graphics.ga
    function initTexts()
    {
       this._lblFilter.text = this.api.lang.getText("FILTER");
-      this._lblAreaDetails.text = ank.utils.PatternDecoder.combine(this.api.lang.getText("CONQUEST_AREA_WORD"),null,false);
-      this._lblVillages.text = ank.utils.PatternDecoder.combine(this.api.lang.getText("CONQUEST_AREA_WORD"),null,true);
+      this._lblAreas.text = ank.utils.PatternDecoder.combine(this.api.lang.getText("CONQUEST_AREA_WORD"),null,false);
+      this._lblGotAreas.text = ank.utils.PatternDecoder.combine(this.api.lang.getText("CONQUEST_AREA_WORD"),null,true);
       this._lblAreaTitle.text = this.api.lang.getText("CONQUEST_STATE_WORD") + " / " + this.api.lang.getText("CONQUEST_PRISM_WORD");
-      this._lblAreas.text = ank.utils.PatternDecoder.combine(this.api.lang.getText("CONQUEST_VILLAGE_WORD"),null,false);
+      this._lblVillages.text = ank.utils.PatternDecoder.combine(this.api.lang.getText("CONQUEST_VILLAGE_WORD"),null,false);
       this._lstAreas.text = ank.utils.PatternDecoder.combine(this.api.lang.getText("CONQUEST_VILLAGE_WORD"),null,true);
-      this._lstVillages.text = this.api.lang.getText("CONQUEST_STATE_WORD") + " / " + this.api.lang.getText("CONQUEST_DOOR_WORD") + " / " + this.api.lang.getText("CONQUEST_PRISM_WORD");
+      this._lblVillageTitle.text = this.api.lang.getText("CONQUEST_STATE_WORD") + " / " + this.api.lang.getText("CONQUEST_DOOR_WORD") + " / " + this.api.lang.getText("CONQUEST_PRISM_WORD");
    }
    function addListeners()
    {
@@ -95,14 +95,14 @@ class dofus.graphics.gapi.controls.ConquestZonesViewer extends dofus.graphics.ga
          }
          _loc6_ = _loc6_ + 1;
       }
-      this._lblGotAreas.dataProvider = _loc4_;
+      this._lstVillages.dataProvider = _loc4_;
    }
    function initData()
    {
       var _loc2_ = this.api.datacenter.Conquest.worldDatas;
-      this._lblVillageDetails.text = ank.utils.PatternDecoder.combine(this.api.lang.getText("CONQUEST_POSSESSED_WORD"),"f",false) + " : " + _loc2_.ownedAreas + " / " + _loc2_.possibleAreas + " / " + _loc2_.totalAreas;
-      this._lblVillageTitle.text = ank.utils.PatternDecoder.combine(this.api.lang.getText("CONQUEST_POSSESSED_WORD"),"m",false) + " : " + _loc2_.ownedVillages + " / " + _loc2_.totalVillages;
-      this._lblGotVillages.dataProvider = _loc2_.villages;
+      this._lblGotVillages.text = ank.utils.PatternDecoder.combine(this.api.lang.getText("CONQUEST_POSSESSED_WORD"),"f",false) + " : " + _loc2_.ownedAreas + " / " + _loc2_.possibleAreas + " / " + _loc2_.totalAreas;
+      this._lblVillageDetails.text = ank.utils.PatternDecoder.combine(this.api.lang.getText("CONQUEST_POSSESSED_WORD"),"m",false) + " : " + _loc2_.ownedVillages + " / " + _loc2_.totalVillages;
+      this._lblAreaDetails.dataProvider = _loc2_.villages;
       var _loc3_ = new ank.utils.ExtendedArray();
       var _loc4_ = this.api.lang.getAlignments();
       for(var s in _loc4_)

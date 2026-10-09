@@ -1,4 +1,3 @@
-689664296 - 1;
 class dofus.aks.Survey extends dofus.aks.Handler
 {
    var aks;

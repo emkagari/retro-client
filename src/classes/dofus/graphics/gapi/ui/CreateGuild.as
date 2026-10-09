@@ -1,3 +1,4 @@
+849419476 - 1;
 class dofus.graphics.gapi.ui.CreateGuild extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _bEnabled;
@@ -76,8 +77,8 @@ class dofus.graphics.gapi.ui.CreateGuild extends dofus.graphics.gapi.core.DofusA
    {
       this._winBg.title = this.api.lang.getText("GUILD_CREATION");
       this._lblName.text = this.api.lang.getText("GUILD_NAME");
-      this._lblEmblem.text = this.api.lang.getText("EMBLEM");
-      this._lblColors.text = this.api.lang.getText("CREATE_COLOR");
+      this._lblColors.text = this.api.lang.getText("EMBLEM");
+      this._lblEmblem.text = this.api.lang.getText("CREATE_COLOR");
       this._btnCancel.label = this.api.lang.getText("CANCEL_SMALL");
       this._btnCreate.label = this.api.lang.getText("CREATE");
       this._btnTabBack.label = this.api.lang.getText("EMBLEM_BACK");

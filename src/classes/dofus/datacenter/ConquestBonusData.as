@@ -6,32 +6,32 @@ class dofus.datacenter.ConquestBonusData extends Object
    function ConquestBonusData(xp, drop, recolte)
    {
       super();
-      this._nRecolte = xp;
-      this._nXp = drop;
-      this._nDrop = recolte;
+      this._nXp = xp;
+      this._nDrop = drop;
+      this._nRecolte = recolte;
    }
    function get xp()
    {
-      return this._nRecolte;
+      return this._nXp;
    }
    function set xp(value)
    {
-      this._nRecolte = value;
+      this._nXp = value;
    }
    function get drop()
    {
-      return this._nXp;
+      return this._nDrop;
    }
    function set drop(value)
    {
-      this._nXp = value;
+      this._nDrop = value;
    }
    function get drop_()
    {
-      return this._nDrop;
+      return this._nRecolte;
    }
    function set drop_(value)
    {
-      this._nDrop = value;
+      this._nRecolte = value;
    }
 }

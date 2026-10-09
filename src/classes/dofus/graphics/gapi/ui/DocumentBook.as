@@ -79,7 +79,7 @@ class dofus.graphics.gapi.ui.DocumentBook extends dofus.graphics.gapi.core.Dofus
    function layoutContent(oPage, bLeft)
    {
       var _loc4_ = !bLeft ? "_mcRightRenderer" : "_mcLeftRenderer";
-      var _loc5_ = !bLeft ? this._lblLeftPageNum : this._mcLeftPlacer;
+      var _loc5_ = !bLeft ? this._lblLeftPageNum : this._mcRightPlacer;
       this[_loc4_].removeMovieClip();
       switch(oPage.type)
       {
@@ -102,7 +102,7 @@ class dofus.graphics.gapi.ui.DocumentBook extends dofus.graphics.gapi.core.Dofus
       }
       else
       {
-         this._mcRightPlacer.text = oPage.num != undefined ? oPage.num : "";
+         this._mcLeftPlacer.text = oPage.num != undefined ? oPage.num : "";
          this._btnAskPageRight.enabled = oPage.num != undefined;
       }
    }

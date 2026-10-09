@@ -139,16 +139,16 @@ class dofus.graphics.gapi.controls.SpellFullInfosViewer extends dofus.graphics.g
    {
       this._lblEffectsTitle.text = this.api.lang.getText("EFFECTS");
       this._lblAddThisHouseToGuildSystem.text = this.api.lang.getText("OTHER_CHARACTERISTICS");
-      this._lblLineOfSight.text = this.api.lang.getText("CRITICAL_HIT_PROBABILITY");
-      this._lblFreeCell.text = this.api.lang.getText("CRITICAL_MISS_PROBABILITY");
-      this._lblCriticalMiss.text = this.api.lang.getText("COUNT_BY_TURN");
-      this._lblCountByTurn.text = this.api.lang.getText("COUNT_BY_TURN_BY_PLAYER");
-      this._lblCountByTurnValue.text = this.api.lang.getText("RANGE_BOOST");
-      this._lblCriticalHit.text = this.api.lang.getText("LINE_OF_SIGHT");
-      this._lblCountByTurnByPlayer.text = this.api.lang.getText("LINE_ONLY");
-      this._lblRealCritValue.text = this.api.lang.getText("FREE_CELL");
-      this._lblCountByTurnByPlayerValue.text = this.api.lang.getText("ACTUAL_CRITICAL_CHANCE");
-      this._lblReqLevel.text = this.api.lang.getText("FAILURE_ENDS_THE_TURN");
+      this._lblCriticalMissValue.text = this.api.lang.getText("CRITICAL_HIT_PROBABILITY");
+      this._lblDelayValue.text = this.api.lang.getText("CRITICAL_MISS_PROBABILITY");
+      this._lblCountByTurnValue.text = this.api.lang.getText("COUNT_BY_TURN");
+      this._lblCriticalHit.text = this.api.lang.getText("COUNT_BY_TURN_BY_PLAYER");
+      this._mcCheckBoostRange.text = this.api.lang.getText("RANGE_BOOST");
+      this._lblRealCritValue.text = this.api.lang.getText("LINE_OF_SIGHT");
+      this._lblRealCrit.text = this.api.lang.getText("LINE_ONLY");
+      this._lblLineOnly.text = this.api.lang.getText("FREE_CELL");
+      this._mcCheckFailureEndsTheTurn.text = this.api.lang.getText("ACTUAL_CRITICAL_CHANCE");
+      this._lblLineOfSight.text = this.api.lang.getText("FAILURE_ENDS_THE_TURN");
       this._btnTabNormal.label = this.api.lang.getText("NORMAL_EFFECTS");
       this._btnTabCritical.label = this.api.lang.getText("CRITICAL_EFECTS");
       this._btnTabCreature.label = this.api.lang.getText("SUMMONED_CREATURE");
@@ -174,7 +174,7 @@ class dofus.graphics.gapi.controls.SpellFullInfosViewer extends dofus.graphics.g
          this._lblDelay.text = !this._oSpell.isCastGlobalInterval ? this.api.lang.getText("DELAY_RELAUNCH") : this.api.lang.getText("DELAY_RELAUNCH_GLOBAL");
          this._lblName.text = this._oSpell.name;
          this._lblLevel.text = this.api.lang.getText("ACTUAL_SPELL_LEVEL") + ":";
-         this._mcCrossRangeBoost.text = this._oSpell.minPlayerLevel == undefined ? "" : this.api.lang.getText("REQUIRED_SPELL_LEVEL") + ": " + this._oSpell.minPlayerLevel;
+         this._mcCheckLineOfSight.text = this._oSpell.minPlayerLevel == undefined ? "" : this.api.lang.getText("REQUIRED_SPELL_LEVEL") + ": " + this._oSpell.minPlayerLevel;
          this._lblRange.text = this._oSpell.rangeStr + " " + this.api.lang.getText("RANGE");
          this._lblAP.text = (!(this._oSpell.apCost < 1 && !this._oSpell.isPassive) ? this._oSpell.apCost : "1") + " " + this.api.lang.getText("AP");
          this._txtDescription.text = this._oSpell.description;
@@ -212,22 +212,22 @@ class dofus.graphics.gapi.controls.SpellFullInfosViewer extends dofus.graphics.g
             this.updateCurrentTabInformations();
          }
          _loc2_ = this.api.kernel.GameManager.getCriticalHitChance(this._oSpell.criticalHit);
-         this._lblDelayValue.text = _loc2_ != 0 ? "1/" + _loc2_ : "-";
+         this._mcCheckFreeCell.text = _loc2_ != 0 ? "1/" + _loc2_ : "-";
          this._lblCriticalHitValue.text = this._oSpell.criticalHit != 0 ? "1/" + this._oSpell.criticalHit : "-";
-         this._lblCriticalMissValue.text = this._oSpell.criticalFailure != 0 ? "1/" + this._oSpell.criticalFailure : "-";
-         this._lblRealCrit.text = this._oSpell.launchCountByTurn != 0 ? String(this._oSpell.launchCountByTurn) : "-";
-         this._lblLineOnly.text = this._oSpell.launchCountByPlayerTurn != 0 ? String(this._oSpell.launchCountByPlayerTurn) : "-";
+         this._lblCountByTurnByPlayer.text = this._oSpell.criticalFailure != 0 ? "1/" + this._oSpell.criticalFailure : "-";
+         this._lblCountByTurnByPlayerValue.text = this._oSpell.launchCountByTurn != 0 ? String(this._oSpell.launchCountByTurn) : "-";
+         this._lblCountByTurn.text = this._oSpell.launchCountByPlayerTurn != 0 ? String(this._oSpell.launchCountByPlayerTurn) : "-";
          this._lblFailureEndsTheTurn.text = this._oSpell.delayBetweenLaunch < 63 ? (this._oSpell.delayBetweenLaunch != 0 ? String(this._oSpell.delayBetweenLaunch) : "-") : "inf.";
-         this._mcCheckBoostRange._visible = !this._oSpell.canBoostRange;
+         this._lblFreeCell._visible = !this._oSpell.canBoostRange;
          this._mcCrossFreeCell._visible = this._oSpell.canBoostRange;
-         this._mcCheckFailureEndsTheTurn._visible = !this._oSpell.lineOfSight;
-         this._mcCrossLineOnly._visible = this._oSpell.lineOfSight;
-         this._mcCheckRangeBoost._visible = !this._oSpell.lineOnly;
-         this._mcCheckLineOnly._visible = this._oSpell.lineOnly;
-         this._mcCrossFailureEndsTheTurn._visible = !this._oSpell.freeCell;
-         this._mcCheckLineOfSight._visible = this._oSpell.freeCell;
-         this._mcCheckFreeCell._visible = !this._oSpell.criticalFailureEndsTheTurn;
-         this._mcCrossLineOfSight._visible = this._oSpell.criticalFailureEndsTheTurn;
+         this._mcCrossLineOnly._visible = !this._oSpell.lineOfSight;
+         this._mcCheckLineOnly._visible = this._oSpell.lineOfSight;
+         this._lblCriticalMiss._visible = !this._oSpell.lineOnly;
+         this._mcCrossFailureEndsTheTurn._visible = this._oSpell.lineOnly;
+         this._mcCrossLineOfSight._visible = !this._oSpell.freeCell;
+         this._lblReqLevel._visible = this._oSpell.freeCell;
+         this._mcCrossRangeBoost._visible = !this._oSpell.criticalFailureEndsTheTurn;
+         this._mcCheckRangeBoost._visible = this._oSpell.criticalFailureEndsTheTurn;
          if(this._oSpell.level != undefined)
          {
             _loc3_ = 1;
@@ -272,9 +272,9 @@ class dofus.graphics.gapi.controls.SpellFullInfosViewer extends dofus.graphics.g
          this._lblAP.text = "";
          this._txtDescription.text = "";
          this._lblCriticalHitValue.text = "";
-         this._lblCriticalMissValue.text = "";
-         this._lblRealCrit.text = "";
-         this._lblLineOnly.text = "";
+         this._lblCountByTurnByPlayer.text = "";
+         this._lblCountByTurnByPlayerValue.text = "";
+         this._lblCountByTurn.text = "";
          this._lblFailureEndsTheTurn.text = "";
          this.hideAllCheck();
          this._lstEffects.dataProvider = null;
@@ -395,14 +395,14 @@ class dofus.graphics.gapi.controls.SpellFullInfosViewer extends dofus.graphics.g
    }
    function hideAllCheck()
    {
-      this._mcCheckBoostRange._visible = true;
+      this._lblFreeCell._visible = true;
       this._mcCrossFreeCell._visible = false;
-      this._mcCheckFailureEndsTheTurn._visible = true;
-      this._mcCrossLineOnly._visible = false;
-      this._mcCheckRangeBoost._visible = true;
+      this._mcCrossLineOnly._visible = true;
       this._mcCheckLineOnly._visible = false;
-      this._mcCrossFailureEndsTheTurn._visible = true;
-      this._mcCheckLineOfSight._visible = false;
+      this._lblCriticalMiss._visible = true;
+      this._mcCrossFailureEndsTheTurn._visible = false;
+      this._mcCrossLineOfSight._visible = true;
+      this._lblReqLevel._visible = false;
    }
    function setLevel(nLevel)
    {

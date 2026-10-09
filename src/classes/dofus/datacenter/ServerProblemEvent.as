@@ -9,20 +9,20 @@ class dofus.datacenter.ServerProblemEvent extends Object
    function ServerProblemEvent(nTimestamp, nEventID, bTranslated, sContent)
    {
       super();
-      this._bTranslated = nTimestamp;
+      this._nTimestamp = nTimestamp;
       this._nID = nEventID;
-      this._nTimestamp = bTranslated;
+      this._bTranslated = bTranslated;
       this._sContent = sContent;
       var _loc7_ = _global.API;
       this._sTitle = _loc7_.lang.getText("STATUS_EVENT_" + this._nID);
       var _loc8_ = _loc7_.lang.getConfigText("HOUR_FORMAT");
       var _loc9_ = _loc7_.config.language;
-      var _loc10_ = new Date(this._bTranslated);
+      var _loc10_ = new Date(this._nTimestamp);
       this._sHour = org.utils.SimpleDateFormatter.formatDate(_loc10_,_loc8_,_loc9_);
    }
    function get timestamp()
    {
-      return this._bTranslated;
+      return this._nTimestamp;
    }
    function get hour()
    {
@@ -38,7 +38,7 @@ class dofus.datacenter.ServerProblemEvent extends Object
    }
    function get translated()
    {
-      return this._nTimestamp;
+      return this._bTranslated;
    }
    function get content()
    {

@@ -1,3 +1,4 @@
+400090414 - 1;
 class ank.gapi.controls.Label extends ank.gapi.core.UIBasicComponent
 {
    var __height;
@@ -24,7 +25,7 @@ class ank.gapi.controls.Label extends ank.gapi.core.UIBasicComponent
    static var CLASS_NAME = "Label";
    var _sTextfiledType = "dynamic";
    var _bMultiline = false;
-   var _bWordWrap = false;
+   var getStyle_ = false;
    var bDisplayDebug = false;
    function Label()
    {
@@ -39,23 +40,23 @@ class ank.gapi.controls.Label extends ank.gapi.core.UIBasicComponent
    {
       return this._bHTML;
    }
-   function set multiline(bMultiline)
+   function set multiline(bWordWrap)
    {
-      this._bMultiline = bMultiline;
+      this._bMultiline = bWordWrap;
       this.setTextFieldProperties();
    }
    function get multiline()
    {
       return this._bMultiline;
    }
-   function set wordWrap(bWordWrap)
+   function set wordWrap(bMultiline)
    {
-      this._bWordWrap = bWordWrap;
+      this.getStyle_ = bMultiline;
       this.setTextFieldProperties();
    }
    function get wordWrap()
    {
-      return this._bWordWrap;
+      return this.getStyle_;
    }
    function set text(sText)
    {
@@ -188,7 +189,7 @@ class ank.gapi.controls.Label extends ank.gapi.core.UIBasicComponent
    {
       if(this._tText != undefined)
       {
-         this._tText.wordWrap = this._bWordWrap;
+         this._tText.wordWrap = this.getStyle_;
          this._tText.multiline = this._bMultiline;
          this._tText.selectable = this._sTextfiledType == "input";
          this._tText.type = this._sTextfiledType;

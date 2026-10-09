@@ -133,9 +133,9 @@ class dofus.graphics.gapi.controls.SpriteViewer extends dofus.graphics.gapi.core
    {
       return this._bUseSingleLoader;
    }
-   function set useSingleLoader(b)
+   function set useSingleLoader(b_)
    {
-      this._bUseSingleLoader = b;
+      this._bUseSingleLoader = b_;
    }
    function get enableBackground()
    {

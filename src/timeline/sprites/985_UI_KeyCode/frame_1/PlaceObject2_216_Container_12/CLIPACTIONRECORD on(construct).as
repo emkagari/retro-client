@@ -1,5 +1,4 @@
 on(construct){
-   963321120 - 1;
    backgroundRenderer = "UI_KeyCodeSymbolContainer";
    borderRenderer = "";
    dragAndDrop = true;

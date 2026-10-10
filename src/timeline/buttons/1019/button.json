@@ -1,0 +1,12 @@
+{
+ "records": [
+  { "depth": 1, "states": ["up"], "shape": 1013, "x": 0, "y": 0 },
+  { "depth": 2, "states": ["up"], "text": 1015, "x": -10.25, "y": -6.85, "scale": 1.09872 },
+  { "depth": 1, "states": ["over"], "shape": 1016, "x": 0, "y": 0 },
+  { "depth": 2, "states": ["over"], "text": 1015, "x": -10.25, "y": -7.35, "scale": 1.09872 },
+  { "depth": 1, "states": ["down"], "shape": 1017, "x": 0, "y": 0 },
+  { "depth": 2, "states": ["down"], "text": 1015, "x": -10.25, "y": -6.15, "scale": 1.09872 },
+  { "depth": 1, "states": ["hit"], "shape": 1018, "x": 0, "y": 0 },
+  { "depth": 2, "states": ["hit"], "text": 1015, "x": -10.95, "y": -6.85, "scale": 1.09872 }
+ ]
+}

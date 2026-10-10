@@ -1,0 +1,19 @@
+{
+ "x": 2.75,
+ "y": -2,
+ "width": 19,
+ "height": 15,
+ "text": "<p align=\"center\"></p>",
+ "font": 580,
+ "size": 9,
+ "color": "#ffffff",
+ "align": "center",
+ "marginLeft": 0,
+ "marginRight": 0,
+ "indent": 0,
+ "leading": 0,
+ "readOnly": true,
+ "selectable": false,
+ "html": true,
+ "embedFonts": true
+}

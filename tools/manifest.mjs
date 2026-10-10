@@ -35,7 +35,7 @@ const tracked = new Set(execFileSync("git", ["ls-files", "src"], { cwd: ROOT, en
 const files = Object.fromEntries(sourceFiles(SRC).filter((f) => tracked.has(f)).map((f) => [f, sourceHash(join(SRC, f))]));
 // Graphics: the base's shapes and images (not new/ ones: those are ours).
 const assets = Object.fromEntries(assetFiles().filter((f) => !f.startsWith("new/") && tracked.has(`assets/${f}`)).map((f) => [f, assetHash(join(ASSETS, f))]));
-// Sprites: what each one places (tools/sprites.mjs).
+// Sprites, buttons and texts as JSON (tools/sprites.mjs).
 const sprites = Object.fromEntries(spriteFiles().filter((f) => tracked.has(f)).map((f) => [f, spriteHash(join(SRC, f))]));
 const manifest = {
   version,
@@ -46,4 +46,4 @@ const manifest = {
   sprites,
 };
 writeFileSync(file, JSON.stringify(manifest, null, 1) + "\n");
-console.log(`base/${version}/manifest.json: ${Object.keys(files).length} sources, ${Object.keys(assets).length} graphics, ${Object.keys(sprites).length} sprites`);
+console.log(`base/${version}/manifest.json: ${Object.keys(files).length} sources, ${Object.keys(assets).length} graphics, ${Object.keys(sprites).length} sprites, buttons and texts`);

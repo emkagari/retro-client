@@ -22,7 +22,7 @@ import { dirname, join, relative, resolve, sep } from "node:path";
 import { ROOT, SRC, base, compileErrors, config, ffdec, fromFfdec, rootByName, sha256, sourceFiles, sourceHash, toFfdec } from "./lib.mjs";
 import { declaredSymbols, exportNames, withSymbols } from "./symbols.mjs";
 import { applyAssets, changedAssets } from "./assets.mjs";
-import { applySprites, changedSprites } from "./sprites.mjs";
+import { applySprites, changedSprites, fileKind } from "./sprites.mjs";
 
 const args = process.argv.slice(2);
 const full = args.includes("--full");
@@ -77,13 +77,14 @@ if (graphics.length) {
   input = withGraphics;
 }
 
-// Sprites: edited sprite.json re-encoded, new ones (src/assets/new/<path>.json) added (tools/sprites.mjs).
+// Sprites, buttons, texts: edited ones re-encoded, new sprites (src/assets/new/<path>.json) added (tools/sprites.mjs).
 const newSprites = graphics.filter((f) => f.endsWith(".json"));
 if (sprites.length || newSprites.length) {
   const withSprites = join(work, "base-with-sprites.swf");
   try {
     const added = applySprites(input, withSprites, sprites, newSprites, b.loader);
-    console.log(`sprites: ${[sprites.length ? `${sprites.length} edited` : "", added.length ? `new: ${added.join(", ")}` : ""].filter(Boolean).join(", ")}`);
+    const edited = ["sprite", "button", "text"].map((k) => [k, sprites.filter((f) => fileKind(f) === k).length]).filter(([, n]) => n).map(([k, n]) => `${n} ${k}${n > 1 ? "s" : ""}`);
+    console.log(`timeline: ${[edited.length ? `${edited.join(", ")} edited` : "", added.length ? `new sprites: ${added.join(", ")}` : ""].filter(Boolean).join("; ")}`);
   } catch (e) {
     console.error(`
 sprites: ${e.message}`);

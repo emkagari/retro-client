@@ -1,0 +1,19 @@
+{
+ "x": -2,
+ "y": -2,
+ "width": 588.05,
+ "height": 279.3,
+ "text": "<p align=\"justify\"></p>",
+ "font": 5,
+ "size": 40,
+ "color": "#000000",
+ "align": "justify",
+ "marginLeft": 0,
+ "marginRight": 0,
+ "indent": 0,
+ "leading": 2,
+ "readOnly": true,
+ "selectable": false,
+ "html": true,
+ "embedFonts": true
+}

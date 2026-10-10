@@ -1,0 +1,10 @@
+{
+ "x": 0.6,
+ "y": 1.05,
+ "width": 30.35,
+ "height": 12.2,
+ "transform": { "x": 0, "y": 0 },
+ "records": [
+  { "font": 6, "size": 12, "color": "#473f38", "y": 12, "text": "OK", "advances": [10.2, 9.25] }
+ ]
+}

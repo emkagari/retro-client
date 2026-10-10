@@ -1,0 +1,10 @@
+{
+ "records": [
+  { "depth": 55, "states": ["up"], "shape": 1796, "x": 0, "y": 0 },
+  { "depth": 1, "states": ["over"], "sprite": 1798, "x": 1.45, "y": 1.75, "scaleX": 1.00896, "scaleY": 1.01237, "filters": [{ "type": "glow", "color": "#000000", "alpha": 1, "blurX": 5, "blurY": 5, "strength": 1, "inner": true, "composite": true, "passes": 3 }] },
+  { "depth": 56, "states": ["over"], "shape": 1799, "x": 0, "y": 0 },
+  { "depth": 1, "states": ["down"], "sprite": 1798, "x": 1.75, "y": 2.2, "scaleX": 1.00896, "scaleY": 1.01237, "filters": [{ "type": "glow", "color": "#000000", "alpha": 1, "blurX": 5, "blurY": 5, "strength": 1, "inner": true, "composite": true, "passes": 3 }] },
+  { "depth": 56, "states": ["down", "hit"], "shape": 1787, "x": 0.2, "y": 0.3 },
+  { "depth": 53, "states": ["hit"], "shape": 1797, "x": 1.75, "y": 2.2, "scaleX": 1.00896, "scaleY": 1.01237 }
+ ]
+}

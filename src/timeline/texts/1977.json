@@ -1,0 +1,18 @@
+{
+ "x": -2,
+ "y": -2,
+ "width": 24.75,
+ "height": 16.05,
+ "variable": "txt_max",
+ "text": "0",
+ "font": 5,
+ "size": 10,
+ "color": "#514a3c",
+ "align": "right",
+ "marginLeft": 0,
+ "marginRight": 0,
+ "indent": 0,
+ "leading": 2,
+ "readOnly": true,
+ "selectable": false
+}

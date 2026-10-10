@@ -1,0 +1,8 @@
+{
+ "records": [
+  { "depth": 1, "states": ["up"], "shape": 732, "x": 0, "y": 0 },
+  { "depth": 2, "states": ["up", "over", "down", "hit"], "shape": 733, "x": 0, "y": 0 },
+  { "depth": 1, "states": ["over"], "shape": 734, "x": 0, "y": 0 },
+  { "depth": 1, "states": ["down", "hit"], "shape": 735, "x": 0, "y": 0 }
+ ]
+}

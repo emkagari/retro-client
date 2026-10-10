@@ -1,0 +1,18 @@
+{
+ "x": -2,
+ "y": -2,
+ "width": 37.15,
+ "height": 30.1,
+ "variable": "txt",
+ "text": "119.0",
+ "font": 5,
+ "size": 10,
+ "color": "#ff0000",
+ "align": "left",
+ "marginLeft": 0,
+ "marginRight": 0,
+ "indent": 0,
+ "leading": 2,
+ "readOnly": true,
+ "selectable": false
+}

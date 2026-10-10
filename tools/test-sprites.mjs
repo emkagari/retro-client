@@ -1,18 +1,20 @@
 /**
- * Non-regression tests for the sprites (docs/SPRITES.md): base loader →
- * src/timeline/sprites/…/sprite.json → final loader.
+ * Non-regression tests for the sprites, buttons and texts (docs/SPRITES.md):
+ * base loader → src/timeline/…/*.json → final loader.
  *
  *   node tools/test-sprites.mjs        (~15 s)
  *
- * 1. inventory   one sprite.json per sprite of the base, as extracted from it,
- *                with the manifest's hash;
- * 2. codec       every sprite re-encoded: the base's bytes with its
- *                placements' kept, the same values encoded from scratch;
+ * 1. inventory   one JSON per sprite, button and text of the base, as
+ *                extracted from it, with the manifest's hash;
+ * 2. codec       every one re-encoded: the base's bytes when left as it was,
+ *                the same values encoded from scratch;
  * 3. identity    nothing edited: the loader keeps the base's bytes;
  * 4. move        the login logo moved: only its line's bytes change;
  * 5. new         new/<path>.json sprites placing a new graphic, a shape of the
  *                base and one another: exported, defined before use, drawn;
- * 6. errors      a typo, a wrong id, a cycle, two files of one name: refused, said where;
+ * 6. texts       a field's text and a static text changed; a character the font lacks refused;
+ *    buttons     a state's graphic moved: only that button changes; where lists it;
+ *    errors      a typo, a wrong id, a cycle, two files of one name: refused, said where;
  * 7. new base    an edit carried over to a base whose ids changed: ids mapped,
  *                merged with Ankama's change, or a conflict when both change one line.
  */
@@ -21,8 +23,8 @@ import { join } from "node:path";
 import { ROOT, SRC, base, config, ffdec } from "./lib.mjs";
 import { applyAssets, assetHash } from "./assets.mjs";
 import {
-  SPRITES, applySprites, carrySprites, formatSprite, graphicHashes, library, readSprite, spriteFiles, spriteFolders,
-  spriteHash, spriteIds, writeSprite,
+  applySprites, carrySprites, context, formatJson, formatSprite, graphicHashes, library, objectFiles, readObject, readSprite,
+  spriteFiles, spriteFolders, spriteHash, where, writeObject, writeSprite,
 } from "./sprites.mjs";
 import { exportsOf, parseSwf, writeSwf } from "./deob/src/swf.ts";
 
@@ -67,39 +69,42 @@ function scratchSrc(name, files) {
   return dir;
 }
 
-test("inventory: one sprite.json per sprite, as extracted from the base", () => {
-  const folders = spriteFolders(baseSwf);
+const ctx = context(baseSwf);
+const objects = objectFiles(baseSwf);
+const tagOf = (swf, id) => swf.tags.find((t) => [39, 34, 37, 11, 33].includes(t.code) && t.data.readUInt16LE(0) === id);
+const count = (kind) => [...objects.values()].filter((o) => o.kind === kind).length;
+
+test("inventory: one JSON per sprite, button and text, as extracted from the base", () => {
   const files = new Set(spriteFiles());
   const problems = [];
-  for (const [id, folder] of folders) {
-    const f = `timeline/sprites/${folder}/sprite.json`;
-    if (!files.has(f)) { problems.push(`sprite ${id}: no ${f}`); continue; }
+  for (const [id, { kind, file: f }] of objects) {
+    if (!files.has(f)) { problems.push(`${kind} ${id}: no ${f}`); continue; }
     files.delete(f);
-    if (readFileSync(join(SRC, f), "utf8").replace(/\r\n/g, "\n") !== formatSprite(readSprite(spriteTag(baseSwf, id).data, lib).json)) problems.push(`src/${f}: differs from the base (edited, or extracted by another version of tools/sprites.mjs)`);
+    if (readFileSync(join(SRC, f), "utf8").replace(/\r\n/g, "\n") !== formatJson(kind, readObject(tagOf(baseSwf, id), ctx).json)) problems.push(`src/${f}: differs from the base (edited, or extracted by another version of tools/sprites.mjs)`);
     else if (b.manifest.sprites?.[f] !== spriteHash(join(SRC, f))) problems.push(`src/${f}: its hash isn't the manifest's (node tools/manifest.mjs ${cfg.version})`);
   }
-  for (const f of files) problems.push(`src/${f}: no sprite of this id in the base`);
+  for (const f of files) problems.push(`src/${f}: nothing of this id in the base`);
   check(!problems.length, problems.slice(0, 20).join("\n") + (problems.length > 20 ? `\n… ${problems.length - 20} more` : ""));
-  return [`${folders.size} sprites`];
+  return [`${count("sprite")} sprites, ${count("button")} buttons, ${count("text")} texts`];
 });
 
-test("codec: every sprite re-encoded, the same bytes and values", () => {
-  const ids = spriteIds(baseSwf);
-  let scratchBytes = 0;
+test("codec: every one re-encoded, the same bytes and values", () => {
+  const scratch = { sprite: 0, button: 0, text: 0 };
   const problems = [];
-  for (const id of ids) {
-    const tag = spriteTag(baseSwf, id);
-    const was = readSprite(tag.data, lib);
-    const json = JSON.parse(formatSprite(was.json));
-    if (!writeSprite(id, json, lib, was, `sprite ${id}`).equals(tag.data)) problems.push(`sprite ${id}: re-encoded with its placements' bytes kept, differs`);
-    // From scratch: no placement's bytes kept (clip actions still are: they're compiled code).
-    const blank = { scripts: was.scripts, raws: was.raws.map((fr) => fr.map((r) => ({ ...r, o: { ...r.o, unmatched: true } }))) };
-    const fresh = writeSprite(id, json, lib, blank, `sprite ${id}`);
-    if (fresh.equals(tag.data)) scratchBytes++;
-    if (JSON.stringify(readSprite(fresh, lib).json) !== JSON.stringify(was.json)) problems.push(`sprite ${id}: encoded from scratch, reads back different`);
+  for (const [id, { kind }] of objects) {
+    const tag = tagOf(baseSwf, id);
+    const was = readObject(tag, ctx);
+    const json = JSON.parse(formatJson(kind, was.json));
+    if (!writeObject(tag.code, id, json, ctx, was, `${kind} ${id}`).equals(tag.data)) problems.push(`${kind} ${id}: re-encoded as it was, differs`);
+    // From scratch: none of its bytes kept (clip and button actions still are: they're compiled code).
+    const unmatched = (r) => ({ ...r, o: { ...r.o, unmatched: true } });
+    const blank = { ...was, data: null, raws: was.raws?.map((fr) => (Array.isArray(fr) ? fr.map(unmatched) : unmatched(fr))) };
+    const fresh = writeObject(tag.code, id, json, ctx, blank, `${kind} ${id}`);
+    if (fresh.equals(tag.data)) scratch[kind]++;
+    if (JSON.stringify(readObject({ code: tag.code, data: fresh }, ctx).json) !== JSON.stringify(was.json)) problems.push(`${kind} ${id}: encoded from scratch, reads back different`);
   }
   check(!problems.length, problems.slice(0, 20).join("\n"));
-  return [`${ids.length} sprites: all exact; ${scratchBytes} byte for byte even encoded from scratch (the rest: the same values, written in fewer bits)`];
+  return [`${objects.size}: all exact; byte for byte even encoded from scratch: ${scratch.sprite}/${count("sprite")} sprites, ${scratch.button}/${count("button")} buttons, ${scratch.text}/${count("text")} texts (the rest: the same values, written in fewer bits)`];
 });
 
 test("identity: nothing edited, the base's bytes", () => {
@@ -163,6 +168,44 @@ test("new: new/test/*.json sprites, exported, defined before use, drawn", () => 
   return ["test/cadre places test/fenetre (test/fond + shape 901): rendered by FFDec"];
 });
 
+test("texts: a field's text and a static text changed", () => {
+  // A text field filled by code (813, no text of its own): given one.
+  const field = readObject(tagOf(baseSwf, 813), ctx);
+  check(!("text" in field.json), "text 813 has a text already");
+  const withText = readObject({ code: 37, data: writeObject(37, 813, { ...field.json, text: "Bonjour" }, ctx, field, "813") }, ctx).json;
+  check(withText.text === "Bonjour" && withText.font === field.json.font, `813 reads back ${JSON.stringify(withText)}`);
+  // A static text ("News", 878): its letters reordered, with their widths.
+  const stat = readObject(tagOf(baseSwf, 878), ctx), rec = stat.json.records[0];
+  check(rec.text === "News", `878 reads "${rec.text}"`);
+  const order = [3, 2, 1, 0];
+  const json = { ...stat.json, records: [{ ...rec, text: order.map((i) => rec.text[i]).join(""), advances: order.map((i) => rec.advances[i]) }] };
+  const again = readObject({ code: 11, data: writeObject(11, 878, json, ctx, stat, "878") }, ctx).json.records[0];
+  check(again.text === "sweN" && JSON.stringify(again.advances) === JSON.stringify(json.records[0].advances), `878 reads back ${JSON.stringify(again)}`);
+  throws(() => writeObject(11, 878, { ...stat.json, records: [{ ...rec, text: "N\u4e00ws" }] }, ctx, stat, "878.json"), "has no", "a character the font lacks");
+  throws(() => writeObject(11, 878, { ...stat.json, records: [{ ...rec, text: "Newss" }] }, ctx, stat, "878.json"), "one width per character", "a width missing");
+  return ['813: "Bonjour"; 878: "News" → "sweN"'];
+});
+
+test("buttons: a state's graphic moved, only that button changes", () => {
+  const id = 125, file = objects.get(id).file;
+  const src = scratchSrc("button", [file]);
+  const json = JSON.parse(readFileSync(join(src, file), "utf8"));
+  const shape = json.records[0].shape;
+  json.records[0].x += 5;
+  writeFileSync(join(src, file), formatJson("button", json));
+  const out = join(work, "button.swf");
+  applySprites(b.loader, out, [file], [], b.loader, { src });
+  const swf = parseSwf(readFileSync(out));
+  const changed = swf.tags.map((t, i) => (t.data.equals(baseSwf.tags[i].data) ? -1 : i)).filter((i) => i >= 0);
+  check(changed.length === 1 && swf.tags[changed[0]].code === 34 && swf.tags[changed[0]].data.readUInt16LE(0) === id, `changed tags: ${changed.join(", ")}`);
+  const now = readObject(swf.tags[changed[0]], ctx);
+  check(now.json.records[0].x === json.records[0].x && now.json.actions === true, `button ${id} reads back ${JSON.stringify(now.json)}`);
+  check(now.actions.equals(readObject(tagOf(baseSwf, id), ctx).actions), "its actions' bytes changed");
+  const found = where(baseSwf, shape);
+  check(found.some((w) => w.file === file), `where ${shape}: ${JSON.stringify(found)}`);
+  return [`button ${id}: x ${json.records[0].x - 5} → ${json.records[0].x}, its actions kept; where ${shape} lists it`];
+});
+
 test("errors: refused, and said where", () => {
   const was = readSprite(spriteTag(baseSwf, LOGIN).data, lib);
   const json = (o) => ({ frames: [{ place: [{ depth: 1, ...o }] }] });
@@ -204,13 +247,13 @@ test("new base: an edit carried over, ids mapped, merged or in conflict", () => 
 
   const run = (edit, name) => {
     const dir = join(work, name);
-    const folder = spriteFolders(next, dir).get(LOGIN);
-    mkdirSync(join(dir, folder), { recursive: true });
-    writeFileSync(join(dir, folder, "sprite.json"), formatSprite(theirs));
+    const target = join(dir, objectFiles(next, dir).get(LOGIN).file);
+    mkdirSync(join(target, ".."), { recursive: true });
+    writeFileSync(target, formatSprite(theirs));
     const mine = readSprite(spriteTag(baseSwf, LOGIN).data, lib).json;
     edit(mine.frames[0].place);
     const r = carrySprites([{ file: loginFile, text: formatSprite(mine) }], b.loader, nextFile, graphics, nextGraphics, dir);
-    return { r, text: readFileSync(join(dir, folder, "sprite.json"), "utf8") };
+    return { r, text: readFileSync(target, "utf8") };
   };
   // The logo moved: carried over, with its new id, and Ankama's own move kept.
   const a = run((p) => { p.find((o) => o.shape === 901).x += 50; }, "carry");

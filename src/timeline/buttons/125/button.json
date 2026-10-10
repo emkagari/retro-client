@@ -1,0 +1,6 @@
+{
+ "records": [
+  { "depth": 1, "states": ["up", "over", "down", "hit"], "shape": 124, "x": 0, "y": 0 }
+ ],
+ "actions": true
+}

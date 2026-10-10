@@ -1,0 +1,10 @@
+{
+ "x": 5.5,
+ "y": 1.5,
+ "width": 26.7,
+ "height": 9.65,
+ "transform": { "x": 0, "y": 0 },
+ "records": [
+  { "font": 5, "size": 10, "color": "#000000", "x": 5, "y": 10, "text": "LOL", "advances": [5.55, 7.85, 5.55] }
+ ]
+}

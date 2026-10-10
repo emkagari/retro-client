@@ -1,12 +1,13 @@
 /**
- * The loader's sprites as files: what each one places, frame by frame
- * (docs/SPRITES.md).
+ * The loader's sprites, buttons and texts as files (docs/SPRITES.md).
  *
- *   src/timeline/sprites/<id>[_<Export>]/sprite.json   every sprite of the base loader
+ *   src/timeline/sprites/<id>[_<Export>]/sprite.json   every sprite of the base loader: what it places, frame by frame
+ *   src/timeline/buttons/<id>[_<Export>]/button.json   every button: what it shows in each state
+ *   src/timeline/texts/<id>.json                       every text: a field's settings, a static text's runs
  *   src/assets/new/<path>.json                         a new sprite, exported by its path in
  *                                                      lower case (like new graphics: "ui/panel")
  *
- *   node tools/sprites.mjs extract        src/timeline/sprites/…/sprite.json ← the base loader
+ *   node tools/sprites.mjs extract        src/timeline/… ← the base loader
  *   node tools/sprites.mjs where <what>   where a shape, sprite… is placed: 901, shapes/901, UI_Login
  *
  * A sprite.json lists its frames; each frame what it removes (depths), its
@@ -48,6 +49,7 @@ for (const c of [11, 33, 37]) KIND[c] = "text";
 for (const c of [7, 34]) KIND[c] = "button";
 for (const c of [6, 21, 35, 20, 36, 90]) KIND[c] = "image";
 KIND[39] = "sprite";
+for (const c of [10, 48, 75]) KIND[c] = "font";
 KIND[60] = "video";
 const REF_KEYS = ["export", "shape", "sprite", "text", "button", "morph", "video"];
 const BLEND = [null, "normal", "layer", "multiply", "screen", "lighten", "darken", "difference", "add", "subtract", "invert", "alpha", "erase", "overlay", "hardlight"];
@@ -430,11 +432,292 @@ export function writeSprite(id, json, lib, was, where) {
   return Buffer.concat(parts);
 }
 
-// --- Files ------------------------------------------------------------------
+// --- Texts ------------------------------------------------------------------
+
+function readRect(r) {
+  const n = r.u(5);
+  const [xmin, xmax, ymin, ymax] = [r.s(n), r.s(n), r.s(n), r.s(n)];
+  return { xmin, xmax, ymin, ymax };
+}
+function writeRect(xmin, xmax, ymin, ymax) {
+  const n = sbits(xmin, xmax, ymin, ymax);
+  return new BitWriter().u(5, n).s(n, xmin).s(n, xmax).s(n, ymin).s(n, ymax).bytes();
+}
+const boundsFields = (b) => ({ x: b.xmin / 20, y: b.ymin / 20, width: (b.xmax - b.xmin) / 20, height: (b.ymax - b.ymin) / 20 });
+function fieldsBounds(o, where) {
+  for (const k of ["x", "y", "width", "height"]) if (typeof o[k] !== "number") throw new Error(`${where}: "${k}" (its box, in pixels)`);
+  const xmin = Math.round(o.x * 20), ymin = Math.round(o.y * 20);
+  return writeRect(xmin, xmin + Math.round(o.width * 20), ymin, ymin + Math.round(o.height * 20));
+}
+const colorText = (b, at) => `#${hex2(b[at])}${hex2(b[at + 1])}${hex2(b[at + 2])}`;
+function putColor(c, where, key = "color") {
+  if (!/^#[0-9a-f]{6}$/i.test(c ?? "")) throw new Error(`${where}: "${key}" is "#rrggbb"`);
+  return Buffer.from([parseInt(c.slice(1, 3), 16), parseInt(c.slice(3, 5), 16), parseInt(c.slice(5, 7), 16)]);
+}
+const cstring = (b, p) => { const z = b.indexOf(0, p); return [b.toString("utf8", p, z), z + 1]; };
+
+/** Each font's glyph codes (glyph index → character code), by font id. */
+export function fontTable(swf) {
+  const fonts = new Map();
+  for (const t of swf.tags) if (t.code === 48 || t.code === 75) {
+    const d = t.data, flags = d[2];
+    let p = 5 + d[4];
+    const n = d.readUInt16LE(p); p += 2;
+    const codes = [];
+    if (n) {
+      const wideOffsets = flags & 0x08, wideCodes = flags & 0x04;
+      let q = p + (wideOffsets ? d.readUInt32LE(p + 4 * n) : d.readUInt16LE(p + 2 * n));
+      for (let i = 0; i < n; i++, q += wideCodes ? 2 : 1) codes.push(wideCodes ? d.readUInt16LE(q) : d[q]);
+    }
+    const byChar = new Map();
+    codes.forEach((c, i) => { if (!byChar.has(c)) byChar.set(c, i); });
+    fonts.set(d.readUInt16LE(0), { codes, byChar, name: d.toString("utf8", 5, 5 + d[4]).replace(/\0+$/, "") });
+  }
+  return fonts;
+}
+
+const ALIGN = ["left", "right", "center", "justify"];
+// DefineEditText's flags, as the AS2 TextField's properties where there is one.
+const EDIT_FLAGS = [
+  [0x4000, "wordWrap"], [0x2000, "multiline"], [0x1000, "password"], [0x0800, "readOnly"],
+  [0x0040, "autoSize"], [0x0010, "selectable", false], [0x0008, "border"], [0x0004, "wasStatic"], [0x0002, "html"], [0x0001, "embedFonts"],
+];
+const EDIT_KEYS = new Set(["x", "y", "width", "height", "variable", "text", "font", "size", "color", "alpha", "align", "marginLeft", "marginRight", "indent", "leading", "maxLength", ...EDIT_FLAGS.map((f) => f[1])]);
+
+/** A DefineEditText (a text field: dynamic, input or HTML) as JSON. */
+export function readEditText(d) {
+  const r = new BitReader(d, 2);
+  const o = boundsFields(readRect(r));
+  let p = r.pos;
+  const f = d.readUInt16BE(p); p += 2;
+  if (f & 0x0080) throw new Error("a font class (SWF 9+) not supported");
+  let font, size, color, maxLength, layout;
+  if (f & 0x0100) { font = d.readUInt16LE(p); size = d.readUInt16LE(p + 2) / 20; p += 4; }
+  if (f & 0x0400) { color = { color: colorText(d, p), alpha: d[p + 3] }; p += 4; }
+  if (f & 0x0200) { maxLength = d.readUInt16LE(p); p += 2; }
+  if (f & 0x0020) { layout = { align: ALIGN[d[p]] ?? d[p], marginLeft: d.readUInt16LE(p + 1) / 20, marginRight: d.readUInt16LE(p + 3) / 20, indent: d.readUInt16LE(p + 5) / 20, leading: d.readInt16LE(p + 7) / 20 }; p += 9; }
+  let variable, text;
+  [variable, p] = cstring(d, p);
+  if (variable) o.variable = variable;
+  if (f & 0x8000) [text] = cstring(d, p);
+  if (text !== undefined) o.text = text;
+  if (font !== undefined) Object.assign(o, { font, size });
+  if (color) { o.color = color.color; if (color.alpha !== 255) o.alpha = byteUnit(color.alpha); }
+  if (layout) Object.assign(o, layout);
+  if (maxLength !== undefined) o.maxLength = maxLength;
+  for (const [bit, key, set = true] of EDIT_FLAGS) if (f & bit) o[key] = set;     // NoSelect: "selectable": false
+  return { json: o };
+}
+export function writeEditText(id, o, where) {
+  for (const k of Object.keys(o)) if (!EDIT_KEYS.has(k)) throw new Error(`${where}: unknown key "${k}"`);
+  let f = 0;
+  const parts = [];
+  if ("font" in o) { f |= 0x0100; parts.push(u16(o.font), u16(Math.round((o.size ?? 12) * 20))); }
+  if ("color" in o) { f |= 0x0400; parts.push(putColor(o.color, where), Buffer.from([Math.round((o.alpha ?? 1) * 255)])); }
+  if ("maxLength" in o) { f |= 0x0200; parts.push(u16(o.maxLength)); }
+  if (["align", "marginLeft", "marginRight", "indent", "leading"].some((k) => k in o)) {
+    const a = ALIGN.indexOf(o.align ?? "left");
+    if (a < 0 && typeof o.align !== "number") throw new Error(`${where}: "align" is one of ${ALIGN.join(", ")}`);
+    f |= 0x0020;
+    const l = Buffer.alloc(9);
+    l[0] = a < 0 ? o.align : a;
+    l.writeUInt16LE(Math.round((o.marginLeft ?? 0) * 20), 1); l.writeUInt16LE(Math.round((o.marginRight ?? 0) * 20), 3);
+    l.writeUInt16LE(Math.round((o.indent ?? 0) * 20), 5); l.writeInt16LE(Math.round((o.leading ?? 0) * 20), 7);
+    parts.push(l);
+  }
+  parts.push(Buffer.from(`${o.variable ?? ""}\0`, "utf8"));
+  if ("text" in o) { f |= 0x8000; parts.push(Buffer.from(`${o.text}\0`, "utf8")); }
+  for (const [bit, key, set = true] of EDIT_FLAGS) if (o[key] === set) f |= bit;
+  const flags = Buffer.alloc(2);
+  flags.writeUInt16BE(f);
+  return Buffer.concat([u16(id), fieldsBounds(o, where), flags, ...parts]);
+}
+
+const STATIC_KEYS = new Set(["x", "y", "width", "height", "transform", "records"]);
+const RECORD_KEYS = new Set(["font", "size", "color", "alpha", "x", "y", "text", "glyphs", "advances"]);
+
+/**
+ * A DefineText / DefineText2 (static text) as JSON: its box, its transform,
+ * and its runs — each a font, size, colour, offset, its characters (by the
+ * font's glyph codes) and their advances.
+ */
+export function readStaticText(code, d, ctx) {
+  let r = new BitReader(d, 2);
+  const o = boundsFields(readRect(r));
+  r = new BitReader(d, r.pos);
+  o.transform = matrixFields(readMatrix(r));
+  let p = r.pos;
+  const glyphBits = d[p], advanceBits = d[p + 1];
+  p += 2;
+  o.records = [];
+  let font;
+  while (d[p]) {
+    const f = d[p++], rec = {};
+    if (f & 0x08) { font = d.readUInt16LE(p); rec.font = font; p += 2; }
+    if (f & 0x04) {
+      rec.color = colorText(d, p);
+      if (code === 33) { if (d[p + 3] !== 255) rec.alpha = byteUnit(d[p + 3]); p += 4; } else p += 3;
+    }
+    if (f & 0x01) { rec.x = d.readInt16LE(p) / 20; p += 2; }
+    if (f & 0x02) { rec.y = d.readInt16LE(p) / 20; p += 2; }
+    if (f & 0x08) { rec.size = d.readUInt16LE(p) / 20; p += 2; }
+    const n = d[p++];
+    const g = new BitReader(d, p), glyphs = [], advances = [];
+    for (let i = 0; i < n; i++) { glyphs.push(g.u(glyphBits)); advances.push(g.s(advanceBits) / 20); }
+    p = g.pos;
+    // Characters when the font gives each glyph back from its character; glyph indices otherwise.
+    const fnt = ctx.fonts.get(font);
+    if (fnt && glyphs.every((i) => fnt.byChar.get(fnt.codes[i]) === i)) rec.text = glyphs.map((i) => String.fromCharCode(fnt.codes[i])).join("");
+    else rec.glyphs = glyphs;
+    rec.advances = advances;
+    o.records.push(Object.fromEntries(["font", "size", "color", "alpha", "x", "y", "text", "glyphs", "advances"].filter((k) => k in rec).map((k) => [k, rec[k]])));
+  }
+  return { json: o };
+}
+export function writeStaticText(code, id, o, ctx, where) {
+  for (const k of Object.keys(o)) if (!STATIC_KEYS.has(k)) throw new Error(`${where}: unknown key "${k}"`);
+  if (!Array.isArray(o.records)) throw new Error(`${where}: "records": [ … ]`);
+  let font;
+  const runs = o.records.map((rec, k) => {
+    const at = `${where}, record #${k + 1}`;
+    for (const key of Object.keys(rec)) if (!RECORD_KEYS.has(key)) throw new Error(`${at}: unknown key "${key}"`);
+    if ("font" in rec) font = rec.font;
+    let glyphs = rec.glyphs;
+    if (rec.text !== undefined) {
+      const fnt = ctx.fonts.get(font);
+      if (!fnt) throw new Error(`${at}: no font ${font}`);
+      glyphs = [...rec.text].map((ch) => {
+        if (!fnt.byChar.has(ch.charCodeAt(0))) throw new Error(`${at}: font ${font} (${fnt.name}) has no "${ch}" (it holds: ${fnt.codes.map((c) => String.fromCharCode(c)).join("")})`);
+        return fnt.byChar.get(ch.charCodeAt(0));
+      });
+    }
+    if (!Array.isArray(glyphs)) throw new Error(`${at}: "text" (or "glyphs")`);
+    if (!Array.isArray(rec.advances) || rec.advances.length !== glyphs.length) throw new Error(`${at}: "advances" holds one width per character, in pixels (${glyphs.length})`);
+    return { rec, glyphs, advances: rec.advances.map((a) => Math.round(a * 20)) };
+  });
+  const glyphBits = Math.max(0, ...runs.flatMap((r) => r.glyphs).map((g) => g.toString(2).length));
+  const advanceBits = sbits(...runs.flatMap((r) => r.advances));
+  const parts = [u16(id), fieldsBounds(o, where), writeMatrix(fieldsMatrix(o.transform ?? {}, where)), Buffer.from([glyphBits, advanceBits])];
+  for (const { rec, glyphs, advances } of runs) {
+    const hasFont = "font" in rec;
+    parts.push(Buffer.from([0x80 | (hasFont ? 0x08 : 0) | ("color" in rec ? 0x04 : 0) | ("y" in rec ? 0x02 : 0) | ("x" in rec ? 0x01 : 0)]));
+    if (hasFont) parts.push(u16(rec.font));
+    if ("color" in rec) parts.push(putColor(rec.color, where), code === 33 ? Buffer.from([Math.round((rec.alpha ?? 1) * 255)]) : Buffer.alloc(0));
+    if ("x" in rec) parts.push(i16(Math.round(rec.x * 20)));
+    if ("y" in rec) parts.push(i16(Math.round(rec.y * 20)));
+    if (hasFont) parts.push(u16(Math.round(rec.size * 20)));
+    const w = new BitWriter();
+    glyphs.forEach((g, i) => w.u(glyphBits, g).s(advanceBits, advances[i]));
+    parts.push(Buffer.from([glyphs.length]), w.bytes());
+  }
+  parts.push(Buffer.from([0]));
+  return Buffer.concat(parts);
+}
+
+// --- Buttons ----------------------------------------------------------------
+
+const STATES = [[0x01, "up"], [0x02, "over"], [0x04, "down"], [0x08, "hit"]];
+const BUTTON_KEYS = new Set(["menu", "records", "actions"]);
+const BUTTON_RECORD_KEYS = new Set(["depth", "states", ...REF_KEYS, "x", "y", "scale", "scaleX", "scaleY", "rotation", "matrix", "alpha", "color", "filters", "blend"]);
+
+/**
+ * A DefineButton2 as JSON: what it shows in each state (up, over, down; hit:
+ * where it reacts), and whether it has actions (compiled from its scripts in
+ * src/timeline/buttons/…). Its records' and actions' bytes come along.
+ */
+export function readButton(d, ctx) {
+  if (d[2] & 0xfe) throw new Error(`button flags ${d[2]} not supported`);
+  const offset = d.readUInt16LE(3);
+  const json = {};
+  if (d[2] & 1) json.menu = true;
+  json.records = [];
+  const raws = [];
+  let p = 5;
+  while (d[p]) {
+    const start = p, f = d[p++];
+    if (f & 0xc0) throw new Error(`button record flags ${f} not supported`);
+    const id = d.readUInt16LE(p), o = { depth: d.readUInt16LE(p + 2), states: STATES.filter(([bit]) => f & bit).map(([, s]) => s) };
+    p += 4;
+    if (ctx.lib.names.has(id)) o.export = ctx.lib.names.get(id); else o[ctx.lib.kinds.get(id) ?? "sprite"] = id;
+    let r = new BitReader(d, p);
+    Object.assign(o, matrixFields(readMatrix(r)));
+    r = new BitReader(d, r.pos);
+    const cx = readCxform(r);
+    if (cx.mult || cx.add) Object.assign(o, cxformFields(cx));
+    p = r.pos;
+    if (f & 0x10) { const fl = readFilters(d, p); o.filters = fl.filters; p += fl.length; }
+    if (f & 0x20) { o.blend = BLEND[d[p]] ?? d[p]; p++; }
+    json.records.push(o);
+    raws.push({ o, raw: d.subarray(start, p) });
+  }
+  p++;
+  if (offset && 3 + offset !== p) throw new Error("bytes between the records and the actions");
+  const actions = offset ? d.subarray(p) : null;
+  if (actions) json.actions = true;
+  return { json, raws, actions };
+}
+export function writeButton(id, json, ctx, was, where) {
+  for (const k of Object.keys(json)) if (!BUTTON_KEYS.has(k)) throw new Error(`${where}: unknown key "${k}"`);
+  if (!Array.isArray(json.records)) throw new Error(`${where}: "records": [ … ]`);
+  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  const old = [...(was?.raws ?? [])];
+  const records = json.records.map((o, k) => {
+    const at = `${where}, record #${k + 1}`;
+    const kept = old.findIndex((r) => same(r.o, o));
+    if (kept >= 0) return old.splice(kept, 1)[0].raw;
+    for (const key of Object.keys(o)) if (!BUTTON_RECORD_KEYS.has(key)) throw new Error(`${at}: unknown key "${key}"`);
+    const states = o.states ?? [];
+    for (const s of states) if (!STATES.some(([, n]) => n === s)) throw new Error(`${at}: a state is one of ${STATES.map(([, n]) => n).join(", ")}`);
+    const ref = refId(o, ctx.lib, at);
+    if (ref === null) throw new Error(`${at}: what it shows ("export", "shape", "sprite"…)`);
+    if (!Number.isInteger(o.depth) || o.depth < 1) throw new Error(`${at}: "depth" is a whole number from 1`);
+    let f = STATES.filter(([, n]) => states.includes(n)).reduce((a, [bit]) => a | bit, 0);
+    const parts = [u16(ref), u16(o.depth), writeMatrix(fieldsMatrix(o, at)), writeCxform("alpha" in o || o.color ? fieldsCxform(o, at) : {})];
+    if (o.filters) { f |= 0x10; parts.push(writeFilters(o.filters, at)); }
+    if (o.blend !== undefined) {
+      const v = typeof o.blend === "number" ? o.blend : BLEND.indexOf(o.blend);
+      if (v < 0) throw new Error(`${at}: blend "${o.blend}" (one of ${BLEND.filter(Boolean).join(", ")})`);
+      f |= 0x20; parts.push(Buffer.from([v]));
+    }
+    return Buffer.concat([Buffer.from([f]), ...parts]);
+  });
+  const body = Buffer.concat([...records, Buffer.from([0])]);
+  if (json.actions && !was?.actions) throw new Error(`${where}: "actions": true on a button that had none — its actions are compiled from its scripts, not added here`);
+  const actions = json.actions ? was.actions : Buffer.alloc(0);
+  return Buffer.concat([u16(id), Buffer.from([json.menu ? 1 : 0]), u16(actions.length ? 2 + body.length : 0), body, actions]);
+}
+
+// --- Any of them ------------------------------------------------------------
+
+const TEXT_TAGS = new Set([11, 33, 37]);
+/** What a definition tag is, as a file: sprite, button, text — or nothing. */
+const objectKind = (code) => (code === 39 ? "sprite" : code === 34 ? "button" : TEXT_TAGS.has(code) ? "text" : null);
+
+/** What decoding and encoding need of a SWF: its library and its fonts. */
+export const context = (swf) => ({ lib: library(swf), fonts: fontTable(swf) });
+
+/** A sprite, button or text tag as JSON ({ json, … what re-encoding it needs }). */
+export function readObject(tag, ctx) {
+  const r = tag.code === 39 ? readSprite(tag.data, ctx.lib)
+    : tag.code === 34 ? readButton(tag.data, ctx)
+    : tag.code === 37 ? readEditText(tag.data)
+    : readStaticText(tag.code, tag.data, ctx);
+  return { ...r, data: tag.data };
+}
+/** A sprite, button or text tag's data from its JSON (`was`: readObject of the base's — left as it was, its bytes). */
+export function writeObject(code, id, json, ctx, was, where) {
+  if (!json || typeof json !== "object") throw new Error(`${where}: { … }`);
+  if (was?.data && JSON.stringify(json) === JSON.stringify(was.json)) return was.data;
+  if (code === 39) return writeSprite(id, json, ctx.lib, was, where);
+  if (code === 34) return writeButton(id, json, ctx, was, where);
+  if (code === 37) return writeEditText(id, json, where);
+  return writeStaticText(code, id, json, ctx, where);
+}
+
+const one = (v) => (Array.isArray(v) ? `[${v.map(one).join(", ")}]` : v && typeof v === "object" ? `{ ${Object.entries(v).map(([k, x]) => `${JSON.stringify(k)}: ${one(x)}`).join(", ")} }` : JSON.stringify(v));
 
 /** A sprite.json's text: a frame per block, a placement per line (diffs and merges stay readable). */
 export function formatSprite(json) {
-  const one = (v) => (Array.isArray(v) ? `[${v.map(one).join(", ")}]` : v && typeof v === "object" ? `{ ${Object.entries(v).map(([k, x]) => `${JSON.stringify(k)}: ${one(x)}`).join(", ")} }` : JSON.stringify(v));
   const frame = (fr) => {
     const keys = Object.keys(fr);
     if (!keys.length) return "  {}";
@@ -445,6 +728,16 @@ export function formatSprite(json) {
   const head = "frameCount" in json ? `"frameCount": ${json.frameCount},\n ` : "";
   return `{\n ${head}"frames": [\n${json.frames.map(frame).join(",\n")}\n ]\n}\n`;
 }
+/** A button's or a text's JSON: a key per line, a record per line. */
+export function formatObject(json) {
+  const lines = Object.entries(json).map(([k, v]) => (Array.isArray(v) && v.length && v.every((x) => x && typeof x === "object")
+    ? ` ${JSON.stringify(k)}: [\n${v.map((o) => `  ${one(o)}`).join(",\n")}\n ]`
+    : ` ${JSON.stringify(k)}: ${one(v)}`));
+  return `{\n${lines.join(",\n")}\n}\n`;
+}
+export const formatJson = (kind, json) => (kind === "sprite" ? formatSprite(json) : formatObject(json));
+
+// --- Files ------------------------------------------------------------------
 
 /** Sprites with a sprite.json: not the classes' clips (__Packages.*: their code is in classes/). */
 export function spriteIds(swf) {
@@ -452,58 +745,84 @@ export function spriteIds(swf) {
   return swf.tags.filter((t) => t.code === 39).map((t) => t.data.readUInt16LE(0)).filter((id) => !names.get(id)?.startsWith("__Packages."));
 }
 
-/** Each sprite's folder in src/timeline/sprites/: the one already there (frame scripts), else <id>[_<Export>]. */
-export function spriteFolders(swf, dir = SPRITES) {
-  const names = exportsOf(swf);
+/** Folders by id in a timeline/ folder: the one already there (scripts), else <id>[_<Export>]. */
+function folders(dir, ids, names) {
   const existing = new Map();
   if (existsSync(dir)) for (const d of readdirSync(dir)) { const m = /^(\d+)(_|$)/.exec(d); if (m) existing.set(Number(m[1]), d); }
-  return new Map(spriteIds(swf).map((id) => [id, existing.get(id) ?? (names.has(id) ? `${id}_${names.get(id)}` : `${id}`)]));
+  return new Map(ids.map((id) => [id, existing.get(id) ?? (names.has(id) ? `${id}_${names.get(id)}` : `${id}`)]));
+}
+/** Each sprite's folder in src/timeline/sprites/. */
+export const spriteFolders = (swf, dir = SPRITES) => folders(dir, spriteIds(swf), exportsOf(swf));
+
+/**
+ * Each sprite, button and text of a SWF, by id: { kind, code, file } (file:
+ * from src/ — timeline/sprites/<folder>/sprite.json,
+ * timeline/buttons/<folder>/button.json, timeline/texts/<id>.json).
+ */
+export function objectFiles(swf, src = SRC) {
+  const names = exportsOf(swf);
+  const out = new Map();
+  for (const [id, d] of folders(join(src, "timeline", "sprites"), spriteIds(swf), names)) out.set(id, { kind: "sprite", code: 39, file: `timeline/sprites/${d}/${SPRITE_FILE}` });
+  const buttons = swf.tags.filter((t) => t.code === 34).map((t) => t.data.readUInt16LE(0));
+  for (const [id, d] of folders(join(src, "timeline", "buttons"), buttons, names)) out.set(id, { kind: "button", code: 34, file: `timeline/buttons/${d}/button.json` });
+  for (const t of swf.tags) if (TEXT_TAGS.has(t.code)) out.set(t.data.readUInt16LE(0), { kind: "text", code: t.code, file: `timeline/texts/${t.data.readUInt16LE(0)}.json` });
+  return out;
 }
 
-/** Every sprite.json, as "timeline/sprites/<folder>/sprite.json". */
-export function spriteFiles() {
-  if (!existsSync(SPRITES)) return [];
-  return readdirSync(SPRITES).filter((d) => existsSync(join(SPRITES, d, SPRITE_FILE))).sort().map((d) => `timeline/sprites/${d}/${SPRITE_FILE}`);
-}
-
-/** src/timeline/sprites/…/sprite.json ← the base loader. */
-export function extractSprites(loader, to = SPRITES) {
-  const swf = parseSwf(readFileSync(loader));
-  const lib = library(swf);
-  const folders = spriteFolders(swf, to);
-  for (const t of swf.tags) if (t.code === 39 && folders.has(t.data.readUInt16LE(0))) {
-    const id = t.data.readUInt16LE(0);
-    let json;
-    try { ({ json } = readSprite(t.data, lib)); } catch (e) { throw new Error(`sprite ${id}: ${e.message}`); }
-    const dir = join(to, folders.get(id));
-    mkdirSync(dir, { recursive: true });
-    writeFileSync(join(dir, SPRITE_FILE), formatSprite(json));
+/** Every sprite.json, button.json and text JSON in src/. */
+export function spriteFiles(src = SRC) {
+  const out = [];
+  const t = join(src, "timeline");
+  for (const [dir, file] of [["sprites", SPRITE_FILE], ["buttons", "button.json"]]) {
+    if (existsSync(join(t, dir))) for (const d of readdirSync(join(t, dir)).sort()) if (existsSync(join(t, dir, d, file))) out.push(`timeline/${dir}/${d}/${file}`);
   }
-  return folders.size;
+  if (existsSync(join(t, "texts"))) for (const f of readdirSync(join(t, "texts")).sort()) if (f.endsWith(".json")) out.push(`timeline/texts/${f}`);
+  return out;
+}
+/** A file's id (timeline/sprites/969_UI_Login/sprite.json → 969) and kind. */
+export const fileId = (f) => Number(/^timeline\/(?:sprites|buttons|texts)\/(\d+)/.exec(f)?.[1]);
+export const fileKind = (f) => ({ sprites: "sprite", buttons: "button", texts: "text" })[f.split("/")[1]];
+
+/** src/timeline/… ← the base loader: every sprite, button and text. Returns how many of each. */
+export function extractSprites(loader, src = SRC) {
+  const swf = parseSwf(readFileSync(loader));
+  const ctx = context(swf);
+  const files = objectFiles(swf, src);
+  const counts = { sprite: 0, button: 0, text: 0 };
+  for (const t of swf.tags) {
+    const f = t.data.length >= 2 && objectKind(t.code) ? files.get(t.data.readUInt16LE(0)) : undefined;
+    if (!f) continue;
+    let json;
+    try { ({ json } = readObject(t, ctx)); } catch (e) { throw new Error(`${f.kind} ${t.data.readUInt16LE(0)}: ${e.message}`); }
+    mkdirSync(join(src, f.file, ".."), { recursive: true });
+    writeFileSync(join(src, f.file), formatJson(f.kind, json));
+    counts[f.kind]++;
+  }
+  return counts;
 }
 
-/** sprite.json files that differ from the base's (manifest.sprites). */
+/** Files that differ from the base's (manifest.sprites: sprites, buttons and texts). */
 export function changedSprites(manifest) {
   const known = manifest.sprites ?? {};
   return spriteFiles().filter((f) => f in known && known[f] !== spriteHash(join(SRC, f)));
 }
 
-const idOfFile = (f) => Number(/^timeline\/sprites\/(\d+)/.exec(f)[1]);
 const parseJson = (file, label) => {
   try { return JSON.parse(readFileSync(file, "utf8")); } catch (e) { throw new Error(`${label}: ${e.message}`); }
 };
+const definition = (swf, id, kind) => swf.tags.find((t) => objectKind(t.code) === kind && t.data.readUInt16LE(0) === id);
 
 /**
- * The SWF with its edited sprites re-encoded (`edited`: sprite.json paths,
- * from src/) and the new ones (`fresh`: new/<path>.json, from `assets`) added
- * and exported by their path in lower case. Returns the names added.
+ * The SWF with its edited sprites, buttons and texts re-encoded (`edited`:
+ * paths from src/) and the new sprites (`fresh`: new/<path>.json, from
+ * `assets`) added and exported by their path in lower case. Returns the names added.
  */
 export function applySprites(input, output, edited, fresh, base, { src = SRC, assets = ASSETS } = {}) {
   const swf = parseSwf(readFileSync(input));
   const baseSwf = parseSwf(readFileSync(base));
-  const baseLib = library(baseSwf);
-  const baseTags = new Map(baseSwf.tags.filter((t) => t.code === 39).map((t) => [t.data.readUInt16LE(0), t]));
-  const lib = library(swf);
+  const baseCtx = context(baseSwf);
+  const ctx = context(swf);
+  const lib = ctx.lib;
 
   // New sprites: ids and names first (they may place one another).
   let next = 0;
@@ -515,11 +834,10 @@ export function applySprites(input, output, edited, fresh, base, { src = SRC, as
   }
 
   for (const f of edited) {
-    const id = idOfFile(f);
-    const tag = swf.tags.find((t) => t.code === 39 && t.data.readUInt16LE(0) === id);
-    if (!tag || !baseTags.has(id)) throw new Error(`src/${f}: no sprite ${id} in the base`);
-    const was = readSprite(baseTags.get(id).data, baseLib);
-    tag.data = writeSprite(id, parseJson(join(src, f), `src/${f}`), lib, was, `src/${f}`);
+    const id = fileId(f), kind = fileKind(f);
+    const tag = definition(swf, id, kind), was = definition(baseSwf, id, kind);
+    if (!tag || !was) throw new Error(`src/${f}: no ${kind} ${id} in the base`);
+    tag.data = writeObject(tag.code, id, parseJson(join(src, f), `src/${f}`), ctx, readObject(was, baseCtx), `src/${f}`);
   }
 
   if (added.length) {
@@ -556,23 +874,25 @@ export function graphicHashes(dir, hash) {
 }
 
 const sha = (s) => createHash("sha256").update(s).digest("hex");
-/** A sprite's JSON with each placed id replaced by `map(id)` (exported symbols keep their name). */
-function mapRefs(json, map) {
-  return { ...json, frames: json.frames.map((fr) => (fr.place ? { ...fr, place: fr.place.map((o) => {
-    const k = REF_KEYS.find((r) => r !== "export" && r in o);
-    return k ? { ...o, [k]: map(o[k]) } : o;
-  }) } : fr)) };
+/** A JSON with each id it refers to (what is placed, a font) replaced by `map(id)` (exported symbols keep their name). */
+function mapRefs(v, map) {
+  if (Array.isArray(v)) return v.map((x) => mapRefs(x, map));
+  if (v && typeof v === "object") {
+    return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, typeof x === "number" && ((REF_KEYS.includes(k) && k !== "export") || k === "font") ? map(x) : mapRefs(x, map)]));
+  }
+  return v;
 }
 
 /**
  * Each character's fingerprint: what it is, not its id, which changes from a
  * version to the next. Shapes and images: their file's hash (`graphics`);
- * sprites: what they place, by fingerprint; the rest: their bytes.
+ * sprites, buttons, texts: their JSON, ids by fingerprint (not their
+ * scripts: their bytecode changes with every version); the rest: their bytes.
  */
 export function fingerprints(swf, graphics) {
-  const lib = library(swf);
+  const ctx = context(swf);
   const tags = new Map();
-  for (const t of swf.tags) if (KIND[t.code] && t.data.length >= 2) tags.set(t.data.readUInt16LE(0), t);
+  for (const t of swf.tags) if ((KIND[t.code] || [10, 48, 75].includes(t.code)) && t.data.length >= 2) tags.set(t.data.readUInt16LE(0), t);
   const fps = new Map(), busy = new Set();
   const fp = (id) => {
     if (fps.has(id)) return fps.get(id);
@@ -582,8 +902,7 @@ export function fingerprints(swf, graphics) {
     busy.add(id);
     let h;
     if (graphics.has(id)) h = graphics.get(id);
-    // What it places (not its scripts: their bytecode changes with every version).
-    else if (t.code === 39) { try { h = sha(JSON.stringify(mapRefs(readSprite(t.data, lib).json, fp))); } catch { h = sha(t.data.subarray(2)); } }
+    else if (objectKind(t.code)) { try { h = sha(JSON.stringify(mapRefs(readObject(t, ctx).json, fp))); } catch { h = sha(t.data.subarray(2)); } }
     else h = sha(Buffer.concat([u16(t.code), t.data.subarray(2)]));
     busy.delete(id);
     fps.set(id, h);
@@ -594,16 +913,15 @@ export function fingerprints(swf, graphics) {
 }
 
 /**
- * sprite.json edited for the previous base, carried over to the new one
- * (already extracted in src/): each found by its original's fingerprint
- * (or its export name), its ids mapped to the new base's, its edits merged
- * into the new base's sprite.json (git merge-file).
- * `edited`: [{ file, text }] (paths of the previous base, the edited text);
- * `dir`: the new base's sprites (src/timeline/sprites).
+ * Sprites, buttons and texts edited for the previous base, carried over to the
+ * new one (already extracted in `src`): each found by its original's
+ * fingerprint (or its export name), its ids mapped to the new base's, its
+ * edits merged into the new base's file (git merge-file).
+ * `edited`: [{ file, text }] (paths of the previous base, the edited text).
  */
-export function carrySprites(edited, previous, current, previousGraphics, currentGraphics, dir = SPRITES) {
+export function carrySprites(edited, previous, current, previousGraphics, currentGraphics, src = SRC) {
   const prevSwf = parseSwf(readFileSync(previous)), newSwf = parseSwf(readFileSync(current));
-  const prevLib = library(prevSwf), newLib = library(newSwf);
+  const prevCtx = context(prevSwf), newLib = library(newSwf);
   const prevFp = fingerprints(prevSwf, previousGraphics), newFp = fingerprints(newSwf, currentGraphics);
   const byFp = new Map();
   for (const [id, h] of newFp) byFp.set(h, [...(byFp.get(h) ?? []), id]);
@@ -616,46 +934,55 @@ export function carrySprites(edited, previous, current, previousGraphics, curren
   };
   const unmapped = new Set();
   const map = (id) => { const n = counterpart(id); if (n === undefined) { unmapped.add(id); return id; } return n; };
-  const prevTags = new Map(prevSwf.tags.filter((t) => t.code === 39).map((t) => [t.data.readUInt16LE(0), t]));
-  const folders = spriteFolders(newSwf, dir);
+  const files = objectFiles(newSwf, src);
   const result = { carried: [], conflicts: [], lost: [] };
   for (const { file, text } of edited) {
-    const prevId = idOfFile(file);
-    const name = prevLib.names.get(prevId);
+    const prevId = fileId(file), kind = fileKind(file);
+    const was = definition(prevSwf, prevId, kind);
+    const name = prevCtx.lib.names.get(prevId);
     const newId = name && newLib.byName.has(name) ? newLib.byName.get(name) : counterpart(prevId);
-    if (!prevTags.has(prevId) || newId === undefined || !folders.has(newId)) { result.lost.push({ file, why: `not found in the new base` }); continue; }
+    const target = files.get(newId);
+    if (!was || !target || target.kind !== kind) { result.lost.push({ file, why: "not found in the new base" }); continue; }
     let mine;
     try { mine = JSON.parse(text); } catch (e) { result.lost.push({ file, why: e.message }); continue; }
     unmapped.clear();
-    const ours = formatSprite(mapRefs(mine, map));
-    const was = formatSprite(mapRefs(readSprite(prevTags.get(prevId).data, prevLib).json, map));
-    const target = join(dir, folders.get(newId), SPRITE_FILE);
-    const to = `timeline/sprites/${folders.get(newId)}/${SPRITE_FILE}`;
+    const ours = formatJson(kind, mapRefs(mine, map));
+    const original = formatJson(kind, mapRefs(readObject(was, prevCtx).json, map));
+    const path = join(src, target.file);
     const note = unmapped.size ? ` (ids not found in the new base, kept: ${[...unmapped].join(", ")})` : "";
-    if (was === readFileSync(target, "utf8")) { writeFileSync(target, ours); result.carried.push({ file, to, note }); continue; }
+    if (original === readFileSync(path, "utf8")) { writeFileSync(path, ours); result.carried.push({ file, to: target.file, note }); continue; }
     // Ankama changed it too: their side, the previous original as base, ours.
     const tmp = join(ROOT, ".tmp", "sprite-merge");
     mkdirSync(tmp, { recursive: true });
-    writeFileSync(join(tmp, "was.json"), was);
+    writeFileSync(join(tmp, "was.json"), original);
     writeFileSync(join(tmp, "ours.json"), ours);
-    const m = spawnSync("git", ["merge-file", "-L", "new base", "-L", "previous base", "-L", "edit", target, join(tmp, "was.json"), join(tmp, "ours.json")]);
-    (m.status === 0 ? result.carried : result.conflicts).push({ file, to, note });
+    const m = spawnSync("git", ["merge-file", "-L", "new base", "-L", "previous base", "-L", "edit", path, join(tmp, "was.json"), join(tmp, "ours.json")]);
+    (m.status === 0 ? result.carried : result.conflicts).push({ file, to: target.file, note });
   }
   return result;
 }
 
-/** Where a character is placed: [{ sprite, folder, frame, depth, fields }]. */
+/** Where a character is placed or shown: [{ file, where, fields }], by sprites (frame, depth) and buttons. */
 export function where(swf, id) {
-  const lib = library(swf);
-  const folders = spriteFolders(swf);
+  const ctx = context(swf);
+  const files = objectFiles(swf);
   const out = [];
-  for (const t of swf.tags) if (t.code === 39) {
-    const sid = t.data.readUInt16LE(0);
-    let frame = 1;
-    for (const it of innerTags(t.data)) {
-      if (it.code === 1) frame++;
-      if ((it.code === 26 || it.code === 70) && it.data[0] & 2 && it.data.readUInt16LE(it.code === 70 ? 4 : 3) === id) {
-        out.push({ sprite: sid, name: lib.names.get(sid), folder: folders.get(sid), frame, place: readPlace(it.code, it.data, lib).o });
+  for (const t of swf.tags) {
+    if (t.code === 39) {
+      const sid = t.data.readUInt16LE(0);
+      let frame = 1;
+      for (const it of innerTags(t.data)) {
+        if (it.code === 1) frame++;
+        if ((it.code === 26 || it.code === 70) && it.data[0] & 2 && it.data.readUInt16LE(it.code === 70 ? 4 : 3) === id) {
+          const { depth, ...rest } = readPlace(it.code, it.data, ctx.lib).o;
+          out.push({ file: files.get(sid)?.file ?? `sprite ${sid}`, where: `frame ${frame}, depth ${depth}`, fields: rest });
+        }
+      }
+    } else if (t.code === 34) {
+      const bid = t.data.readUInt16LE(0);
+      for (const { depth, ...rest } of readButton(t.data, ctx).json.records) {
+        const ref = rest.export ? ctx.lib.byName.get(rest.export) : REF_KEYS.map((k) => rest[k]).find((v) => typeof v === "number");
+        if (ref === id) out.push({ file: files.get(bid).file, where: `depth ${depth}`, fields: rest });
       }
     }
   }
@@ -667,7 +994,7 @@ if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split(/[\\/]/).p
   const [cmd, arg] = process.argv.slice(2);
   if (cmd === "extract") {
     const n = extractSprites(base(cfg.version).loader);
-    console.log(`src/timeline/sprites/: ${n} sprite.json (base ${cfg.version}); then: node tools/manifest.mjs ${cfg.version}`);
+    console.log(`src/timeline/: ${n.sprite} sprite.json, ${n.button} button.json, ${n.text} texts (base ${cfg.version}); then: node tools/manifest.mjs ${cfg.version}`);
   } else if (cmd === "where" && arg) {
     const swf = parseSwf(readFileSync(base(cfg.version).loader));
     const lib = library(swf);
@@ -675,9 +1002,6 @@ if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split(/[\\/]/).p
     if (id === undefined) { console.error(`no symbol exported as "${arg}"`); process.exit(1); }
     const found = where(swf, id);
     console.log(`${lib.kinds.get(id) ?? "?"} ${id}${lib.names.has(id) ? ` (${lib.names.get(id)})` : ""}: placed ${found.length} time${found.length === 1 ? "" : "s"}`);
-    for (const w of found) {
-      const { depth, ...rest } = w.place;
-      console.log(`  src/timeline/sprites/${w.folder}/sprite.json  frame ${w.frame}, depth ${depth}: ${JSON.stringify(rest)}`);
-    }
+    for (const w of found) console.log(`  src/${w.file}  ${w.where}: ${JSON.stringify(w.fields)}`);
   } else { console.error("usage: node tools/sprites.mjs extract | where <id | shapes/<id> | Export>"); process.exit(2); }
 }

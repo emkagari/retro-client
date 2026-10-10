@@ -17,8 +17,8 @@
  *    edited for the previous base is found in the new one by its original
  *    content (ids change between versions) and its edit carried over; new/
  *    graphics are kept; those not found are listed;
- * 7. src/timeline/sprites/…/sprite.json ← the new base's sprites
- *    (tools/sprites.mjs); a sprite.json edited for the previous base is found
+ * 7. src/timeline/… ← the new base's sprites, buttons and texts as JSON
+ *    (tools/sprites.mjs); one edited for the previous base is found
  *    in the new one by what it places (ids change), its ids mapped, and its
  *    edits merged (git merge-file); conflicts and sprites not found are listed;
  * 8. retro.json → this version.
@@ -112,7 +112,7 @@ if (existsSync(ASSETS) && existsSync(join(ROOT, "base", previous, "manifest.json
   }
 }
 
-// Sprites edited for the previous base: kept aside too.
+// Sprites, buttons and texts edited for the previous base: kept aside too.
 const editedSprites = existsSync(join(ROOT, "base", previous, "manifest.json"))
   ? changedSprites(base(previous).manifest).map((f) => ({ file: f, text: readFileSync(join(SRC, f), "utf8") }))
   : [];
@@ -134,7 +134,8 @@ console.log(`src/: ${files.length} files`);
 
 // The new base's graphics and sprites, and the edits carried over by original content.
 extract(cfg, join(dir, "loader.swf"));
-console.log(`src/timeline/sprites/: ${extractSprites(join(dir, "loader.swf"))} sprite.json`);
+const extracted = extractSprites(join(dir, "loader.swf"));
+console.log(`src/timeline/: ${extracted.sprite} sprite.json, ${extracted.button} button.json, ${extracted.text} texts`);
 const original = join(ROOT, ".tmp", "assets-previous");
 if (editedAssets.length || editedSprites.length) exportGraphics(cfg, previousLoader, original);
 const lostAssets = [];
@@ -153,7 +154,7 @@ if (existsSync(keptAssets)) {
 }
 console.log(`src/assets/: ${assetFiles().length} files`);
 
-// Sprites: found by what they place (ids change), their ids mapped, their edits merged into the new base's.
+// Sprites, buttons, texts: found by what they hold (ids change), their ids mapped, their edits merged into the new base's.
 let spriteConflicts = [];
 if (editedSprites.length) {
   // Graphics by original content: the previous base's export, the new one's src/assets/ (as extracted, before edits carried over).

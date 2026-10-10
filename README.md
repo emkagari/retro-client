@@ -133,7 +133,7 @@ only: a normal build or package never contains it.
 New interfaces: docs/NEW-UI.md (examples on the `example/*` branches: `example/hello-ui`, `example/panneau`…).
 
 Graphics (every shape and image as SVG / PNG, `src/assets/`): docs/ASSETS.md.
-Sprites (what each clip places, where — `sprite.json`): docs/SPRITES.md.
+Sprites, buttons and texts (what each clip places and where, each button's states, each text — JSON): docs/SPRITES.md.
 
 Builds and releases (GitHub Actions, version tags): docs/RELEASES.md.
 

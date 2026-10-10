@@ -1,0 +1,17 @@
+{
+ "x": 2.75,
+ "y": -2,
+ "width": 20.7,
+ "height": 22.3,
+ "font": 580,
+ "size": 15,
+ "color": "#006600",
+ "align": "center",
+ "marginLeft": 0,
+ "marginRight": 0,
+ "indent": 0,
+ "leading": 2,
+ "readOnly": true,
+ "selectable": false,
+ "embedFonts": true
+}

@@ -1,0 +1,9 @@
+{
+ "records": [
+  { "depth": 1, "states": ["up"], "sprite": 263, "x": -3.6, "y": -3.9 },
+  { "depth": 1, "states": ["over"], "shape": 262, "x": 0.45, "y": -0.1 },
+  { "depth": 1, "states": ["down"], "shape": 262, "x": 0, "y": 0 },
+  { "depth": 1, "states": ["hit"], "shape": 12, "x": -5.2, "y": -7.5, "scaleX": 0.1, "scaleY": 1.25 }
+ ],
+ "actions": true
+}

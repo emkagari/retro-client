@@ -1,0 +1,21 @@
+{
+ "x": -2,
+ "y": -2,
+ "width": 321,
+ "height": 80.3,
+ "text": "<p align=\"justify\"></p>",
+ "font": 5,
+ "size": 9,
+ "color": "#fec032",
+ "align": "justify",
+ "marginLeft": 0,
+ "marginRight": 0,
+ "indent": 0,
+ "leading": 0,
+ "wordWrap": true,
+ "multiline": true,
+ "readOnly": true,
+ "selectable": false,
+ "html": true,
+ "embedFonts": true
+}

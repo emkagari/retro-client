@@ -1,0 +1,13 @@
+{
+ "records": [
+  { "depth": 1, "states": ["up", "over", "down"], "sprite": 1197, "x": 0, "y": 0, "scale": 1.4862, "filters": [{ "type": "blur", "blurX": 5, "blurY": 5, "passes": 1 }] },
+  { "depth": 6, "states": ["up"], "shape": 1198, "x": 0, "y": 0 },
+  { "depth": 7, "states": ["up"], "sprite": 1200, "x": 10.25, "y": 9.9, "scale": 1.09213, "filters": [{ "type": "blur", "blurX": 3, "blurY": 3, "passes": 1 }] },
+  { "depth": 10, "states": ["up"], "shape": 1201, "x": 0, "y": 0 },
+  { "depth": 6, "states": ["over", "down", "hit"], "shape": 1202, "x": 0, "y": 0 },
+  { "depth": 7, "states": ["over", "down"], "sprite": 1200, "x": 10.25, "y": 9.9, "scale": 1.09213, "filters": [{ "type": "blur", "blurX": 3, "blurY": 3, "passes": 1 }] },
+  { "depth": 10, "states": ["over", "down", "hit"], "shape": 1203, "x": 0, "y": 0 },
+  { "depth": 1, "states": ["hit"], "shape": 1196, "x": 0, "y": 0, "scale": 1.4862 },
+  { "depth": 7, "states": ["hit"], "shape": 1199, "x": 10.25, "y": 9.9, "scale": 1.09213 }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "x": 0.95,
+ "y": 0.5,
+ "width": 39.65,
+ "height": 10.65,
+ "transform": { "x": 0, "y": 0 },
+ "records": [
+  { "font": 6, "size": 10, "color": "#ffffff", "y": 10, "text": "News", "advances": [8.45, 6.65, 9.8, 5.95] }
+ ]
+}

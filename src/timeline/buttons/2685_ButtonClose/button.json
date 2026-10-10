@@ -1,0 +1,13 @@
+{
+ "records": [
+  { "depth": 1, "states": ["up"], "shape": 2680, "x": 0, "y": 0 },
+  { "depth": 2, "states": ["up", "over"], "sprite": 2682, "x": 0, "y": 0, "scaleX": -0.47899, "scaleY": -0.47499, "color": { "mult": [0, 0, 0, 0.5] } },
+  { "depth": 4, "states": ["up", "over"], "sprite": 2682, "x": 0, "y": 0, "scaleX": 0.47903, "scaleY": 0.47525, "color": { "mult": [0, 0, 0, 0.5], "add": [255, 255, 255, 0] } },
+  { "depth": 1, "states": ["over"], "shape": 2683, "x": 0, "y": 0 },
+  { "depth": 1, "states": ["down", "hit"], "shape": 2684, "x": 0, "y": 0 },
+  { "depth": 2, "states": ["down"], "sprite": 2682, "x": 0, "y": 0, "scaleX": 0.47899, "scaleY": 0.47499, "color": { "mult": [0, 0, 0, 0.5] } },
+  { "depth": 4, "states": ["down"], "sprite": 2682, "x": 0, "y": 0, "scaleX": -0.47903, "scaleY": -0.47525, "color": { "mult": [0, 0, 0, 0.5], "add": [255, 255, 255, 0] } },
+  { "depth": 2, "states": ["hit"], "shape": 2681, "x": 0, "y": 0, "scaleX": 0.47899, "scaleY": 0.47499, "color": { "mult": [0, 0, 0, 0.5] } },
+  { "depth": 3, "states": ["hit"], "shape": 2681, "x": 0, "y": 0, "scaleX": -0.47903, "scaleY": -0.47525, "color": { "mult": [0, 0, 0, 0.5], "add": [255, 255, 255, 0] } }
+ ]
+}

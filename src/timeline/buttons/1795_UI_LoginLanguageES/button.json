@@ -1,0 +1,10 @@
+{
+ "records": [
+  { "depth": 3, "states": ["up"], "shape": 1790, "x": 0, "y": 0 },
+  { "depth": 1, "states": ["over"], "export": "Flag_es", "x": 1.15, "y": 1.2, "scaleX": 1.52, "scaleY": 1.62376 },
+  { "depth": 4, "states": ["over"], "shape": 1794, "x": 0, "y": 0 },
+  { "depth": 1, "states": ["down"], "export": "Flag_es", "x": 1.65, "y": 1.55, "scaleX": 1.49078, "scaleY": 1.59131 },
+  { "depth": 4, "states": ["down", "hit"], "shape": 1787, "x": 0, "y": 0.1 },
+  { "depth": 1, "states": ["hit"], "shape": 1791, "x": 1.65, "y": 1.55, "scaleX": 1.49078, "scaleY": 1.59131 }
+ ]
+}

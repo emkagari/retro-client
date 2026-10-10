@@ -1,0 +1,20 @@
+{
+ "x": -6.65,
+ "y": -2,
+ "width": 41.85,
+ "height": 20.8,
+ "text": "<p align=\"right\"><font face=\"Verdana\" size=\"12\" color=\"#514a3c\" letterSpacing=\"0.000000\" kerning=\"0\">FPS :</font></p>",
+ "font": 5,
+ "size": 12,
+ "color": "#514a3c",
+ "align": "right",
+ "marginLeft": 0,
+ "marginRight": 0,
+ "indent": 0,
+ "leading": 2,
+ "multiline": true,
+ "readOnly": true,
+ "selectable": false,
+ "wasStatic": true,
+ "html": true
+}

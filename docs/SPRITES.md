@@ -1,6 +1,6 @@
-# Sprites
+# Sprites, buttons, texts
 
-A sprite (a window, a button, an icon…) is a clip: on each of its frames, it
+A sprite (a window, a panel, an icon…) is a clip: on each of its frames, it
 places shapes, texts and other sprites, at a depth, a position, a scale. Where
 a graphic shows on screen isn't in the code: it's there. Each sprite of the
 loader has it as a file, next to its frame scripts:
@@ -56,7 +56,7 @@ written with the digits that give it back.
 Where is a graphic placed?
 
 ```bash
-node tools/sprites.mjs where 901          # or shapes/901, or an export name
+node tools/sprites.mjs where 901          # or shapes/901, or an export name (buttons showing it too)
 # shape 901: placed 1 time
 #   src/timeline/sprites/969_UI_Login/sprite.json  frame 1, depth 225: {"shape":901,"x":341.4,"y":234.2,"scale":0.59999}
 ```
@@ -108,11 +108,64 @@ What the build refuses, and says where: an unknown key (`"scal"`), an id of
 another kind (`"shape": 969`), an export that doesn't exist, two things placed
 on one line, sprites placing each other in a loop.
 
+## Texts
+
+Every text of the loader is a file too, `src/timeline/texts/<id>.json` (its
+id is what a sprite places: `"text": 878`).
+
+A **text field** (dynamic, input or HTML — 92 of them) holds its box and its
+settings, under the AS2 TextField's names:
+
+```json
+{
+ "x": -2, "y": -2, "width": 94.35, "height": 16.05,
+ "variable": "…", "text": "…",
+ "font": 6, "size": 10, "color": "#514a3c",
+ "align": "right", "marginLeft": 0, "marginRight": 0, "indent": 0, "leading": 2,
+ "maxLength": 9, "wordWrap": true, "multiline": true, "password": true,
+ "readOnly": true, "autoSize": true, "selectable": false, "border": true,
+ "html": true, "embedFonts": true
+}
+```
+
+(only what the field has is written: most have no `text` — the code fills
+them). `font` is a font's id in the loader.
+
+A **static text** (5 of them, like the login's "News") holds its runs: font,
+size, colour, offset, the characters and each one's width:
+
+```json
+{ "font": 6, "size": 10, "color": "#ffffff", "y": 10, "text": "News", "advances": [8.45, 6.65, 9.8, 5.95] }
+```
+
+Change `text` and give one width per character (`advances`, in pixels): the
+fonts embed only the characters they need — one the font lacks is refused,
+with the list of those it has.
+
+## Buttons
+
+`src/timeline/buttons/<folder>/button.json`, next to its scripts (its
+actions, `BUTTONCONDACTION on(…).as`):
+
+```json
+{
+ "records": [
+  { "depth": 1, "states": ["up", "over", "down", "hit"], "shape": 124, "x": 0, "y": 0 },
+  { "depth": 2, "states": ["over"], "shape": 126, "x": 0, "y": 0, "alpha": 0.5 }
+ ],
+ "actions": true
+}
+```
+
+Each record shows something in some of its states — `up`, `over` (hovered),
+`down` (pressed) — or makes `hit` the area that reacts. A record takes the
+same keys as a placement (position, scale, colour, filters, blend).
+
 ## A new base
 
-`tools/new-base.mjs` extracts the new base's sprite.json and carries yours
-over: each edited sprite is found in the new base by what it places (ids
-change between versions) or by its export name, its ids are mapped to the new
+`tools/new-base.mjs` extracts the new base's sprites, buttons and texts and
+carries yours over: each edited one is found in the new base by what it
+holds (ids change between versions) or by its export name, its ids are mapped to the new
 base's, and your edits are merged into Ankama's version (`git merge-file`).
 Both changing the same line: a conflict to resolve (`<<<<<<<` markers); a
 sprite Ankama removed or changed beyond recognition is listed, kept in
@@ -121,11 +174,11 @@ sprite Ankama removed or changed beyond recognition is listed, kept in
 ## Tests
 
 `./retro test-sprites` (or `node tools/test-sprites.mjs`, a few seconds):
-one sprite.json per sprite as extracted from the base; every sprite
+one JSON per sprite, button and text as extracted from the base; every one
 re-encoded to its exact bytes; nothing edited keeps the loader's bytes; a
 moved placement changes only its line; new sprites are exported, defined
-before use and drawn; mistakes are refused; an edit is carried over to a base
-whose ids changed.
+before use and drawn; texts and buttons edited; mistakes are refused; an
+edit is carried over to a base whose ids changed.
 
-`node tools/sprites.mjs extract` re-extracts the current base's sprites (it
-overwrites every sprite.json).
+`node tools/sprites.mjs extract` re-extracts the current base's sprites,
+buttons and texts (it overwrites every one).

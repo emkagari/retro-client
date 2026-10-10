@@ -1,0 +1,13 @@
+{
+ "records": [
+  { "depth": 1, "states": ["up", "over"], "sprite": 1303, "x": 0, "y": 2, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] } },
+  { "depth": 3, "states": ["up"], "sprite": 1303, "x": 0, "y": 0 },
+  { "depth": 5, "states": ["up", "over"], "sprite": 1305, "x": 0, "y": 0 },
+  { "depth": 3, "states": ["over"], "sprite": 1303, "x": 0, "y": 0, "color": { "mult": [0, 0, 0, 1], "add": [186, 65, 1, 0] } },
+  { "depth": 1, "states": ["down"], "sprite": 1303, "x": 0, "y": 2 },
+  { "depth": 3, "states": ["down"], "sprite": 1305, "x": 0, "y": 2 },
+  { "depth": 1, "states": ["hit"], "shape": 1302, "x": 0, "y": 2 },
+  { "depth": 2, "states": ["hit"], "shape": 1304, "x": 0, "y": 2 }
+ ],
+ "actions": true
+}

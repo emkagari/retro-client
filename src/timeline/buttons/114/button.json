@@ -1,0 +1,14 @@
+{
+ "records": [
+  { "depth": 1, "states": ["up"], "sprite": 107, "x": 0, "y": 0, "scale": 1.18713, "filters": [{ "type": "blur", "blurX": 5, "blurY": 5, "passes": 1 }] },
+  { "depth": 3, "states": ["up"], "export": "HardReset", "x": 10.4, "y": 11.7 },
+  { "depth": 1, "states": ["over"], "sprite": 107, "x": -0.6, "y": 0.6, "scale": 1.18692, "rotation": -3.05901, "filters": [{ "type": "blur", "blurX": 5, "blurY": 5, "passes": 1 }] },
+  { "depth": 3, "states": ["over"], "sprite": 109, "x": 2.2, "y": 2.85, "scale": 1.18692, "rotation": -3.05901, "filters": [{ "type": "blur", "blurX": 2, "blurY": 2, "passes": 1 }] },
+  { "depth": 5, "states": ["over"], "shape": 112, "x": 0, "y": 0 },
+  { "depth": 1, "states": ["down"], "sprite": 107, "x": -2.15, "y": 2.6, "scale": 1.1863, "rotation": -12.1062, "filters": [{ "type": "blur", "blurX": 5, "blurY": 5, "passes": 1 }] },
+  { "depth": 3, "states": ["down"], "sprite": 109, "x": 0.95, "y": 4.35, "scale": 1.1863, "rotation": -12.1062, "filters": [{ "type": "blur", "blurX": 2, "blurY": 2, "passes": 1 }] },
+  { "depth": 5, "states": ["down", "hit"], "shape": 113, "x": 0, "y": 0 },
+  { "depth": 1, "states": ["hit"], "shape": 106, "x": -2.15, "y": 2.6, "scale": 1.1863, "rotation": -12.1062 },
+  { "depth": 2, "states": ["hit"], "shape": 108, "x": 0.95, "y": 4.35, "scale": 1.1863, "rotation": -12.1062 }
+ ]
+}

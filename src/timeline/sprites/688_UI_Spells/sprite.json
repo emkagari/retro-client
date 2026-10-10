@@ -1,0 +1,19 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Rectangle", "x": 10.5, "y": 29, "scaleX": 3.87999, "scaleY": 3.9, "name": "_mcSpellFullInfosPlacer" },
+      { "depth": 4, "export": "Window", "x": 410, "y": 29, "scaleX": 3.20007, "scaleY": 4.19994, "name": "_winBackground", "actions": true },
+      { "depth": 5, "export": "Label", "x": 420, "y": 57, "scaleX": 2, "scaleY": 0.8, "name": "_lblBonusTitle", "actions": true },
+      { "depth": 6, "export": "Label", "x": 670, "y": 57, "scaleX": 0.5, "scaleY": 0.8, "name": "_lblBonus", "actions": true },
+      { "depth": 7, "export": "Button", "x": 709, "y": 38, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 8, "export": "DataGrid", "x": 420, "y": 103.9, "scaleX": 3.00005, "scaleY": 3.20029, "name": "_dgSpells", "actions": true },
+      { "depth": 9, "export": "Label", "x": 420, "y": 80, "scaleX": 2, "scaleY": 0.8, "name": "_sbvSpellBoostViewer", "actions": true },
+      { "depth": 10, "export": "ComboBox", "x": 620, "y": 79, "scaleX": 1.00018, "scaleY": 1, "name": "_cbType", "actions": true },
+      { "depth": 11, "sprite": 687, "x": 694.25, "y": 150.1, "name": "_btnBoost" },
+      { "depth": 13, "sprite": 687, "x": 419.2, "y": 181.9, "name": "_cgGrid" }
+    ]
+  }
+ ]
+}

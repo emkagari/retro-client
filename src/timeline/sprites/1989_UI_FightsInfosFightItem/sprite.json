@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1987, "x": 226, "y": 0, "scaleX": 1, "scaleY": 1.25 },
+      { "depth": 3, "sprite": 1988, "x": 103, "y": 11, "name": "_mcArrows" },
+      { "depth": 7, "export": "GAPILoader", "x": 5, "y": 2, "scale": 0.20999, "name": "_ldrIconTeam1", "actions": true },
+      { "depth": 8, "export": "Label", "x": 30, "y": 5, "scaleX": 0.5, "scaleY": 0.8, "name": "_lblTeam1Count", "actions": true },
+      { "depth": 9, "export": "GAPILoader", "x": 135, "y": 2, "scale": 0.20999, "name": "_ldrIconTeam2", "actions": true },
+      { "depth": 10, "export": "Label", "x": 160, "y": 5, "scaleX": 0.5, "scaleY": 0.8, "name": "_lblTeam2Count", "actions": true },
+      { "depth": 11, "export": "Label", "x": 230, "y": 5, "scaleX": 0.7, "scaleY": 0.8, "name": "_lblTime", "actions": true }
+    ]
+  }
+ ]
+}

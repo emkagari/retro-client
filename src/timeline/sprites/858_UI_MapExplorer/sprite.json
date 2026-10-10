@@ -1,0 +1,32 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 7.41998, "scaleY": 4.32, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 4, "export": "Button", "x": 718, "y": 24, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 5, "sprite": 781, "x": 9, "y": 42, "scale": 0.1, "color": { "mult": [0, 0, 0, 1], "add": [184, 177, 143, 0] }, "name": "_sPointer" },
+      { "depth": 7, "sprite": 781, "x": 732, "y": 42, "scaleX": -0.1, "scaleY": 0.1, "color": { "mult": [0, 0, 0, 1], "add": [184, 177, 143, 0] }, "name": "_mcTriangleW" },
+      { "depth": 9, "sprite": 781, "x": 9, "y": 420, "scaleX": 0.1, "scaleY": -0.1, "color": { "mult": [0, 0, 0, 1], "add": [184, 177, 143, 0] }, "name": "_mcTriangleS" },
+      { "depth": 11, "sprite": 781, "x": 732, "y": 420, "scale": -0.1, "color": { "mult": [0, 0, 0, 1], "add": [184, 177, 143, 0] }, "name": "_mcTriangleNE" },
+      { "depth": 13, "sprite": 781, "x": 371, "y": 39.9, "scale": 0.1, "rotation": 45, "color": { "mult": [0, 0, 0, 1], "add": [184, 177, 143, 0] }, "name": "_mcTriangleSW" },
+      { "depth": 15, "sprite": 781, "x": 371, "y": 422.1, "scaleX": 0.1, "scaleY": -0.1, "rotation": -45, "color": { "mult": [0, 0, 0, 1], "add": [184, 177, 143, 0] }, "name": "_mcTriangleN" },
+      { "depth": 17, "sprite": 781, "x": 733.6, "y": 231, "scale": 0.1, "rotation": 135, "color": { "mult": [0, 0, 0, 1], "add": [184, 177, 143, 0] }, "name": "_mcTriangleSE" },
+      { "depth": 19, "sprite": 781, "x": 6.4, "y": 231, "scaleX": 0.1, "scaleY": -0.1, "rotation": 45, "color": { "mult": [0, 0, 0, 1], "add": [184, 177, 143, 0] }, "name": "_mcTriangleE" },
+      { "depth": 21, "export": "Label", "x": 187.15, "y": 6.4, "scaleX": 0.49963, "scaleY": 0.8, "name": "_mcTriangleNW", "actions": true },
+      { "depth": 22, "export": "Button", "x": 39, "y": 12, "scaleX": 0.20001, "scaleY": 1.11113, "name": "_btnZoomPlus", "actions": true },
+      { "depth": 23, "export": "Button", "x": 67, "y": 12, "scaleX": 0.20001, "scaleY": 1.11113, "name": "_btnZoomMinous", "actions": true },
+      { "depth": 24, "export": "Button", "x": 11, "y": 12, "scaleX": 0.20001, "scaleY": 1.11113, "name": "_btnMove", "actions": true },
+      { "depth": 25, "export": "MapNavigator", "x": 11, "y": 44, "scaleX": 7.19019, "scaleY": 3.73993, "name": "_mnMap", "actions": true },
+      { "depth": 26, "export": "VolumeSlider", "x": 187.15, "y": 22.4, "scaleX": 0.5, "scaleY": 0.75, "name": "_vsZoom", "actions": true },
+      { "depth": 27, "export": "Button", "x": 95, "y": 12, "scaleX": 0.20001, "scaleY": 1.11113, "name": "_btnSelect", "actions": true },
+      { "depth": 28, "export": "Button", "x": 124, "y": 12, "scaleX": 0.20001, "scaleY": 1.11113, "name": "_btnCenterOnMe", "actions": true },
+      { "depth": 29, "export": "Label", "x": 589, "y": 6, "scaleX": 0.80003, "scaleY": 0.8, "name": "_lblHints", "actions": true },
+      { "depth": 30, "export": "Label", "x": 249.9, "y": 21.95, "scaleX": 3.00342, "scaleY": 0.8, "name": "_lblAreaName", "actions": true },
+      { "depth": 31, "export": "Label", "x": 249.9, "y": 6, "scaleX": 3.00433, "scaleY": 0.8, "name": "_lblArea", "actions": true },
+      { "depth": 32, "export": "Button", "x": 153, "y": 12, "scaleX": 0.20001, "scaleY": 1.11113, "name": "_btnDungeon", "actions": true },
+      { "depth": 33, "export": "Rectangle", "x": 591, "y": 26, "scale": 0.12001, "alpha": 0, "name": "_mcFilterPlacer" }
+    ]
+  }
+ ]
+}

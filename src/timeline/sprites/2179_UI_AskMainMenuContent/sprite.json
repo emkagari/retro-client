@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 2.2, "scaleY": 1.40001, "alpha": 0 },
+      { "depth": 3, "export": "Button", "x": 20, "y": 120, "scaleX": 1.79999, "scaleY": 1, "name": "_btnCancel", "actions": true },
+      { "depth": 4, "export": "Button", "x": 20, "y": 50, "scaleX": 1.79999, "scaleY": 1, "name": "_btnDisconnect", "actions": true },
+      { "depth": 5, "export": "Button", "x": 20, "y": 20, "scaleX": 1.79999, "scaleY": 1, "name": "_btnChange", "actions": true },
+      { "depth": 6, "export": "Button", "x": 20, "y": 80, "scaleX": 1.79999, "scaleY": 1, "name": "_btnQuit", "actions": true }
+    ]
+  }
+ ]
+}

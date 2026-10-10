@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.64001, "actions": true },
+      { "depth": 2, "export": "Window", "x": 10, "y": 99, "scaleX": 7.20013, "scaleY": 2.12009, "name": "_winBackground", "actions": true },
+      { "depth": 3, "export": "StarsDisplayer", "x": 660.5, "y": 137, "name": "_sdStars", "actions": true },
+      { "depth": 25, "export": "Button", "x": 547, "y": 311, "scaleX": 1.2, "scaleY": 1.11111, "name": "_btnClose", "actions": true },
+      { "depth": 26, "export": "Label", "x": 436.9, "y": 104, "scaleX": 2.49998, "scaleY": 0.8, "name": "_lblDuration", "actions": true },
+      { "depth": 27, "export": "Label", "x": 473, "y": 133, "scaleX": 1.8502, "scaleY": 0.8, "name": "_lblBonus", "actions": true },
+      { "depth": 28, "export": "Label", "x": 473, "y": 152, "scaleX": 1.8502, "scaleY": 0.8, "name": "_lblChallenges", "actions": true },
+      { "depth": 29, "export": "Rectangle", "x": 659.5, "y": 152, "scale": 0.1, "alpha": 0, "name": "_mcChallengesPlacer" },
+      { "depth": 31, "export": "Button", "x": 709.8, "y": 105.95, "scaleX": 0.12001, "scaleY": 0.6666, "name": "_btnCross", "actions": true },
+      { "depth": 32, "export": "Button", "x": 692.3, "y": 105.95, "scaleX": 0.12001, "scaleY": 0.6666, "name": "_btnMinimize", "actions": true }
+    ]
+  }
+ ]
+}

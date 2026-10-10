@@ -1,0 +1,65 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 1705, "x": 0, "y": 0 }
+    ]
+  },
+  {},
+  {
+    "place": [
+      { "depth": 2, "sprite": 1706, "x": -2, "y": -2.5, "scale": 0.17838, "ratio": 2 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 2, "move": true, "x": -9.85, "y": -12.3, "scaleX": 0.88277, "scaleY": 0.88275 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 2, "move": true, "x": -12.45, "y": -15.6, "scaleX": 1.11755, "scaleY": 1.11754 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 2, "move": true, "x": -10.1, "y": -12.65, "scaleX": 0.90611, "scaleY": 0.90613 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 2, "move": true, "x": -7.75, "y": -9.7, "scale": 0.6947 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 2, "move": true, "x": -9.55, "y": -12, "scaleX": 0.8578, "scaleY": 0.85779 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 2, "move": true, "x": -11.35, "y": -14.25, "scaleX": 1.0209, "scaleY": 1.02087 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 2, "move": true, "x": -10.8, "y": -13.45, "scaleX": 0.96602, "scaleY": 0.966 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 2, "move": true, "x": -10.15, "y": -12.7, "scale": 0.91113 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 2, "move": true, "x": -10.65, "y": -13.4, "scale": 0.96219 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 2, "move": true, "x": -11.3, "y": -14.15, "scaleX": 1.01324, "scaleY": 1.01323 }
+    ]
+  }
+ ]
+}

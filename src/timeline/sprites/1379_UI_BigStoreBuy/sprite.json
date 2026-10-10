@@ -1,0 +1,42 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.64, "actions": true },
+      { "depth": 2, "export": "Window", "x": 21, "y": 22, "scaleX": 6.99992, "scaleY": 3.80002, "name": "_winBackground", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 325, "y": 71.9, "scaleX": 3.76004, "scaleY": 1.8217, "color": { "mult": [0, 0, 0, 1], "add": [180, 172, 141, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 325, "y": 50, "scaleX": 3.76004, "scaleY": 0.24002, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 41, "y": 61, "scaleX": 2.59998, "scaleY": 0.22, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": 41, "y": 83, "scaleX": 2.59995, "scaleY": 0.38, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 11, "export": "Rectangle", "x": 325, "y": 374, "scaleX": 3.76004, "scaleY": 0.25, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 13, "sprite": 1378, "x": 356.5, "y": 101.8, "scaleX": 0.09999, "scaleY": 0.1, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] }, "name": "_mcLeftArrow" },
+      { "depth": 15, "sprite": 1378, "x": 522.2, "y": 228, "matrix": [0.00009, -0.09999, -0.09999, 0.00009], "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] }, "name": "_mcBottomArrow" },
+      { "depth": 17, "sprite": 1378, "x": 356.5, "y": 151.8, "scaleX": 0.09999, "scaleY": 0.1, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] }, "name": "_mcLeft2Arrow" },
+      { "depth": 19, "export": "Rectangle", "x": 41, "y": 361, "scaleX": 2.59995, "scaleY": 0.20001, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 21, "sprite": 1378, "x": 371.05, "y": 151.9, "scaleX": -0.09999, "scaleY": 0.09999, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] }, "name": "_mcArrowAnim" },
+      { "depth": 23, "sprite": 1375, "x": 21, "y": 402 },
+      { "depth": 41, "export": "KamaSymbol", "x": 198.7, "y": 394.85, "name": "_mcKamaSymbol" },
+      { "depth": 44, "export": "ContainerGrid", "x": 41, "y": 121, "scaleX": 2.6, "scaleY": 2.4, "name": "_cgItems", "actions": true },
+      { "depth": 45, "export": "Button", "x": 701, "y": 32, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 46, "export": "List", "x": 41, "y": 121, "scaleX": 2.59998, "scaleY": 12.00014, "name": "_lstItems", "actions": true },
+      { "depth": 47, "export": "UI_BigStoreBuyPricesGrid", "x": 325, "y": 254, "scaleX": 1, "scaleY": 1.00021, "name": "_mcPricesGrid" },
+      { "depth": 49, "export": "Label", "x": 51, "y": 91, "scaleX": 1.20001, "scaleY": 1, "name": "_lblItemType", "actions": true },
+      { "depth": 50, "export": "Label", "x": 335, "y": 377, "scaleX": 3.65855, "scaleY": 1, "name": "_lblPrices", "actions": true },
+      { "depth": 51, "export": "Button", "x": 601, "y": 402, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnClose2", "actions": true },
+      { "depth": 52, "export": "Label", "x": 51, "y": 61, "scaleX": 2.00021, "scaleY": 1, "name": "_lblItems", "actions": true },
+      { "depth": 53, "export": "Button", "x": 491, "y": 402, "scaleX": 1, "scaleY": 1.11111, "name": "_btnSearch", "actions": true },
+      { "depth": 54, "export": "Label", "x": 325, "y": 151, "scaleX": 3.76004, "scaleY": 1, "name": "_lblNoItem", "actions": true },
+      { "depth": 55, "export": "Label", "x": 90, "y": 361, "scaleX": 2.00021, "scaleY": 1, "name": "_lblItemsCount", "actions": true },
+      { "depth": 56, "export": "Label", "x": 95, "y": 393, "scaleX": 1.00003, "scaleY": 1, "name": "_lblTypes", "actions": true },
+      { "depth": 57, "export": "Label", "x": 32, "y": 393, "scaleX": 1.00003, "scaleY": 1, "name": "_lblKamas", "actions": true },
+      { "depth": 58, "export": "Button", "x": 282, "y": 64, "scaleX": 0.16002, "scaleY": 0.88892, "name": "_btnTypes", "actions": true },
+      { "depth": 59, "export": "PlayerWeight", "x": 223, "y": 398.5, "actions": true },
+      { "depth": 61, "export": "Button", "x": 349, "y": 402, "scaleX": 1.32, "scaleY": 1.11111, "name": "_btnSwitchToSell", "actions": true },
+      { "depth": 62, "export": "ComboBox", "x": 118, "y": 91, "scaleX": 1.7, "scaleY": 1, "name": "_cbTypes", "actions": true },
+      { "depth": 63, "export": "ItemViewerLite", "x": 323, "y": 49, "name": "_itvItemViewer", "actions": true },
+      { "depth": 80, "export": "Button", "x": 43.4, "y": 363, "scaleX": 0.15999, "scaleY": 0.88878, "name": "_btnList", "actions": true },
+      { "depth": 81, "export": "Button", "x": 63.9, "y": 363, "scaleX": 0.15999, "scaleY": 0.88878, "name": "_btnGrid", "actions": true }
+    ]
+  }
+ ]
+}

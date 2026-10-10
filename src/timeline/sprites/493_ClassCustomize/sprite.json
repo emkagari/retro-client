@@ -1,0 +1,23 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 492, "x": 0, "y": 0 },
+      { "depth": 2, "export": "Label", "x": 0, "y": 149.5, "scaleX": 1.79999, "scaleY": 1, "name": "_lblCharacterName", "actions": true },
+      { "depth": 3, "export": "GAPILoader", "x": 202, "y": 90, "scale": 0.7, "name": "_ldrSprite", "actions": true },
+      { "depth": 4, "export": "Label", "x": 0, "y": 0, "scaleX": 1.79999, "scaleY": 1, "name": "_lblCharacterColors", "actions": true },
+      { "depth": 5, "export": "Button", "x": 255, "y": 135, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnNextAnim", "actions": true },
+      { "depth": 6, "export": "Button", "x": 219, "y": 135, "scaleX": -0.12001, "scaleY": 0.66667, "name": "_btnPreviousAnim", "actions": true },
+      { "depth": 7, "export": "Button", "x": 158, "y": 44, "scaleX": 0.2, "scaleY": 1.11111, "name": "_btnColor1", "actions": true },
+      { "depth": 8, "export": "Button", "x": 158, "y": 74, "scaleX": 0.2, "scaleY": 1.11111, "name": "_btnColor2", "actions": true },
+      { "depth": 9, "export": "Button", "x": 158, "y": 104, "scaleX": 0.2, "scaleY": 1.11111, "name": "_btnColor3", "actions": true },
+      { "depth": 10, "export": "Button", "x": 182, "y": 60, "scaleX": -0.08, "scaleY": 0.44444, "name": "_btnReset1", "actions": true },
+      { "depth": 11, "export": "Button", "x": 182, "y": 90, "scaleX": -0.08, "scaleY": 0.44444, "name": "_btnReset2", "actions": true },
+      { "depth": 12, "export": "Button", "x": 182, "y": 120, "scaleX": -0.08, "scaleY": 0.44444, "name": "_btnReset3", "actions": true },
+      { "depth": 13, "export": "ColorPicker", "x": 0, "y": 44, "scaleX": 3, "scaleY": 1.6, "name": "_cpColorPicker", "actions": true },
+      { "depth": 14, "export": "TextInput", "x": 28, "y": 186.5, "scaleX": 2.20001, "scaleY": 0.764, "name": "_itCharacterName", "actions": true },
+      { "depth": 15, "button": 114, "x": 270.4, "y": 186.05, "name": "_mcRegenerateNickName" }
+    ]
+  }
+ ]
+}

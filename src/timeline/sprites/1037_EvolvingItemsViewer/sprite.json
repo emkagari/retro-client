@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Container", "x": 4, "y": -5, "scale": 1.23999, "name": "_ctrItem", "actions": true },
+      { "depth": 2, "export": "Button", "x": 77, "y": -4, "scaleX": 1.19995, "scaleY": 1, "name": "_btnDissociate", "actions": true },
+      { "depth": 3, "export": "Label", "x": 76.8, "y": 39, "scaleX": 0.69992, "scaleY": 0.80002, "name": "_lblXplTitle", "actions": true },
+      { "depth": 4, "export": "Label", "x": 146.8, "y": 39, "scaleX": 0.50002, "scaleY": 0.8, "name": "_lblLevel", "actions": true },
+      { "depth": 5, "export": "Button", "x": 77, "y": 17, "scaleX": 1.20013, "scaleY": 1, "name": "_btnSkin", "actions": true }
+    ]
+  }
+ ]
+}

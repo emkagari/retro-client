@@ -1,0 +1,156 @@
+{
+ "frames": [
+  {
+    "label": "off",
+    "place": [
+      { "depth": 1, "shape": 925, "x": 0, "y": 0 }
+    ]
+  },
+  {},
+  {
+    "remove": [1],
+    "label": "on",
+    "place": [
+      { "depth": 1, "morph": 926, "x": 0, "y": 0 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 5461 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 10923 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 16384 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 21845 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 27307 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 32768 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 38229 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 43691 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 49152 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 54613 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 60075 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "morph": 927, "ratio": 0 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 4369 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 8738 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 13107 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 17476 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 21845 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 26214 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 30583 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 34953 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 39322 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 43691 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 48060 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 52429 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 56798 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 61167 }
+    ]
+  },
+  {
+    "remove": [1],
+    "place": [
+      { "depth": 1, "shape": 928, "x": 0, "y": 0 }
+    ]
+  },
+  {},
+  {}
+ ]
+}

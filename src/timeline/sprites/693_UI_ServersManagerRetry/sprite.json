@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 11, "y": 11, "scaleX": 2.80005, "scaleY": 0.8, "name": "_lblCounter", "actions": true },
+      { "depth": 2, "export": "Label", "x": 10, "y": 10, "scaleX": 2.80005, "scaleY": 0.8, "name": "_lblCounterShadow", "actions": true }
+    ]
+  }
+ ]
+}

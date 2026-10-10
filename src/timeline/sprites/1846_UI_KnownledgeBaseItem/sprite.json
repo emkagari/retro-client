@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 27.45, "y": 3, "scaleX": 2.60553, "scaleY": 0.99994, "name": "_lblItem", "actions": true },
+      { "depth": 2, "sprite": 975, "x": -14.85, "y": 3.8, "scaleX": 0.45636, "scaleY": 0.45303, "name": "_mcCategory" },
+      { "depth": 10, "export": "QuestionMark", "x": 5.3, "y": 2.8, "name": "_mcArticle" }
+    ]
+  }
+ ]
+}

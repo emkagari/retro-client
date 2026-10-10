@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83989, "scaleY": 11.12013, "actions": true },
+      { "depth": 2, "export": "Window", "x": 208.75, "y": 80, "scaleX": 3.24551, "scaleY": 1.53995, "name": "_winBackground", "actions": true },
+      { "depth": 3, "export": "Label", "x": 214, "y": 106, "scaleX": 3.13892, "scaleY": 1, "name": "_lblGonnaReport", "actions": true },
+      { "depth": 4, "export": "TextArea", "x": 217.15, "y": 126, "scaleX": 3.07916, "scaleY": 0.54033, "name": "_sChannelId", "actions": true },
+      { "depth": 5, "export": "Label", "x": 214, "y": 183, "scaleX": 0.68019, "scaleY": 1, "name": "_lblReason", "actions": true },
+      { "depth": 6, "export": "Label", "x": 240, "y": 206, "scaleX": 2.88052, "scaleY": 1, "name": "_lblIgnoreToo", "actions": true },
+      { "depth": 7, "export": "Button", "x": 220, "y": 209, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnIgnoreToo", "actions": true },
+      { "depth": 8, "export": "Button", "x": 387, "y": 234, "scaleX": 1.32, "scaleY": 1.11111, "name": "_btnOk", "actions": true },
+      { "depth": 9, "export": "Button", "x": 247, "y": 234, "scaleX": 1.32, "scaleY": 1.11111, "name": "_btnCancel", "actions": true },
+      { "depth": 10, "export": "ComboBox", "x": 286, "y": 183, "scaleX": 2.41899, "scaleY": 1, "name": "_cbReason", "actions": true }
+    ]
+  }
+ ]
+}

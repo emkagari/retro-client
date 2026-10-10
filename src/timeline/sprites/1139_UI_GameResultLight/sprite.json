@@ -1,0 +1,16 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Window", "x": 174.15, "y": 346, "scaleX": 3.93677, "scaleY": 0.59026, "name": "_winBackground", "actions": true },
+      { "depth": 2, "export": "StarsDisplayer", "x": 463, "y": 355.25, "name": "_sdStars", "actions": true },
+      { "depth": 24, "export": "Rectangle", "x": 439.5, "y": 352.05, "scale": 0.1, "alpha": 0, "name": "_mcChallengesPlacer" },
+      { "depth": 26, "export": "Button", "x": 547, "y": 354.25, "scaleX": 0.12001, "scaleY": 0.6666, "name": "_btnCross", "actions": true },
+      { "depth": 27, "export": "Button", "x": 529.5, "y": 354.25, "scaleX": 0.12001, "scaleY": 0.6666, "name": "_btnMaximize", "actions": true },
+      { "depth": 28, "export": "Rectangle", "x": 183.2, "y": 353.3, "scaleX": 0.50006, "scaleY": 0.16013, "alpha": 0, "name": "_mcRollOver" },
+      { "depth": 30, "export": "GAPILoader", "x": 248, "y": 353.7, "scale": 0.149, "name": "_ldrChest", "actions": true },
+      { "depth": 31, "export": "GAPILoader", "x": 248, "y": 353.7, "scale": 0.149, "name": "_ldrCollector", "actions": true }
+    ]
+  }
+ ]
+}

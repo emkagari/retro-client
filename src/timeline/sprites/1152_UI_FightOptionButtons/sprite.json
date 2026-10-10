@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Button", "x": 722, "y": 370, "scaleX": 0.15001, "scaleY": 0.8336, "name": "_btnFlag", "actions": true },
+      { "depth": 2, "export": "Button", "x": 702, "y": 370, "scaleX": 0.15001, "scaleY": 0.8336, "name": "_btnBlockSpectators", "actions": true },
+      { "depth": 3, "export": "Button", "x": 682, "y": 370, "scaleX": 0.15001, "scaleY": 0.8336, "name": "_btnHelp", "actions": true },
+      { "depth": 4, "export": "Button", "x": 662, "y": 370, "scaleX": 0.15001, "scaleY": 0.8336, "name": "_btnBlockJoiner", "actions": true },
+      { "depth": 5, "export": "Button", "x": 642, "y": 370, "scaleX": 0.15001, "scaleY": 0.8336, "name": "_btnBlockJoinerExceptParty", "actions": true },
+      { "depth": 6, "export": "Button", "x": 682, "y": 370, "scaleX": 0.15001, "scaleY": 0.8336, "name": "_btnToggleSprites", "actions": true },
+      { "depth": 7, "export": "Button", "x": 662, "y": 370, "scaleX": 0.15, "scaleY": 0.83333, "name": "_btnTactic", "actions": true }
+    ]
+  }
+ ]
+}

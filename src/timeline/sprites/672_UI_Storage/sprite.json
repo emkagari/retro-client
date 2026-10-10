@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 540, "y": 80.5, "scaleX": 1.92001, "scaleY": 3.41516, "name": "_winInventory", "actions": true },
+      { "depth": 3, "export": "Window", "x": 10, "y": 80.5, "scaleX": 1.92001, "scaleY": 3.41516, "name": "_winInventory2", "actions": true },
+      { "depth": 4, "export": "Window", "x": 210, "y": 80.5, "scaleX": 3.2201, "scaleY": 2.45984, "name": "_winItemViewer", "actions": true },
+      { "depth": 5, "export": "ItemViewerBigDescription", "x": 211, "y": 80.5, "name": "_itvItemViewer", "actions": true },
+      { "depth": 24, "export": "GridInventoryViewer", "x": 550, "y": 110.5, "name": "_ivInventoryViewer", "actions": true },
+      { "depth": 47, "export": "GridInventoryViewer", "x": 20, "y": 110.5, "name": "_ivInventoryViewer2", "actions": true },
+      { "depth": 70, "export": "Button", "x": 712, "y": 89, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 71, "export": "PlayerWeight", "x": 550, "y": 398, "actions": true },
+      { "depth": 73, "export": "MountWeight", "x": 20, "y": 398, "name": "_pbPods", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 220, "y": 50, "scaleX": 3.22, "scaleY": 3.25021, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 223, "y": 220, "scaleX": 3.15996, "scaleY": 0.2202, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 223, "y": 242, "scaleX": 3.15996, "scaleY": 0.20018, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] }, "name": "_mcSquare2" },
+      { "depth": 7, "export": "Button", "x": 522, "y": 58, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 8, "export": "Button", "x": 422, "y": 375, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnClose2", "actions": true },
+      { "depth": 9, "export": "Button", "x": 312, "y": 375, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnJoin", "actions": true },
+      { "depth": 10, "export": "Label", "x": 228, "y": 221.5, "scaleX": 2.5, "scaleY": 1, "name": "_mcBackTeam", "actions": true },
+      { "depth": 11, "export": "List", "x": 223, "y": 262, "scaleX": 1.56999, "scaleY": 4.99997, "name": "_lstTeam1", "actions": true },
+      { "depth": 12, "export": "List", "x": 382, "y": 262, "scaleX": 1.56992, "scaleY": 4.99997, "name": "_lstTeam2", "actions": true },
+      { "depth": 13, "export": "Label", "x": 408, "y": 241.5, "scaleX": 1.30002, "scaleY": 1, "name": "_lblTeam2Level", "actions": true },
+      { "depth": 14, "export": "DataGrid", "x": 223, "y": 75, "scaleX": 3.16, "scaleY": 1.45, "name": "_dgFights", "actions": true },
+      { "depth": 15, "export": "Label", "x": 248, "y": 241.5, "scaleX": 1.30002, "scaleY": 1, "name": "_lblTeam1Level", "actions": true },
+      { "depth": 16, "export": "Rectangle", "x": 233, "y": 247, "scaleX": 0.1, "scaleY": 0.1001, "name": "_mcSquare1" },
+      { "depth": 18, "export": "Rectangle", "x": 393, "y": 247, "scaleX": 0.1, "scaleY": 0.1001, "name": "_lblPlayers" },
+      { "depth": 20, "export": "TextArea", "x": 233, "y": 282, "scaleX": 2.95999, "scaleY": 0.4, "name": "_txtSelectFight", "actions": true }
+    ]
+  }
+ ]
+}

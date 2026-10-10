@@ -1,0 +1,19 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "ProgressBar", "x": 97, "y": 100, "scaleX": 0.9998, "scaleY": 1, "name": "_pbXP", "actions": true },
+      { "depth": 2, "export": "Container", "x": 4, "y": -5, "scale": 1.23999, "name": "_ctrItem", "actions": true },
+      { "depth": 3, "export": "Button", "x": 77, "y": -4, "scaleX": 1.20016, "scaleY": 1, "name": "_btnFeed", "actions": true },
+      { "depth": 4, "export": "Button", "x": 77, "y": 17, "scaleX": 1.19995, "scaleY": 1, "name": "_btnDissociate", "actions": true },
+      { "depth": 5, "export": "Label", "x": 0, "y": 80, "scaleX": 0.96988, "scaleY": 0.8, "name": "_lblXplTitle", "actions": true },
+      { "depth": 6, "export": "Label", "x": 97, "y": 80, "scaleX": 0.99, "scaleY": 0.8, "name": "_lblLevel", "actions": true },
+      { "depth": 7, "export": "Label", "x": 0, "y": 64, "scaleX": 0.96988, "scaleY": 0.8, "name": "_lblLevelTitle", "actions": true },
+      { "depth": 8, "export": "Label", "x": 97, "y": 64, "scaleX": 0.99, "scaleY": 0.8, "name": "_lblState", "actions": true },
+      { "depth": 9, "export": "Button", "x": 77, "y": 39, "scaleX": 1.20013, "scaleY": 1, "name": "_btnSkin", "actions": true },
+      { "depth": 10, "export": "Label", "x": 0, "y": 114, "scaleX": 1.95984, "scaleY": 0.8, "name": "_lblExperiment", "actions": true },
+      { "depth": 11, "export": "Label", "x": 0, "y": 96, "scaleX": 0.96988, "scaleY": 0.8, "name": "_lblEatDate", "actions": true }
+    ]
+  }
+ ]
+}

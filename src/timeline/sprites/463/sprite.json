@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 458, "x": -0.5, "y": -1.65, "name": "cIop_R_Cheveux" },
+      { "depth": 5, "shape": 459, "x": 0, "y": 0 },
+      { "depth": 6, "sprite": 461, "x": 0.1, "y": -2, "name": "cIop_R_Ruban" },
+      { "depth": 10, "shape": 462, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

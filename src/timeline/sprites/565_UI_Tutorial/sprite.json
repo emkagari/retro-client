@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Button", "x": 10, "y": 10, "scaleX": 0.15, "scaleY": 0.83334, "name": "_btnCancel", "actions": true }
+    ]
+  }
+ ]
+}

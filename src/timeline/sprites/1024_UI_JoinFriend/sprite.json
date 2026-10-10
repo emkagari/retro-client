@@ -1,0 +1,23 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 986, "x": 0, "y": 0 },
+      { "depth": 2, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 7.41998, "scaleY": 5.56, "color": { "mult": [0, 0, 0, 1], "add": [41, 38, 31, 0] } },
+      { "depth": 6, "shape": 987, "x": 0, "y": 0 },
+      { "depth": 7, "button": 989, "x": 364.6, "y": 167.55, "scaleX": 1.19476, "scaleY": 1.19574, "color": { "mult": [0.32, 0.32, 0.32, 1], "add": [82, 75, 61, 0] }, "blend": "hardlight" },
+      { "depth": 9, "button": 999, "x": 365.55, "y": 166.95, "filters": [{ "type": "dropShadow", "color": "#000000", "alpha": 1, "blurX": 9, "blurY": 9, "angle": 0.78539, "distance": 0, "strength": 1, "composite": true, "passes": 3 }] },
+      { "depth": 45, "shape": 1000, "x": 0, "y": 0 },
+      { "depth": 46, "sprite": 1004, "x": 364, "y": 320, "color": { "mult": [0.457, 0.457, 0.457, 1], "add": [83, 0, 0, 0] } },
+      { "depth": 49, "sprite": 1023, "x": 164.75, "y": 423.1, "scaleX": 0.43256, "scaleY": 0.56628 },
+      { "depth": 51, "button": 1012, "x": 114, "y": 441, "name": "_lblDirectPlay" },
+      { "depth": 54, "button": 1019, "x": 569.3, "y": 282.1, "scaleX": 1, "scaleY": 1.00189, "name": "_btnSearch" },
+      { "depth": 57, "export": "Label", "x": 250, "y": 71, "scaleX": 2.44012, "scaleY": 1, "name": "_lblTitle", "actions": true },
+      { "depth": 58, "export": "Label", "x": 123, "y": 449, "scaleX": 3.50037, "scaleY": 1, "name": "_mcJoinButton", "actions": true },
+      { "depth": 59, "export": "Label", "x": 245, "y": 350, "scaleX": 2.44012, "scaleY": 1, "name": "\u001c\u001b\u001c", "actions": true },
+      { "depth": 60, "export": "Label", "x": 115, "y": 380, "scaleX": 5.1525, "scaleY": 1, "name": "_lblDownload", "actions": true },
+      { "depth": 61, "export": "TextInput", "x": 163.95, "y": 270.95, "scaleX": 3.83191, "scaleY": 0.8, "name": "_tiSearch", "actions": true }
+    ]
+  }
+ ]
+}

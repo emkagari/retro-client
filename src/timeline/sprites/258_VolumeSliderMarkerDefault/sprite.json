@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": -10, "scaleX": 0.05, "scaleY": 0.1 }
+    ]
+  }
+ ]
+}

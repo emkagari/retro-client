@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": -31, "scaleX": 0.04001, "scaleY": 0.31029, "color": { "mult": [0, 0, 0, 1], "add": [216, 1, 1, 0] }, "name": "_mcHealth" }
+    ]
+  }
+ ]
+}

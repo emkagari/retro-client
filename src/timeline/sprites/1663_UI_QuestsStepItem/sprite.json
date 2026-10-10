@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1662, "x": 2.65, "y": 5.75, "name": "_mcArrow" },
+      { "depth": 3, "sprite": 265, "x": 5, "y": 6, "scaleX": 1.26761, "scaleY": 1.29497, "color": { "mult": [0, 0, 0, 0.6], "add": [180, 172, 141, 0] }, "name": "_mcCheckFinished" },
+      { "depth": 5, "export": "Label", "x": 25, "y": 0, "scaleX": 2.99994, "scaleY": 1, "name": "_lblName", "actions": true }
+    ]
+  }
+ ]
+}

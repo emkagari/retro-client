@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Button", "x": 9.5, "y": 49, "scaleX": 0.1, "scaleY": 0.55556, "name": "_btnOpenClose", "actions": true }
+    ]
+  }
+ ]
+}

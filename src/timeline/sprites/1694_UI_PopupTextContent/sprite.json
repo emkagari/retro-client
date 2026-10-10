@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.99995, "scaleY": 0.18001, "alpha": 0 },
+      { "depth": 3, "shape": 1693, "x": 0, "y": 0 },
+      { "depth": 4, "export": "TextInput", "x": 4, "y": 0.05, "scaleX": 0.68008, "scaleY": 0.72237, "name": "_tiInput", "actions": true },
+      { "depth": 5, "export": "Button", "x": 79, "y": 0.05, "scaleX": 0.18, "scaleY": 1.00278, "name": "_btnOk", "actions": true }
+    ]
+  }
+ ]
+}

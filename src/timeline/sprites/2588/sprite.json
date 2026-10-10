@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 2580, "x": 0, "y": 0 },
+      { "depth": 2, "sprite": 2582, "x": -0.75, "y": -0.5, "name": "c_peau" },
+      { "depth": 5, "shape": 2583, "x": 0, "y": 0 },
+      { "depth": 6, "sprite": 2585, "x": 4, "y": 0 },
+      { "depth": 9, "shape": 2586, "x": 3.7, "y": -1.8, "scale": 0.39955, "rotation": -144.87999 },
+      { "depth": 11, "shape": 2586, "x": -4.75, "y": -1.35, "scaleX": 0.33428, "scaleY": -0.33428, "rotation": -35.11993 },
+      { "depth": 13, "shape": 2587, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

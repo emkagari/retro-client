@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 1730, "x": 0, "y": 0 },
+      { "depth": 2, "sprite": 1732, "x": 3.65, "y": -49.55, "name": "_mcColor" },
+      { "depth": 4, "shape": 1733, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

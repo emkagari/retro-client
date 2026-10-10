@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "SelectableRow", "x": 24, "y": 22 },
+      { "depth": 3, "export": "DefaultCellRenderer", "x": 49, "y": 25 }
+    ]
+  }
+ ]
+}

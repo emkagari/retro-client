@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 1001, "x": 0, "y": 0 },
+      { "depth": 2, "export": "Exclamation", "x": 0.3, "y": 0.05, "filters": [{ "type": "dropShadow", "color": "#000000", "alpha": 1, "blurX": 5, "blurY": 5, "angle": 0.78539, "distance": 0, "strength": 1, "composite": true, "passes": 3 }] }
+    ]
+  }
+ ]
+}

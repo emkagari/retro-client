@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 441, "x": -0.25, "y": 3.75, "matrix": [-0.57849, -0.29457, -0.27197, 0.69293], "name": "cLicrounch_R_Cuisse00" },
+      { "depth": 4, "shape": 442, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

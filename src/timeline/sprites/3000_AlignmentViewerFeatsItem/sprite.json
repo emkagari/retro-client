@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 40, "y": 3, "scaleX": 2.50003, "scaleY": 0.75, "name": "_lblName", "actions": true },
+      { "depth": 2, "export": "GAPILoader", "x": 5, "y": 5, "scale": 0.29997, "name": "_ldrIcon", "actions": true },
+      { "depth": 3, "export": "Label", "x": 40, "y": 20, "scaleX": 2.50003, "scaleY": 0.75, "name": "_lblEffect", "actions": true }
+    ]
+  }
+ ]
+}

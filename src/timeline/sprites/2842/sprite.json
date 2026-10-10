@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 208, "x": 0, "y": 0, "scaleX": 0.16003, "scaleY": 0.16005, "color": { "mult": [0, 0, 0, 1], "add": [153, 51, 0, 0] }, "name": "bg_mc" }
+    ]
+  }
+ ]
+}

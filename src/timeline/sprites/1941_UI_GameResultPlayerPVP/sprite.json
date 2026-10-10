@@ -1,0 +1,32 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 20, "y": 0.6, "scaleX": 1.33002, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 2, "export": "DeadHead", "x": 16, "y": 17.7, "name": "_mcItemPlacer" },
+      { "depth": 8, "export": "UI_GameResultSeparator", "x": 155.25, "y": 0 },
+      { "depth": 10, "export": "UI_GameResultSeparator", "x": 354, "y": 0 },
+      { "depth": 12, "export": "Label", "x": 161.25, "y": 0.6, "scaleX": 0.3, "scaleY": 0.8, "name": "_lblLevel", "actions": true },
+      { "depth": 13, "export": "UI_GameResultSeparator", "x": 196.25, "y": 0 },
+      { "depth": 15, "export": "UI_GameResultSeparator", "x": 511.95, "y": 0 },
+      { "depth": 17, "export": "Label", "x": 469.95, "y": 0.6, "scaleX": 0.40001, "scaleY": 0.8, "name": "_lblKama", "actions": true },
+      { "depth": 18, "export": "UI_GameResultSeparator", "x": 308.25, "y": 0 },
+      { "depth": 20, "export": "Label", "x": 322, "y": 0.6, "scaleX": 0.19704, "scaleY": 0.80302, "name": "_lblRank", "actions": true },
+      { "depth": 21, "export": "UI_GameResultSeparator", "x": 466.95, "y": 0 },
+      { "depth": 23, "export": "GAPILoader", "x": 673, "y": 4, "scale": 0.12001, "name": "_ldrAllDrop", "actions": true },
+      { "depth": 24, "sprite": 1940, "x": 331.8, "y": 9.15, "name": "_mcAlignment" },
+      { "depth": 26, "export": "GAPILoader", "x": 0.95, "y": 2, "scale": 0.15999, "name": "_ldrGuild", "actions": true },
+      { "depth": 27, "export": "ProgressBar", "x": 199.55, "y": 2.5, "scaleX": 1.06677, "scaleY": 1.50024, "name": "_pbHonour", "actions": true },
+      { "depth": 28, "export": "Label", "x": 199.55, "y": 1.15, "scaleX": 1.06677, "scaleY": 0.8001, "name": "_lblWinHonour", "actions": true },
+      { "depth": 29, "export": "ProgressBar", "x": 357.55, "y": 2.5, "scaleX": 1.06677, "scaleY": 1.50024, "name": "_pbDisgrace", "actions": true },
+      { "depth": 30, "export": "Label", "x": 357.55, "y": 1.15, "scaleX": 1.06677, "scaleY": 0.8001, "name": "_lblWinDisgrace", "actions": true },
+      { "depth": 31, "export": "Container", "x": 641.4, "y": 0, "scale": 0.4, "name": "_ctr5", "actions": true },
+      { "depth": 32, "export": "Container", "x": 617.55, "y": 0, "scale": 0.4, "name": "_ctr4", "actions": true },
+      { "depth": 33, "export": "Container", "x": 593.7, "y": 0, "scale": 0.4, "name": "_ctr3", "actions": true },
+      { "depth": 34, "export": "Container", "x": 569.85, "y": 0, "scale": 0.4, "name": "_ctr2", "actions": true },
+      { "depth": 35, "export": "Container", "x": 546, "y": 0, "scale": 0.4, "name": "_ctr1", "actions": true },
+      { "depth": 36, "export": "Container", "x": 522.15, "y": 0, "scale": 0.4, "name": "_ctr0", "actions": true }
+    ]
+  }
+ ]
+}

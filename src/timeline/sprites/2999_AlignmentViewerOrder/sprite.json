@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.15996, "scaleY": 1.60013, "color": { "mult": [0, 0, 0, 1], "add": [237, 235, 220, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.15996, "scaleY": 0.20001, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 5, "export": "Label", "x": 51, "y": 25, "scaleX": 2.5, "scaleY": 1, "name": "_txtSpecializationDescription", "actions": true },
+      { "depth": 6, "export": "TextArea", "x": 0, "y": 70, "scaleX": 3.15997, "scaleY": 0.89996, "name": "_lblOrderName", "actions": true },
+      { "depth": 7, "export": "GAPILoader", "x": 7, "y": 27, "scale": 0.36, "name": "_ldrIcon", "actions": true },
+      { "depth": 8, "export": "Label", "x": 6, "y": 0, "scaleX": 1.99994, "scaleY": 0.8, "name": "_lblInfos", "actions": true },
+      { "depth": 9, "export": "Label", "x": 51, "y": 45, "scaleX": 2.5, "scaleY": 1, "name": "_lblSpecializationName", "actions": true }
+    ]
+  }
+ ]
+}

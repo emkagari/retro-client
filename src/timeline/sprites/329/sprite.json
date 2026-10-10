@@ -1,0 +1,22 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 322, "x": 0, "y": 0 },
+      { "depth": 2, "export": "SimpleSword", "x": 0, "y": 0.05 }
+    ]
+  },
+  {
+    "remove": [2],
+    "place": [
+      { "depth": 2, "sprite": 326, "x": -16.85, "y": -20.65, "scale": 5.40848, "ratio": 1 }
+    ]
+  },
+  {
+    "remove": [2],
+    "place": [
+      { "depth": 2, "sprite": 328, "x": -17.1, "y": -20.8, "scale": 5.11688, "ratio": 2 }
+    ]
+  }
+ ]
+}

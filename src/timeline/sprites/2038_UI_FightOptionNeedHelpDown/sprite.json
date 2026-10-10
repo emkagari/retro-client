@@ -1,0 +1,70 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2034, "x": -1.2, "y": -2.8 },
+      { "depth": 9, "sprite": 265, "x": 4.45, "y": 4.55, "scale": 1.42455, "color": { "mult": [0, 0, 0, 1] } },
+      { "depth": 11, "sprite": 265, "x": 3.45, "y": 3.55, "scale": 1.42455, "color": { "mult": [0, 0, 0, 1], "add": [0, 153, 0, 0] } }
+    ]
+  },
+  {},
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -1.2, "y": -7.8 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -1.2, "y": -12.8 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -1.2, "y": -8.8 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -1.2, "y": -4.8 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -1.2, "y": -0.8 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -1.2, "y": -1.8 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -1.2, "y": -2.8 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -1.2, "y": -3.8 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -1.2, "y": -3.3 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -1.2, "y": -2.8 }
+    ]
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {}
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.15996, "scaleY": 0.20001, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 3, "export": "List", "x": 0, "y": 20, "scaleX": 3.15997, "scaleY": 6.99991, "name": "_lstTree", "actions": true },
+      { "depth": 4, "export": "Label", "x": 6, "y": 0, "scaleX": 1.99994, "scaleY": 0.8, "name": "_lblInfos", "actions": true },
+      { "depth": 5, "export": "Label", "x": 251, "y": 0, "scaleX": 0.49998, "scaleY": 0.8, "name": "_lblLevel", "actions": true }
+    ]
+  }
+ ]
+}

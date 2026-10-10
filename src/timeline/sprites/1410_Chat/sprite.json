@@ -1,0 +1,20 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 15.6, "scaleX": 4.11992, "scaleY": 1.30443, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] }, "name": "_mcReplacementPanelMask" },
+      { "depth": 3, "export": "StylizedRectangle", "x": 0, "y": 0, "scaleX": 4.20001, "scaleY": 4.4, "actions": true },
+      { "depth": 4, "export": "StylizedRectangle", "x": 0, "y": 6, "scaleX": 4.15001, "scaleY": 4.33995, "actions": true },
+      { "depth": 5, "export": "StylizedRectangle", "x": 0, "y": 16, "scaleX": 4.11996, "scaleY": 4.23996, "name": "_mcChatBackground", "actions": true },
+      { "depth": 6, "export": "Button", "x": 0, "y": 0.1, "scaleX": 0.17, "scaleY": 0.77777, "name": "_btnOpenClose", "actions": true },
+      { "depth": 7, "export": "Button", "x": 19, "y": 0.1, "scaleX": 0.19998, "scaleY": 0.77779, "name": "_btnSmileys", "actions": true },
+      { "depth": 8, "export": "ChatArea", "x": 0, "y": 19, "scaleX": 3.5, "scaleY": 0.82, "name": "_txtChat", "actions": true },
+      { "depth": 9, "export": "Smileys", "x": 19, "y": -67, "scaleX": 0.99997, "scaleY": 1, "name": "_sSmileys", "actions": true },
+      { "depth": 23, "export": "Button", "x": 41, "y": 0.1, "scaleX": 0.2001, "scaleY": 0.77771, "name": "_btnSitDown", "actions": true },
+      { "depth": 24, "export": "ChatFilters", "x": 223.95, "y": 10, "name": "_chatFilters", "actions": true },
+      { "depth": 34, "export": "Button", "x": 0, "y": 0.1, "scaleX": 0.17, "scaleY": 0.77777, "name": "_btnHelpForPanel", "actions": true },
+      { "depth": 35, "export": "TemporaryEventButton", "x": 66.35, "y": 0.1, "name": "_btnTemporaryEvent" }
+    ]
+  }
+ ]
+}

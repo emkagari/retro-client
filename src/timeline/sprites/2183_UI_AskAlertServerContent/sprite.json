@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "TextArea", "x": 10, "y": 10, "scaleX": 3.10002, "scaleY": 1.99997, "name": "_txtText", "actions": true },
+      { "depth": 2, "export": "Button", "x": 116, "y": 240, "name": "_btnClose", "actions": true },
+      { "depth": 3, "export": "Label", "x": 40, "y": 215, "scaleX": 2.60004, "scaleY": 0.8, "name": "_lblHideNext", "actions": true },
+      { "depth": 4, "export": "Button", "x": 19, "y": 219, "scaleX": 0.12003, "scaleY": 0.66667, "name": "_btnHideNext", "actions": true },
+      { "depth": 5, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.29996, "scaleY": 0.1, "alpha": 0 }
+    ]
+  }
+ ]
+}

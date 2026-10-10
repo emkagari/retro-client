@@ -1,0 +1,20 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2435, "x": 379, "y": 0 },
+      { "depth": 3, "sprite": 2435, "x": 518, "y": 0 },
+      { "depth": 5, "sprite": 2435, "x": 150, "y": 0 },
+      { "depth": 7, "sprite": 2435, "x": 269, "y": 0 },
+      { "depth": 9, "export": "Label", "x": 29, "y": 0, "scaleX": 1.14996, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 10, "export": "Label", "x": 276, "y": 0, "scaleX": 0.97, "scaleY": 0.8, "name": "_lblOnline", "actions": true },
+      { "depth": 11, "export": "Label", "x": 385, "y": 0, "scaleX": 1.28001, "scaleY": 0.8, "name": "_lblCommunity", "actions": true },
+      { "depth": 12, "export": "Label", "x": 525, "y": 0, "scaleX": 0.99985, "scaleY": 0.75005, "name": "_lblPopulation", "actions": true },
+      { "depth": 13, "export": "GAPILoader", "x": 7, "y": 2, "scale": 0.15999, "name": "_ldrFlag", "actions": true },
+      { "depth": 14, "export": "Label", "x": 157, "y": 0, "scaleX": 1.05002, "scaleY": 0.8, "name": "_lblType", "actions": true },
+      { "depth": 15, "export": "pic_IN_MULTI", "x": 163, "y": 10, "name": "_mcHeroic" },
+      { "depth": 19, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 6.24997, "scaleY": 0.18999, "alpha": 0, "name": "_mcOver" }
+    ]
+  }
+ ]
+}

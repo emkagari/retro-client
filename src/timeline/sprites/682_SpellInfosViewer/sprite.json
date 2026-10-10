@@ -1,0 +1,22 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "StylizedRectangle", "x": 0, "y": 0, "scaleX": 2.38, "scaleY": 2.40002, "name": "\u001e\f\u0001", "actions": true },
+      { "depth": 2, "export": "StylizedRectangle", "x": 3, "y": 3, "scaleX": 2.32, "scaleY": 2.37003, "name": "\u001e\f\u0002", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 13, "y": 13, "scale": 0.42, "color": { "mult": [0, 0, 0, 1] } },
+      { "depth": 5, "export": "GAPILoader", "x": 14, "y": 14, "scale": 0.4, "name": "_ldrIcon", "actions": true },
+      { "depth": 6, "export": "Label", "x": 63, "y": 13, "scaleX": 1.62, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 7, "export": "Label", "x": 63, "y": 25, "scaleX": 1, "scaleY": 0.6, "name": "_lblLevel", "actions": true },
+      { "depth": 8, "export": "Label", "x": 5, "y": 203, "scaleX": 2.29999, "scaleY": 0.6, "name": "_lblHelp", "actions": true },
+      { "depth": 9, "export": "TextArea", "x": 13, "y": 58, "scaleX": 2.12, "scaleY": 0.55, "name": "_txtDescription", "actions": true },
+      { "depth": 10, "export": "TextArea", "x": 23, "y": 168, "scaleX": 2.02002, "scaleY": 0.35, "name": "_txtCriticalHit", "actions": true },
+      { "depth": 11, "export": "Label", "x": 125, "y": 23, "scaleX": 1, "scaleY": 0.6, "name": "_lblRange", "actions": true },
+      { "depth": 12, "export": "Label", "x": 95, "y": 36, "scaleX": 1.29999, "scaleY": 0.6, "name": "_lblAP", "actions": true },
+      { "depth": 13, "export": "Label", "x": 13, "y": 153, "scaleX": 1.62, "scaleY": 0.6, "name": "_lblCriticalHitTitle", "actions": true },
+      { "depth": 14, "export": "TextArea", "x": 23, "y": 123, "scaleX": 2.02002, "scaleY": 0.35, "name": "_txtEffects", "actions": true },
+      { "depth": 15, "export": "Label", "x": 13, "y": 108, "scaleX": 1.62, "scaleY": 0.6, "name": "_lblEffectsTitle", "actions": true }
+    ]
+  }
+ ]
+}

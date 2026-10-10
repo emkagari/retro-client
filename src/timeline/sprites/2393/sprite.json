@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.3, "scaleY": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [204, 204, 204, 0] }, "name": "bg_1_mc" },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 7, "scaleX": 0.3, "scaleY": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [204, 204, 204, 0] }, "name": "bg_3_mc" },
+      { "depth": 5, "export": "Rectangle", "x": 0, "y": 1, "scaleX": 0.3, "scaleY": 0.05997, "alpha": 0 }
+    ]
+  }
+ ]
+}

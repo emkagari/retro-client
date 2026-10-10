@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "DataGrid", "x": 0, "y": 0, "scaleX": 3.76004, "scaleY": 1.20006, "name": "_dgPrices", "actions": true }
+    ]
+  }
+ ]
+}

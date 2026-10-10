@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 2895, "x": 0, "y": 0 },
+      { "depth": 2, "sprite": 2897, "x": 7.9, "y": 12.75, "scaleX": 0.87695, "scaleY": 0.86555, "color": { "mult": [0, 0, 0, 1], "add": [179, 142, 100, 0] }, "name": "border_4_mc" },
+      { "depth": 4, "sprite": 2897, "x": 162.1, "y": 12.75, "scaleX": -0.87695, "scaleY": 0.86555, "color": { "mult": [0, 0, 0, 1], "add": [179, 142, 100, 0] }, "name": "border_4_mc" }
+    ]
+  }
+ ]
+}

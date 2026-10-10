@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 1, "scaleX": 0.2, "scaleY": 0.3, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, -153] }, "name": "backRect_mc" },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.20004, "scaleY": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 0, "y": 31, "scaleX": 0.20004, "scaleY": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } }
+    ]
+  }
+ ]
+}

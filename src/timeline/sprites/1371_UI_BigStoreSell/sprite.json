@@ -1,0 +1,41 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.64, "actions": true },
+      { "depth": 2, "export": "Window", "x": 210, "y": 10.8, "scaleX": 3.2201, "scaleY": 3.91199, "name": "_winItemViewer", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 441, "y": 356.5, "scaleX": 0.8, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] }, "name": "_mcPrice" },
+      { "depth": 5, "export": "Window", "x": 5, "y": 112, "scaleX": 2.01001, "scaleY": 2.90015, "name": "_winInventory2", "actions": true },
+      { "depth": 6, "export": "Window", "x": 536, "y": 112, "scaleX": 2.01001, "scaleY": 3.09995, "name": "_winInventory", "actions": true },
+      { "depth": 7, "export": "StylizedRectangle", "x": 213, "y": 379, "scaleX": 3.16, "scaleY": 0.2, "name": "_srBottom", "actions": true },
+      { "depth": 8, "export": "KamaSymbol", "x": 464.7, "y": 381.85, "name": "_mcKamaSymbol" },
+      { "depth": 11, "export": "ListInventoryViewer", "x": 8, "y": 137, "name": "_livInventory2", "actions": true },
+      { "depth": 33, "export": "Button", "x": 362, "y": 402, "scaleX": 1.49998, "scaleY": 1.11111, "name": "_btnAdd", "actions": true },
+      { "depth": 34, "export": "ListInventoryViewer", "x": 539, "y": 137, "name": "_livInventory", "actions": true },
+      { "depth": 56, "sprite": 650, "x": 520.45, "y": 404.9, "scaleX": -1.00078, "scaleY": 0.99875, "name": "_mcBuyArrow" },
+      { "depth": 58, "sprite": 650, "x": 221.35, "y": 404.9, "scaleX": 1.00078, "scaleY": 0.99875, "name": "_mcSellArrow" },
+      { "depth": 60, "export": "Label", "x": 221, "y": 337.5, "scaleX": 3.0001, "scaleY": 0.9, "name": "_lblMiddlePrice", "actions": true },
+      { "depth": 61, "export": "Label", "x": 221, "y": 356.5, "scaleX": 0.80002, "scaleY": 1, "name": "_lblQuantity", "actions": true },
+      { "depth": 62, "export": "Label", "x": 371, "y": 356.5, "scaleX": 0.70001, "scaleY": 1, "name": "_lblPrice", "actions": true },
+      { "depth": 63, "export": "Button", "x": 717, "y": 120, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 64, "export": "Label", "x": 252, "y": 380, "scaleX": 1.50003, "scaleY": 1, "name": "_lblTaxTime", "actions": true },
+      { "depth": 65, "export": "TextInput", "x": 443, "y": 356.5, "scaleX": 0.76004, "scaleY": 0.8, "name": "_tiPrice", "actions": true },
+      { "depth": 66, "export": "Label", "x": 402, "y": 379, "scaleX": 0.6, "scaleY": 1, "name": "_lblTaxTimeValue", "actions": true },
+      { "depth": 67, "export": "ComboBox", "x": 301, "y": 356.5, "scaleX": 0.59999, "scaleY": 1, "name": "_cbQuantity", "actions": true },
+      { "depth": 68, "export": "Label", "x": 301, "y": 356.5, "scaleX": 0.6, "scaleY": 0.8, "name": "_lblQuantityValue", "actions": true },
+      { "depth": 69, "export": "Button", "x": 183, "y": 119, "scaleX": 0.16002, "scaleY": 0.88892, "name": "_btnTypes", "actions": true },
+      { "depth": 70, "export": "PlayerWeight", "x": 544, "y": 377, "actions": true },
+      { "depth": 72, "export": "ItemViewerLite", "x": 211, "y": 12.05, "name": "_itvItemViewer", "actions": true },
+      { "depth": 89, "export": "Button", "x": 39.5, "y": 402, "scaleX": 1.32, "scaleY": 1.11111, "name": "_btnSwitchToBuy", "actions": true },
+      { "depth": 90, "export": "Button", "x": 545.15, "y": 400, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnFilterSell", "actions": true },
+      { "depth": 91, "export": "Label", "x": 562, "y": 396, "scaleX": 1.67383, "scaleY": 1, "name": "_lblFilterSell", "actions": true },
+      { "depth": 92, "export": "TextArea", "x": 221, "y": 352, "scaleX": 3, "scaleY": 0.4, "name": "_txtBadItem", "actions": true },
+      { "depth": 93, "export": "UI_BigStoreSellPricesGrid", "x": 213, "y": 217, "name": "_mcPricesGrid" },
+      { "depth": 95, "export": "Rectangle", "x": 213, "y": 217.05, "scaleX": 3.16, "scaleY": 1.2, "color": { "mult": [0, 0, 0, 0.5] }, "name": "_mcMask" },
+      { "depth": 97, "export": "Button", "x": 14.5, "y": 373, "scaleX": 0.79996, "scaleY": 1, "name": "_btnRemove", "actions": true },
+      { "depth": 98, "export": "KamaSymbol", "x": 183.7, "y": 374.35, "name": "_mcKamaSymbol" },
+      { "depth": 101, "export": "Label", "x": 100, "y": 373, "scaleX": 0.79999, "scaleY": 0.90001, "name": "_lblKama", "actions": true }
+    ]
+  }
+ ]
+}

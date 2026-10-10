@@ -1,0 +1,25 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 145.1, "y": 95.55, "scaleX": 2.19281, "scaleY": 2.56897, "name": "_winCrafter", "actions": true },
+      { "depth": 3, "export": "Window", "x": 504.05, "y": 23.4, "scaleX": 2.2298, "scaleY": 0.44742, "name": "\u001e\u0010\u001d", "actions": true },
+      { "depth": 4, "export": "Window", "x": 522.05, "y": 80.5, "scaleX": 1.92001, "scaleY": 3.41516, "name": "_winInventory", "actions": true },
+      { "depth": 5, "export": "Button", "x": 250.85, "y": 352.45, "scaleX": 1.02, "scaleY": 1.11111, "name": "_btnCraft", "actions": true },
+      { "depth": 6, "sprite": 725, "x": 442.55, "y": 235.2, "name": "_mcArrow" },
+      { "depth": 9, "sprite": 1318, "x": 255.05, "y": 235.7, "name": "_card" },
+      { "depth": 12, "export": "Container", "x": 160.7, "y": 259.75, "scale": 0.9004, "name": "_ctr1", "actions": true },
+      { "depth": 13, "export": "Container", "x": 304.4, "y": 259.7, "scale": 0.9004, "name": "_ctr2", "actions": true },
+      { "depth": 14, "export": "Label", "x": 513.95, "y": 29.65, "scaleX": 2.08087, "scaleY": 1.61249, "name": "_lblSkill", "actions": true },
+      { "depth": 15, "export": "GridInventoryViewer", "x": 532.05, "y": 110.5, "name": "_ivInventoryViewer", "actions": true },
+      { "depth": 38, "export": "Container", "x": 232.55, "y": 135.6, "scale": 0.9004, "name": "_ctr0", "actions": true },
+      { "depth": 39, "sprite": 1325, "x": 232.55, "y": 135.6, "scale": 0.45, "name": "_mcFiligrane" },
+      { "depth": 43, "export": "PlayerWeight", "x": 537.25, "y": 398, "actions": true },
+      { "depth": 45, "export": "Button", "x": 156.55, "y": 352.45, "scaleX": 0.81139, "scaleY": 1.11111, "name": "_btnReset", "actions": true },
+      { "depth": 46, "export": "Button", "x": 692.8, "y": 88.75, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 47, "sprite": 1330, "x": 255.05, "y": 240.7, "name": "_cardAnim" }
+    ]
+  }
+ ]
+}

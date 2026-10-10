@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83989, "scaleY": 11.12013, "actions": true },
+      { "depth": 2, "export": "Window", "x": 131, "y": 80, "scaleX": 3.7305, "scaleY": 2.61021, "name": "_winBackground", "actions": true },
+      { "depth": 3, "export": "Button", "x": 213.5, "y": 317.25, "name": "_btnOk", "actions": true },
+      { "depth": 4, "export": "TextArea", "x": 140.05, "y": 105.95, "scaleX": 2.91934, "scaleY": 2.0701, "name": "_txtText", "actions": true },
+      { "depth": 5, "shape": 1546, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

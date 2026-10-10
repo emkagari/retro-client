@@ -1,0 +1,154 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 61, "x": 0, "y": 0, "color": { "mult": [0.4, 0.4, 0.4, 1], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.95], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.9], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.85], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.8], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.75], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.7], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.652], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.6], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.55], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.5], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.45], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.402], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.35], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.3], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.348], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.395], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.44], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.49], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.535], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.582], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.63], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.67], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.72], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.766], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.813], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.86], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.906], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.953], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 1], "add": [153, 153, 153, 0] } }
+    ]
+  }
+ ]
+}

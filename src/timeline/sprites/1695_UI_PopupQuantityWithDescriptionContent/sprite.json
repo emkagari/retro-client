@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0.05, "scaleX": 1.70978, "scaleY": 1.38058, "alpha": 0 },
+      { "depth": 3, "shape": 1693, "x": 69, "y": 120 },
+      { "depth": 4, "export": "TextArea", "x": 10.5, "y": 0, "scaleX": 1.5, "scaleY": 1.1995, "name": "_txtDescription", "actions": true },
+      { "depth": 5, "export": "Button", "x": 4, "y": 120.05, "scaleX": 0.29999, "scaleY": 1.00278, "name": "_btnMin", "actions": true },
+      { "depth": 6, "export": "TextInput", "x": 73, "y": 120.05, "scaleX": 0.68008, "scaleY": 0.72237, "name": "_tiInput", "actions": true },
+      { "depth": 7, "export": "Button", "x": 148, "y": 120.05, "scaleX": 0.18, "scaleY": 1.00278, "name": "_btnOk", "actions": true },
+      { "depth": 8, "export": "Button", "x": 39, "y": 120.05, "scaleX": 0.29997, "scaleY": 1.00278, "name": "_btnMax", "actions": true }
+    ]
+  }
+ ]
+}

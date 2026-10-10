@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 1274, "x": 0, "y": 0 },
+      { "depth": 2, "button": 1278, "x": 213, "y": -76.6, "name": "_mcDelete" },
+      { "depth": 4, "shape": 1279, "x": 0, "y": 0 },
+      { "depth": 5, "export": "SpriteViewer", "x": 47.05, "y": -67.6, "name": "_svCharacterViewer", "actions": true },
+      { "depth": 13, "export": "Label", "x": 6, "y": -78, "scaleX": 2.00003, "scaleY": 0.8, "name": "_lblOldName", "actions": true },
+      { "depth": 14, "shape": 1280, "x": 0, "y": 0 },
+      { "depth": 15, "export": "TextInput", "x": 27, "y": 77, "matrix": [1.49998, 0.00095, -0.00026, 0.83978], "name": "_itCharacterName", "actions": true },
+      { "depth": 16, "button": 1286, "x": -7.5, "y": 77, "scaleX": 0.88289, "scaleY": 0.88707, "name": "_mcRandomName" },
+      { "depth": 22, "button": 1292, "x": 188, "y": 79, "scaleX": 1, "scaleY": 1.0048, "name": "_mcValid" }
+    ]
+  }
+ ]
+}

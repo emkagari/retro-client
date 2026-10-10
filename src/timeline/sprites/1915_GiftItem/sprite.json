@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 3, "y": 1.8, "scaleX": 2.29973, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 2, "export": "ContainerGrid", "x": 3, "y": 38.65, "scaleX": 1.9, "scaleY": 0.38, "name": "_cgGifts", "actions": true },
+      { "depth": 3, "export": "Button", "x": 527.45, "y": 33.95, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnAttribution", "actions": true },
+      { "depth": 4, "export": "TextArea", "x": 238.45, "y": 0, "scaleX": 2.80008, "scaleY": 0.79976, "name": "_txtDescription", "actions": true },
+      { "depth": 5, "export": "Label", "x": 3, "y": 17.6, "scaleX": 2.29967, "scaleY": 0.8, "name": "_lblDate", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "TextArea", "x": 20, "y": 0, "scaleX": 2.6, "scaleY": 0.4, "name": "_txtResponse", "actions": true },
+      { "depth": 2, "sprite": 208, "x": 7, "y": 6, "scaleX": 0.04996, "scaleY": 0.05, "color": { "mult": [0, 0, 0, 1] }, "name": "_mcRound" }
+    ]
+  }
+ ]
+}

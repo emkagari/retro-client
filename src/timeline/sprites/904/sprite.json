@@ -1,0 +1,104 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 903, "x": -14.1, "y": 100 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.89 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.777 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.668 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.555 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.445 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.332 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.223 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.11 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.1 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.2 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.3 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.4 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.5 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.6 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.7 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.8 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.9 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": {  } }
+    ]
+  }
+ ]
+}

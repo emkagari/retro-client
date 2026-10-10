@@ -1,0 +1,24 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 183, "y": 47, "scaleX": 5.49994, "scaleY": 4.09973, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 195, "y": 159, "scaleX": 5.29999, "scaleY": 2.60008, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 5, "export": "Button", "x": 713, "y": 55, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 6, "export": "Button", "x": 195, "y": 139, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnTabComponent0", "actions": true },
+      { "depth": 7, "export": "Button", "x": 295, "y": 139, "scaleX": 1.15007, "scaleY": 1.11111, "name": "_btnTabComponent1", "actions": true },
+      { "depth": 8, "export": "Button", "x": 410, "y": 139, "scaleX": 1.15007, "scaleY": 1.11111, "name": "_btnTabComponent2", "actions": true },
+      { "depth": 9, "export": "Button", "x": 525, "y": 139, "scaleX": 1.00006, "scaleY": 1.11111, "name": "_btnTabComponent3", "actions": true },
+      { "depth": 10, "export": "Button", "x": 625, "y": 139, "scaleX": 1.00006, "scaleY": 1.11111, "name": "_btnTabComponent4", "actions": true },
+      { "depth": 11, "export": "GAPILoader", "x": 195, "y": 85.45, "scaleX": 0.40018, "scaleY": 0.40013, "name": "_ldrClassIcon", "actions": true },
+      { "depth": 12, "export": "SpriteViewer", "x": 301.95, "y": 67.8, "scale": 0.44254, "name": "_svCharacter", "actions": true },
+      { "depth": 20, "export": "Label", "x": 373.25, "y": 84, "scaleX": 1.49889, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 21, "export": "Label", "x": 373.25, "y": 103.5, "scaleX": 1.4997, "scaleY": 0.8, "name": "_lblLevel", "actions": true },
+      { "depth": 22, "export": "Container", "x": 247.5, "y": 85.45, "scale": 0.8, "name": "_ctrAlignment", "actions": true },
+      { "depth": 23, "export": "AchievementScore", "x": 558.3, "y": 82, "scaleX": 0.51704, "scaleY": 0.51567 },
+      { "depth": 31, "export": "Rectangle", "x": 195, "y": 159, "scaleX": 5.29999, "scaleY": 2.6, "name": "_mcPlacer" }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 196, "y": 112, "scaleX": 3.50006, "scaleY": 1.89996, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "Button", "x": 406, "y": 302, "scaleX": 1.19998, "scaleY": 1.11111, "name": "_btnClose2", "actions": true },
+      { "depth": 4, "export": "TextArea", "x": 206, "y": 144, "scaleX": 3.30002, "scaleY": 1.10002, "name": "_txtTip", "actions": true },
+      { "depth": 5, "export": "Button", "x": 524, "y": 121, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 6, "export": "Label", "x": 227, "y": 271, "scaleX": 2.60004, "scaleY": 0.8, "name": "_lblTipsOnStart", "actions": true },
+      { "depth": 7, "export": "Button", "x": 206, "y": 275, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnTipsOnStart", "actions": true },
+      { "depth": 8, "export": "Button", "x": 197, "y": 266, "scaleX": 0.30003, "scaleY": 1.66669, "name": "_btnTipsOnStartTooltip", "actions": true },
+      { "depth": 9, "export": "Button", "x": 524, "y": 273, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnNext", "actions": true },
+      { "depth": 10, "export": "Button", "x": 518, "y": 273, "scaleX": -0.12001, "scaleY": 0.66667, "name": "_btnPrevious", "actions": true }
+    ]
+  }
+ ]
+}

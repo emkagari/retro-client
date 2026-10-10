@@ -61,6 +61,14 @@ A bitmap goes as a `.png`, not inside an SVG: FFDec imports an SVG `<image>`
 only partly. An animation or a clip with several layers is beyond this: a SWF of its own
 in `overlay/…/clips/` (loaded like the ornaments), or built by code.
 
+## Where a graphic is placed
+
+Its position, size and layer on screen aren't in the SVG but in the sprites
+placing it: `node tools/sprites.mjs where 901` lists them, and each
+`sprite.json` can move, resize or add one (docs/SPRITES.md). An SVG drawn
+bigger is shown bigger by its placement's scale (the login logo, shape 901,
+is placed at 0.6).
+
 ## Tests
 
 `./retro test-assets` (or `node tools/test-assets.mjs`, ~1 min) checks the

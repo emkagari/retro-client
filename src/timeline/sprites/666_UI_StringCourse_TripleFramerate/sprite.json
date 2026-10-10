@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 665, "x": -120, "y": 10, "name": "_mcAnim" },
+      { "depth": 3, "export": "GAPILoader", "x": 200, "y": -25, "scaleX": -2.20016, "scaleY": 2.20016, "name": "_ldrStringCourse", "actions": true },
+      { "depth": 4, "export": "Label", "x": 151.25, "y": 35, "scaleX": 1.71, "scaleY": 1, "name": "_lblName", "actions": true },
+      { "depth": 5, "export": "Label", "x": 151.25, "y": 55.5, "scaleX": 0.74985, "scaleY": 1, "name": "_lblLevel", "actions": true }
+    ]
+  }
+ ]
+}

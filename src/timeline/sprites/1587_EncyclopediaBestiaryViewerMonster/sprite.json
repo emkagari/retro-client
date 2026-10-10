@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 100, "y": 0, "scaleX": 1.34024, "scaleY": 2, "name": "_lblName", "actions": true },
+      { "depth": 2, "export": "Label", "x": 314, "y": 11, "scaleX": 0.62024, "scaleY": 2, "name": "_lblLevel", "actions": true },
+      { "depth": 3, "export": "Container", "x": 235, "y": 11, "scale": 0.35999, "name": "_ctr0", "actions": true },
+      { "depth": 4, "export": "Container", "x": 255, "y": 11, "scale": 0.35999, "name": "_ctr1", "actions": true },
+      { "depth": 5, "export": "Container", "x": 275, "y": 11, "scale": 0.35999, "name": "_ctr2", "actions": true },
+      { "depth": 6, "export": "Container", "x": 295, "y": 11, "scale": 0.35999, "name": "_ctr3", "actions": true },
+      { "depth": 7, "export": "Label", "x": 100, "y": 23, "scaleX": 1.33977, "scaleY": 1, "name": "_lblCategory", "actions": true },
+      { "depth": 8, "export": "Rectangle", "x": 1, "y": 1, "scaleX": 0.98, "scaleY": 0.37999, "mask": 11 },
+      { "depth": 10, "export": "GAPILoader", "x": 0, "y": 0, "scaleX": 0.99997, "scaleY": 0.4002, "name": "_ldrIcon", "actions": true }
+    ]
+  }
+ ]
+}

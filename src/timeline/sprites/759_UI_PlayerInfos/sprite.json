@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Window", "x": 416, "y": 202, "scaleX": 3.15997, "scaleY": 1.72992, "name": "_winBackground", "actions": true },
+      { "depth": 2, "export": "List", "x": 419, "y": 227, "scaleX": 3.10002, "scaleY": 6.99994, "name": "_lstEffects", "actions": true },
+      { "depth": 3, "export": "Button", "x": 712, "y": 210, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true }
+    ]
+  }
+ ]
+}

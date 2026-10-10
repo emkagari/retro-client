@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 1.67023, "scaleY": 0.2, "alpha": 0 },
+      { "depth": 3, "export": "Label", "x": 23.15, "y": 0.15, "scaleX": 1.33281, "scaleY": 0.8, "name": "_lblContent", "actions": true },
+      { "depth": 4, "export": "Button", "x": 8.25, "y": 4.15, "scaleX": 0.11224, "scaleY": 0.66667, "name": "_btnCheck", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Eye", "x": 0, "y": 0 },
+      { "depth": 4, "sprite": 2484, "x": 8, "y": 8, "scale": 0.56 }
+    ]
+  }
+ ]
+}

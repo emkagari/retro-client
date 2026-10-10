@@ -1,0 +1,19 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": -0.1, "scaleX": 5.29993, "scaleY": 2.60056, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 251.9, "scaleX": 5.29993, "scaleY": 0.32228, "color": { "mult": [0, 0, 0, 1], "add": [68, 61, 53, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 0, "y": 84.7, "scaleX": 5.29993, "scaleY": 0.25711, "color": { "mult": [0, 0, 0, 1], "add": [68, 61, 53, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 0, "y": 110.3, "scaleX": 5.2998, "scaleY": 1.27989, "alpha": 0, "name": "_mcPlacer" },
+      { "depth": 9, "export": "StylizedRectangle", "x": 9.45, "y": 5, "scaleX": 5.0998, "scaleY": 0.7501, "actions": true },
+      { "depth": 10, "export": "ScrollBar", "x": 0, "y": 251.55, "scaleX": 1.66637, "scaleY": 5.28534, "name": "_sbScrollbar", "actions": true },
+      { "depth": 11, "export": "Label", "x": 3.1, "y": 87.75, "scaleX": 1.90002, "scaleY": 0.8, "name": "_lblRewards", "actions": true },
+      { "depth": 12, "export": "Label", "x": 383.95, "y": 87.75, "scaleX": 1.34874, "scaleY": 0.8, "name": "_lblScore", "actions": true },
+      { "depth": 13, "export": "Label", "x": 277.6, "y": 252.3, "scaleX": 2.49982, "scaleY": 1, "name": "_lblFinished", "actions": true },
+      { "depth": 14, "export": "TextArea", "x": 86.35, "y": 8.2, "scaleX": 4.2307, "scaleY": 0.69337, "name": "_txtSeasonDescription", "actions": true },
+      { "depth": 15, "export": "UI_BannerAchievementIcon", "x": 45.3, "y": 46.35, "scale": 2.03 }
+    ]
+  }
+ ]
+}

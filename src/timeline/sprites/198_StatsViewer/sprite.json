@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Window", "x": 0, "y": 0, "scaleX": 3.91997, "scaleY": 4.21994, "name": "_winBg", "actions": true },
+      { "depth": 2, "export": "DataGrid", "x": 3, "y": 25.1, "scaleX": 3.86005, "scaleY": 3.93802, "name": "_dgStats", "actions": true }
+    ]
+  }
+ ]
+}

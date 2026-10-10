@@ -1,0 +1,21 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2437, "x": 118.5, "y": 0 },
+      { "depth": 3, "sprite": 2437, "x": 150.5, "y": 0 },
+      { "depth": 5, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 2.28, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [121, 111, 90, 0] }, "name": "_mcSubtitleBackground" },
+      { "depth": 7, "export": "Label", "x": 2, "y": 1, "scaleX": 1.15039, "scaleY": 0.85, "name": "_lblArea", "actions": true },
+      { "depth": 8, "export": "Label", "x": 152, "y": 1, "scaleX": 0.46034, "scaleY": 0.85, "name": "_lblPrism", "actions": true },
+      { "depth": 9, "export": "FilterIcon0", "x": 139, "y": 3.75, "scale": 0.74074, "name": "_mcFighting" },
+      { "depth": 12, "export": "GAPILoader", "x": 121, "y": 3, "scale": 0.13005, "name": "_ldrAlignment", "actions": true },
+      { "depth": 13, "export": "IconForbidden", "x": 123.2, "y": 5.1, "scaleX": 1.14897, "scaleY": 1.14078, "name": "_mcNotAligned" },
+      { "depth": 15, "export": "Locate", "x": 199.95, "y": 2.2, "scale": 0.5093, "name": "_mcLocate" },
+      { "depth": 17, "export": "Rectangle", "x": 121, "y": 1, "scaleX": 0.13002, "scaleY": 0.16995, "alpha": 0, "name": "_mcAlignmentInteractivity" },
+      { "depth": 19, "export": "Rectangle", "x": 136, "y": 1, "scaleX": 0.13002, "scaleY": 0.16995, "alpha": 0, "name": "_mcFightingInteractivity" },
+      { "depth": 21, "export": "Label", "x": 2, "y": 1, "scaleX": 2.24957, "scaleY": 0.85, "name": "_lblSubtitle", "actions": true },
+      { "depth": 22, "export": "Rectangle", "x": 2, "y": 0, "scaleX": 1.14069, "scaleY": 0.2, "alpha": 0, "name": "_mcTooltip" }
+    ]
+  }
+ ]
+}

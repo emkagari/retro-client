@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "TextArea", "x": 90, "y": 10, "scaleX": 2.29999, "scaleY": 1.99997, "name": "_txtText", "actions": true },
+      { "depth": 2, "export": "Button", "x": 116, "y": 240, "name": "_btnClose", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.29996, "scaleY": 0.1, "alpha": 0 }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1045, "x": 8.35, "y": 36, "name": "_mcHouse" },
+      { "depth": 6, "sprite": 1047, "x": 90.15, "y": 99.65, "scale": 0.79999, "name": "_mcLock" },
+      { "depth": 8, "sprite": 1049, "x": 29.45, "y": 71.25, "scale": 0.59999, "name": "_mcForSale" }
+    ]
+  }
+ ]
+}

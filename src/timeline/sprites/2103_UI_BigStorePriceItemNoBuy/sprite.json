@@ -1,0 +1,19 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 6.06085, "scaleY": 0.39993, "actions": true },
+      { "depth": 2, "sprite": 1717, "x": 115, "y": 0 },
+      { "depth": 4, "sprite": 1717, "x": 209, "y": 0 },
+      { "depth": 6, "sprite": 1717, "x": 21, "y": 0 },
+      { "depth": 8, "export": "GAPILoader", "x": 2, "y": 2, "scale": 0.16, "name": "_ldrIcon", "actions": true },
+      { "depth": 9, "export": "Button", "x": 22, "y": 0, "scaleX": 0.93008, "scaleY": 1.11115, "name": "_btnPriceSet1", "actions": true },
+      { "depth": 10, "export": "Button", "x": 116, "y": 0, "scaleX": 0.93008, "scaleY": 1.11115, "name": "_btnPriceSet2", "actions": true },
+      { "depth": 11, "export": "Button", "x": 210, "y": 0, "scaleX": 0.93008, "scaleY": 1.11115, "name": "_btnPriceSet3", "actions": true },
+      { "depth": 12, "export": "Bonhomme", "x": 23.5, "y": 3.5, "scale": 0.59999, "name": "_mcMySale1", "blend": "overlay" },
+      { "depth": 14, "export": "Bonhomme", "x": 117.5, "y": 3.5, "scale": 0.59999, "name": "_mcMySale2", "blend": "overlay" },
+      { "depth": 16, "export": "Bonhomme", "x": 211.5, "y": 3.5, "scale": 0.59999, "name": "_mcMySale3", "blend": "overlay" }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 177, "y": 35, "scaleX": 3.8601, "scaleY": 3.55994, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 180, "y": 88, "scaleX": 3.79991, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 5, "export": "StylizedRectangle", "x": 180, "y": 358, "scaleX": 3.80005, "scaleY": 0.29999, "actions": true },
+      { "depth": 6, "export": "Button", "x": 543, "y": 43, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 7, "export": "Button", "x": 443, "y": 391, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnClose2", "actions": true },
+      { "depth": 8, "export": "List", "x": 180, "y": 108, "scaleX": 3.79999, "scaleY": 12.49973, "name": "_lstSubway", "actions": true },
+      { "depth": 9, "export": "Label", "x": 184.95, "y": 90, "scaleX": 2.7261, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 10, "export": "Label", "x": 463, "y": 90, "scaleX": 0.42, "scaleY": 0.8, "name": "_lblCoords", "actions": true },
+      { "depth": 11, "export": "Label", "x": 510.3, "y": 90, "scaleX": 0.39998, "scaleY": 0.8, "name": "_lblCost", "actions": true },
+      { "depth": 12, "export": "Label", "x": 185, "y": 363, "scaleX": 1.79816, "scaleY": 0.8, "name": "_lblDescription", "actions": true },
+      { "depth": 13, "export": "Label", "x": 185, "y": 64, "scaleX": 3.69023, "scaleY": 0.8, "name": "_lblNotice", "actions": true },
+      { "depth": 14, "shape": 657, "x": 0, "y": 0 },
+      { "depth": 15, "export": "TextInput", "x": 422.8, "y": 363.2, "scaleX": 1.31058, "scaleY": 0.64, "name": "_tiSearch", "actions": true },
+      { "depth": 16, "export": "Loupe", "x": 401.65, "y": 365.25 },
+      { "depth": 18, "export": "Rectangle", "x": 180, "y": 68, "scaleX": 3.79991, "scaleY": 0.2, "alpha": 0, "name": "_mcTabPlacer" }
+    ]
+  }
+ ]
+}

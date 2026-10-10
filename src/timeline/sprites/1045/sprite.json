@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 3, "shape": 1044, "x": 0, "y": 0 },
+      { "depth": 4, "export": "HouseIcon", "x": 22, "y": 23.55 }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.25693, "scaleY": 0.19203, "color": { "mult": [0, 0, 0, 0.3], "add": [178, 169, 148, 0] }, "name": "_mcMaskFR" }
+    ]
+  }
+ ]
+}

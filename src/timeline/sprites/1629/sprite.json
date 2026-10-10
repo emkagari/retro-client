@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 100, "y": 0, "rotation": 90, "alpha": 0 },
+      { "depth": 3, "sprite": 1626, "x": 49.5, "y": 91, "scale": 0.63674, "rotation": -135, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } }
+    ]
+  }
+ ]
+}

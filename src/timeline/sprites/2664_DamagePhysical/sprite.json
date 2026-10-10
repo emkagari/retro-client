@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2654, "x": 6.3, "y": 6.9, "scale": 0.78992 },
+      { "depth": 3, "export": "IconNeutralBonus", "x": 9.35, "y": 6.1, "scale": 0.24832 },
+      { "depth": 7, "export": "IconEarthBonus", "x": 7.5, "y": 8.8, "scale": 0.24832 }
+    ]
+  }
+ ]
+}

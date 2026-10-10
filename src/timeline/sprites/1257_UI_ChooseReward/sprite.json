@@ -1,0 +1,37 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "name": "_bgHidder", "actions": true },
+      { "depth": 2, "export": "Window", "x": 145.6, "y": 147.8, "scaleX": 4.50876, "scaleY": 2.3458, "name": "_winItemViewer", "actions": true },
+      { "depth": 3, "sprite": 1062, "x": 371, "y": 206.25, "name": "_mcCadre1" },
+      { "depth": 5, "sprite": 1062, "x": 503.05, "y": 206.25, "name": "_mcCadre2" },
+      { "depth": 7, "export": "Label", "x": 162.2, "y": 269.5, "scaleX": 2.04584, "scaleY": 1, "name": "_lblEffects", "actions": true },
+      { "depth": 8, "export": "ItemViewerEffects", "x": 162.1, "y": 289.5, "scaleX": 0.90535, "scaleY": 1, "name": "_itvItemViewer", "actions": true },
+      { "depth": 10, "export": "Label", "x": 374.95, "y": 269.5, "scaleX": 2.04587, "scaleY": 1, "name": "_lblBonus", "actions": true },
+      { "depth": 11, "export": "ItemViewerEffects", "x": 374.95, "y": 289.5, "scaleX": 0.90532, "scaleY": 1, "name": "_itvItemViewerBonus", "actions": true },
+      { "depth": 13, "export": "Label", "x": 176.45, "y": 228.2, "scaleX": 1.2509, "scaleY": 1.9025, "name": "_lblTonic0", "actions": true },
+      { "depth": 14, "export": "Label", "x": 308.5, "y": 228.2, "scaleX": 1.2501, "scaleY": 1.9025, "name": "_lblTonic1", "actions": true },
+      { "depth": 15, "export": "Label", "x": 440.55, "y": 228.2, "scaleX": 1.2501, "scaleY": 1.9025, "name": "_lblTonic2", "actions": true },
+      { "depth": 16, "sprite": 1062, "x": 239, "y": 206.25, "name": "_mcCadre0" },
+      { "depth": 18, "export": "Window", "x": 8.75, "y": 409.45, "scaleX": 2.00269, "scaleY": 0.29886, "name": "_winBackgroundSmall", "actions": true },
+      { "depth": 19, "export": "Window", "x": 125.05, "y": 50.3, "scaleX": 4.91907, "scaleY": 0.88971, "name": "_winItemViewerProgress", "actions": true },
+      { "depth": 20, "export": "Button", "x": 459.55, "y": 382.35, "scaleX": 1.14665, "scaleY": 1.11111, "name": "_btnValidate", "actions": true },
+      { "depth": 21, "export": "Container", "x": 220, "y": 187.25, "scaleX": 0.76027, "scaleY": 0.7595, "name": "_ctr0", "actions": true },
+      { "depth": 22, "export": "Container", "x": 352, "y": 187.25, "scaleX": 0.76027, "scaleY": 0.7595, "name": "_ctr1", "actions": true },
+      { "depth": 23, "export": "Container", "x": 484, "y": 187.25, "scaleX": 0.76027, "scaleY": 0.7595, "name": "_ctr2", "actions": true },
+      { "depth": 24, "export": "Button", "x": 574, "y": 157, "scaleX": 0.12001, "scaleY": 0.6666, "name": "_btnHide", "actions": true },
+      { "depth": 25, "sprite": 1064, "x": 276.15, "y": 329.5, "name": "_mcCadre5" },
+      { "depth": 27, "sprite": 1064, "x": 488.85, "y": 329.5, "name": "_mcCadre6" },
+      { "depth": 29, "sprite": 1072, "x": 371.9, "y": 269.5, "scaleX": 1.11447, "scaleY": 1, "name": "_mcCadre4" },
+      { "depth": 32, "sprite": 1114, "x": 484.15, "y": 187.35, "name": "_mcRoulette2", "actions": true },
+      { "depth": 63, "sprite": 1114, "x": 352, "y": 187.25, "name": "_mcRoulette1", "actions": true },
+      { "depth": 94, "sprite": 1114, "x": 220, "y": 187.25, "name": "_mcRoulette0", "actions": true },
+      { "depth": 125, "sprite": 1081, "x": 239.1, "y": 247.15, "scaleX": 1.08292, "scaleY": 1, "name": "_hidder0" },
+      { "depth": 127, "sprite": 1081, "x": 371.2, "y": 247.1, "scaleX": 1.08252, "scaleY": 1, "name": "_hidder1" },
+      { "depth": 129, "sprite": 1081, "x": 503.25, "y": 247.1, "scaleX": 1.0827, "scaleY": 1, "name": "_hidder2" },
+      { "depth": 131, "sprite": 1120, "x": 391.5, "y": 130.45, "scaleX": 0.99998, "scaleY": 1, "name": "_mcProgressClip" }
+    ]
+  }
+ ]
+}

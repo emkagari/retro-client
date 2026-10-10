@@ -1,0 +1,25 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "name": "_bgh", "actions": true },
+      { "depth": 2, "shape": 1026, "x": 0, "y": 0 },
+      { "depth": 3, "export": "Window", "x": 203, "y": 36, "scaleX": 3.35991, "scaleY": 3.69989, "name": "_lblCrafts", "actions": true },
+      { "depth": 4, "export": "Rectangle", "x": 213, "y": 216, "scaleX": 3.15997, "scaleY": 1.80005, "color": { "mult": [0, 0, 0, 1], "add": [170, 166, 136, 0] } },
+      { "depth": 6, "export": "Rectangle", "x": 213, "y": 91, "scaleX": 3.15997, "scaleY": 0.6, "color": { "mult": [0, 0, 0, 1], "add": [170, 166, 136, 0] } },
+      { "depth": 8, "export": "Button", "x": 519, "y": 45, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 9, "export": "Label", "x": 213, "y": 191, "scaleX": 1.27948, "scaleY": 1, "name": "_winReceipt", "actions": true },
+      { "depth": 10, "export": "List", "x": 213, "y": 216, "scaleX": 3.16, "scaleY": 9.0001, "name": "_lstCrafts", "actions": true },
+      { "depth": 11, "export": "Label", "x": 213, "y": 293, "scaleX": 3.16002, "scaleY": 0.8, "name": "_lblNoCrafts", "actions": true },
+      { "depth": 12, "export": "Label", "x": 213, "y": 66, "scaleX": 3.1601, "scaleY": 1, "name": "_lblReceipt", "actions": true },
+      { "depth": 13, "export": "List", "x": 213, "y": 91, "scaleX": 3.16, "scaleY": 3, "name": "_lstReceipt", "actions": true },
+      { "depth": 14, "export": "Label", "x": 213, "y": 166, "scaleX": 3.1601, "scaleY": 1, "name": "_lblReceiptFilter", "actions": true },
+      { "depth": 15, "export": "Label", "x": 213, "y": 113, "scaleX": 3.16002, "scaleY": 0.8, "name": "_lblNoReceipt", "actions": true },
+      { "depth": 16, "export": "ComboBox", "x": 357, "y": 191, "scaleX": 1.48007, "scaleY": 1, "name": "_cbReceiptTypes", "actions": true },
+      { "depth": 17, "export": "StylizedRectangle", "x": 357, "y": 191, "scaleX": 1.48016, "scaleY": 0.2, "name": "_srSearch", "actions": true },
+      { "depth": 18, "export": "TextInput", "x": 357, "y": 191, "scaleX": 1.4801, "scaleY": 0.8, "name": "_tiSearch", "actions": true },
+      { "depth": 19, "export": "Button", "x": 509, "y": 191, "scaleX": 0.2, "scaleY": 1.11096, "name": "_btnSearch", "actions": true }
+    ]
+  }
+ ]
+}

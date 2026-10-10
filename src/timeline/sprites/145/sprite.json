@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "ComboBoxButtonNormalIcon", "x": 12, "y": 15 },
+      { "depth": 3, "export": "ComboBoxNormal", "x": 26.75, "y": 8 },
+      { "depth": 25, "export": "ButtonComboBoxDown", "x": 11, "y": 38 },
+      { "depth": 43, "export": "ButtonComboBoxUp", "x": 70, "y": 38 }
+    ]
+  }
+ ]
+}

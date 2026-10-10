@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scale": 0.1, "alpha": 0 },
+      { "depth": 3, "sprite": 263, "x": 1.15, "y": 1.15, "scaleX": 1.00653, "scaleY": 1, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] }, "name": "bg_mc" }
+    ]
+  }
+ ]
+}

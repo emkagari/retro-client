@@ -1,0 +1,25 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 145, "y": 88, "scaleX": 4.59995, "scaleY": 2.61992, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 165, "y": 140, "scaleX": 2.4172, "scaleY": 0.1965, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] }, "name": "_lblClickToAnimate" },
+      { "depth": 5, "export": "SpriteViewer", "x": 452.05, "y": 139.6, "name": "_svCharacter", "actions": true },
+      { "depth": 13, "export": "ColorSelector", "x": 165, "y": 231.5, "name": "_csColors", "actions": true },
+      { "depth": 45, "export": "TextInput", "x": 165, "y": 140, "scaleX": 2.41675, "scaleY": 0.786, "name": "_itCharacterName", "actions": true },
+      { "depth": 46, "export": "Button", "x": 585, "y": 96, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 47, "export": "Button", "x": 465, "y": 350, "scaleX": 1.2, "scaleY": 1.11111, "name": "_btnValidate", "actions": true },
+      { "depth": 48, "export": "Button", "x": 335, "y": 350, "scaleX": 1.2, "scaleY": 1.11111, "name": "_btnCancel", "actions": true },
+      { "depth": 49, "export": "Label", "x": 155, "y": 120, "scaleX": 1.30002, "scaleY": 0.8, "name": "_lblCharacterName", "actions": true },
+      { "depth": 50, "export": "Label", "x": 155, "y": 205, "scaleX": 1.99963, "scaleY": 0.8, "name": "_lblCharacterColors", "actions": true },
+      { "depth": 51, "button": 114, "x": 412.9, "y": 135.75, "name": "_mcRandomName" },
+      { "depth": 57, "export": "Button", "x": 428, "y": 300.95, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnHideStuff", "actions": true },
+      { "depth": 58, "export": "Label", "x": 448, "y": 296.95, "scaleX": 1.35, "scaleY": 0.8, "name": "_lblClickToAnim", "actions": true },
+      { "depth": 59, "export": "Button", "x": 428, "y": 325.95, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnShowMount", "actions": true },
+      { "depth": 60, "export": "Label", "x": 448, "y": 321.95, "scaleX": 1.35, "scaleY": 0.8, "name": "_lblShowMount", "actions": true },
+      { "depth": 61, "export": "Label", "x": 452.05, "y": 274.9, "scaleX": 1.20001, "scaleY": 0.8, "name": "_mcItCharacterNameBg", "actions": true }
+    ]
+  }
+ ]
+}

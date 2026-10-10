@@ -1,0 +1,25 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.64, "actions": true },
+      { "depth": 2, "export": "Window", "x": 183, "y": 47, "scaleX": 5.5, "scaleY": 4.09949, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "StylizedRectangle", "x": 191.8, "y": 92.15, "scaleX": 2.8258, "scaleY": 3.4182, "actions": true },
+      { "depth": 4, "export": "StylizedRectangle", "x": 490.45, "y": 92.15, "scaleX": 2.32986, "scaleY": 3.4182, "actions": true },
+      { "depth": 5, "export": "Button", "x": 707.6, "y": 55, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 6, "export": "Rectangle", "x": 612.1, "y": 229.05, "scale": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [182, 170, 139, 0] }, "name": "_previewCenter" },
+      { "depth": 8, "export": "Label", "x": 201.85, "y": 98.3, "scaleX": 1.90002, "scaleY": 0.8, "name": "_lblTitle", "actions": true },
+      { "depth": 9, "export": "Button", "x": 508.6, "y": 382.8, "scaleX": 0.95003, "scaleY": 1, "name": "_btnSave", "actions": true },
+      { "depth": 10, "export": "Button", "x": 611.15, "y": 382.8, "scaleX": 0.95023, "scaleY": 1, "name": "_btnReset", "actions": true },
+      { "depth": 11, "export": "Label", "x": 534, "y": 407, "scaleX": 1.72162, "scaleY": 1, "name": "_lblShowWings", "actions": true },
+      { "depth": 12, "export": "Button", "x": 517.4, "y": 411.15, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnShowWings", "actions": true },
+      { "depth": 13, "export": "List", "x": 191.6, "y": 151.6, "scaleX": 2.82742, "scaleY": 14.0134, "name": "_lstTitle", "actions": true },
+      { "depth": 14, "shape": 572, "x": 0, "y": 0 },
+      { "depth": 15, "export": "SpriteViewer", "x": 554.45, "y": 217.05, "scaleX": 0.99997, "scaleY": 1, "name": "_svCharacterViewer", "actions": true },
+      { "depth": 23, "shape": 573, "x": 0, "y": 0 },
+      { "depth": 24, "export": "Loupe", "x": 198.55, "y": 127.6, "scaleX": 0.95177, "scaleY": 1 },
+      { "depth": 26, "export": "TextInput", "x": 218.55, "y": 124.75, "scaleX": 2.35538, "scaleY": 0.8, "name": "_tiSearch", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 0, "y": 10, "scaleX": 2.70001, "scaleY": 1, "name": "_lblIndex", "actions": true },
+      { "depth": 2, "export": "List", "x": 0, "y": 50, "scaleX": 2.70001, "scaleY": 10.49957, "name": "_lstChapters", "actions": true }
+    ]
+  }
+ ]
+}

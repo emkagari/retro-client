@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 20, "y": 0, "name": "_lblName", "actions": true },
+      { "depth": 2, "export": "Container", "x": 0, "y": 0, "scale": 0.39998, "name": "_ctrIcon", "actions": true },
+      { "depth": 3, "export": "SpriteLoader", "x": 0.5, "y": 0.5, "scale": 0.19, "name": "_ldrSprite", "actions": true }
+    ]
+  }
+ ]
+}

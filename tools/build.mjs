@@ -9,7 +9,8 @@
  * compiler keeps the decompiled `_locN_` variables as named variables).
  *
  * Graphics first: the shapes and images of src/assets/ that differ from the
- * base, and new ones (tools/assets.mjs). Then library clips the sources
+ * base, and new ones (tools/assets.mjs); sprites: the sprite.json that differ,
+ * and new ones (tools/sprites.mjs). Then library clips the sources
  * need: new classes, src/symbols.json (tools/symbols.mjs). `_root` is compiled by name (lib.mjs rootByName). Then
  * checks that no function preloads `_root`, and that every accessor still carries its property's name (the
  * compiler rebuilds `addProperty` from accessor names: a mismatch registers
@@ -21,6 +22,7 @@ import { dirname, join, relative, resolve, sep } from "node:path";
 import { ROOT, SRC, base, compileErrors, config, ffdec, fromFfdec, rootByName, sha256, sourceFiles, sourceHash, toFfdec } from "./lib.mjs";
 import { declaredSymbols, exportNames, withSymbols } from "./symbols.mjs";
 import { applyAssets, changedAssets } from "./assets.mjs";
+import { applySprites, changedSprites } from "./sprites.mjs";
 
 const args = process.argv.slice(2);
 const full = args.includes("--full");
@@ -52,7 +54,8 @@ for (const f of removed) console.warn(`warning: ${f} was deleted — a build can
 mkdirSync(dirname(out), { recursive: true });
 const symbols = declaredSymbols();
 const graphics = changedAssets(b.manifest);
-if (changed.length === 0 && symbols.length === 0 && graphics.length === 0) {
+const sprites = changedSprites(b.manifest);
+if (changed.length === 0 && symbols.length === 0 && graphics.length === 0 && sprites.length === 0) {
   copyFileSync(b.loader, tmpOut);
   renameSync(tmpOut, out);
   console.log(`no change since base ${cfg.version}: ${out} is the base loader`);
@@ -65,12 +68,28 @@ if (graphics.length) {
   const withGraphics = join(work, "base-with-assets.swf");
   try {
     const added = applyAssets(cfg, b.loader, withGraphics, graphics, work);
-    console.log(`graphics: ${graphics.length} file${graphics.length > 1 ? "s" : ""} from src/assets/${added.length ? ` (new: ${added.join(", ")})` : ""}`);
+    const n = graphics.filter((f) => !f.endsWith(".json")).length;
+    if (n) console.log(`graphics: ${n} file${n > 1 ? "s" : ""} from src/assets/${added.length ? ` (new: ${added.join(", ")})` : ""}`);
   } catch (e) {
     console.error(`\ngraphics: ${e.message}`);
     process.exit(1);
   }
   input = withGraphics;
+}
+
+// Sprites: edited sprite.json re-encoded, new ones (src/assets/new/<path>.json) added (tools/sprites.mjs).
+const newSprites = graphics.filter((f) => f.endsWith(".json"));
+if (sprites.length || newSprites.length) {
+  const withSprites = join(work, "base-with-sprites.swf");
+  try {
+    const added = applySprites(input, withSprites, sprites, newSprites, b.loader);
+    console.log(`sprites: ${[sprites.length ? `${sprites.length} edited` : "", added.length ? `new: ${added.join(", ")}` : ""].filter(Boolean).join(", ")}`);
+  } catch (e) {
+    console.error(`
+sprites: ${e.message}`);
+    process.exit(1);
+  }
+  input = withSprites;
 }
 
 // Clips the sources need and the base lacks: new classes, src/symbols.json (tools/symbols.mjs).

@@ -1,0 +1,32 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 5.72992, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 20, "scaleX": 5.72992, "scaleY": 2.30011, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 0, "y": 20, "scaleX": 3.03001, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 303, "y": 40, "scaleX": 0.00998, "scaleY": 2.09996, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": 0, "y": 250, "scaleX": 5.72992, "scaleY": 0.1, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 11, "export": "Rectangle", "x": 303, "y": 20, "scaleX": 0.00998, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 13, "export": "HouseIcon", "x": 333, "y": 25.05, "scale": 0.55463, "name": "_mcHouseIcon" },
+      { "depth": 15, "export": "Rectangle", "x": 312, "y": 107, "scaleX": 2.5401, "scaleY": 0.61986, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 17, "export": "Rectangle", "x": 312, "y": 189, "scaleX": 2.5401, "scaleY": 0.61986, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 19, "export": "List", "x": 0, "y": 40, "scaleX": 3.03001, "scaleY": 10.49994, "name": "_lblSkillsTitle", "actions": true },
+      { "depth": 20, "export": "Label", "x": 10.8, "y": 0.2, "scaleX": 5.53532, "scaleY": 0.8, "name": "_lblDescription", "actions": true },
+      { "depth": 21, "export": "Label", "x": 7, "y": 20, "scaleX": 1.85997, "scaleY": 0.8, "name": "_lblHouseCoords", "actions": true },
+      { "depth": 22, "export": "Label", "x": 313, "y": 88, "scaleX": 2.51999, "scaleY": 1, "name": "_lstHouses", "actions": true },
+      { "depth": 23, "export": "Label", "x": 313, "y": 170, "scaleX": 2.51999, "scaleY": 1, "name": "_lblSelectHouse", "actions": true },
+      { "depth": 24, "export": "List", "x": 313, "y": 108, "scaleX": 2.52, "scaleY": 3, "name": "_lstSkills", "actions": true },
+      { "depth": 25, "export": "List", "x": 313, "y": 190, "scaleX": 2.52, "scaleY": 3, "name": "_lstRights", "actions": true },
+      { "depth": 26, "export": "Button", "x": 313, "y": 70, "scaleX": 0.73999, "scaleY": 0.94531, "name": "_btnTeleport", "actions": true },
+      { "depth": 27, "export": "Label", "x": 390, "y": 76.45, "scaleX": 1.8043, "scaleY": 1, "name": "_lblCoordsTitle", "actions": true },
+      { "depth": 28, "export": "Label", "x": 389.95, "y": 87.5, "scaleX": 1.75107, "scaleY": 1, "name": "_lblHouseName", "actions": true },
+      { "depth": 29, "export": "Label", "x": 390, "y": 49.3, "scaleX": 1.80467, "scaleY": 1, "name": "_lblRightsTitle", "actions": true },
+      { "depth": 30, "export": "Label", "x": 389.95, "y": 60.3, "scaleX": 1.7508, "scaleY": 1, "name": "_lblOwnerTitle", "actions": true },
+      { "depth": 31, "export": "Rectangle", "x": 307, "y": 23, "scaleX": 2.61987, "scaleY": 2.26978, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] }, "name": "_mcMask" },
+      { "depth": 33, "export": "Label", "x": 307, "y": 110, "scaleX": 2.6199, "scaleY": 1, "name": "_lblHouse", "actions": true },
+      { "depth": 34, "export": "Label", "x": 390, "y": 23, "scaleX": 1.78949, "scaleY": 2.20004, "name": "_lblHouseOwner", "actions": true }
+    ]
+  }
+ ]
+}

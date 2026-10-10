@@ -1,0 +1,39 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Window", "x": 30, "y": 57, "scaleX": 3.27005, "scaleY": 1.34985, "name": "_winBgMission", "actions": true },
+      { "depth": 2, "export": "Window", "x": 30, "y": 200, "scaleX": 3.27005, "scaleY": 2.41998, "name": "_winBgQuest", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 33.05, "y": 81.7, "scaleX": 3.20952, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 33.05, "y": 102, "scale": 0.86911, "name": "_mcMask", "mask": 15 },
+      { "depth": 7, "export": "SpriteViewer", "x": 15.7, "y": 97, "name": "_svCharacterViewer", "actions": true },
+      { "depth": 17, "export": "List", "x": 33.1, "y": 224.1, "scaleX": 3.21002, "scaleY": 10.39943, "name": "_lstDailyQuests", "actions": true },
+      { "depth": 18, "export": "Label", "x": 144.2, "y": 127.05, "scaleX": 2.06004, "scaleY": 0.90001, "name": "_lblTitleDailyMission", "actions": true },
+      { "depth": 19, "export": "TextArea", "x": 123.45, "y": 145.6, "scaleX": 2.26996, "scaleY": 0.42014, "name": "_txtMissionDescription", "actions": true },
+      { "depth": 20, "export": "Button", "x": 123.6, "y": 128.25, "scaleX": 0.18002, "scaleY": 1.00037, "name": "_btnLocate", "actions": true },
+      { "depth": 21, "export": "Label", "x": 35.5, "y": 81.75, "scaleX": 2.93268, "scaleY": 1, "name": "_lblTimeReset", "actions": true },
+      { "depth": 22, "export": "MissionStep", "x": 125.65, "y": 107 },
+      { "depth": 25, "export": "MissionStep", "x": 159.1, "y": 107 },
+      { "depth": 28, "export": "MissionStep", "x": 192.4, "y": 107 },
+      { "depth": 31, "export": "Purse", "x": 199.45, "y": 114, "scale": 0.40268 },
+      { "depth": 34, "export": "Purse", "x": 332.95, "y": 114, "scale": 0.40268 },
+      { "depth": 37, "export": "Purse", "x": 335.45, "y": 116.9, "matrix": [-0.1882, -0.05045, -0.0502, 0.1875] },
+      { "depth": 40, "export": "GAPILoader", "x": 338, "y": 85.75, "scale": 0.12, "name": "_ldrAboutMission", "actions": true },
+      { "depth": 41, "export": "GAPILoader", "x": 338, "y": 207.6, "scale": 0.12, "name": "_ldrAboutQuest", "actions": true },
+      { "depth": 42, "export": "MissionCheck", "x": 125.65, "y": 107, "name": "_mcCheck0" },
+      { "depth": 45, "export": "MissionCheck", "x": 192.4, "y": 107, "name": "_mcCheck2" },
+      { "depth": 48, "export": "MissionCheck", "x": 159.1, "y": 107, "name": "_mcCheck1" },
+      { "depth": 51, "export": "MissionStep", "x": 225.9, "y": 107 },
+      { "depth": 54, "export": "MissionCheck", "x": 225.9, "y": 107, "name": "_mcCheck3" },
+      { "depth": 57, "export": "MissionStep", "x": 259.1, "y": 107 },
+      { "depth": 60, "export": "MissionStep", "x": 292.6, "y": 107 },
+      { "depth": 63, "shape": 749, "x": 0, "y": 0 },
+      { "depth": 64, "export": "Purse", "x": 332.95, "y": 114, "scale": 0.40268 },
+      { "depth": 67, "export": "Purse", "x": 335.45, "y": 116.9, "matrix": [-0.1882, -0.05045, -0.0502, 0.1875] },
+      { "depth": 70, "export": "MissionCheck", "x": 326, "y": 107, "name": "_mcCheck6" },
+      { "depth": 73, "export": "MissionCheck", "x": 292.6, "y": 107, "name": "_mcCheck5" },
+      { "depth": 76, "export": "MissionCheck", "x": 259.1, "y": 107, "name": "_mcCheck4" }
+    ]
+  }
+ ]
+}

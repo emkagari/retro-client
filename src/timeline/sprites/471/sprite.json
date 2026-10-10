@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 466, "x": -0.65, "y": 6.3, "name": "cIop_R_Epaule00" },
+      { "depth": 3, "shape": 467, "x": 0, "y": 0 },
+      { "depth": 4, "sprite": 469, "x": -0.3, "y": 1.25, "name": "cIop_R_Epaulette00" },
+      { "depth": 7, "shape": 470, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

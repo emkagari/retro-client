@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 2, "shape": 1992, "x": 0, "y": 0 },
+      { "depth": 3, "sprite": 265, "x": 5.25, "y": 5.05, "scaleX": 1.67593, "scaleY": 1.6707, "color": { "mult": [0, 0, 0, 1] } },
+      { "depth": 5, "sprite": 265, "x": 4.05, "y": 3.85, "scaleX": 1.67593, "scaleY": 1.6707, "color": { "mult": [0, 0, 0, 1], "add": [0, 153, 0, 0] } }
+    ]
+  }
+ ]
+}

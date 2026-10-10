@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 2, "y": 2, "scaleX": 0.21, "scaleY": 0.26, "mask": 6 },
+      { "depth": 3, "export": "GAPILoader", "x": 14, "y": 33, "scaleX": 0.01999, "scaleY": 0.02002, "name": "_ldrSprite", "actions": true },
+      { "depth": 4, "export": "Rectangle", "x": -8, "y": -5, "scaleX": 0.40024, "scaleY": 0.39973, "alpha": 0 },
+      { "depth": 8, "export": "GAPILoader", "x": 2.3, "y": 2.3, "scaleX": 0.07996, "scaleY": 0.08003, "name": "_ldrIcon", "actions": true }
+    ]
+  }
+ ]
+}

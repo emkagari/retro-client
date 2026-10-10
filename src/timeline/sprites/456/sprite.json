@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 452, "x": -0.2, "y": -6.35, "matrix": [0.9273, -0.13889, 0.20845, 0.99289], "name": "cIop_R_Corps" },
+      { "depth": 3, "sprite": 454, "x": 0.85, "y": -5.5, "matrix": [0.67842, 0.27866, 0.26569, 1.1861], "name": "cVald_R_CroixCorps" },
+      { "depth": 9, "shape": 455, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

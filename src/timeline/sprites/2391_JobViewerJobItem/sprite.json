@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 208, "x": 3.85, "y": 3.3, "scale": 0.43164, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] }, "name": "_circleShadow", "filters": [{ "type": "blur", "blurX": 5, "blurY": 5, "passes": 3 }] },
+      { "depth": 3, "export": "CircleBar", "x": 25.35, "y": 24.8, "scale": 0.41942, "name": "_cbXp", "actions": true },
+      { "depth": 4, "sprite": 208, "x": 6.95, "y": 6.4, "scale": 0.36963, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] }, "name": "_circleBg" },
+      { "depth": 6, "export": "Label", "x": 55.45, "y": 3.85, "scaleX": 1.44391, "scaleY": 0.90001, "name": "_lblName", "actions": true },
+      { "depth": 7, "export": "GAPILoader", "x": 6.6, "y": 6.4, "scale": 0.3729, "name": "_ldrIcon", "actions": true },
+      { "depth": 8, "export": "Label", "x": 55.05, "y": 22, "scaleX": 1.44391, "scaleY": 0.8, "name": "_lbLevel", "actions": true }
+    ]
+  }
+ ]
+}

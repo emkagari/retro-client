@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 1.67023, "scaleY": 0.29999, "alpha": 0 },
+      { "depth": 3, "shape": 127, "x": 0, "y": 0 },
+      { "depth": 4, "export": "Label", "x": 11.5, "y": 5.9, "scaleX": 1.32556, "scaleY": 1, "name": "_lblText", "actions": true },
+      { "depth": 5, "export": "Button", "x": 149, "y": 9.8, "scaleX": 0.1, "scaleY": 0.55556, "name": "_btnClose", "actions": true }
+    ]
+  }
+ ]
+}

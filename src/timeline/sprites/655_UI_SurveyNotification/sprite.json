@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 654, "x": 650.05, "y": 19.05, "scaleX": 0.763, "scaleY": 0.71759, "rotation": -90 },
+      { "depth": 3, "export": "Button", "x": 653.2, "y": 2.5, "scaleX": 0.138, "scaleY": 0.72359, "name": "_btn", "actions": true }
+    ]
+  }
+ ]
+}

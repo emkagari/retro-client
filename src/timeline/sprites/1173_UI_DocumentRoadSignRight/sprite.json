@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63998, "name": "_bgHidder", "actions": true },
+      { "depth": 2, "shape": 1168, "x": 0, "y": 0 },
+      { "depth": 3, "sprite": 1171, "x": 742, "y": 0, "scaleX": -1, "scaleY": 1, "name": "_mcSmall" },
+      { "depth": 5, "text": 1172, "x": 145, "y": 129.95, "name": "_txtCore" },
+      { "depth": 6, "export": "Label", "x": 111, "y": 65, "scaleX": 2, "scaleY": 1.5, "name": "_lblTitle", "actions": true },
+      { "depth": 7, "export": "Button", "x": 108, "y": 119, "scaleX": -0.09999, "scaleY": 0.55557, "name": "_btnClose", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "DefaultBackground", "x": 16, "y": 29 },
+      { "depth": 3, "export": "DefaultHighlight", "x": 16.5, "y": -19.5 }
+    ]
+  }
+ ]
+}

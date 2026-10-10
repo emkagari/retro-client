@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1717, "x": 114, "y": 0, "name": "\u001e\t\r" },
+      { "depth": 3, "sprite": 1717, "x": 154, "y": 0, "name": "\u001e\t\u000e" },
+      { "depth": 5, "sprite": 1717, "x": 182, "y": 0, "name": "\u001e\t\u000f" },
+      { "depth": 7, "sprite": 1717, "x": 210, "y": 0, "name": "_separator4" },
+      { "depth": 9, "export": "Label", "x": 0, "y": 0, "scaleX": 1.13995, "scaleY": 0.8, "name": "_lblReporterName", "actions": true },
+      { "depth": 10, "export": "Label", "x": 114, "y": 0, "scaleX": 0.40001, "scaleY": 0.8, "name": "_lblScore", "actions": true },
+      { "depth": 11, "export": "GAPILoader", "x": 160, "y": 1, "scale": 0.15999, "name": "_ldrHasCustomNoteIcon", "actions": true },
+      { "depth": 12, "export": "GAPILoader", "x": 188.45, "y": 1, "scale": 0.15999, "name": "_ldrHasChatConversationIcon", "actions": true },
+      { "depth": 13, "export": "GAPILoader", "x": 218.45, "y": 1, "scale": 0.15999, "name": "_ldrCurrentState", "actions": true }
+    ]
+  }
+ ]
+}

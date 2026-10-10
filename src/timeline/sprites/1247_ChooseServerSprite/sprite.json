@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1241, "x": 0.35, "y": 0.55, "name": "_mcInteraction" },
+      { "depth": 3, "sprite": 1243, "x": -4, "y": -4, "scaleX": 1.07141, "scaleY": 1.03601, "color": { "mult": [0, 0, 0, 1], "add": [0, 204, 0, 0] }, "name": "_mcSelect" },
+      { "depth": 5, "export": "GAPILoader", "x": 0, "y": 0, "scaleX": 1.1201, "scaleY": 1.43011, "name": "_ldrSprite", "actions": true },
+      { "depth": 6, "export": "GAPILoader", "x": 7.45, "y": 96.15, "scaleX": 0.97098, "scaleY": 0.36983, "name": "_ldrOverIcon", "actions": true },
+      { "depth": 8, "shape": 1244, "x": 0, "y": 0 },
+      { "depth": 9, "export": "Label", "x": 4, "y": 140.3, "scaleX": 1.04001, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 10, "export": "Container", "x": 5, "y": 191, "scale": 0.23999, "name": "_ctrServerState", "actions": true },
+      { "depth": 11, "export": "Label", "x": 17, "y": 187, "scaleX": 0.90001, "scaleY": 0.6, "name": "_lblState", "actions": true },
+      { "depth": 12, "export": "Label", "x": 58, "y": 170, "scaleX": 0.34021, "scaleY": 0.6, "name": "_lblNumChar", "actions": true },
+      { "depth": 13, "export": "Bonhomme", "x": 41.75, "y": 164.65, "name": "_mcNumChar" }
+    ]
+  }
+ ]
+}

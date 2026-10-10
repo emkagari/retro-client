@@ -1,0 +1,31 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2231, "x": 327, "y": 0, "scaleX": 1, "scaleY": 2 },
+      { "depth": 3, "sprite": 2231, "x": 25, "y": 0, "scaleX": 1, "scaleY": 2 },
+      { "depth": 5, "export": "pic_IN_MULTI", "x": 12.4, "y": 20, "name": "_mcFight" },
+      { "depth": 9, "sprite": 485, "x": 332, "y": 6, "alpha": 0.3, "name": "_mcBackButtons" },
+      { "depth": 41, "sprite": 2231, "x": 297, "y": 0, "scaleX": 1, "scaleY": 2 },
+      { "depth": 43, "sprite": 2232, "x": 3.3, "y": 9.8, "name": "_mcEnterFight" },
+      { "depth": 48, "sprite": 2234, "x": 3.45, "y": 11.2, "name": "_mcCollect" },
+      { "depth": 50, "export": "BonhommeBrun", "x": 8.05, "y": 23.25, "scaleX": 0.59999, "scaleY": 0.6023, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] }, "name": "_mcIsMyTaxCollector" },
+      { "depth": 52, "export": "Label", "x": 30, "y": -1.75, "scaleX": 2.63, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 53, "export": "VerticalChrono", "x": 334, "y": 8, "scaleX": 0.28572, "scaleY": 0.83871, "name": "_vcTimer", "actions": true },
+      { "depth": 54, "export": "Button", "x": 377, "y": 6, "scaleX": 0.25, "scaleY": 1.66667, "name": "_btnPlayer1", "actions": true },
+      { "depth": 55, "export": "Button", "x": 407, "y": 6, "scaleX": 0.25, "scaleY": 1.66667, "name": "_btnPlayer2", "actions": true },
+      { "depth": 56, "export": "Button", "x": 437, "y": 6, "scaleX": 0.25, "scaleY": 1.66667, "name": "_btnPlayer3", "actions": true },
+      { "depth": 57, "export": "Button", "x": 467, "y": 6, "scaleX": 0.25, "scaleY": 1.66667, "name": "_btnPlayer4", "actions": true },
+      { "depth": 58, "export": "Button", "x": 497, "y": 6, "scaleX": 0.25, "scaleY": 1.66667, "name": "_btnPlayer5", "actions": true },
+      { "depth": 59, "export": "Button", "x": 527, "y": 6, "scaleX": 0.25, "scaleY": 1.66667, "name": "_btnPlayer6", "actions": true },
+      { "depth": 60, "export": "Button", "x": 347, "y": 6, "scaleX": 0.25, "scaleY": 1.66667, "name": "_btnPlayer0", "actions": true },
+      { "depth": 61, "export": "Label", "x": 300, "y": 10, "scaleX": 0.25002, "scaleY": 0.8, "name": "_lblAttackersCount", "actions": true },
+      { "depth": 62, "export": "Button", "x": 0, "y": 0, "scaleX": 0.25, "scaleY": 2.22223, "name": "_btnState", "actions": true },
+      { "depth": 63, "export": "Label", "x": 30, "y": 14, "scaleX": 2.62993, "scaleY": 0.80002, "name": "_lblArea", "actions": true },
+      { "depth": 64, "export": "Label", "x": 30, "y": 23, "scaleX": 2.62993, "scaleY": 0.80002, "name": "_lblSubArea", "actions": true },
+      { "depth": 65, "export": "Button", "x": 224.3, "y": 12.5, "scaleX": 0.65163, "scaleY": 0.892, "name": "_btnLocate", "actions": true },
+      { "depth": 66, "sprite": 2231, "x": 583.15, "y": -0.45, "scaleX": 0.4, "scaleY": 29.1683, "rotation": 90, "color": { "mult": [0.85, 0.85, 0.85, 1] } }
+    ]
+  }
+ ]
+}

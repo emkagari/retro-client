@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 61, "y": 15, "scaleX": 2.41, "scaleY": 1.35, "name": "_lblCategory", "actions": true },
+      { "depth": 2, "sprite": 975, "x": -34.65, "y": 0.1, "scaleX": 1.06511, "scaleY": 1.06577, "name": "_mcPicto" }
+    ]
+  }
+ ]
+}

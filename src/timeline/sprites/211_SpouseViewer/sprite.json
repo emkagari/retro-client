@@ -1,0 +1,21 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Window", "x": 0, "y": 0, "scaleX": 1.90002, "scaleY": 2.44, "name": "_winBg", "actions": true },
+      { "depth": 2, "export": "Rectangle", "x": 7, "y": 113, "scaleX": 1.76, "scaleY": 1.23993, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 4, "sprite": 208, "x": 7.5, "y": 35, "scale": 0.7, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 6, "export": "Button", "x": 15, "y": 185, "scaleX": 1.6, "scaleY": 1, "name": "_btnJoin", "actions": true },
+      { "depth": 7, "export": "Button", "x": 15, "y": 212, "scaleX": 1.6001, "scaleY": 1, "name": "_btnCompass", "actions": true },
+      { "depth": 8, "export": "Label", "x": 83.5, "y": 35, "scaleX": 1, "scaleY": 2.04999, "name": "_lblName", "actions": true },
+      { "depth": 9, "export": "Label", "x": 83.5, "y": 82, "scaleX": 1, "scaleY": 0.8, "name": "_lblLevel", "actions": true },
+      { "depth": 10, "export": "Label", "x": 13.5, "y": 116, "scaleX": 1.60004, "scaleY": 0.8, "name": "_lblPosition", "actions": true },
+      { "depth": 11, "export": "Label", "x": 23.5, "y": 133.45, "scaleX": 1.50005, "scaleY": 2.304, "name": "_lblArea", "actions": true },
+      { "depth": 12, "export": "Label", "x": 23.5, "y": 159, "scaleX": 1.50005, "scaleY": 0.8, "name": "_lblCoordinates", "actions": true },
+      { "depth": 13, "export": "pic_IN_MULTI", "x": 166.5, "y": 92, "name": "_mcInFight" },
+      { "depth": 17, "sprite": 208, "x": 10.5, "y": 38, "scale": 0.64, "mask": 20 },
+      { "depth": 19, "export": "GAPILoader", "x": 8, "y": 35, "scale": 0.7, "name": "_ldrArtwork", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": -16, "y": -16, "scale": 0.31999, "alpha": 0 },
+      { "depth": 3, "export": "SimpleSword", "x": -0.8, "y": -0.6, "scale": 0.53657, "rotation": 14.02162 },
+      { "depth": 5, "export": "SimpleSword", "x": 4.75, "y": -0.6, "matrix": [-0.50977, 0.13712, 0.13918, 0.51735] }
+    ]
+  }
+ ]
+}

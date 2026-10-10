@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": -4, "scale": 0.1, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 3, "sprite": 1030, "x": 0, "y": 19, "scale": 0.13, "rotation": -90, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 13, "y": -4, "scaleX": 2.80896, "scaleY": 0.04, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 7, "sprite": 522, "x": 287.7, "y": 16.6, "scaleX": -1, "scaleY": -1.00302, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 9, "sprite": 868, "x": 297.9, "y": 19, "scaleX": -1, "scaleY": -0.98215, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 255] } },
+      { "depth": 11, "sprite": 1030, "x": 3, "y": 16, "scale": 0.1, "rotation": -90, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 13, "export": "Rectangle", "x": 13, "y": -4, "scaleX": 2.06958, "scaleY": 0.23001, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 15, "export": "Rectangle", "x": 3, "y": -4, "scale": 0.1, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 17, "export": "Rectangle", "x": 13, "y": 16, "scaleX": 2.07457, "scaleY": 0.03, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } }
+    ]
+  }
+ ]
+}

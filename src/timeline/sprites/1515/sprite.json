@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 1513, "x": 0, "y": 0 },
+      { "depth": 2, "shape": 1456, "x": 0, "y": 0, "mask": 4 },
+      { "depth": 3, "shape": 1487, "x": 0, "y": 0 },
+      { "depth": 5, "shape": 1488, "x": 0, "y": 0, "mask": 8 },
+      { "depth": 6, "sprite": 1514, "x": -27.05, "y": 46.95, "rotation": -45, "alpha": 0.76 }
+    ]
+  }
+ ]
+}

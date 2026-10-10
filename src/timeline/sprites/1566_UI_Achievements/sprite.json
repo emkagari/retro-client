@@ -1,0 +1,27 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 137, "y": 47, "scaleX": 5.95993, "scaleY": 4.10022, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "StylizedRectangle", "x": 140, "y": 101, "scaleX": 1.95012, "scaleY": 3.30975, "actions": true },
+      { "depth": 4, "export": "StylizedRectangle", "x": 345, "y": 101, "scaleX": 3.85019, "scaleY": 3.30988, "actions": true },
+      { "depth": 5, "export": "Rectangle", "x": 145, "y": 129, "scaleX": 1.85, "scaleY": 0.20001, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 61, 0] } },
+      { "depth": 7, "export": "AchievementScore", "x": 170.5, "y": 80, "scaleX": 0.51314, "scaleY": 0.51265 },
+      { "depth": 15, "export": "Loupe", "x": 382.9, "y": 107.45 },
+      { "depth": 17, "shape": 1559, "x": 0, "y": 0 },
+      { "depth": 18, "sprite": 1561, "x": 350, "y": 447.3, "name": "_mcFooter" },
+      { "depth": 20, "export": "Button", "x": 713, "y": 55.5, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 21, "export": "List", "x": 145, "y": 149, "scaleX": 1.85008, "scaleY": 13.99928, "name": "_lstCategories", "actions": true },
+      { "depth": 22, "export": "AchievementSynthesis", "x": 350, "y": 129, "name": "_mcSynthesis" },
+      { "depth": 28, "export": "ScrollBar", "x": 713, "y": 129, "scaleX": 1, "scaleY": 2.99396, "name": "_sbScrollbar", "actions": true },
+      { "depth": 29, "export": "Label", "x": 350, "y": 281, "scaleX": 3.63017, "scaleY": 0.8, "name": "_lblNoAchievementsFound", "actions": true },
+      { "depth": 30, "export": "TextInput", "x": 403.8, "y": 105.2, "scaleX": 2.9383, "scaleY": 0.8, "name": "_tiSearch", "actions": true },
+      { "depth": 31, "export": "Button", "x": 704.55, "y": 109.4, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnReset", "actions": true },
+      { "depth": 32, "export": "Label", "x": 145, "y": 129, "scaleX": 1.84991, "scaleY": 1, "name": "_lblCategories", "actions": true },
+      { "depth": 33, "export": "Button", "x": 353, "y": 105.5, "scaleX": 0.20003, "scaleY": 1.11145, "name": "_btnHideCompletedAchievements", "actions": true },
+      { "depth": 34, "export": "Rectangle", "x": 350, "y": 129, "scaleX": 3.62988, "scaleY": 2.99994, "alpha": 0, "name": "_mcPlacer" }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 388.3, "y": 302.6, "scale": 1.00006, "alpha": 0, "name": "_mcBannerPlacer" },
+      { "depth": 3, "sprite": 16, "x": 291, "y": 502, "alpha": 0.89, "name": "_mcLoadingWindow" },
+      { "depth": 5, "export": "Rectangle", "x": -14, "y": 159.85, "scaleX": 7.69682, "scaleY": 2.639, "color": { "mult": [0, 0, 0, 0.6] }, "name": "_mcConfigBg" },
+      { "depth": 7, "export": "Button", "x": 631, "y": 480, "name": "_btnClearCache", "actions": true },
+      { "depth": 8, "export": "Button", "x": 631, "y": 504, "name": "_btnCopyLogsToClipbard", "actions": true },
+      { "depth": 9, "export": "Button", "x": 631, "y": 528, "name": "_btnShowLogs", "actions": true },
+      { "depth": 10, "sprite": 59, "x": 295, "y": 510, "name": "_mcTotalProgressBarGroup" },
+      { "depth": 20, "sprite": 59, "x": 295, "y": 533, "name": "_mcProgressBarGroup" },
+      { "depth": 30, "sprite": 62, "x": 49.05, "y": 14.4, "scaleX": 1.621, "scaleY": 1.61998 },
+      { "depth": 32, "export": "Button", "x": 607, "y": 396.75, "name": "_btnNext", "actions": true },
+      { "depth": 33, "export": "Button", "x": 607, "y": 396.75, "name": "_btnChoose", "actions": true },
+      { "depth": 34, "export": "List", "x": 377.65, "y": 188.75, "scaleX": 1.59998, "scaleY": 5, "name": "_lstClientData", "actions": true },
+      { "depth": 35, "export": "List", "x": 551, "y": 188.75, "scaleX": 1.59998, "scaleY": 5, "name": "_lstPorts", "actions": true },
+      { "depth": 36, "export": "Label", "x": 551, "y": 168.75, "scaleX": 1.59998, "scaleY": 1, "name": "_lblPorts", "actions": true },
+      { "depth": 37, "export": "Label", "x": 377.65, "y": 168.75, "scaleX": 1.59998, "scaleY": 1, "name": "_lblClientData", "actions": true },
+      { "depth": 38, "export": "List", "x": 203.35, "y": 188.75, "scaleX": 1.59998, "scaleY": 5, "name": "_lstConnexionServer", "actions": true },
+      { "depth": 39, "export": "List", "x": 30, "y": 188.75, "scaleX": 1.59998, "scaleY": 5, "name": "_lstLauncher", "actions": true },
+      { "depth": 40, "export": "Label", "x": 30, "y": 168.75, "scaleX": 1.59998, "scaleY": 1, "name": "_lblLauncher", "actions": true },
+      { "depth": 41, "export": "Label", "x": 203.35, "y": 168.75, "scaleX": 1.59998, "scaleY": 1, "name": "_lstConfiguration", "actions": true },
+      { "depth": 42, "export": "Label", "x": 45.9, "y": 301.45, "scaleX": 2.67755, "scaleY": 1, "name": "_lblShowId", "actions": true },
+      { "depth": 43, "export": "Label", "x": 45.9, "y": 325.1, "scaleX": 2.67734, "scaleY": 1, "name": "_lblLogRequests", "actions": true },
+      { "depth": 44, "export": "Label", "x": 45.9, "y": 349, "scaleX": 2.67755, "scaleY": 1, "name": "_lblDebugRequests", "actions": true },
+      { "depth": 45, "export": "Button", "x": 27.5, "y": 306.2, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnShowId", "actions": true },
+      { "depth": 46, "export": "Button", "x": 27.5, "y": 329.8, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnLogRequests", "actions": true },
+      { "depth": 47, "export": "Button", "x": 27.5, "y": 353.8, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnDebugRequests", "actions": true },
+      { "depth": 48, "export": "Label", "x": 344.25, "y": 301.45, "scaleX": 2.67755, "scaleY": 1, "name": "_lblOpenRetroChat", "actions": true },
+      { "depth": 49, "export": "Label", "x": 344.25, "y": 325.1, "scaleX": 2.67755, "scaleY": 1, "name": "_lblOpenRetroConsole", "actions": true },
+      { "depth": 50, "export": "Button", "x": 325.85, "y": 306.2, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnOpenRetroChat", "actions": true },
+      { "depth": 51, "export": "Button", "x": 325.85, "y": 329.8, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnOpenRetroConsole", "actions": true },
+      { "depth": 52, "export": "Label", "x": 45.9, "y": 373.05, "scaleX": 2.67755, "scaleY": 1, "name": "_lblSkipFightAnim", "actions": true },
+      { "depth": 53, "export": "Button", "x": 27.5, "y": 377.85, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnSkipFightAnim", "actions": true },
+      { "depth": 54, "export": "Label", "x": 45.9, "y": 397.85, "scaleX": 2.67755, "scaleY": 1, "name": "_lblShowCellIds", "actions": true },
+      { "depth": 55, "export": "Button", "x": 27.5, "y": 402.65, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnShowCellIds", "actions": true },
+      { "depth": 56, "export": "ConsoleLogger", "x": 4.7, "y": 84, "scaleX": 7.32, "scaleY": 3.74988, "name": "_cLogger", "actions": true },
+      { "depth": 57, "export": "ConsoleLogger", "x": 5, "y": 30, "scaleX": 7.32, "scaleY": 0.49997, "name": "_cLoggerInit", "actions": true },
+      { "depth": 58, "export": "ConsoleLogger", "x": 5, "y": 465, "scaleX": 7.32, "scaleY": 0.34998, "name": "_cLoggerError", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "color": { "mult": [0, 0, 0, 1], "add": [200, 191, 158, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 1], "add": [179, 172, 142, 0] } }
+    ]
+  }
+ ]
+}

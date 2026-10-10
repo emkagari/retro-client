@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2416, "x": 6, "y": 3.55, "scale": 0.29317, "name": "_mcIcon" },
+      { "depth": 5, "export": "Label", "x": 26, "y": -0.7, "scaleX": 2.6333, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 6, "export": "Label", "x": 42.75, "y": 10.9, "scaleX": 2.56236, "scaleY": 0.8, "name": "_lblOwner", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2013, "x": 0, "y": 20, "name": "color1" },
+      { "depth": 3, "sprite": 2015, "x": 0, "y": 17.15, "name": "color2" },
+      { "depth": 5, "sprite": 2017, "x": 0, "y": 20 },
+      { "depth": 7, "sprite": 2019, "x": 0, "y": 20 }
+    ]
+  }
+ ]
+}

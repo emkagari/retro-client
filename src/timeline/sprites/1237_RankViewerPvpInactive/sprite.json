@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "pic_IN_MULTI", "x": 14.75, "y": 6 },
+      { "depth": 5, "sprite": 263, "x": 0, "y": 2.15, "color": { "mult": [0, 0, 0, 1], "add": [153, 0, 0, 0] } }
+    ]
+  }
+ ]
+}

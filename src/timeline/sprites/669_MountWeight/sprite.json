@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "ProgressBar", "x": 0, "y": 0, "scaleX": 0.70001, "scaleY": 0.99988, "name": "_pbWeight", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.03, "scaleY": 0.19998, "alpha": 0, "name": "border_mc" }
+    ]
+  }
+ ]
+}

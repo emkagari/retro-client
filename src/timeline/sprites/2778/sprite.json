@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scale": 0.12, "color": { "mult": [0, 0, 0, 1], "add": [255, 0, 255, 0] }, "name": "bg_mc" },
+      { "depth": 3, "export": "Rectangle", "x": 12, "y": 1, "scaleX": -0.11, "scaleY": -0.01001, "color": { "mult": [0, 0, 0, 0.4] } },
+      { "depth": 5, "export": "Rectangle", "x": 1, "y": 11, "scaleX": -0.01, "scaleY": -0.1101, "color": { "mult": [0, 0, 0, 0.4] } },
+      { "depth": 7, "export": "Rectangle", "x": 12, "y": 12, "scaleX": -0.12, "scaleY": -0.01001, "color": { "mult": [0, 0, 0, 0.4], "add": [255, 255, 255, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": 12, "y": 11, "scaleX": -0.01, "scaleY": -0.1001, "color": { "mult": [0, 0, 0, 0.4], "add": [255, 255, 255, 0] } },
+      { "depth": 11, "sprite": 2775, "x": 6.1, "y": 5.55, "scale": 0.9125, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } }
+    ]
+  }
+ ]
+}

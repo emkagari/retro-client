@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 102, "x": -3, "y": 0, "scale": 0.05656, "rotation": 135, "color": { "mult": [0, 0, 0, 1] } },
+      { "depth": 3, "sprite": 102, "x": 3, "y": 0, "scale": 0.05673, "rotation": -45, "color": { "mult": [0, 0, 0, 1] } }
+    ]
+  }
+ ]
+}

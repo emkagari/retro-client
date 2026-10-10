@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.62991, "scaleY": 2.99982, "alpha": 0, "name": "_mcMask" },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 62, "scaleX": 3.63, "scaleY": 2.37988, "alpha": 0, "name": "_mcPlacer" },
+      { "depth": 5, "export": "AchievementSynthesisBigItem", "x": 0, "y": 0, "name": "_mcBigItem" }
+    ]
+  }
+ ]
+}

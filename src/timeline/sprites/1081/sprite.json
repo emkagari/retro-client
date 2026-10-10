@@ -1,0 +1,155 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": -54.5, "y": -18.95, "scaleX": 1.08997, "scaleY": 0.379, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {},
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.965], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.93], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.9], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.863], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.83], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.793], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.758], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.723], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.69], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.656], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.62], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.586], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.55], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.516], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.484], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.45], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.414], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.38], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.344], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.31], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.277], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.242], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.207], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.17], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.137], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.1], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.07], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0.035], "add": [213, 207, 170, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0, 0, 0, 0], "add": [213, 207, 170, 0] } }
+    ]
+  }
+ ]
+}

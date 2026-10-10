@@ -1,0 +1,19 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Window", "x": 127.85, "y": 18, "scaleX": 4.90001, "scaleY": 3.89847, "name": "_winBackground", "actions": true },
+      { "depth": 2, "export": "Rectangle", "x": 131, "y": 42.65, "scaleX": 4.84006, "scaleY": 0.22, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 4, "export": "Rectangle", "x": 131, "y": 64.65, "scaleX": 4.84, "scaleY": 1.0645, "color": { "mult": [0, 0, 0, 1], "add": [237, 235, 220, 0] } },
+      { "depth": 6, "export": "Rectangle", "x": 131, "y": 170.65, "scaleX": 4.84006, "scaleY": 0.059, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 8, "export": "Button", "x": 597.85, "y": 26, "scaleX": 0.12001, "scaleY": 0.6666, "name": "_btnClose", "actions": true },
+      { "depth": 9, "export": "Button", "x": 479.8, "y": 407.8, "scaleX": 1, "scaleY": 1.11111, "name": "_btnSave", "actions": true },
+      { "depth": 10, "export": "Button", "x": 369.8, "y": 407.8, "scaleX": 1, "scaleY": 1.11111, "name": "_btnReset", "actions": true },
+      { "depth": 11, "export": "Label", "x": 132.55, "y": 43.65, "scaleX": 4.82335, "scaleY": 0.99461, "name": "_lblTitle", "actions": true },
+      { "depth": 12, "export": "List", "x": 131, "y": 175.6, "scaleX": 4.83987, "scaleY": 10.79945, "name": "_lstQuestions", "actions": true },
+      { "depth": 13, "export": "TextArea", "x": 131.4, "y": 64.1, "scaleX": 4.83978, "scaleY": 1.0701, "name": "_txtDescription", "actions": true },
+      { "depth": 14, "export": "Label", "x": 139.55, "y": 390.5, "scaleX": 4.70798, "scaleY": 0.7202, "name": "_lblDate", "actions": true }
+    ]
+  }
+ ]
+}

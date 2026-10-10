@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 427, "x": -0.4, "y": 5.15, "name": "cIop_R_Jambe00" },
+      { "depth": 4, "shape": 428, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

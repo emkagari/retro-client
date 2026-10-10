@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2198, "x": 0, "y": 0 },
+      { "depth": 3, "export": "ProgressBar", "x": 17.65, "y": 4, "scaleX": 1.50009, "scaleY": 1.20001, "name": "_pbProgress", "actions": true },
+      { "depth": 4, "export": "Label", "x": 175, "y": 0, "scaleX": 1.83995, "scaleY": 1, "name": "_lblDescription", "actions": true }
+    ]
+  }
+ ]
+}

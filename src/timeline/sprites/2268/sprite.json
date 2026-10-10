@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1147, "x": 4, "y": 1, "scaleX": -0.07991, "scaleY": 0.07993, "color": { "mult": [0, 0, 0, 1], "add": [255, 0, 0, 0] }, "name": "up_mc" }
+    ]
+  }
+ ]
+}

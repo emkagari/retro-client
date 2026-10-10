@@ -1,0 +1,26 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Window", "x": 50, "y": 121, "scaleX": 1.79999, "scaleY": 3.16022, "name": "_winBg", "actions": true },
+      { "depth": 3, "shape": 312, "x": 0, "y": 0 },
+      { "depth": 4, "sprite": 314, "x": 81.2, "y": 177.9, "scale": 6.53369, "alpha": 0.13 },
+      { "depth": 6, "shape": 315, "x": 0, "y": 0 },
+      { "depth": 7, "button": 317, "x": 70.5, "y": 339.35, "scaleX": 0.49228, "scaleY": 0.4914, "blend": "overlay" },
+      { "depth": 9, "shape": 318, "x": 0, "y": 0 },
+      { "depth": 10, "button": 317, "x": 149.7, "y": 338.8, "scaleX": 0.49612, "scaleY": 0.49396, "blend": "overlay" },
+      { "depth": 13, "shape": 319, "x": 0, "y": 0 },
+      { "depth": 14, "button": 321, "x": 123, "y": 383.25, "scale": 0.66481, "blend": "overlay" },
+      { "depth": 16, "export": "Loupe", "x": 133.65, "y": 298.15, "name": "_btnView" },
+      { "depth": 18, "export": "Label", "x": 70.8, "y": 337, "scaleX": 0.58986, "scaleY": 0.80206, "name": "_lblBonusXp", "actions": true },
+      { "depth": 19, "export": "Label", "x": 150, "y": 337, "scaleX": 0.598, "scaleY": 0.8, "name": "_lblBonusDrop", "actions": true },
+      { "depth": 20, "export": "TextArea", "x": 60, "y": 199, "scaleX": 1.59978, "scaleY": 0.9, "name": "_taDesc", "actions": true },
+      { "depth": 21, "export": "Button", "x": 209, "y": 129, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 22, "export": "Label", "x": 60, "y": 138.5, "scaleX": 1.60931, "scaleY": 2.40173, "name": "_lblTitle", "actions": true },
+      { "depth": 23, "export": "Label", "x": 71, "y": 318, "scaleX": 0.58986, "scaleY": 0.80457, "name": "_lblTitleXp", "actions": true },
+      { "depth": 24, "export": "Label", "x": 150, "y": 318, "scaleX": 0.60005, "scaleY": 0.80457, "name": "_lblTitleDrop", "actions": true },
+      { "depth": 25, "sprite": 329, "x": 138.85, "y": 402.9, "scale": 0.59938, "name": "_mcState" }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "GAPILoader", "x": 170, "y": 12, "scaleX": 1.99994, "scaleY": 2, "name": "_ldrArtwork", "actions": true },
+      { "depth": 3, "export": "Window", "x": 200, "y": 142, "scaleX": 3.4, "scaleY": 1, "name": "_winBackground", "actions": true },
+      { "depth": 4, "shape": 774, "x": 0, "y": 0 },
+      { "depth": 5, "export": "Window", "x": 201, "y": 143, "scaleX": 3.38, "scaleY": 0.98, "name": "_winBackgroundUp", "actions": true },
+      { "depth": 6, "button": 766, "x": 527.05, "y": 154.95, "scaleX": 1.04749, "scaleY": 1.0376 },
+      { "depth": 8, "export": "Rectangle", "x": 210, "y": 172, "scaleX": 3.20001, "scaleY": 1.6, "alpha": 0, "name": "_mcQuestionViewer" }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": -16, "y": -16, "scale": 0.31999, "alpha": 0 },
+      { "depth": 3, "export": "QuestBook", "x": 2.95, "y": -3.95, "scaleX": 0.69388, "scaleY": 0.69296 }
+    ]
+  }
+ ]
+}

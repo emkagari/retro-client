@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63998, "name": "_bgHidder", "actions": true },
+      { "depth": 2, "shape": 555, "x": 0, "y": 0 },
+      { "depth": 3, "text": 1177, "x": 103.45, "y": 94.6, "name": "_txtCore" },
+      { "depth": 4, "export": "Label", "x": 102, "y": 55, "scaleX": 5.00005, "scaleY": 1.5, "name": "_lblTitle", "actions": true },
+      { "depth": 5, "export": "Button", "x": 706, "y": 46, "scaleX": -0.09999, "scaleY": 0.55557, "name": "_btnClose", "actions": true }
+    ]
+  }
+ ]
+}

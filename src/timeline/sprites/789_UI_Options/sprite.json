@@ -1,0 +1,22 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83989, "scaleY": 12.12013, "actions": true },
+      { "depth": 2, "export": "Window", "x": 184, "y": 74, "scaleX": 3.87137, "scaleY": 3.80022, "name": "_winBackground", "actions": true },
+      { "depth": 3, "export": "Button", "x": 378, "y": 102, "scaleX": 0.905, "scaleY": 1.34918, "name": "_btnTabDisplay", "actions": true },
+      { "depth": 4, "export": "Button", "x": 287.5, "y": 102, "scaleX": 0.90498, "scaleY": 1.34918, "name": "_btnTabSound", "actions": true },
+      { "depth": 5, "export": "Button", "x": 197, "y": 102, "scaleX": 0.90498, "scaleY": 1.34918, "name": "_btnTabGeneral", "actions": true },
+      { "depth": 6, "export": "Rectangle", "x": 197, "y": 126, "scaleX": 3.61987, "scaleY": 3.13013, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] }, "name": "_mcBg" },
+      { "depth": 8, "export": "ScrollBar", "x": 546, "y": 146, "scaleX": 1, "scaleY": 2.92418, "name": "_sbOptions", "actions": true },
+      { "depth": 9, "export": "Rectangle", "x": 197, "y": 126, "scaleX": 3.62004, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 11, "export": "Button", "x": 548, "y": 82, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 12, "export": "Button", "x": 454, "y": 454, "scaleX": 1, "scaleY": 1.11111, "name": "_btnClose2", "actions": true },
+      { "depth": 13, "export": "Button", "x": 344, "y": 454, "scaleX": 1, "scaleY": 1.11111, "name": "_btnDefault", "actions": true },
+      { "depth": 14, "export": "Button", "x": 468.5, "y": 102, "scaleX": 0.905, "scaleY": 1.34918, "name": "_btnTabOptimization", "actions": true },
+      { "depth": 15, "export": "Rectangle", "x": 197, "y": 146, "scaleX": 3.61987, "scaleY": 2.93011, "alpha": 0, "name": "_mcPlacer" },
+      { "depth": 17, "export": "Rectangle", "x": 197, "y": 147.6, "scaleX": 3.61987, "scaleY": 2.9292, "alpha": 0, "name": "_mcMask" }
+    ]
+  }
+ ]
+}

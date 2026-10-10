@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 1363, "x": 0, "y": 0 },
+      { "depth": 3, "shape": 1357, "x": 134.05, "y": 19.05, "scaleX": -0.245, "scaleY": 0.245 },
+      { "depth": 5, "shape": 1357, "x": 209, "y": 19.05, "scaleX": -0.245, "scaleY": 0.245 },
+      { "depth": 7, "shape": 1357, "x": 134.05, "y": 95.35, "scaleX": -0.245, "scaleY": 0.245 },
+      { "depth": 9, "shape": 1357, "x": 208.95, "y": 95.35, "scaleX": -0.245, "scaleY": 0.245 }
+    ]
+  }
+ ]
+}

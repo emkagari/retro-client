@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "ScrollBarDownArrow", "x": 0, "y": 85 },
+      { "depth": 11, "export": "ScrollBarTrack", "x": 0, "y": 15 },
+      { "depth": 13, "export": "ScrollBarThumb", "x": 1, "y": 25 },
+      { "depth": 23, "export": "ScrollBarUpArrow", "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

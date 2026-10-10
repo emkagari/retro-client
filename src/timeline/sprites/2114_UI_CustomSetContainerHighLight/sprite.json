@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 27, "y": 27, "scaleX": -0.02798, "scaleY": -0.25, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 27, "y": 27, "scaleX": -0.24986, "scaleY": -0.02798, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 2, "y": 2, "scaleX": 0.02798, "scaleY": 0.25, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 2, "y": 2, "scaleX": 0.24986, "scaleY": 0.02798, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": 4.8, "y": 4.8, "scale": 0.19394, "color": { "mult": [0, 0, 0, 0.4], "add": [255, 255, 255, 0] }, "name": "_mcBg" }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Container", "x": 140, "y": 7.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr6", "actions": true },
+      { "depth": 2, "export": "Container", "x": 140, "y": 36.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr13", "actions": true },
+      { "depth": 3, "export": "Container", "x": 112, "y": 7.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr5", "actions": true },
+      { "depth": 4, "export": "Container", "x": 112, "y": 36.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr12", "actions": true },
+      { "depth": 5, "export": "Container", "x": 84, "y": 7.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr4", "actions": true },
+      { "depth": 6, "export": "Container", "x": 84, "y": 36.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr11", "actions": true },
+      { "depth": 7, "export": "Container", "x": 56, "y": 7.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr3", "actions": true },
+      { "depth": 8, "export": "Container", "x": 56, "y": 36.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr10", "actions": true },
+      { "depth": 9, "export": "Container", "x": 28, "y": 7.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr2", "actions": true },
+      { "depth": 10, "export": "Container", "x": 28, "y": 36.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr9", "actions": true },
+      { "depth": 11, "export": "Container", "x": 0, "y": 7.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr1", "actions": true },
+      { "depth": 12, "export": "Container", "x": 0, "y": 36.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr8", "actions": true },
+      { "depth": 13, "export": "Button", "x": 214, "y": 2, "scaleX": 0.31999, "scaleY": 0.8889, "rotation": 90, "name": "_btnTabSpells", "actions": true },
+      { "depth": 14, "export": "Button", "x": 214, "y": 34, "scaleX": 0.31999, "scaleY": 0.8889, "rotation": 90, "name": "_btnTabItems", "actions": true },
+      { "depth": 15, "export": "Container", "x": -31.25, "y": 6.65, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctrCC", "actions": true },
+      { "depth": 16, "export": "Container", "x": 168, "y": 7.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr7", "actions": true },
+      { "depth": 17, "export": "Container", "x": 168, "y": 36.15, "scaleX": 0.5, "scaleY": 0.50018, "name": "_ctr14", "actions": true }
+    ]
+  }
+ ]
+}

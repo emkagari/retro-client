@@ -1,0 +1,19 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.64001, "actions": true },
+      { "depth": 2, "export": "Window", "x": 209, "y": 109, "scaleX": 3.19998, "scaleY": 1.40002, "name": "_winBackground", "actions": true },
+      { "depth": 3, "sprite": 812, "x": 292.6, "y": 187.15, "scaleX": 1.66248, "scaleY": 1.66223 },
+      { "depth": 36, "export": "Button", "x": 399, "y": 249, "scaleX": 1.2, "scaleY": 1.11111, "name": "_btnValidate", "actions": true },
+      { "depth": 37, "export": "Button", "x": 269, "y": 249, "scaleX": 1.2, "scaleY": 1.11111, "name": "_btnCancel", "actions": true },
+      { "depth": 38, "export": "Rectangle", "x": 402, "y": 137, "scaleX": 1, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] }, "name": "_mcPrice" },
+      { "depth": 40, "export": "Label", "x": 348, "y": 138, "scaleX": 0.50002, "scaleY": 0.8, "name": "_lblPrice", "actions": true },
+      { "depth": 41, "text": 813, "x": 404.95, "y": 141, "name": "_txtPrice" },
+      { "depth": 42, "export": "KamaSymbol", "x": 505.7, "y": 139.85 },
+      { "depth": 45, "export": "Button", "x": 507, "y": 118, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 46, "export": "TextArea", "x": 397, "y": 169, "scaleX": 1.20001, "scaleY": 0.70001, "name": "_txtDescription", "actions": true }
+    ]
+  }
+ ]
+}

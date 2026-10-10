@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "ButtonNormalDown", "x": 3, "y": 1 },
+      { "depth": 23, "export": "ButtonNormalUp", "x": 86, "y": 2 },
+      { "depth": 45, "export": "ButtonToggleDown", "x": 14, "y": 37 },
+      { "depth": 71, "export": "ButtonToggleUp", "x": 89.5, "y": 37 }
+    ]
+  }
+ ]
+}

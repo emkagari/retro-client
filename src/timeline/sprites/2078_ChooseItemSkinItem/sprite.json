@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 46, "y": 11, "scaleX": 1.80997, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 2, "export": "GAPILoader", "x": 10, "y": 2, "scale": 0.34998, "name": "\u001d\u0005\u001b", "actions": true }
+    ]
+  }
+ ]
+}

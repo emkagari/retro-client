@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 208, "x": 100.9, "y": 51.95, "scale": 0.104, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 3, "export": "HouseIcon", "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

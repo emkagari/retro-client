@@ -1,0 +1,36 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 490, "x": 0, "y": 0 },
+      { "depth": 2, "export": "TextArea", "x": 0, "y": 0, "scaleX": 3, "scaleY": 0.5, "name": "_txtDescription", "actions": true },
+      { "depth": 3, "export": "Container", "x": 2, "y": 75, "scale": 0.5, "name": "_ctr0", "actions": true },
+      { "depth": 4, "export": "GAPILoader", "x": 2, "y": 140, "scale": 0.40001, "name": "_ldrSpellIcon", "actions": true },
+      { "depth": 5, "export": "TextArea", "x": 0, "y": 180, "scaleX": 3, "scaleY": 0.50801, "name": "_txtSpellDescription", "actions": true },
+      { "depth": 6, "export": "Label", "x": 42, "y": 136, "scaleX": 2, "scaleY": 1, "name": "_lblSpellName", "actions": true },
+      { "depth": 7, "export": "Label", "x": 42, "y": 152, "scaleX": 1.5, "scaleY": 0.8, "name": "_lblSpellRange", "actions": true },
+      { "depth": 8, "export": "Label", "x": 42, "y": 162, "scaleX": 1.5, "scaleY": 0.8, "name": "_lblSpellAP", "actions": true },
+      { "depth": 9, "export": "Container", "x": 32, "y": 75, "scale": 0.5, "name": "_ctr1", "actions": true },
+      { "depth": 10, "export": "Container", "x": 62, "y": 75, "scale": 0.5, "name": "_ctr2", "actions": true },
+      { "depth": 11, "export": "Container", "x": 92, "y": 75, "scale": 0.5, "name": "_ctr3", "actions": true },
+      { "depth": 12, "export": "Container", "x": 122, "y": 75, "scale": 0.5, "name": "_ctr4", "actions": true },
+      { "depth": 13, "export": "Container", "x": 152, "y": 75, "scale": 0.5, "name": "_ctr5", "actions": true },
+      { "depth": 14, "export": "Container", "x": 182, "y": 75, "scale": 0.5, "name": "_ctr6", "actions": true },
+      { "depth": 15, "export": "Container", "x": 212, "y": 75, "scale": 0.5, "name": "_ctr7", "actions": true },
+      { "depth": 16, "export": "Container", "x": 242, "y": 75, "scale": 0.5, "name": "_ctr8", "actions": true },
+      { "depth": 17, "export": "Container", "x": 272, "y": 75, "scale": 0.5, "name": "_ctr9", "actions": true },
+      { "depth": 18, "export": "Container", "x": 2, "y": 105, "scale": 0.5, "name": "_ctr10", "actions": true },
+      { "depth": 19, "export": "Container", "x": 32, "y": 105, "scale": 0.5, "name": "_ctr11", "actions": true },
+      { "depth": 20, "export": "Container", "x": 62, "y": 105, "scale": 0.5, "name": "_ctr12", "actions": true },
+      { "depth": 21, "export": "Container", "x": 92, "y": 105, "scale": 0.5, "name": "_ctr13", "actions": true },
+      { "depth": 22, "export": "Container", "x": 122, "y": 105, "scale": 0.5, "name": "_ctr14", "actions": true },
+      { "depth": 23, "export": "Container", "x": 152, "y": 105, "scale": 0.5, "name": "_ctr15", "actions": true },
+      { "depth": 24, "export": "Container", "x": 182, "y": 105, "scale": 0.5, "name": "_ctr16", "actions": true },
+      { "depth": 25, "export": "Container", "x": 212, "y": 105, "scale": 0.5, "name": "_ctr17", "actions": true },
+      { "depth": 26, "export": "Container", "x": 242, "y": 105, "scale": 0.5, "name": "_ctr18", "actions": true },
+      { "depth": 27, "export": "Container", "x": 272, "y": 105, "scale": 0.5, "name": "_ctr19", "actions": true },
+      { "depth": 28, "export": "Label", "x": 0, "y": 50, "scaleX": 2, "scaleY": 0.8, "name": "_lblClassSpells", "actions": true }
+    ]
+  }
+ ]
+}

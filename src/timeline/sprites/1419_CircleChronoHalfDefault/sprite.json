@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1418, "x": 0, "y": 0, "name": "_mcMask", "mask": 5 },
+      { "depth": 3, "sprite": 1418, "x": 0, "y": 0, "scaleX": -1, "scaleY": 1, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "bg_mc" }
+    ]
+  }
+ ]
+}

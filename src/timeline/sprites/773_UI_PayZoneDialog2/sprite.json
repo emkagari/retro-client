@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "sprite": 761, "x": 0, "y": 0, "scaleX": 1.00175, "scaleY": 1.00027, "alpha": 0.71 },
+      { "depth": 4, "sprite": 765, "x": 160, "y": 73 },
+      { "depth": 10, "button": 766, "x": 553, "y": 94, "scaleX": 1.57123, "scaleY": 1.54993, "color": { "mult": [0, 0, 0, 1], "add": [76, 69, 53, 0] }, "name": "_btnClose" },
+      { "depth": 12, "export": "Label", "x": 168, "y": 81, "scaleX": 3, "scaleY": 1.25, "name": "_lblTitle", "actions": true },
+      { "depth": 13, "export": "TextArea", "x": 177, "y": 119, "scaleX": 2.84998, "scaleY": 1.5, "name": "_taContent", "actions": true },
+      { "depth": 14, "sprite": 772, "x": 173, "y": 293, "name": "_btnMoreInfo" }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.55006, "scaleY": 0.52007, "name": "_mcMask", "mask": 11 },
+      { "depth": 3, "export": "SpriteViewer", "x": -33.2, "y": -34.6, "scale": 0.76848, "name": "_svCharacterViewer", "actions": true },
+      { "depth": 13, "export": "Label", "x": 57.1, "y": 6.5, "scaleX": 1.69975, "scaleY": 0.9, "name": "_lblQuestName", "actions": true },
+      { "depth": 14, "export": "Label", "x": 76.15, "y": 26.65, "scaleX": 1.20404, "scaleY": 0.9, "name": "_lblNpcName", "actions": true },
+      { "depth": 15, "export": "Label", "x": 228.25, "y": 13.65, "scaleX": 0.56989, "scaleY": 0.8, "name": "_lblKama", "actions": true },
+      { "depth": 16, "export": "KamaSymbol", "x": 288.95, "y": 16.45, "scale": 0.82993, "name": "_mcReward" },
+      { "depth": 19, "export": "Container", "x": 285.6, "y": 29.25, "scale": 0.39963, "name": "_ctr0", "actions": true },
+      { "depth": 20, "export": "Label", "x": 228.25, "y": -1.6, "scaleX": 0.57054, "scaleY": 0.8, "name": "_lblWinXP", "actions": true },
+      { "depth": 21, "export": "UI_QuestXP", "x": 287.55, "y": -0.4, "scale": 0.82222, "name": "_mcXp" },
+      { "depth": 24, "export": "Container", "x": 263.6, "y": 29.25, "scale": 0.39963, "name": "_ctr1", "actions": true },
+      { "depth": 25, "export": "Container", "x": 241.6, "y": 29.25, "scale": 0.39963, "name": "_ctr2", "actions": true },
+      { "depth": 26, "export": "Container", "x": 219.6, "y": 29.25, "scale": 0.39963, "name": "_ctr3", "actions": true },
+      { "depth": 27, "export": "Button", "x": 57.1, "y": 27.7, "scaleX": 0.18002, "scaleY": 1.00037, "name": "_btnLocate", "actions": true },
+      { "depth": 28, "export": "Container", "x": 197.6, "y": 29.25, "scale": 0.39963, "name": "_ctr4", "actions": true },
+      { "depth": 29, "export": "MissionCheck", "x": 58.45, "y": 29.05, "name": "_mcChecked" },
+      { "depth": 32, "export": "MissionProgress", "x": 58.45, "y": 29.05, "name": "_mcInProgress" }
+    ]
+  }
+ ]
+}

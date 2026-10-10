@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.12, "scaleY": 0.14, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 3, "sprite": 1030, "x": 17, "y": 14, "scale": -0.05, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 12, "y": 0, "scaleX": 0.05, "scaleY": 0.09, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 7, "y": 3, "scaleX": 0.02, "scaleY": 0.08, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": 4, "y": 6, "scaleX": 0.08002, "scaleY": 0.02, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] } }
+    ]
+  }
+ ]
+}

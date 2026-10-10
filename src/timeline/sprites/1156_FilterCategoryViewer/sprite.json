@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 1.67023, "scaleY": 0.24998, "alpha": 0 },
+      { "depth": 3, "export": "ComboBox", "x": 8.6, "y": 2.4, "scaleX": 1.54985, "scaleY": 1, "name": "_cbList", "actions": true }
+    ]
+  }
+ ]
+}

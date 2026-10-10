@@ -1,0 +1,41 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63998, "actions": true },
+      { "depth": 2, "shape": 1180, "x": -115.75, "y": -13, "scale": 1.25 },
+      { "depth": 3, "export": "ContainerGrid", "x": 444.8, "y": 73.35, "scaleX": 2.76999, "scaleY": 3.43988, "name": "_cgCardsGrid", "actions": true },
+      { "depth": 4, "export": "ContainerGrid", "x": 10, "y": 190, "scaleX": 3.28986, "scaleY": 2.27808, "name": "_cgFamiliesGrid", "actions": true },
+      { "depth": 5, "sprite": 1337, "x": 22.85, "y": 82.95, "scale": 1.4, "name": "_mcCard" },
+      { "depth": 7, "sprite": 1342, "x": 22.85, "y": 113.6, "scale": 1.40002, "name": "_mcFoilCard" },
+      { "depth": 9, "sprite": 1355, "x": 23.7, "y": 145.95, "scaleX": 1.2402, "scaleY": 1.24295, "name": "_mcFamilyCard" },
+      { "depth": 11, "sprite": 1358, "x": 184.25, "y": 98.4, "scale": 0.09114, "name": "_mcRarity1" },
+      { "depth": 15, "sprite": 1360, "x": 184.25, "y": 130.15, "scale": 0.09099, "name": "_mcRarity2" },
+      { "depth": 21, "sprite": 1362, "x": 267.45, "y": 98.4, "scale": 0.09099, "name": "_mcRarity3" },
+      { "depth": 29, "sprite": 1364, "x": 267.45, "y": 130.15, "scale": 0.09099, "name": "_mcRarity4" },
+      { "depth": 39, "export": "Button", "x": 686.55, "y": 49.6, "scaleX": 0.35, "scaleY": 1, "name": "_btnSearch", "actions": true },
+      { "depth": 40, "shape": 1365, "x": 0, "y": 0 },
+      { "depth": 41, "export": "TextInput", "x": 590.85, "y": 48.6, "scaleX": 0.9063, "scaleY": 0.8, "name": "_tiSearch", "actions": true },
+      { "depth": 42, "export": "Button", "x": 339, "y": 45.1, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnCloseBook", "actions": true },
+      { "depth": 43, "export": "Label", "x": 10, "y": 45.1, "scaleX": 3.29008, "scaleY": 1, "name": "_lblCollectionOwner", "actions": true },
+      { "depth": 44, "export": "Label", "x": 372.6, "y": 48.6, "scaleX": 2.09996, "scaleY": 1, "name": "_lblCardsPageTitle", "actions": true },
+      { "depth": 45, "export": "GAPILoader", "x": 372.1, "y": 71.75, "scale": 0.64001, "name": "_ldrCurrentFamilyIcon", "actions": true },
+      { "depth": 46, "export": "Label", "x": 41.95, "y": 82.9, "scaleX": 0.53029, "scaleY": 1, "name": "_lblTotalCardsOwned", "actions": true },
+      { "depth": 47, "export": "Label", "x": 41.95, "y": 113.55, "scaleX": 0.53067, "scaleY": 1, "name": "_lblTotalFoilCardsOwned", "actions": true },
+      { "depth": 48, "export": "Label", "x": 41.95, "y": 144.9, "scaleX": 0.53055, "scaleY": 1, "name": "_lblTotalFamiliesCompleted", "actions": true },
+      { "depth": 49, "export": "ProgressBar", "x": 95.6, "y": 87.9, "scaleX": 0.74985, "scaleY": 1, "name": "_pbCard", "actions": true },
+      { "depth": 50, "export": "ProgressBar", "x": 95.65, "y": 118.55, "scaleX": 0.7498, "scaleY": 1, "name": "_pbFoilCard", "actions": true },
+      { "depth": 51, "export": "ProgressBar", "x": 95.65, "y": 149.9, "scaleX": 0.75018, "scaleY": 1, "name": "_pbFamily", "actions": true },
+      { "depth": 52, "export": "ProgressBar", "x": 206.25, "y": 102.55, "scaleX": 0.5, "scaleY": 1, "name": "_pbRarity1", "actions": true },
+      { "depth": 53, "export": "ProgressBar", "x": 206.2, "y": 134.3, "scaleX": 0.50018, "scaleY": 1, "name": "_pbRarity2", "actions": true },
+      { "depth": 54, "export": "ProgressBar", "x": 289.7, "y": 102.55, "scaleX": 0.50024, "scaleY": 1, "name": "_pbRarity3", "actions": true },
+      { "depth": 55, "export": "ProgressBar", "x": 290.1, "y": 134.3, "scaleX": 0.49991, "scaleY": 1, "name": "_pbRarity4", "actions": true },
+      { "depth": 56, "export": "Label", "x": 10, "y": 169.95, "scaleX": 3.29004, "scaleY": 1, "name": "_lblFamilies", "actions": true },
+      { "depth": 57, "export": "Label", "x": 175, "y": 62.25, "scaleX": 1.64006, "scaleY": 1, "name": "_lblTotalPerRarity", "actions": true },
+      { "depth": 58, "export": "Label", "x": 10, "y": 62.25, "scaleX": 1.63927, "scaleY": 1, "name": "_lblTotalPerType", "actions": true },
+      { "depth": 59, "shape": 760, "x": 366.75, "y": 142.3, "scaleX": 0.10234, "scaleY": 0.48413, "mask": 61 },
+      { "depth": 60, "export": "GAPILoader", "x": 366.3, "y": 149.8, "scaleX": 0.75801, "scaleY": 2.61588, "name": "_ldrCurrentFamilyDeco", "actions": true }
+    ]
+  }
+ ]
+}

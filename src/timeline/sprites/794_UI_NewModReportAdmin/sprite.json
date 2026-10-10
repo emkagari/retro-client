@@ -1,0 +1,36 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83989, "scaleY": 11.12013, "name": "_bhReport", "actions": true },
+      { "depth": 2, "export": "Window", "x": -5, "y": -7, "scaleX": 7.52007, "scaleY": 4.45987, "name": "_winBackground", "actions": true },
+      { "depth": 3, "export": "Window", "x": 599, "y": 407.45, "scaleX": 1.34772, "scaleY": 0.29886, "name": "_winBackgroundSmall", "actions": true },
+      { "depth": 4, "export": "Button", "x": 708.45, "y": 416.4, "scaleX": 0.12001, "scaleY": 0.6666, "name": "_btnMinimizeSmall", "actions": true },
+      { "depth": 5, "export": "Button", "x": 652.5, "y": 2.95, "scaleX": 0.12001, "scaleY": 0.6666, "name": "_btnClose", "actions": true },
+      { "depth": 6, "export": "Button", "x": 635, "y": 2.95, "scaleX": 0.12001, "scaleY": 0.6666, "name": "_btnMinimize", "actions": true },
+      { "depth": 7, "export": "DataGrid", "x": 0, "y": 51.9, "scaleX": 4.81027, "scaleY": 1.39995, "name": "_dgCategories", "actions": true },
+      { "depth": 8, "export": "Label", "x": 5, "y": 191.45, "scaleX": 4.75986, "scaleY": 1, "name": "_lblContext", "actions": true },
+      { "depth": 9, "export": "TextArea", "x": 5, "y": 211.9, "scaleX": 4.76004, "scaleY": 2.1, "name": "_taContext", "actions": true },
+      { "depth": 10, "export": "Button", "x": 5, "y": 24.9, "scaleX": 2.20004, "scaleY": 1, "name": "_btnActionOpenPlayerPopupMenu", "actions": true },
+      { "depth": 11, "export": "Label", "x": 487, "y": 22.5, "scaleX": 2.54977, "scaleY": 1, "name": "_lblSelectedCategory", "actions": true },
+      { "depth": 12, "export": "DataGrid", "x": 487, "y": 87.9, "scaleX": 2.55014, "scaleY": 1.99992, "name": "_dgReportsToProcess", "actions": true },
+      { "depth": 13, "export": "Label", "x": 487, "y": 69.45, "scaleX": 2.54979, "scaleY": 1, "name": "_lblReportsToProcess", "actions": true },
+      { "depth": 14, "export": "DataGrid", "x": 487, "y": 306.7, "scaleX": 2.55014, "scaleY": 1.19995, "name": "_dgReportsProcessed", "actions": true },
+      { "depth": 15, "export": "Label", "x": 487, "y": 287.25, "scaleX": 2.54979, "scaleY": 1, "name": "_lblReportsProcessed", "actions": true },
+      { "depth": 16, "export": "Button", "x": 487, "y": 46.5, "scaleX": 2.55002, "scaleY": 1, "name": "_btnActionMarkAllReports", "actions": true },
+      { "depth": 17, "export": "Button", "x": 250, "y": 24.9, "scaleX": 1.00005, "scaleY": 1, "name": "_btnPrevious", "actions": true },
+      { "depth": 18, "export": "Button", "x": 363.45, "y": 24.9, "scaleX": 1.00003, "scaleY": 1, "name": "_btnNext", "actions": true },
+      { "depth": 19, "export": "Label", "x": 231, "y": 178, "scaleX": 2.49991, "scaleY": 1, "name": "_lblReporterLinkedChatConversation", "actions": true },
+      { "depth": 20, "export": "TextArea", "x": 231, "y": 198, "scaleX": 2.49991, "scaleY": 2.22995, "name": "_taReporterLinkedChatConversation", "actions": true },
+      { "depth": 21, "export": "Label", "x": 231, "y": 51.45, "scaleX": 2.49991, "scaleY": 1, "name": "_lblReporterCustomNote", "actions": true },
+      { "depth": 22, "export": "TextArea", "x": 231, "y": 71.45, "scaleX": 2.49992, "scaleY": 1.05002, "name": "_taReporterCustomNote", "actions": true },
+      { "depth": 23, "export": "Button", "x": 5, "y": 94.5, "scaleX": 2.20004, "scaleY": 1, "name": "_btnOpenReporterPopupMenu", "actions": true },
+      { "depth": 24, "export": "Button", "x": 5, "y": 71.55, "scaleX": 2.20004, "scaleY": 1, "name": "_btnAddReportToMakeReport", "actions": true },
+      { "depth": 25, "export": "Label", "x": 5, "y": 51.45, "scaleX": 2.19983, "scaleY": 1, "name": "_lblSelectedPlayerReport", "actions": true },
+      { "depth": 26, "export": "Label", "x": 5, "y": 171.45, "scaleX": 2.19994, "scaleY": 1, "name": "_lblReporterContext", "actions": true },
+      { "depth": 27, "export": "TextArea", "x": 5, "y": 191.9, "scaleX": 2.19995, "scaleY": 2.29999, "name": "_taReporterContext", "actions": true },
+      { "depth": 28, "export": "Button", "x": 38.45, "y": 124.9, "scaleX": 1.50006, "scaleY": 2.11111, "name": "_btnExitReportView", "actions": true }
+    ]
+  }
+ ]
+}

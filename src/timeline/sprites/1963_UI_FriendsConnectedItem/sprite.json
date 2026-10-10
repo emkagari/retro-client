@@ -1,0 +1,19 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "pic_IN_MULTI", "x": 263.1, "y": 10.3, "name": "_mcFight" },
+      { "depth": 5, "sprite": 1717, "x": 193, "y": 0, "name": "\u001e\t\r" },
+      { "depth": 7, "sprite": 1717, "x": 248, "y": 0, "name": "\u001e\t\u000e" },
+      { "depth": 9, "sprite": 1717, "x": 276, "y": 0, "name": "\u001e\t\u000f" },
+      { "depth": 11, "sprite": 1717, "x": 300, "y": 0, "name": "\u001e\t\u000f" },
+      { "depth": 13, "export": "Label", "x": 36, "y": 0, "scaleX": 1.52997, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 14, "export": "GAPILoader", "x": 20, "y": 2, "scale": 0.15999, "name": "_ldrGuild", "actions": true },
+      { "depth": 15, "export": "Button", "x": 4, "y": 4, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnRemove", "actions": true },
+      { "depth": 16, "export": "Label", "x": 193, "y": 0, "scaleX": 0.55, "scaleY": 0.8, "name": "_lblLevel", "actions": true },
+      { "depth": 17, "export": "GAPILoader", "x": 281, "y": 2, "scale": 0.15999, "name": "_ldrAlignement", "actions": true },
+      { "depth": 18, "export": "Button", "x": 304, "y": 4, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnEdit", "actions": true }
+    ]
+  }
+ ]
+}

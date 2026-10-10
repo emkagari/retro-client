@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 152, "x": 0, "y": 0, "name": "_mcBgLeft" },
+      { "depth": 3, "sprite": 153, "x": 5, "y": 0, "name": "_mcBgMiddle" },
+      { "depth": 5, "sprite": 154, "x": 35, "y": 0, "name": "_mcBgRight" },
+      { "depth": 7, "sprite": 155, "x": 0, "y": 0, "name": "_mcUpLeft" },
+      { "depth": 9, "sprite": 156, "x": 5, "y": 0, "name": "_mcUpMiddle" },
+      { "depth": 11, "sprite": 157, "x": 35, "y": 0, "name": "_mcUpRight" },
+      { "depth": 13, "sprite": 159, "x": 0, "y": 0, "name": "_mcGradientLeft" },
+      { "depth": 15, "sprite": 161, "x": 5, "y": 0, "name": "_mcGradientMiddle" },
+      { "depth": 17, "sprite": 163, "x": 35, "y": 0, "name": "_mcGradientRight" },
+      { "depth": 19, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.4, "scaleY": 0.1, "alpha": 0, "name": "_mcRectangle" }
+    ]
+  }
+ ]
+}

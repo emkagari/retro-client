@@ -1,0 +1,20 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 1969, "x": 0, "y": 0 },
+      { "depth": 2, "export": "dot", "x": 42.85, "y": -20.85 },
+      { "depth": 4, "export": "avg", "x": -31.65, "y": -4.4 },
+      { "depth": 7, "sprite": 1971, "x": -45.25, "y": 42.35, "name": "wnd_his" },
+      { "depth": 9, "sprite": 1973, "x": -75, "y": -75.25 },
+      { "depth": 11, "shape": 1974, "x": 0, "y": 0 },
+      { "depth": 12, "text": 1975, "x": -12.5, "y": -49.65, "name": "txt_fps" },
+      { "depth": 13, "text": 1976, "x": -49.7, "y": -49.65 },
+      { "depth": 14, "text": 1977, "x": -69.8, "y": -30.65 },
+      { "depth": 15, "text": 1978, "x": -69.8, "y": 28.3 },
+      { "depth": 16, "sprite": 1980, "x": -67.7, "y": -47.7, "name": "check_on" },
+      { "depth": 18, "sprite": 1982, "x": -67.7, "y": -47.7, "name": "check_off" }
+    ]
+  }
+ ]
+}

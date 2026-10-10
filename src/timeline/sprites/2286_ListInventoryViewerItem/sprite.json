@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 20, "y": 0, "name": "_lblName", "actions": true },
+      { "depth": 2, "export": "Label", "x": 20, "y": 0, "name": "_lblPrice", "actions": true },
+      { "depth": 3, "export": "Container", "x": 0, "y": 0, "scale": 0.39998, "name": "_ctrIcon", "actions": true }
+    ]
+  }
+ ]
+}

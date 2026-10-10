@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": -20, "y": -11.5, "scaleX": 0.4, "scaleY": 0.23, "name": "_mcColor" }
+    ]
+  }
+ ]
+}

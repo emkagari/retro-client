@@ -1,0 +1,58 @@
+{
+ "frames": [
+  {
+    "label": "normal_",
+    "place": [
+      { "depth": 1, "sprite": 1381, "x": 0, "y": 0, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 102, 0] } },
+      { "depth": 3, "sprite": 1381, "x": 0, "y": 0, "mask": 7 },
+      { "depth": 5, "export": "Rectangle", "x": -20, "y": 18, "scaleX": 0.40001, "scaleY": -0.36, "color": { "mult": [0, 0, 0, 1], "add": [216, 1, 1, 0] }, "name": "_mcRectangle" },
+      { "depth": 9, "sprite": 1383, "x": 0, "y": 0 },
+      { "depth": 11, "sprite": 1385, "x": -1.05, "y": -0.05, "scaleX": 1.00131, "scaleY": 1.00145 },
+      { "depth": 14, "text": 1386, "x": -28, "y": -14.05, "name": "_txtValue" }
+    ]
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "remove": [14],
+    "label": "temporisOne",
+    "place": [
+      { "depth": 14, "text": 1387, "x": -21, "y": -16.05, "ratio": 10, "name": "_txtMax" },
+      { "depth": 15, "text": 1388, "x": -21, "y": -1.35, "ratio": 10, "name": "_txtPercent" }
+    ]
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "remove": [14, 15],
+    "label": "temporisTwo",
+    "place": [
+      { "depth": 14, "text": 1389, "x": -28.4, "y": -15.05, "ratio": 19, "name": "_txtCurrent" },
+      { "depth": 15, "shape": 1390, "x": 0, "y": 0 }
+    ]
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {}
+ ]
+}

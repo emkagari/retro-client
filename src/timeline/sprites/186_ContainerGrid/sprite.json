@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 21, "x": 0, "y": 0, "scaleX": 1, "scaleY": 0.99997, "name": "boundingBox_mc" }
+    ]
+  },
+  {
+    "remove": [1],
+    "place": [
+      { "depth": 1, "sprite": 185, "x": 2.5, "y": 11.25, "ratio": 1 }
+    ]
+  }
+ ]
+}

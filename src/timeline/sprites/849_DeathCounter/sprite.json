@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 11, "y": 0, "scaleX": 0.78015, "scaleY": 0.42012, "alpha": 0, "name": "_mcPlacer" }
+    ]
+  }
+ ]
+}

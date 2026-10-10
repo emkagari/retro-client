@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2003, "x": 0, "y": 14, "name": "color1" },
+      { "depth": 3, "sprite": 2005, "x": 0, "y": 8.7, "name": "color2" },
+      { "depth": 5, "sprite": 2007, "x": 0, "y": -12.5, "name": "color0" },
+      { "depth": 7, "sprite": 2009, "x": 0, "y": 13 },
+      { "depth": 9, "shape": 2010, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

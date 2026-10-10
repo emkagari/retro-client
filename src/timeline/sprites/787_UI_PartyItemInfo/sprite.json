@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 786, "x": 0, "y": 0 },
+      { "depth": 11, "export": "pic_IN_MULTI", "x": 13, "y": 7, "scaleX": 1.00555, "scaleY": 0.9972, "color": { "mult": [0, 0, 0, 1], "add": [102, 102, 102, 0] } },
+      { "depth": 15, "export": "pic_IN_MULTI", "x": 13, "y": 7, "scale": 0.85562 }
+    ]
+  }
+ ]
+}

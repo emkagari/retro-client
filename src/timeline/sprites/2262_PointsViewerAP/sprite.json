@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2260, "x": 0, "y": 0 },
+      { "depth": 13, "export": "Star", "x": -2, "y": -14, "scale": 0.299 },
+      { "depth": 15, "export": "Star", "x": -9, "y": 9, "scaleX": 0.19028, "scaleY": 0.18794 },
+      { "depth": 17, "export": "Star", "x": 4, "y": 12, "scaleX": 0.10873, "scaleY": 0.10822 },
+      { "depth": 19, "export": "Star", "x": 12, "y": 5, "scaleX": 0.08156, "scaleY": 0.07974 },
+      { "depth": 21, "export": "Star", "x": -13, "y": -3, "scaleX": 0.21745, "scaleY": 0.21642 }
+    ]
+  }
+ ]
+}

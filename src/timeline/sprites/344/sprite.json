@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 342, "x": 1.35, "y": 1.5, "name": "cIop_R_Pied01" },
+      { "depth": 4, "shape": 343, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

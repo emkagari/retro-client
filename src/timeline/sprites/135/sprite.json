@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 35, "x": 4, "y": 0, "scaleX": -0.04, "scaleY": 0.04, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] }, "name": "border_3_mc" },
+      { "depth": 3, "sprite": 35, "x": 4, "y": 20, "scale": -0.04, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] }, "name": "border_4_mc" },
+      { "depth": 5, "sprite": 132, "x": 0, "y": 4, "scaleX": 0.04001, "scaleY": 0.12001, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] }, "name": "border_1_mc" },
+      { "depth": 7, "sprite": 132, "x": 0, "y": 4, "scaleX": 0.03003, "scaleY": 0.12001, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] }, "name": "bg_mc" },
+      { "depth": 9, "sprite": 35, "x": 3, "y": 1, "scaleX": -0.03, "scaleY": 0.03, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] }, "name": "bg_1_mc" },
+      { "depth": 11, "sprite": 35, "x": 3, "y": 19, "scale": -0.03, "color": { "mult": [0, 0, 0, 1], "add": [204, 204, 204, 0] }, "name": "highlight_mc" },
+      { "depth": 13, "sprite": 35, "x": 3, "y": 18, "scale": -0.03, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] }, "name": "bg_2_mc" }
+    ]
+  }
+ ]
+}

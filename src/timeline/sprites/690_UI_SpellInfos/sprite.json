@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "name": "_bghBackground", "actions": true },
+      { "depth": 2, "export": "SpellFullInfosViewer", "x": 349, "y": 20, "name": "_sfivSpellFullInfosViewer", "actions": true }
+    ]
+  }
+ ]
+}

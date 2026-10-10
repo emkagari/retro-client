@@ -87,11 +87,20 @@ It replaces `src/` with the new export, makes accessors recompilable, and
 that base's own export (decompiler artifacts fixed by hand), the change is
 merged into the new export; conflicts are listed (`<<<<<<<` markers). It sets
 `retro.json` to 1.50.0 and lists what doesn't compile back. Fix those — same
-meaning, compilable form. Then:
+meaning, compilable form.
+
+It also extracts the new base's graphics (`src/assets/`, docs/ASSETS.md) and
+sprites (`sprite.json`, docs/SPRITES.md), and carries yours over: ids change
+between versions, so an edited graphic is found by its original content, an
+edited sprite by what it places (or its export name), its ids mapped to the
+new base's and its edits merged. What it couldn't carry over is listed (kept
+in `.tmp/assets-kept/`, `.tmp/sprites-kept/`), and sprite conflicts are
+marked `<<<<<<<` like code. Then:
 
 ```bash
 node tools/manifest.mjs 1.50.0 --upstream $OFFICIAL     # build.mjs needs it
 node tools/build.mjs --full                              # every file compiles
+node tools/test-assets.mjs --update && node tools/test-sprites.mjs  # graphics and sprites round trip
 node tools/package.mjs --run            # the base alone: must play like the official client
 git add -A && git commit -m "Upstream 1.50.0"
 ```

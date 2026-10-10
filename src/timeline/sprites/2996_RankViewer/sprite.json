@@ -1,0 +1,28 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 160, "scaleX": 3.15996, "scaleY": 0.2202, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.15996, "scaleY": 0.2202, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 0, "y": 182, "scaleX": 3.15996, "scaleY": 1.2011, "color": { "mult": [0, 0, 0, 1], "add": [237, 235, 220, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 0, "y": 119.95, "scaleX": 3.15996, "scaleY": 0.40036, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 9, "export": "RankViewerPvpActive", "x": 290.3, "y": 5, "name": "_mcPvpActive" },
+      { "depth": 15, "export": "RankViewerPvpInactive", "x": 290.3, "y": 5, "name": "_mcPvpInactive" },
+      { "depth": 21, "export": "Label", "x": 25, "y": 63, "scaleX": 1.50005, "scaleY": 0.8, "name": "_lblDisgrace", "actions": true },
+      { "depth": 22, "export": "ProgressBar", "x": 188, "y": 66, "name": "_pbDisgrace", "actions": true },
+      { "depth": 23, "export": "Rectangle", "x": 188, "y": 60, "scaleX": 0.99998, "scaleY": 0.20001, "alpha": 0, "name": "_mcDisgrace" },
+      { "depth": 25, "export": "Label", "x": 188, "y": 90, "scaleX": 0.99998, "scaleY": 0.8, "name": "_lblRankValue", "actions": true },
+      { "depth": 26, "export": "Button", "x": 103, "y": 130, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnEnabled", "actions": true },
+      { "depth": 27, "export": "Label", "x": 5, "y": 161, "scaleX": 2.5, "scaleY": 1, "name": "_lblInfos", "actions": true },
+      { "depth": 28, "export": "Label", "x": 5, "y": 1, "scaleX": 2.5, "scaleY": 1, "name": "_lblStats", "actions": true },
+      { "depth": 29, "export": "ProgressBar", "x": 188, "y": 40, "name": "_pbHonour", "actions": true },
+      { "depth": 30, "export": "Rectangle", "x": 188, "y": 34, "scaleX": 0.99998, "scaleY": 0.20001, "alpha": 0, "name": "_mcHonour" },
+      { "depth": 32, "export": "Label", "x": 25, "y": 37, "scaleX": 1.5, "scaleY": 0.8, "name": "_lblHonour", "actions": true },
+      { "depth": 33, "export": "TextArea", "x": 0, "y": 182, "scaleX": 3.16, "scaleY": 1.2, "name": "_txtInfos", "actions": true },
+      { "depth": 34, "export": "Label", "x": 0, "y": 74, "scaleX": 3.16003, "scaleY": 0.8, "name": "_lblRankDisabled", "actions": true },
+      { "depth": 35, "export": "Label", "x": 25, "y": 90, "scaleX": 1.50005, "scaleY": 0.8, "name": "_lblRank", "actions": true },
+      { "depth": 36, "export": "Button", "x": 297, "y": 66, "scaleX": 0.1, "scaleY": 0.55556, "name": "_btnDisgraceSanction", "actions": true }
+    ]
+  }
+ ]
+}

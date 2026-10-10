@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 502, "x": 0, "y": 0, "scaleX": 0.28264, "scaleY": 0.2833, "name": "_mcFamilyCardBackground" },
+      { "depth": 5, "sprite": 505, "x": 11.3, "y": 11.3, "scaleX": 0.26884, "scaleY": 0.26945, "name": "_mcFamilyCardForeground" },
+      { "depth": 7, "export": "GAPILoader", "x": 6, "y": 6, "scaleX": 0.10524, "scaleY": 0.10504, "name": "_ldrFamilyIcon", "actions": true },
+      { "depth": 8, "export": "ProgressBar", "x": 2.75, "y": 22.65, "scaleX": 0.17, "scaleY": 0.40001, "name": "_pbCompletion", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1756, "x": 0, "y": 54, "scaleX": 0.65788, "scaleY": 1, "alpha": 0.4, "name": "_mcSeparator" },
+      { "depth": 3, "export": "Label", "x": 70, "y": 3, "scaleX": 2.1, "scaleY": 1, "name": "_lblDate", "actions": true },
+      { "depth": 4, "export": "Label", "x": 70, "y": 20, "scaleX": 2.10002, "scaleY": 1.5, "name": "_lblTitle", "actions": true },
+      { "depth": 5, "export": "GAPILoader", "x": 0, "y": 14, "scaleX": 0.6, "scaleY": 0.26, "name": "_ldrImage", "actions": true }
+    ]
+  }
+ ]
+}

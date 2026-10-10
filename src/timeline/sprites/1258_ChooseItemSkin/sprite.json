@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "ContainerGrid", "x": 0, "y": 0, "scaleX": 1.75, "scaleY": 1.24005, "name": "_cgGrid", "actions": true }
+    ]
+  }
+ ]
+}

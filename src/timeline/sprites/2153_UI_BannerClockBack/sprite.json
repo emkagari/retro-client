@@ -1,0 +1,24 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 208, "x": -37, "y": -37, "scale": 0.74, "color": { "mult": [0, 0, 0, 1], "add": [32, 47, 62, 0] } },
+      { "depth": 3, "sprite": 208, "x": -37, "y": -37, "scale": 0.74, "color": { "mult": [0, 0, 0, 1], "add": [204, 204, 204, 0] } },
+      { "depth": 5, "sprite": 208, "x": -34, "y": -34, "scale": 0.68001, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": -37.5, "y": -1, "scaleX": 0.06, "scaleY": 0.02, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": 31.5, "y": -1, "scaleX": 0.06, "scaleY": 0.02, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] } },
+      { "depth": 11, "export": "Rectangle", "x": 1, "y": -37.5, "scaleX": 0.06, "scaleY": 0.02, "rotation": 90, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] } },
+      { "depth": 13, "export": "Rectangle", "x": 1, "y": 31.5, "scaleX": 0.06, "scaleY": 0.02, "rotation": 90, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] } },
+      { "depth": 15, "export": "Rectangle", "x": -32.25, "y": -19.2, "scaleX": 0.05, "scaleY": 0.01, "rotation": 30.01, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] } },
+      { "depth": 17, "export": "Rectangle", "x": 28.4, "y": 15.8, "scaleX": 0.05, "scaleY": 0.01, "rotation": 30.01, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] } },
+      { "depth": 19, "export": "Rectangle", "x": -18.4, "y": -32.75, "scaleX": 0.05, "scaleY": 0.01, "rotation": 59.99, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] } },
+      { "depth": 21, "export": "Rectangle", "x": 16.65, "y": 27.9, "scaleX": 0.05, "scaleY": 0.01, "rotation": 59.99, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] } },
+      { "depth": 23, "export": "Rectangle", "x": 32.25, "y": -19.2, "scaleX": 0.05, "scaleY": -0.01, "rotation": 149.99, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] } },
+      { "depth": 25, "export": "Rectangle", "x": -28.4, "y": 15.8, "scaleX": 0.05, "scaleY": -0.01, "rotation": 149.99, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] } },
+      { "depth": 27, "export": "Rectangle", "x": 18.4, "y": -32.75, "scaleX": 0.05, "scaleY": -0.01, "rotation": 120.01, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] } },
+      { "depth": 29, "export": "Rectangle", "x": -16.65, "y": 27.9, "scaleX": 0.05, "scaleY": -0.01, "rotation": 120.01, "color": { "mult": [0, 0, 0, 1], "add": [51, 51, 51, 0] } },
+      { "depth": 31, "export": "Rectangle", "x": -50, "y": -50, "alpha": 0 }
+    ]
+  }
+ ]
+}

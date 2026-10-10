@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.25, "scaleY": 0.29999, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] }, "name": "border_mc" },
+      { "depth": 3, "export": "Rectangle", "x": 2, "y": 2, "scaleX": 0.21, "scaleY": 0.26, "color": { "mult": [0, 0, 0, 1], "add": [227, 224, 202, 0] }, "name": "bg_mc" }
+    ]
+  }
+ ]
+}

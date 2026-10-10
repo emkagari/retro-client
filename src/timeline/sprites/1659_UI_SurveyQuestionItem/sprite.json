@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "TextArea", "x": 2.65, "y": 2.05, "scaleX": 4.6211, "scaleY": 0.44984, "name": "_txtQuestion", "actions": true },
+      { "depth": 2, "export": "ComboBox", "x": 275.15, "y": 47.85, "scaleX": 1.89499, "scaleY": 1, "name": "_cbAnswers", "actions": true }
+    ]
+  }
+ ]
+}

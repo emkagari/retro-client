@@ -1,0 +1,50 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "morph": 1021, "x": 0, "y": 0 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 16384 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 32768 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 49152 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "morph": 1022, "ratio": 0 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 16384 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 32768 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 49152 }
+    ]
+  },
+  {
+    "remove": [1],
+    "place": [
+      { "depth": 1, "shape": 1007, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

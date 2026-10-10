@@ -1,0 +1,22 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "GAPILoader", "x": -20, "y": 2, "scaleX": 1.99994, "scaleY": 2, "name": "_ldrArtwork", "actions": true },
+      { "depth": 3, "export": "Window", "x": 5, "y": 132, "scaleX": 2.01001, "scaleY": 2.90015, "name": "_winInventory2", "actions": true },
+      { "depth": 4, "export": "Window", "x": 536, "y": 132, "scaleX": 2.01001, "scaleY": 2.90015, "name": "_winInventory", "actions": true },
+      { "depth": 5, "export": "Window", "x": 210, "y": 132, "scaleX": 3.2201, "scaleY": 2.1001, "name": "_winItemViewer", "actions": true },
+      { "depth": 6, "export": "ListInventoryViewer", "x": 8, "y": 157, "name": "_livInventory2", "actions": true },
+      { "depth": 28, "export": "ListInventoryViewer", "x": 539, "y": 157, "name": "_livInventory", "actions": true },
+      { "depth": 50, "export": "ItemViewer", "x": 211, "y": 133, "name": "_itvItemViewer", "actions": true },
+      { "depth": 79, "sprite": 650, "x": 520.45, "y": 349.9, "scaleX": -1.00078, "scaleY": 0.99875, "name": "_mcBuyArrow" },
+      { "depth": 81, "export": "Button", "x": 229, "y": 342, "scaleX": 1.2, "scaleY": 1.11111, "name": "_btnBuy", "actions": true },
+      { "depth": 82, "export": "Button", "x": 717, "y": 140, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 83, "export": "PlayerWeight", "x": 547, "y": 397, "actions": true },
+      { "depth": 85, "export": "Button", "x": 115.5, "y": 393.4, "scaleX": 0.79999, "scaleY": 1, "name": "_btnViewNextMerchant", "actions": true },
+      { "depth": 86, "export": "Button", "x": 14.5, "y": 393.4, "scaleX": 0.79996, "scaleY": 1, "name": "_btnViewPreviousMerchant", "actions": true }
+    ]
+  }
+ ]
+}

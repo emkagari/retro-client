@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "button": 771, "x": 0, "y": 0, "scaleX": 1, "scaleY": 1.00114 },
+      { "depth": 3, "export": "Label", "x": 7, "y": 7, "scaleX": 3.70012, "scaleY": 1.5, "name": "_label", "actions": true }
+    ]
+  }
+ ]
+}

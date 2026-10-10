@@ -1,0 +1,24 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 145, "y": 42, "scaleX": 4.59995, "scaleY": 3.31995, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 165, "y": 94, "scaleX": 2.50021, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 165, "y": 174, "scaleX": 3.2, "scaleY": 1.80003, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 7, "export": "TextInput", "x": 165, "y": 94, "scaleX": 2.49976, "scaleY": 0.8, "name": "_itName", "actions": true },
+      { "depth": 8, "export": "Button", "x": 585, "y": 50, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 9, "export": "Button", "x": 465, "y": 374, "scaleX": 1.2, "scaleY": 1.11111, "name": "_btnCreate", "actions": true },
+      { "depth": 10, "export": "Button", "x": 335, "y": 374, "scaleX": 1.2, "scaleY": 1.11111, "name": "_btnCancel", "actions": true },
+      { "depth": 11, "export": "ContainerGrid", "x": 175, "y": 184, "scaleX": 1.40001, "scaleY": 1.6, "name": "_cgGrid", "actions": true },
+      { "depth": 12, "export": "ColorPicker", "x": 325, "y": 214, "scaleX": 3, "scaleY": 1.6, "name": "_cpColors", "actions": true },
+      { "depth": 13, "export": "Label", "x": 325, "y": 184, "scaleX": 1.50003, "scaleY": 0.8, "name": "_lblEmblem", "actions": true },
+      { "depth": 14, "export": "Button", "x": 165, "y": 154, "scaleX": 0.79999, "scaleY": 1.11111, "name": "_btnTabBack", "actions": true },
+      { "depth": 15, "export": "Button", "x": 245.5, "y": 154, "scaleX": 0.80005, "scaleY": 1.11111, "name": "_btnTabUp", "actions": true },
+      { "depth": 16, "export": "Label", "x": 155, "y": 74, "scaleX": 1.30002, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 17, "export": "Label", "x": 155, "y": 131, "scaleX": 1.99963, "scaleY": 0.8, "name": "_lblColors", "actions": true },
+      { "depth": 18, "export": "Emblem", "x": 505, "y": 94, "scaleX": 1.00006, "scaleY": 1, "name": "_eEmblem", "actions": true }
+    ]
+  }
+ ]
+}

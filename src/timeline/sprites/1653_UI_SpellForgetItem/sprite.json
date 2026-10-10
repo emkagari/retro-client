@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1652, "x": 289, "y": 0, "scaleX": 1, "scaleY": 1.25 },
+      { "depth": 3, "export": "Label", "x": 6.05, "y": 3, "scaleX": 2.80966, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 4, "export": "Label", "x": 292, "y": 3, "scaleX": 0.8803, "scaleY": 0.8, "name": "_lblLevel", "actions": true }
+    ]
+  }
+ ]
+}

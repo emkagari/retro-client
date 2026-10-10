@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1296, "x": 742.55, "y": 421.8, "name": "_mcBackground" },
+      { "depth": 3, "button": 1301, "x": 646.75, "y": 395, "name": "_btnCancel" },
+      { "depth": 9, "button": 1306, "x": 557.9, "y": 395, "name": "_lblCancel" },
+      { "depth": 15, "export": "Label", "x": 561.6, "y": 396.85, "matrix": [0.79, 0, -0.20705, 0.77275], "name": "_lblReady", "actions": true },
+      { "depth": 16, "export": "Label", "x": 649.6, "y": 396.85, "matrix": [0.95999, 0, -0.20705, 0.77275], "name": "_btnReady", "actions": true },
+      { "depth": 17, "sprite": 1308, "x": 574, "y": 406, "name": "_mcTick" }
+    ]
+  }
+ ]
+}

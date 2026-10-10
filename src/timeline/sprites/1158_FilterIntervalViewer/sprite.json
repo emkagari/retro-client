@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 1.67023, "scaleY": 0.24998, "alpha": 0 },
+      { "depth": 4, "shape": 1157, "x": 0, "y": 0 },
+      { "depth": 5, "export": "Label", "x": 4.5, "y": 2.95, "scaleX": 0.44606, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 6, "export": "Label", "x": 89.7, "y": 2.95, "scaleX": 0.13553, "scaleY": 0.8, "name": "_lblInterval", "actions": true },
+      { "depth": 7, "export": "TextInput", "x": 52.15, "y": 2.55, "scaleX": 0.34012, "scaleY": 0.8, "name": "_tiMin", "actions": true },
+      { "depth": 8, "export": "TextInput", "x": 106.9, "y": 2.55, "scaleX": 0.34012, "scaleY": 0.8, "name": "_tiMax", "actions": true }
+    ]
+  }
+ ]
+}

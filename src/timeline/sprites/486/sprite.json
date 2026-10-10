@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 484, "x": 15, "y": 0 },
+      { "depth": 5, "sprite": 484, "x": 45, "y": 0 },
+      { "depth": 9, "sprite": 484, "x": 75, "y": 0 },
+      { "depth": 13, "sprite": 484, "x": 105, "y": 0 },
+      { "depth": 17, "sprite": 484, "x": 135, "y": 0 },
+      { "depth": 21, "sprite": 484, "x": 165, "y": 0 },
+      { "depth": 25, "sprite": 484, "x": 195, "y": 0 }
+    ]
+  }
+ ]
+}

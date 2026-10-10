@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 2, "y": 2, "scale": 0.24, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] }, "name": "_mcBack" },
+      { "depth": 3, "export": "Label", "x": 30, "y": 5, "scaleX": 2.18004, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 4, "export": "Label", "x": 245, "y": 5, "scaleX": 0.3, "scaleY": 0.8, "name": "_lblLevel", "actions": true },
+      { "depth": 5, "export": "Button", "x": 275, "y": 9, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnBoost", "actions": true },
+      { "depth": 6, "export": "GAPILoader", "x": 2, "y": 2, "scale": 0.23999, "name": "_ldrIcon", "actions": true },
+      { "depth": 7, "sprite": 263, "x": 9.2, "y": 9.2, "scaleX": 1.30719, "scaleY": 1.2987, "color": { "mult": [0, 0, 0, 1], "add": [255, 0, 0, 0] }, "name": "_mcCross" },
+      { "depth": 9, "sprite": 2418, "x": 2, "y": 2, "name": "_mcBorder" }
+    ]
+  }
+ ]
+}

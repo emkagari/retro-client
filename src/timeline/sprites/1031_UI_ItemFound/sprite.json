@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1030, "x": 0, "y": 0, "scale": 0.15001, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 3, "sprite": 1030, "x": 0, "y": 55, "scaleX": 0.15, "scaleY": -0.15, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 5, "sprite": 1030, "x": 215, "y": 0, "scaleX": -0.15001, "scaleY": 0.15001, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 7, "sprite": 1030, "x": 215, "y": 55, "scale": -0.15, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": 15, "y": 0, "scaleX": 1.84998, "scaleY": 0.55, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 11, "export": "Rectangle", "x": 0, "y": 15, "scaleX": 0.1498, "scaleY": 0.25021, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 13, "export": "Rectangle", "x": 200, "y": 15, "scaleX": 0.1498, "scaleY": 0.25021, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 15, "export": "GAPILoader", "x": 9, "y": 6, "scale": 0.43, "name": "_ldrItem", "actions": true },
+      { "depth": 16, "export": "TextArea", "x": 55, "y": 6, "scaleX": 1.51007, "scaleY": 0.43, "name": "_txtDescription", "actions": true }
+    ]
+  }
+ ]
+}

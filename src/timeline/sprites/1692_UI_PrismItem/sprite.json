@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1622, "x": 214.7, "y": 0, "scaleX": 1, "scaleY": 1.25 },
+      { "depth": 3, "sprite": 1622, "x": 343.4, "y": 0, "scaleX": 1, "scaleY": 1.25 },
+      { "depth": 5, "sprite": 1622, "x": 401.4, "y": 0, "scaleX": 1, "scaleY": 1.25 },
+      { "depth": 7, "export": "Label", "x": 0, "y": 3, "scaleX": 1.97997, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 8, "export": "Label", "x": 216.6, "y": 3, "scaleX": 1.25981, "scaleY": 0.7998, "name": "_lblArea", "actions": true },
+      { "depth": 9, "export": "Button", "x": 345.4, "y": 5, "scaleX": 0.5502, "scaleY": 0.88931, "name": "_btnLocate", "actions": true },
+      { "depth": 10, "export": "Label", "x": 405.9, "y": 3, "scaleX": 0.33975, "scaleY": 0.8, "name": "_lblCost", "actions": true },
+      { "depth": 11, "export": "KamaSymbol", "x": 440.3, "y": 6.5, "scaleX": 0.79999, "scaleY": 0.7991, "name": "_mcKamas" },
+      { "depth": 14, "export": "GAPILoader", "x": 198, "y": 3, "scale": 0.16, "name": "_ldrUnderAttack", "actions": true }
+    ]
+  }
+ ]
+}

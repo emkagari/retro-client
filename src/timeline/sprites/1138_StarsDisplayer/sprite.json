@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "StarBorder", "x": 5, "y": 5, "name": "_mcStar0" },
+      { "depth": 5, "export": "StarBorder", "x": 17.25, "y": 5, "name": "_mcStar1" },
+      { "depth": 9, "export": "StarBorder", "x": 29.5, "y": 5, "name": "_mcStar2" },
+      { "depth": 13, "export": "StarBorder", "x": 41.75, "y": 5, "name": "_mcStar3" },
+      { "depth": 17, "export": "StarBorder", "x": 54, "y": 5, "name": "_mcStar4" },
+      { "depth": 21, "export": "Rectangle", "x": -1.05, "y": -1, "scaleX": 0.62033, "scaleY": 0.12001, "alpha": 0, "name": "_mcMask" }
+    ]
+  }
+ ]
+}

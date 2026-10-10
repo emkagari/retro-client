@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "name": "_bgh", "actions": true },
+      { "depth": 2, "export": "Window", "x": 210, "y": 60, "scaleX": 3.3808, "scaleY": 2.6908, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "StylizedRectangle", "x": 221, "y": 190, "scaleX": 3.15997, "scaleY": 1.19518, "name": "\u001d\f\u0015", "actions": true },
+      { "depth": 4, "export": "Rectangle", "x": 221, "y": 213, "scaleX": 3.15997, "scaleY": 1.00015, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] }, "name": "\u001d\f\u0012" },
+      { "depth": 6, "export": "Rectangle", "x": 221, "y": 213, "scaleX": 0.99998, "scaleY": 0.9995, "color": { "mult": [0, 0, 0, 1], "add": [218, 214, 184, 0] }, "name": "_mcItvIconBg" },
+      { "depth": 8, "export": "Label", "x": 220, "y": 252, "scaleX": 3.16, "scaleY": 0.99988, "name": "_lblNoItem", "actions": true },
+      { "depth": 9, "export": "ContainerGrid", "x": 223.6, "y": 90.3, "scaleX": 3.10016, "scaleY": 0.93304, "name": "_cgGrid", "actions": true },
+      { "depth": 10, "export": "Button", "x": 428, "y": 329, "scaleX": 1, "scaleY": 1.11111, "name": "_btnValid", "actions": true },
+      { "depth": 11, "export": "Button", "x": 521, "y": 69, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 12, "export": "ItemViewer", "x": 219, "y": 188.05, "scaleX": 0.99998, "scaleY": 1.00012, "name": "_itvItemViewer", "actions": true }
+    ]
+  }
+ ]
+}

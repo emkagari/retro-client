@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1222, "x": -5.5, "y": 0, "scale": 1.42194, "filters": [{ "type": "blur", "blurX": 5, "blurY": 5, "passes": 1 }] },
+      { "depth": 3, "shape": 1223, "x": 4.7, "y": 16.85 }
+    ]
+  }
+ ]
+}

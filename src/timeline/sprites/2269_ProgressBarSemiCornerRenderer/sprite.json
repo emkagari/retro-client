@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2263, "x": 0, "y": 0, "name": "_mcBgLeft" },
+      { "depth": 3, "sprite": 2264, "x": 5, "y": 0, "name": "_mcBgMiddle" },
+      { "depth": 5, "sprite": 2265, "x": 35, "y": 0, "name": "_mcBgRight" },
+      { "depth": 7, "sprite": 2266, "x": 0, "y": 0, "name": "_mcUpLeft" },
+      { "depth": 9, "sprite": 2267, "x": 5, "y": 0, "name": "_mcUpMiddle" },
+      { "depth": 11, "sprite": 2268, "x": 35, "y": 0, "name": "_mcUpRight" }
+    ]
+  }
+ ]
+}

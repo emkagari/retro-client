@@ -1,0 +1,59 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 79, "x": -148.15, "y": -43.15 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -145.4, "y": -43.15 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -142.7, "y": -43.15 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -139.95, "y": -43.15 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -137.25, "y": -43.15 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -134.5, "y": -43.1 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -131.8, "y": -43.1 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -129.05, "y": -43.1 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -126.35, "y": -43.1 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -123.6, "y": -43.1 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": -120.9, "y": -43.1 }
+    ]
+  }
+ ]
+}

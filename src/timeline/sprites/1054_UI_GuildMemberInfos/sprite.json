@@ -1,0 +1,31 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 221, "y": 27, "scaleX": 3.00005, "scaleY": 3.46898, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 274, "y": 52, "scaleX": 2.44019, "scaleY": 0.25, "color": { "mult": [0, 0, 0, 1], "add": [180, 172, 141, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 224, "y": 102, "scaleX": 2.94, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 274, "y": 77, "scaleX": 2.43982, "scaleY": 0.25, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] } },
+      { "depth": 9, "export": "DataGrid", "x": 223.95, "y": 121.9, "scaleX": 2.94055, "scaleY": 2.40082, "name": "_dgRights", "actions": true },
+      { "depth": 10, "export": "Button", "x": 501, "y": 35, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 11, "export": "Label", "x": 275.3, "y": 54, "scaleX": 0.47055, "scaleY": 0.8, "name": "_lblRank", "actions": true },
+      { "depth": 12, "export": "Label", "x": 275.3, "y": 79, "scaleX": 1.50003, "scaleY": 0.8, "name": "_lblPercentXP", "actions": true },
+      { "depth": 13, "export": "Label", "x": 225, "y": 102, "scaleX": 2.00005, "scaleY": 0.8, "name": "\u001c\u001e\u0010", "actions": true },
+      { "depth": 14, "export": "Label", "x": 371, "y": 54, "scaleX": 1.38, "scaleY": 0.8, "name": "_lblRankValue", "actions": true },
+      { "depth": 15, "export": "Label", "x": 415, "y": 79, "scaleX": 0.70001, "scaleY": 0.8, "name": "_lblPercentXPValue", "actions": true },
+      { "depth": 16, "export": "Button", "x": 407, "y": 374, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnModify", "actions": true },
+      { "depth": 17, "export": "Button", "x": 297, "y": 374, "scaleX": 1, "scaleY": 1.11111, "name": "_btnCancel", "actions": true },
+      { "depth": 18, "export": "Button", "x": 496, "y": 83, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnPercentXP", "actions": true },
+      { "depth": 19, "export": "ComboBox", "x": 371, "y": 54, "scaleX": 1.38007, "scaleY": 1, "name": "_cbRanks", "actions": true },
+      { "depth": 20, "export": "Button", "x": 354.85, "y": 58, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnEditGradeName", "actions": true },
+      { "depth": 21, "export": "Button", "x": 341.1, "y": 58, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnResetRank", "actions": true },
+      { "depth": 22, "export": "Button", "x": 318.25, "y": 58, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnResetAllRanks", "actions": true },
+      { "depth": 23, "sprite": 1053, "x": 224, "y": 52, "scaleX": 1, "scaleY": 0.99959, "name": "_mcBackground" },
+      { "depth": 29, "export": "Rectangle", "x": 224, "y": 52, "scale": 0.50006, "name": "_mcMask", "mask": 39 },
+      { "depth": 31, "export": "SpriteViewer", "x": 190.75, "y": -3.25, "name": "_svCharacterViewer", "actions": true },
+      { "depth": 41, "export": "Rectangle", "x": 224, "y": 52, "scaleX": 0.50006, "scaleY": 0.50002, "alpha": 0, "name": "_mcInteraction" }
+    ]
+  }
+ ]
+}

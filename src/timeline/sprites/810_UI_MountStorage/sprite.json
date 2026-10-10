@@ -1,0 +1,43 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.64, "actions": true },
+      { "depth": 2, "export": "Window", "x": 536, "y": 271, "scaleX": 2, "scaleY": 1.55011, "name": "_winMountPark", "actions": true },
+      { "depth": 3, "export": "Window", "x": 5, "y": 246, "scaleX": 2, "scaleY": 1.80014, "name": "_winShed", "actions": true },
+      { "depth": 4, "export": "Window", "x": 210, "y": 180, "scaleX": 3.2201, "scaleY": 1.90009, "name": "_winItemViewer", "actions": true },
+      { "depth": 5, "export": "Window", "x": 211, "y": 166, "scaleX": 3.20007, "scaleY": 2.16997, "name": "_winMountViewer", "actions": true },
+      { "depth": 6, "export": "Window", "x": 5, "y": 61, "scaleX": 2, "scaleY": 1.80011, "name": "_mcArrowCertificate", "actions": true },
+      { "depth": 7, "export": "Window", "x": 536, "y": 111, "scaleX": 2, "scaleY": 1.55011, "name": "_winInventory", "actions": true },
+      { "depth": 8, "export": "Rectangle", "x": 706, "y": 136, "scale": 0.25, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 10, "export": "Window", "x": 211, "y": 61, "scaleX": 3.19995, "scaleY": 0.40002, "actions": true },
+      { "depth": 11, "export": "Rectangle", "x": 594, "y": 136, "scale": 0.8, "color": { "mult": [0, 0, 0, 1], "add": [237, 231, 211, 0] }, "name": "_lblInventoryNoMount" },
+      { "depth": 13, "export": "GAPILoader", "x": 633, "y": 199, "scale": 0.1, "name": "_ldrSprite", "actions": true },
+      { "depth": 14, "export": "Label", "x": 539, "y": 187, "scaleX": 1.93988, "scaleY": 1, "name": "_lblInventoryMountModel", "actions": true },
+      { "depth": 15, "export": "List", "x": 8, "y": 296, "scaleX": 1.94005, "scaleY": 6.00006, "name": "_lstMountPark", "actions": true },
+      { "depth": 16, "export": "Button", "x": 509, "y": 75, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 17, "export": "Button", "x": 226, "y": 383, "scaleX": 1.20001, "scaleY": 1.11111, "name": "_btnMountPark", "actions": true },
+      { "depth": 18, "export": "Button", "x": 396, "y": 383, "scaleX": 1.20001, "scaleY": 1.11111, "name": "_btnCertificate", "actions": true },
+      { "depth": 19, "export": "ItemViewer", "x": 212, "y": 180, "name": "_itvItemViewer", "actions": true },
+      { "depth": 48, "export": "MountViewer", "x": 211, "y": 166, "name": "_mvMountViewer", "actions": true },
+      { "depth": 119, "export": "List", "x": 8, "y": 111, "scaleX": 1.94005, "scaleY": 6.00006, "name": "_lstShed", "actions": true },
+      { "depth": 120, "export": "List", "x": 539, "y": 296, "scaleX": 1.94005, "scaleY": 6.00006, "name": "_lstCertificate", "actions": true },
+      { "depth": 121, "export": "Button", "x": 226, "y": 146, "scaleX": 1.20001, "scaleY": 1.11111, "name": "_btnShed", "actions": true },
+      { "depth": 122, "export": "Button", "x": 396, "y": 146, "scaleX": 1.20001, "scaleY": 1.11111, "name": "_btnInventory", "actions": true },
+      { "depth": 123, "sprite": 725, "x": 216, "y": 145.2, "name": "_mcArrowInventory" },
+      { "depth": 126, "sprite": 725, "x": 526.5, "y": 145.2, "scaleX": -0.99866, "scaleY": 1, "name": "_mcArrowShed" },
+      { "depth": 129, "sprite": 725, "x": 215.9, "y": 403.2, "scaleX": 0.99866, "scaleY": 1, "name": "_mcRectanglePreview" },
+      { "depth": 132, "sprite": 725, "x": 526.5, "y": 403.2, "scaleX": -0.99866, "scaleY": 1, "name": "_mcArrowMountPark" },
+      { "depth": 135, "export": "Label", "x": 221, "y": 71, "scaleX": 2.79997, "scaleY": 1, "name": "_lblTitle", "actions": true },
+      { "depth": 136, "export": "Label", "x": 539, "y": 220, "scaleX": 1.93988, "scaleY": 1, "name": "_winCertificate", "actions": true },
+      { "depth": 137, "export": "Label", "x": 539, "y": 236, "scaleX": 1.93988, "scaleY": 1, "name": "_lblInventoryMountName", "actions": true },
+      { "depth": 138, "export": "ComboBox", "x": 10, "y": 88, "scaleX": 1.89001, "scaleY": 1, "name": "_cbFilterShed", "actions": true },
+      { "depth": 139, "export": "ComboBox", "x": 10, "y": 273, "scaleX": 1.89001, "scaleY": 1, "name": "_cbFilterPark", "actions": true },
+      { "depth": 140, "sprite": 799, "x": 710.5, "y": 276.6, "scaleX": 0.11642, "scaleY": 0.11662 },
+      { "depth": 142, "sprite": 807, "x": 187.05, "y": 75.8, "scale": 0.36424 },
+      { "depth": 144, "export": "Inventory", "x": 703.7, "y": 142.75, "scaleX": -1.53845, "scaleY": 1.53433 },
+      { "depth": 147, "sprite": 809, "x": 183.6, "y": 263, "scaleX": 0.63937, "scaleY": 0.63815 }
+    ]
+  }
+ ]
+}

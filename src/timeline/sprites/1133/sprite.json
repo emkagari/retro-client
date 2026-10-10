@@ -1,0 +1,63 @@
+{
+ "frames": [
+  {
+    "label": "off",
+    "place": [
+      { "depth": 1, "shape": 920, "x": 0, "y": 0 }
+    ]
+  },
+  {
+    "remove": [1],
+    "label": "on",
+    "place": [
+      { "depth": 1, "morph": 1131, "x": 0, "y": 0 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 16384 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 32768 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 49152 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "morph": 1132, "ratio": 0 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 13107 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 26214 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 39322 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "ratio": 52429 }
+    ]
+  },
+  {
+    "remove": [1],
+    "place": [
+      { "depth": 1, "shape": 923, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

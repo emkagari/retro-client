@@ -23,6 +23,7 @@ import { join } from "node:path";
 import { ROOT, SRC, config, sourceFiles } from "./lib.mjs";
 import { makePatch } from "./hot.mjs";
 import { assetFiles } from "./assets.mjs";
+import { spriteFiles } from "./sprites.mjs";
 
 const args = process.argv.slice(2);
 const platform = args.includes("--platform") ? args[args.indexOf("--platform") + 1] : (process.platform === "win32" ? "windows" : "linux");
@@ -51,8 +52,8 @@ console.log(`\n[${time()}] watching src/ — save a class to hot reload it (Ctrl
 // replacing the file (vim) lose fs.watch's per-file watch on Linux, and it
 // behaves differently on each OS. ~70 ms per scan of src/.
 const stamp = (f) => { try { const st = statSync(join(SRC, f)); return `${st.mtimeMs}:${st.size}`; } catch { return null; } };
-// Sources and graphics (src/assets/: rebuilt into the loader, not hot).
-const watched = () => [...sourceFiles(SRC), ...assetFiles().map((f) => `assets/${f}`)];
+// Sources, graphics (src/assets/) and sprites (sprite.json): rebuilt into the loader, not hot.
+const watched = () => [...sourceFiles(SRC), ...assetFiles().map((f) => `assets/${f}`), ...spriteFiles()];
 let known = new Map(watched().map((f) => [f, stamp(f)]));
 let quietSince = 0;
 const pending = new Set();
@@ -69,7 +70,8 @@ function flush() {
   pending.clear();
   for (const f of files) console.log(`[${time()}] changed ${f}`);
   const classes = files.filter((f) => f.startsWith("classes/"));
-  for (const f of files.filter((f) => f.startsWith("timeline/"))) console.log(`[${time()}]   timeline script — restart the game to see it`);
+  for (const f of files.filter((f) => f.startsWith("timeline/") && !f.endsWith(".json"))) console.log(`[${time()}]   timeline script — restart the game to see it`);
+  for (const f of files.filter((f) => f.startsWith("timeline/") && f.endsWith(".json"))) console.log(`[${time()}]   sprite — rebuilt into the loader: restart the game to see it`);
   for (const f of files.filter((f) => f.startsWith("assets/"))) console.log(`[${time()}]   graphic — rebuilt into the loader: restart the game to see it`);
   if (classes.length) {
     const p = makePatch(cfg, classes);

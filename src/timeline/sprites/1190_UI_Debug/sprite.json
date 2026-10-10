@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "StylizedRectangle", "x": 20, "y": 20, "scaleX": 7.02, "scaleY": 2.2, "name": "_srLogsBack", "actions": true },
+      { "depth": 2, "export": "StylizedRectangle", "x": 20, "y": 240, "scaleX": 7.02, "scaleY": 0.20001, "name": "_srCommandLineBack", "actions": true },
+      { "depth": 3, "export": "ChatArea", "x": 20, "y": 40, "scaleX": 7.02008, "scaleY": 2, "name": "_cLogs", "actions": true },
+      { "depth": 4, "export": "TextInput", "x": 24, "y": 240, "scaleX": 5.91998, "scaleY": 0.8, "name": "_tiCommandLine", "actions": true },
+      { "depth": 5, "export": "Button", "x": 24, "y": 24, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 6, "export": "Label", "x": 24, "y": 240, "name": "_lblPrompt", "actions": true },
+      { "depth": 7, "export": "Button", "x": 64, "y": 24, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnClear", "actions": true },
+      { "depth": 8, "export": "Button", "x": 84, "y": 24, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnCopy", "actions": true },
+      { "depth": 9, "export": "Button", "x": 44, "y": 24, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnMinimize", "actions": true },
+      { "depth": 10, "export": "Rectangle", "x": 105, "y": 20, "scaleX": 0.3, "scaleY": 0.2, "alpha": 0, "name": "\u001d\u000b\u0015" }
+    ]
+  }
+ ]
+}

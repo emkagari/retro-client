@@ -1,0 +1,20 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 5.72983, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 220, "scaleX": 5.72983, "scaleY": 0.40001, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 5, "export": "Button", "x": 403.05, "y": 231, "scaleX": 1.5, "scaleY": 1, "name": "_btnEditInformations", "actions": true },
+      { "depth": 6, "export": "Button", "x": 481.1, "y": 231, "scaleX": 0.72003, "scaleY": 1, "name": "_btnSave", "actions": true },
+      { "depth": 7, "export": "Rectangle", "x": -0.1, "y": 20, "scaleX": 5.7312, "scaleY": 1.99896, "color": { "mult": [0, 0, 0, 1], "add": [237, 231, 211, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": -0.1, "y": 20, "scaleX": 5.73161, "scaleY": 2, "color": { "mult": [0, 0, 0, 1], "add": [249, 247, 240, 0] }, "name": "_mcEditMode" },
+      { "depth": 11, "export": "Button", "x": 403, "y": 231, "scaleX": 0.72011, "scaleY": 1, "name": "_btnCancel", "actions": true },
+      { "depth": 12, "export": "Label", "x": 10, "y": 0, "scaleX": 1.99998, "scaleY": 0.8, "name": "_lblDescription", "actions": true },
+      { "depth": 13, "export": "Label", "x": 4.6, "y": 230.05, "scaleX": 3.60149, "scaleY": 1, "name": "_lblLatestUpdate", "actions": true },
+      { "depth": 14, "export": "TextArea", "x": 4.9, "y": 20.4, "scaleX": 5.67162, "scaleY": 1.98007, "name": "_taGuildInformations", "actions": true },
+      { "depth": 15, "export": "TextArea", "x": 255.95, "y": 0, "scaleX": 2.95294, "scaleY": 0.16, "name": "_taConductRules", "actions": true },
+      { "depth": 16, "export": "GAPILoader", "x": 556.25, "y": 3.4, "scale": 0.132, "name": "_ldrHelp", "actions": true }
+    ]
+  }
+ ]
+}

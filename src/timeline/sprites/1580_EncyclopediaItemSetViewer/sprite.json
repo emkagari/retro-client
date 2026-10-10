@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 1579, "x": 0, "y": 0 },
+      { "depth": 2, "export": "List", "x": 1, "y": 32, "scaleX": 1.34007, "scaleY": 5, "name": "_lstEffects", "actions": true },
+      { "depth": 3, "export": "Container", "x": 7, "y": 130.5, "scale": 0.4, "name": "_ctr1", "actions": true },
+      { "depth": 4, "export": "Container", "x": 29, "y": 130.5, "scale": 0.4, "name": "_ctr2", "actions": true },
+      { "depth": 5, "export": "Container", "x": 51, "y": 130.5, "scale": 0.4, "name": "_ctr3", "actions": true },
+      { "depth": 6, "export": "Container", "x": 73, "y": 130.5, "scale": 0.4, "name": "_ctr4", "actions": true },
+      { "depth": 7, "export": "Container", "x": 95, "y": 130.5, "scale": 0.4, "name": "_ctr5", "actions": true },
+      { "depth": 8, "export": "Container", "x": 7, "y": 152.5, "scale": 0.4, "name": "_ctr6", "actions": true },
+      { "depth": 9, "export": "Container", "x": 29, "y": 152.5, "scale": 0.4, "name": "_ctr7", "actions": true },
+      { "depth": 10, "export": "Container", "x": 51, "y": 152.5, "scale": 0.4, "name": "_ctr8", "actions": true }
+    ]
+  }
+ ]
+}

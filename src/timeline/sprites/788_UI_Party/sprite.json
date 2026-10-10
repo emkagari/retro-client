@@ -1,0 +1,19 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "UI_PartyItem", "x": 713, "y": 82, "name": "_piMember0" },
+      { "depth": 25, "export": "UI_PartyItem", "x": 713, "y": 112, "name": "_piMember1" },
+      { "depth": 49, "export": "UI_PartyItem", "x": 713, "y": 142, "name": "_piMember2" },
+      { "depth": 73, "export": "UI_PartyItem", "x": 713, "y": 172, "name": "_piMember3" },
+      { "depth": 97, "export": "Button", "x": 732, "y": 46, "scaleX": 0.1, "scaleY": 0.55556, "name": "_btnOpenClose", "actions": true },
+      { "depth": 98, "export": "UI_PartyItem", "x": 713, "y": 202, "name": "_piMember4" },
+      { "depth": 122, "export": "UI_PartyItem", "x": 713, "y": 232, "name": "_piMember5" },
+      { "depth": 146, "export": "UI_PartyItem", "x": 713, "y": 262, "name": "_piMember6" },
+      { "depth": 170, "export": "UI_PartyItem", "x": 713, "y": 292, "name": "_piMember7" },
+      { "depth": 194, "export": "UI_PartyItemInfo", "x": 713, "y": 60, "name": "_mcInfo" },
+      { "depth": 210, "export": "Button", "x": 713, "y": 41, "scaleX": 0.15001, "scaleY": 0.8336, "name": "_btnBlockJoinerExceptParty", "actions": true }
+    ]
+  }
+ ]
+}

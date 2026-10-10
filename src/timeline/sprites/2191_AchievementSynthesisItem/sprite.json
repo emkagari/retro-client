@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "ProgressBar", "x": 0, "y": 44.5, "scaleX": 1.4, "scaleY": 0.90001, "name": "_pb", "actions": true },
+      { "depth": 2, "export": "Label", "x": 140, "y": 39.5, "scaleX": 0.3501, "scaleY": 0.7, "name": "_lblProgress", "actions": true },
+      { "depth": 3, "sprite": 2190, "x": 0, "y": 0, "mask": 8 },
+      { "depth": 5, "export": "GAPILoader", "x": 0, "y": 0, "scaleX": 1.74994, "scaleY": 0.42, "name": "_ldrIcon", "actions": true },
+      { "depth": 6, "sprite": 2190, "x": 0, "y": 0, "name": "_mcMask" },
+      { "depth": 10, "export": "Label", "x": 4.5, "y": 22, "name": "_lblName", "actions": true }
+    ]
+  }
+ ]
+}

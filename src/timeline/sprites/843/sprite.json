@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 840, "x": 0, "y": 0 },
+      { "depth": 2, "sprite": 842, "x": 2.8, "y": 0, "name": "_mcGround" }
+    ]
+  }
+ ]
+}

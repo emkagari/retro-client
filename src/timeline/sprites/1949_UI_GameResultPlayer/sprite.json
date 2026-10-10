@@ -1,0 +1,36 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "ProgressBar", "x": 170, "y": 2.35, "scaleX": 0.99312, "scaleY": 1.50024, "name": "_pbXP", "actions": true },
+      { "depth": 2, "export": "Label", "x": 20, "y": 0.6, "scaleX": 1.15001, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 3, "export": "DeadHead", "x": 16, "y": 17.7, "name": "_mcItemPlacer" },
+      { "depth": 9, "export": "UI_GameResultSeparator", "x": 137, "y": 0 },
+      { "depth": 11, "export": "UI_GameResultSeparator", "x": 382, "y": 0 },
+      { "depth": 13, "export": "Label", "x": 140, "y": 0.6, "scaleX": 0.25, "scaleY": 0.8, "name": "_lblLevel", "actions": true },
+      { "depth": 14, "export": "UI_GameResultSeparator", "x": 427, "y": 0 },
+      { "depth": 16, "export": "Label", "x": 385, "y": 0.6, "scaleX": 0.40001, "scaleY": 0.8, "name": "_lblKama", "actions": true },
+      { "depth": 17, "export": "Label", "x": 170, "y": 1.15, "scaleX": 0.99976, "scaleY": 0.8001, "name": "_lblWinXP", "actions": true },
+      { "depth": 18, "export": "UI_GameResultSeparator", "x": 272, "y": 0 },
+      { "depth": 20, "export": "Label", "x": 275, "y": 0.6, "scaleX": 0.50002, "scaleY": 0.8, "name": "_lblGuildXP", "actions": true },
+      { "depth": 21, "export": "UI_GameResultSeparator", "x": 327, "y": 0 },
+      { "depth": 23, "export": "Label", "x": 330, "y": 0.6, "scaleX": 0.50002, "scaleY": 0.8, "name": "_lblMountXP", "actions": true },
+      { "depth": 24, "export": "GAPILoader", "x": 673, "y": 4, "scale": 0.12001, "name": "_ldrAllDrop", "actions": true },
+      { "depth": 25, "export": "GAPILoader", "x": 0.95, "y": 2, "scale": 0.15999, "name": "_ldrGuild", "actions": true },
+      { "depth": 26, "export": "UI_GameResultSeparator", "x": 167, "y": 0 },
+      { "depth": 28, "export": "GAPILoader", "x": 119, "y": 2, "scale": 0.15999, "name": "_ldrXP", "actions": true },
+      { "depth": 29, "export": "Container", "x": 647.3, "y": 0, "scale": 0.4, "name": "_ctr9", "actions": true },
+      { "depth": 30, "export": "Container", "x": 623.45, "y": 0, "scale": 0.4, "name": "_ctr8", "actions": true },
+      { "depth": 31, "export": "Container", "x": 599.6, "y": 0, "scale": 0.4, "name": "_ctr7", "actions": true },
+      { "depth": 32, "export": "Container", "x": 575.75, "y": 0, "scale": 0.4, "name": "_ctr6", "actions": true },
+      { "depth": 33, "export": "Container", "x": 551.9, "y": 0, "scale": 0.4, "name": "_ctr5", "actions": true },
+      { "depth": 34, "export": "Container", "x": 528.05, "y": 0, "scale": 0.4, "name": "_ctr4", "actions": true },
+      { "depth": 35, "export": "Container", "x": 504.2, "y": 0, "scale": 0.4, "name": "_ctr3", "actions": true },
+      { "depth": 36, "export": "Container", "x": 480.35, "y": 0, "scale": 0.4, "name": "_ctr2", "actions": true },
+      { "depth": 37, "export": "Container", "x": 456.5, "y": 0, "scale": 0.4, "name": "_ctr1", "actions": true },
+      { "depth": 38, "export": "Container", "x": 432.65, "y": 0, "scale": 0.4, "name": "_ctr0", "actions": true },
+      { "depth": 39, "export": "GAPILoader", "x": 212, "y": 2, "scale": 0.15999, "name": "_ldrLockXp", "actions": true }
+    ]
+  }
+ ]
+}

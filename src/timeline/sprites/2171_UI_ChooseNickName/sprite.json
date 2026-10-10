@@ -1,0 +1,23 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 11.11996, "actions": true },
+      { "depth": 2, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 7.42007, "scaleY": 5.56, "color": { "mult": [0, 0, 0, 0.36], "add": [51, 51, 51, 0] } },
+      { "depth": 4, "sprite": 2162, "x": 367.3, "y": 273.35, "scaleX": 1.03174, "scaleY": 0.99869, "filters": [{ "type": "blur", "blurX": 8, "blurY": 8, "passes": 3 }], "blend": "multiply" },
+      { "depth": 7, "shape": 2163, "x": 0, "y": 0 },
+      { "depth": 8, "sprite": 2165, "x": 194.25, "y": 182.35, "scaleX": 1.00012, "scaleY": 1, "filters": [{ "type": "dropShadow", "color": "#000000", "alpha": 1, "blurX": 2, "blurY": 2, "angle": 0.78539, "distance": 0, "strength": 1, "composite": true, "passes": 3 }] },
+      { "depth": 10, "sprite": 2167, "x": 194.25, "y": 182.35, "scaleX": 1.00012, "scaleY": 1, "color": { "mult": [0.33, 0.33, 0.33, 1], "add": [143, 139, 114, 0] }, "filters": [{ "type": "bevel", "shadowColor": "#ffffff", "shadowAlpha": 1, "highlightColor": "#000000", "highlightAlpha": 1, "blurX": 5, "blurY": 5, "angle": 0.78539, "distance": 1, "strength": 1, "inner": true, "composite": true, "passes": 1 }] },
+      { "depth": 12, "shape": 2168, "x": 0, "y": 0 },
+      { "depth": 13, "export": "Button", "x": 372, "y": 351, "name": "_btnOk", "actions": true },
+      { "depth": 14, "export": "Button", "x": 257, "y": 351, "name": "_btnCancel", "actions": true },
+      { "depth": 15, "export": "TextArea", "x": 189.8, "y": 209.6, "scaleX": 3.52887, "scaleY": 0.67477, "name": "_txtHelp", "actions": true },
+      { "depth": 16, "export": "Label", "x": 211, "y": 171, "scaleX": 3.00003, "scaleY": 1.00009, "name": "_lblTitle", "actions": true },
+      { "depth": 17, "export": "Label", "x": 215, "y": 311, "scaleX": 3.00003, "scaleY": 1.00009, "name": "_lblError", "actions": true },
+      { "depth": 18, "export": "TextArea", "x": 189.8, "y": 239.6, "scaleX": 3.52887, "scaleY": 0.67477, "name": "_txtHelp2", "actions": true },
+      { "depth": 19, "sprite": 2170, "x": 194, "y": 282, "name": "_mcNickBg" },
+      { "depth": 21, "export": "TextInput", "x": 198.3, "y": 283.35, "scaleX": 3.39911, "scaleY": 0.8, "name": "_tiNickName", "actions": true }
+    ]
+  }
+ ]
+}

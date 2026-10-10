@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 781, "x": 0, "y": 6, "scaleX": 0.14001, "scaleY": 0.06003, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 3, "sprite": 781, "x": 0, "y": 6, "scaleX": 0.14001, "scaleY": -0.06004, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 5, "sprite": 2270, "x": 0.7, "y": 1.5, "scaleX": 1.50267, "scaleY": 1.5, "name": "_mcColor" }
+    ]
+  }
+ ]
+}

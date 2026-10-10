@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "name": "_bhClose", "actions": true },
+      { "depth": 2, "sprite": 677, "x": 204, "y": 119, "scaleX": 1.00015, "scaleY": 1, "name": "_mcWindowBg" },
+      { "depth": 4, "shape": 1051, "x": 0, "y": 0 },
+      { "depth": 5, "export": "GAPILoader", "x": 271, "y": 152, "actions": true },
+      { "depth": 6, "export": "Button", "x": 529, "y": 126.55, "scaleX": -0.1, "scaleY": 0.55556, "name": "_btnClose", "actions": true },
+      { "depth": 7, "export": "Label", "x": 213, "y": 122.55, "scaleX": 1.48999, "scaleY": 0.85, "name": "_txtHistoryDescription", "actions": true },
+      { "depth": 8, "export": "Label", "x": 366, "y": 122.55, "scaleX": 1.48999, "scaleY": 0.85, "name": "_lblBreedName", "actions": true },
+      { "depth": 9, "export": "GAPILoader", "x": 221, "y": 118, "scale": 1.5, "name": "_lblBreedHistory", "actions": true },
+      { "depth": 10, "export": "TextArea", "x": 224, "y": 160, "scaleX": 2.95, "scaleY": 1.19994, "name": "_ldrClassBg", "actions": true }
+    ]
+  }
+ ]
+}

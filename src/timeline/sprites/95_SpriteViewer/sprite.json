@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 93, "x": 58.95, "y": 92.2, "name": "_mcBackground" },
+      { "depth": 5, "export": "GAPILoader", "x": 58.25, "y": 101.25, "scale": 0.17502, "name": "_ldrSpriteA", "actions": true },
+      { "depth": 6, "export": "GAPILoader", "x": 58.25, "y": 101.25, "scale": 0.17502, "name": "_ldrSpriteB", "actions": true },
+      { "depth": 7, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 1.19989, "scaleY": 1.23999, "alpha": 0, "name": "_mcInteraction" }
+    ]
+  }
+ ]
+}

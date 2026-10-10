@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1917, "x": 0.05, "y": 0, "filters": [{ "type": "glow", "color": "#bfb9aa", "alpha": 1, "blurX": 10, "blurY": 10, "strength": 1, "composite": true, "passes": 3 }] }
+    ]
+  }
+ ]
+}

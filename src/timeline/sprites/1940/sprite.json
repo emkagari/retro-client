@@ -1,0 +1,22 @@
+{
+ "frames": [
+  {},
+  {
+    "place": [
+      { "depth": 1, "sprite": 1928, "x": 0.05, "y": 8.85, "scaleX": 0.75577, "scaleY": 0.75789, "ratio": 1, "name": "_mcAnge", "filters": [{ "type": "glow", "color": "#b6c6d5", "alpha": 1, "blurX": 5, "blurY": 5, "strength": 1, "composite": true, "passes": 1 }] }
+    ]
+  },
+  {
+    "remove": [1],
+    "place": [
+      { "depth": 1, "sprite": 1930, "x": -27.35, "y": -7.85, "scaleX": 0.77156, "scaleY": 0.77185, "ratio": 2, "name": "_mcDemon", "filters": [{ "type": "glow", "color": "#9f0000", "alpha": 1, "blurX": 5, "blurY": 5, "strength": 1, "composite": true, "passes": 1 }] }
+    ]
+  },
+  {
+    "remove": [1],
+    "place": [
+      { "depth": 1, "sprite": 1939, "x": 0.5, "y": 0.3, "scale": 0.47426, "ratio": 3, "name": "_mcMercenaire", "filters": [{ "type": "glow", "color": "#fffcec", "alpha": 1, "blurX": 5, "blurY": 5, "strength": 1, "composite": true, "passes": 1 }] }
+    ]
+  }
+ ]
+}

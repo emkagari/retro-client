@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "ProgressBarDefaultRenderer", "x": 0, "y": 4.5 },
+      { "depth": 21, "export": "ProgressBarRectangleRenderer", "x": 2.65, "y": 16 }
+    ]
+  }
+ ]
+}

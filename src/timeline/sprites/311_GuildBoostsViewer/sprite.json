@@ -1,0 +1,40 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 5.72986, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 40, "scaleX": 5.73004, "scaleY": 1.8001, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 0, "y": 20, "scaleX": 5.72998, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 269, "y": 40, "scaleX": 0.00998, "scaleY": 1.79996, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": 0, "y": 220, "scaleX": 5.72986, "scaleY": 0.40001, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 11, "export": "Rectangle", "x": 269, "y": 20, "scaleX": 0.00998, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 13, "export": "Rectangle", "x": 0, "y": 40, "scaleX": 2.69, "scaleY": 0.30002, "color": { "mult": [0, 0, 0, 1], "add": [180, 172, 141, 0] } },
+      { "depth": 15, "export": "Rectangle", "x": 0, "y": 100, "scaleX": 2.69, "scaleY": 0.30002, "color": { "mult": [0, 0, 0, 1], "add": [180, 172, 141, 0] } },
+      { "depth": 17, "export": "Rectangle", "x": 0, "y": 160, "scaleX": 2.69, "scaleY": 0.30002, "color": { "mult": [0, 0, 0, 1], "add": [180, 172, 141, 0] } },
+      { "depth": 19, "export": "Label", "x": 277, "y": 20, "scaleX": 1.99998, "scaleY": 0.8, "name": "_lblTaxCharacteristics", "actions": true },
+      { "depth": 20, "export": "Label", "x": 10, "y": 20, "scaleX": 1.99998, "scaleY": 0.8, "name": "_lblTaxSpells", "actions": true },
+      { "depth": 21, "export": "List", "x": 270, "y": 40, "scaleX": 3.03001, "scaleY": 8.99992, "name": "_lstSpells", "actions": true },
+      { "depth": 22, "export": "Label", "x": 10, "y": 45, "scaleX": 1.90002, "scaleY": 0.8, "name": "_lblLP", "actions": true },
+      { "depth": 23, "export": "Label", "x": 190, "y": 45, "scaleX": 0.50002, "scaleY": 0.8, "name": "_lblLPValue", "actions": true },
+      { "depth": 24, "export": "Label", "x": 10, "y": 75, "scaleX": 1.90002, "scaleY": 0.8, "name": "_lblBonus", "actions": true },
+      { "depth": 25, "export": "Label", "x": 190, "y": 75, "scaleX": 0.50002, "scaleY": 0.8, "name": "_lblBoostPP", "actions": true },
+      { "depth": 26, "export": "Label", "x": 10, "y": 105, "scaleX": 1.90002, "scaleY": 0.8, "name": "_lblBoostPopValue", "actions": true },
+      { "depth": 27, "export": "Label", "x": 190, "y": 105, "scaleX": 0.50002, "scaleY": 0.8, "name": "_lblBoostWisdom", "actions": true },
+      { "depth": 28, "export": "Label", "x": 10, "y": 135, "scaleX": 1.90002, "scaleY": 0.8, "name": "_lblBoostWisdomValue", "actions": true },
+      { "depth": 29, "export": "Label", "x": 190, "y": 135, "scaleX": 0.50002, "scaleY": 0.8, "name": "_lblBonusValue", "actions": true },
+      { "depth": 30, "export": "Label", "x": 10, "y": 165, "scaleX": 1.90002, "scaleY": 0.8, "name": "_lblBoostPPValue", "actions": true },
+      { "depth": 31, "export": "Label", "x": 190, "y": 165, "scaleX": 0.50002, "scaleY": 0.8, "name": "_lblBoostPod", "actions": true },
+      { "depth": 32, "export": "Button", "x": 249, "y": 109, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnBoostPP", "actions": true },
+      { "depth": 33, "export": "Button", "x": 249, "y": 139, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnBoostWisdom", "actions": true },
+      { "depth": 34, "export": "Button", "x": 249, "y": 169, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnBoostPod", "actions": true },
+      { "depth": 35, "export": "Label", "x": 86, "y": 230, "scaleX": 0.99998, "scaleY": 0.8, "name": "_lblBoostPoints", "actions": true },
+      { "depth": 36, "export": "Label", "x": 520, "y": 20, "scaleX": 0.5, "scaleY": 0.8, "name": "_lblLevel", "actions": true },
+      { "depth": 37, "export": "Label", "x": 10, "y": 230, "scaleX": 1.29999, "scaleY": 0.8, "name": "_lblBoostPodValue", "actions": true },
+      { "depth": 38, "export": "Label", "x": 10, "y": 195, "scaleX": 1.90002, "scaleY": 0.8, "name": "_lblBoostPointsValue", "actions": true },
+      { "depth": 39, "export": "Label", "x": 190, "y": 195, "scaleX": 0.50002, "scaleY": 0.8, "name": "_lblBoostPop", "actions": true },
+      { "depth": 40, "export": "Button", "x": 249, "y": 199, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnBoostPop", "actions": true },
+      { "depth": 41, "export": "Label", "x": 10, "y": 0, "scaleX": 1.99998, "scaleY": 0.8, "name": "_lblDescription", "actions": true }
+    ]
+  }
+ ]
+}

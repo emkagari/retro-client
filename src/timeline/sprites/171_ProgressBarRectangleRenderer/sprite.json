@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 165, "x": 0, "y": 0, "name": "_mcBgLeft" },
+      { "depth": 3, "sprite": 166, "x": 3, "y": 0, "name": "_mcBgMiddle" },
+      { "depth": 9, "sprite": 167, "x": 33, "y": 0, "name": "_mcBgRight" },
+      { "depth": 11, "sprite": 168, "x": 1, "y": 0, "name": "_mcUpMiddle" },
+      { "depth": 13, "sprite": 170, "x": 1, "y": 0, "name": "_mcGradientMiddle" },
+      { "depth": 15, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.34999, "scaleY": 0.08, "alpha": 0, "name": "_mcRectangle" }
+    ]
+  }
+ ]
+}

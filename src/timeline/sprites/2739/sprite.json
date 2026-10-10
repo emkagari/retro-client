@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 5, "y": 2, "scaleX": -0.04997, "scaleY": -0.01, "color": { "mult": [0, 0, 0, 1], "add": [204, 204, 204, 0] }, "name": "border_mc" },
+      { "depth": 3, "export": "Rectangle", "x": 5, "y": 2, "scaleX": -0.04997, "scaleY": 0.18, "color": { "mult": [0, 0, 0, 1], "add": [153, 51, 0, 0] }, "name": "bg_mc" },
+      { "depth": 5, "export": "Rectangle", "x": 5, "y": 1, "scaleX": -0.04997, "scaleY": -0.01, "alpha": 0, "name": "border_mc" },
+      { "depth": 7, "sprite": 181, "x": 5, "y": 10, "scaleX": -0.10002, "scaleY": 0.19975, "alpha": 0.2 }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scale": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 1, "y": 1, "scale": 0.18, "color": { "mult": [0, 0, 0, 1], "add": [190, 177, 126, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 2, "y": 2, "scale": 0.15999, "color": { "mult": [0, 0, 0, 1], "add": [255, 0, 0, 0] }, "name": "bg_mc" },
+      { "depth": 7, "sprite": 781, "x": 2, "y": 2, "scale": 0.15001, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] }, "name": "highlight_1_mc" },
+      { "depth": 9, "sprite": 781, "x": 18, "y": 18, "scale": -0.15001, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] }, "name": "highlight_2_mc" }
+    ]
+  }
+ ]
+}

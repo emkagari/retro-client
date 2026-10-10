@@ -1,0 +1,32 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 29.7, "y": 57.9, "scaleX": 6.53912, "scaleY": 7.48218, "name": "\u001c\u0004\u0013", "actions": true },
+      { "depth": 2, "export": "Window", "x": 30, "y": 58, "scaleX": 3.27005, "scaleY": 3.84996, "name": "_winBackground", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 33, "y": 381, "scaleX": 3.20895, "scaleY": 0.51018, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 36, "y": 405, "scaleX": 3.14893, "scaleY": 0.20001, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 33, "y": 81, "scaleX": 3.20895, "scaleY": 0.50018, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] }, "name": "_mcBgCategory" },
+      { "depth": 9, "export": "Rectangle", "x": 33, "y": 131, "scaleX": 3.20895, "scaleY": 0.21017, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] }, "name": "_mcBgArticle" },
+      { "depth": 11, "export": "Button", "x": 338, "y": 65, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 12, "export": "List", "x": 33, "y": 81, "scaleX": 3.20892, "scaleY": 15.00124, "name": "_lstCategories", "actions": true },
+      { "depth": 13, "export": "Label", "x": 36, "y": 385, "scaleX": 3.14975, "scaleY": 1, "name": "_lblSearch", "actions": true },
+      { "depth": 14, "export": "TextInput", "x": 36, "y": 405, "scaleX": 3.14946, "scaleY": 0.8, "name": "_tiSearch", "actions": true },
+      { "depth": 15, "export": "List", "x": 33, "y": 131, "scaleX": 3.20892, "scaleY": 12.50116, "name": "_lstArticles", "actions": true },
+      { "depth": 16, "export": "Label", "x": 85.3, "y": 126, "scaleX": 2.60553, "scaleY": 0.99994, "name": "_lblArticle", "actions": true },
+      { "depth": 17, "export": "TextArea", "x": 36.95, "y": 155.95, "scaleX": 3.13158, "scaleY": 2.21094, "name": "_taArticle", "actions": true },
+      { "depth": 18, "export": "List", "x": 33, "y": 81, "scaleX": 3.20892, "scaleY": 15.01628, "name": "_lstSearch", "actions": true },
+      { "depth": 19, "export": "Button", "x": 322, "y": 65, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnMinimize", "actions": true },
+      { "depth": 20, "export": "Button", "x": 322, "y": 65, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnMaximize", "actions": true },
+      { "depth": 21, "export": "Label", "x": 94.8, "y": 96.6, "scaleX": 2.41083, "scaleY": 1.35, "name": "_lblCategory", "actions": true },
+      { "depth": 22, "sprite": 975, "x": -1.7, "y": 81.1, "scaleX": 1.06548, "scaleY": 1.06577, "name": "_mcCategory" },
+      { "depth": 30, "sprite": 977, "x": 345.05, "y": 129.35, "scaleX": -0.45146, "scaleY": -0.45096, "name": "_mcArrowUp" },
+      { "depth": 33, "sprite": 981, "x": 3.35, "y": 83.95, "name": "_mcBookComplete" },
+      { "depth": 40, "sprite": 977, "x": 345.05, "y": 150.35, "scaleX": -0.45146, "scaleY": -0.45096, "name": "_mcArrowUp2" },
+      { "depth": 43, "export": "QuestionMark", "x": 64, "y": 127, "name": "_mcArticle" },
+      { "depth": 47, "export": "Rectangle", "x": 33, "y": 81, "scaleX": 3.20895, "scaleY": 0.40515, "alpha": 0, "name": "_mcBtnCategory" },
+      { "depth": 49, "export": "Rectangle", "x": 33, "y": 81, "scaleX": 3.20895, "scaleY": 0.70534, "alpha": 0, "name": "_mcBtnArticle" }
+    ]
+  }
+ ]
+}

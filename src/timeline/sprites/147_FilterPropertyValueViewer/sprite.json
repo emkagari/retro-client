@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 1.67023, "scaleY": 0.24998, "alpha": 0 },
+      { "depth": 3, "shape": 129, "x": 0, "y": 0 },
+      { "depth": 4, "export": "ComboBox", "x": 8.6, "y": 2.4, "scaleX": 1.1242, "scaleY": 1, "name": "_cbList", "actions": true },
+      { "depth": 5, "export": "Label", "x": 122.05, "y": 2.95, "scaleX": 0.13553, "scaleY": 0.8, "name": "_lblInterval", "actions": true },
+      { "depth": 6, "export": "TextInput", "x": 137, "y": 2.55, "scaleX": 0.25912, "scaleY": 0.8, "name": "_tiValue", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 294, "x": 13, "y": 13, "scale": 0.66667, "name": "_mcBoon" },
+      { "depth": 3, "export": "Star", "x": 49.8, "y": 21.35, "scale": 0.43332, "name": "_mcStar1" },
+      { "depth": 5, "export": "Star", "x": 65.1, "y": 24.6, "scale": 0.43332, "name": "_mcStar3" },
+      { "depth": 7, "export": "Star", "x": 34.5, "y": 24.6, "scale": 0.43332, "name": "_mcStar2" },
+      { "depth": 9, "export": "Star", "x": 75.05, "y": 35.95, "scale": 0.43332, "name": "_mcStar5" },
+      { "depth": 11, "export": "Star", "x": 25.2, "y": 35.95, "scale": 0.43332, "name": "_mcStar4" }
+    ]
+  }
+ ]
+}

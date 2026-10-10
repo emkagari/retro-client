@@ -1,0 +1,16 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 560, "x": 0, "y": 0 }
+    ]
+  },
+  {},
+  {
+    "place": [
+      { "depth": 1, "move": true, "alpha": 0.5 }
+    ]
+  },
+  {}
+ ]
+}

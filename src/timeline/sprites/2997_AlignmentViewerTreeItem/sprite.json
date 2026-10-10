@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.16002, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [218, 214, 184, 0] }, "name": "_mcBackgroundLight" },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.16002, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] }, "name": "_mcBackgroundDark" },
+      { "depth": 5, "export": "Label", "x": 25, "y": 0, "scaleX": 2.91002, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 6, "export": "GAPILoader", "x": 5, "y": 2, "scale": 0.15999, "name": "_ldrIcon", "actions": true },
+      { "depth": 7, "export": "Label", "x": 0, "y": 0, "scaleX": 3.16, "scaleY": 0.8, "name": "_lblLevel", "actions": true }
+    ]
+  }
+ ]
+}

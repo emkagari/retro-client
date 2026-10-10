@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 0, "y": 0, "scaleX": 1, "scaleY": 0.8, "name": "_lblChapter", "actions": true },
+      { "depth": 2, "export": "Label", "x": 0, "y": 0, "scaleX": 1, "scaleY": 0.8, "name": "_lblPageNum", "actions": true }
+    ]
+  }
+ ]
+}

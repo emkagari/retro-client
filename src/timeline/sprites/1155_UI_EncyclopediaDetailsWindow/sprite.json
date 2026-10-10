@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 174.4, "y": 52, "scaleX": 3.9401, "scaleY": 3.28009, "name": "_win", "actions": true },
+      { "depth": 3, "export": "Button", "x": 546, "y": 61, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 4, "export": "Rectangle", "x": 177.4, "y": 57, "scaleX": 3.88, "scaleY": 3.2001, "alpha": 0, "name": "_mcPlacer" }
+    ]
+  }
+ ]
+}

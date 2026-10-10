@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 4, "shape": 2045, "x": 0, "y": 0 },
+      { "depth": 5, "sprite": 2043, "x": 9.1, "y": 10, "scaleX": 1.09145, "scaleY": 0.79789, "rotation": -45 },
+      { "depth": 7, "sprite": 265, "x": 4.45, "y": 4.55, "scale": 1.42455, "color": { "mult": [0, 0, 0, 1] } },
+      { "depth": 9, "sprite": 265, "x": 3.45, "y": 3.55, "scale": 1.42455, "color": { "mult": [0, 0, 0, 1], "add": [0, 153, 0, 0] } }
+    ]
+  }
+ ]
+}

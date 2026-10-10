@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 2, "shape": 544, "x": 0, "y": 0 },
+      { "depth": 3, "export": "VolumeSlider", "x": 344, "y": 2, "scaleX": 1.5, "scaleY": 0.6, "name": "_vsZoom", "actions": true },
+      { "depth": 4, "export": "Button", "x": 500, "y": 2, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnCancel", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 242, "scaleX": 3.2, "scaleY": 0.70003, "color": { "mult": [0, 0, 0, 1], "add": [237, 235, 220, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.2, "scaleY": 0.22, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 5, "export": "QuestBook", "x": 25.95, "y": 275.2 },
+      { "depth": 7, "export": "Label", "x": 6, "y": 0, "scaleX": 3.1, "scaleY": 1, "name": "_lblSteps", "actions": true },
+      { "depth": 8, "export": "List", "x": 0, "y": 22, "scaleX": 3.20001, "scaleY": 11.00049, "name": "_lstSteps", "actions": true },
+      { "depth": 9, "export": "TextArea", "x": 50, "y": 247, "scaleX": 2.70001, "scaleY": 0.55, "name": "_txtDescription", "actions": true }
+    ]
+  }
+ ]
+}

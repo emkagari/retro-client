@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.64, "actions": true },
+      { "depth": 2, "export": "Window", "x": 21, "y": 22, "scaleX": 6.99992, "scaleY": 3.84943, "name": "_winBackground", "actions": true },
+      { "depth": 3, "export": "Button", "x": 701, "y": 30, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 4, "export": "Button", "x": 601, "y": 407, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnClose2", "actions": true },
+      { "depth": 5, "export": "DataGrid", "x": 31, "y": 76, "scaleX": 6.8001, "scaleY": 3.20026, "name": "_dgCrafter", "actions": true },
+      { "depth": 6, "export": "Label", "x": 31, "y": 52, "scaleX": 0.60007, "scaleY": 0.8, "name": "_lblJob", "actions": true },
+      { "depth": 7, "export": "ComboBox", "x": 96, "y": 52, "scaleX": 1.7, "scaleY": 1, "name": "_cbJobs", "actions": true }
+    ]
+  }
+ ]
+}

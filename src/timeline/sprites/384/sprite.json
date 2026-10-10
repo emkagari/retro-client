@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 378, "x": 0, "y": 0 },
+      { "depth": 2, "sprite": 380, "x": -0.7, "y": -6.4, "name": "cIop_R_Corps" },
+      { "depth": 4, "sprite": 382, "x": 1.15, "y": -4.75, "name": "cIop_R_Croix00" },
+      { "depth": 10, "shape": 383, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

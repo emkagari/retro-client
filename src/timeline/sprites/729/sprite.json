@@ -1,0 +1,34 @@
+{
+ "frames": [
+  {},
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": -107, "y": -4, "scaleX": 1.99997, "scaleY": 0.26009, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "ratio": 1 }
+    ]
+  },
+  {
+    "remove": [1]
+  },
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": -107, "y": -4, "scaleX": 1.99997, "scaleY": 0.26009, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "ratio": 3 }
+    ]
+  },
+  {
+    "remove": [1]
+  },
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": -107, "y": -4, "scaleX": 1.99997, "scaleY": 0.26009, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "ratio": 5 }
+    ]
+  },
+  {
+    "remove": [1]
+  },
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": -107, "y": -4, "scaleX": 1.99997, "scaleY": 0.26009, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "ratio": 7 }
+    ]
+  }
+ ]
+}

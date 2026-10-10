@@ -1,0 +1,24 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": -0.1, "scaleX": 7.41998, "scaleY": 5.56, "color": { "mult": [0, 0, 0, 1], "add": [41, 38, 31, 0] } },
+      { "depth": 3, "sprite": 1269, "x": 45.25, "y": 69.75, "mask": 6 },
+      { "depth": 5, "shape": 1271, "x": 0, "y": 0 },
+      { "depth": 11, "shape": 1272, "x": 0, "y": 0 },
+      { "depth": 12, "text": 1124, "x": 94.6, "y": 341.2 },
+      { "depth": 16, "shape": 1273, "x": 0, "y": 0 },
+      { "depth": 17, "export": "Label", "x": 173, "y": 522.5, "scaleX": 4.00003, "scaleY": 1.00009, "name": "_lblCopyright", "actions": true },
+      { "depth": 18, "export": "Label", "x": 94, "y": 43, "scaleX": 1.80003, "scaleY": 1.0001, "name": "_lblServer", "actions": true },
+      { "depth": 19, "export": "Label", "x": 469, "y": 43, "scaleX": 1.80003, "scaleY": 1.0001, "name": "_lblLogin", "actions": true },
+      { "depth": 20, "shape": 1125, "x": -0.05, "y": -60 },
+      { "depth": 21, "export": "Button", "x": 324, "y": 433.1, "scaleX": 0.90002, "scaleY": 1.16, "name": "_btnSkip", "actions": true },
+      { "depth": 22, "sprite": 1293, "x": 448, "y": 306, "name": "_mcPlayer" },
+      { "depth": 45, "export": "DataGrid", "x": 63, "y": 296, "scaleX": 2.49997, "scaleY": 1.2, "name": "_lstCharacters", "actions": true },
+      { "depth": 46, "export": "TextArea", "x": 63, "y": 229, "scaleX": 2.49997, "scaleY": 0.59, "name": "_nCharacterCount", "actions": true },
+      { "depth": 47, "export": "Label", "x": 63.5, "y": 211, "scaleX": 1.6195, "scaleY": 0.94548, "name": "_taMigrationDesc", "actions": true },
+      { "depth": 48, "sprite": 254, "x": 637.95, "y": 383, "name": "\u001d\u000e\u001a" }
+    ]
+  }
+ ]
+}

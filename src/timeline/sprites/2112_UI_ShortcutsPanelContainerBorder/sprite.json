@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 24, "y": 24, "scaleX": -0.0096, "scaleY": -0.24, "color": { "mult": [0, 0, 0, 1], "add": [209, 204, 182, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 24, "y": 24, "scaleX": -0.23987, "scaleY": -0.0096, "color": { "mult": [0, 0, 0, 1], "add": [209, 204, 182, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.0096, "scaleY": 0.24, "color": { "mult": [0, 0, 0, 1], "add": [135, 123, 99, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.23987, "scaleY": 0.0096, "color": { "mult": [0, 0, 0, 1], "add": [135, 123, 99, 0] } }
+    ]
+  }
+ ]
+}

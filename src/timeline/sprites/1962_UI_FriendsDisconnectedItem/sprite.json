@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 20, "y": 0, "scaleX": 1.14005, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 2, "export": "Button", "x": 4, "y": 4, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnRemove", "actions": true },
+      { "depth": 3, "export": "Button", "x": 138, "y": 4, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnEdit", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "GAPILoader", "x": 0, "y": 0, "scale": 0.39998, "name": "_ldrBackground", "actions": true },
+      { "depth": 2, "export": "GAPILoader", "x": 0, "y": 0, "scale": 0.39998, "name": "_ldrUp", "actions": true }
+    ]
+  }
+ ]
+}

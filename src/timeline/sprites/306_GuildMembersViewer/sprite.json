@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 5.72995, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 3, "export": "Label", "x": 10, "y": 0, "scaleX": 1.99998, "scaleY": 0.8, "name": "_lblDescription", "actions": true },
+      { "depth": 4, "export": "Label", "x": 411.55, "y": 0, "scaleX": 1.4079, "scaleY": 0.8, "name": "_lblCount", "actions": true },
+      { "depth": 5, "export": "DataGrid", "x": 0, "y": 20, "scaleX": 5.73001, "scaleY": 2.20001, "name": "_dgMembers", "actions": true },
+      { "depth": 6, "export": "Label", "x": 233.9, "y": 241, "scaleX": 3.1662, "scaleY": 1, "name": "_lblDisplayOffline", "actions": true },
+      { "depth": 7, "export": "Button", "x": 556.5, "y": 245, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnShowOfflineMembers", "actions": true },
+      { "depth": 8, "export": "Label", "x": 0, "y": 241, "scaleX": 2.14476, "scaleY": 1, "name": "_lblSeeAvgMembersLvl", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,505 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 2288, "x": 0, "y": 0 },
+      { "depth": 2, "shape": 2289, "x": 0, "y": 0 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2290 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2291 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2292 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2293 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2294 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2295 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2296 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2297 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2298 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2299 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2300 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2301 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2302 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2303 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2304 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2305 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2306 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2307 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2308 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2309 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2310 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2311 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2312 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2313 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2314 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2315 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2316 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2317 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2318 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2319 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2320 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2321 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2322 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2323 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2324 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2325 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2326 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2327 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2328 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2329 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2330 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2331 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2332 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2333 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2334 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2335 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2336 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2337 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2338 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2339 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2340 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2341 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2342 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2343 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2344 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2345 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2346 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2347 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2348 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2349 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2350 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2351 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2352 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2353 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2354 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2355 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2356 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2357 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2358 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2359 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2360 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2361 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2362 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2363 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2364 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2365 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2366 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2367 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2368 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2369 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2370 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2371 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2372 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2373 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2374 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2375 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2376 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2377 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2378 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2379 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2380 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2381 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2382 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2383 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2384 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2385 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2386 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2387 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2388 }
+    ]
+  }
+ ]
+}

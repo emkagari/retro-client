@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "TextArea", "x": 0, "y": 0, "scaleX": 3.19995, "scaleY": 0.70001, "name": "_txtQuestion", "actions": true },
+      { "depth": 2, "export": "List", "x": 0, "y": 70, "scaleX": 3.2, "scaleY": 1.5, "name": "_lstResponses", "actions": true }
+    ]
+  }
+ ]
+}

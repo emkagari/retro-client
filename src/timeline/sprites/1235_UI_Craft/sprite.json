@@ -1,0 +1,45 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 18, "y": 331, "scaleX": 1.68, "scaleY": 0.58018, "name": "_winDistant", "actions": true },
+      { "depth": 3, "export": "Window", "x": 255, "y": 331, "scaleX": 4.71997, "scaleY": 0.57985, "name": "_winLocal", "actions": true },
+      { "depth": 4, "export": "Window", "x": 407, "y": 116, "scaleX": 3.19998, "scaleY": 1.90009, "name": "_winInventory", "actions": true },
+      { "depth": 5, "export": "Window", "x": 16, "y": 88.05, "scaleX": 3.2201, "scaleY": 2.17938, "name": "_winItemViewer", "actions": true },
+      { "depth": 6, "export": "Window", "x": 407, "y": 49, "scaleX": 3.19995, "scaleY": 0.40002, "name": "\u001e\u0010\u001d", "actions": true },
+      { "depth": 7, "export": "Window", "x": 16, "y": 42, "scaleX": 3.22, "scaleY": 3.59996, "name": "_winCraftViewer", "actions": true },
+      { "depth": 8, "export": "Rectangle", "x": 19, "y": 67, "scaleX": 3.16003, "scaleY": 3.21991, "name": "_mcPlacer" },
+      { "depth": 10, "export": "ContainerGrid", "x": 138, "y": 341, "scaleX": 0.38, "scaleY": 0.38002, "name": "_cgDistant", "actions": true },
+      { "depth": 11, "export": "ContainerGrid", "x": 263, "y": 341, "scaleX": 4.5599, "scaleY": 0.38, "name": "_cgLocal", "actions": true },
+      { "depth": 12, "export": "ContainerGrid", "x": 417, "y": 200, "scaleX": 3.00003, "scaleY": 0.96, "name": "_cgGrid", "actions": true },
+      { "depth": 13, "sprite": 725, "x": 221.1, "y": 363, "name": "_mcArrow" },
+      { "depth": 16, "export": "Label", "x": 28, "y": 348, "scaleX": 1.1, "scaleY": 1, "name": "_lblNewObject", "actions": true },
+      { "depth": 17, "export": "Button", "x": 625, "y": 389, "scaleX": 1.02, "scaleY": 1.11111, "name": "_btnValidate", "actions": true },
+      { "depth": 18, "export": "Button", "x": 417, "y": 389, "scaleX": 0.91998, "scaleY": 1.11111, "name": "_btnCraft", "actions": true },
+      { "depth": 19, "export": "Button", "x": 593, "y": 389, "scaleX": 0.30002, "scaleY": 1.11111, "name": "_btnMemoryRecall", "actions": true },
+      { "depth": 20, "export": "Label", "x": 417, "y": 59, "scaleX": 2.99997, "scaleY": 1, "name": "_lblSkill", "actions": true },
+      { "depth": 21, "export": "Container", "x": 138, "y": 341, "scale": 0.76, "name": "_ctrPreview", "actions": true },
+      { "depth": 22, "export": "Button", "x": 511, "y": 389, "scaleX": 0.80019, "scaleY": 1.11111, "name": "_btnQuantity", "actions": true },
+      { "depth": 23, "export": "Rectangle", "x": 138, "y": 341, "scale": 0.38, "color": { "mult": [0, 0, 0, 0.5], "add": [255, 255, 255, 0] }, "name": "_mcFiligrane" },
+      { "depth": 25, "export": "Button", "x": 707, "y": 124, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 26, "export": "Button", "x": 439, "y": 147.9, "scaleX": 0.18, "scaleY": 1, "name": "_btnFilterNonEquipement", "actions": true },
+      { "depth": 27, "export": "Button", "x": 461, "y": 147.9, "scaleX": 0.18, "scaleY": 1, "name": "_btnFilterRessoureces", "actions": true },
+      { "depth": 28, "export": "Button", "x": 483, "y": 147.9, "scaleX": 0.18, "scaleY": 1, "name": "_btnFilterSoul", "actions": true },
+      { "depth": 29, "export": "Button", "x": 505, "y": 147.9, "scaleX": 0.18, "scaleY": 1, "name": "_btnFilterRunes", "actions": true },
+      { "depth": 30, "export": "Button", "x": 527, "y": 147.9, "scaleX": 0.18, "scaleY": 1, "name": "_btnFilterCards", "actions": true },
+      { "depth": 31, "export": "KamaSymbol", "x": 700.7, "y": 173.85 },
+      { "depth": 34, "export": "Label", "x": 617, "y": 172.5, "scaleX": 0.79999, "scaleY": 0.8, "name": "_lblKama", "actions": true },
+      { "depth": 35, "export": "PlayerWeight", "x": 551, "y": 152.9, "actions": true },
+      { "depth": 37, "export": "Button", "x": 417, "y": 147.9, "scaleX": 0.18, "scaleY": 1, "name": "_btnFilterEquipement", "actions": true },
+      { "depth": 38, "export": "ItemViewerLite", "x": 17, "y": 89, "name": "_itvItemViewer", "actions": true },
+      { "depth": 55, "export": "StylizedRectangle", "x": 417, "y": 172.5, "scaleX": 1.68011, "scaleY": 0.2, "name": "_srSearch", "actions": true },
+      { "depth": 56, "export": "TextInput", "x": 417, "y": 172.5, "scaleX": 1.68004, "scaleY": 0.8, "name": "_tiSearch", "actions": true },
+      { "depth": 57, "export": "ComboBox", "x": 417, "y": 172.5, "scaleX": 1.68008, "scaleY": 1, "name": "_cbTypes", "actions": true },
+      { "depth": 58, "export": "Button", "x": 589, "y": 172.5, "scaleX": 0.2, "scaleY": 1.11096, "name": "_btnSearch", "actions": true },
+      { "depth": 59, "export": "Button", "x": 535.05, "y": 389, "scaleX": 1.91922, "scaleY": 1.11111, "name": "_btnApplyRunes", "actions": true },
+      { "depth": 60, "export": "Button", "x": 417.05, "y": 389, "scaleX": 1.12946, "scaleY": 1.11111, "name": "_btnTries", "actions": true }
+    ]
+  }
+ ]
+}

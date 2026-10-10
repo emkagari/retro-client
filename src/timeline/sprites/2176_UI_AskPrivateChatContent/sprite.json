@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.49997, "scaleY": 1, "alpha": 0 },
+      { "depth": 3, "export": "Rectangle", "x": 10, "y": 10, "scaleX": 3.29999, "scaleY": 0.6, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 5, "export": "Button", "x": 10, "y": 80, "scaleX": 0.8, "scaleY": 1, "name": "_btnSend", "actions": true },
+      { "depth": 6, "export": "TextArea", "x": 10, "y": 10, "scaleX": 3.29999, "scaleY": 0.6, "name": "_txtMessage", "actions": true },
+      { "depth": 7, "export": "Button", "x": 100, "y": 80, "scaleX": 1.5, "scaleY": 1, "name": "_btnAddFriend", "actions": true },
+      { "depth": 8, "export": "Button", "x": 260, "y": 80, "scaleX": 0.8, "scaleY": 1, "name": "_btnCancel", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 21, "x": 0, "y": 0, "scaleX": 0.99998, "scaleY": 0.18, "name": "boundingBox_mc" }
+    ]
+  },
+  {
+    "remove": [1],
+    "place": [
+      { "depth": 1, "sprite": 1415, "x": 0, "y": 0, "ratio": 1 },
+      { "depth": 73, "export": "ButtonSimpleRectangleUpDown", "x": 38.5, "y": 79.5, "ratio": 1 },
+      { "depth": 77, "export": "Label", "x": 6, "y": 64, "ratio": 1, "actions": true }
+    ]
+  }
+ ]
+}

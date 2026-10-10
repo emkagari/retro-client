@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Button", "x": 30, "y": 50, "scaleX": 0.40004, "scaleY": 2.22223, "name": "_btnInfos", "actions": true }
+    ]
+  }
+ ]
+}

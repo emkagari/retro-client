@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scale": 0.01001, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] }, "name": "_mcBgCustom" },
+      { "depth": 3, "sprite": 249, "x": -6, "y": -1.7, "name": "_mcBg" },
+      { "depth": 5, "sprite": 251, "x": -6, "y": -1.7, "name": "_mcBgBig" },
+      { "depth": 7, "sprite": 252, "x": 12, "y": 12, "scaleX": 1.28204, "scaleY": 1.25, "name": "_mcBgSmall" },
+      { "depth": 9, "export": "GAPILoader", "x": 50, "y": 50, "name": "_ldrBitmapMap", "actions": true },
+      { "depth": 10, "sprite": 253, "x": 50, "y": 50, "name": "_mcCursor" },
+      { "depth": 12, "export": "GAPILoader", "x": 50, "y": 50, "name": "_ldrHints", "actions": true },
+      { "depth": 13, "sprite": 254, "x": 50, "y": 50, "name": "_mcFlags" },
+      { "depth": 15, "sprite": 254, "x": 50, "y": 50, "name": "_mcFlagsDirection" }
+    ]
+  }
+ ]
+}

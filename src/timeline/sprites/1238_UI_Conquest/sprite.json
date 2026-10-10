@@ -1,0 +1,26 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 492, "y": 28, "scaleX": 2.40002, "scaleY": 4.16992, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 497.9, "y": 113, "scaleX": 2.2815, "scaleY": 0.2202, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 5, "export": "Button", "x": 712, "y": 36, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 6, "export": "Label", "x": 558, "y": 32, "scaleX": 1.41, "scaleY": 0.8, "name": "_lblTitle", "actions": true },
+      { "depth": 7, "export": "Container", "x": 502, "y": 38, "name": "_ctrAlignment", "actions": true },
+      { "depth": 8, "export": "Label", "x": 558, "y": 52.5, "scaleX": 0.57, "scaleY": 0.8, "name": "_lblBalance", "actions": true },
+      { "depth": 9, "export": "Label", "x": 558, "y": 69.5, "scaleX": 0.57, "scaleY": 0.8, "name": "_lblGrade", "actions": true },
+      { "depth": 10, "export": "Label", "x": 617.05, "y": 52.5, "scaleX": 1.09, "scaleY": 0.8, "name": "_lblGradeValue", "actions": true },
+      { "depth": 11, "export": "Label", "x": 617.05, "y": 69.5, "scaleX": 1.09, "scaleY": 0.8, "name": "_lblBalanceValue", "actions": true },
+      { "depth": 12, "export": "Button", "x": 498, "y": 93, "scaleX": 0.76, "scaleY": 1.11111, "name": "_btnTabStats", "actions": true },
+      { "depth": 13, "export": "Button", "x": 574, "y": 93, "scaleX": 0.76006, "scaleY": 1.11111, "name": "_btnTabZones", "actions": true },
+      { "depth": 14, "export": "Button", "x": 650, "y": 93, "scaleX": 0.76006, "scaleY": 1.11111, "name": "_btnTabJoin", "actions": true },
+      { "depth": 15, "export": "Label", "x": 498.95, "y": 114, "scaleX": 2.00096, "scaleY": 1, "name": "_lblStats", "actions": true },
+      { "depth": 16, "export": "RankViewerPvpActive", "x": 702.55, "y": 117.65, "name": "_mcPvpActive" },
+      { "depth": 22, "export": "RankViewerPvpInactive", "x": 702.55, "y": 117.65, "name": "_mcPvpInactive" },
+      { "depth": 28, "export": "Rectangle", "x": 617.05, "y": 69.5, "scaleX": 1.09, "scaleY": 0.16, "alpha": 0, "name": "_mcBalanceInteractivity" },
+      { "depth": 30, "export": "Rectangle", "x": 498, "y": 135, "scaleX": 2.28021, "scaleY": 2.91998, "name": "_mcPlacer" }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Timeline", "x": 742, "y": 390, "name": "_tl", "actions": true },
+      { "depth": 3, "export": "Button", "x": 729.5, "y": 390, "scaleX": 0.1, "scaleY": 0.55556, "name": "_btnUp", "actions": true },
+      { "depth": 4, "export": "Button", "x": 729.5, "y": 420, "scaleX": 0.1, "scaleY": 0.55556, "name": "_btnDown", "actions": true },
+      { "depth": 5, "text": 581, "x": 722.25, "y": 390, "name": "_txtTableTurnUp" },
+      { "depth": 6, "text": 582, "x": 722.25, "y": 420, "name": "_txtTableTurnDown" },
+      { "depth": 7, "export": "Rectangle", "x": 725, "y": 418, "scaleX": 0.19, "scaleY": 0.15, "alpha": 0, "name": "_mcTableTurnDown" },
+      { "depth": 9, "export": "Rectangle", "x": 725, "y": 388, "scaleX": 0.19, "scaleY": 0.15, "alpha": 0, "name": "_mcTableTurnUp" }
+    ]
+  }
+ ]
+}

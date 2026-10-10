@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 361, "x": -0.45, "y": 1.75, "name": "cVlad_R_Bras01" },
+      { "depth": 7, "shape": 362, "x": 0, "y": 0 },
+      { "depth": 8, "sprite": 364, "x": 0.95, "y": 1.65, "name": "cIop_R_Brassard01" },
+      { "depth": 10, "shape": 365, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

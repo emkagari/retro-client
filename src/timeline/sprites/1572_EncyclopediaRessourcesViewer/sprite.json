@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "DataGrid", "x": 0, "y": 0, "scaleX": 3.87997, "scaleY": 2.99994, "name": "_dgRessources", "actions": true },
+      { "depth": 2, "export": "Label", "x": 0, "y": 300, "scaleX": 2.09976, "scaleY": 1, "name": "_lblCount", "actions": true }
+    ]
+  }
+ ]
+}

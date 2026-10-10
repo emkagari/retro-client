@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 265, "x": 4, "y": 4, "scaleX": 1.26761, "scaleY": 1.29497, "color": { "mult": [0, 0, 0, 0.6], "add": [180, 172, 141, 0] }, "name": "_mcCheckFinished" },
+      { "depth": 3, "export": "TextArea", "x": 16, "y": 0, "scaleX": 3.00005, "scaleY": 0.3, "name": "_txtDescription", "actions": true },
+      { "depth": 4, "export": "UI_WaypointItemLocate", "x": -1.05, "y": 4.7, "name": "_mcCompass" }
+    ]
+  }
+ ]
+}

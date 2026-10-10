@@ -1,0 +1,52 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 2276, "x": 0, "y": 0 }
+    ]
+  },
+  {},
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2277 }
+    ]
+  },
+  {},
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2278 }
+    ]
+  },
+  {},
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2279 }
+    ]
+  },
+  {},
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2280 }
+    ]
+  },
+  {},
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2281 }
+    ]
+  },
+  {},
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2282 }
+    ]
+  },
+  {},
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 2283 }
+    ]
+  },
+  {}
+ ]
+}

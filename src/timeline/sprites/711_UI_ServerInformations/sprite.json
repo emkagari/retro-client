@@ -1,0 +1,32 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83989, "scaleY": 11.12004, "actions": true },
+      { "depth": 7, "shape": 696, "x": 0, "y": 0 },
+      { "depth": 8, "button": 700, "x": 598.8, "y": 368.65, "name": "_mcOk" },
+      { "depth": 10, "button": 704, "x": 513.15, "y": 368.65, "name": "_mcBack" },
+      { "depth": 12, "button": 709, "x": 308.75, "y": 363.5, "name": "_btnMoreInfo" },
+      { "depth": 44, "export": "Label", "x": 147.3, "y": 151.15, "scaleX": 2.49753, "scaleY": 1, "name": "_lblStatus", "actions": true },
+      { "depth": 45, "export": "Label", "x": 399, "y": 151.15, "scaleX": 2.16248, "scaleY": 1, "name": "_lblStatusValue", "actions": true },
+      { "depth": 46, "export": "Label", "x": 487, "y": 184, "scaleX": 1.51018, "scaleY": 0.75, "name": "_lblCommunityValue", "actions": true },
+      { "depth": 47, "export": "Label", "x": 487.3, "y": 200.2, "scaleX": 1.51018, "scaleY": 0.79929, "name": "_lblBack", "actions": true },
+      { "depth": 48, "export": "Label", "x": 487, "y": 225, "scaleX": 1.51018, "scaleY": 0.75, "name": "_lblPopulation", "actions": true },
+      { "depth": 49, "export": "Label", "x": 487, "y": 241, "scaleX": 1.51018, "scaleY": 0.69937, "name": "_lblServerType", "actions": true },
+      { "depth": 50, "export": "Label", "x": 487, "y": 266, "scaleX": 1.51018, "scaleY": 0.75, "name": "_lblCommunity", "actions": true },
+      { "depth": 51, "export": "Label", "x": 487, "y": 282, "scaleX": 1.51018, "scaleY": 0.69937, "name": "_lblHowOldValue", "actions": true },
+      { "depth": 52, "export": "Label", "x": 487, "y": 307, "scaleX": 1.51018, "scaleY": 0.75, "name": "_lblOk", "actions": true },
+      { "depth": 53, "export": "Label", "x": 487, "y": 323, "scaleX": 1.51018, "scaleY": 0.69937, "name": "_lblPopulationValue", "actions": true },
+      { "depth": 54, "export": "TextArea", "x": 271, "y": 198, "scaleX": 2.02995, "scaleY": 1.56004, "name": "_taDescription", "actions": true },
+      { "depth": 55, "export": "Label", "x": 514, "y": 369, "scaleX": 0.67004, "scaleY": 1.00061, "name": "_lblHowOld", "actions": true },
+      { "depth": 56, "export": "Label", "x": 599, "y": 369, "scaleX": 0.3501, "scaleY": 1.00061, "name": "_lblSelectedServer", "actions": true },
+      { "depth": 57, "export": "Label", "x": 271, "y": 177, "scaleX": 2.02972, "scaleY": 0.9494, "name": "_lblSelectedServerName", "actions": true },
+      { "depth": 58, "export": "Label", "x": 322.5, "y": 365, "scaleX": 1.00006, "scaleY": 1.00061, "name": "_lblMoreInfo", "actions": true },
+      { "depth": 59, "export": "Rectangle", "x": 104, "y": 182.45, "scaleX": 1.53003, "scaleY": 2.00647, "name": "_mcBgViewAllSpell2", "mask": 63 },
+      { "depth": 61, "export": "GAPILoader", "x": 105.1, "y": 177.15, "scaleX": 1.49915, "scaleY": 2.04863, "name": "_ldrSprite", "actions": true },
+      { "depth": 62, "export": "GAPILoader", "x": 114.95, "y": 323, "scaleX": 1.31082, "scaleY": 0.49927, "name": "_ldrOverIcon", "actions": true },
+      { "depth": 65, "shape": 710, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

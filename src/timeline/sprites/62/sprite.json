@@ -1,0 +1,446 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 61, "x": 0, "y": 0, "color": { "mult": [0.4, 0.4, 0.4, 1], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.984], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.965], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.95], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.934], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.918], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.9], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.883], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.867], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.85], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.832], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.816], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.8], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.785], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.766], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.75], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.734], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.72], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.7], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.684], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.668], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.652], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.633], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.617], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.6], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.582], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.566], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.55], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.535], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.516], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.5], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.484], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.47], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.45], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.434], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.418], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.402], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.383], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.367], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.35], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.336], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.316], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.3], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.316], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.332], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.348], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.363], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.38], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.395], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.41], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.426], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.44], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.457], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.473], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.49], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.504], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.52], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.535], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.55], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.566], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.582], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.598], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.613], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.63], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.645], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.656], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.67], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.688], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.703], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.72], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.734], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.75], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.766], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.78], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.797], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.813], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.83], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.844], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.86], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.875], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.89], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.906], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.92], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.938], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.953], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.97], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 0.984], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "color": { "mult": [0.4, 0.4, 0.4, 1], "add": [153, 153, 153, 0] } }
+    ]
+  },
+  {},
+  {}
+ ]
+}

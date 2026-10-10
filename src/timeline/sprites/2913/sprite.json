@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1147, "x": 10, "y": 19, "scaleX": -0.20004, "scaleY": -0.19005, "color": { "mult": [0, 0, 0, 1], "add": [204, 204, 204, 0] }, "name": "border_2_mc" },
+      { "depth": 3, "export": "Rectangle", "x": 10, "y": 19, "scale": -0.09999, "color": { "mult": [0, 0, 0, 1], "add": [204, 204, 204, 0] }, "name": "border_1_mc" },
+      { "depth": 5, "sprite": 1147, "x": 8, "y": 17, "scaleX": -0.16003, "scaleY": -0.15004, "color": { "mult": [0, 0, 0, 1], "add": [153, 51, 0, 0] }, "name": "bg_2_mc" },
+      { "depth": 7, "export": "Rectangle", "x": 8, "y": 19, "scaleX": -0.08, "scaleY": -0.09, "color": { "mult": [0, 0, 0, 1], "add": [153, 51, 0, 0] }, "name": "bg_1_mc" },
+      { "depth": 9, "sprite": 1147, "x": 8, "y": 17, "scaleX": -0.16003, "scaleY": -0.15005, "mask": 13 },
+      { "depth": 11, "sprite": 181, "x": 8, "y": 9, "scaleX": -0.16, "scaleY": -0.13983, "alpha": 0.2 }
+    ]
+  }
+ ]
+}

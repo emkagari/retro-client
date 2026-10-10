@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1622, "x": 349, "y": 0 },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 5.34503, "scaleY": 0.20392, "color": { "mult": [0, 0, 0, 1], "add": [104, 95, 76, 0] }, "name": "_rctCatBg" },
+      { "depth": 5, "export": "Label", "x": 10, "y": 2, "scaleX": 3.33914, "scaleY": 0.8, "name": "_lblDescription", "actions": true },
+      { "depth": 6, "export": "Button", "x": 439, "y": 1, "scaleX": 0.8, "scaleY": 1, "name": "_btnAlt", "actions": true },
+      { "depth": 7, "export": "Button", "x": 354, "y": 1, "scaleX": 0.8, "scaleY": 1, "name": "_btnMain", "actions": true }
+    ]
+  }
+ ]
+}

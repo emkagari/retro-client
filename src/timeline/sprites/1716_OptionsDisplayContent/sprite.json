@@ -1,0 +1,42 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 7, "y": 48, "scaleX": 2.50009, "scaleY": 1, "name": "_lblTitleScreen", "actions": true },
+      { "depth": 2, "export": "Label", "x": 7, "y": 1, "scaleX": 2.50009, "scaleY": 1, "name": "_lblRemasteredSpellIcons", "actions": true },
+      { "depth": 3, "export": "ComboBox", "x": 10, "y": 22.4, "scaleX": 2.6, "scaleY": 1, "name": "_cbSpellIconsPack", "actions": true },
+      { "depth": 4, "export": "Rectangle", "x": 10, "y": 387.55, "scaleX": 3, "scaleY": 0.2, "alpha": 0 },
+      { "depth": 6, "shape": 1714, "x": 0, "y": 0 },
+      { "depth": 7, "export": "Label", "x": 32, "y": 325.95, "scaleX": 2.60004, "scaleY": 1, "name": "_lblPointsOverHead", "actions": true },
+      { "depth": 8, "export": "Button", "x": 11, "y": 329.95, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnPointsOverHead", "actions": true },
+      { "depth": 9, "export": "Label", "x": 41.9, "y": 345.95, "scaleX": 1.05998, "scaleY": 1, "name": "_lblStylePoints", "actions": true },
+      { "depth": 10, "export": "ComboBox", "x": 147.9, "y": 345.95, "scaleX": 1.89816, "scaleY": 1, "name": "_cbStylePoints", "actions": true },
+      { "depth": 11, "export": "Label", "x": 41.9, "y": 367.5, "scaleX": 2.60004, "scaleY": 1, "name": "_lblRegroupDamage", "actions": true },
+      { "depth": 12, "export": "Button", "x": 20.9, "y": 371.5, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnRegroupDamage", "actions": true },
+      { "depth": 13, "export": "Label", "x": 32, "y": 266, "scaleX": 2.60004, "scaleY": 1, "name": "_lblStringCourse", "actions": true },
+      { "depth": 14, "export": "Button", "x": 11, "y": 270, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnStringCourse", "actions": true },
+      { "depth": 15, "export": "Label", "x": 32, "y": 202, "scaleX": 2.60004, "scaleY": 1, "name": "_lblAura", "actions": true },
+      { "depth": 16, "export": "Button", "x": 11, "y": 206, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnAura", "actions": true },
+      { "depth": 17, "export": "Button", "x": 11, "y": 290, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnSeeDamagesColor", "actions": true },
+      { "depth": 18, "export": "Label", "x": 32, "y": 286, "scaleX": 2.60004, "scaleY": 1, "name": "_lblSeeDamagesColor", "actions": true },
+      { "depth": 19, "export": "Button", "x": 11, "y": 309.95, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnColorfulTactic", "actions": true },
+      { "depth": 20, "export": "Label", "x": 32, "y": 305.95, "scaleX": 2.60004, "scaleY": 1, "name": "_lblColorfulTactic", "actions": true },
+      { "depth": 21, "export": "Label", "x": 7, "y": 163, "scaleX": 2.50009, "scaleY": 1, "name": "_lblTitleMap", "actions": true },
+      { "depth": 22, "export": "Label", "x": 7, "y": 227, "scaleX": 2.50009, "scaleY": 1, "name": "_lblTitleFight", "actions": true },
+      { "depth": 23, "export": "Label", "x": 32, "y": 246, "scaleX": 2.60004, "scaleY": 1, "name": "_lblChatEffects", "actions": true },
+      { "depth": 24, "export": "Button", "x": 11, "y": 250, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnChatEffects", "actions": true },
+      { "depth": 25, "export": "Button", "x": 11, "y": 186, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnNightMode", "actions": true },
+      { "depth": 26, "export": "Label", "x": 32, "y": 182, "scaleX": 2.60004, "scaleY": 1, "name": "_lblNightMode", "actions": true },
+      { "depth": 27, "export": "Label", "x": 10, "y": 67, "scaleX": 1.21002, "scaleY": 1, "name": "_lblDefaultQuality", "actions": true },
+      { "depth": 28, "export": "ComboBox", "x": 137, "y": 67, "scaleX": 2, "scaleY": 1, "name": "_cbDefaultQuality", "actions": true },
+      { "depth": 29, "shape": 1715, "x": 0, "y": 0 },
+      { "depth": 30, "export": "Button", "x": 20.9, "y": 122, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnElectronEnableChatDarkMode", "actions": true },
+      { "depth": 31, "export": "Label", "x": 41.9, "y": 118, "scaleX": 2.60004, "scaleY": 1, "name": "_lblElectronEnableChatDarkMode", "actions": true },
+      { "depth": 32, "export": "Button", "x": 20.9, "y": 142, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnElectronEnableLimitWidescreenPanelWidth", "actions": true },
+      { "depth": 33, "export": "Label", "x": 41.9, "y": 138, "scaleX": 2.60004, "scaleY": 1, "name": "_lblElectronEnableLimitWidescreenPanelWidth", "actions": true },
+      { "depth": 34, "export": "Label", "x": 10, "y": 93, "scaleX": 1.21002, "scaleY": 1, "name": "_lblDisplayStyle", "actions": true },
+      { "depth": 35, "export": "ComboBox", "x": 137, "y": 93, "scaleX": 2, "scaleY": 1, "name": "_cbDisplayStyle", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "ArtworkRotationItem", "x": 20, "y": -20, "name": "_ariWoman", "actions": true },
+      { "depth": 4, "export": "ArtworkRotationItem", "x": -20, "y": 20, "name": "_ariMan", "actions": true }
+    ]
+  }
+ ]
+}

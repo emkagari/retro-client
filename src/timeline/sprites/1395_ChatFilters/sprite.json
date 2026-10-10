@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Button", "x": 42.05, "y": 0, "scaleX": 0.12001, "scaleY": 0.66673, "name": "_btnFilter3", "actions": true },
+      { "depth": 2, "export": "Button", "x": 28.05, "y": 0, "scaleX": 0.12001, "scaleY": 0.66673, "name": "_btnFilter2", "actions": true },
+      { "depth": 3, "export": "Button", "x": 14.05, "y": 0, "scaleX": 0.12001, "scaleY": 0.66673, "name": "_btnFilter0", "actions": true },
+      { "depth": 4, "export": "Button", "x": 56.05, "y": 0, "scaleX": 0.12001, "scaleY": 0.66673, "name": "_btnFilter4", "actions": true },
+      { "depth": 5, "export": "Button", "x": 70.05, "y": 0, "scaleX": 0.12001, "scaleY": 0.66673, "name": "_btnFilter5", "actions": true },
+      { "depth": 6, "export": "Button", "x": 84.05, "y": 0, "scaleX": 0.12001, "scaleY": 0.66673, "name": "_btnFilter6", "actions": true },
+      { "depth": 7, "export": "Button", "x": 112.05, "y": 0, "scaleX": 0.12001, "scaleY": 0.66673, "name": "_btnFilter10", "actions": true },
+      { "depth": 8, "export": "Button", "x": 98.05, "y": 0, "scaleX": 0.12001, "scaleY": 0.66673, "name": "_btnFilter7", "actions": true },
+      { "depth": 9, "export": "Button", "x": 0, "y": 0, "scaleX": 0.12001, "scaleY": 0.66673, "name": "_btnFilter8", "actions": true }
+    ]
+  }
+ ]
+}

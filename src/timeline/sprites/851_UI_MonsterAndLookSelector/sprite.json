@@ -1,0 +1,22 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 38, "y": 25, "scaleX": 6.60013, "scaleY": 3.80014, "name": "_winBg", "actions": true },
+      { "depth": 3, "shape": 839, "x": 0, "y": 0 },
+      { "depth": 4, "export": "Button", "x": 584, "y": 405, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnSelect", "actions": true },
+      { "depth": 5, "export": "Button", "x": 49, "y": 405, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnCancel", "actions": true },
+      { "depth": 6, "export": "Button", "x": 675, "y": 33, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 7, "export": "Label", "x": 48, "y": 62, "scaleX": 0.6, "scaleY": 1, "name": "_lblType", "actions": true },
+      { "depth": 8, "export": "ContainerGrid", "x": 48, "y": 92, "scaleX": 5.19986, "scaleY": 3.00005, "name": "_cg", "actions": true },
+      { "depth": 9, "export": "ChooseCharacterSprite", "x": 577.5, "y": 202, "scaleX": 1, "scaleY": 1.00009, "name": "_cciSprite", "actions": true },
+      { "depth": 29, "export": "Label", "x": 577, "y": 62, "scaleX": 1.10999, "scaleY": 1, "name": "_lblNumber", "actions": true },
+      { "depth": 30, "export": "TextInput", "x": 321, "y": 62, "scaleX": 1.78107, "scaleY": 0.8, "name": "_tiSearch", "actions": true },
+      { "depth": 31, "export": "Button", "x": 505, "y": 63, "scaleX": 0.35, "scaleY": 1, "name": "_btnSearch", "actions": true },
+      { "depth": 32, "export": "ComboBox", "x": 108, "y": 62, "scaleX": 2, "scaleY": 1, "name": "_cbType", "actions": true },
+      { "depth": 33, "export": "ComboBox", "x": 576.75, "y": 92, "scaleX": 1.10199, "scaleY": 1, "name": "_cbAnim", "actions": true }
+    ]
+  }
+ ]
+}

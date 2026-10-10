@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "GAPILoader", "x": 3, "y": 3, "scale": 0.23999, "name": "_ldrIcon", "actions": true },
+      { "depth": 2, "export": "Label", "x": 29, "y": 0, "scaleX": 2.40813, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 3, "export": "Label", "x": 247.35, "y": -1, "scaleX": 0.3964, "scaleY": 0.6, "name": "_lblLevel", "actions": true },
+      { "depth": 4, "export": "Label", "x": 29, "y": 13, "scaleX": 0.33, "scaleY": 0.6, "name": "_lblAP", "actions": true },
+      { "depth": 5, "export": "Label", "x": 62, "y": 13, "scaleX": 0.50002, "scaleY": 0.6, "name": "_lblRange", "actions": true },
+      { "depth": 6, "export": "Button", "x": 275, "y": 16, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnBoost", "actions": true },
+      { "depth": 7, "export": "Label", "x": 112, "y": 13, "scaleX": 1.6, "scaleY": 0.6, "name": "_lblBoost", "actions": true }
+    ]
+  }
+ ]
+}

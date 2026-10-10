@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1310, "x": 62, "y": 3, "name": "mcProgressBarBorder" },
+      { "depth": 6, "sprite": 1311, "x": 64, "y": 5, "scaleX": 0.99945, "scaleY": 1, "name": "mcProgressBar" },
+      { "depth": 8, "text": 1312, "x": 3, "y": 2, "scaleX": 1.50943, "scaleY": 1, "name": "txtInfo" },
+      { "depth": 9, "text": 1313, "x": 171, "y": 2, "name": "txtPercent" }
+    ]
+  }
+ ]
+}

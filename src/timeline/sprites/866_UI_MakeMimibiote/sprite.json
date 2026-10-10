@@ -1,0 +1,25 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 540, "y": 80.5, "scaleX": 1.92001, "scaleY": 3.41516, "name": "_winInventory", "actions": true },
+      { "depth": 3, "export": "Window", "x": 171.1, "y": 173.15, "scaleX": 2.87877, "scaleY": 1.56223, "name": "_winItemViewer", "actions": true },
+      { "depth": 4, "shape": 860, "x": 0, "y": 0 },
+      { "depth": 5, "export": "ContainerGrid", "x": 404, "y": 260, "scale": 0.38, "name": "_cgResult", "actions": true },
+      { "depth": 6, "export": "GridInventoryViewer", "x": 550, "y": 110.5, "name": "_ivInventoryViewer", "actions": true },
+      { "depth": 29, "export": "Button", "x": 712, "y": 89, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 30, "export": "PlayerWeight", "x": 550, "y": 398, "actions": true },
+      { "depth": 32, "export": "Container", "x": 404, "y": 260, "scale": 0.76, "name": "_ctrResult", "actions": true },
+      { "depth": 33, "sprite": 862, "x": 368.85, "y": 278.9, "scale": -0.63193, "name": "_mcArrow" },
+      { "depth": 36, "sprite": 864, "x": 250.65, "y": 268.35, "scale": 0.56876 },
+      { "depth": 39, "export": "Button", "x": 329, "y": 329.35, "scaleX": 1.02, "scaleY": 1.11111, "name": "_btnValidate", "actions": true },
+      { "depth": 40, "export": "Rectangle", "x": 404, "y": 260, "scale": 0.38, "color": { "mult": [0, 0, 0, 0.5], "add": [255, 255, 255, 0] }, "name": "_mcFiligrane" },
+      { "depth": 42, "export": "ContainerGrid", "x": 188.3, "y": 260, "scale": 0.38, "name": "_cgItemToAttach", "actions": true },
+      { "depth": 43, "export": "ContainerGrid", "x": 295.7, "y": 260, "scale": 0.38, "name": "_cgItemToEat", "actions": true },
+      { "depth": 44, "export": "Label", "x": 180.95, "y": 178.3, "scaleX": 2.68549, "scaleY": 1.00171, "name": "_lblName", "actions": true },
+      { "depth": 48, "shape": 865, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

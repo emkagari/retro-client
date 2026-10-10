@@ -1,0 +1,16 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 38, "y": 54, "scaleX": 2.4, "scaleY": 0.23999, "color": { "mult": [0, 0, 0, 1], "add": [175, 170, 140, 0] } },
+      { "depth": 3, "export": "TextArea", "x": 10, "y": 10, "scaleX": 3.10002, "scaleY": 0.37001, "name": "_txtHelp", "actions": true },
+      { "depth": 4, "export": "Button", "x": 116, "y": 87, "name": "_btnCancel", "actions": true },
+      { "depth": 5, "export": "Button", "x": 226, "y": 87, "name": "_btnOk", "actions": true },
+      { "depth": 6, "export": "Button", "x": 283, "y": 55.95, "scaleX": 0.2201, "scaleY": 1.22278, "name": "_btnNone", "actions": true },
+      { "depth": 7, "export": "Label", "x": 38, "y": 54, "scaleX": 2.38, "scaleY": 1.2, "name": "_lblShortcut", "actions": true },
+      { "depth": 8, "export": "Button", "x": 6, "y": 87, "name": "_btnReset", "actions": true },
+      { "depth": 9, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.29996, "scaleY": 0.1, "alpha": 0 }
+    ]
+  }
+ ]
+}

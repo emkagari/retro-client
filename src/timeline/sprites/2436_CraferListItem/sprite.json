@@ -1,0 +1,22 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2435, "x": 553.95, "y": 0, "scaleX": 1.01794, "scaleY": 1 },
+      { "depth": 3, "sprite": 2435, "x": 185, "y": 0 },
+      { "depth": 5, "sprite": 2435, "x": 378, "y": 0 },
+      { "depth": 7, "sprite": 2435, "x": 152, "y": 0 },
+      { "depth": 9, "sprite": 2435, "x": 465.6, "y": 0, "scaleX": 1.01794, "scaleY": 1 },
+      { "depth": 11, "sprite": 2435, "x": 611.95, "y": 0, "scaleX": 1.01794, "scaleY": 1 },
+      { "depth": 13, "export": "Label", "x": 29, "y": 0, "scaleX": 1.20001, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 14, "export": "Label", "x": 470, "y": 0, "scaleX": 0.79996, "scaleY": 0.75005, "name": "_lblWorkshop", "actions": true },
+      { "depth": 15, "export": "Label", "x": 157, "y": 0, "scaleX": 0.25, "scaleY": 0.8, "name": "_lblLevel", "actions": true },
+      { "depth": 16, "export": "Label", "x": 189, "y": 0, "scaleX": 1.84998, "scaleY": 0.8, "name": "_lblPlace", "actions": true },
+      { "depth": 17, "export": "Label", "x": 382.9, "y": 0, "scaleX": 0.80026, "scaleY": 0.75005, "name": "_lblCoord", "actions": true },
+      { "depth": 18, "export": "Label", "x": 558.75, "y": 0, "scaleX": 0.50017, "scaleY": 0.75005, "name": "_lblNotFree", "actions": true },
+      { "depth": 19, "export": "Label", "x": 616.8, "y": 0, "scaleX": 0.50018, "scaleY": 0.75005, "name": "_lblMinSlot", "actions": true },
+      { "depth": 20, "export": "GAPILoader", "x": 7, "y": 2, "scale": 0.15999, "name": "_ldrGuild", "actions": true }
+    ]
+  }
+ ]
+}

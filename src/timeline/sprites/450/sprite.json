@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 447, "x": 1.85, "y": 5.75, "name": "cVald_R_Pagne" },
+      { "depth": 3, "sprite": 448, "x": 3, "y": 4.75, "name": "cVald_R_CroixPagne" },
+      { "depth": 5, "shape": 449, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

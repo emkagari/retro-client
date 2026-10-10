@@ -1,0 +1,19 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 260.55, "y": 98.2, "scaleX": 2.20993, "scaleY": 2.24905, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 280.55, "y": 150.2, "scaleX": 1.89392, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 280.55, "y": 207.25, "scaleX": 1.89395, "scaleY": 1.06572, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 7, "export": "TextInput", "x": 280.55, "y": 150.2, "scaleX": 1.8948, "scaleY": 0.8, "name": "_itName", "actions": true },
+      { "depth": 8, "export": "Button", "x": 461.7, "y": 106.2, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 9, "export": "Button", "x": 375, "y": 323.1, "scaleX": 0.94272, "scaleY": 1.11111, "name": "_btnSave", "actions": true },
+      { "depth": 10, "export": "Button", "x": 272.85, "y": 323.1, "scaleX": 0.94272, "scaleY": 1.11111, "name": "_btnDelete", "actions": true },
+      { "depth": 11, "export": "ContainerGrid", "x": 288.15, "y": 212.4, "scaleX": 1.74994, "scaleY": 0.95998, "name": "_cgGrid", "actions": true },
+      { "depth": 12, "export": "Label", "x": 270.55, "y": 130.2, "scaleX": 1.99942, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 13, "export": "Label", "x": 270.55, "y": 187.2, "scaleX": 1.99963, "scaleY": 0.8, "name": "_lblIcon", "actions": true }
+    ]
+  }
+ ]
+}

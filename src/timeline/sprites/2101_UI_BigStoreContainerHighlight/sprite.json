@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scale": 0.01, "color": { "mult": [0, 0, 0, 0.2], "add": [255, 255, 255, 0] }, "name": "_mcBg" },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 3, "scaleX": 0.01999, "scaleY": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "_mcL" },
+      { "depth": 5, "export": "Rectangle", "x": 2, "y": 1, "scaleX": 0.01, "scaleY": 0.01999, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "_mcT" },
+      { "depth": 7, "export": "Rectangle", "x": 2, "y": 4, "scaleX": 0.01, "scaleY": 0.01999, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "_mcB" },
+      { "depth": 9, "export": "Rectangle", "x": 3, "y": 3, "scaleX": 0.01999, "scaleY": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "_mcR" }
+    ]
+  },
+  {}
+ ]
+}

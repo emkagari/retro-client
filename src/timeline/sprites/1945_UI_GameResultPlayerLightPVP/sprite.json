@@ -1,0 +1,25 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 2, "shape": 1942, "x": 0, "y": 0 },
+      { "depth": 3, "export": "GAPILoader", "x": 374.1, "y": 15.3, "scale": 0.12001, "name": "_ldrAllDrop", "actions": true },
+      { "depth": 5, "shape": 1943, "x": 0, "y": 0 },
+      { "depth": 6, "export": "Label", "x": 191.7, "y": 10.75, "scaleX": 0.19704, "scaleY": 0.80302, "name": "_lblRank", "actions": true },
+      { "depth": 7, "sprite": 1940, "x": 201.5, "y": 19.9, "name": "_mcAlignment" },
+      { "depth": 9, "export": "Label", "x": 110.75, "y": 10.85, "scaleX": 0.40001, "scaleY": 0.8, "name": "_lblKama", "actions": true },
+      { "depth": 10, "export": "KamaSymbol", "x": 152.4, "y": 12.95 },
+      { "depth": 13, "export": "Container", "x": 335.75, "y": 10.35, "scale": 0.4, "name": "_ctr4", "actions": true },
+      { "depth": 14, "export": "Container", "x": 311.9, "y": 10.35, "scale": 0.4, "name": "_ctr3", "actions": true },
+      { "depth": 15, "export": "Container", "x": 288.05, "y": 10.35, "scale": 0.4, "name": "_ctr2", "actions": true },
+      { "depth": 16, "export": "Container", "x": 264.2, "y": 10.35, "scale": 0.4, "name": "_ctr1", "actions": true },
+      { "depth": 17, "export": "Container", "x": 240.35, "y": 10.35, "scale": 0.4, "name": "_ctr0", "actions": true },
+      { "depth": 18, "export": "ProgressBar", "x": 10.55, "y": 7.8, "scaleX": 0.95999, "scaleY": 2.49918, "name": "_pbXP", "actions": true },
+      { "depth": 19, "export": "Label", "x": 13.3, "y": 10.85, "scaleX": 0.34169, "scaleY": 0.8, "name": "_lblCurrentHonour", "actions": true },
+      { "depth": 20, "export": "Label", "x": 41.4, "y": 10.85, "scaleX": 0.41022, "scaleY": 0.8, "name": "_lblWinHonour", "actions": true },
+      { "depth": 21, "export": "UI_BannerPvpIcon", "x": 92.95, "y": 21.45, "scale": 0.58032, "color": { "mult": [0, 0, 0, 1] } },
+      { "depth": 27, "export": "UI_BannerPvpIcon", "x": 92.5, "y": 20.8, "scale": 0.58032 }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "DirectionChooserShadow", "x": 0.6, "y": -32.45, "scaleX": 2.19998, "scaleY": 1.09998, "name": "_mcShadowT" },
+      { "depth": 3, "export": "DirectionChooserShadow", "x": 41.6, "y": -21.45, "matrix": [1.5556, 0.77782, -1.5556, 0.77782] },
+      { "depth": 5, "export": "DirectionChooserShadow", "x": 62.6, "y": -0.45, "scaleX": 1.09998, "scaleY": 2.19998, "rotation": 90, "name": "_mcShadowR" },
+      { "depth": 7, "export": "DirectionChooserShadow", "x": 42.6, "y": 20.55, "matrix": [-1.5556, 0.77782, -1.5556, -0.7778] },
+      { "depth": 9, "export": "DirectionChooserShadow", "x": 2.6, "y": 31.55, "scaleX": -2.19998, "scaleY": -1.09998, "name": "_mcShadowB" },
+      { "depth": 11, "export": "DirectionChooserShadow", "x": -41.4, "y": 21.55, "matrix": [-1.5556, -0.7778, 1.5556, -0.7778] },
+      { "depth": 13, "export": "DirectionChooserShadow", "x": -61.4, "y": 0.55, "scaleX": 1.09998, "scaleY": 2.19998, "rotation": -90, "name": "_mcShadowL" },
+      { "depth": 15, "export": "DirectionChooserShadow", "x": -40.4, "y": -21.45, "matrix": [1.5556, -0.7778, 1.5556, 0.77782] },
+      { "depth": 17, "export": "Button", "x": -6.2, "y": -27.15, "scaleX": 0.15302, "scaleY": 0.58891, "name": "_btnT", "actions": true },
+      { "depth": 18, "export": "Button", "x": 14.7, "y": -20.05, "scaleX": 0.25903, "scaleY": 0.71669, "name": "_btnTR", "actions": true },
+      { "depth": 19, "export": "Button", "x": 29.8, "y": -4.25, "scaleX": 0.21303, "scaleY": 0.42224, "name": "_btnR", "actions": true },
+      { "depth": 20, "export": "Button", "x": 15.9, "y": 7.15, "scaleX": 0.25903, "scaleY": 0.71669, "name": "_btnBR", "actions": true },
+      { "depth": 21, "export": "Button", "x": -5.9, "y": 15.65, "scaleX": 0.15303, "scaleY": 0.58891, "name": "_btnB", "actions": true },
+      { "depth": 22, "export": "Button", "x": -37.6, "y": -20.85, "scaleX": 0.25903, "scaleY": 0.7167, "name": "_btnTL", "actions": true },
+      { "depth": 23, "export": "Button", "x": -39.4, "y": 7.25, "scaleX": 0.25903, "scaleY": 0.7167, "name": "_btnBL", "actions": true },
+      { "depth": 24, "export": "Button", "x": -50.9, "y": -3.25, "scaleX": 0.21303, "scaleY": 0.42224, "name": "_btnL", "actions": true }
+    ]
+  }
+ ]
+}

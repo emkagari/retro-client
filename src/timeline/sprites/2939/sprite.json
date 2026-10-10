@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scale": 0.12001, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] }, "name": "border_mc" },
+      { "depth": 3, "export": "Rectangle", "x": 1, "y": 1, "scale": 0.1, "name": "bg_mc" },
+      { "depth": 5, "sprite": 265, "x": 2.5, "y": 2.5, "scaleX": 1, "scaleY": 1.00719, "name": "highlight_mc" }
+    ]
+  }
+ ]
+}

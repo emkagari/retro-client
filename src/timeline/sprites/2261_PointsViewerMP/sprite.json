@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2260, "x": 0, "y": 0 },
+      { "depth": 13, "export": "IconMP", "x": -17.95, "y": -19.95 }
+    ]
+  }
+ ]
+}

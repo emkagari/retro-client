@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 914, "x": 0.8, "y": 1.15 },
+      { "depth": 4, "export": "pic_IN_MULTI", "x": 12, "y": 13.3, "name": "_mcFight" }
+    ]
+  }
+ ]
+}

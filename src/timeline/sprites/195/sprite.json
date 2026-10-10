@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "ButtonTransparentUp", "x": 13, "y": 3 },
+      { "depth": 5, "export": "Button", "x": 16, "y": 123, "actions": true },
+      { "depth": 79, "export": "List", "x": 133, "y": 127, "actions": true },
+      { "depth": 81, "export": "Label", "x": 13, "y": 152.5, "actions": true }
+    ]
+  }
+ ]
+}

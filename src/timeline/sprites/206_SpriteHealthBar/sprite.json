@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 201, "x": 0, "y": 7.5, "scaleX": 0.99998, "scaleY": 0.4617, "name": "_mcBackground" },
+      { "depth": 3, "sprite": 203, "x": 0, "y": 7.5, "scaleX": 1.00017, "scaleY": 0.46153, "name": "_mcBarHighlight" },
+      { "depth": 6, "sprite": 203, "x": 0, "y": 7.5, "scaleX": 1.00017, "scaleY": 0.46153, "name": "_mcBar" },
+      { "depth": 9, "sprite": 205, "x": 0, "y": 7.5, "scaleX": 0.99998, "scaleY": 0.46153, "name": "_mcBorder" }
+    ]
+  }
+ ]
+}

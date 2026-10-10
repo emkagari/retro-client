@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": -50, "y": -50, "alpha": 0 },
+      { "depth": 3, "export": "Locate", "x": 18.7, "y": -44.85, "matrix": [1.23747, 2.14084, -2.14334, 1.236] }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83989, "scaleY": 11.12013, "name": "_bhReport", "actions": true },
+      { "depth": 2, "export": "Window", "x": 118.75, "y": 87, "scaleX": 5.04556, "scaleY": 2.15991, "name": "_winBackground", "actions": true },
+      { "depth": 3, "export": "Label", "x": 402, "y": 179, "scaleX": 1.99994, "scaleY": 1, "name": "_lblComplementary", "actions": true },
+      { "depth": 4, "export": "Button", "x": 503, "y": 303, "scaleX": 1, "scaleY": 1.11111, "name": "_btnOk", "actions": true },
+      { "depth": 5, "export": "Button", "x": 374, "y": 303, "scaleX": 1, "scaleY": 1.11111, "name": "_btnCancel", "actions": true },
+      { "depth": 6, "export": "Label", "x": 131, "y": 120, "scaleX": 4.67007, "scaleY": 1, "name": "_lblTarget", "actions": true },
+      { "depth": 7, "export": "TextArea", "x": 402.5, "y": 199, "scaleX": 1.99992, "scaleY": 0.8999, "name": "_taComplementary", "actions": true },
+      { "depth": 8, "export": "Button", "x": 601.5, "y": 94.95, "scaleX": 0.12001, "scaleY": 0.6666, "name": "_btnClose", "actions": true },
+      { "depth": 9, "export": "Label", "x": 131, "y": 147, "scaleX": 0.50005, "scaleY": 1, "name": "_lblReason", "actions": true },
+      { "depth": 10, "export": "ComboBox", "x": 195, "y": 147, "scaleX": 4.04013, "scaleY": 1, "name": "_cbReason", "actions": true },
+      { "depth": 11, "export": "Label", "x": 151, "y": 248.4, "scaleX": 2.40002, "scaleY": 2, "name": "_lblIgnoreToo", "actions": true },
+      { "depth": 12, "export": "Button", "x": 131, "y": 261.4, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnIgnoreToo", "actions": true },
+      { "depth": 13, "export": "Label", "x": 151, "y": 208.4, "scaleX": 2.40002, "scaleY": 2, "name": "_lblLinkChatConversation", "actions": true },
+      { "depth": 14, "export": "Button", "x": 131, "y": 221.4, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnLinkChatConversation", "actions": true },
+      { "depth": 15, "export": "TextArea", "x": 131, "y": 199, "scaleX": 4.70978, "scaleY": 0.89987, "name": "_taFakeCategory", "actions": true }
+    ]
+  }
+ ]
+}

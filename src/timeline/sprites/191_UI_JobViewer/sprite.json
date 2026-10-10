@@ -1,0 +1,36 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 66.25, "y": 28, "scaleX": 3.22008, "scaleY": 4.21994, "name": "_winBgViewer", "actions": true },
+      { "depth": 3, "export": "Window", "x": 511.55, "y": 28, "scaleX": 2.20004, "scaleY": 4.21994, "name": "_winBg", "actions": true },
+      { "depth": 4, "export": "Rectangle", "x": 69.25, "y": 252, "scaleX": 3.15996, "scaleY": 0.25981, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 6, "export": "Rectangle", "x": 69.25, "y": 278, "scaleX": 3.15996, "scaleY": 1.52057, "color": { "mult": [0, 0, 0, 1], "add": [218, 214, 184, 0] } },
+      { "depth": 8, "export": "Rectangle", "x": 69.25, "y": 108, "scaleX": 3.15996, "scaleY": 0.22021, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 10, "export": "Rectangle", "x": 69.25, "y": 230, "scaleX": 3.15996, "scaleY": 0.2202, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 12, "shape": 150, "x": 0, "y": 0 },
+      { "depth": 13, "export": "Label", "x": 109.25, "y": 33, "scaleX": 2.5, "scaleY": 1, "name": "_lblLevel", "actions": true },
+      { "depth": 14, "export": "Label", "x": 125.75, "y": 33, "scaleX": 2.20001, "scaleY": 1, "name": "_lblName", "actions": true },
+      { "depth": 15, "export": "Label", "x": 131.25, "y": 60, "scaleX": 1.20001, "scaleY": 0.8, "name": "_lblXP", "actions": true },
+      { "depth": 16, "export": "ProgressBar", "x": 268.25, "y": 67, "name": "_pbXP", "actions": true },
+      { "depth": 17, "export": "Label", "x": 74.25, "y": 109, "scaleX": 2.5, "scaleY": 0.8, "name": "_lblSkill", "actions": true },
+      { "depth": 18, "export": "List", "x": 69.25, "y": 130, "scaleX": 3.16, "scaleY": 5, "name": "_lstSkills", "actions": true },
+      { "depth": 19, "export": "Label", "x": 74.25, "y": 231, "scaleX": 2.5, "scaleY": 0.8, "name": "_lblTool", "actions": true },
+      { "depth": 20, "export": "GAPILoader", "x": 72.25, "y": 34, "scale": 0.45, "name": "_ldrIcon", "actions": true },
+      { "depth": 21, "export": "Label", "x": 69.25, "y": 346.4, "scaleX": 3.16002, "scaleY": 0.8, "name": "_lblNoTool", "actions": true },
+      { "depth": 22, "export": "Button", "x": 170.25, "y": 86, "scaleX": 1, "scaleY": 1.22223, "name": "_btnTabCrafts", "actions": true },
+      { "depth": 23, "export": "Button", "x": 70.25, "y": 86, "scaleX": 1, "scaleY": 1.22223, "name": "_btnTabCharacteristics", "actions": true },
+      { "depth": 24, "export": "Button", "x": 270.25, "y": 86, "scaleX": 1, "scaleY": 1.22223, "name": "_btnTabOptions", "actions": true },
+      { "depth": 25, "export": "Button", "x": 712, "y": 36, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 26, "export": "TextInput", "x": 541, "y": 57, "scaleX": 1.76062, "scaleY": 0.8, "name": "_tiSearch", "actions": true },
+      { "depth": 27, "export": "Loupe", "x": 520.05, "y": 59.25 },
+      { "depth": 29, "export": "ItemViewer", "x": 67.25, "y": 254.3, "name": "_itvItemViewer", "actions": true },
+      { "depth": 58, "export": "Rectangle", "x": 69.25, "y": 108, "scaleX": 3.16, "scaleY": 3.22, "name": "_mcPlacer" },
+      { "depth": 60, "export": "List", "x": 514.55, "y": 83, "scaleX": 2.14008, "scaleY": 17.49916, "name": "_lstJobs", "actions": true },
+      { "depth": 61, "sprite": 190, "x": 227.25, "y": 245.6, "scaleX": 2.89908, "scaleY": 9.78343, "name": "_mcHidder" },
+      { "depth": 63, "export": "Label", "x": 69.25, "y": 214.4, "scaleX": 3.16002, "scaleY": 0.8, "name": "_lblNoJob", "actions": true }
+    ]
+  }
+ ]
+}

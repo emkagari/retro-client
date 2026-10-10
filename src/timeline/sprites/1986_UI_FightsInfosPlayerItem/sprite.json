@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "DeadHead", "x": 20.05, "y": 17.7, "name": "_mcItemPlacer" },
+      { "depth": 7, "export": "GAPILoader", "x": 5, "y": 2, "scale": 0.15999, "name": "_ldrGuild", "actions": true },
+      { "depth": 8, "export": "Label", "x": 5, "y": 0, "scaleX": 1.1, "scaleY": 1, "name": "_lblName", "actions": true },
+      { "depth": 9, "export": "Label", "x": 110, "y": 0, "scaleX": 0.3598, "scaleY": 1, "name": "_lblLevel", "actions": true }
+    ]
+  }
+ ]
+}

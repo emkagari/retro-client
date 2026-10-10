@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "name": "_bgh", "actions": true },
+      { "depth": 2, "export": "Window", "x": 262, "y": 83, "scaleX": 1.92981, "scaleY": 1.64917, "name": "_win", "actions": true },
+      { "depth": 3, "export": "ChooseItemSkin", "x": 271, "y": 113, "name": "_cisItem", "actions": true },
+      { "depth": 5, "export": "Button", "x": 343, "y": 248, "scaleX": 1, "scaleY": 1.11111, "name": "_btnValid", "actions": true },
+      { "depth": 6, "export": "Button", "x": 434, "y": 93, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true }
+    ]
+  }
+ ]
+}

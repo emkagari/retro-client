@@ -1,0 +1,26 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Star", "x": 27, "y": 0, "scale": 0.2 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 3, "export": "Star", "x": 18, "y": 0, "scale": 0.2, "ratio": 1 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 3, "move": true, "x": 9, "y": 0, "scale": 0.2 },
+      { "depth": 5, "export": "Star", "x": 18, "y": 0, "scale": 0.2, "ratio": 2 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": 0, "y": 0, "scale": 0.2 },
+      { "depth": 7, "export": "Star", "x": 27, "y": 0, "scale": 0.2, "ratio": 3 }
+    ]
+  }
+ ]
+}

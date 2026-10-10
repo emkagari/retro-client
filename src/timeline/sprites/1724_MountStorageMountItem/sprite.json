@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 40, "y": 0, "scaleX": 1.39996, "scaleY": 0.8, "name": "_lbl", "actions": true },
+      { "depth": 2, "export": "GAPILoader", "x": 2, "y": 2, "scale": 0.16, "name": "_ldrIcon", "actions": true },
+      { "depth": 3, "sprite": 1721, "x": 23.4, "y": 3.55, "alpha": 0.58, "name": "_mcSexMan" },
+      { "depth": 5, "sprite": 1723, "x": 23.75, "y": 2.95, "alpha": 0.58, "name": "_mcSexWoman" },
+      { "depth": 7, "export": "GAPILoader", "x": 164, "y": 2, "scale": 0.16, "name": "_ldrNewMount", "actions": true }
+    ]
+  }
+ ]
+}

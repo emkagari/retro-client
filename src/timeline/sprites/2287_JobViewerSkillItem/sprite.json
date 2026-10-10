@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 10, "y": 0, "scaleX": 1.66998, "scaleY": 0.8, "name": "_lblSkill", "actions": true },
+      { "depth": 2, "export": "Label", "x": 10, "y": 0, "scaleX": 1.66998, "scaleY": 0.8, "name": "_lblSource", "actions": true },
+      { "depth": 3, "export": "Label", "x": 195, "y": 0, "scaleX": 0.83, "scaleY": 0.8, "name": "_lblQuantity", "actions": true },
+      { "depth": 4, "sprite": 684, "x": 181, "y": 7.5, "name": "_mcArrow" },
+      { "depth": 6, "export": "Container", "x": 281, "y": 2, "scale": 0.32, "name": "_ctrIcon", "actions": true }
+    ]
+  }
+ ]
+}

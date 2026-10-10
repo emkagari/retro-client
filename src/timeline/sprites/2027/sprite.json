@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2020, "x": 0, "y": 0 },
+      { "depth": 9, "sprite": 2022, "x": 0, "y": 0, "name": "color3" },
+      { "depth": 11, "sprite": 2024, "x": 0, "y": 20.1 },
+      { "depth": 13, "sprite": 2026, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

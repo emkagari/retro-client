@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 1908, "x": 0, "y": 0, "mask": 3 },
+      { "depth": 2, "shape": 1909, "x": 0, "y": 0 },
+      { "depth": 4, "export": "Button", "x": 0, "y": 0, "scaleX": 1, "scaleY": 5.5556, "name": "_btnBack", "actions": true },
+      { "depth": 5, "export": "Label", "x": 0, "y": 65, "name": "_lblName", "actions": true },
+      { "depth": 6, "export": "GAPILoader", "x": 49, "y": 60, "scale": 0.1, "name": "_ldrSprite", "actions": true },
+      { "depth": 7, "export": "Label", "x": 0, "y": 80, "name": "_lblLevel", "actions": true },
+      { "depth": 8, "export": "ChooseCharacterSpriteSelect", "x": 50, "y": 39, "scale": 0.76357, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "_mcSelect" }
+    ]
+  }
+ ]
+}

@@ -4,7 +4,8 @@
  *   src/assets/shapes/<id>.svg   every vector shape of the base loader
  *   src/assets/images/<id>.png   every bitmap (.jpg / .gif when the base has them so)
  *   src/assets/new/<Name>.svg    a new graphic, exported by its path in lower case:
- *                                new/Name.svg → "name", new/ui/Name.svg → "ui/name" (attachMovie("ui/name", …))
+ *                                new/Name.svg → "name", new/ui/Name.svg → "ui/name" (attachMovie("ui/name", …));
+ *                                new/<path>.json: a new sprite (tools/sprites.mjs), the same way
  *   src/assets/index.json        for each shape / image: the exported symbols showing it
  *
  *   node tools/assets.mjs extract            src/assets/ ← the base loader (retro.json's version)
@@ -259,22 +260,27 @@ export function applyAssets(cfg, input, output, changed, work, dir = ASSETS) {
   rmSync(stage, { recursive: true, force: true, maxRetries: 5 });
   for (const kind of KINDS) mkdirSync(join(stage, kind), { recursive: true });
 
+  // Every name new/ exports, graphics and sprites (new/<path>.json, tools/sprites.mjs): one each.
+  const taken = new Set(exportsOf(swf).values());
+  const ours = new Map();                                // export name → file
+  for (const f of changed.filter((f) => f.startsWith("new/"))) {
+    const name = exportName(f);
+    if (taken.has(name)) throw new Error(`src/assets/${f}: the base already exports ${name} — edit it instead`);
+    if (ours.has(name)) throw new Error(`src/assets/${ours.get(name)} and src/assets/${f}: both exported as "${name}" (names are in lower case) — rename one`);
+    ours.set(name, f);
+  }
+
   // New graphics: an empty shape (FFDec imports into an existing id), a clip placing it, its export.
   const added = [];
-  const fresh = changed.filter((f) => f.startsWith("new/"));
+  const fresh = changed.filter((f) => f.startsWith("new/") && extname(f) !== ".json");
   if (fresh.length) {
     let next = 0;
     for (const t of swf.tags) if (t.data.length >= 2 && (SHAPE_TAGS.has(t.code) || IMAGE_TAGS.has(t.code) || t.code === 39 || [7, 10, 11, 34, 37, 46, 48, 75, 84, 91].includes(t.code))) next = Math.max(next, t.data.readUInt16LE(0));
-    const taken = new Set(exportsOf(swf).values());
-    const ours = new Map();                              // export name → file
     const tags = [];
     for (const f of fresh) {
       const ext = extname(f);
-      if (ext !== ".svg" && ext !== ".png") throw new Error(`src/assets/${f}: a new graphic is an .svg or a .png`);
+      if (ext !== ".svg" && ext !== ".png") throw new Error(`src/assets/${f}: what new/ holds is an .svg, a .png (graphics) or a .json (sprites)`);
       const name = exportName(f);
-      if (taken.has(name)) throw new Error(`src/assets/${f}: the base already exports ${name} — edit its shapes instead`);
-      if (ours.has(name)) throw new Error(`src/assets/${ours.get(name)} and src/assets/${f}: both exported as "${name}" (names are in lower case) — rename one`);
-      ours.set(name, f);
       const image = ext === ".png" ? ++next : 0, shape = ++next, clip = ++next;
       if (ext === ".png") {
         // A placeholder bitmap (FFDec imports the PNG into it) and a rectangle showing it at 1:1.
@@ -294,8 +300,8 @@ export function applyAssets(cfg, input, output, changed, work, dir = ASSETS) {
       tags.push({ code: 56, data: Buffer.concat([u16(1), u16(clip), Buffer.from(name + "\0", "latin1")]) });
       added.push(name);
     }
-    // Before the first frame ends: defined before any code runs.
-    const at = swf.tags.findIndex((t) => t.code === 1);
+    // First of all definitions: they need nothing, and any sprite may place them (a sprite.json of the base too).
+    const at = swf.tags.findIndex((t) => ![69, 9, 24, 77, 58, 64, 65].includes(t.code));
     swf.tags.splice(at, 0, ...tags);
   }
   for (const f of changed.filter((f) => !f.startsWith("new/"))) {

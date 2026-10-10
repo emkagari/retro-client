@@ -1,0 +1,23 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 140, "y": 47, "scaleX": 5.92996, "scaleY": 4.09973, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 152, "y": 100, "scaleX": 5.72995, "scaleY": 3.28001, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 152, "y": 108, "scaleX": 1.78998, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 152, "y": 128, "scaleX": 1.78998, "scaleY": 2.99998, "color": { "mult": [0, 0, 0, 1], "add": [180, 172, 141, 0] } },
+      { "depth": 9, "export": "Button", "x": 713, "y": 55, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 10, "export": "Button", "x": 242.5, "y": 75.65, "scaleX": 0.905, "scaleY": 1.34918, "name": "_btnTabEquipments", "actions": true },
+      { "depth": 11, "export": "Button", "x": 333, "y": 75.65, "scaleX": 0.99997, "scaleY": 1.34918, "name": "_btnTabConsumables", "actions": true },
+      { "depth": 12, "export": "Button", "x": 152, "y": 75.65, "scaleX": 0.90498, "scaleY": 1.34918, "name": "_btnTabBestiary", "actions": true },
+      { "depth": 13, "export": "Label", "x": 157, "y": 108, "scaleX": 1.55002, "scaleY": 0.8, "name": "_lblFilters", "actions": true },
+      { "depth": 14, "export": "Button", "x": 314.5, "y": 111, "scaleX": 0.14001, "scaleY": 0.77779, "name": "_btnResetFilters", "actions": true },
+      { "depth": 15, "export": "Button", "x": 433, "y": 75.65, "scaleX": 0.90498, "scaleY": 1.34918, "name": "_btnTabRessources", "actions": true },
+      { "depth": 16, "export": "Button", "x": 524, "y": 75.65, "scaleX": 0.90498, "scaleY": 1.34918, "name": "_btnTabCeremonial", "actions": true },
+      { "depth": 17, "export": "Rectangle", "x": 336, "y": 108, "scaleX": 3.89012, "scaleY": 3.2, "alpha": 0, "name": "_mcPlacer" },
+      { "depth": 19, "export": "FilterList", "x": 152, "y": 128, "scaleX": 1.00006, "scaleY": 10.0005, "name": "_filtersList" }
+    ]
+  }
+ ]
+}

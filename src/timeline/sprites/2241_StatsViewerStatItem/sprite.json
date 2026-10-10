@@ -1,0 +1,24 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2240, "x": 162, "y": 0 },
+      { "depth": 3, "sprite": 2240, "x": 197, "y": 0 },
+      { "depth": 5, "sprite": 2240, "x": 232, "y": 0 },
+      { "depth": 7, "sprite": 2240, "x": 267, "y": 0 },
+      { "depth": 9, "sprite": 2240, "x": 302, "y": 0 },
+      { "depth": 11, "sprite": 2240, "x": 337, "y": 0 },
+      { "depth": 13, "export": "GAPILoader", "x": 2.5, "y": 3.5, "scale": 0.13, "name": "_ldrIcon", "actions": true },
+      { "depth": 14, "export": "Rectangle", "x": -34.05, "y": 0, "scaleX": 4.0705, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] }, "name": "_mcCatBackground" },
+      { "depth": 16, "export": "Label", "x": 16.05, "y": 1, "scaleX": 1.44952, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 17, "export": "Label", "x": 165.05, "y": 1, "scaleX": 0.30006, "scaleY": 0.8, "name": "_lblBase", "actions": true },
+      { "depth": 18, "export": "Label", "x": 235.05, "y": 1, "scaleX": 0.30006, "scaleY": 0.8, "name": "_lblItems", "actions": true },
+      { "depth": 19, "export": "Label", "x": 270.05, "y": 1, "scaleX": 0.30006, "scaleY": 0.8, "name": "_lblAlign", "actions": true },
+      { "depth": 20, "export": "Label", "x": 305.05, "y": 1, "scaleX": 0.30006, "scaleY": 0.8, "name": "_lblBoost", "actions": true },
+      { "depth": 21, "export": "Label", "x": 340.05, "y": 1, "scaleX": 0.30006, "scaleY": 0.8, "name": "_lblTotal", "actions": true },
+      { "depth": 22, "export": "Label", "x": 200.5, "y": 1, "scaleX": 0.30006, "scaleY": 0.8, "name": "_lblScrolls", "actions": true },
+      { "depth": 23, "export": "Label", "x": 1, "y": 1, "scaleX": 3.68993, "scaleY": 0.8, "name": "_lblCatName", "actions": true }
+    ]
+  }
+ ]
+}

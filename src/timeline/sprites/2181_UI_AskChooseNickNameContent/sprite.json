@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 46, "y": 100, "scaleX": 2.4, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [175, 170, 140, 0] } },
+      { "depth": 3, "export": "TextArea", "x": 10, "y": 10, "scaleX": 3.10002, "scaleY": 0.79997, "name": "_txtHelp", "actions": true },
+      { "depth": 4, "export": "Button", "x": 176, "y": 130, "name": "_btnCancel", "actions": true },
+      { "depth": 5, "export": "Button", "x": 56, "y": 130, "name": "_btnOk", "actions": true },
+      { "depth": 6, "export": "TextInput", "x": 46, "y": 100, "scaleX": 2.40002, "scaleY": 0.8, "name": "_tiNickName", "actions": true },
+      { "depth": 7, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.29996, "scaleY": 0.1, "alpha": 0 }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 494, "x": 0, "y": 0 },
+      { "depth": 2, "export": "Container", "x": 299.05, "y": 44.25, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr6", "actions": true },
+      { "depth": 3, "export": "Container", "x": 325.2, "y": 96.75, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr15", "actions": true },
+      { "depth": 4, "export": "Container", "x": 273.15, "y": 44.25, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr5", "actions": true },
+      { "depth": 5, "export": "Container", "x": 299.05, "y": 96.75, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr14", "actions": true },
+      { "depth": 6, "export": "Container", "x": 247, "y": 44.25, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr4", "actions": true },
+      { "depth": 7, "export": "Container", "x": 273, "y": 96.75, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr13", "actions": true },
+      { "depth": 8, "export": "Container", "x": 299.05, "y": 18.4, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr2", "actions": true },
+      { "depth": 9, "export": "Container", "x": 246.95, "y": 96.75, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr12", "actions": true },
+      { "depth": 10, "export": "Container", "x": 273, "y": 18.4, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr1", "actions": true },
+      { "depth": 11, "export": "Container", "x": 299.05, "y": 70.5, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr10", "actions": true },
+      { "depth": 12, "export": "Container", "x": 246.95, "y": 18.4, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr0", "actions": true },
+      { "depth": 13, "export": "Container", "x": 273.15, "y": 70.5, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr9", "actions": true },
+      { "depth": 14, "export": "Container", "x": 247, "y": 70.5, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr8", "actions": true },
+      { "depth": 15, "export": "Container", "x": 325.2, "y": 18.4, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr3", "actions": true },
+      { "depth": 16, "export": "Container", "x": 325.2, "y": 44.25, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr7", "actions": true },
+      { "depth": 17, "export": "Container", "x": 325.2, "y": 70.5, "scaleX": 0.47964, "scaleY": 0.4801, "name": "_ctr11", "actions": true },
+      { "depth": 18, "export": "List", "x": 0, "y": 29, "scaleX": 2.4245, "scaleY": 4.70001, "name": "_lstEffects", "actions": true },
+      { "depth": 19, "export": "Label", "x": 0, "y": 12, "scaleX": 2.42448, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 20, "export": "Rectangle", "x": 0, "y": 15.6, "scaleX": 2.42444, "scaleY": 1.30443, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] }, "name": "_mcMiniMapMask" }
+    ]
+  }
+ ]
+}

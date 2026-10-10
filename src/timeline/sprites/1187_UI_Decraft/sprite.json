@@ -1,0 +1,27 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 349.25, "y": 80.65, "scaleX": 1.79999, "scaleY": 3.14282, "name": "_winInventory2", "actions": true },
+      { "depth": 3, "export": "Window", "x": 511.6, "y": 30.75, "scaleX": 2.2298, "scaleY": 0.33994, "name": "\u001e\u0010\u001d", "actions": true },
+      { "depth": 4, "export": "Window", "x": 542, "y": 80.65, "scaleX": 1.92001, "scaleY": 3.41516, "name": "_winInventory", "actions": true },
+      { "depth": 5, "export": "Window", "x": 125.8, "y": 330.3, "scaleX": 1.68, "scaleY": 0.58018, "name": "_winDistant", "actions": true },
+      { "depth": 6, "sprite": 725, "x": 321.55, "y": 360.05, "name": "_mcArrow" },
+      { "depth": 9, "export": "ContainerGrid", "x": 354.45, "y": 113, "scaleX": 1.70004, "scaleY": 2.56, "name": "_cgGrid", "actions": true },
+      { "depth": 10, "export": "Button", "x": 419.2, "y": 394.45, "scaleX": 1.02, "scaleY": 1.11111, "name": "_btnRecycle", "actions": true },
+      { "depth": 11, "export": "Label", "x": 521.5, "y": 37, "scaleX": 2.08087, "scaleY": 1.09998, "name": "_lblSkill", "actions": true },
+      { "depth": 12, "export": "GridInventoryViewer", "x": 552, "y": 110.5, "name": "_ivInventoryViewer", "actions": true },
+      { "depth": 35, "export": "Button", "x": 712.75, "y": 88.75, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 36, "export": "PlayerWeight", "x": 557.2, "y": 398, "actions": true },
+      { "depth": 38, "export": "ContainerGrid", "x": 245.8, "y": 340.65, "scaleX": 0.38, "scaleY": 0.38002, "name": "_cgDistant", "actions": true },
+      { "depth": 39, "export": "Label", "x": 135.8, "y": 349.8, "scaleX": 1.1, "scaleY": 1, "name": "_lblNewObject", "actions": true },
+      { "depth": 40, "export": "Container", "x": 245.8, "y": 340.65, "scale": 0.76, "name": "_ctrPreview", "actions": true },
+      { "depth": 41, "export": "Rectangle", "x": 245.8, "y": 340.65, "scale": 0.38, "color": { "mult": [0, 0, 0, 0.5], "add": [255, 255, 255, 0] }, "name": "_mcFiligrane" },
+      { "depth": 43, "export": "Label", "x": 356.1, "y": 369.95, "scaleX": 1.68002, "scaleY": 0.90001, "name": "_lblNbItemsToDestroy", "actions": true },
+      { "depth": 44, "export": "Window", "x": 14.95, "y": 80.65, "scaleX": 3.2201, "scaleY": 2.17938, "name": "_winItemViewer", "actions": true },
+      { "depth": 45, "export": "ItemViewerLite", "x": 15.95, "y": 80.65, "name": "_itvItemViewer", "actions": true }
+    ]
+  }
+ ]
+}

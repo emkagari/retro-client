@@ -130,7 +130,10 @@ only: a normal build or package never contains it.
 - Names ending in `_` (`enabled_`, `api_`) are recovered names that clashed
   with a name the code already used: keep them, they're not typos.
 
-New interfaces: docs/NEW-UI.md (the `/hello` window, on branch `feat/hello-ui`, is the template).
+New interfaces: docs/NEW-UI.md (examples on the `example/*` branches: `example/hello-ui`, `example/panneau`…).
+
+Graphics (every shape and image as SVG / PNG, `src/assets/`): docs/ASSETS.md.
+Sprites (what each clip places, where — `sprite.json`): docs/SPRITES.md.
 
 Builds and releases (GitHub Actions, version tags): docs/RELEASES.md.
 

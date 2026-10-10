@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.12, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [204, 204, 204, 0] }, "name": "back_mc" }
+    ]
+  }
+ ]
+}

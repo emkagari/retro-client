@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Star", "x": 4.5, "y": 6.25, "scaleX": 0.24457, "scaleY": 0.25606 },
+      { "depth": 3, "export": "Star", "x": 2.2, "y": 1.75, "scale": 0.09999 }
+    ]
+  }
+ ]
+}

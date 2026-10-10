@@ -1,0 +1,29 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.16, "scaleY": 0.25, "color": { "mult": [0, 0, 0, 1], "add": [180, 172, 141, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 25, "scaleX": 3.16, "scaleY": 0.35, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] } },
+      { "depth": 5, "export": "Label", "x": 32, "y": -2, "scaleX": 2.66992, "scaleY": 0.8, "name": "_lblItemName", "actions": true },
+      { "depth": 6, "export": "Label", "x": 38, "y": 33, "scaleX": 0.14996, "scaleY": 0.8, "name": "_lblPlus1", "actions": true },
+      { "depth": 7, "export": "Label", "x": 73, "y": 33, "scaleX": 0.14996, "scaleY": 0.8, "name": "_lblPlus2", "actions": true },
+      { "depth": 8, "export": "Container", "x": 83, "y": 30, "scale": 0.5, "name": "_ctr2", "actions": true },
+      { "depth": 9, "export": "Container", "x": 118, "y": 30, "scale": 0.5, "name": "_ctr3", "actions": true },
+      { "depth": 10, "export": "Container", "x": 153, "y": 30, "scale": 0.5, "name": "_ctr4", "actions": true },
+      { "depth": 11, "export": "Container", "x": 188, "y": 30, "scale": 0.5, "name": "_ctr5", "actions": true },
+      { "depth": 12, "export": "Container", "x": 223, "y": 30, "scale": 0.5, "name": "_ctr6", "actions": true },
+      { "depth": 13, "export": "Container", "x": 258, "y": 30, "scale": 0.5, "name": "_ctr7", "actions": true },
+      { "depth": 14, "export": "Label", "x": 108, "y": 33, "scaleX": 0.14996, "scaleY": 0.8, "name": "_lblPlus3", "actions": true },
+      { "depth": 15, "export": "Label", "x": 178, "y": 33, "scaleX": 0.14996, "scaleY": 0.8, "name": "_lblPlus5", "actions": true },
+      { "depth": 16, "export": "Label", "x": 248, "y": 33, "scaleX": 0.14996, "scaleY": 0.8, "name": "_lblPlus7", "actions": true },
+      { "depth": 17, "export": "Label", "x": 143, "y": 33, "scaleX": 0.14996, "scaleY": 0.8, "name": "_lblPlus4", "actions": true },
+      { "depth": 18, "export": "Label", "x": 213, "y": 33, "scaleX": 0.14996, "scaleY": 0.8, "name": "_lblPlus6", "actions": true },
+      { "depth": 19, "export": "Container", "x": 48, "y": 30, "scale": 0.5, "name": "_ctr1", "actions": true },
+      { "depth": 20, "export": "Container", "x": 13, "y": 30, "scale": 0.5, "name": "_ctr0", "actions": true },
+      { "depth": 21, "export": "Label", "x": 32, "y": 8, "scaleX": 2.66992, "scaleY": 0.8, "name": "_lblSkill", "actions": true },
+      { "depth": 22, "export": "Container", "x": 5, "y": 2, "scale": 0.40002, "name": "_ctrItemIcon", "actions": true },
+      { "depth": 23, "export": "Rectangle", "x": 31.85, "y": -1, "scaleX": 2.34172, "scaleY": 0.20001, "alpha": 0, "name": "_mcTooltip" }
+    ]
+  }
+ ]
+}

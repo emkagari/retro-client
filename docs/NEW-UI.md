@@ -8,12 +8,23 @@ through its setters; `gapi` and `instanceName` are set too.
 
 Ankama's interfaces have their layout drawn in the library (`UI_AskOk`
 holds a Window whose content is the clip `UI_AskOkContent`, with `_btnOk`,
-`_txtText`… — see `src/timeline/sprites/<id>_UI_AskOk/`). A new interface
-can't draw clips, but it doesn't need to: the library has every component —
-`Window`, `Label`, `Button`, `TextInput`, `TextArea`, `List`, `ComboBox`,
-`Container`… — and a class creates them with `attachMovie`.
+`_txtText`… — see `src/timeline/sprites/<id>_UI_AskOk/sprite.json`,
+docs/SPRITES.md). A new interface has two ways: a class creating the
+library's components with `attachMovie` — `Window`, `Label`, `Button`,
+`TextInput`, `TextArea`, `List`, `ComboBox`, `Container`… — or a layout of
+its own, `src/assets/new/<path>.json` (docs/SPRITES.md), with its graphics
+in `src/assets/new/` (docs/ASSETS.md).
 
-## Steps (example: `Hello`, the `/hello` chat command — complete on branch `feat/hello-ui`)
+Examples, one branch each (independent of each other):
+
+| branch | |
+|---|---|
+| `example/hello-ui` | `/hello`: a window built by code alone |
+| `example/panneau` | `/panneau`: a background of ours (`src/assets/new/panneau/Fond.svg`) and components |
+| `example/ornaments` | frames loaded at runtime from SWFs in `overlay/` |
+| `example/tactic-toggle` | a button added to the game's screen, kept across maps and fights |
+
+## Steps (example: `Hello`, the `/hello` chat command — complete on branch `example/hello-ui`)
 
 1. **The class** — `src/classes/dofus/graphics/gapi/ui/Hello.as`, extending
    `dofus.graphics.gapi.core.DofusAdvancedComponent`. In `createChildren()`,
@@ -49,7 +60,11 @@ the same names work in `attachMovie`'s init object. Component classes are in
 
 ## Real artwork
 
-Pictures or a designed layout don't belong in the loader: make them a small
-SWF of their own (any Flash tool, or images), ship it with the client through
-`overlay/` (`overlay/resources/app/retroclient/clips/…`), and load it into a
-`Loader` component (`attachMovie("Loader", …, {contentPath: "clips/…swf"})`).
+Pictures go in `src/assets/new/` (an SVG or a PNG, exported by its path:
+`attachMovie("panneau/fond", …)`, docs/ASSETS.md); a layout, in a new
+sprite's `.json` next to them (docs/SPRITES.md). An animation, or artwork
+that changes without a new loader, is a small SWF of its own, shipped through
+`overlay/` (`overlay/resources/app/retroclient/clips/…`) and loaded at
+runtime (`MovieClipLoader`, or a `Loader` component:
+`attachMovie("Loader", …, {contentPath: "clips/…swf"})` — branch
+`example/ornaments`).

@@ -1,0 +1,23 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Button", "x": 271, "y": 12, "scaleX": 0.2, "scaleY": 1.11111, "name": "_btnMuteMusic", "actions": true },
+      { "depth": 2, "export": "Button", "x": 271, "y": 38, "scaleX": 0.2, "scaleY": 1.11111, "name": "_btnMuteSounds", "actions": true },
+      { "depth": 3, "export": "Label", "x": 10, "y": 16, "scaleX": 1.18002, "scaleY": 0.8, "name": "_lblMusic", "actions": true },
+      { "depth": 4, "export": "Label", "x": 10, "y": 42, "scaleX": 1.18002, "scaleY": 0.8, "name": "_lblSounds", "actions": true },
+      { "depth": 5, "export": "VolumeSlider", "x": 131, "y": 12, "scaleX": 1.29999, "scaleY": 1, "name": "_vsMusic", "actions": true },
+      { "depth": 6, "export": "VolumeSlider", "x": 131, "y": 38, "scaleX": 1.29999, "scaleY": 1, "name": "_vsSounds", "actions": true },
+      { "depth": 7, "export": "Label", "x": 31, "y": 112, "scaleX": 2.60004, "scaleY": 1, "name": "_lblStartTurnSound", "actions": true },
+      { "depth": 8, "export": "Button", "x": 10, "y": 92, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnGuildMessageSound", "actions": true },
+      { "depth": 9, "export": "Label", "x": 31, "y": 88, "scaleX": 2.60004, "scaleY": 1, "name": "_lblGuildMessageSound", "actions": true },
+      { "depth": 10, "export": "Button", "x": 10, "y": 116, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnStartTurnSound", "actions": true },
+      { "depth": 11, "export": "Button", "x": 271, "y": 64, "scaleX": 0.2, "scaleY": 1.11111, "name": "_btnMuteEnvironment", "actions": true },
+      { "depth": 12, "export": "Label", "x": 10, "y": 68, "scaleX": 1.18002, "scaleY": 0.8, "name": "_lblEnvironment", "actions": true },
+      { "depth": 13, "export": "VolumeSlider", "x": 131, "y": 64, "scaleX": 1.29999, "scaleY": 1, "name": "_vsEnvironment", "actions": true },
+      { "depth": 14, "export": "Label", "x": 31, "y": 136, "scaleX": 2.60004, "scaleY": 1, "name": "_lblAchievementSound", "actions": true },
+      { "depth": 15, "export": "Button", "x": 10, "y": 140, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnAchievementSound", "actions": true }
+    ]
+  }
+ ]
+}

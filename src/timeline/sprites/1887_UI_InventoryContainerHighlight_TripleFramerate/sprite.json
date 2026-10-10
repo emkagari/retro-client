@@ -1,0 +1,89 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scale": 0.01, "color": { "mult": [0, 0, 0, 0.2], "add": [255, 255, 255, 0] }, "name": "_mcBg" },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 3, "scaleX": 0.01999, "scaleY": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "_mcL" },
+      { "depth": 5, "export": "Rectangle", "x": 2, "y": 1, "scaleX": 0.01, "scaleY": 0.01999, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "_mcT" },
+      { "depth": 7, "export": "Rectangle", "x": 2, "y": 4, "scaleX": 0.01, "scaleY": 0.01999, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "_mcB" },
+      { "depth": 9, "export": "Rectangle", "x": 3, "y": 3, "scaleX": 0.01999, "scaleY": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "_mcR" },
+      { "depth": 11, "shape": 1886, "x": 0, "y": 0 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0.875 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0.75 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0.625 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0.5 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0.375 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0.25 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0.125 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0.145 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0.285 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0.43 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0.57 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0.715 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "alpha": 0.855 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 11, "move": true, "color": {  } }
+    ]
+  }
+ ]
+}

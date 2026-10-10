@@ -1,0 +1,35 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 2.2799, "scaleY": 1.95978, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 195.9, "scaleX": 2.28021, "scaleY": 0.20018, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 0, "y": 90, "scaleX": 2.2799, "scaleY": 0.19981, "color": { "mult": [0, 0, 0, 1], "add": [57, 52, 45, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 0, "y": 216, "scaleX": 2.27995, "scaleY": 0.76007, "color": { "mult": [0, 0, 0, 1], "add": [237, 231, 211, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": 0, "y": 216, "scaleX": 2.27995, "scaleY": 0.76007, "color": { "mult": [0, 0, 0, 1], "add": [237, 231, 211, 0] }, "mask": 106 },
+      { "depth": 11, "sprite": 480, "x": 32.2, "y": 309.6, "scale": 2.05998, "name": "_mcCharacter" },
+      { "depth": 108, "export": "Label", "x": 0, "y": 3, "scaleX": 2.28009, "scaleY": 0.8, "name": "_lblHonour", "actions": true },
+      { "depth": 109, "export": "Label", "x": 0, "y": 38, "scaleX": 2.2803, "scaleY": 0.8, "name": "_lblDishonour", "actions": true },
+      { "depth": 110, "export": "Label", "x": 0, "y": 72, "scaleX": 2.28009, "scaleY": 0.8, "name": "_lblBonus", "actions": true },
+      { "depth": 111, "export": "ProgressBar", "x": 51, "y": 57, "scaleX": 1.26013, "scaleY": 1, "name": "_pbDishonour", "actions": true },
+      { "depth": 112, "export": "Rectangle", "x": 51, "y": 54, "scaleX": 1.25998, "scaleY": 0.16017, "alpha": 0, "name": "_lstBonuses" },
+      { "depth": 114, "export": "ProgressBar", "x": 51, "y": 22, "scaleX": 1.26013, "scaleY": 1, "name": "_pbHonour", "actions": true },
+      { "depth": 115, "export": "Rectangle", "x": 51, "y": 19, "scaleX": 1.25998, "scaleY": 0.16017, "alpha": 0, "name": "_mcHonour" },
+      { "depth": 117, "export": "List", "x": 0, "y": 110, "scaleX": 2.28003, "scaleY": 2.99998, "name": "_mcDishonour", "actions": true },
+      { "depth": 118, "export": "Label", "x": 2.05, "y": 91, "scaleX": 0.85919, "scaleY": 0.85, "name": "_lblType", "actions": true },
+      { "depth": 119, "export": "Label", "x": 92, "y": 91, "scaleX": 0.65, "scaleY": 0.85, "name": "_lblBonusTitle", "actions": true },
+      { "depth": 120, "export": "Button", "x": 22.45, "y": 174, "scaleX": 1.83087, "scaleY": 1.05463, "name": "_btnTogglePvP", "actions": true },
+      { "depth": 121, "export": "Label", "x": 5, "y": 196.95, "scaleX": 2.18065, "scaleY": 0.8525, "name": "_lblHunt", "actions": true },
+      { "depth": 122, "export": "Button", "x": 183, "y": 58, "scaleX": 0.1, "scaleY": 0.55556, "name": "_btnDisgraceSanction", "actions": true },
+      { "depth": 123, "export": "Rectangle", "x": 92, "y": 91, "scaleX": 0.65, "scaleY": 0.17, "alpha": 0, "name": "_mcBonusInteractivity" },
+      { "depth": 125, "export": "Button", "x": 183, "y": 23, "scaleX": 0.1, "scaleY": 0.55556, "name": "_btnInformation", "actions": true },
+      { "depth": 126, "export": "Button", "x": 71.9, "y": 260.35, "scaleX": 1.43243, "scaleY": 1.05463, "name": "_btnStartHunt", "actions": true },
+      { "depth": 127, "export": "Button", "x": 63.75, "y": 260.35, "scaleX": 1.60344, "scaleY": 1.05463, "name": "_btnToggleHuntFinder", "actions": true },
+      { "depth": 128, "export": "Label", "x": 63.75, "y": 216.9, "scaleX": 1.60277, "scaleY": 0.8, "name": "_lblCommander", "actions": true },
+      { "depth": 129, "export": "Label", "x": 63.75, "y": 232.9, "scaleX": 1.60313, "scaleY": 0.90001, "name": "_lblCommanderName", "actions": true },
+      { "depth": 130, "sprite": 482, "x": 0, "y": 216, "name": "_mcHuntShield" },
+      { "depth": 132, "export": "Label", "x": 0, "y": 245.95, "scaleX": 2.2799, "scaleY": 0.8, "name": "_lblBadLevel", "actions": true }
+    ]
+  }
+ ]
+}

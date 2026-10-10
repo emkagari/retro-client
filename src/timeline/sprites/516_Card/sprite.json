@@ -1,0 +1,19 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "GAPILoader", "x": 0, "y": 0, "scaleX": 0.75984, "scaleY": 1.03998, "name": "_ldrCardIcon", "actions": true },
+      { "depth": 2, "export": "Label", "x": 0, "y": 36, "scaleX": 0.76001, "scaleY": 3.40305, "name": "_lblCardNameNotUnlocked", "actions": true },
+      { "depth": 3, "export": "Inventory", "x": 49.5, "y": 101.65, "scale": 1.19646, "color": { "mult": [0.4, 0.4, 0.4, 1], "add": [137, 134, 114, 0] }, "name": "_mcInventory" },
+      { "depth": 6, "sprite": 513, "x": 8.6, "y": 15.5, "scaleX": 0.96349, "scaleY": 1.06017, "name": "_mcFoilMask" },
+      { "depth": 10, "sprite": 514, "x": 0.7, "y": 1.6, "scaleX": 0.97464, "scaleY": 0.8625, "name": "_mcCardLabelBackground" },
+      { "depth": 16, "sprite": 502, "x": 2.65, "y": 2.35, "scaleX": 0.28265, "scaleY": 0.2833, "name": "_mcFamilyCardBackground" },
+      { "depth": 20, "sprite": 515, "x": 46.85, "y": 68.2, "scaleX": 0.62514, "scaleY": 0.62656, "name": "_mcCardIDBackground" },
+      { "depth": 38, "sprite": 505, "x": 13.95, "y": 13.65, "scaleX": 0.26884, "scaleY": 0.26945, "name": "_mcFamilyCardForeground" },
+      { "depth": 40, "export": "Label", "x": 20.8, "y": 3.35, "scaleX": 0.50931, "scaleY": 0.28146, "name": "_lblCardName", "actions": true },
+      { "depth": 41, "export": "GAPILoader", "x": 8.7, "y": 8.6, "scaleX": 0.10474, "scaleY": 0.10503, "name": "_ldrFamilyIcon", "actions": true },
+      { "depth": 42, "export": "Label", "x": 46.85, "y": 66.7, "scaleX": 0.22955, "scaleY": 0.30522, "name": "_lblCardID", "actions": true }
+    ]
+  }
+ ]
+}

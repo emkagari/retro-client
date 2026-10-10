@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1622, "x": 273, "y": 0, "scaleX": 1, "scaleY": 1.25 },
+      { "depth": 3, "sprite": 1622, "x": 332, "y": 0, "scaleX": 1, "scaleY": 1.25 },
+      { "depth": 5, "export": "Label", "x": 0, "y": 3, "scaleX": 2.6995, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 6, "export": "Label", "x": 335, "y": 3, "scaleX": 0.18001, "scaleY": 0.8, "name": "_lblCost", "actions": true },
+      { "depth": 7, "export": "Button", "x": 275.4, "y": 5, "scaleX": 0.5502, "scaleY": 0.88931, "name": "_btnLocate", "actions": true },
+      { "depth": 8, "export": "KamaSymbol", "x": 353, "y": 6.5, "scaleX": 0.79999, "scaleY": 0.7991, "name": "_mcKamas" }
+    ]
+  }
+ ]
+}

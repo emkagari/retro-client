@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 22, "y": 0, "scaleX": 1.99998, "scaleY": 0.75, "name": "_lblSpell", "actions": true },
+      { "depth": 2, "export": "Label", "x": 194.5, "y": 0, "scaleX": 0.85359, "scaleY": 0.75002, "name": "_lblRemainingTurn", "actions": true },
+      { "depth": 3, "export": "GAPILoader", "x": 4, "y": 4, "scale": 0.15999, "name": "_ldrIcon", "actions": true },
+      { "depth": 4, "export": "Label", "x": 22, "y": 15, "scaleX": 2.75885, "scaleY": 0.9, "name": "_lblDescription", "actions": true },
+      { "depth": 5, "export": "NonDispellableIcon", "x": 282.6, "y": 1.3, "scale": 0.8305, "name": "_mcNotDisplell" },
+      { "depth": 7, "export": "Rectangle", "x": 20.1, "y": 0, "scaleX": 2.59799, "scaleY": 0.35, "alpha": 0, "name": "_mcInteractivity" }
+    ]
+  }
+ ]
+}

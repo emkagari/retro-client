@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "StylizedRectangle", "x": 399.65, "y": 367.55, "scaleX": 0.347, "scaleY": 0.197, "name": "_srDrag", "actions": true },
+      { "depth": 2, "export": "Button", "x": 399.65, "y": 377, "scaleX": 0.34709, "scaleY": 1.92773, "name": "_btnAchievementRewards", "actions": true },
+      { "depth": 3, "export": "Button", "x": 424.75, "y": 369.1, "scaleX": 0.0791, "scaleY": 0.43999, "name": "_btnClose", "actions": true }
+    ]
+  }
+ ]
+}

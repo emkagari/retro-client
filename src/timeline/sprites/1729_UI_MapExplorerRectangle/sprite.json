@@ -1,0 +1,20 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 1726, "x": 0, "y": 0 }
+    ]
+  },
+  {},
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 1727 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 1728 }
+    ]
+  }
+ ]
+}

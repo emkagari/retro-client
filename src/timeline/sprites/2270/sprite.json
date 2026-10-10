@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 781, "x": 0, "y": 3, "scaleX": 0.07501, "scaleY": 0.03001 },
+      { "depth": 3, "sprite": 781, "x": 0, "y": 3, "scaleX": 0.07501, "scaleY": -0.03003 }
+    ]
+  }
+ ]
+}

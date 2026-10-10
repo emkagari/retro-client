@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Window", "x": 0, "y": 0, "scaleX": 3, "scaleY": 1.5, "name": "_winBackground", "actions": true },
+      { "depth": 2, "export": "Label", "x": 24.95, "y": 128, "scaleX": 2.67932, "scaleY": 0.75, "name": "_lblLearnMore", "actions": true },
+      { "depth": 3, "export": "QuestionMark", "x": 8, "y": 130, "scale": 0.66667, "name": "\u001d\r\u0005" },
+      { "depth": 7, "export": "Button", "x": 279, "y": 9, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 8, "export": "TextArea", "x": 6.1, "y": 25, "scaleX": 2.87907, "scaleY": 1.00995, "name": "_taTipsContent", "actions": true },
+      { "depth": 9, "export": "Rectangle", "x": 6.1, "y": 127.4, "scaleX": 2.87875, "scaleY": 0.18, "alpha": 0, "name": "_mcLearnMoreButton" }
+    ]
+  }
+ ]
+}

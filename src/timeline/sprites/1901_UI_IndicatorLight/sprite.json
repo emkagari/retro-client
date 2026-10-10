@@ -1,0 +1,65 @@
+{
+ "frames": [
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "place": [
+      { "depth": 1, "sprite": 1899, "x": 0.4, "y": -0.05, "scale": 0.60953, "alpha": 0.2, "ratio": 15 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": 0.45, "y": 0, "scale": 0.80476, "alpha": 0.6 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": 0.4, "y": -0.05, "color": {  } }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": 0.4, "y": -0.05, "scale": 1.06825 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": 0.4, "y": -0.05, "scale": 1.1365 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": 0.4, "y": -0.05, "scale": 1.20476 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": 0.4, "y": -0.05, "scale": 1.05597, "alpha": 0.75 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": 0.4, "y": -0.05, "scale": 0.90715, "alpha": 0.5 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "x": 0.4, "y": -0.05, "scale": 0.75835, "alpha": 0.25 }
+    ]
+  },
+  {}
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 196, "y": 120, "scaleX": 3.50006, "scaleY": 1.59991, "name": "_winCode", "actions": true },
+      { "depth": 3, "export": "StylizedRectangle", "x": 390, "y": 205, "scaleX": 1.41, "scaleY": 0.6, "actions": true },
+      { "depth": 4, "export": "StylizedRectangle", "x": 211, "y": 155, "scaleX": 3.19995, "scaleY": 0.40001, "actions": true },
+      { "depth": 5, "export": "Container", "x": 422, "y": 210, "scale": 0.46, "name": "_ctrSymbol1", "actions": true },
+      { "depth": 6, "export": "Container", "x": 449, "y": 210, "scale": 0.46, "name": "_ctrSymbol2", "actions": true },
+      { "depth": 7, "export": "Container", "x": 422, "y": 237, "scale": 0.46, "name": "_ctrSymbol6", "actions": true },
+      { "depth": 8, "export": "Container", "x": 449, "y": 237, "scale": 0.46, "name": "_ctrSymbol7", "actions": true },
+      { "depth": 9, "export": "Container", "x": 476, "y": 210, "scale": 0.46, "name": "_ctrSymbol3", "actions": true },
+      { "depth": 10, "export": "Container", "x": 503, "y": 210, "scale": 0.46, "name": "_ctrSymbol4", "actions": true },
+      { "depth": 11, "export": "Container", "x": 476, "y": 237, "scale": 0.46, "name": "_ctrSymbol8", "actions": true },
+      { "depth": 12, "export": "Container", "x": 503, "y": 237, "scale": 0.46, "name": "_ctrSymbol9", "actions": true },
+      { "depth": 13, "export": "Container", "x": 395, "y": 237, "scale": 0.46, "name": "_ctrSymbol5", "actions": true },
+      { "depth": 14, "export": "Container", "x": 395, "y": 210, "scale": 0.46, "name": "_ctrSymbol0", "actions": true },
+      { "depth": 15, "export": "Rectangle", "x": 526, "y": 160, "scaleX": -1, "scaleY": 0.3, "name": "_mcSlotPlacer" },
+      { "depth": 17, "export": "Button", "x": 406, "y": 280, "scaleX": 1.19998, "scaleY": 1.11111, "name": "_btnValidate", "actions": true },
+      { "depth": 18, "export": "Button", "x": 215.95, "y": 280, "scaleX": 1.20001, "scaleY": 1.11111, "name": "_btnNoCode", "actions": true },
+      { "depth": 19, "export": "TextArea", "x": 211, "y": 205, "scaleX": 1.6, "scaleY": 0.6, "name": "_txtDescription", "actions": true },
+      { "depth": 20, "export": "Button", "x": 524, "y": 129, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 21, "export": "Button", "x": 387.65, "y": 280, "scaleX": -0.30002, "scaleY": 1.11111, "name": "_btnResetCode", "actions": true }
+    ]
+  }
+ ]
+}

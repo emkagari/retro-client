@@ -1,0 +1,115 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 3, "shape": 584, "x": 0, "y": 0 },
+      { "depth": 4, "export": "Button", "x": 528.9, "y": 99.6, "scaleX": -0.1, "scaleY": 0.55556, "name": "_btnClose", "actions": true },
+      { "depth": 5, "export": "Container", "x": 230.15, "y": 226, "scaleX": 0.80013, "scaleY": 0.79996, "name": "_ctr0", "actions": true },
+      { "depth": 6, "export": "Container", "x": 278.15, "y": 226, "scaleX": 0.80013, "scaleY": 0.79996, "name": "_ctr1", "actions": true },
+      { "depth": 7, "export": "Container", "x": 326.15, "y": 226, "scaleX": 0.80013, "scaleY": 0.79996, "name": "_ctr2", "actions": true },
+      { "depth": 8, "export": "Container", "x": 374.15, "y": 226, "scaleX": 0.80013, "scaleY": 0.79996, "name": "_ctr3", "actions": true },
+      { "depth": 9, "export": "Container", "x": 470.15, "y": 226, "scaleX": 0.80013, "scaleY": 0.79996, "name": "_ctr5", "actions": true },
+      { "depth": 10, "export": "Container", "x": 422.15, "y": 226, "scaleX": 0.80013, "scaleY": 0.79996, "name": "_ctr4", "actions": true },
+      { "depth": 11, "export": "TemporaryEventItemBackground", "x": 230.15, "y": 206.95, "scaleX": 1, "scaleY": 0.375, "alpha": 0.5 },
+      { "depth": 13, "export": "TemporaryEventItemBackground", "x": 278.15, "y": 206.95, "scaleX": 1, "scaleY": 0.375, "alpha": 0.5 },
+      { "depth": 15, "export": "TemporaryEventItemBackground", "x": 326.15, "y": 206.95, "scaleX": 1, "scaleY": 0.375, "alpha": 0.5 },
+      { "depth": 17, "export": "TemporaryEventItemBackground", "x": 374.15, "y": 206.95, "scaleX": 1, "scaleY": 0.375, "alpha": 0.5 },
+      { "depth": 19, "export": "TemporaryEventItemBackground", "x": 422.15, "y": 206.95, "scaleX": 1, "scaleY": 0.375, "alpha": 0.5 },
+      { "depth": 21, "export": "TemporaryEventItemBackground", "x": 470.15, "y": 206.95, "scaleX": 1, "scaleY": 0.375, "alpha": 0.5 },
+      { "depth": 23, "export": "ProgressBar", "x": 220.65, "y": 271.7, "scaleX": 3.00012, "scaleY": 1.80106, "name": "_pbProgression", "actions": true },
+      { "depth": 24, "text": 587, "x": 240.4, "y": 94.45, "name": "_txtTitle" },
+      { "depth": 25, "text": 588, "x": 212.55, "y": 121.45, "name": "_txtDescription" },
+      { "depth": 26, "text": 589, "x": 212.45, "y": 298.75, "name": "_txtEndDate" },
+      { "depth": 27, "export": "GAPILoader", "x": 208.7, "y": 96.65, "scale": 0.1735, "name": "_ldrIcon", "actions": true },
+      { "depth": 28, "text": 590, "x": 222.7, "y": 273.7, "name": "_txtProgression" },
+      { "depth": 29, "text": 591, "x": 242.7, "y": 209.5, "name": "_txtMilestone0" },
+      { "depth": 30, "text": 592, "x": 290.7, "y": 209.5, "name": "_txtMilestone1" },
+      { "depth": 31, "text": 593, "x": 338.7, "y": 209.5, "name": "_txtMilestone2" },
+      { "depth": 32, "text": 594, "x": 386.7, "y": 209.5, "name": "_txtMilestone3" },
+      { "depth": 33, "text": 595, "x": 434.7, "y": 209.5, "name": "_txtMilestone4" },
+      { "depth": 34, "text": 596, "x": 482.7, "y": 209.5, "name": "_txtMilestone5" }
+    ]
+  },
+  {
+    "remove": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34],
+    "place": [
+      { "depth": 24, "text": 597, "x": 240.4, "y": 94.45, "ratio": 1, "name": "_txtTitle" },
+      { "depth": 25, "text": 598, "x": 212.55, "y": 121.45, "ratio": 1, "name": "_txtDescription" },
+      { "depth": 26, "text": 599, "x": 212.45, "y": 298.75, "ratio": 1, "name": "_txtEndDate" },
+      { "depth": 27, "export": "GAPILoader", "x": 208.7, "y": 96.65, "scale": 0.1735, "ratio": 1, "name": "_ldrIcon", "actions": true },
+      { "depth": 28, "text": 600, "x": 222.7, "y": 273.7, "ratio": 1, "name": "_txtProgression" },
+      { "depth": 29, "text": 601, "x": 242.7, "y": 209.5, "ratio": 1, "name": "_txtMilestone0" },
+      { "depth": 30, "text": 602, "x": 290.7, "y": 209.5, "ratio": 1, "name": "_txtMilestone1" },
+      { "depth": 31, "text": 603, "x": 338.7, "y": 209.5, "ratio": 1, "name": "_txtMilestone2" },
+      { "depth": 32, "text": 604, "x": 386.7, "y": 209.5, "ratio": 1, "name": "_txtMilestone3" },
+      { "depth": 33, "text": 605, "x": 434.7, "y": 209.5, "ratio": 1, "name": "_txtMilestone4" },
+      { "depth": 34, "text": 606, "x": 482.7, "y": 209.5, "ratio": 1, "name": "_txtMilestone5" }
+    ]
+  },
+  {
+    "remove": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34],
+    "place": [
+      { "depth": 24, "text": 607, "x": 240.4, "y": 94.45, "ratio": 2, "name": "_txtTitle" },
+      { "depth": 25, "text": 608, "x": 212.55, "y": 121.45, "ratio": 2, "name": "_txtDescription" },
+      { "depth": 26, "text": 609, "x": 212.45, "y": 298.75, "ratio": 2, "name": "_txtEndDate" },
+      { "depth": 27, "export": "GAPILoader", "x": 208.7, "y": 96.65, "scale": 0.1735, "ratio": 2, "name": "_ldrIcon", "actions": true },
+      { "depth": 28, "text": 610, "x": 222.7, "y": 273.7, "ratio": 2, "name": "_txtProgression" },
+      { "depth": 29, "text": 611, "x": 242.7, "y": 209.5, "ratio": 2, "name": "_txtMilestone0" },
+      { "depth": 30, "text": 612, "x": 290.7, "y": 209.5, "ratio": 2, "name": "_txtMilestone1" },
+      { "depth": 31, "text": 613, "x": 338.7, "y": 209.5, "ratio": 2, "name": "_txtMilestone2" },
+      { "depth": 32, "text": 614, "x": 386.7, "y": 209.5, "ratio": 2, "name": "_txtMilestone3" },
+      { "depth": 33, "text": 615, "x": 434.7, "y": 209.5, "ratio": 2, "name": "_txtMilestone4" },
+      { "depth": 34, "text": 616, "x": 482.7, "y": 209.5, "ratio": 2, "name": "_txtMilestone5" }
+    ]
+  },
+  {
+    "remove": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34],
+    "place": [
+      { "depth": 24, "text": 617, "x": 240.4, "y": 94.45, "ratio": 3, "name": "_txtTitle" },
+      { "depth": 25, "text": 618, "x": 212.55, "y": 121.45, "ratio": 3, "name": "_txtDescription" },
+      { "depth": 26, "text": 619, "x": 212.45, "y": 298.75, "ratio": 3, "name": "_txtEndDate" },
+      { "depth": 27, "export": "GAPILoader", "x": 208.7, "y": 96.65, "scale": 0.1735, "ratio": 3, "name": "_ldrIcon", "actions": true },
+      { "depth": 28, "text": 620, "x": 222.7, "y": 273.7, "ratio": 3, "name": "_txtProgression" },
+      { "depth": 29, "text": 621, "x": 242.7, "y": 209.5, "ratio": 3, "name": "_txtMilestone0" },
+      { "depth": 30, "text": 622, "x": 290.7, "y": 209.5, "ratio": 3, "name": "_txtMilestone1" },
+      { "depth": 31, "text": 623, "x": 338.7, "y": 209.5, "ratio": 3, "name": "_txtMilestone2" },
+      { "depth": 32, "text": 624, "x": 386.7, "y": 209.5, "ratio": 3, "name": "_txtMilestone3" },
+      { "depth": 33, "text": 625, "x": 434.7, "y": 209.5, "ratio": 3, "name": "_txtMilestone4" },
+      { "depth": 34, "text": 626, "x": 482.7, "y": 209.5, "ratio": 3, "name": "_txtMilestone5" }
+    ]
+  },
+  {
+    "remove": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34],
+    "place": [
+      { "depth": 24, "text": 627, "x": 240.4, "y": 94.45, "ratio": 4, "name": "_txtTitle" },
+      { "depth": 25, "text": 628, "x": 212.55, "y": 121.45, "ratio": 4, "name": "_txtDescription" },
+      { "depth": 26, "text": 629, "x": 212.45, "y": 298.75, "ratio": 4, "name": "_txtEndDate" },
+      { "depth": 27, "export": "GAPILoader", "x": 208.7, "y": 96.65, "scale": 0.1735, "ratio": 4, "name": "_ldrIcon", "actions": true },
+      { "depth": 28, "text": 630, "x": 222.7, "y": 273.7, "ratio": 4, "name": "_txtProgression" },
+      { "depth": 29, "text": 631, "x": 242.7, "y": 209.5, "ratio": 4, "name": "_txtMilestone0" },
+      { "depth": 30, "text": 632, "x": 290.7, "y": 209.5, "ratio": 4, "name": "_txtMilestone1" },
+      { "depth": 31, "text": 633, "x": 338.7, "y": 209.5, "ratio": 4, "name": "_txtMilestone2" },
+      { "depth": 32, "text": 634, "x": 386.7, "y": 209.5, "ratio": 4, "name": "_txtMilestone3" },
+      { "depth": 33, "text": 635, "x": 434.7, "y": 209.5, "ratio": 4, "name": "_txtMilestone4" },
+      { "depth": 34, "text": 636, "x": 482.7, "y": 209.5, "ratio": 4, "name": "_txtMilestone5" }
+    ]
+  },
+  {
+    "remove": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34],
+    "place": [
+      { "depth": 24, "text": 637, "x": 240.4, "y": 94.45, "ratio": 5, "name": "_txtTitle" },
+      { "depth": 25, "text": 638, "x": 212.55, "y": 121.45, "ratio": 5, "name": "_txtDescription" },
+      { "depth": 26, "text": 639, "x": 212.45, "y": 298.75, "ratio": 5, "name": "_txtEndDate" },
+      { "depth": 27, "export": "GAPILoader", "x": 208.7, "y": 96.65, "scale": 0.1735, "ratio": 5, "name": "_ldrIcon", "actions": true },
+      { "depth": 28, "text": 640, "x": 222.7, "y": 273.7, "ratio": 5, "name": "_txtProgression" },
+      { "depth": 29, "text": 641, "x": 242.7, "y": 209.5, "ratio": 5, "name": "_txtMilestone0" },
+      { "depth": 30, "text": 642, "x": 290.7, "y": 209.5, "ratio": 5, "name": "_txtMilestone1" },
+      { "depth": 31, "text": 643, "x": 338.7, "y": 209.5, "ratio": 5, "name": "_txtMilestone2" },
+      { "depth": 32, "text": 644, "x": 386.7, "y": 209.5, "ratio": 5, "name": "_txtMilestone3" },
+      { "depth": 33, "text": 645, "x": 434.7, "y": 209.5, "ratio": 5, "name": "_txtMilestone4" },
+      { "depth": 34, "text": 646, "x": 482.7, "y": 209.5, "ratio": 5, "name": "_txtMilestone5" }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 209.95, "y": 79.35, "scaleX": 3.22, "scaleY": 2.75, "name": "_bgWindow", "actions": true },
+      { "depth": 3, "export": "List", "x": 212.95, "y": 104.35, "scaleX": 3.16014, "scaleY": 9.99962, "name": "_lstAchievements", "actions": true },
+      { "depth": 4, "export": "Button", "x": 510.25, "y": 87.15, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 5, "export": "Label", "x": 223.45, "y": 305, "scaleX": 2.94995, "scaleY": 0.8, "name": "_lblRemaining", "actions": true },
+      { "depth": 6, "export": "Button", "x": 288.45, "y": 325.85, "scaleX": 1.65, "scaleY": 1, "name": "_btnGetAll", "actions": true }
+    ]
+  }
+ ]
+}

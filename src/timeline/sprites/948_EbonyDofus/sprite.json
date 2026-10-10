@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 7, "shape": 945, "x": 0, "y": 0 },
+      { "depth": 8, "shape": 946, "x": 9.55, "y": 22.65, "scaleX": 0.75803, "scaleY": 1.01038, "alpha": 0.6 },
+      { "depth": 17, "shape": 947, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

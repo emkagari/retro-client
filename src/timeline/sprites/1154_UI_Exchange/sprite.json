@@ -1,0 +1,42 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 17, "y": 271, "scaleX": 3.19998, "scaleY": 1.17987, "name": "_winDistant", "actions": true },
+      { "depth": 3, "export": "Window", "x": 410, "y": 271, "scaleX": 3.19998, "scaleY": 1.17993, "name": "_winLocal", "actions": true },
+      { "depth": 4, "export": "Window", "x": 407, "y": 61, "scaleX": 3.19998, "scaleY": 1.89008, "name": "_winInventory", "actions": true },
+      { "depth": 5, "export": "Window", "x": 16, "y": 61, "scaleX": 3.2201, "scaleY": 1.90009, "name": "_winItemViewer", "actions": true },
+      { "depth": 6, "button": 720, "x": 449, "y": 279, "scaleX": 1.03345, "scaleY": 0.76123 },
+      { "depth": 8, "export": "ContainerGrid", "x": 39, "y": 303, "scaleX": 2.79996, "scaleY": 0.76004, "name": "_cgDistant", "actions": true },
+      { "depth": 9, "export": "ContainerGrid", "x": 431, "y": 303, "scaleX": 2.79997, "scaleY": 0.76001, "name": "_cgLocal", "actions": true },
+      { "depth": 10, "export": "ContainerGrid", "x": 417, "y": 143, "scaleX": 3.00003, "scaleY": 0.96, "name": "_cgGrid", "actions": true },
+      { "depth": 11, "export": "ItemViewer", "x": 17, "y": 61, "name": "_itvItemViewer", "actions": true },
+      { "depth": 41, "shape": 1059, "x": 373.1, "y": 333 },
+      { "depth": 42, "export": "KamaSymbol", "x": 430.7, "y": 279.85 },
+      { "depth": 45, "export": "Label", "x": 449, "y": 279, "scaleX": 1.2398, "scaleY": 0.8, "name": "_bValidateDelayed", "actions": true },
+      { "depth": 46, "export": "Button", "x": 610, "y": 389, "scaleX": 1.2, "scaleY": 1.11111, "name": "_btnValidate", "actions": true },
+      { "depth": 47, "export": "Button", "x": 168, "y": 389, "scaleX": 1.5, "scaleY": 1.11111, "name": "_btnPrivateChat", "actions": true },
+      { "depth": 48, "export": "Button", "x": 707, "y": 69, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 49, "sprite": 729, "x": 260, "y": 279.1, "name": "_mcBlink" },
+      { "depth": 51, "export": "KamaSymbol", "x": 306.7, "y": 279.85 },
+      { "depth": 54, "sprite": 728, "x": 260, "y": 279.1, "name": "_mcBlink_TripleFramerate" },
+      { "depth": 56, "export": "Label", "x": 191, "y": 279, "scaleX": 1.13019, "scaleY": 0.80002, "name": "_lblDistantKamaAmount", "actions": true },
+      { "depth": 57, "export": "Button", "x": 439, "y": 92.9, "scaleX": 0.18, "scaleY": 1, "name": "_btnFilterNonEquipement", "actions": true },
+      { "depth": 58, "export": "Button", "x": 417, "y": 92.9, "scaleX": 0.18, "scaleY": 1, "name": "_btnFilterEquipement", "actions": true },
+      { "depth": 59, "export": "Button", "x": 461, "y": 92.9, "scaleX": 0.18, "scaleY": 1, "name": "_btnFilterRessoureces", "actions": true },
+      { "depth": 60, "export": "Button", "x": 483, "y": 92.9, "scaleX": 0.18, "scaleY": 1, "name": "_btnFilterSoul", "actions": true },
+      { "depth": 61, "export": "Button", "x": 505, "y": 92.9, "scaleX": 0.18, "scaleY": 1, "name": "_btnFilterRunes", "actions": true },
+      { "depth": 62, "export": "Button", "x": 527, "y": 92.9, "scaleX": 0.18, "scaleY": 1, "name": "_btnFilterCards", "actions": true },
+      { "depth": 63, "export": "KamaSymbol", "x": 700.7, "y": 118.85 },
+      { "depth": 66, "export": "Label", "x": 617, "y": 117.5, "scaleX": 0.79999, "scaleY": 0.8, "name": "_lblKama", "actions": true },
+      { "depth": 67, "export": "PlayerWeight", "x": 573, "y": 97.9, "actions": true },
+      { "depth": 69, "export": "StylizedRectangle", "x": 417, "y": 117.5, "scaleX": 1.7201, "scaleY": 0.2, "name": "_srSearch", "actions": true },
+      { "depth": 70, "export": "TextInput", "x": 417, "y": 117.5, "scaleX": 1.72003, "scaleY": 0.8, "name": "_tiSearch", "actions": true },
+      { "depth": 71, "export": "ComboBox", "x": 417, "y": 117.5, "scaleX": 1.72008, "scaleY": 1, "name": "_cbTypes", "actions": true },
+      { "depth": 72, "export": "Button", "x": 593, "y": 117.5, "scaleX": 0.2, "scaleY": 1.11096, "name": "_btnSearch", "actions": true },
+      { "depth": 73, "export": "Button", "x": 549, "y": 92.9, "scaleX": 0.18, "scaleY": 0.99988, "name": "_btnFilterCeremonials", "actions": true }
+    ]
+  }
+ ]
+}

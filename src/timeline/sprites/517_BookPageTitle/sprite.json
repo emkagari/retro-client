@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 0, "y": 150, "scaleX": 2.70001, "scaleY": 1, "name": "_lblSubTitle", "actions": true },
+      { "depth": 2, "export": "Label", "x": 0, "y": 180, "scaleX": 2.70001, "scaleY": 0.8, "name": "_lblAuthor", "actions": true },
+      { "depth": 3, "export": "TextArea", "x": 0, "y": 110, "scaleX": 2.70001, "scaleY": 0.25, "name": "_txtTitle", "actions": true }
+    ]
+  }
+ ]
+}

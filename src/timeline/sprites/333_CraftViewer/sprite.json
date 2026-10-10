@@ -1,0 +1,32 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.15996, "scaleY": 0.85986, "color": { "mult": [0, 0, 0, 1], "add": [135, 121, 99, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 86, "scaleX": 3.15996, "scaleY": 2.39995, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] } },
+      { "depth": 6, "shape": 332, "x": 0, "y": 0 },
+      { "depth": 7, "export": "List", "x": 0, "y": 86, "scaleX": 3.16, "scaleY": 12.00018, "name": "_lstCrafts", "actions": true },
+      { "depth": 8, "export": "Label", "x": 0, "y": 190, "scaleX": 3.16002, "scaleY": 0.8, "name": "_lblNoCraft", "actions": true },
+      { "depth": 9, "export": "Label", "x": 185.4, "y": 7.55, "scaleX": 0.44606, "scaleY": 0.8, "name": "_lblLevel", "actions": true },
+      { "depth": 10, "export": "Button", "x": 186, "y": 36.35, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnSlot0", "actions": true },
+      { "depth": 11, "export": "Button", "x": 299, "y": 36.35, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnSlot7", "actions": true },
+      { "depth": 12, "export": "Button", "x": 283, "y": 36.35, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnSlot6", "actions": true },
+      { "depth": 13, "export": "Button", "x": 267, "y": 36.35, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnSlot5", "actions": true },
+      { "depth": 14, "export": "Button", "x": 251, "y": 36.35, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnSlot4", "actions": true },
+      { "depth": 15, "export": "Button", "x": 235, "y": 36.35, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnSlot3", "actions": true },
+      { "depth": 16, "export": "Button", "x": 219, "y": 36.35, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnSlot2", "actions": true },
+      { "depth": 17, "export": "Button", "x": 203, "y": 36.35, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnSlot1", "actions": true },
+      { "depth": 18, "export": "Label", "x": 99.05, "y": 33.75, "scaleX": 0.83179, "scaleY": 0.8, "name": "_lblFilter2", "actions": true },
+      { "depth": 19, "export": "TextInput", "x": 24.6, "y": 57.4, "scaleX": 2.64337, "scaleY": 0.8, "name": "_tiSearch", "actions": true },
+      { "depth": 20, "export": "Loupe", "x": 4.9, "y": 59.65 },
+      { "depth": 22, "export": "TextInput", "x": 233.05, "y": 7.15, "scaleX": 0.29515, "scaleY": 0.8, "name": "_tiLvlMin", "actions": true },
+      { "depth": 23, "export": "TextInput", "x": 282.2, "y": 7.15, "scaleX": 0.29515, "scaleY": 0.8, "name": "_tiLvlMax", "actions": true },
+      { "depth": 24, "export": "Label", "x": 265.5, "y": 7.55, "scaleX": 0.13553, "scaleY": 0.8, "name": "_lblLevelBis", "actions": true },
+      { "depth": 25, "export": "Label", "x": 6.45, "y": 33.75, "scaleX": 0.6332, "scaleY": 0.8, "name": "_lblFilter1", "actions": true },
+      { "depth": 26, "export": "Button", "x": 73.05, "y": 36.35, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnCraftableOnly", "actions": true },
+      { "depth": 27, "export": "Label", "x": 6.45, "y": 3.95, "scaleX": 1.08322, "scaleY": 0.8, "name": "_lblFilterTitle", "actions": true },
+      { "depth": 28, "export": "Button", "x": 294.4, "y": 59.55, "scaleX": 0.165, "scaleY": 0.91667, "name": "_btnResetFilters", "actions": true }
+    ]
+  }
+ ]
+}

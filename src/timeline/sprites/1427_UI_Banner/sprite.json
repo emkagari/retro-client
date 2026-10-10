@@ -1,0 +1,49 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1412, "x": 705, "y": 251, "name": "_mcMoreButtonBg" },
+      { "depth": 4, "export": "Rectangle", "x": 0, "y": 432.1, "scaleX": 7.41998, "scaleY": 1.24985, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 6, "export": "Rectangle", "x": 415, "y": 432.05, "scaleX": 3.26996, "scaleY": 0.40013, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 8, "sprite": 1414, "x": 464.1, "y": 481.15, "scaleX": 1, "scaleY": 1.0003 },
+      { "depth": 10, "export": "Chat", "x": 0, "y": 432.05, "scaleX": 1, "scaleY": 1.0003, "name": "_cChat", "actions": true },
+      { "depth": 46, "export": "Button", "x": 463, "y": 521.3, "scaleX": 0.40997, "scaleY": 1.34518, "name": "_btnNextTurn", "actions": true },
+      { "depth": 47, "export": "Button", "x": 480.15, "y": 521.05, "scaleX": 0.25, "scaleY": 1.3889, "name": "_btnFights", "actions": true },
+      { "depth": 48, "export": "MouseShortcuts", "x": 518.1, "y": 479.15, "name": "_msShortcuts", "actions": true },
+      { "depth": 66, "export": "Button", "x": 710, "y": 440, "scaleX": 0.24, "scaleY": 1.33374, "name": "_btnMore", "actions": true },
+      { "depth": 67, "export": "DraggableButton", "x": 476, "y": 440, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnStatsJob", "actions": true },
+      { "depth": 68, "export": "DraggableButton", "x": 505.25, "y": 440, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnSpells", "actions": true },
+      { "depth": 69, "export": "DraggableButton", "x": 534.5, "y": 440, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnInventory", "actions": true },
+      { "depth": 70, "export": "DraggableButton", "x": 563.75, "y": 440, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnQuests", "actions": true },
+      { "depth": 71, "export": "DraggableButton", "x": 593, "y": 440, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnMap", "actions": true },
+      { "depth": 72, "export": "DraggableButton", "x": 622.25, "y": 440, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnFriends", "actions": true },
+      { "depth": 73, "export": "DraggableButton", "x": 651.5, "y": 440, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnGuild", "actions": true },
+      { "depth": 74, "export": "DraggableButton", "x": 680.75, "y": 440, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnPvP", "actions": true },
+      { "depth": 75, "export": "DraggableButton", "x": 710, "y": 376, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnTitle", "actions": true },
+      { "depth": 76, "export": "DraggableButton", "x": 710, "y": 348, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnEvenementialServer", "actions": true },
+      { "depth": 77, "export": "DraggableButton", "x": 710, "y": 320, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnAchievement", "actions": true },
+      { "depth": 78, "export": "DraggableButton", "x": 710, "y": 292, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnJob", "actions": true },
+      { "depth": 79, "export": "DraggableButton", "x": 710, "y": 264, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnMount", "actions": true },
+      { "depth": 80, "export": "DraggableButton", "x": 710, "y": 404, "scaleX": 0.24, "scaleY": 1.33331, "name": "_btnEncyclopedia", "actions": true },
+      { "depth": 81, "export": "Rectangle", "x": 415, "y": 432.05, "scaleX": 3.27, "scaleY": 1.25, "alpha": 0, "name": "_mcRightPanelPlacer" },
+      { "depth": 83, "export": "Rectangle", "x": -7.5, "y": 536.1, "scaleX": 4.29991, "scaleY": 0.21005, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] }, "name": "_mcBgTxtConsole" },
+      { "depth": 85, "sprite": 208, "x": 353, "y": 438.1, "scaleX": 1.19, "scaleY": 1.18987, "color": { "mult": [0, 0, 0, 0.2] } },
+      { "depth": 87, "sprite": 208, "x": 363, "y": 438.1, "scaleX": 1.19, "scaleY": 1.18987, "color": { "mult": [0, 0, 0, 0.2] } },
+      { "depth": 89, "sprite": 208, "x": 358, "y": 438.1, "scaleX": 1.19, "scaleY": 1.18987, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 91, "sprite": 208, "x": 362.05, "y": 442.15, "scale": 1.10999, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 93, "sprite": 208, "x": 362.05, "y": 442.15, "scale": 1.10999, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] }, "name": "_mcCircleXtraMaskBig" },
+      { "depth": 95, "export": "CircleChrono", "x": 362.1, "y": 442.1, "scaleX": 1.10995, "scaleY": 1.11009, "name": "_ccChrono", "actions": true },
+      { "depth": 96, "sprite": 1424, "x": 417, "y": 497.5, "name": "_mcChronoGrid" },
+      { "depth": 104, "sprite": 1425, "x": 417, "y": 497.5, "color": { "mult": [0, 0, 0, 1], "add": [32, 47, 62, 0] }, "name": "_mcCircleXtraMask" },
+      { "depth": 106, "export": "ActionPointsViewer", "x": 376.25, "y": 453.6, "scaleX": 1, "scaleY": 1.0018, "name": "_pvAP", "actions": true },
+      { "depth": 108, "text": 1426, "x": 23, "y": 541.3, "scaleX": 1, "scaleY": 1.0001, "name": "_txtConsole" },
+      { "depth": 109, "export": "ActionPointsViewer", "x": 457.25, "y": 454.6, "scaleX": 1, "scaleY": 1.0018, "name": "_pvMP", "actions": true },
+      { "depth": 111, "export": "Label", "x": 391, "y": 467.1, "scaleX": 0.5, "scaleY": 2.10393, "name": "_lblFinalCountDown", "actions": true },
+      { "depth": 112, "export": "Button", "x": 0, "y": 537, "scaleX": 0.2, "scaleY": 1.05554, "name": "_btnHelp", "actions": true },
+      { "depth": 113, "export": "Rectangle", "x": 367, "y": 447.5, "alpha": 0, "name": "_mcCircleXtraPlacer" },
+      { "depth": 115, "export": "Heart", "x": 417, "y": 447.15, "scaleX": 1, "scaleY": 1.0003, "name": "_hHeart", "actions": true },
+      { "depth": 131, "export": "Button", "x": 395.3, "y": 520.5, "scaleX": 0.43497, "scaleY": 0.77785, "name": "_btnGiveUp", "actions": true }
+    ]
+  }
+ ]
+}

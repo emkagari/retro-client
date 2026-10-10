@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 1576, "x": 0, "y": 0 },
+      { "depth": 2, "export": "Label", "x": 0, "y": 0, "scaleX": 1.97997, "scaleY": 0.8, "name": "_lbl", "actions": true },
+      { "depth": 3, "export": "Button", "x": 2, "y": 2, "scaleX": 0.16, "scaleY": 0.8889, "name": "_btn", "actions": true },
+      { "depth": 4, "export": "GAPILoader", "x": 198, "y": 3, "scale": 0.14001, "name": "_ldr", "actions": true }
+    ]
+  }
+ ]
+}

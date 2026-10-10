@@ -1,0 +1,16 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 1589, "x": 0, "y": 0 },
+      { "depth": 2, "export": "Label", "x": 0, "y": 0, "scaleX": 1.43979, "scaleY": 1.34998, "name": "_lblName", "actions": true },
+      { "depth": 3, "export": "Label", "x": 76, "y": 20, "scaleX": 0.29993, "scaleY": 0.80002, "name": "_lblLevel", "actions": true },
+      { "depth": 4, "export": "Label", "x": 0, "y": 20, "scaleX": 0.30002, "scaleY": 0.80002, "name": "_lblAP", "actions": true },
+      { "depth": 5, "export": "Label", "x": 30, "y": 20, "scaleX": 0.45999, "scaleY": 0.8, "name": "_lblRange", "actions": true },
+      { "depth": 6, "export": "GAPILoader", "x": 106.5, "y": 22.5, "scale": 0.11993, "name": "_ldrAdjustableRange", "actions": true },
+      { "depth": 7, "export": "GAPILoader", "x": 119, "y": 22.5, "scale": 0.12, "name": "_ldrLineOfSight", "actions": true },
+      { "depth": 8, "export": "GAPILoader", "x": 131.5, "y": 21.1, "scaleX": 0.12, "scaleY": 0.11993, "name": "_ldrLineOnly", "actions": true }
+    ]
+  }
+ ]
+}

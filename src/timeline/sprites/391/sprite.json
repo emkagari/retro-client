@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 386, "x": 0.2, "y": 1.75, "matrix": [0.58505, 0.06383, -0.0622, 0.61241], "name": "cVlad_R_Cou" },
+      { "depth": 6, "shape": 387, "x": 0, "y": 0 },
+      { "depth": 7, "sprite": 389, "x": 1.15, "y": -4.9, "matrix": [1.04877, 0, 0.02563, 1], "name": "cIop_R_CheveuxCourt" },
+      { "depth": 11, "shape": 390, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

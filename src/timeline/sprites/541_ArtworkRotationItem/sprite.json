@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "GAPILoader", "x": -150, "y": -250, "scale": 3, "name": "_ldrArtwork", "actions": true },
+      { "depth": 2, "sprite": 540, "x": -164, "y": -266, "name": "_mcAlphaMask" }
+    ]
+  }
+ ]
+}

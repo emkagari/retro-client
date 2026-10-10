@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 35, "x": 0, "y": 0, "scale": 0.04, "color": { "mult": [0, 0, 0, 1], "add": [204, 204, 204, 0] }, "name": "border_1_mc" },
+      { "depth": 3, "sprite": 35, "x": 1, "y": 1, "scale": 0.03, "color": { "mult": [0, 0, 0, 1], "add": [255, 153, 0, 0] }, "name": "highlight_1_mc" },
+      { "depth": 5, "export": "Rectangle", "x": 0, "y": 4, "scaleX": 0.04, "scaleY": 0.09999, "color": { "mult": [0, 0, 0, 1], "add": [204, 204, 204, 0] }, "name": "border_2_mc" },
+      { "depth": 7, "sprite": 35, "x": 0, "y": 18, "scaleX": 0.04, "scaleY": -0.04, "color": { "mult": [0, 0, 0, 1], "add": [204, 204, 204, 0] }, "name": "border_3_mc" },
+      { "depth": 9, "export": "Rectangle", "x": 1, "y": 4, "scaleX": 0.03, "scaleY": 0.09999, "color": { "mult": [0, 0, 0, 1], "add": [255, 153, 0, 0] }, "name": "highlight_2_mc" },
+      { "depth": 11, "sprite": 35, "x": 1, "y": 17, "scaleX": 0.03, "scaleY": -0.03, "color": { "mult": [0, 0, 0, 1], "add": [255, 153, 0, 0] }, "name": "highlight_3_mc" },
+      { "depth": 13, "sprite": 35, "x": 1, "y": 2, "scale": 0.03, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "bg_1_mc" },
+      { "depth": 15, "export": "Rectangle", "x": 1, "y": 5, "scaleX": 0.03, "scaleY": 0.09, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "bg_2_mc" },
+      { "depth": 17, "sprite": 35, "x": 1, "y": 17, "scaleX": 0.03, "scaleY": -0.03, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "bg_3_mc" }
+    ]
+  }
+ ]
+}

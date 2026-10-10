@@ -1,0 +1,35 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 213, "y": 37, "scaleX": 5.16997, "scaleY": 3.99994, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 216, "y": 69, "scaleX": 4.39996, "scaleY": 0.3, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 5, "sprite": 1147, "x": 671, "y": 69, "scaleX": -0.29999, "scaleY": 0.3, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 425, "y": 74, "scaleX": 1.29999, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [170, 166, 136, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": 221, "y": 144, "scaleX": 4.99997, "scaleY": 2.92953, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 11, "export": "Label", "x": 221, "y": 143, "scaleX": 2.50006, "scaleY": 0.8, "name": "_lblOnLine", "actions": true },
+      { "depth": 12, "export": "Label", "x": 556, "y": 143, "scaleX": 1.64948, "scaleY": 0.8, "name": "_lblOffLine", "actions": true },
+      { "depth": 13, "export": "Button", "x": 567, "y": 75, "scaleX": 0.8, "scaleY": 1, "name": "_btnAdd", "actions": true },
+      { "depth": 14, "export": "Label", "x": 226, "y": 74, "scaleX": 1.80003, "scaleY": 1, "name": "_lblAddFriend", "actions": true },
+      { "depth": 15, "export": "TextInput", "x": 427, "y": 74, "scaleX": 1.25, "scaleY": 0.8, "name": "_itAddFriend", "actions": true },
+      { "depth": 16, "export": "Button", "x": 710, "y": 45, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 17, "export": "DataGrid", "x": 221, "y": 164, "scaleX": 3.29999, "scaleY": 2.40002, "name": "_dgOnLine", "actions": true },
+      { "depth": 18, "export": "Button", "x": 224.75, "y": 412.45, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnShowFriendsWarning", "actions": true },
+      { "depth": 19, "export": "Label", "x": 243.35, "y": 408.45, "scaleX": 4.79373, "scaleY": 1, "name": "_lblTitleInfo", "actions": true },
+      { "depth": 20, "export": "Rectangle", "x": 556, "y": 184, "scaleX": 1.64941, "scaleY": 2.19995, "color": { "mult": [0, 0, 0, 1], "add": [180, 172, 141, 0] } },
+      { "depth": 22, "export": "Label", "x": 556, "y": 184, "scaleX": 1.64948, "scaleY": 7.50003, "name": "_lblHelp", "actions": true },
+      { "depth": 23, "export": "Rectangle", "x": 245.95, "y": 409.45, "scaleX": 4.73993, "scaleY": 0.18, "alpha": 0, "name": "\u001d\u000e\u0004" },
+      { "depth": 25, "export": "Rectangle", "x": 12, "y": 193, "scaleX": 1.9, "scaleY": 2.44, "name": "_mcSpousePlacer" },
+      { "depth": 27, "export": "Button", "x": 221, "y": 104, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnTabFriends", "actions": true },
+      { "depth": 28, "export": "Button", "x": 321, "y": 104, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnTabEnemies", "actions": true },
+      { "depth": 29, "export": "Button", "x": 421, "y": 104, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnTabIgnore", "actions": true },
+      { "depth": 30, "export": "Rectangle", "x": 221, "y": 124, "scaleX": 4.99988, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 32, "export": "Label", "x": 418, "y": 126, "scaleX": 2.99994, "scaleY": 0.8, "name": "_lblInfo", "actions": true },
+      { "depth": 33, "export": "Rectangle", "x": 556, "y": 164, "scaleX": 1.64941, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 35, "export": "Label", "x": 559.3, "y": 164, "scaleX": 1.58344, "scaleY": 0.8, "name": "_lblShowFriendsWarning", "actions": true },
+      { "depth": 36, "export": "DataGrid", "x": 556.05, "y": 164, "scaleX": 1.64946, "scaleY": 2.40002, "name": "_dgOffLine", "actions": true }
+    ]
+  }
+ ]
+}

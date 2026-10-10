@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "ColorPickerColorsCross", "x": 19, "y": 15 },
+      { "depth": 9, "export": "ColorPickerSliderCross", "x": -2, "y": 18 }
+    ]
+  }
+ ]
+}

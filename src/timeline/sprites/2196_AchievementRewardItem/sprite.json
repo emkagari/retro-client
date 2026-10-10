@@ -1,0 +1,20 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 185.45, "y": 32.5, "scaleX": 0.99997, "scaleY": 0.8, "name": "_lblKama", "actions": true },
+      { "depth": 2, "export": "KamaSymbol", "x": 287.5, "y": 35.75, "scale": 0.82993, "name": "_mcReward" },
+      { "depth": 5, "export": "Label", "x": 185.45, "y": 17.5, "scaleX": 0.99976, "scaleY": 0.8, "name": "_lblWinXP", "actions": true },
+      { "depth": 6, "export": "UI_QuestXP", "x": 286.1, "y": 18.9, "scale": 0.82222, "name": "_mcXp" },
+      { "depth": 9, "export": "Label", "x": 0, "y": 0.5, "scaleX": 2.20018, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 10, "export": "Button", "x": 221.45, "y": 3, "scaleX": 0.80019, "scaleY": 0.83333, "name": "_btnGetReward", "actions": true },
+      { "depth": 11, "export": "Container", "x": 152.5, "y": 19, "scale": 0.5395, "name": "_ctr6", "actions": true },
+      { "depth": 12, "export": "Container", "x": 122.9, "y": 19, "scale": 0.5395, "name": "_ctr5", "actions": true },
+      { "depth": 13, "export": "Container", "x": 93.3, "y": 19, "scale": 0.5395, "name": "_ctr4", "actions": true },
+      { "depth": 14, "export": "Container", "x": 63.7, "y": 19, "scale": 0.5395, "name": "_ctr3", "actions": true },
+      { "depth": 15, "export": "Container", "x": 34.1, "y": 19, "scale": 0.5395, "name": "_ctr2", "actions": true },
+      { "depth": 16, "export": "Container", "x": 4.5, "y": 19, "scale": 0.5395, "name": "_ctr1", "actions": true }
+    ]
+  }
+ ]
+}

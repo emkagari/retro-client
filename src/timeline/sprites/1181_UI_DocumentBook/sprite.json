@@ -1,0 +1,20 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63998, "actions": true },
+      { "depth": 2, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 7.41998, "scaleY": 4.32, "color": { "mult": [0, 0, 0, 1] } },
+      { "depth": 4, "shape": 1180, "x": 0, "y": 0 },
+      { "depth": 5, "export": "Label", "x": 391, "y": 317, "scaleX": 2.70001, "scaleY": 0.8, "name": "_mcLeftPlacer", "actions": true },
+      { "depth": 6, "export": "Rectangle", "x": 94, "y": 47, "scaleX": 2.70001, "scaleY": 2.69998, "alpha": 0, "name": "_mcRightPlacer" },
+      { "depth": 8, "export": "Rectangle", "x": 391, "y": 47, "scaleX": 2.70001, "scaleY": 2.69998, "alpha": 0, "name": "_lblLeftPageNum" },
+      { "depth": 10, "export": "Button", "x": 651, "y": 315, "scaleX": 0.26, "scaleY": 1.88892, "name": "_btnNext", "actions": true },
+      { "depth": 11, "export": "Button", "x": 81, "y": 308, "scaleX": 0.45999, "scaleY": 2.27782, "name": "_btnPrevious", "actions": true },
+      { "depth": 12, "export": "Button", "x": 672, "y": 42, "scaleX": -0.09999, "scaleY": 0.55557, "name": "_btnClose", "actions": true },
+      { "depth": 13, "export": "Button", "x": 174, "y": 317, "scaleX": 1, "scaleY": 1.11113, "name": "_btnAskPageLeft", "actions": true },
+      { "depth": 14, "export": "Label", "x": 94, "y": 317, "scaleX": 2.70001, "scaleY": 0.8, "name": "_lblRightPageNum", "actions": true },
+      { "depth": 15, "export": "Button", "x": 471, "y": 317, "scaleX": 1, "scaleY": 1.11113, "name": "_btnAskPageRight", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 914, "x": -0.4, "y": -0.4, "scaleX": 1.1842, "scaleY": 1.19028, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] }, "name": "_mcCaution" },
+      { "depth": 4, "sprite": 914, "x": 0.85, "y": 0.85, "scaleX": 1, "scaleY": 1.00403, "name": "_mcCaution" }
+    ]
+  }
+ ]
+}

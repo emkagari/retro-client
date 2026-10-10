@@ -1,0 +1,22 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Window", "x": 0, "y": 0, "scaleX": 2.22008, "scaleY": 2.04993, "name": "_winBg", "actions": true },
+      { "depth": 2, "export": "Rectangle", "x": 3, "y": 25, "scaleX": 2.15948, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 4, "export": "Rectangle", "x": 3, "y": 145, "scaleX": 2.16016, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 6, "export": "List", "x": 3, "y": 45, "scaleX": 2.16013, "scaleY": 5, "name": "_lstEffects", "actions": true },
+      { "depth": 7, "export": "Label", "x": 13, "y": 25, "scaleX": 2.02975, "scaleY": 0.8, "name": "_lblEffects", "actions": true },
+      { "depth": 8, "export": "Container", "x": 10, "y": 175, "scale": 0.4, "name": "_ctr1", "actions": true },
+      { "depth": 9, "export": "Container", "x": 32, "y": 175, "scale": 0.4, "name": "_ctr2", "actions": true },
+      { "depth": 10, "export": "Container", "x": 54, "y": 175, "scale": 0.4, "name": "_ctr3", "actions": true },
+      { "depth": 11, "export": "Container", "x": 76, "y": 175, "scale": 0.4, "name": "_ctr4", "actions": true },
+      { "depth": 12, "export": "Container", "x": 98, "y": 175, "scale": 0.4, "name": "_ctr5", "actions": true },
+      { "depth": 13, "export": "Container", "x": 120, "y": 175, "scale": 0.4, "name": "_ctr6", "actions": true },
+      { "depth": 14, "export": "Container", "x": 142, "y": 175, "scale": 0.4, "name": "_ctr7", "actions": true },
+      { "depth": 15, "export": "Container", "x": 164, "y": 175, "scale": 0.4, "name": "_ctr8", "actions": true },
+      { "depth": 16, "export": "Label", "x": 13, "y": 145, "scaleX": 2.02975, "scaleY": 0.8, "name": "_lblItems", "actions": true }
+    ]
+  }
+ ]
+}

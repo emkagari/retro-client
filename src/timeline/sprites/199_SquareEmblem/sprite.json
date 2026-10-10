@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 1, "y": 1, "scale": 0.78, "alpha": 0, "name": "_mcBack" },
+      { "depth": 3, "export": "GAPILoader", "x": 15, "y": 15, "scale": 0.50002, "name": "_ldrEmblemUp", "actions": true }
+    ]
+  }
+ ]
+}

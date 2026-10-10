@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 415, "x": 0.9, "y": 3.35, "name": "cIop_Meche" },
+      { "depth": 3, "shape": 416, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

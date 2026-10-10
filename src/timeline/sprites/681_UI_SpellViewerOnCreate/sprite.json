@@ -1,0 +1,43 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "name": "_bhClose", "actions": true },
+      { "depth": 2, "export": "Rectangle", "x": 201.1, "y": 128.4, "scaleX": 3.40009, "scaleY": 2.43597, "name": "_mcMask", "mask": 6 },
+      { "depth": 4, "sprite": 677, "x": 204, "y": 98, "scaleX": 1.00015, "scaleY": 1, "name": "_mcWindowBg" },
+      { "depth": 8, "shape": 678, "x": 0, "y": 0 },
+      { "depth": 9, "sprite": 522, "x": 389, "y": 159.1, "scaleX": 0.99797, "scaleY": -1.0332, "color": { "mult": [0, 0, 0, 1], "add": [48, 40, 37, 0] }, "name": "_mcBgViewAllSpell1" },
+      { "depth": 11, "export": "Rectangle", "x": 446, "y": 142, "scaleX": 0.90002, "scaleY": 0.171, "color": { "mult": [0, 0, 0, 1], "add": [48, 40, 37, 0] }, "name": "_mcBgViewAllSpell2" },
+      { "depth": 13, "export": "Button", "x": 529, "y": 126.55, "scaleX": -0.1, "scaleY": 0.55556, "name": "_btnClose", "actions": true },
+      { "depth": 14, "export": "Label", "x": 213, "y": 122.55, "scaleX": 1.48999, "scaleY": 0.85, "name": "_mcViewAllSpell", "actions": true },
+      { "depth": 15, "export": "Label", "x": 366, "y": 122.55, "scaleX": 1.48999, "scaleY": 0.85, "name": "_lblBreedName", "actions": true },
+      { "depth": 16, "export": "Container", "x": 334.5, "y": 173.5, "scale": 0.5, "name": "_ctr0", "actions": true },
+      { "depth": 17, "export": "Container", "x": 364.5, "y": 173.5, "scale": 0.5, "name": "_ctr1", "actions": true },
+      { "depth": 18, "export": "Container", "x": 394.5, "y": 173.5, "scale": 0.5, "name": "_ctr2", "actions": true },
+      { "depth": 19, "export": "Container", "x": 874.5, "y": 173.5, "scale": 0.5, "name": "_ctr3", "actions": true },
+      { "depth": 20, "export": "Container", "x": 875.5, "y": 55.5, "scale": 0.5, "name": "_ctr4", "actions": true },
+      { "depth": 21, "export": "Container", "x": 872.5, "y": 127.5, "scale": 0.5, "name": "_ctr5", "actions": true },
+      { "depth": 22, "export": "Container", "x": 823.5, "y": 150.5, "scale": 0.5, "name": "_ctr6", "actions": true },
+      { "depth": 23, "export": "Container", "x": 923.5, "y": 72.5, "scale": 0.5, "name": "_ctr7", "actions": true },
+      { "depth": 24, "export": "Container", "x": 968.5, "y": 68.5, "scale": 0.5, "name": "_ctr8", "actions": true },
+      { "depth": 25, "export": "Container", "x": 941.5, "y": 124.5, "scale": 0.5, "name": "_ctr9", "actions": true },
+      { "depth": 26, "export": "Container", "x": 784.5, "y": 313.5, "scale": 0.5, "name": "_ctr10", "actions": true },
+      { "depth": 27, "export": "Container", "x": 814.5, "y": 203.5, "scale": 0.5, "name": "_ctr11", "actions": true },
+      { "depth": 28, "export": "Container", "x": 844.5, "y": 73.5, "scale": 0.5, "name": "_ctr12", "actions": true },
+      { "depth": 29, "export": "Container", "x": 874.5, "y": 353.5, "scale": 0.5, "name": "_ctr13", "actions": true },
+      { "depth": 30, "export": "Container", "x": 904.5, "y": 203.5, "scale": 0.5, "name": "_ctr14", "actions": true },
+      { "depth": 31, "export": "Container", "x": 934.5, "y": 393.5, "scale": 0.5, "name": "_ctr15", "actions": true },
+      { "depth": 32, "export": "Container", "x": 844.5, "y": 213.5, "scale": 0.5, "name": "_ctr16", "actions": true },
+      { "depth": 33, "export": "Container", "x": 853.5, "y": 281.5, "scale": 0.5, "name": "_ctr17", "actions": true },
+      { "depth": 34, "export": "Container", "x": 808.5, "y": 251.5, "scale": 0.5, "name": "_ctr18", "actions": true },
+      { "depth": 35, "export": "Container", "x": 909.5, "y": 264.5, "scale": 0.5, "name": "_ctr19", "actions": true },
+      { "depth": 36, "export": "Label", "x": 406.5, "y": 143, "scaleX": 1.2, "scaleY": 0.6, "name": "_lbViewSpell", "actions": true },
+      { "depth": 37, "sprite": 680, "x": 222.05, "y": 211.05, "name": "_mcSpellDesc" },
+      { "depth": 44, "export": "Rectangle", "x": 224, "y": 216, "scale": 0.1, "alpha": 0, "name": "_mcPlacerAllSpell" },
+      { "depth": 46, "export": "Rectangle", "x": 224, "y": 211, "scale": 0.1, "alpha": 0, "name": "\u001d\u000e\u0015" },
+      { "depth": 48, "export": "Rectangle", "x": 406, "y": 143, "scaleX": 1.20001, "scaleY": 0.12001, "alpha": 0, "name": "_lblBreedSpells" },
+      { "depth": 50, "export": "Rectangle", "x": 224, "y": 153, "scale": 0.1, "alpha": 0, "name": "_mcPlacerSpell" }
+    ]
+  }
+ ]
+}

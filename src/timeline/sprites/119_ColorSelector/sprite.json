@@ -1,0 +1,19 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 97, "x": 0, "y": 1, "scaleX": 0.99979, "scaleY": 1, "filters": [{ "type": "blur", "blurX": 10, "blurY": 10, "passes": 1 }] },
+      { "depth": 7, "shape": 98, "x": 0, "y": 0 },
+      { "depth": 8, "export": "Button", "x": 10, "y": 7.55, "scaleX": 0.22177, "scaleY": 1.23206, "name": "_btnColor1", "actions": true },
+      { "depth": 9, "export": "Button", "x": 10.1, "y": 35.95, "scaleX": 0.22343, "scaleY": 1.24127, "name": "_btnColor2", "actions": true },
+      { "depth": 10, "export": "Button", "x": 10.4, "y": 66.15, "scaleX": 0.2245, "scaleY": 1.24724, "name": "_btnColor3", "actions": true },
+      { "depth": 11, "export": "Button", "x": 225.9, "y": 3, "scaleX": -0.08, "scaleY": 0.44444, "name": "_btnReset", "actions": true },
+      { "depth": 12, "export": "ColorPicker", "x": 66.45, "y": 8.7, "scaleX": 3, "scaleY": 1.6, "name": "_cpColorPicker", "actions": true },
+      { "depth": 13, "button": 114, "x": 37.2, "y": 8.4, "scale": 0.87918, "name": "_mcRandomColor1" },
+      { "depth": 19, "button": 114, "x": 37.2, "y": 37, "scale": 0.87918, "name": "_mcRandomColor2" },
+      { "depth": 25, "button": 114, "x": 37.2, "y": 66, "scale": 0.87918, "name": "_mcRandomColor3" },
+      { "depth": 31, "button": 118, "x": 215.6, "y": 19, "name": "_mcRandomAll" }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 11.12001, "actions": true },
+      { "depth": 2, "export": "GAPILoader", "x": 0, "y": 0, "name": "_btnReplay", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 408, "y": 78, "scale": 0.05, "alpha": 0, "name": "\u001d\u000e\u0017" },
+      { "depth": 5, "export": "Rectangle", "x": 354, "y": 156, "scale": 0.05, "alpha": 0, "name": "\u001d\u000e\u0016" },
+      { "depth": 7, "export": "Rectangle", "x": 393, "y": 338, "scale": 0.05, "alpha": 0, "name": "\u001d\u000e\u0018" },
+      { "depth": 9, "export": "Rectangle", "x": 684, "y": 214, "scale": 0.05, "alpha": 0, "name": "_mcPlacer" },
+      { "depth": 11, "button": 1141, "x": 597, "y": 516, "name": "_ldrIllu" },
+      { "depth": 43, "export": "Label", "x": 611, "y": 517, "scaleX": 0.99998, "scaleY": 1.25, "name": "_lblReplay", "actions": true },
+      { "depth": 44, "sprite": 1144, "x": 824.45, "y": 114, "name": "_mcLol" }
+    ]
+  }
+ ]
+}

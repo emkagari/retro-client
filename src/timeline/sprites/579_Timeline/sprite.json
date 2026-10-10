@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "button": 578, "x": -15, "y": 0, "name": "_btnOpenClose" }
+    ]
+  }
+ ]
+}

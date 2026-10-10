@@ -17,7 +17,11 @@
  *    edited for the previous base is found in the new one by its original
  *    content (ids change between versions) and its edit carried over; new/
  *    graphics are kept; those not found are listed;
- * 7. retro.json → this version.
+ * 7. src/timeline/sprites/…/sprite.json ← the new base's sprites
+ *    (tools/sprites.mjs); a sprite.json edited for the previous base is found
+ *    in the new one by what it places (ids change), its ids mapped, and its
+ *    edits merged (git merge-file); conflicts and sprites not found are listed;
+ * 8. retro.json → this version.
  *
  * Fix those files by hand (they're few: 2 for 1.49.5), until
  * `node tools/build.mjs --full` passes, then record the baseline:
@@ -28,6 +32,7 @@ import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, renameSync, 
 import { dirname, join, relative, sep } from "node:path";
 import { ROOT, SRC, base, compileErrors, config, ffdec, fromFfdec, sourceFiles } from "./lib.mjs";
 import { ASSETS, assetFiles, assetHash, changedAssets, exportGraphics, extract } from "./assets.mjs";
+import { carrySprites, changedSprites, extractSprites, graphicHashes } from "./sprites.mjs";
 
 const args = process.argv.slice(2);
 const opt = (k) => (args.includes(k) ? args[args.indexOf(k) + 1] : undefined);
@@ -107,6 +112,16 @@ if (existsSync(ASSETS) && existsSync(join(ROOT, "base", previous, "manifest.json
   }
 }
 
+// Sprites edited for the previous base: kept aside too.
+const editedSprites = existsSync(join(ROOT, "base", previous, "manifest.json"))
+  ? changedSprites(base(previous).manifest).map((f) => ({ file: f, text: readFileSync(join(SRC, f), "utf8") }))
+  : [];
+if (editedSprites.length) {
+  const keptSprites = join(ROOT, ".tmp", "sprites-kept");
+  rmSync(keptSprites, { recursive: true, force: true });
+  for (const { file, text } of editedSprites) { mkdirSync(dirname(join(keptSprites, file)), { recursive: true }); writeFileSync(join(keptSprites, file), text); }
+}
+
 // Into src/, in the repo's layout (tools/lib.mjs: classes/, timeline/…).
 rmSync(SRC, { recursive: true, force: true, maxRetries: 5 });
 for (const f of files) {
@@ -117,31 +132,48 @@ for (const f of files) {
 rmSync(tmp, { recursive: true, force: true });
 console.log(`src/: ${files.length} files`);
 
-// The new base's graphics, and the edits carried over by original content.
+// The new base's graphics and sprites, and the edits carried over by original content.
 extract(cfg, join(dir, "loader.swf"));
+console.log(`src/timeline/sprites/: ${extractSprites(join(dir, "loader.swf"))} sprite.json`);
+const original = join(ROOT, ".tmp", "assets-previous");
+if (editedAssets.length || editedSprites.length) exportGraphics(cfg, previousLoader, original);
 const lostAssets = [];
 if (existsSync(keptAssets)) {
   if (existsSync(join(keptAssets, "new"))) cpSync(join(keptAssets, "new"), join(ASSETS, "new"), { recursive: true });
   if (editedAssets.length) {
-    const original = join(ROOT, ".tmp", "assets-previous");
-    exportGraphics(cfg, previousLoader, original);
     const byContent = new Map(assetFiles().filter((f) => !f.startsWith("new/")).map((f) => [assetHash(join(ASSETS, f)), f]));
     for (const f of editedAssets) {
       const target = existsSync(join(original, f)) ? byContent.get(assetHash(join(original, f))) : undefined;
       if (target) copyFileSync(join(keptAssets, f), join(ASSETS, target));
       else lostAssets.push(f);
     }
-    rmSync(original, { recursive: true, force: true, maxRetries: 5 });
     console.log(`graphics edited for base ${previous}: ${editedAssets.length - lostAssets.length} carried over` +
       (lostAssets.length ? `, ${lostAssets.length} not found in ${version} (changed or removed by Ankama): redo them from .tmp/assets-kept/:\n${lostAssets.map((f) => `  ${f}`).join("\n")}` : ""));
   }
 }
 console.log(`src/assets/: ${assetFiles().length} files`);
 
+// Sprites: found by what they place (ids change), their ids mapped, their edits merged into the new base's.
+let spriteConflicts = [];
+if (editedSprites.length) {
+  // Graphics by original content: the previous base's export, the new one's src/assets/ (as extracted, before edits carried over).
+  const fresh = join(ROOT, ".tmp", "assets-current");
+  exportGraphics(cfg, join(dir, "loader.swf"), fresh);
+  const r = carrySprites(editedSprites, previousLoader, join(dir, "loader.swf"), graphicHashes(original, assetHash), graphicHashes(fresh, assetHash));
+  rmSync(fresh, { recursive: true, force: true, maxRetries: 5 });
+  spriteConflicts = r.conflicts;
+  console.log(`sprites edited for base ${previous}: ${r.carried.length} carried over` +
+    r.carried.filter((c) => c.note).map((c) => `\n  src/${c.to}${c.note}`).join("") +
+    (r.conflicts.length ? `, ${r.conflicts.length} with conflicts (<<<<<<< markers) to resolve:\n${r.conflicts.map((c) => `  src/${c.to}${c.note}`).join("\n")}` : "") +
+    (r.lost.length ? `\n${r.lost.length} not found in ${version} (redo them from .tmp/sprites-kept/):\n${r.lost.map((l) => `  ${l.file}: ${l.why}`).join("\n")}` : ""));
+}
+rmSync(original, { recursive: true, force: true, maxRetries: 5 });
+
 const retro = JSON.parse(readFileSync(join(ROOT, "retro.json"), "utf8"));
 writeFileSync(join(ROOT, "retro.json"), JSON.stringify({ ...retro, version }, null, 2) + "\n");
 
 if (conflicts.length) console.log(`\n${conflicts.length} carried-over fix(es) in conflict: resolve the <<<<<<< markers in ${conflicts.map((f) => `src/${f}`).join(", ")}`);
+if (spriteConflicts.length) console.log(`\n${spriteConflicts.length} carried-over sprite(s) in conflict: resolve the <<<<<<< markers in ${spriteConflicts.map((c) => `src/${c.to}`).join(", ")}`);
 console.log(errors.length
   ? `\n${errors.length} file(s) to fix by hand, then run node tools/build.mjs --full:\n${errors.map((e) => `  ${e}`).join("\n")}`
   : "\neverything compiles");

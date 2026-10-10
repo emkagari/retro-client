@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 181, "y": 67, "scaleX": 3.80005, "scaleY": 2.61975, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "StylizedRectangle", "x": 184, "y": 317, "scaleX": 3.74005, "scaleY": 0.09, "actions": true },
+      { "depth": 4, "export": "Rectangle", "x": 184, "y": 92, "scaleX": 3.73997, "scaleY": 0.264, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 6, "export": "Button", "x": 541, "y": 75, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 7, "export": "Button", "x": 447, "y": 329, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnValidate", "actions": true },
+      { "depth": 8, "export": "List", "x": 184, "y": 117, "scaleX": 3.74002, "scaleY": 9.99994, "name": "_lstSpells", "actions": true },
+      { "depth": 9, "export": "Label", "x": 184, "y": 94, "scaleX": 2.8394, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 10, "export": "Label", "x": 467.95, "y": 94, "scaleX": 0.9001, "scaleY": 0.8, "name": "_lblLevel", "actions": true },
+      { "depth": 11, "export": "Button", "x": 337, "y": 329, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnCancel", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 781, "x": 12, "y": 6, "scale": 0.08485, "rotation": 135, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "name": "_mcCurrent" },
+      { "depth": 3, "sprite": 781, "x": 11, "y": 6, "scale": 0.0707, "rotation": 135, "color": { "mult": [0, 0, 0, 1], "add": [94, 84, 70, 0] }, "name": "_mcCurrent" }
+    ]
+  }
+ ]
+}

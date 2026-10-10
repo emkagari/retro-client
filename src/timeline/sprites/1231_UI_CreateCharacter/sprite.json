@@ -1,0 +1,40 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": -0.1, "scaleX": 7.41998, "scaleY": 5.56, "color": { "mult": [0, 0, 0, 1], "add": [41, 38, 31, 0] } },
+      { "depth": 3, "text": 1124, "x": 99.4, "y": 377.85 },
+      { "depth": 14, "shape": 1195, "x": 0, "y": 0 },
+      { "depth": 15, "export": "Label", "x": 242.3, "y": 51.45, "scaleX": 2.6565, "scaleY": 1.0001, "name": "_lblTitle", "actions": true },
+      { "depth": 16, "export": "ClassSelector", "x": 373.1, "y": 67, "name": "_csBreedSelection", "actions": true },
+      { "depth": 18, "button": 1204, "x": 285.7, "y": 204.35, "name": "_mcMaleButton" },
+      { "depth": 29, "button": 1211, "x": 418.5, "y": 204.5, "name": "_mcFemaleButton" },
+      { "depth": 38, "button": 1220, "x": 354.8, "y": 237.9, "name": "_mcSpellButton" },
+      { "depth": 52, "export": "Label", "x": 237, "y": 432, "scaleX": 2.72923, "scaleY": 1, "name": "_lblCharacterName", "actions": true },
+      { "depth": 53, "export": "Button", "x": 563.45, "y": 454.7, "scaleX": 0.90002, "scaleY": 1.239, "name": "_btnValidate", "actions": true },
+      { "depth": 54, "export": "Button", "x": 91.45, "y": 454.7, "scaleX": 0.90002, "scaleY": 1.239, "name": "_btnBack", "actions": true },
+      { "depth": 55, "button": 114, "x": 497.45, "y": 456.9, "scale": 0.88289, "name": "_mcRandomName" },
+      { "depth": 61, "export": "TextInput", "x": 249.95, "y": 458.35, "scaleX": 2.41702, "scaleY": 0.78638, "name": "_itCharacterName", "actions": true },
+      { "depth": 62, "export": "Label", "x": 173, "y": 524.5, "scaleX": 4.00003, "scaleY": 1.00009, "name": "_lblCopyright", "actions": true },
+      { "depth": 63, "export": "Label", "x": 461.3, "y": 288.35, "scaleX": 2.26677, "scaleY": 0.76744, "name": "_lblCharacterColors", "actions": true },
+      { "depth": 64, "export": "ColorSelector", "x": 461.25, "y": 310.5, "name": "_csColors", "actions": true },
+      { "depth": 96, "export": "SpriteViewer", "x": 315.05, "y": 291.6, "name": "_svCharacter", "actions": true },
+      { "depth": 104, "button": 1225, "x": 477.45, "y": 209.1, "name": "_mcRight" },
+      { "depth": 107, "button": 1225, "x": 270.35, "y": 209.1, "scaleX": -1, "scaleY": 1, "name": "_mcLeft" },
+      { "depth": 110, "export": "Label", "x": 101.45, "y": 297, "scaleX": 2.0394, "scaleY": 1.2475, "name": "_lblClassName", "actions": true },
+      { "depth": 111, "export": "GAPILoader", "x": 52.75, "y": 288.25, "scaleX": 0.48267, "scaleY": 0.4695, "name": "_ldrClassIcon", "actions": true },
+      { "depth": 112, "export": "Label", "x": 101.45, "y": 325.65, "scaleX": 1.49692, "scaleY": 1.2475, "name": "_lblTitlePassiveTemporis", "actions": true },
+      { "depth": 113, "export": "TextArea", "x": 51, "y": 355.5, "scaleX": 2.29102, "scaleY": 0.43492, "name": "_txtPassiveTemporis", "actions": true },
+      { "depth": 114, "export": "GAPILoader", "x": 57.3, "y": 323.2, "scaleX": 0.35545, "scaleY": 0.34573, "name": "_ldrClassPassive", "actions": true },
+      { "depth": 115, "export": "TextArea", "x": 51, "y": 339, "scaleX": 2.29102, "scaleY": 0.59978, "name": "_txtShortClassDescription", "actions": true },
+      { "depth": 116, "button": 1228, "x": 61, "y": 408, "name": "_mcHistoryButton" },
+      { "depth": 126, "export": "Label", "x": 72, "y": 406, "scaleX": 0.87009, "scaleY": 1, "name": "_lblSpellButton", "actions": true },
+      { "depth": 127, "export": "Label", "x": 207.2, "y": 406, "scaleX": 0.7, "scaleY": 1, "actions": true },
+      { "depth": 128, "button": 1228, "x": 182.2, "y": 408, "name": "_mcSpellButton2" },
+      { "depth": 138, "sprite": 1074, "x": 181.2, "y": 416 },
+      { "depth": 140, "export": "Label", "x": 192.2, "y": 406, "scaleX": 0.87744, "scaleY": 1, "name": "_lblHistoryButton", "actions": true },
+      { "depth": 141, "sprite": 1230, "x": 61.95, "y": 414.9, "matrix": [0.7911, -0.60866, -0.6085, -0.79121] }
+    ]
+  }
+ ]
+}

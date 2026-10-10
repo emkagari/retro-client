@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2392, "x": 0, "y": 0, "name": "_mcBgLeft" },
+      { "depth": 3, "sprite": 2393, "x": 3, "y": 0, "name": "_mcBgMiddle" },
+      { "depth": 9, "sprite": 2394, "x": 33, "y": 0, "name": "_mcBgRight" },
+      { "depth": 11, "sprite": 2395, "x": 1, "y": 0, "name": "_mcUpMiddle" }
+    ]
+  }
+ ]
+}

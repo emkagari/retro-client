@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 30, "scaleX": 6.99002, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 3, "export": "Label", "x": 10, "y": 0, "scaleX": 3, "scaleY": 0.85, "name": "_lblWinLoose", "actions": true },
+      { "depth": 4, "export": "Label", "x": 0, "y": 30, "scaleX": 1.52032, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 5, "export": "Label", "x": 160.3, "y": 30, "scaleX": 0.3, "scaleY": 0.8, "name": "_lblLevel", "actions": true },
+      { "depth": 6, "export": "Label", "x": 201.3, "y": 30, "scaleX": 0.99982, "scaleY": 0.8, "name": "_lblHonour", "actions": true },
+      { "depth": 7, "export": "Label", "x": 521.2, "y": 30, "scaleX": 1.77747, "scaleY": 0.8, "name": "_lblItems", "actions": true },
+      { "depth": 8, "export": "Label", "x": 469, "y": 30, "scaleX": 0.40001, "scaleY": 0.8, "name": "_lblKama", "actions": true },
+      { "depth": 9, "export": "List", "x": 0, "y": 50, "scaleX": 6.99002, "scaleY": 8, "name": "_lstPlayers", "actions": true },
+      { "depth": 10, "export": "Label", "x": 312.8, "y": 30, "scaleX": 0.36002, "scaleY": 0.8, "name": "_lblRank", "actions": true },
+      { "depth": 11, "export": "Label", "x": 360.05, "y": 30, "scaleX": 0.9994, "scaleY": 0.8, "name": "_lblDisgrace", "actions": true }
+    ]
+  }
+ ]
+}

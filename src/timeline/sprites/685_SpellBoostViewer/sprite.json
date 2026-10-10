@@ -1,0 +1,29 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "StylizedRectangle", "x": 0, "y": 0, "scaleX": 3.20001, "scaleY": 1.70001, "name": "\u001e\f\u0001", "actions": true },
+      { "depth": 2, "export": "StylizedRectangle", "x": 3, "y": 3, "scaleX": 3.14001, "scaleY": 1.66998, "name": "\u001e\f\u0002", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 13, "y": 34, "scale": 0.42, "color": { "mult": [0, 0, 0, 1] } },
+      { "depth": 5, "export": "GAPILoader", "x": 14, "y": 35, "scale": 0.4, "name": "_ldrIcon", "actions": true },
+      { "depth": 6, "export": "Label", "x": 11, "y": 13, "scaleX": 1.62, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 7, "export": "Label", "x": 145, "y": 14, "scaleX": 1.62, "scaleY": 0.6, "name": "_mcArrowCritical", "actions": true },
+      { "depth": 8, "export": "TextArea", "x": 13, "y": 81, "scaleX": 1.4, "scaleY": 0.3, "name": "_lblLevel1", "actions": true },
+      { "depth": 9, "sprite": 684, "x": 179, "y": 42, "alpha": 0.5 },
+      { "depth": 11, "export": "Label", "x": 77, "y": 35, "scaleX": 0.94998, "scaleY": 0.6, "name": "_lblNew", "actions": true },
+      { "depth": 12, "export": "Label", "x": 194, "y": 35, "scaleX": 0.94998, "scaleY": 0.6, "name": "_lblRange1", "actions": true },
+      { "depth": 13, "sprite": 684, "x": 179, "y": 54, "alpha": 0.5 },
+      { "depth": 15, "export": "Label", "x": 77, "y": 47, "scaleX": 0.94998, "scaleY": 0.6, "name": "_lblLevel2", "actions": true },
+      { "depth": 16, "export": "Label", "x": 194, "y": 47, "scaleX": 0.94998, "scaleY": 0.6, "name": "_lblRange2", "actions": true },
+      { "depth": 17, "sprite": 684, "x": 155, "y": 88, "alpha": 0.5 },
+      { "depth": 19, "export": "TextArea", "x": 167, "y": 81, "scaleX": 1.4, "scaleY": 0.3, "name": "_lblAP1", "actions": true },
+      { "depth": 20, "export": "TextArea", "x": 13, "y": 111, "scaleX": 1.4, "scaleY": 0.30002, "name": "_txtDamages2", "actions": true },
+      { "depth": 21, "sprite": 684, "x": 155, "y": 118, "alpha": 0.5, "name": "_txtCritical2" },
+      { "depth": 23, "export": "TextArea", "x": 167, "y": 111, "scaleX": 1.4, "scaleY": 0.3, "name": "_lblAP2", "actions": true },
+      { "depth": 24, "sprite": 684, "x": 179, "y": 66, "alpha": 0.5 },
+      { "depth": 26, "export": "Label", "x": 77, "y": 59, "scaleX": 0.94998, "scaleY": 0.6, "name": "_txtDamages1", "actions": true },
+      { "depth": 27, "export": "Label", "x": 194, "y": 59, "scaleX": 0.94998, "scaleY": 0.6, "name": "_txtCritical1", "actions": true }
+    ]
+  }
+ ]
+}

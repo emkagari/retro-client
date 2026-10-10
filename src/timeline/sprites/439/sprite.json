@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 437, "x": 0.05, "y": 2.55, "name": "cIop_R_Bras01" },
+      { "depth": 3, "shape": 438, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

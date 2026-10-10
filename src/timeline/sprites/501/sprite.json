@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 500, "x": 84.25, "y": 84.65, "scale": -1.69196 },
+      { "depth": 4, "sprite": 500, "x": 84.25, "y": 84.65, "scale": 1.69196 },
+      { "depth": 7, "sprite": 500, "x": 84.25, "y": 84.65, "scale": 1.69196, "rotation": 90 },
+      { "depth": 10, "sprite": 500, "x": 84.25, "y": 84.65, "scale": 1.69196, "rotation": -90 }
+    ]
+  }
+ ]
+}

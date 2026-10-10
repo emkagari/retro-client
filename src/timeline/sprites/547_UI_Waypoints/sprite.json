@@ -1,0 +1,25 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 131, "y": 67, "scaleX": 4.80005, "scaleY": 2.82993, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "StylizedRectangle", "x": 134.75, "y": 317, "scaleX": 4.72424, "scaleY": 0.29999, "actions": true },
+      { "depth": 4, "export": "Rectangle", "x": 134.75, "y": 92, "scaleX": 4.72417, "scaleY": 0.264, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 6, "export": "Button", "x": 591, "y": 75, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 7, "export": "Button", "x": 497, "y": 350, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnClose2", "actions": true },
+      { "depth": 8, "export": "List", "x": 134.75, "y": 117, "scaleX": 4.72421, "scaleY": 9.99994, "name": "_lstWaypoints", "actions": true },
+      { "depth": 9, "export": "Label", "x": 141.1, "y": 322, "scaleX": 2.25998, "scaleY": 0.8, "name": "_lblDescription", "actions": true },
+      { "depth": 10, "export": "Label", "x": 137, "y": 94, "scaleX": 1.96198, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 11, "export": "Label", "x": 479.85, "y": 94, "scaleX": 0.55159, "scaleY": 0.8, "name": "_lblCoords", "actions": true },
+      { "depth": 12, "export": "Label", "x": 540.45, "y": 94, "scaleX": 0.46098, "scaleY": 0.8, "name": "_lblCost", "actions": true },
+      { "depth": 13, "export": "Label", "x": 351.1, "y": 94, "scaleX": 1.25952, "scaleY": 0.8, "name": "_lblArea", "actions": true },
+      { "depth": 14, "export": "Button", "x": 392.9, "y": 350, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnTeleport", "actions": true },
+      { "depth": 15, "export": "Button", "x": 145, "y": 350, "scaleX": 1.59998, "scaleY": 1.11111, "name": "_btnSave", "actions": true },
+      { "depth": 16, "shape": 546, "x": 0, "y": 0 },
+      { "depth": 17, "export": "TextInput", "x": 421.65, "y": 322.2, "scaleX": 1.76062, "scaleY": 0.64, "name": "_tiSearch", "actions": true },
+      { "depth": 18, "export": "Loupe", "x": 400.5, "y": 324.25 }
+    ]
+  }
+ ]
+}

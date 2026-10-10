@@ -1,0 +1,20 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 1, "scaleX": 0.29997, "scaleY": 0.33, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 1, "y": 1, "scaleX": 0.28006, "scaleY": 0.33, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 2, "y": 2, "scaleX": 0.20999, "scaleY": 0.31, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] }, "name": "_mcBackRect" },
+      { "depth": 7, "export": "Rectangle", "x": 1, "y": 0, "scaleX": 0.28006, "scaleY": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": 1, "y": 34, "scaleX": 0.28006, "scaleY": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [213, 207, 170, 0] } },
+      { "depth": 11, "export": "Rectangle", "x": 23, "y": 2, "scaleX": 0.00998, "scaleY": 0.31, "color": { "mult": [0, 0, 0, 1], "add": [204, 204, 204, 0] } },
+      { "depth": 13, "export": "Rectangle", "x": 24, "y": 2, "scaleX": 0.04004, "scaleY": 0.31, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 15, "export": "MaskRect", "x": 0, "y": -0.4, "scaleX": 1, "scaleY": 1.1923, "mask": 18 },
+      { "depth": 17, "export": "GAPILoader", "x": 2, "y": 2, "scaleX": 0.20999, "scaleY": 0.26, "name": "_ldrSprite", "actions": true },
+      { "depth": 20, "export": "MaskRect", "x": 23.6, "y": -0.4, "scaleX": 0.19048, "scaleY": 1.1923, "mask": 24 },
+      { "depth": 22, "sprite": 2220, "x": 24, "y": 33.05, "scaleX": 1, "scaleY": 1.00162, "name": "_mcHealth" },
+      { "depth": 26, "export": "VerticalChrono", "x": 2, "y": 2, "name": "_vcChrono", "actions": true }
+    ]
+  }
+ ]
+}

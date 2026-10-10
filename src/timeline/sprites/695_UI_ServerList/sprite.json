@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 2, "shape": 694, "x": 0, "y": 0 },
+      { "depth": 3, "sprite": 254, "x": 54, "y": 214, "name": "_mcPlacer" },
+      { "depth": 5, "export": "TextInput", "x": 211, "y": 189, "scaleX": 1.78058, "scaleY": 0.8, "name": "_tiSearch", "actions": true },
+      { "depth": 6, "export": "Label", "x": 54.4, "y": 189.3, "scaleX": 1.5, "scaleY": 1, "name": "_lblSearch", "actions": true },
+      { "depth": 7, "export": "Button", "x": 395, "y": 190, "scaleX": 0.35, "scaleY": 1, "name": "_btnSearch", "actions": true },
+      { "depth": 8, "export": "Label", "x": 435.4, "y": 189.3, "scaleX": 2, "scaleY": 1, "name": "_lblSearchResult", "actions": true },
+      { "depth": 9, "export": "DataGrid", "x": 54, "y": 189, "scaleX": 6.37979, "scaleY": 1.80011, "name": "_dgServers", "actions": true },
+      { "depth": 10, "export": "Button", "x": 83.3, "y": 425.5, "scaleX": 2.31299, "scaleY": 1.32788, "name": "_btnClose", "actions": true },
+      { "depth": 11, "export": "Button", "x": 677.5, "y": 397, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnDisplayAllCommunities", "actions": true },
+      { "depth": 12, "export": "Label", "x": 53.95, "y": 393, "scaleX": 6.18552, "scaleY": 1, "name": "_lblDisplayAllCommunities", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 1.67004, "scaleY": 0.24998, "alpha": 0 },
+      { "depth": 3, "shape": 1160, "x": 0, "y": 0 },
+      { "depth": 4, "export": "TextInput", "x": 24.6, "y": 2.6, "scaleX": 1.39014, "scaleY": 0.8, "name": "_tiSearch", "actions": true },
+      { "depth": 5, "export": "Loupe", "x": 3.65, "y": 4.85 }
+    ]
+  }
+ ]
+}

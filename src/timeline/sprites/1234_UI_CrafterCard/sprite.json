@@ -1,0 +1,41 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 221, "y": 37, "scaleX": 3.00005, "scaleY": 3.08981, "name": "_winBg", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 224, "y": 234, "scaleX": 2.94, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 224, "y": 154, "scaleX": 2.94, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [81, 74, 60, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 224, "y": 194, "scaleX": 2.94, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": 224, "y": 274, "scaleX": 2.94, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] } },
+      { "depth": 11, "export": "Rectangle", "x": 224, "y": 314, "scaleX": 2.94, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] } },
+      { "depth": 13, "export": "Rectangle", "x": 305, "y": 78, "scaleX": 2.13004, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] } },
+      { "depth": 15, "export": "Rectangle", "x": 305, "y": 118, "scaleX": 2.13004, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] } },
+      { "depth": 17, "export": "Rectangle", "x": 230.5, "y": 70.3, "scale": 0.75, "color": { "mult": [0, 0, 0, 1], "add": [237, 231, 211, 0] } },
+      { "depth": 19, "export": "Button", "x": 501, "y": 45, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 20, "export": "Label", "x": 225, "y": 234, "scaleX": 2.84006, "scaleY": 0.8, "name": "_lblJobOptions", "actions": true },
+      { "depth": 21, "export": "Button", "x": 441, "y": 346, "scaleX": 0.69998, "scaleY": 1.11111, "name": "_btnClose2", "actions": true },
+      { "depth": 22, "export": "Button", "x": 321, "y": 346, "scaleX": 1.10002, "scaleY": 1.11111, "name": "_btnPrivateMessage", "actions": true },
+      { "depth": 23, "export": "Label", "x": 225, "y": 154, "scaleX": 2.86969, "scaleY": 0.8, "name": "_lblLocalization", "actions": true },
+      { "depth": 24, "export": "Label", "x": 235, "y": 174, "scaleX": 0.9001, "scaleY": 0.8, "name": "_lblSubarea", "actions": true },
+      { "depth": 25, "export": "Label", "x": 235, "y": 194, "scaleX": 0.9001, "scaleY": 0.8, "name": "_lblWorkshop", "actions": true },
+      { "depth": 26, "export": "Label", "x": 235, "y": 214, "scaleX": 0.9001, "scaleY": 0.8, "name": "_lblCoord", "actions": true },
+      { "depth": 27, "export": "Label", "x": 312, "y": 118, "scaleX": 2.02007, "scaleY": 0.8, "name": "_lblJobLevel", "actions": true },
+      { "depth": 28, "export": "GAPILoader", "x": 268, "y": 126, "scale": 0.1, "name": "_ldrSprite", "actions": true },
+      { "depth": 29, "export": "Label", "x": 265, "y": 274, "scaleX": 2.48943, "scaleY": 1, "name": "_lblFreeIfFailed", "actions": true },
+      { "depth": 30, "export": "Button", "x": 244, "y": 278, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnFreeIfFailed", "actions": true },
+      { "depth": 31, "export": "Label", "x": 255, "y": 254, "scaleX": 2.59006, "scaleY": 1, "name": "_lbNotFree", "actions": true },
+      { "depth": 32, "export": "Button", "x": 234, "y": 258, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnNotFree", "actions": true },
+      { "depth": 33, "export": "Label", "x": 325, "y": 174, "scaleX": 1.88019, "scaleY": 0.8, "name": "_lblSubareaValue", "actions": true },
+      { "depth": 34, "export": "Label", "x": 325, "y": 194, "scaleX": 1.88019, "scaleY": 0.8, "name": "_lblWorkshopValue", "actions": true },
+      { "depth": 35, "export": "Label", "x": 325, "y": 214, "scaleX": 1.88019, "scaleY": 0.8, "name": "_lblCoordValue", "actions": true },
+      { "depth": 36, "export": "Label", "x": 232, "y": 294, "scaleX": 1.98022, "scaleY": 0.8, "name": "_lblMinSlots", "actions": true },
+      { "depth": 37, "export": "Label", "x": 434, "y": 294, "scaleX": 0.80003, "scaleY": 0.8, "name": "_btnRessourcesNeeded", "actions": true },
+      { "depth": 38, "export": "Button", "x": 231, "y": 346, "scaleX": 0.8, "scaleY": 1.11111, "name": "_btnLocate", "actions": true },
+      { "depth": 39, "export": "Label", "x": 311.95, "y": 78, "scaleX": 2.02017, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 40, "export": "Label", "x": 311.95, "y": 98, "scaleX": 2.01988, "scaleY": 0.8, "name": "_lblJob", "actions": true },
+      { "depth": 41, "shape": 1233, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

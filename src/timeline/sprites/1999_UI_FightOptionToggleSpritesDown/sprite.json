@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 1998, "x": 0, "y": 0 },
+      { "depth": 2, "sprite": 1996, "x": 7.05, "y": 8.7, "scaleX": -0.69266, "scaleY": 0.69266 },
+      { "depth": 5, "sprite": 265, "x": 2.45, "y": 5.55, "scale": 1.42455, "color": { "mult": [0, 0, 0, 1] } },
+      { "depth": 7, "sprite": 265, "x": 1.45, "y": 4.55, "scale": 1.42455, "color": { "mult": [0, 0, 0, 1], "add": [0, 153, 0, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": -3, "y": 5, "scaleX": 0.19997, "scaleY": 0.1, "alpha": 0 }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 227, "y": 160, "scaleX": 2.76001, "scaleY": 0.97, "name": "_winBackground", "actions": true },
+      { "depth": 3, "export": "Rectangle", "x": 230, "y": 184, "scaleX": 2.69995, "scaleY": 0.6, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 240, "y": 212, "scaleX": 2.49994, "scaleY": 0.20001, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] } },
+      { "depth": 7, "export": "StylizedRectangle", "x": 230, "y": 244, "scaleX": 2.69998, "scaleY": 0.1, "name": "_srBottom", "actions": true },
+      { "depth": 8, "export": "Button", "x": 483, "y": 168, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnClose", "actions": true },
+      { "depth": 9, "export": "Button", "x": 393, "y": 257, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnClose2", "actions": true },
+      { "depth": 10, "export": "Label", "x": 240, "y": 192, "scaleX": 2.50021, "scaleY": 1, "name": "_lblSearch", "actions": true },
+      { "depth": 11, "export": "TextInput", "x": 240, "y": 212, "scaleX": 2.49998, "scaleY": 0.8, "name": "_tiSearch", "actions": true },
+      { "depth": 12, "export": "Button", "x": 283, "y": 257, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnView", "actions": true }
+    ]
+  }
+ ]
+}

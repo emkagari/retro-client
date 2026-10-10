@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "ProgressBar", "x": 1.25, "y": 105.6, "scaleX": 0.8001, "scaleY": 1.50024, "name": "_pbScore", "actions": true },
+      { "depth": 2, "sprite": 213, "x": 3.75, "y": 22.35 },
+      { "depth": 4, "export": "Label", "x": 0, "y": 105, "scaleX": 0.82481, "scaleY": 0.8001, "name": "_lblScoreMax", "actions": true },
+      { "depth": 5, "export": "Container", "x": 6.25, "y": 24.85, "scale": 1.4, "name": "_ctr", "actions": true },
+      { "depth": 6, "sprite": 218, "x": 36.9, "y": 108.75, "scale": 1.23126, "name": "_mcCheck" },
+      { "depth": 8, "export": "Label", "x": 0, "y": 0, "scaleX": 0.82492, "scaleY": 0.8, "name": "_lblName", "actions": true }
+    ]
+  }
+ ]
+}

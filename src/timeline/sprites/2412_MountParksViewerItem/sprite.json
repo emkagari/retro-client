@@ -1,0 +1,36 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2231, "x": 283, "y": -0.5, "scaleX": 1, "scaleY": 2 },
+      { "depth": 3, "sprite": 2231, "x": 583.15, "y": -0.45, "scaleX": 0.4, "scaleY": 29.1683, "rotation": 90, "color": { "mult": [0.85, 0.85, 0.85, 1] } },
+      { "depth": 5, "sprite": 2231, "x": 332, "y": -0.5, "scaleX": 1, "scaleY": 2 },
+      { "depth": 7, "export": "Button", "x": 541.55, "y": 13, "scaleX": 0.14, "scaleY": 0.77768, "name": "_btnTeleport", "actions": true },
+      { "depth": 8, "export": "Label", "x": 283, "y": 10.5, "scaleX": 0.5002, "scaleY": 0.80023, "name": "_lblMounts", "actions": true },
+      { "depth": 9, "export": "Container", "x": 344, "y": 2, "scale": 0.35999, "name": "_ctr0", "actions": true },
+      { "depth": 10, "export": "Container", "x": 363, "y": 2, "scale": 0.35999, "name": "_ctr1", "actions": true },
+      { "depth": 11, "export": "Container", "x": 344, "y": 20, "scale": 0.35999, "name": "_ctr10", "actions": true },
+      { "depth": 12, "export": "Container", "x": 363, "y": 20, "scale": 0.35999, "name": "_ctr11", "actions": true },
+      { "depth": 13, "export": "Container", "x": 382, "y": 2, "scale": 0.35999, "name": "_ctr2", "actions": true },
+      { "depth": 14, "export": "Container", "x": 401, "y": 2, "scale": 0.35999, "name": "_ctr3", "actions": true },
+      { "depth": 15, "export": "Container", "x": 382, "y": 20, "scale": 0.35999, "name": "_ctr12", "actions": true },
+      { "depth": 16, "export": "Container", "x": 401, "y": 20, "scale": 0.35999, "name": "_ctr13", "actions": true },
+      { "depth": 17, "export": "Container", "x": 420, "y": 20, "scale": 0.35999, "name": "_ctr14", "actions": true },
+      { "depth": 18, "export": "Container", "x": 439, "y": 20, "scale": 0.35999, "name": "_ctr15", "actions": true },
+      { "depth": 19, "export": "Container", "x": 458, "y": 2, "scale": 0.35999, "name": "_ctr6", "actions": true },
+      { "depth": 20, "export": "Container", "x": 477, "y": 2, "scale": 0.35999, "name": "_ctr7", "actions": true },
+      { "depth": 21, "export": "Container", "x": 458, "y": 20, "scale": 0.35999, "name": "_ctr16", "actions": true },
+      { "depth": 22, "export": "Container", "x": 477, "y": 20, "scale": 0.35999, "name": "_ctr17", "actions": true },
+      { "depth": 23, "export": "Container", "x": 496, "y": 2, "scale": 0.35999, "name": "_ctr8", "actions": true },
+      { "depth": 24, "export": "Container", "x": 515, "y": 2, "scale": 0.35999, "name": "_ctr9", "actions": true },
+      { "depth": 25, "export": "Container", "x": 496, "y": 20, "scale": 0.35999, "name": "_ctr18", "actions": true },
+      { "depth": 26, "export": "Container", "x": 515, "y": 20, "scale": 0.35999, "name": "_ctr19", "actions": true },
+      { "depth": 27, "export": "Container", "x": 420, "y": 2, "scale": 0.35999, "name": "_ctr4", "actions": true },
+      { "depth": 28, "export": "Container", "x": 439, "y": 2, "scale": 0.35999, "name": "_ctr5", "actions": true },
+      { "depth": 29, "export": "Label", "x": 4, "y": 6, "scaleX": 2.22997, "scaleY": 0.80002, "name": "_lblArea", "actions": true },
+      { "depth": 30, "export": "Label", "x": 4, "y": 15, "scaleX": 2.22997, "scaleY": 0.80002, "name": "_lblSubArea", "actions": true },
+      { "depth": 31, "export": "Button", "x": 223, "y": 12.5, "scaleX": 0.55006, "scaleY": 0.892, "name": "_btnLocate", "actions": true }
+    ]
+  }
+ ]
+}

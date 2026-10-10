@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 2439, "x": 0, "y": 0 },
+      { "depth": 2, "export": "IconForbidden", "x": 3.35, "y": 3.05, "scaleX": 1.98758, "scaleY": 1.97339, "filters": [{ "type": "dropShadow", "color": "#000000", "alpha": 1, "blurX": 2, "blurY": 2, "angle": 0.78539, "distance": 0, "strength": 1, "composite": true, "passes": 3 }] }
+    ]
+  }
+ ]
+}

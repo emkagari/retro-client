@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.01, "scaleY": 0.23999, "color": { "mult": [0, 0, 0, 1] }, "name": "\u001d\b\u000e" },
+      { "depth": 3, "export": "Rectangle", "x": 23, "y": 0, "scaleX": 0.01, "scaleY": 0.23999, "color": { "mult": [0, 0, 0, 1] }, "name": "\u001d\b\u000e" },
+      { "depth": 5, "export": "Rectangle", "x": 24, "y": 0, "matrix": [0, 0.01, -0.23999, 0.00002], "color": { "mult": [0, 0, 0, 1] }, "name": "\u001d\b\u000e" },
+      { "depth": 7, "export": "Rectangle", "x": 24, "y": 23, "matrix": [0, 0.01, -0.23999, 0.00002], "color": { "mult": [0, 0, 0, 1] }, "name": "\u001d\b\u000e" }
+    ]
+  }
+ ]
+}

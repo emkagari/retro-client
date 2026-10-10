@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83989, "scaleY": 11.12004, "actions": true },
+      { "depth": 2, "export": "Label", "x": -1, "y": 252.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackTL", "actions": true },
+      { "depth": 3, "export": "Label", "x": -1, "y": 254.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackBL", "actions": true },
+      { "depth": 4, "export": "Label", "x": 1, "y": 252.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackTR", "actions": true },
+      { "depth": 5, "export": "Label", "x": 1, "y": 254.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackBR", "actions": true },
+      { "depth": 6, "export": "Label", "x": 0, "y": 253.5, "scaleX": 7.41998, "scaleY": 0.99998, "name": "_lblWhite", "actions": true }
+    ]
+  }
+ ]
+}

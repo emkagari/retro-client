@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 684, "x": 0, "y": 0 },
+      { "depth": 3, "sprite": 684, "x": 10, "y": 0, "scaleX": -1, "scaleY": 1, "name": "_mcArrows" }
+    ]
+  }
+ ]
+}

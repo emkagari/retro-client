@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Button", "x": 271, "y": 50, "scaleX": 2, "scaleY": 1.44444, "name": "_btnDemoReset", "actions": true }
+    ]
+  }
+ ]
+}

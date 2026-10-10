@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2198, "x": 0, "y": 0 },
+      { "depth": 3, "export": "Button", "x": 16, "y": 4, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnObjectiveState", "actions": true },
+      { "depth": 4, "export": "TextArea", "x": 34, "y": 0, "scaleX": 3.25005, "scaleY": 0.2, "name": "_txtDescription", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1717, "x": 289, "y": 0, "name": "\u001e\t\r" },
+      { "depth": 3, "sprite": 1717, "x": 379, "y": 0, "name": "\u001e\t\u000e" },
+      { "depth": 5, "export": "Label", "x": 0, "y": 0, "scaleX": 2.8899, "scaleY": 0.8, "name": "_lblName", "actions": true },
+      { "depth": 6, "export": "Label", "x": 289, "y": 0, "scaleX": 0.90002, "scaleY": 0.8, "name": "_lblTotalReportsCount", "actions": true },
+      { "depth": 7, "export": "Label", "x": 379, "y": 0, "scaleX": 0.90002, "scaleY": 0.8, "name": "_lblTotalScore", "actions": true }
+    ]
+  }
+ ]
+}

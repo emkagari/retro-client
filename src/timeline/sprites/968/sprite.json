@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 13, "shape": 935, "x": 0, "y": 0 },
+      { "depth": 14, "export": "PurpleDofus", "x": -0.3, "y": 1.85, "name": "_mcPurple" },
+      { "depth": 16, "export": "EmeraldDofus", "x": 117.95, "y": 8.95, "name": "_mcEmerald" },
+      { "depth": 18, "export": "TurquoiseDofus", "x": 229.5, "y": 12.35, "name": "_mcTurquoise" },
+      { "depth": 20, "export": "EbonyDofus", "x": 340.45, "y": 10.35, "name": "_mcEbony" },
+      { "depth": 38, "export": "IvoryDofus", "x": 449.25, "y": 8.65, "name": "_mcIvory" },
+      { "depth": 44, "export": "OchreDofus", "x": 559.1, "y": 11.35, "name": "_mcOchre" }
+    ]
+  }
+ ]
+}

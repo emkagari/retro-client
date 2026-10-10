@@ -1,0 +1,22 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2198, "x": 0, "y": 0, "scaleX": 1, "scaleY": 3 },
+      { "depth": 3, "shape": 2202, "x": 0, "y": 0 },
+      { "depth": 4, "export": "Label", "x": 239.3, "y": 41.45, "scaleX": 0.99997, "scaleY": 0.8, "name": "_lblKama", "actions": true },
+      { "depth": 5, "export": "KamaSymbol", "x": 341.35, "y": 44.25, "scale": 0.82993, "name": "_mcReward" },
+      { "depth": 8, "export": "Label", "x": 239.3, "y": 26.2, "scaleX": 0.99976, "scaleY": 0.8, "name": "_lblWinXP", "actions": true },
+      { "depth": 9, "export": "UI_QuestXP", "x": 339.95, "y": 27.4, "scale": 0.82222, "name": "_mcXp" },
+      { "depth": 12, "export": "Label", "x": 17.85, "y": 5.2, "scaleX": 1.44232, "scaleY": 0.8, "name": "_lblRewards", "actions": true },
+      { "depth": 13, "export": "Button", "x": 239.3, "y": 4.3, "scaleX": 1.1625, "scaleY": 1, "name": "_btnGetReward", "actions": true },
+      { "depth": 14, "export": "Container", "x": 170.35, "y": 28.5, "scale": 0.5395, "name": "_ctr6", "actions": true },
+      { "depth": 15, "export": "Container", "x": 140.75, "y": 28.5, "scale": 0.5395, "name": "_ctr5", "actions": true },
+      { "depth": 16, "export": "Container", "x": 111.15, "y": 28.5, "scale": 0.5395, "name": "_ctr4", "actions": true },
+      { "depth": 17, "export": "Container", "x": 81.55, "y": 28.5, "scale": 0.5395, "name": "_ctr3", "actions": true },
+      { "depth": 18, "export": "Container", "x": 51.95, "y": 28.5, "scale": 0.5395, "name": "_ctr2", "actions": true },
+      { "depth": 19, "export": "Container", "x": 22.35, "y": 28.5, "scale": 0.5395, "name": "_ctr1", "actions": true }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "frames": [
+  {
+    "label": "unfinished",
+    "place": [
+      { "depth": 1, "shape": 2204, "x": 0, "y": 0 },
+      { "depth": 2, "sprite": 2206, "x": 7, "y": 9 },
+      { "depth": 4, "sprite": 2208, "x": 328, "y": 7.5 },
+      { "depth": 6, "export": "GAPILoader", "x": 8, "y": 10, "scale": 0.32999, "name": "_ldrIcon", "actions": true },
+      { "depth": 7, "export": "Label", "x": 45, "y": 6.5, "scaleX": 2.35979, "scaleY": 0.75002, "name": "_lblName", "actions": true },
+      { "depth": 8, "export": "Label", "x": 45, "y": 28, "scaleX": 3.12994, "scaleY": 0.75, "name": "_lblDescription", "actions": true },
+      { "depth": 9, "export": "Label", "x": 328, "y": 6.5, "scaleX": 0.29997, "scaleY": 0.8, "name": "_lblScore", "actions": true },
+      { "depth": 10, "export": "Label", "x": 266, "y": 6.5, "scaleX": 0.59996, "scaleY": 0.75002, "name": "_lblFinishedDate", "actions": true },
+      { "depth": 11, "export": "Button", "x": 0, "y": 0, "scaleX": 3.63, "scaleY": 2.7771, "name": "_btnToggle", "actions": true }
+    ]
+  },
+  {
+    "label": "unclaimed",
+    "place": [
+      { "depth": 1, "move": true, "shape": 2209 }
+    ]
+  },
+  {
+    "label": "claimed",
+    "place": [
+      { "depth": 1, "move": true, "shape": 2210 }
+    ]
+  }
+ ]
+}

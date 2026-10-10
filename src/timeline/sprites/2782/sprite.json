@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 208, "x": 0, "y": 0, "scale": 0.12001, "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] }, "name": "border_mc" },
+      { "depth": 3, "sprite": 208, "x": 1, "y": 1, "scale": 0.1, "name": "bg_mc" },
+      { "depth": 5, "sprite": 208, "x": 3.5, "y": 3.5, "scale": 0.04999, "color": { "mult": [0, 0, 0, 1] }, "name": "highlight_mc" }
+    ]
+  }
+ ]
+}

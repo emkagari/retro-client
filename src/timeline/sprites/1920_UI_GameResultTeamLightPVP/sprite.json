@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "List", "x": 169.75, "y": 366.15, "scaleX": 4.00073, "scaleY": 1.7337, "name": "_lstPlayers", "actions": true }
+    ]
+  }
+ ]
+}

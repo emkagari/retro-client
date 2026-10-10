@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 423, "x": 1.35, "y": 1.5, "name": "cVlad_R_pied01" },
+      { "depth": 4, "shape": 424, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

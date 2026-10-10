@@ -1,0 +1,31 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83998, "scaleY": 8.63995, "actions": true },
+      { "depth": 2, "export": "Window", "x": 5, "y": 132, "scaleX": 2.01001, "scaleY": 2.90015, "name": "_winInventory2", "actions": true },
+      { "depth": 3, "export": "Window", "x": 536, "y": 132, "scaleX": 2.01001, "scaleY": 2.90015, "name": "_winInventory", "actions": true },
+      { "depth": 4, "export": "Window", "x": 210, "y": 132, "scaleX": 3.2201, "scaleY": 2.30011, "name": "_winItemViewer", "actions": true },
+      { "depth": 5, "export": "Rectangle", "x": 301, "y": 322, "scaleX": 0.5, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] }, "name": "_mcQuantity" },
+      { "depth": 7, "export": "Rectangle", "x": 461, "y": 322, "scaleX": 0.5, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] }, "name": "_mcPrice" },
+      { "depth": 9, "export": "Button", "x": 362, "y": 362, "scaleX": 1.49998, "scaleY": 1.11111, "name": "_btnAdd", "actions": true },
+      { "depth": 10, "export": "ListInventoryViewer", "x": 539, "y": 157, "name": "_livInventory", "actions": true },
+      { "depth": 32, "export": "ItemViewer", "x": 211, "y": 133, "name": "_itvItemViewer", "actions": true },
+      { "depth": 61, "sprite": 650, "x": 520.45, "y": 369.9, "scaleX": -1.00078, "scaleY": 0.99875, "name": "_mcBuyArrow" },
+      { "depth": 63, "sprite": 650, "x": 221.35, "y": 369.9, "scaleX": 1.00078, "scaleY": 0.99875, "name": "_mcSellArrow" },
+      { "depth": 65, "export": "Label", "x": 231, "y": 322, "scaleX": 0.70001, "scaleY": 0.8, "name": "_lblQuantity", "actions": true },
+      { "depth": 66, "export": "Button", "x": 349, "y": 362, "scaleX": 1.2, "scaleY": 1.11111, "name": "_btnModify", "actions": true },
+      { "depth": 67, "export": "Button", "x": 717, "y": 140, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 68, "export": "Button", "x": 697, "y": 140, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnOffline", "actions": true },
+      { "depth": 69, "export": "PlayerWeight", "x": 544, "y": 397, "actions": true },
+      { "depth": 71, "export": "TextArea", "x": 356, "y": 322, "scaleX": 0.99998, "scaleY": 0.16, "name": "_txtPriceLabel", "actions": true },
+      { "depth": 72, "export": "ListInventoryViewer", "x": 8, "y": 157, "name": "_livInventory2", "actions": true },
+      { "depth": 94, "export": "Button", "x": 14.5, "y": 393, "scaleX": 0.79996, "scaleY": 1, "name": "_btnRemove", "actions": true },
+      { "depth": 95, "export": "KamaSymbol", "x": 183.7, "y": 394.35, "name": "_mcKamaSymbol" },
+      { "depth": 98, "export": "Label", "x": 100, "y": 393, "scaleX": 0.79999, "scaleY": 0.90001, "name": "_lblKama", "actions": true },
+      { "depth": 99, "export": "TextInput", "x": 462, "y": 322.5, "scaleX": 0.4745, "scaleY": 0.642, "name": "_tiPrice", "actions": true },
+      { "depth": 100, "export": "TextInput", "x": 302, "y": 322.5, "scaleX": 0.4615, "scaleY": 0.642, "name": "_txtQuantity", "actions": true }
+    ]
+  }
+ ]
+}

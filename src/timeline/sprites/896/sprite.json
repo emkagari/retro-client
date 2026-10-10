@@ -1,0 +1,35 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 6, "shape": 889, "x": 0, "y": 0 }
+    ]
+  },
+  {
+    "remove": [6],
+    "place": [
+      { "depth": 1, "shape": 890, "x": 0, "y": 0 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 891 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 892 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 893 }
+    ]
+  },
+  {
+    "place": [
+      { "depth": 1, "move": true, "shape": 895 }
+    ]
+  }
+ ]
+}

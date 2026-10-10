@@ -1,0 +1,50 @@
+{
+ "frames": [
+  {},
+  {},
+  {},
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": -107.6, "y": -4, "scaleX": 2.0001, "scaleY": 0.26009, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "ratio": 3 }
+    ]
+  },
+  {},
+  {},
+  {
+    "remove": [1]
+  },
+  {},
+  {},
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": -107, "y": -4, "scaleX": 1.99994, "scaleY": 0.26009, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "ratio": 9 }
+    ]
+  },
+  {},
+  {},
+  {
+    "remove": [1]
+  },
+  {},
+  {},
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": -107, "y": -4, "scaleX": 1.99997, "scaleY": 0.26009, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "ratio": 15 }
+    ]
+  },
+  {},
+  {},
+  {
+    "remove": [1]
+  },
+  {},
+  {},
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": -107, "y": -4, "scaleX": 1.99997, "scaleY": 0.26009, "color": { "mult": [0, 0, 0, 1], "add": [255, 102, 0, 0] }, "ratio": 21 }
+    ]
+  },
+  {},
+  {}
+ ]
+}

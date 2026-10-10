@@ -1,0 +1,26 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83989, "scaleY": 11.12004, "actions": true },
+      { "depth": 2, "export": "Label", "x": -1, "y": 244.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackTL", "actions": true },
+      { "depth": 3, "export": "Label", "x": -1, "y": 246.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackBL", "actions": true },
+      { "depth": 4, "export": "Label", "x": 1, "y": 244.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackTR", "actions": true },
+      { "depth": 5, "export": "Label", "x": 1, "y": 246.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackBR", "actions": true },
+      { "depth": 6, "export": "Label", "x": -1, "y": 294.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackTL2", "actions": true },
+      { "depth": 7, "export": "Label", "x": -1, "y": 296.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackBL2", "actions": true },
+      { "depth": 8, "export": "Label", "x": 1, "y": 294.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackTR2", "actions": true },
+      { "depth": 9, "export": "Label", "x": 1, "y": 296.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackBR2", "actions": true },
+      { "depth": 10, "export": "Label", "x": -1, "y": 220.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackTL3", "actions": true },
+      { "depth": 11, "export": "Label", "x": -1, "y": 222.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackBL3", "actions": true },
+      { "depth": 12, "export": "Label", "x": 1, "y": 220.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackTR3", "actions": true },
+      { "depth": 13, "export": "Label", "x": 1, "y": 222.5, "scaleX": 7.41998, "scaleY": 1, "name": "_lblBlackBR3", "actions": true },
+      { "depth": 14, "export": "Label", "x": 0, "y": 245.5, "scaleX": 7.41998, "scaleY": 0.99998, "name": "_lblWhite", "actions": true },
+      { "depth": 15, "export": "Button", "x": 331, "y": 325, "scaleX": 0.80002, "scaleY": 1.1112, "name": "_btnSubscribe", "actions": true },
+      { "depth": 16, "export": "Label", "x": 0, "y": 295.5, "scaleX": 7.41998, "scaleY": 0.99998, "name": "_lblWhite2", "actions": true },
+      { "depth": 17, "export": "Label", "x": 0, "y": 221.5, "scaleX": 7.41998, "scaleY": 0.99998, "name": "_lblWhite3", "actions": true },
+      { "depth": 18, "export": "Button", "x": 18, "y": 522, "scaleX": 1.87, "scaleY": 1, "name": "_btnLeaveQueue", "actions": true }
+    ]
+  }
+ ]
+}

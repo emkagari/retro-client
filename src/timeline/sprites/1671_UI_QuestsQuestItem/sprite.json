@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1664, "x": 33, "y": 0 },
+      { "depth": 3, "sprite": 1666, "x": 7.65, "y": 5.75, "name": "_mcCurrentRepeatableAccount" },
+      { "depth": 5, "sprite": 1668, "x": 7.65, "y": 5.75, "name": "_mcCurrentAccount" },
+      { "depth": 7, "sprite": 1670, "x": 7.65, "y": 5.75, "name": "_mcCurrentRepeatable" },
+      { "depth": 9, "sprite": 1662, "x": 7.65, "y": 5.75, "name": "_mcCurrent" },
+      { "depth": 11, "sprite": 265, "x": 10, "y": 5.5, "scaleX": 1.26761, "scaleY": 1.29497, "color": { "mult": [0, 0, 0, 1], "add": [0, 153, 0, 0] }, "name": "_mcCheckFinished" },
+      { "depth": 13, "export": "Label", "x": 40, "y": 0, "scaleX": 2.59998, "scaleY": 1, "name": "_lblName", "actions": true }
+    ]
+  }
+ ]
+}

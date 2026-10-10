@@ -1,0 +1,15 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1570, "x": 20, "y": 20, "name": "_mcIconBackground" },
+      { "depth": 3, "export": "Label", "x": 40, "y": 10, "scaleX": 1.44975, "scaleY": 2, "name": "_lblName", "actions": true },
+      { "depth": 4, "export": "Label", "x": 185, "y": 10, "scaleX": 0.40013, "scaleY": 1, "name": "_lblLevel", "actions": true },
+      { "depth": 5, "export": "Label", "x": 225, "y": 10, "scaleX": 0.99992, "scaleY": 2, "name": "_lblCategory", "actions": true },
+      { "depth": 6, "export": "Container", "x": 2.5, "y": 2.5, "scale": 0.7, "name": "_ctrIcon", "actions": true },
+      { "depth": 7, "export": "Button", "x": 330.5, "y": 11.5, "scaleX": 0.17, "scaleY": 0.94443, "name": "_btnViewCraft", "actions": true },
+      { "depth": 8, "export": "Button", "x": 353.5, "y": 11.5, "scaleX": 0.17, "scaleY": 0.94443, "name": "_btnViewMonsters", "actions": true }
+    ]
+  }
+ ]
+}

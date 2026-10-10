@@ -1,0 +1,25 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 2, "shape": 1946, "x": 0, "y": 0 },
+      { "depth": 3, "export": "GAPILoader", "x": 374.1, "y": 15.3, "scale": 0.12001, "name": "_ldrAllDrop", "actions": true },
+      { "depth": 4, "shape": 1947, "x": 0, "y": 0 },
+      { "depth": 5, "export": "Label", "x": 110.75, "y": 10.85, "scaleX": 0.40001, "scaleY": 0.8, "name": "_lblKama", "actions": true },
+      { "depth": 6, "export": "KamaSymbol", "x": 152.4, "y": 12.95 },
+      { "depth": 9, "export": "ProgressBar", "x": 10.55, "y": 7.8, "scaleX": 0.95999, "scaleY": 2.49918, "name": "_pbXP", "actions": true },
+      { "depth": 10, "export": "Container", "x": 348.7, "y": 10.35, "scale": 0.4, "name": "_ctr7", "actions": true },
+      { "depth": 11, "export": "Container", "x": 324.85, "y": 10.35, "scale": 0.4, "name": "_ctr6", "actions": true },
+      { "depth": 12, "export": "Container", "x": 301, "y": 10.35, "scale": 0.4, "name": "_ctr5", "actions": true },
+      { "depth": 13, "export": "Container", "x": 277.15, "y": 10.35, "scale": 0.4, "name": "_ctr4", "actions": true },
+      { "depth": 14, "export": "Container", "x": 253.3, "y": 10.35, "scale": 0.4, "name": "_ctr3", "actions": true },
+      { "depth": 15, "export": "Container", "x": 229.45, "y": 10.35, "scale": 0.4, "name": "_ctr2", "actions": true },
+      { "depth": 16, "export": "Container", "x": 205.6, "y": 10.35, "scale": 0.4, "name": "_ctr1", "actions": true },
+      { "depth": 17, "export": "Container", "x": 181.75, "y": 10.35, "scale": 0.4, "name": "_ctr0", "actions": true },
+      { "depth": 18, "export": "Label", "x": 13.8, "y": 10.85, "scaleX": 0.71974, "scaleY": 0.8, "name": "_lblWinXP", "actions": true },
+      { "depth": 19, "export": "GAPILoader", "x": 86, "y": 11.5, "scale": 0.17992, "name": "_ldrXP", "actions": true },
+      { "depth": 20, "export": "GAPILoader", "x": 50.9, "y": 12.5, "scale": 0.15999, "name": "_ldrLockXp", "actions": true }
+    ]
+  }
+ ]
+}

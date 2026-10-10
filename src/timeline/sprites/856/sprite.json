@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "MapNavigatorMoveCursor", "x": 24.95, "y": 9 },
+      { "depth": 3, "export": "Button", "x": 25, "y": -34, "actions": true },
+      { "depth": 81, "export": "GAPILoader", "x": 49, "y": 3, "actions": true }
+    ]
+  }
+ ]
+}

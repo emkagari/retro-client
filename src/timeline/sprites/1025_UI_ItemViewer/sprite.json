@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Window", "x": 210, "y": 116, "scaleX": 3.2201, "scaleY": 1.93933, "name": "_winItemViewer", "actions": true },
+      { "depth": 2, "export": "ItemViewer", "x": 211, "y": 116, "name": "_itvItemViewer", "actions": true },
+      { "depth": 31, "export": "Button", "x": 406, "y": 310, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnClose", "actions": true },
+      { "depth": 32, "export": "Label", "x": 213, "y": 292, "scaleX": 3.16, "scaleY": 0.74945, "name": "_lblWarning", "actions": true },
+      { "depth": 33, "export": "Rectangle", "x": 213, "y": 292, "scaleX": 3.16, "scaleY": 0.15, "alpha": 0, "name": "_mcTooltip" }
+    ]
+  }
+ ]
+}

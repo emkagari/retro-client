@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "BackgroundHidder", "x": 0, "y": 0, "scaleX": 14.83989, "scaleY": 11.12013, "actions": true },
+      { "depth": 2, "export": "Window", "x": 166.05, "y": 60, "scaleX": 4.27997, "scaleY": 3.09961, "name": "_winBackground", "actions": true },
+      { "depth": 3, "export": "Button", "x": 334, "y": 342, "name": "_btnOk", "actions": true },
+      { "depth": 4, "export": "Label", "x": 196.9, "y": 90.95, "scaleX": 3.7119, "scaleY": 1.30237, "name": "_lblTitle", "actions": true },
+      { "depth": 5, "export": "Label", "x": 229, "y": 120.95, "scaleX": 3.57144, "scaleY": 3.4527, "name": "_lblIncarnam", "actions": true },
+      { "depth": 6, "export": "Label", "x": 211.9, "y": 201.05, "scaleX": 2.88159, "scaleY": 2.94981, "name": "_lblBoon", "actions": true },
+      { "depth": 7, "export": "Label", "x": 239.8, "y": 272.05, "scaleX": 3.4621, "scaleY": 3.29936, "name": "_lblTemple", "actions": true },
+      { "depth": 8, "sprite": 1553, "x": 203.9, "y": 299.75, "scale": 0.13177 },
+      { "depth": 29, "shape": 1551, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

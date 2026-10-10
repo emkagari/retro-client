@@ -1,0 +1,16 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 20, "y": 0, "scaleX": 2.32007, "scaleY": 0.8, "name": "_lbl", "actions": true },
+      { "depth": 2, "export": "Label", "x": 302, "y": 0, "scaleX": 0.30006, "scaleY": 0.8, "name": "_lblArea", "actions": true },
+      { "depth": 3, "export": "Container", "x": 332, "y": 2, "scale": 0.32, "name": "_ctrConditionalOver", "actions": true },
+      { "depth": 4, "export": "Container", "x": 284.05, "y": 2, "scale": 0.32, "name": "_ctrSpellArea", "actions": true },
+      { "depth": 5, "export": "Container", "x": 318, "y": 2, "scale": 0.28001, "name": "_ctrNotDispellable", "actions": true },
+      { "depth": 6, "export": "GAPILoader", "x": 2, "y": 2, "scale": 0.16, "name": "_ldrElement", "actions": true },
+      { "depth": 7, "export": "Button", "x": 2, "y": 2, "scaleX": 0.16, "scaleY": 0.88893, "name": "_btnViewSpell", "actions": true },
+      { "depth": 8, "export": "GAPILoader", "x": 332, "y": 2, "scale": 0.16, "name": "_ldrConditionalFalse", "actions": true }
+    ]
+  }
+ ]
+}

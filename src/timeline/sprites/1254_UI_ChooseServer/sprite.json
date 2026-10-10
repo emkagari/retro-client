@@ -1,0 +1,32 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": -0.1, "scaleX": 7.41998, "scaleY": 5.56, "color": { "mult": [0, 0, 0, 1], "add": [41, 38, 31, 0] } },
+      { "depth": 8, "shape": 1250, "x": 0, "y": 0 },
+      { "depth": 9, "export": "ChooseServerSprite", "x": 62.4, "y": 194.5, "name": "_css0", "actions": true },
+      { "depth": 23, "export": "ChooseServerSprite", "x": 189.65, "y": 194.5, "name": "_css1", "actions": true },
+      { "depth": 37, "export": "ChooseServerSprite", "x": 316.9, "y": 194.5, "name": "_css2", "actions": true },
+      { "depth": 51, "export": "ChooseServerSprite", "x": 444.15, "y": 194.5, "name": "_css3", "actions": true },
+      { "depth": 65, "export": "ChooseServerSprite", "x": 571.4, "y": 194.5, "name": "_css4", "actions": true },
+      { "depth": 83, "shape": 1251, "x": 0, "y": 0 },
+      { "depth": 84, "sprite": 1253, "x": 61.4, "y": 194.5, "scaleX": 1.00537, "scaleY": 1.01733, "name": "_mcServerEmpty0" },
+      { "depth": 86, "sprite": 1253, "x": 188.65, "y": 194.5, "scaleX": 1.00537, "scaleY": 1.01733, "name": "_mcServerEmpty1" },
+      { "depth": 88, "sprite": 1253, "x": 315.9, "y": 194.5, "scaleX": 1.00537, "scaleY": 1.01733, "name": "_mcServerEmpty2" },
+      { "depth": 90, "sprite": 1253, "x": 443.15, "y": 194.5, "scaleX": 1.00537, "scaleY": 1.01733, "name": "_mcServerEmpty3" },
+      { "depth": 92, "sprite": 1253, "x": 570.4, "y": 194.5, "scaleX": 1.00537, "scaleY": 1.01733, "name": "_mcServerEmpty4" },
+      { "depth": 94, "export": "Button", "x": 614, "y": 160, "scaleX": 0.80002, "scaleY": 1.1112, "name": "_btnSubscribe", "actions": true },
+      { "depth": 95, "export": "Button", "x": 428.2, "y": 425.5, "scaleX": 2.31302, "scaleY": 1.32788, "name": "_btnSelect", "actions": true },
+      { "depth": 96, "export": "Button", "x": 83.3, "y": 425.5, "scaleX": 2.31299, "scaleY": 1.32788, "name": "_btnCreate", "actions": true },
+      { "depth": 97, "export": "Label", "x": 54, "y": 159.5, "scaleX": 1.70001, "scaleY": 1.20012, "name": "_lblTitle", "actions": true },
+      { "depth": 98, "export": "Label", "x": 239, "y": 161, "scaleX": 3.7, "scaleY": 1.0001, "name": "_lblRemainingTime", "actions": true },
+      { "depth": 99, "export": "TextArea", "x": 61.2, "y": 225.15, "scaleX": 6.2002, "scaleY": 1.49869, "name": "_txtWhy", "actions": true },
+      { "depth": 100, "export": "Label", "x": 173, "y": 522.5, "scaleX": 4.00003, "scaleY": 1.00009, "name": "_lblCopyright", "actions": true },
+      { "depth": 101, "sprite": 1133, "x": 67.05, "y": 430.35, "scaleX": 0.56818, "scaleY": 0.56871, "name": "_btnArrowLeft" },
+      { "depth": 103, "sprite": 1136, "x": 676.8, "y": 430.35, "scaleX": 0.56711, "scaleY": 0.566, "name": "_btnArrowRight" },
+      { "depth": 105, "export": "Label", "x": 385.9, "y": 70, "scaleX": 2.63116, "scaleY": 1.0001, "name": "_lblLogin", "actions": true },
+      { "depth": 106, "export": "Button", "x": 200.75, "y": 378, "scaleX": 3.40898, "scaleY": 1.33331, "name": "_btnAutomaticSelection", "actions": true }
+    ]
+  }
+ ]
+}

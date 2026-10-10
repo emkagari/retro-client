@@ -1,0 +1,28 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 3.15996, "scaleY": 0.22021, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 22, "scaleX": 3.15996, "scaleY": 2.99994, "color": { "mult": [0, 0, 0, 1], "add": [201, 191, 157, 0] } },
+      { "depth": 5, "export": "Rectangle", "x": 0, "y": 281.95, "scaleX": 3.15996, "scaleY": 0.40036, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 7, "export": "Rectangle", "x": 0, "y": 101.95, "scaleX": 3.15996, "scaleY": 0.40036, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] } },
+      { "depth": 9, "export": "Rectangle", "x": 0, "y": 142, "scaleX": 3.15996, "scaleY": 0.22021, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 11, "shape": 256, "x": 0, "y": 0 },
+      { "depth": 12, "export": "Label", "x": 5, "y": 1.2, "scaleX": 2.98021, "scaleY": 0.8, "name": "_lblReferencingOptions", "actions": true },
+      { "depth": 13, "export": "Label", "x": 38, "y": 52, "scaleX": 2.70004, "scaleY": 1, "name": "_lblFreeIfFailed", "actions": true },
+      { "depth": 14, "export": "Button", "x": 17, "y": 56, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnFreeIfFailed", "actions": true },
+      { "depth": 15, "export": "Label", "x": 28, "y": 32, "scaleX": 2.80005, "scaleY": 1, "name": "_lbNotFree", "actions": true },
+      { "depth": 16, "export": "Button", "x": 7, "y": 36, "scaleX": 0.12001, "scaleY": 0.66667, "name": "_btnNotFree", "actions": true },
+      { "depth": 17, "export": "Label", "x": 6.25, "y": 76, "scaleX": 1.83795, "scaleY": 1, "name": "_lblRessourcesNeeded", "actions": true },
+      { "depth": 18, "export": "Label", "x": 256.8, "y": 76, "scaleX": 0.52003, "scaleY": 0.8, "name": "_lblPublicMode", "actions": true },
+      { "depth": 19, "export": "VolumeSlider", "x": 191.75, "y": 76.5, "scaleX": 0.59999, "scaleY": 0.75, "name": "_vsCraftComplexity", "actions": true },
+      { "depth": 20, "export": "TextArea", "x": 0, "y": 165.55, "scaleX": 3.16, "scaleY": 1.14825, "name": "_txtInfos", "actions": true },
+      { "depth": 21, "export": "Label", "x": 5, "y": 143.2, "scaleX": 2.98021, "scaleY": 0.8, "name": "_mcPublicDisable", "actions": true },
+      { "depth": 22, "export": "Button", "x": 103, "y": 292, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnEnabled", "actions": true },
+      { "depth": 23, "export": "Button", "x": 103, "y": 112, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnValidate", "actions": true },
+      { "depth": 24, "sprite": 263, "x": 298.2, "y": 146.1, "scaleX": 1.69853, "scaleY": 1.702, "color": { "mult": [0, 0, 0, 1], "add": [153, 0, 0, 0] }, "name": "_lblCraftComplexity" },
+      { "depth": 26, "sprite": 265, "x": 298.2, "y": 146.1, "scaleX": 1.69853, "scaleY": 1.702, "color": { "mult": [0, 0, 0, 1], "add": [0, 153, 0, 0] }, "name": "_lblCraftComplexityValue" }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 2, "shape": 1048, "x": 0, "y": 0 },
+      { "depth": 3, "export": "KamaSymbol", "x": 42.7, "y": 43.85 }
+    ]
+  }
+ ]
+}

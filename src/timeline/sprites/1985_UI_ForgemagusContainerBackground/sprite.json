@@ -1,0 +1,17 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 1, "y": 1, "scale": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [190, 185, 152, 0] }, "name": "_mcBg" },
+      { "depth": 3, "export": "Rectangle", "x": 1, "y": 0, "scale": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [121, 111, 90, 0] }, "name": "_mcT" },
+      { "depth": 5, "export": "Rectangle", "x": 2, "y": 1, "scale": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [221, 216, 201, 0] }, "name": "_mcR" },
+      { "depth": 7, "export": "Rectangle", "x": 0, "y": 1, "scale": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [121, 111, 90, 0] }, "name": "_mcL" },
+      { "depth": 9, "export": "Rectangle", "x": 1, "y": 2, "scale": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [221, 216, 201, 0] }, "name": "_mcB" },
+      { "depth": 11, "export": "Rectangle", "x": 0, "y": 0, "scale": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [121, 111, 90, 0] }, "name": "_mcTL" },
+      { "depth": 13, "export": "Rectangle", "x": 2, "y": 0, "scale": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [221, 216, 201, 0] }, "name": "_mcTR" },
+      { "depth": 15, "export": "Rectangle", "x": 2, "y": 2, "scale": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [221, 216, 201, 0] }, "name": "_mcBR" },
+      { "depth": 17, "export": "Rectangle", "x": 0, "y": 2, "scale": 0.01, "color": { "mult": [0, 0, 0, 1], "add": [221, 216, 201, 0] }, "name": "_mcBL" }
+    ]
+  }
+ ]
+}

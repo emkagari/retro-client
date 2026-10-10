@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Window", "x": 220, "y": 140, "scaleX": 3.22, "scaleY": 1.79999, "name": "_winBg", "actions": true },
+      { "depth": 2, "export": "BuffViewer", "x": 221, "y": 139, "name": "_bvBuffViewer", "actions": true },
+      { "depth": 9, "export": "Button", "x": 522, "y": 148, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },
+      { "depth": 10, "export": "Button", "x": 422, "y": 320, "scaleX": 0.99998, "scaleY": 1.11111, "name": "_btnClose2", "actions": true }
+    ]
+  }
+ ]
+}

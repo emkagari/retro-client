@@ -1,0 +1,9 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 0.01, "scaleY": 0.19989, "color": { "mult": [0, 0, 0, 1], "add": [155, 151, 123, 0] } }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 2750, "x": 17, "y": 0, "name": "middle_mc" },
+      { "depth": 7, "sprite": 2751, "x": 0, "y": 0, "name": "left_mc" },
+      { "depth": 25, "sprite": 2752, "x": 52, "y": 0, "name": "right_mc" }
+    ]
+  }
+ ]
+}

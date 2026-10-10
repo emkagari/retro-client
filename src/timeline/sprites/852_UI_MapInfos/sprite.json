@@ -1,0 +1,12 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Label", "x": 11, "y": 31, "scaleX": 2.00006, "scaleY": 1, "name": "_lblCoordinatesShadow", "actions": true },
+      { "depth": 2, "export": "Label", "x": 11, "y": 11, "scaleX": 3.99994, "scaleY": 1, "name": "_lblAreaShadow", "actions": true },
+      { "depth": 3, "export": "Label", "x": 10, "y": 10, "scaleX": 3.99994, "scaleY": 1, "name": "_lblArea", "actions": true },
+      { "depth": 4, "export": "Label", "x": 10, "y": 30, "scaleX": 2.00006, "scaleY": 1, "name": "_lblCoordinates", "actions": true }
+    ]
+  }
+ ]
+}

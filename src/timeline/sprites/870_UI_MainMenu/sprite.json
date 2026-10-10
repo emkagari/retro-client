@@ -1,0 +1,14 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 869, "x": 744.5, "y": 0.05, "name": "_mcBackground" },
+      { "depth": 5, "export": "Button", "x": 693, "y": 2, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnOptions", "actions": true },
+      { "depth": 6, "export": "Button", "x": 725, "y": 2, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnQuit", "actions": true },
+      { "depth": 7, "export": "Button", "x": 709, "y": 2, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnHelp", "actions": true },
+      { "depth": 8, "export": "Button", "x": 677, "y": 2, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnBugs", "actions": true },
+      { "depth": 9, "export": "Button", "x": 677, "y": 2, "scaleX": 0.12, "scaleY": 0.66667, "name": "_btnSubscribe", "actions": true }
+    ]
+  }
+ ]
+}

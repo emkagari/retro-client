@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "shape": 83, "x": 0, "y": 0, "mask": 3 },
+      { "depth": 2, "shape": 85, "x": 0, "y": 0 }
+    ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scale": 0.12, "color": { "mult": [0, 0, 0, 1], "add": [102, 102, 102, 0] }, "name": "bg_mc" },
+      { "depth": 3, "sprite": 102, "x": 6, "y": 9, "matrix": [0.025, -0.04001, -0.025, -0.04001], "color": { "mult": [0, 0, 0, 1], "add": [255, 255, 255, 0] }, "name": "arrow_mc" }
+    ]
+  }
+ ]
+}

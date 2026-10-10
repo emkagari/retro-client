@@ -1,0 +1,18 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "sprite": 1622, "x": 342.7, "y": 0, "scaleX": 1, "scaleY": 1.25 },
+      { "depth": 3, "sprite": 1622, "x": 400.7, "y": 0, "scaleX": 1, "scaleY": 1.25 },
+      { "depth": 5, "sprite": 1622, "x": 214, "y": 0, "scaleX": 1, "scaleY": 1.25 },
+      { "depth": 7, "export": "Label", "x": 10, "y": 3, "scaleX": 1.88017, "scaleY": 0.80002, "name": "_lblSubarea", "actions": true },
+      { "depth": 8, "export": "Label", "x": 405.2, "y": 3, "scaleX": 0.33975, "scaleY": 0.8, "name": "_lblCost", "actions": true },
+      { "depth": 9, "export": "UI_WaypointItemArrow", "x": -2, "y": 7, "scale": 0.99997, "name": "_mcCurrent" },
+      { "depth": 13, "export": "KamaSymbol", "x": 439.6, "y": 6.5, "scaleX": 0.79999, "scaleY": 0.7991, "name": "_mcKamas" },
+      { "depth": 16, "export": "Button", "x": 344.7, "y": 5, "scaleX": 0.5502, "scaleY": 0.88931, "name": "_btnLocate", "actions": true },
+      { "depth": 17, "export": "Label", "x": 215.9, "y": 3, "scaleX": 1.25981, "scaleY": 0.7998, "name": "_lblArea", "actions": true },
+      { "depth": 18, "sprite": 265, "x": 200.4, "y": 8, "scaleX": 1.40845, "scaleY": 1.43884, "color": { "mult": [0, 0, 0, 1], "add": [0, 153, 0, 0] }, "name": "_mcRespawn" }
+    ]
+  }
+ ]
+}

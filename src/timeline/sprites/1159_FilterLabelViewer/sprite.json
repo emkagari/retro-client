@@ -1,0 +1,10 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 1.67023, "scaleY": 0.29999, "alpha": 0 },
+      { "depth": 3, "export": "Label", "x": 4.5, "y": 8.3, "scaleX": 1.59021, "scaleY": 1, "name": "_lblText", "actions": true }
+    ]
+  }
+ ]
+}

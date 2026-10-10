@@ -1,0 +1,13 @@
+{
+ "frames": [
+  {
+    "place": [
+      { "depth": 1, "export": "Rectangle", "x": 0, "y": 0, "scaleX": 5.72992, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 3, "export": "Rectangle", "x": 0, "y": 240, "scaleX": 5.72992, "scaleY": 0.2, "color": { "mult": [0, 0, 0, 1], "add": [147, 134, 108, 0] } },
+      { "depth": 5, "export": "Label", "x": 10, "y": 0, "scaleX": 1.99998, "scaleY": 0.8, "name": "_lblDescription", "actions": true },
+      { "depth": 6, "export": "Label", "x": 321, "y": 0, "scaleX": 2.4, "scaleY": 0.8, "name": "_lblCount", "actions": true },
+      { "depth": 7, "export": "DataGrid", "x": 0, "y": 20, "scaleX": 5.72995, "scaleY": 2.19998, "name": "_dgMountParks", "actions": true }
+    ]
+  }
+ ]
+}

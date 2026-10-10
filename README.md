@@ -157,6 +157,7 @@ included only by `build.mjs --dev`, never in a normal build or package.
 - [docs/ASSETS.md](docs/ASSETS.md): graphics, every shape and image as SVG /
   PNG in `src/assets/`
 - [docs/SPRITES.md](docs/SPRITES.md): sprites, buttons and texts as JSON
+- [docs/EDITOR.md](docs/EDITOR.md): the sprite editor, in the browser (`./retro editor`)
 - [docs/RELEASES.md](docs/RELEASES.md): CI builds and releases
 - [docs/WORKFLOW.md](docs/WORKFLOW.md): branches, reviews, the `upstream` branch
 - [docs/UPGRADING.md](docs/UPGRADING.md): moving to a newer official client

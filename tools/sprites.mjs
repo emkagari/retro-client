@@ -54,7 +54,7 @@ KIND[60] = "video";
 const REF_KEYS = ["export", "shape", "sprite", "text", "button", "morph", "video"];
 const BLEND = [null, "normal", "layer", "multiply", "screen", "lighten", "darken", "difference", "add", "subtract", "invert", "alpha", "erase", "overlay", "hardlight"];
 const FILTERS = ["dropShadow", "blur", "glow", "bevel", null, null, "colorMatrix"];
-const PLACE_KEYS = new Set(["depth", "move", ...REF_KEYS, "name", "x", "y", "scale", "scaleX", "scaleY", "rotation", "matrix", "alpha", "color", "ratio", "mask", "blend", "filters", "actions"]);
+const PLACE_KEYS = new Set(["depth", "move", ...REF_KEYS, "name", "x", "y", "scale", "scaleX", "scaleY", "rotation", "matrix", "alpha", "color", "ratio", "mask", "blend", "filters", "actions", "params"]);
 const FRAME_KEYS = new Set(["label", "anchor", "remove", "place"]);
 
 /** A sprite.json's hash, line endings aside. */
@@ -334,6 +334,40 @@ function refId(o, lib, where) {
   return v;
 }
 
+/**
+ * A component's parameters as Flash compiles them, clip actions
+ * `on(construct) { key = value; … }`: each value set (Push, SetVariable)
+ * before the component's class builds it. Strings, numbers, booleans, null,
+ * arrays and objects of those.
+ */
+function constructActions(params, where) {
+  if (!params || typeof params !== "object" || Array.isArray(params)) throw new Error(`${where}: "params" is { "name": value, … }`);
+  const action = (code, body = Buffer.alloc(0)) => (code < 0x80 ? Buffer.from([code]) : Buffer.concat([Buffer.from([code]), u16(body.length), body]));
+  const push = (v, at) => {
+    if (typeof v === "string") return action(0x96, Buffer.concat([Buffer.from([0]), Buffer.from(`${v}\0`, "utf8")]));
+    if (typeof v === "boolean") return action(0x96, Buffer.from([5, v ? 1 : 0]));
+    if (v === null) return action(0x96, Buffer.from([2]));
+    if (typeof v === "number" && Number.isFinite(v)) {
+      if (Number.isInteger(v) && v >= -2147483648 && v <= 2147483647) { const b = Buffer.alloc(5); b[0] = 7; b.writeInt32LE(v, 1); return action(0x96, b); }
+      const d = Buffer.alloc(8); d.writeDoubleLE(v);
+      return action(0x96, Buffer.concat([Buffer.from([6]), d.subarray(4), d.subarray(0, 4)]));
+    }
+    // Arrays and objects: their values, then how many, then InitArray / InitObject.
+    if (Array.isArray(v)) return Buffer.concat([...[...v].reverse().map((x, i) => push(x, `${at}[${v.length - 1 - i}]`)), push(v.length), action(0x42)]);
+    if (v && typeof v === "object") return Buffer.concat([...Object.entries(v).flatMap(([k, x]) => [push(k), push(x, `${at}.${k}`)]), push(Object.keys(v).length), action(0x43)]);
+    throw new Error(`${at}: a string, a number, true / false, null, [ … ] or { … }`);
+  };
+  const code = [];
+  for (const [k, v] of Object.entries(params)) {
+    if (!/^[A-Za-z_$][\w$]*$/.test(k)) throw new Error(`${where}: "params": "${k}" isn't a name`);
+    code.push(push(k), push(v, `${where}: "params"."${k}"`), action(0x1d));
+  }
+  code.push(action(0));
+  const body = Buffer.concat(code), u32 = (n) => { const b = Buffer.alloc(4); b.writeUInt32LE(n); return b; };
+  const CONSTRUCT = 0x40000;
+  return Buffer.concat([u16(0), u32(CONSTRUCT), u32(CONSTRUCT), u32(body.length), body, u32(0)]);
+}
+
 /** A PlaceObject2 / 3 tag from its JSON (clip actions: their bytes). */
 function writePlace(o, lib, actions, where) {
   for (const k of Object.keys(o)) if (!PLACE_KEYS.has(k)) throw new Error(`${where}: unknown key "${k}"`);
@@ -356,8 +390,11 @@ function writePlace(o, lib, actions, where) {
     if (v < 0) throw new Error(`${where}: blend "${o.blend}" (one of ${BLEND.filter(Boolean).join(", ")})`);
     f2 |= 2; parts.push(Buffer.from([v]));
   }
-  if (o.actions) {
-    if (!actions) throw new Error(`${where}: "actions": true on a placement that had none — clip actions are compiled from frame scripts, not added here`);
+  if (o.params !== undefined) {
+    if (o.actions) throw new Error(`${where}: "params" on a line whose clip actions are its scripts (frame_N/PlaceObject…/on(construct).as): set them there`);
+    f |= 128; parts.push(constructActions(o.params, where));
+  } else if (o.actions) {
+    if (!actions) throw new Error(`${where}: "actions": true on a placement that had none — clip actions are compiled from frame scripts, not added here (a component's parameters: "params")`);
     f |= 128; parts.push(actions);
   }
   const head = po3 ? Buffer.concat([Buffer.from([f, f2]), u16(o.depth)]) : Buffer.concat([Buffer.from([f]), u16(o.depth)]);

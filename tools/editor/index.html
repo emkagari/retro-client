@@ -95,6 +95,11 @@
   #inspector .row { display: grid; grid-template-columns: 70px 1fr; gap: 6px; align-items: center; margin-bottom: 5px; }
   #inspector label { color: var(--dim); }
   #inspector textarea { width: 100%; height: 140px; font-family: ui-monospace, monospace; font-size: 11px; resize: vertical; }
+  #inspector h4.params { margin: 12px 0 4px; font-size: 12px; color: var(--accent); font-weight: 600; }
+  #inspector .row.p { grid-template-columns: 96px 1fr auto; }
+  #inspector .row.p label { overflow: hidden; text-overflow: ellipsis; }
+  #inspector .row button.x { padding: 0 6px; }
+  #inspector input.bad { border-color: #e06050; }
   #inspector .actions { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
 
   #log { grid-area: log; max-height: 30vh; overflow: auto; background: #151412; border-top: 1px solid var(--line); font-family: ui-monospace, monospace; font-size: 12px; white-space: pre-wrap; padding: 0 10px; display: none; position: relative; }

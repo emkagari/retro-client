@@ -11,7 +11,7 @@
  * Nothing to install: Node, as for the other tools.
  */
 import { spawn } from "node:child_process";
-import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, renameSync, statSync, writeFileSync } from "node:fs";
 import { createServer } from "node:http";
 import { dirname, extname, join, normalize, sep } from "node:path";
 import { ROOT, SRC, base, config } from "../lib.mjs";
@@ -202,6 +202,36 @@ function check(rel, json) {
   return kind;
 }
 
+/**
+ * A sprite's clip actions follow their lines to new depths: their scripts'
+ * folders (frame_N/PlaceObject2_<id>_<name>_<depth>/) renamed, each line
+ * matched as the build matches its clip actions (tools/sprites.mjs
+ * clipActions: same frame, same thing placed, then its depth, its instance
+ * name, or the only one). What was renamed, "from → to".
+ */
+const REF = ["export", "shape", "sprite", "text", "button", "morph", "video"];
+function moveClipScripts(p, before, after) {
+  const ref = (o) => REF.map((k) => o[k] ?? "").join("|");
+  const plan = [];
+  (after.frames ?? []).forEach((fr, i) => {
+    const old = (before?.frames?.[i]?.place ?? []).filter((o) => o.actions), taken = new Set();
+    const dir = join(dirname(p), `frame_${i + 1}`);
+    for (const o of (fr.place ?? []).filter((x) => x.actions)) {
+      const same = old.filter((x) => ref(x) === ref(o) && !taken.has(x));
+      const hit = same.find((x) => x.depth === o.depth) ?? (o.name !== undefined ? same.find((x) => x.name === o.name) : undefined) ?? (same.length === 1 ? same[0] : undefined);
+      if (!hit) continue;
+      taken.add(hit);
+      if (hit.depth === o.depth || !existsSync(dir)) continue;
+      const from = readdirSync(dir).find((n) => n.startsWith("PlaceObject") && n.endsWith(`_${hit.depth}`) && /^PlaceObject\d?_/.test(n));
+      if (from) plan.push({ dir, from, to: from.replace(/_\d+$/, `_${o.depth}`) });
+    }
+  });
+  // In two steps: lines that swapped depths swap folders.
+  for (const x of plan) renameSync(join(x.dir, x.from), join(x.dir, `${x.from}.moving`));
+  for (const x of plan) renameSync(join(x.dir, `${x.from}.moving`), join(x.dir, x.to));
+  return plan.map((x) => `${x.from} → ${x.to}`);
+}
+
 const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json; charset=utf-8", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".gif": "image/gif" };
 const send = (res, status, body, type = "application/json; charset=utf-8") => {
   res.writeHead(status, { "content-type": type, "cache-control": "no-store" });
@@ -239,8 +269,9 @@ const server = createServer(async (req, res) => {
       let kind;
       try { kind = check(rel, json); } catch (e) { return send(res, 422, { error: e.message }); }
       mkdirSync(join(p, ".."), { recursive: true });
+      const moved = kind === "sprite" && rel.startsWith("timeline/") && existsSync(p) ? moveClipScripts(p, JSON.parse(readFileSync(p, "utf8")), json) : [];
       writeFileSync(p, formatJson(kind, json));
-      return send(res, 200, { ok: true });
+      return send(res, 200, { ok: true, moved });
     }
     if (req.method === "POST" && url.pathname === "/api/build") {
       if (building) return send(res, 409, { error: "a build is running" });

@@ -401,6 +401,22 @@ export function readSprite(data, lib) {
 }
 
 /**
+ * A placement's clip actions in the base, on its frame: the clip at its
+ * depth — or, moved to another depth (the editor reorders lines), the same
+ * clip by its instance name, or the only one placing what it places.
+ */
+function clipActions(o, raws) {
+  const withActions = raws.filter((r) => r.actions);
+  const ref = (p) => REF_KEYS.map((k) => p[k] ?? "").join("|");
+  const same = withActions.filter((r) => ref(r.o) === ref(o));
+  const hit = same.find((r) => r.o.depth === o.depth)
+    ?? (o.name !== undefined ? same.find((r) => r.o.name === o.name) : undefined)
+    ?? (same.length === 1 ? same[0] : undefined)
+    ?? withActions.find((r) => r.o.depth === o.depth);
+  return hit?.actions ?? null;
+}
+
+/**
  * A DefineSprite's data from its JSON. `was` (readSprite of the base's): its
  * frame scripts stay on their frames, and a placement left as it was keeps
  * its bytes (and its clip actions).
@@ -410,10 +426,18 @@ export function writeSprite(id, json, lib, was, where) {
   for (const k of Object.keys(json)) if (k !== "frames" && k !== "frameCount") throw new Error(`${where}: unknown key "${k}"`);
   const parts = [u16(id), u16(json.frameCount ?? json.frames.length)];
   const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  // What each depth holds, frame after frame: a placement can't take a depth something holds.
+  const held = new Map();
   json.frames.forEach((fr, i) => {
     const at = `${where}, frame ${i + 1}`;
     if (!fr || typeof fr !== "object") throw new Error(`${at}: a frame is { … }`);
     for (const k of Object.keys(fr)) if (!FRAME_KEYS.has(k)) throw new Error(`${at}: unknown key "${k}"`);
+    for (const d of fr.remove ?? []) held.delete(d);
+    for (const o of fr.place ?? []) {
+      if (!o || o.move) continue;
+      if (held.has(o.depth)) throw new Error(`${at}: two lines at depth ${o.depth} (${held.get(o.depth)} and ${o.name ?? REF_KEYS.filter((k) => k in o).map((k) => `${k} ${o[k]}`)[0] ?? "?"}) — one depth holds one thing: give one another depth`);
+      held.set(o.depth, o.name ?? REF_KEYS.filter((k) => k in o).map((k) => `${k} ${o[k]}`)[0] ?? "?");
+    }
     for (const d of fr.remove ?? []) parts.push(tagBytes(28, u16(d)));
     if (was?.scripts[i]) parts.push(was.scripts[i]);
     if ("label" in fr) parts.push(tagBytes(43, Buffer.concat([Buffer.from(`${fr.label}\0`, "utf8"), fr.anchor ? Buffer.from([1]) : Buffer.alloc(0)])));
@@ -422,9 +446,7 @@ export function writeSprite(id, json, lib, was, where) {
       const pat = `${at}, place #${k + 1}`;
       const kept = old.findIndex((r) => same(r.o, o));
       if (kept >= 0) { parts.push(old[kept].raw); old.splice(kept, 1); return; }
-      // Clip actions follow their placement (same depth on this frame).
-      const actions = o.actions ? was?.raws[i]?.find((r) => r.o.depth === o.depth && r.actions)?.actions : null;
-      parts.push(writePlace(o, lib, actions, pat));
+      parts.push(writePlace(o, lib, o.actions ? clipActions(o, was?.raws[i] ?? []) : null, pat));
     });
     parts.push(tagBytes(1, Buffer.alloc(0)));
   });

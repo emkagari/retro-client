@@ -92,6 +92,8 @@
   #layers .layer .name { color: var(--accent2); overflow: hidden; text-overflow: ellipsis; }
   #layers .layer .said { color: var(--dim); font-style: italic; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 0 4 auto; min-width: 0; }
   #layers .layer .codehid { color: #e0a040; flex: none; }
+  #layers .layer.masked { box-shadow: inset 3px 0 0 #ff4fd877; }
+  #layers .layer .mask { color: #ff7fe0; flex: none; }
   #layers .layer .eye { opacity: .5; flex: none; } #layers .layer .eye.off { opacity: .15; }
   #inspector { overflow: auto; flex: 1.3; padding: 8px 10px; border-top: 1px solid var(--line); }
   #inspector .row { display: grid; grid-template-columns: 70px 1fr; gap: 6px; align-items: center; margin-bottom: 5px; }
@@ -126,6 +128,8 @@
     <button id="screen" title="The game's screen: 742×556, black as in the game, the map 742×432 above the banner (an interface is attached at its top left)">Screen</button>
     <button id="components" title="Components (Button, Label, Window…) drawn as their code draws them, from their parameters and styles — off: what the files hold (their transparent boundingBox_mc)">Components</button>
     <button id="outlines" title="Every line's box and name (O)">Outlines</button>
+    <button id="masks" title="Masks applied as in the game: what a mask line covers shows only inside its shape — off: drawn whole">Masks</button>
+    <button id="maskShapes" title="Each mask's shape, where it is (M): a pink area and edge, over what it masks">Mask shapes</button>
     <button id="fit" title="Fit (F)">Fit</button>
     <button id="reload" title="Read the files again (an SVG edited in Inkscape…); unsaved changes stay">Reload files</button>
     <span id="status"></span>
@@ -143,6 +147,24 @@
   <div id="stage">
     <svg id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs id="defs"></defs>
+      <!-- Kept across redraws (#defs is emptied): how a mask and a mask's shape are drawn. -->
+      <defs>
+        <!-- A mask is its shape's area, whatever its colours and alpha (as in the game). -->
+        <filter id="maskSolid" x="-5%" y="-5%" width="110%" height="110%">
+          <feComponentTransfer in="SourceAlpha"><feFuncA type="linear" slope="1000"></feFuncA></feComponentTransfer>
+        </filter>
+        <!-- Its shape shown: a faint fill and its edge. -->
+        <filter id="maskShape" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+          <feComponentTransfer in="SourceAlpha" result="a"><feFuncA type="linear" slope="1000"></feFuncA></feComponentTransfer>
+          <feMorphology in="a" operator="erode" radius="1" result="in"></feMorphology>
+          <feComposite in="a" in2="in" operator="out" result="edge"></feComposite>
+          <feFlood flood-color="#ff4fd8" flood-opacity="0.18"></feFlood>
+          <feComposite in2="a" operator="in" result="fill"></feComposite>
+          <feFlood flood-color="#ff4fd8"></feFlood>
+          <feComposite in2="edge" operator="in" result="line"></feComposite>
+          <feMerge><feMergeNode in="fill"></feMergeNode><feMergeNode in="line"></feMergeNode></feMerge>
+        </filter>
+      </defs>
       <g id="view">
         <!-- Screen: the game's area is black, as behind an interface in the game. -->
         <rect id="screenBg" x="0" y="0" width="742" height="556" fill="#000" pointer-events="none" hidden></rect>

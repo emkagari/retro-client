@@ -438,16 +438,17 @@ export function readSprite(data, lib) {
 }
 
 /**
- * A placement's clip actions in the base, on its frame: the clip at its
- * depth — or, moved to another depth (the editor reorders lines), the same
- * clip by its instance name, or the only one placing what it places.
+ * A placement's clip actions in the base, on its frame: the clip placing the
+ * same thing with its instance name — wherever it was (the editor reorders
+ * lines: another, removed, may have held its depth) — else the one at its
+ * depth, or the only one placing what it places.
  */
 function clipActions(o, raws) {
   const withActions = raws.filter((r) => r.actions);
   const ref = (p) => REF_KEYS.map((k) => p[k] ?? "").join("|");
   const same = withActions.filter((r) => ref(r.o) === ref(o));
-  const hit = same.find((r) => r.o.depth === o.depth)
-    ?? (o.name !== undefined ? same.find((r) => r.o.name === o.name) : undefined)
+  const hit = (o.name !== undefined ? same.find((r) => r.o.name === o.name) : undefined)
+    ?? same.find((r) => r.o.depth === o.depth)
     ?? (same.length === 1 ? same[0] : undefined)
     ?? withActions.find((r) => r.o.depth === o.depth);
   return hit?.actions ?? null;

@@ -55,9 +55,17 @@ const movedTo = (f) => {
   const m = /^(.*\/frame_\d+\/)(PlaceObject\d?_.+)_\d+(\/[^/]+)$/.exec(f);
   return m && files.find((g) => g !== f && g.startsWith(m[1] + m[2] + "_") && g.endsWith(m[3]) && /^_\d+\//.test(g.slice((m[1] + m[2]).length)) && !b.manifest.files[g] && sourceHash(join(SRC, g)) === b.manifest.files[f]);
 };
+// A clip's actions whose line is gone from its sprite.json: they go with it (the sprite is re-encoded without it).
+const lineGone = (f) => {
+  const m = /^(timeline\/sprites\/[^/]+)\/frame_(\d+)\/PlaceObject\d?_.+_(\d+)\/[^/]+$/.exec(f);
+  if (!m || !existsSync(join(SRC, m[1], "sprite.json"))) return false;
+  const place = JSON.parse(readFileSync(join(SRC, m[1], "sprite.json"), "utf8")).frames?.[m[2] - 1]?.place ?? [];
+  return !place.some((o) => o.actions && o.depth === Number(m[3]));
+};
 for (const f of removed) {
   const to = movedTo(f);
   if (to) console.log(`clip actions moved: ${f.split("/").at(-2)} → ${to.split("/").at(-2)}`);
+  else if (lineGone(f)) console.log(`clip actions removed with their line: ${f.split("/").slice(-3, -1).join("/")}`);
   else console.warn(`warning: ${f} was deleted — a build can't remove code, the base's stays`);
 }
 

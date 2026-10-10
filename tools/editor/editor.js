@@ -45,6 +45,8 @@ const S = {
   ui: null, components: store.get("components", true), outlines: store.get("outlines", false),
   // Masks applied as in the game; each mask's shape shown (independent).
   masks: store.get("masks", true), maskShapes: store.get("maskShapes", false),
+  // Dragging snaps to guides (and to the grid when it's shown).
+  snap: store.get("snap", true), grid: store.get("grid", false), gridSize: store.get("gridSize", 10),
 };
 // For the DevTools (and tests): the editor's state.
 window.editorState = S;
@@ -358,11 +360,13 @@ async function drawList(parent, list, level, interactive, path = "", file = null
   // What the class hides as it starts: faded (still there to be moved: a placer marks where code puts something).
   const codeHidden = (it) => S.components && !!it.o.name && !!params.hidden?.includes(it.o.name);
   list.forEach((it, i) => { if (nodes[i] && codeHidden(it)) nodes[i].setAttribute("opacity", Number(nodes[i].getAttribute("opacity") ?? 1) * 0.2); });
-  let clip = null;
+  // Masks nest (a mask among what another masks): what's inside both shows where both shapes are.
+  const clips = [];
+  const into = () => clips.at(-1)?.g ?? parent;
   const shapes = [];
   for (let i = 0; i < list.length; i++) {
     const it = list[i];
-    if (clip && it.depth > clip.until) clip = null;
+    while (clips.length && it.depth > clips.at(-1).until) clips.pop();
     if (!interactive && hidden.has(at(it)) && !it.o.mask) continue;
     if (it.o.mask) {
       // A mask isn't drawn: what's above it, up to its `mask` depth, shows only inside its shape —
@@ -376,8 +380,8 @@ async function drawList(parent, list, level, interactive, path = "", file = null
         defs().append(m);
         g.setAttribute("mask", `url(#${m.id})`);
       }
-      parent.append(g);
-      clip = { g, until: it.o.mask };
+      into().append(g);
+      clips.push({ g, until: it.o.mask });
       if (interactive) parent.append(el("g", { class: "item mask", "data-i": it.src ?? "", "data-depth": it.depth }));
       if (id && S.maskShapes) shapes.push(el("use", { href: `#${id}`, transform: transformOf(it.o), filter: "url(#maskShape)", class: "maskshape", "pointer-events": "none" }));
       continue;
@@ -388,7 +392,7 @@ async function drawList(parent, list, level, interactive, path = "", file = null
       w.append(node);
       node = w;
     }
-    (clip ? clip.g : parent).append(node);
+    into().append(node);
   }
   // Mask shapes over the list they mask in.
   parent.append(...shapes);
@@ -966,7 +970,7 @@ async function drawOutlines() {
   const seq = ++outlineSeq, d = D(), g = el("g", { id: "outlineLayer", "pointer-events": "none" });
   if (S.outlines && d && d.kind !== "text") {
     const boxes = [];
-    for (const node of $("content").querySelectorAll(":scope > .item, :scope > g > .item")) {
+    for (const node of $("content").querySelectorAll(".item")) {
       if (node.classList.contains("mask") || node.classList.contains("hidden")) continue;
       const it = currentList().find((x) => String(x.depth) === node.dataset.depth);
       const bb = it && node.getBBox();
@@ -1033,6 +1037,122 @@ function drawSelection() {
   });
 }
 const inBox = (p, b) => p.x >= b.x && p.x <= b.x + b.width && p.y >= b.y && p.y <= b.y + b.height;
+
+// --- Snapping: guides and grid ------------------------------------------------
+
+/** The grid over the drawing (faint, above it): its lines a pixel wide on screen, coarser when zoomed out (never under 6 px apart). */
+function drawGrid() {
+  const g = $("gridLayer");
+  g.textContent = "";
+  if (!S.grid || !D()) return;
+  let step = S.gridSize;
+  while (step * view.k < 6) step *= 2;
+  const r = $("stage").getBoundingClientRect();
+  const x0 = Math.floor(-view.x / view.k / step) * step, y0 = Math.floor(-view.y / view.k / step) * step;
+  const x1 = (r.width - view.x) / view.k, y1 = (r.height - view.y) / view.k;
+  let d = "";
+  for (let x = x0; x <= x1; x += step) d += `M${x} ${y0}V${y1}`;
+  for (let y = y0; y <= y1; y += step) d += `M${x0} ${y}H${x1}`;
+  g.append(el("path", { d, fill: "none", stroke: "#80e0ff", "stroke-opacity": 0.22, "stroke-width": 1, "vector-effect": "non-scaling-stroke" }));
+}
+
+/**
+ * What a drag of the selection snaps to: the game screen's edges, centre and
+ * map line (Screen on); every line of the list the inspector's line is in,
+ * and the line holding it — each one's edges and centre, named. `moving`:
+ * the paths dragged (they, what they hold and what holds them aren't targets).
+ */
+async function snapTargets(d, moving) {
+  const out = { x: [], y: [] };
+  const add = (bb, label, kind, named = true) => {
+    for (const [v, side] of [[bb.x, "left"], [bb.x + bb.width / 2, "centre"], [bb.x + bb.width, "right"]]) out.x.push({ v, side, label, box: bb, kind, named });
+    for (const [v, side] of [[bb.y, "top"], [bb.y + bb.height / 2, "middle"], [bb.y + bb.height, "bottom"]]) out.y.push({ v, side, label, box: bb, kind, named });
+  };
+  if (d.screen) {
+    add({ x: 0, y: 0, width: 742, height: 556 }, "game screen", "screen");
+    out.y.push({ v: 432, side: "map's bottom", label: "game screen", box: { x: 0, y: 0, width: 742, height: 556 }, kind: "screen" });
+  }
+  const main = moving[0];
+  if (!main) return out;
+  const up = main.slice(0, main.lastIndexOf("/"));
+  const skip = (k) => moving.some((m) => k === m || k.startsWith(`${m}/`) || m.startsWith(`${k}/`));
+  const name = (o) => o.name ?? describe(o);
+  if (!up) {
+    for (const it of currentList()) {
+      const k = `/${it.depth}`;
+      if (it.src === null || it.o.mask || it.ignored || d.hidden.has(k) || skip(k)) continue;
+      const bb = $("content").querySelector(`.item[data-i="${it.src}"]`)?.getBBox();
+      if (bb && (bb.width || bb.height)) add(bb, name(it.o), "line", !!it.o.name);
+    }
+  } else {
+    const at = along(up).at(-1), json = knownJson(at.file);
+    for (const it of json ? childList({ kind: kindOf(at.file) }, json) : []) {
+      const k = `${up}/${it.depth}`;
+      if (it.o.mask || d.hidden.has(k) || skip(k)) continue;
+      const bb = await boxOf(it.o, at.chain, k);
+      if (bb) add(bb, name(it.o), "line", !!it.o.name);
+    }
+    const P = lineAt(up, d), pb = P && (await boxOf(P.o, P.chain, up));
+    if (pb) add(pb, `${name(P.o)} (holds it)`, "parent");
+  }
+  return out;
+}
+
+/**
+ * A drag's move (dx, dy) snapped: on each axis, the selection's box's
+ * nearest edge or centre to a target within 6 px on screen — else, the grid
+ * shown, its top left to the grid. `free`: the axes that may move (Shift).
+ */
+function snapMove(drag, dx, dy, free) {
+  const b = drag.box, tol = 6 / view.k;
+  const axis = (on, start, size, delta, targets) => {
+    if (!on) return { delta, hits: [] };
+    const edges = [start + delta, start + delta + size / 2, start + delta + size];
+    // Within reach, what's most likely meant first: the screen, what holds it, a named line, then any other.
+    const rank = (t) => (t.kind === "screen" ? 0 : t.kind === "parent" ? 1 : t.named ? 2 : 3);
+    let best = null, bestRank = 9;
+    for (const v of edges) for (const t of targets) {
+      const dd = t.v - v;
+      if (Math.abs(dd) <= tol && (rank(t) < bestRank || (rank(t) === bestRank && Math.abs(dd) < Math.abs(best)))) { best = dd; bestRank = rank(t); }
+    }
+    if (best !== null) return { delta: delta + best, hits: targets.filter((t) => rank(t) <= Math.max(bestRank, 2) && edges.some((v) => Math.abs(t.v - v - best) < 0.01)) };
+    if (S.grid) { const g = S.gridSize, v = start + delta; return { delta: delta + Math.round(v / g) * g - v, hits: [] }; }
+    return { delta, hits: [] };
+  };
+  const x = axis(free.x, b.x, b.width, dx, drag.targets?.x ?? []), y = axis(free.y, b.y, b.height, dy, drag.targets?.y ?? []);
+  return { dx: x.delta, dy: y.delta, hx: x.hits, hy: y.hits };
+}
+/** The guides of a snapped move: a line where it's aligned, what it's aligned on (its box, its name and which edge). */
+function drawGuides(drag, s) {
+  const g = $("guideLayer");
+  g.textContent = "";
+  if (!s) return;
+  const k = 1 / view.k, b = { x: drag.box.x + s.dx, y: drag.box.y + s.dy, width: drag.box.width, height: drag.box.height };
+  const color = "#3fd0ff", boxes = new Set(), labels = new Set();
+  const line = (d) => g.append(el("path", { d, stroke: color, "stroke-width": 1, "vector-effect": "non-scaling-stroke" }));
+  const label = (x, y, text) => {
+    if (labels.has(text)) return;
+    labels.add(text);
+    const t = el("text", { x, y, "font-size": 10 * k, "font-family": "Verdana, sans-serif", fill: color, stroke: "#000", "stroke-width": 2.5 * k, "paint-order": "stroke" });
+    t.textContent = text;
+    g.append(t);
+  };
+  const frame = (t) => {
+    if (t.kind === "screen" || boxes.has(t.box)) return;
+    boxes.add(t.box);
+    g.append(el("rect", { x: t.box.x, y: t.box.y, width: t.box.width, height: t.box.height, fill: "none", stroke: color, "stroke-dasharray": "4 3", "stroke-width": 1, "vector-effect": "non-scaling-stroke" }));
+  };
+  for (const t of s.hx) {
+    const top = Math.min(b.y, t.box.y) - 8 * k, bottom = Math.max(b.y + b.height, t.box.y + t.box.height) + 8 * k;
+    line(`M${t.v} ${top}V${bottom}`); frame(t);
+    label(t.v + 3 * k, (t.box.y < b.y ? t.box.y : b.y + b.height + 12 * k) - 3 * k, `${t.label} · ${t.side}`);
+  }
+  for (const t of s.hy) {
+    const left = Math.min(b.x, t.box.x) - 8 * k, right = Math.max(b.x + b.width, t.box.x + t.box.width) + 8 * k;
+    line(`M${left} ${t.v}H${right}`); frame(t);
+    label((t.box.x < b.x ? t.box.x : b.x + b.width + 4 * k), t.v - 3 * k, `${t.label} · ${t.side}`);
+  }
+}
 
 /** After any change: buttons, tab marks, the session kept for a reload. */
 function setDirty() {
@@ -1161,13 +1281,12 @@ function renderLayers() {
   const rows = (list, level, path, owner, chain) => {
     const loc0File = top0(level) ? d.file : owner.file;
     if (!paramsKnown.has(loc0File) && loc0File.startsWith("timeline/")) paramsOf(loc0File).then(() => renderLayers());
-    // Which mask covers each line (a mask: the depths above it, up to its `mask`).
-    const maskOf = new Map(), masks = new Map();
-    let cur = null;
+    // Which masks cover each line (a mask: the depths above it, up to its `mask`; masks nest).
+    const maskOf = new Map(), masks = new Map(), open = [];
     for (const it of list) {
-      if (cur && it.depth > cur.o.mask) cur = null;
-      if (it.o.mask) { cur = it; masks.set(it, []); continue; }
-      if (cur) { maskOf.set(it, cur); masks.get(cur).push(it); }
+      while (open.length && it.depth > open.at(-1).o.mask) open.pop();
+      if (open.length) { maskOf.set(it, [...open]); for (const m of open) masks.get(m).push(it); }
+      if (it.o.mask) { masks.set(it, []); open.push(it); }
     }
     for (const it of list.slice().reverse()) {
       const key = `${path}/${it.depth}`;
@@ -1176,7 +1295,11 @@ function renderLayers() {
       const top = level === 0;
       const row = html("div", { className: "layer" + (top ? "" : " child") + (it.ignored ? " ignored" : "") + (key === keys[0] && (!top || it.src === d.sel) ? " on main" : keys.includes(key) && it.src !== null ? " on" : "") });
       if (it.ignored) row.title = `Depth ${it.depth} already holds something: the game ignores this line (not drawn) — drag it elsewhere, ↑ ↓, or remove one of them`;
-      if (maskOf.has(it)) { row.classList.add("masked"); row.title = `Masked by depth ${maskOf.get(it).depth} (${describe(maskOf.get(it).o)}): shows only inside its shape`; }
+      if (maskOf.has(it)) {
+        const by = maskOf.get(it);
+        row.classList.add("masked");
+        row.title = `Masked by ${by.map((m) => `depth ${m.depth} (${describe(m.o)})`).join(" and ")}: shows only inside ${by.length > 1 ? "where their shapes meet" : "its shape"}`;
+      }
       row.style.paddingLeft = `${6 + level * 14}px`;
       row.dataset.key = key;
       const tw = html("span", { className: "tw" + (kids ? " can" : ""), title: kids ? "What it holds (its definition, shared by every placement)" : "" }, kids ? (d.open.has(key) ? "▾" : "▸") : "");
@@ -1501,6 +1624,7 @@ async function showWhere(id, label) {
 const view = { x: 0, y: 0, k: 1 };
 function applyView() {
   $("view").setAttribute("transform", `translate(${view.x} ${view.y}) scale(${view.k})`);
+  drawGrid();
   $("zoomInfo").textContent = `${Math.round(view.k * 100)}%`;
   if (D()) D().view = { ...view };
   drawSelection();
@@ -1536,10 +1660,12 @@ function setupStage() {
   const linesDrag = (p0, reduce = null) => {
     const d = D(), lines = selLines(d).filter((L) => L.editable);
     if (!lines.length) return null;
-    return {
-      kind: "lines", start: p0, moved: false, reduce, before: undoEntry(lines.map((L) => L.tab)),
+    const drag = {
+      kind: "lines", start: p0, moved: false, reduce, before: undoEntry(lines.map((L) => L.tab)), box: null, targets: null,
       lines: lines.map((L) => ({ L, x: L.o.x ?? 0, y: L.o.y ?? 0, node: L.owner ? null : $("content").querySelector(`.item[data-i="${L.it.src}"]`) })),
     };
+    snapTargets(d, selKeys(d)).then((t) => { drag.targets = t; });
+    return drag;
   };
   stage.addEventListener("pointerdown", (e) => {
     const d = D();
@@ -1583,9 +1709,18 @@ function setupStage() {
       applyView();
       return;
     }
-    const p = toSprite(e), dx = p.x - drag.start.x, dy = p.y - drag.start.y;
+    const p = toSprite(e);
+    let dx = p.x - drag.start.x, dy = p.y - drag.start.y;
     if (!drag.moved && Math.hypot(dx, dy) * view.k < 2) return;
     drag.moved = true;
+    // Shift: only along the axis it moves most on. Ctrl held: no snapping.
+    const free = { x: true, y: true };
+    if (e.shiftKey) { if (Math.abs(dx) >= Math.abs(dy)) { dy = 0; free.y = false; } else { dx = 0; free.x = false; } }
+    // The selection's box as it was when the drag began (measured boxes may come a moment later).
+    drag.box ??= (D().boxes ?? []).map((b) => b.bb).reduce((u, bb) => (u ? union(u, bb) : { x: bb.x, y: bb.y, width: bb.width, height: bb.height }), null);
+    const snapped = S.snap && !(e.ctrlKey || e.metaKey) && drag.box ? snapMove(drag, dx, dy, free) : null;
+    if (snapped) ({ dx, dy } = snapped);
+    drawGuides(drag, snapped);
     for (const m of drag.lines) {
       const [lx, ly] = toParent(m.L, dx, dy);
       m.L.o.x = round20(m.x + lx); m.L.o.y = round20(m.y + ly);
@@ -1596,6 +1731,7 @@ function setupStage() {
     $("overlay").setAttribute("transform", `translate(${dx} ${dy})`);
   });
   const end = () => {
+    $("guideLayer").textContent = "";
     if (drag?.kind === "lines" && drag.moved) { D().undo.push(drag.before); D().redo = []; $("overlay").removeAttribute("transform"); changed(); }
     if (drag?.kind === "lines" && !drag.moved && drag.reduce !== null) select(drag.reduce);
     if (drag?.kind === "pan" && !drag.moved && drag.deselect) select(null);
@@ -2174,7 +2310,11 @@ function setupCommands() {
   $("fit").onclick = fit;
   $("reload").onclick = reloadFiles;
   $("screen").onclick = () => { const d = D(); if (!d) return; d.screen = !d.screen; draw(); remember(); };
-  const toggles = () => { for (const k of ["components", "outlines", "masks", "maskShapes"]) $(k).classList.toggle("on", S[k]); };
+  const toggles = () => { for (const k of ["components", "outlines", "masks", "maskShapes", "snap", "grid"]) $(k).classList.toggle("on", S[k]); };
+  $("snap").onclick = () => { S.snap = !S.snap; store.set("snap", S.snap); toggles(); };
+  $("grid").onclick = () => { S.grid = !S.grid; store.set("grid", S.grid); toggles(); drawGrid(); };
+  $("gridSize").value = S.gridSize;
+  $("gridSize").onchange = () => { S.gridSize = Math.max(1, Math.min(200, Math.round(Number($("gridSize").value)) || 10)); $("gridSize").value = S.gridSize; store.set("gridSize", S.gridSize); drawGrid(); };
   for (const k of ["masks", "maskShapes"]) $(k).onclick = () => { S[k] = !S[k]; store.set(k, S[k]); toggles(); resetDefs(); draw(); };
   $("components").onclick = () => { S.components = !S.components; store.set("components", S.components); toggles(); resetDefs(); draw(); };
   $("outlines").onclick = () => { S.outlines = !S.outlines; store.set("outlines", S.outlines); toggles(); drawSelection(); };
@@ -2212,6 +2352,7 @@ function setupCommands() {
     else if (e.key === "f" || e.key === "F") fit();
     else if (e.key === "o" || e.key === "O") $("outlines").click();
     else if (e.key === "m" || e.key === "M") $("maskShapes").click();
+    else if (e.key === "g" || e.key === "G") $("grid").click();
   });
   window.addEventListener("beforeunload", (e) => { if (S.tabs.some(isDirty)) e.preventDefault(); });
   window.addEventListener("resize", applyView);

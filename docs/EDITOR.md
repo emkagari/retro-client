@@ -60,7 +60,10 @@ measures it. Off: what the files hold.
   it masks. A masked line has a pink edge in the layers; a mask selected
   shows its shape and box (drag it, nudge it like any line); 👁 on a mask:
   what it masks is drawn whole while you work. Change its shape in its SVG
-  (`src/assets/shapes/883.svg`), what it covers in its `"mask"`.
+  (`src/assets/shapes/883.svg`), what it covers in its `"mask"`. Masks
+  nest, as in the game: a mask among what another masks (UI_Login's banner
+  under 883 and its mirror) — what's inside both shows where both shapes
+  meet.
 
 It's an approximation: no hover or pressed states, scrollbars, list
 contents, or what code attaches at runtime (`attachMovie`); a lang file's
@@ -109,6 +112,16 @@ texts keep their `%1`.
   refused), position, scale, rotation, alpha, instance name
   (`this._btnOk` in the class), a button record's states, and the line's
   JSON — applied as you type, as soon as it parses (undo takes it back).
+- **Snap** (on by default): dragging on the canvas, the selection's box —
+  its edges and centre — snaps to what's within 6 px on screen: the game
+  screen's edges, centre and map line (Screen on), the lines of its list
+  and the line holding it. Within reach, the screen first, then what holds
+  it, then a named line, then any other. A guide shows where, the line
+  aligned on (its dashed box) and its name and edge (`_btnOK · centre`).
+  Hold `Ctrl` while dragging: no snapping (Photoshop's key); `Shift`: only
+  horizontally or vertically. **Grid** (`G`, its size beside it): drawn
+  faintly over the drawing; with Snap, the box's top left goes to it where
+  no guide is in reach. The arrows aren't snapped (a pixel is a pixel).
 - **Several at once**: `Ctrl+click` a layer to add it to the selection (or
   take it out), `Shift+click` for the lines between it and the one selected,
   in one list; on the canvas `Shift+click` adds a graphic (`Shift+Ctrl`: the

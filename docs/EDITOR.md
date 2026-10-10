@@ -33,7 +33,12 @@ build step.
   shows the game's screen, 742×556 (the map: 742×432, the banner below): an
   interface (`UI_*`, on by default) is attached at its top left, so what's
   inside is what the player sees. Click a graphic to select it, drag it to
-  move it; arrows nudge it by a pixel (`Shift`: 10). **Drag anything from
+  move it; arrows nudge it by a pixel (`Shift`: 10). **Inside a placed
+  sprite**: double-click goes one level deeper under the pointer (again:
+  deeper still), `Ctrl+click` straight to the deepest line there (and drags
+  it), `Escape` one level up. A component showing only its `boundingBox_mc`
+  (a TextArea, a Label: the game hides it at once) lets clicks through to
+  what's under it. **Drag anything from
   the left onto it** to place it (over everything; the drawing's centre
   where it falls).
 - **Right**: the layers — the sprite's own display list, top first, its
@@ -50,16 +55,20 @@ build step.
   inspector: depth, position, scale, rotation, alpha, instance name
   (`this._btnOk` in the class), a button record's states, and the line's
   JSON — applied as you type, as soon as it parses (undo takes it back).
-- **Hierarchy**: drag a layer onto another — its top or bottom edge puts
-  it above or below (the depths are given out again in that order; later
-  frames follow); its middle puts it **inside** a sprite (it becomes its
-  child: drag the sprite, it follows) or, on a shape, **groups** the two.
+- **Hierarchy**: drag a layer onto another, **at any level of the tree** —
+  its top or bottom edge puts it above or below that line, in its list (the
+  depths are given out again in that order; later frames follow); its
+  middle puts it **inside** a sprite (it becomes its child: drag the
+  sprite, it follows) or, two first-level lines, **groups** them. A line
+  inside a sprite dragged onto a first-level one comes out of it; dragged
+  into another sprite, it goes there. One `Ctrl+Z` takes the whole move
+  back.
   **Group** (`Ctrl+G`) wraps the selection in a new sprite,
   `src/assets/new/<this one>/group-N.json`, placed where it was;
   **Ungroup** (`Ctrl+Shift+G`) puts what a placed sprite holds in its place.
-  Nothing moves on screen: positions are recomputed. Moving into a sprite
-  of the base changes its definition — the editor says how many times it's
-  placed first; an instance name (`_btnOk`) moved inside another clip is
+  Nothing moves on screen: positions are recomputed. Moving into or out of
+  a sprite of the base changes its definition — the editor says how many
+  times it's placed first; a button's records stay in their button; an instance name (`_btnOk`) moved inside another clip is
   reached by code through it (`this._group._btnOk`): the editor asks first.
   The sprites changed or created open as tabs, written when saved.
 - **Build** runs `tools/build.mjs` on what's saved and shows its output;

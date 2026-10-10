@@ -199,15 +199,20 @@ const defCache = new Map();
 let defSeq = 0;
 function resetDefs() { defCache.clear(); filterCache.clear(); defs().textContent = ""; }
 
-/** A def's id for what a placement shows (drawn once, used by every placement), or null. */
-function ensureDef(ref, level) {
+/**
+ * A def's id for what a placement shows, or null. Drawn once and used by
+ * every placement — but an instance with something hidden inside (`path`:
+ * its depths from the top, "/65/13") gets its own drawing.
+ */
+function ensureDef(ref, level, path = "") {
   if (!ref || level > 12) return Promise.resolve(null);
-  const key = `${ref.kind}:${ref.file ?? ref.id ?? ref.label}`;
-  if (!defCache.has(key)) defCache.set(key, makeDef(ref, level, `d${++defSeq}`).catch((e) => { console.warn(key, e); return null; }));
+  const own = [...(D()?.hidden ?? [])].some((h) => h.startsWith(`${path}/`));
+  const key = `${ref.kind}:${ref.file ?? ref.id ?? ref.label}${own ? `@${path}` : ""}`;
+  if (!defCache.has(key)) defCache.set(key, makeDef(ref, level, `d${++defSeq}`, own ? path : null).catch((e) => { console.warn(key, e); return null; }));
   return defCache.get(key);
 }
 
-async function makeDef(ref, level, id) {
+async function makeDef(ref, level, id, path) {
   const g = el("g", { id });
   defs().append(g);
   if (ref.kind === "shape") {
@@ -228,7 +233,7 @@ async function makeDef(ref, level, id) {
   } else if (hasChildren(ref)) {
     const json = await fileJsonKnown(ref.file);
     if (!json) return placeholder(g, `${ref.kind} ${ref.id ?? ref.file}`);
-    await drawList(g, childList(ref, json), level + 1, false);
+    await drawList(g, childList(ref, json), level + 1, false, path);
   } else if (ref.kind === "text") {
     const json = ref.file && (await fileJsonKnown(ref.file));
     if (!json) return placeholder(g, `text ${ref.id}`);
@@ -295,8 +300,8 @@ function colorFilter(color) {
 }
 
 /** One placement drawn: a <use> of its def, moved, coloured. */
-async function drawItem(o, level) {
-  const id = await ensureDef(refOf(o), level);
+async function drawItem(o, level, path) {
+  const id = await ensureDef(refOf(o), level, path);
   const u = id ? el("use", { href: `#${id}` }) : el("g");
   if (!id) placeholder(u, describe(o));
   u.setAttribute("transform", transformOf(o));
@@ -306,15 +311,22 @@ async function drawItem(o, level) {
   return u;
 }
 
-/** A display list into `parent`, by depth; a mask clips the depths above it, up to its own `mask`. */
-async function drawList(parent, list, level, interactive) {
-  const nodes = await Promise.all(list.map((it) => (it.o.mask ? null : drawItem(it.o, level))));
+/**
+ * A display list into `parent`, by depth; a mask clips the depths above it,
+ * up to its own `mask`. `path`: where this list is, from the top (null: a
+ * shared drawing, nothing hidden inside); a hidden line isn't drawn.
+ */
+async function drawList(parent, list, level, interactive, path = "") {
+  const hidden = D()?.hidden ?? new Set();
+  const at = (it) => (path === null ? null : `${path}/${it.depth}`);
+  const nodes = await Promise.all(list.map((it) => (it.o.mask || (!interactive && hidden.has(at(it))) ? null : drawItem(it.o, level, at(it)))));
   let clip = null;
   for (let i = 0; i < list.length; i++) {
     const it = list[i];
     if (clip && it.depth > clip.until) clip = null;
+    if (!interactive && hidden.has(at(it))) continue;
     if (it.o.mask) {
-      const id = await ensureDef(refOf(it.o), level);
+      const id = await ensureDef(refOf(it.o), level, at(it));
       const cp = el("clipPath", { id: `clip${++defSeq}` });
       if (id) cp.append(el("use", { href: `#${id}`, transform: transformOf(it.o) }));
       defs().append(cp);
@@ -326,7 +338,7 @@ async function drawList(parent, list, level, interactive) {
     }
     let node = nodes[i];
     if (interactive) {
-      const w = el("g", { class: "item" + (D().hidden.has(it.depth) ? " hidden" : ""), "data-i": it.src ?? "", "data-depth": it.depth });
+      const w = el("g", { class: "item" + (hidden.has(at(it)) ? " hidden" : ""), "data-i": it.src ?? "", "data-depth": it.depth });
       w.append(node);
       node = w;
     }
@@ -505,11 +517,12 @@ function renderLayers() {
         if (knownJson(ref.file) === undefined) fileJsonKnown(ref.file).then(renderLayers); else renderLayers();
       };
       row.append(tw, html("span", { className: "d" }, it.depth));
-      if (top) {
-        const eye = html("span", { className: "eye" + (d.hidden.has(it.depth) ? " off" : ""), title: "Hide while working (not saved)" }, "👁");
-        eye.onclick = (e) => { e.stopPropagation(); d.hidden.has(it.depth) ? d.hidden.delete(it.depth) : d.hidden.add(it.depth); draw(); };
-        row.append(eye);
-      }
+      // Hidden here only (this instance, not the definition's other placements), while you work: not saved.
+      const off = d.hidden.has(key), under = [...d.hidden].some((h) => key.startsWith(`${h}/`));
+      const eye = html("span", { className: "eye" + (off ? " off" : ""), title: under ? "Hidden with what holds it" : "Hide here while working (this instance only; not saved)" }, "👁");
+      if (under) eye.style.opacity = ".3";
+      eye.onclick = (e) => { e.stopPropagation(); off ? d.hidden.delete(key) : d.hidden.add(key); resetDefs(); draw(); };
+      row.append(eye);
       row.append(html("span", { className: "what" }, (it.o.mask ? "mask: " : "") + describe(it.o)));
       if (it.o.name) row.append(html("span", { className: "name" }, it.o.name));
       if (top) row.onclick = () => select(it.src);

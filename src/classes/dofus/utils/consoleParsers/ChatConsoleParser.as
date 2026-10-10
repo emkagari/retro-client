@@ -124,6 +124,9 @@ class dofus.utils.consoleParsers.ChatConsoleParser extends dofus.utils.consolePa
                }
                this.api.network.Evenemential.sendRollDice(_loc12_,_loc13_,!_loc11_ ? "*" : "%");
                break;
+            case "PANNEAU":
+               this.api.ui.loadUIComponent("Panneau","Panneau",{title:"Mon panneau",text:"Un fond SVG (src/assets/new/panneau/Fond.svg), un titre, un texte et un bouton."});
+               break;
             case "VERSION":
             case "VER":
             case "ABOUT":

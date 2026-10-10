@@ -220,6 +220,7 @@ class dofus.DofusCore extends ank.utils.QueueEmbedMovieClip
       Object.registerClass("UI_AskSecretAnswer",dofus.graphics.gapi.ui.AskSecretAnswer);
       Object.registerClass("UI_AskAlertServer",dofus.graphics.gapi.ui.AskAlertServer);
       Object.registerClass("UI_AskOk",dofus.graphics.gapi.ui.AskOk);
+      Object.registerClass("UI_Panneau",dofus.graphics.gapi.ui.Panneau);
       Object.registerClass("UI_AskOkWait",dofus.graphics.gapi.ui.AskOkWait);
       Object.registerClass("UI_Login",dofus.graphics.gapi.ui.Login);
       Object.registerClass("UI_Login_TripleFramerate",dofus.graphics.gapi.ui.Login);

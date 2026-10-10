@@ -51,6 +51,16 @@ measures it. Off: what the files hold.
   into its clip actions by the build (docs/SPRITES.md).
 - **Outlines** (`O`): every line's box and name over the drawing — the
   first level's, and those next to a nested line selected.
+- **Masks**: a mask line (`"mask": 36` in its JSON: `mask: shape 883 ◩
+  29–36` in the layers) isn't drawn — the lines above it, up to that depth,
+  show only inside its shape, whatever its colours (UI_Login's banner, cut
+  by shape 883's rounded corner). Two toggles, independent: **Masks**
+  applies them as the game does (off: what they mask is drawn whole);
+  **Mask shapes** (`M`) shows each mask's shape where it is, pink, over what
+  it masks. A masked line has a pink edge in the layers; a mask selected
+  shows its shape and box (drag it, nudge it like any line); 👁 on a mask:
+  what it masks is drawn whole while you work. Change its shape in its SVG
+  (`src/assets/shapes/883.svg`), what it covers in its `"mask"`.
 
 It's an approximation: no hover or pressed states, scrollbars, list
 contents, or what code attaches at runtime (`attachMovie`); a lang file's
@@ -148,7 +158,11 @@ show it red, and it isn't saved so (the build refuses it too). A line
 with clip actions (`"actions": true`, its script in
 `frame_N/PlaceObject2_<id>_<name>_<depth>/`) keeps them when it moves to
 another depth: saving renames that folder with it, and the build matches
-the clip by its depth, its instance name or what it places.
+the clip by its instance name, then its depth, or what it places. A
+removed line's folder stays; when another line's lands on its name, it's
+put aside in `.tmp/editor-removed/` (the build drops a removed line's
+clip actions with it). The renames are all or nothing: one failing, none
+is done and nothing is written.
 
 ## What it doesn't do (yet)
 

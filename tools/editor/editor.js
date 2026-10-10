@@ -43,6 +43,8 @@ const S = {
   tabs: [], active: -1, tab: "Interfaces",
   // Components drawn as their code draws them; every line's box and name over the drawing.
   ui: null, components: store.get("components", true), outlines: store.get("outlines", false),
+  // Masks applied as in the game; each mask's shape shown (independent).
+  masks: store.get("masks", true), maskShapes: store.get("maskShapes", false),
 };
 // For the DevTools (and tests): the editor's state.
 window.editorState = S;
@@ -357,19 +359,27 @@ async function drawList(parent, list, level, interactive, path = "", file = null
   const codeHidden = (it) => S.components && !!it.o.name && !!params.hidden?.includes(it.o.name);
   list.forEach((it, i) => { if (nodes[i] && codeHidden(it)) nodes[i].setAttribute("opacity", Number(nodes[i].getAttribute("opacity") ?? 1) * 0.2); });
   let clip = null;
+  const shapes = [];
   for (let i = 0; i < list.length; i++) {
     const it = list[i];
     if (clip && it.depth > clip.until) clip = null;
-    if (!interactive && hidden.has(at(it))) continue;
+    if (!interactive && hidden.has(at(it)) && !it.o.mask) continue;
     if (it.o.mask) {
+      // A mask isn't drawn: what's above it, up to its `mask` depth, shows only inside its shape —
+      // its area, whatever it's drawn with (an SVG mask: a clip path can't hold a drawing of groups).
+      // Hidden (👁) or Masks off: what it masks is drawn whole.
       const id = await ensureDef(refOf(it.o), level, at(it));
-      const cp = el("clipPath", { id: `clip${++defSeq}` });
-      if (id) cp.append(el("use", { href: `#${id}`, transform: transformOf(it.o) }));
-      defs().append(cp);
-      const g = el("g", { "clip-path": `url(#${cp.id})` });
+      const g = el("g");
+      if (id && S.masks && !hidden.has(at(it))) {
+        const m = el("mask", { id: `mask${++defSeq}`, maskUnits: "userSpaceOnUse", x: -1e5, y: -1e5, width: 2e5, height: 2e5, style: "mask-type: alpha" });
+        m.append(el("use", { href: `#${id}`, transform: transformOf(it.o), filter: "url(#maskSolid)" }));
+        defs().append(m);
+        g.setAttribute("mask", `url(#${m.id})`);
+      }
       parent.append(g);
       clip = { g, until: it.o.mask };
-      if (interactive) parent.append(el("g", { class: "item mask", "data-i": it.src ?? "" }));
+      if (interactive) parent.append(el("g", { class: "item mask", "data-i": it.src ?? "", "data-depth": it.depth }));
+      if (id && S.maskShapes) shapes.push(el("use", { href: `#${id}`, transform: transformOf(it.o), filter: "url(#maskShape)", class: "maskshape", "pointer-events": "none" }));
       continue;
     }
     let node = nodes[i];
@@ -380,6 +390,8 @@ async function drawList(parent, list, level, interactive, path = "", file = null
     }
     (clip ? clip.g : parent).append(node);
   }
+  // Mask shapes over the list they mask in.
+  parent.append(...shapes);
 }
 
 // --- Components: what the gapi's code draws -----------------------------------
@@ -998,16 +1010,23 @@ function drawSelection() {
     const L = lineAt(key, d);
     if (!L) return;
     let bb = null;
-    if (!L.owner) {
+    // A mask's box: its shape's (it isn't drawn). Measured boxes are dragged by their area (`byBox`).
+    const mask = !!L.o.mask;
+    if (!L.owner && !mask) {
       const node = L.it.src !== null && $("content").querySelector(`.item[data-i="${L.it.src}"]`);
-      if (node && !node.classList.contains("mask")) bb = node.getBBox();
+      if (node) bb = node.getBBox();
     } else {
       bb = await boxOf(L.o, L.chain, key);
       if (seq !== selSeq || D() !== d) return;
     }
     if (bb) {
-      d.boxes.push({ key, bb, nested: !!L.owner });
-      ov.append(el("rect", { x: bb.x, y: bb.y, width: bb.width, height: bb.height, fill: "none", stroke: "#e0a040", "stroke-width": k ? 1 : 1.5, "stroke-dasharray": L.owner ? "5 3" : undefined, "vector-effect": "non-scaling-stroke" }));
+      d.boxes.push({ key, bb, byBox: !!L.owner || mask });
+      ov.append(el("rect", { x: bb.x, y: bb.y, width: bb.width, height: bb.height, fill: "none", stroke: mask ? "#ff4fd8" : "#e0a040", "stroke-width": k ? 1 : 1.5, "stroke-dasharray": L.owner || mask ? "5 3" : undefined, "vector-effect": "non-scaling-stroke" }));
+    }
+    // A mask selected: its shape, even with Mask shapes off.
+    if (mask && !S.maskShapes) {
+      const id = await ensureDef(refOf(L.o), 1, key);
+      if (id && seq === selSeq && D() === d) ov.append(el("use", { href: `#${id}`, transform: `matrix(${multiply(L.chain, matrixOf(L.o)).join(" ")})`, filter: "url(#maskShape)" }));
     }
     const [, , , , x, y] = multiply(L.chain, matrixOf(L.o)), r = 6 / view.k;
     ov.append(el("path", { d: `M${x - r} ${y}H${x + r}M${x} ${y - r}V${y + r}`, stroke: "#6aa8e8", "stroke-width": 1.5, "vector-effect": "non-scaling-stroke" }));
@@ -1142,6 +1161,14 @@ function renderLayers() {
   const rows = (list, level, path, owner, chain) => {
     const loc0File = top0(level) ? d.file : owner.file;
     if (!paramsKnown.has(loc0File) && loc0File.startsWith("timeline/")) paramsOf(loc0File).then(() => renderLayers());
+    // Which mask covers each line (a mask: the depths above it, up to its `mask`).
+    const maskOf = new Map(), masks = new Map();
+    let cur = null;
+    for (const it of list) {
+      if (cur && it.depth > cur.o.mask) cur = null;
+      if (it.o.mask) { cur = it; masks.set(it, []); continue; }
+      if (cur) { maskOf.set(it, cur); masks.get(cur).push(it); }
+    }
     for (const it of list.slice().reverse()) {
       const key = `${path}/${it.depth}`;
       const ref = refOf(it.o);
@@ -1149,6 +1176,7 @@ function renderLayers() {
       const top = level === 0;
       const row = html("div", { className: "layer" + (top ? "" : " child") + (it.ignored ? " ignored" : "") + (key === keys[0] && (!top || it.src === d.sel) ? " on main" : keys.includes(key) && it.src !== null ? " on" : "") });
       if (it.ignored) row.title = `Depth ${it.depth} already holds something: the game ignores this line (not drawn) — drag it elsewhere, ↑ ↓, or remove one of them`;
+      if (maskOf.has(it)) { row.classList.add("masked"); row.title = `Masked by depth ${maskOf.get(it).depth} (${describe(maskOf.get(it).o)}): shows only inside its shape`; }
       row.style.paddingLeft = `${6 + level * 14}px`;
       row.dataset.key = key;
       const tw = html("span", { className: "tw" + (kids ? " can" : ""), title: kids ? "What it holds (its definition, shared by every placement)" : "" }, kids ? (d.open.has(key) ? "▾" : "▸") : "");
@@ -1166,6 +1194,10 @@ function renderLayers() {
       eye.onclick = (e) => { e.stopPropagation(); off ? d.hidden.delete(key) : d.hidden.add(key); resetDefs(); draw(); };
       row.append(eye);
       row.append(html("span", { className: "what" }, (it.o.mask ? "mask: " : "") + describe(it.o)));
+      if (it.o.mask) {
+        const under = masks.get(it) ?? [];
+        row.append(html("span", { className: "mask", title: `A mask: not drawn — the lines above it up to depth ${it.o.mask} show only inside its shape (${under.map((x) => x.o.name ?? describe(x.o)).join(", ") || "none now"}). "mask" in its JSON is that last depth; 👁 here: drawn unmasked while you work.` }, `◩ ${under.length ? (under.length > 1 ? `${under[0].depth}–${under.at(-1).depth}` : under[0].depth) : "∅"}`));
+      }
       const code = paramsKnown.get(loc0File);
       const said = it.o.name && code?.texts?.[it.o.name];
       if (said && !said.code) row.append(html("span", { className: "said", title: `Set by code: ${said.key}` }, `«${said.text ?? said.key}»`));
@@ -1533,7 +1565,7 @@ function setupStage() {
     // (A click without a move on one of several: that one alone.)
     const many = selKeys(d).length > 1;
     const onTop = i !== null && selLines(d).some((L) => !L.owner && L.it.src === i);
-    const onNested = d.boxes?.some((b) => b.nested && inBox(p0, b.bb));
+    const onNested = d.boxes?.some((b) => b.byBox && inBox(p0, b.bb));
     const sel = e.button === 0 && (onTop || onNested) && linesDrag(p0, onTop && many ? i : null);
     if (sel) drag = sel;
     else if (e.button === 0 && i !== null && editable()) { select(i); drag = linesDrag(p0); }
@@ -2142,7 +2174,8 @@ function setupCommands() {
   $("fit").onclick = fit;
   $("reload").onclick = reloadFiles;
   $("screen").onclick = () => { const d = D(); if (!d) return; d.screen = !d.screen; draw(); remember(); };
-  const toggles = () => { $("components").classList.toggle("on", S.components); $("outlines").classList.toggle("on", S.outlines); };
+  const toggles = () => { for (const k of ["components", "outlines", "masks", "maskShapes"]) $(k).classList.toggle("on", S[k]); };
+  for (const k of ["masks", "maskShapes"]) $(k).onclick = () => { S[k] = !S[k]; store.set(k, S[k]); toggles(); resetDefs(); draw(); };
   $("components").onclick = () => { S.components = !S.components; store.set("components", S.components); toggles(); resetDefs(); draw(); };
   $("outlines").onclick = () => { S.outlines = !S.outlines; store.set("outlines", S.outlines); toggles(); drawSelection(); };
   toggles();
@@ -2178,6 +2211,7 @@ function setupCommands() {
     else if (e.key === "Escape") selectUp();
     else if (e.key === "f" || e.key === "F") fit();
     else if (e.key === "o" || e.key === "O") $("outlines").click();
+    else if (e.key === "m" || e.key === "M") $("maskShapes").click();
   });
   window.addEventListener("beforeunload", (e) => { if (S.tabs.some(isDirty)) e.preventDefault(); });
   window.addEventListener("resize", applyView);

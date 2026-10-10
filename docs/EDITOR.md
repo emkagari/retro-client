@@ -73,9 +73,9 @@ texts keep their `%1`.
   Drag the panels' edges to widen them.
 - **Centre**: the sprite, drawn from `src/assets/shapes/` as its sprite.json
   places them. Wheel: zoom; drag the background: pan; `F`: fit. **Screen**
-  shows the game's screen, 742×556 (the map: 742×432, the banner below): an
-  interface (`UI_*`, on by default) is attached at its top left, so what's
-  inside is what the player sees. Click a graphic to select it, drag it to
+  shows the game's screen, 742×556 (the map: 742×432, the banner below),
+  black as in the game: an interface (`UI_*`, on by default) is attached at
+  its top left, so what's inside is what the player sees. Click a graphic to select it, drag it to
   move it; arrows nudge it by a pixel (`Shift`: 10). **Inside a placed
   sprite**: double-click goes one level deeper under the pointer (again:
   deeper still), `Ctrl+click` straight to the deepest line there (and drags
@@ -99,6 +99,16 @@ texts keep their `%1`.
   refused), position, scale, rotation, alpha, instance name
   (`this._btnOk` in the class), a button record's states, and the line's
   JSON — applied as you type, as soon as it parses (undo takes it back).
+- **Several at once**: `Ctrl+click` a layer to add it to the selection (or
+  take it out), `Shift+click` for the lines between it and the one selected,
+  in one list; on the canvas `Shift+click` adds a graphic (`Shift+Ctrl`: the
+  deepest line there); `Ctrl+A` selects every line of the list the selected
+  one is in. Lines of any level mix: dragging one of them on the canvas, the
+  arrows, `Del` act on all of them (each moved in its own parent's
+  coordinates, one `Ctrl+Z`), and dragging one of their rows in the layers
+  carries them all — above, below or into a line, side by side in their
+  order. `Ctrl+G` groups them (first-level lines). The inspector shows the
+  last one picked; `Escape` keeps it alone.
 - **Hierarchy**: drag a layer onto another, **at any level of the tree** —
   its top or bottom edge puts it above or below that line, in its list
   (it takes a free depth between them; with none free, the fewest lines

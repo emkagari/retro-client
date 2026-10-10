@@ -173,13 +173,18 @@ const canHold = (ref) => (ref?.kind === "sprite" || ref?.kind === "freshSprite")
 const ID = [1, 0, 0, 1, 0, 0];
 const hasChildren = (ref) => ref && (ref.kind === "sprite" || ref.kind === "freshSprite" || ref.kind === "button") && ref.file;
 
-/** The display list at frame n: what each depth holds, with the frame-1 line it comes from. */
+/**
+ * The display list at frame n: what each depth holds, with the frame-1 line
+ * it comes from. A line placed where something already is, the player
+ * ignores (the first one shows): listed after it, `ignored`, not drawn.
+ */
 function displayList(frames, n) {
-  const st = new Map();
+  const st = new Map(), ignored = [];
   for (let i = 0; i < Math.min(n, frames.length); i++) {
     const fr = frames[i] ?? {};
     for (const d of fr.remove ?? []) st.delete(d);
     (fr.place ?? []).forEach((o, k) => {
+      if (!o.move && st.has(o.depth)) { ignored.push({ depth: o.depth, o: { ...o }, src: i === 0 ? k : null, frame: i + 1, ignored: true }); return; }
       if (!o.move) { st.set(o.depth, { o: { ...o }, src: i === 0 ? k : null, frame: i + 1 }); return; }
       const cur = st.get(o.depth);
       if (!cur) return;
@@ -190,7 +195,9 @@ function displayList(frames, n) {
       st.set(o.depth, { o: m, src: i === 0 ? k : null, frame: cur.frame });
     });
   }
-  return [...st.entries()].sort((a, b) => a[0] - b[0]).map(([depth, v]) => ({ depth, ...v }));
+  const out = [...st.entries()].sort((a, b) => a[0] - b[0]).map(([depth, v]) => ({ depth, ...v }));
+  for (const it of ignored) out.splice(out.findIndex((x) => x.depth === it.depth) + 1, 0, it);
+  return out;
 }
 /** What a sprite or button shows (frame 1, "up"), for nesting and the layers tree. */
 function childList(ref, json) {
@@ -332,6 +339,7 @@ async function drawList(parent, list, level, interactive, path = "", file = null
   const params = file ? await paramsOf(file) : {};
   // A component's parameters, and what its sprite's class puts in it (a text).
   const paramsFor = (it) => { const p = params[it.frame ?? 1]?.[it.depth], code = it.o.name && params.texts?.[it.o.name]; return code ? { ...p, code } : p; };
+  list = list.filter((it) => !it.ignored);
   const nodes = await Promise.all(list.map((it) => (it.o.mask || (!interactive && hidden.has(at(it))) ? null : drawItem(it.o, level, at(it), paramsFor(it)))));
   // What the class hides as it starts: faded (still there to be moved: a placer marks where code puts something).
   const codeHidden = (it) => S.components && !!it.o.name && !!params.hidden?.includes(it.o.name);
@@ -686,6 +694,8 @@ async function draw() {
   $("content").replaceWith(fresh);
   fresh.id = "content";
   $("empty").hidden = !!d;
+  const twice = d && d.kind === "sprite" ? currentList().filter((it) => it.ignored) : [];
+  if (twice.length) status(`depth ${[...new Set(twice.map((it) => it.depth))].join(", ")}: two lines — the game shows the first, ignores the other (red in the layers): move or remove one (it can't be saved so)`, "bad");
   // An SVG element has no .hidden property: the attribute itself.
   $("screenFrame").toggleAttribute("hidden", !d?.screen);
   $("screen").classList.toggle("on", !!d?.screen);
@@ -1017,7 +1027,8 @@ function renderLayers() {
       const ref = refOf(it.o);
       const kids = hasChildren(ref);
       const top = level === 0;
-      const row = html("div", { className: "layer" + (top ? "" : " child") + ((top && it.src !== null && it.src === d.sel) || d.nested === key ? " on" : "") });
+      const row = html("div", { className: "layer" + (top ? "" : " child") + (it.ignored ? " ignored" : "") + ((top && it.src !== null && it.src === d.sel) || d.nested === key ? " on" : "") });
+      if (it.ignored) row.title = `Depth ${it.depth} already holds something: the game ignores this line (not drawn) — drag it elsewhere, ↑ ↓, or remove one of them`;
       row.style.paddingLeft = `${6 + level * 14}px`;
       row.dataset.key = key;
       const tw = html("span", { className: "tw" + (kids ? " can" : ""), title: kids ? "What it holds (its definition, shared by every placement)" : "" }, kids ? (d.open.has(key) ? "▾" : "▸") : "");
@@ -1179,7 +1190,29 @@ function renderInspector() {
   const what = html("div", { className: "row" });
   what.append(html("label", {}, "shows"), html("span", {}, describe(o)));
   box.append(what);
-  field("depth", o.depth, (v) => { if (Number.isInteger(v)) o.depth = v; });
+  // Its depth: applied when entered (not as typed: "14" isn't 1 first), refused when taken.
+  {
+    const row = html("div", { className: "row" });
+    const input = html("input", { type: "number", value: o.depth, disabled: ro, step: 1, min: 1, max: 65535, title: "Enter: applied (later frames follow); a depth another line has is refused — ↑ ↓ or drag in the layers move it among them" });
+    input.onchange = () => {
+      const v = Number(input.value);
+      if (!Number.isInteger(v) || v < 1 || v > 65535 || v === o.depth) { input.value = o.depth; return; }
+      if (usedDepths(owner).has(v)) {
+        const other = (owner.kind === "button" ? owner.json.records : owner.json.frames.flatMap((f) => f.place ?? [])).find((x) => x.depth === v);
+        status(`depth ${v} is taken${other ? ` by ${other.name ?? describe(other)}` : " (a later frame)"}: ↑ ↓ or drag it in the layers`, "bad");
+        input.value = o.depth;
+        return;
+      }
+      snapshot(owner);
+      const was = o.depth, masks = (items(owner) ?? []).filter((m) => m.mask && was > m.depth && was <= m.mask && m.mask === was);
+      if (owner.kind === "sprite") remapDepths(owner.json, new Map([[was, v]])); else o.depth = v;
+      // A mask whose clip ended at it ends at the line under it now.
+      for (const m of masks) m.mask = Math.max(m.depth, ...(items(owner) ?? []).filter((x) => x !== o && x.depth > m.depth && x.depth < was).map((x) => x.depth));
+      changed();
+    };
+    row.append(html("label", {}, "depth"), input);
+    box.append(row);
+  }
   field("x", o.x ?? 0, (v) => { o.x = round20(v ?? 0); });
   field("y", o.y ?? 0, (v) => { o.y = round20(v ?? 0); });
   if (o.matrix) {
@@ -1468,29 +1501,77 @@ function animatedDepths(json) {
 }
 const freeDepth = (json) => Math.max(0, ...(json.frames ?? []).flatMap((f) => (f.place ?? []).map((o) => o.depth)), ...(json.records ?? []).map((o) => o.depth)) + 1;
 
+/** Every depth a sprite's frames use (placed or removed), or a button's records. */
+function usedDepths(t, except) {
+  const out = new Set();
+  if (t.kind === "button") { for (const o of t.json.records ?? []) if (o !== except) out.add(o.depth); }
+  else for (const f of t.json.frames ?? []) { for (const o of f.place ?? []) if (o !== except) out.add(o.depth); for (const dd of f.remove ?? []) out.add(dd); }
+  return out;
+}
+
 /**
- * Frame 1's lines in a new order (bottom first): the depths they had, given
- * out again in that order — later frames follow them.
+ * Line `x` put between lines `below` and `above` of tab `t` (indices in its
+ * list; null: the bottom, the top), changing as few depths as it can: a
+ * free depth between them if there's one; else the fewest lines moved up
+ * from `above` (or down from `below`) to the next free depth — fewer moved
+ * lines, fewer scripts' folders renamed when saved. Later frames follow;
+ * a mask keeps masking what it masked (and masks `x` if it lands among
+ * it). An error message, or null.
  */
-function reorder(order, t = D()) {
-  const list = items(t);
-  const depths = order.map((i) => list[i].depth).sort((a, b) => a - b);
-  const map = new Map(order.map((i, k) => [list[i].depth, depths[k]]));
+function placeBetween(t, x, below, above) {
+  const list = items(t), X = list[x];
+  if (X.mask) return `${describe(X)} is a mask: move what it masks`;
+  const order = lineOrder(t).filter((k) => k !== x);
+  // (Another line at its depth — the one the player ignores — keeps it.)
+  const used = usedDepths(t, X);
+  const lo = below === null ? 0 : list[below].depth, hi = above === null ? 65536 : list[above].depth;
+  const map = new Map();
+  let d = X.depth > lo && X.depth < hi && !used.has(X.depth) ? X.depth : null;
+  for (let k = lo + 1; d === null && k < hi; k++) if (!used.has(k)) d = k;
+  if (d === null) {
+    // No room between: the lines from `above` up (or from `below` down) to the next free depth make some.
+    const at = new Map(order.map((k) => [list[k].depth, k]));
+    const shift = (dir) => {
+      if ((dir > 0 ? above : below) === null) return null;
+      const moved = [];
+      let f = dir > 0 ? hi : lo;
+      for (; f > 0 && f < 65536 && used.has(f); f += dir) if (at.has(f)) moved.push(at.get(f));
+      if (f <= 0 || f >= 65536) return null;
+      const slots = [...moved.map((k) => list[k].depth), f].sort((m, n) => m - n);
+      const lines = moved.sort((m, n) => list[m].depth - list[n].depth);
+      return dir > 0
+        ? { d: slots[0], pairs: lines.map((k, i) => [list[k].depth, slots[i + 1]]), cost: [moved.length, moved.filter((k) => list[k].actions).length] }
+        : { d: slots.at(-1), pairs: lines.map((k, i) => [list[k].depth, slots[i]]), cost: [moved.length, moved.filter((k) => list[k].actions).length] };
+    };
+    const best = [shift(1), shift(-1)].filter(Boolean).sort((m, n) => m.cost[0] - n.cost[0] || m.cost[1] - n.cost[1])[0];
+    if (!best) return "no free depth left for it";
+    d = best.d;
+    for (const [from, to] of best.pairs) map.set(from, to);
+  }
+  // Its own depth (not through remapDepths: the line it shared a depth with stays).
+  const own = d !== X.depth ? d : null;
+  if (!map.size && own === null) return null;
+  // What each mask masked (depths over it, up to its clip), before.
+  const masks = order.filter((k) => list[k].mask).map((k) => ({ o: list[k], kept: order.filter((j) => j !== k && list[j].depth > list[k].depth && list[j].depth <= list[k].mask).map((j) => list[j]) }));
+  const later = own !== null && t.kind === "sprite" && !usedDepths({ kind: t.kind, json: { frames: [t.json.frames[0]] } }, X).has(X.depth) ? X.depth : null;
   if (t.kind === "sprite") remapDepths(t.json, map); else for (const o of list) if (map.has(o.depth)) o.depth = map.get(o.depth);
+  if (own !== null) {
+    // Later frames moving or removing it follow it (unless the depth was shared: they meant the other one).
+    if (later !== null) for (const f of t.json.frames.slice(1)) { for (const o of f.place ?? []) if (o.move && o.depth === later) o.depth = own; if (f.remove) f.remove = f.remove.map((dd) => (dd === later ? own : dd)); }
+    X.depth = own;
+  }
+  for (const m of masks) if (m.kept.length) m.o.mask = Math.max(...m.kept.map((o) => o.depth)); else if (map.has(m.o.mask)) m.o.mask = map.get(m.o.mask);
+  return null;
+}
+/** Line `i` next to line `j` of tab `t`: just above it (`above`) or just below. */
+function moveNextTo(i, j, above, t = D()) {
+  const order = lineOrder(t).filter((k) => k !== i), at = order.indexOf(j);
+  return above ? placeBetween(t, i, j, order[at + 1] ?? null) : placeBetween(t, i, order[at - 1] ?? null, j);
 }
 /** Tab `t`'s editable lines, bottom first (the open tab's as shown, another's frame 1 or "up"). */
 function lineOrder(t) {
   const list = t === D() ? currentList() : childList({ kind: t.kind }, t.json);
   return list.filter((it) => it.src !== null).map((it) => it.src);
-}
-/** The line `i` just above (`above`) or below the line `j`, among frame 1's. */
-function moveNextTo(i, j, above) {
-  const list = currentList().filter((it) => it.src !== null).map((it) => it.src);
-  const order = list.filter((k) => k !== i);
-  order.splice(order.indexOf(j) + (above ? 1 : 0), 0, i);
-  snapshot();
-  reorder(order);
-  changed();
 }
 function restack(dir) {
   const d = D();
@@ -1498,7 +1579,10 @@ function restack(dir) {
   const list = currentList().filter((it) => it.src !== null).map((it) => it.src);
   const at = list.indexOf(d.sel), other = list[at + dir];
   if (other === undefined) return;
-  moveNextTo(d.sel, other, dir > 0);
+  snapshot();
+  const why = moveNextTo(d.sel, other, dir > 0);
+  if (why) { d.undo.pop(); status(why, "bad"); return; }
+  changed();
 }
 
 /** A tab for a file, opened behind the current one if it isn't (a change made there waits for its save). */
@@ -1581,9 +1665,8 @@ async function dropLine(A, B, zone) {
   if (src === dst) {
     // The same list (one definition, maybe seen through another placement): only the order changes.
     snapshot(src);
-    const order = lineOrder(src).filter((k) => k !== A.it.src);
-    if (into) order.push(A.it.src); else order.splice(order.indexOf(B.it.src) + (zone === "above" ? 1 : 0), 0, A.it.src);
-    reorder(order, src);
+    const why = into ? placeBetween(src, A.it.src, lineOrder(src).filter((k) => k !== A.it.src).at(-1) ?? null, null) : moveNextTo(A.it.src, B.it.src, zone === "above", src);
+    if (why) { d.undo.pop(); status(why, "bad"); return; }
   } else {
     if (src.kind === "button" || dst.kind === "button") { status("a button's records stay in their button (reorder them there)", "bad"); return; }
     if (holds(A.ref, dst.file)) { status(`${describe(o)} would hold itself`, "bad"); return; }
@@ -1602,11 +1685,8 @@ async function dropLine(A, B, zone) {
     items(src).splice(A.it.src, 1);
     const list = items(dst);
     list.push(moved);
-    if (!into) {
-      const order = lineOrder(dst).filter((k) => k !== list.length - 1);
-      order.splice(order.indexOf(B.it.src) + (zone === "above" ? 1 : 0), 0, list.length - 1);
-      reorder(order, dst);
-    }
+    const why = !into && moveNextTo(list.length - 1, B.it.src, zone === "above", dst);
+    if (why) { undo(); status(why, "bad"); return; }
   }
   // Selected where it is now.
   if (dst === d) { d.nested = null; d.sel = items(d).indexOf(moved); }
@@ -1677,10 +1757,12 @@ async function saveTab(t) {
   const order = t.kind === "button" ? RECORD_ORDER : PLACE_ORDER;
   if (t.kind === "sprite") for (const f of t.json.frames ?? []) if (f.place) f.place = f.place.map((o) => ordered(o, order));
   if (t.kind === "button") t.json.records = t.json.records.map((o) => ordered(o, order));
-  await api(`/api/save?path=${encodeURIComponent(t.file)}`, { method: "PUT", body: JSON.stringify(t.json) });
+  const r = await api(`/api/save?path=${encodeURIComponent(t.file)}`, { method: "PUT", body: JSON.stringify(t.json) });
   const created = t.saved === null;
   t.saved = JSON.stringify(t.json);
   diskJson.delete(t.file);
+  // Lines moved to other depths: their clip actions' scripts were renamed with them.
+  if (r.moved?.length) { paramCache.delete(t.file); paramsKnown.delete(t.file); log(`${t.title}: clip actions moved with their lines\n  ${r.moved.join("\n  ")}`); }
   return created;
 }
 async function save(all = false) {

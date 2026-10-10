@@ -49,7 +49,17 @@ const files = sourceFiles(SRC);
 const changed = (full ? files : files.filter((f) => b.manifest.files[f] !== sourceHash(join(SRC, f))))
   .concat(dev ? Object.keys(DEV_FILES) : []);
 const removed = Object.keys(b.manifest.files).filter((f) => !existsSync(join(SRC, f)));
-for (const f of removed) console.warn(`warning: ${f} was deleted — a build can't remove code, the base's stays`);
+// A clip's actions moved with their line to another depth (the sprite editor renames
+// frame_N/PlaceObject2_<id>_<name>_<depth>/): the same script under the new depth.
+const movedTo = (f) => {
+  const m = /^(.*\/frame_\d+\/)(PlaceObject\d?_.+)_\d+(\/[^/]+)$/.exec(f);
+  return m && files.find((g) => g !== f && g.startsWith(m[1] + m[2] + "_") && g.endsWith(m[3]) && /^_\d+\//.test(g.slice((m[1] + m[2]).length)) && !b.manifest.files[g] && sourceHash(join(SRC, g)) === b.manifest.files[f]);
+};
+for (const f of removed) {
+  const to = movedTo(f);
+  if (to) console.log(`clip actions moved: ${f.split("/").at(-2)} → ${to.split("/").at(-2)}`);
+  else console.warn(`warning: ${f} was deleted — a build can't remove code, the base's stays`);
+}
 
 mkdirSync(dirname(out), { recursive: true });
 const symbols = declaredSymbols();

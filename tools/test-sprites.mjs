@@ -14,7 +14,8 @@
  *                base and one another: exported, defined before use, drawn;
  * 6. texts       a field's text and a static text changed; a character the font lacks refused;
  *    buttons     a state's graphic moved: only that button changes; where lists it;
- *    errors      a typo, a wrong id, a cycle, two files of one name: refused, said where;
+ *    errors      a typo, a wrong id, a cycle, two files of one name, two lines at one
+ *                depth: refused, said where; clip actions follow a line to another depth;
  * 7. new base    an edit carried over to a base whose ids changed: ids mapped,
  *                merged with Ankama's change, or a conflict when both change one line.
  */
@@ -214,6 +215,14 @@ test("errors: refused, and said where", () => {
   throws(() => writeSprite(LOGIN, json({ export: "Nope" }), lib, was, "f.json"), 'no symbol exported as "Nope"', "an unknown export");
   throws(() => writeSprite(LOGIN, json({ export: "Button", shape: 901 }), lib, was, "f.json"), "one of export, shape", "two things placed");
   throws(() => writeSprite(LOGIN, { frames: [{ place: [{ depth: 1, shape: 901, actions: true }] }] }, lib, null, "f.json"), "clip actions are compiled", "clip actions added");
+  throws(() => writeSprite(LOGIN, { frames: [{ place: [{ depth: 1, shape: 901 }, { depth: 1, shape: 871 }] }] }, lib, was, "f.json"), "two lines at depth 1", "two lines at one depth");
+  // A line with clip actions moved to a free depth keeps them (matched by its instance name).
+  const ok = structuredClone(was.json), tiAccount = ok.frames[0].place.find((o) => o.name === "_tiAccount");
+  const free = Math.max(...ok.frames.flatMap((f) => (f.place ?? []).map((o) => o.depth))) + 1;
+  tiAccount.depth = free;
+  const back = readSprite(writeSprite(LOGIN, ok, lib, was, "f.json"), lib);
+  const actions = (r) => r.raws[0].find((x) => x.o.name === "_tiAccount").actions;
+  check(back.raws[0].find((x) => x.o.name === "_tiAccount").o.depth === free && actions(back).equals(actions(was)), "_tiAccount's clip actions lost with its depth");
   const assets = join(work, "errors-assets");
   mkdirSync(join(assets, "new"), { recursive: true });
   writeFileSync(join(assets, "new", "a.json"), formatSprite(json({ export: "b" })));

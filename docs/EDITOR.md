@@ -85,12 +85,15 @@ texts keep their `%1`.
   opens the definition in its own tab. ↑ ↓ swap
   depths, ✕ removes, 👁 hides a line while you work — at any level, in that
   instance only (hiding `Bonhomme` in `_css4` leaves the 4 others); not saved. The
-  inspector: depth, position, scale, rotation, alpha, instance name
+  inspector: depth (applied on Enter; a depth another line holds is
+  refused), position, scale, rotation, alpha, instance name
   (`this._btnOk` in the class), a button record's states, and the line's
   JSON — applied as you type, as soon as it parses (undo takes it back).
 - **Hierarchy**: drag a layer onto another, **at any level of the tree** —
-  its top or bottom edge puts it above or below that line, in its list (the
-  depths are given out again in that order; later frames follow); its
+  its top or bottom edge puts it above or below that line, in its list
+  (it takes a free depth between them; with none free, the fewest lines
+  move up or down by one — later frames follow, a mask keeps masking what
+  it masked); its
   middle puts it **inside** a sprite (it becomes its child: drag the
   sprite, it follows) or, two first-level lines, **groups** them. A line
   inside a sprite dragged onto a first-level one comes out of it; dragged
@@ -109,6 +112,14 @@ texts keep their `%1`.
   `src/assets/new/<path>.json` (exported as `<path>`, docs/SPRITES.md),
   written when saved. **Reload files** reads the files again (an SVG edited
   in Inkscape), keeping unsaved changes.
+
+**Depths and clip actions.** One depth holds one thing: two lines at the
+same depth, the game shows the first and ignores the other — the layers
+show it red, and it isn't saved so (the build refuses it too). A line
+with clip actions (`"actions": true`, its script in
+`frame_N/PlaceObject2_<id>_<name>_<depth>/`) keeps them when it moves to
+another depth: saving renames that folder with it, and the build matches
+the clip by its depth, its instance name or what it places.
 
 ## What it doesn't do (yet)
 

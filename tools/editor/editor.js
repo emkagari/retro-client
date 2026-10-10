@@ -1099,9 +1099,10 @@ async function snapTargets(d, moving) {
 }
 
 /**
- * A drag's move (dx, dy) snapped: on each axis, the selection's box's
- * nearest edge or centre to a target within 6 px on screen — else, the grid
- * shown, its top left to the grid. `free`: the axes that may move (Shift).
+ * A drag's move (dx, dy) snapped: on each axis, with Snap, the selection's
+ * box's nearest edge or centre to a target within 6 px on screen; with the
+ * grid, else, its top left to the grid (each on its own: Snap alone, guides
+ * only; the grid alone, the grid only). `free`: the axes that may move (Shift).
  */
 function snapMove(drag, dx, dy, free) {
   const b = drag.box, tol = 6 / view.k;
@@ -1119,7 +1120,8 @@ function snapMove(drag, dx, dy, free) {
     if (S.grid) { const g = S.gridSize, v = start + delta; return { delta: delta + Math.round(v / g) * g - v, hits: [] }; }
     return { delta, hits: [] };
   };
-  const x = axis(free.x, b.x, b.width, dx, drag.targets?.x ?? []), y = axis(free.y, b.y, b.height, dy, drag.targets?.y ?? []);
+  const guides = S.snap ? drag.targets : null;
+  const x = axis(free.x, b.x, b.width, dx, guides?.x ?? []), y = axis(free.y, b.y, b.height, dy, guides?.y ?? []);
   return { dx: x.delta, dy: y.delta, hx: x.hits, hy: y.hits };
 }
 /** The guides of a snapped move: a line where it's aligned, what it's aligned on (its box, its name and which edge). */
@@ -1718,7 +1720,7 @@ function setupStage() {
     if (e.shiftKey) { if (Math.abs(dx) >= Math.abs(dy)) { dy = 0; free.y = false; } else { dx = 0; free.x = false; } }
     // The selection's box as it was when the drag began (measured boxes may come a moment later).
     drag.box ??= (D().boxes ?? []).map((b) => b.bb).reduce((u, bb) => (u ? union(u, bb) : { x: bb.x, y: bb.y, width: bb.width, height: bb.height }), null);
-    const snapped = S.snap && !(e.ctrlKey || e.metaKey) && drag.box ? snapMove(drag, dx, dy, free) : null;
+    const snapped = (S.snap || S.grid) && !(e.ctrlKey || e.metaKey) && drag.box ? snapMove(drag, dx, dy, free) : null;
     if (snapped) ({ dx, dy } = snapped);
     drawGuides(drag, snapped);
     for (const m of drag.lines) {

@@ -111,7 +111,7 @@
   #log a { color: var(--accent2); cursor: pointer; }
   #log .close { position: sticky; float: right; top: 0; }
   .gridbox { display: inline-flex; gap: 2px; align-items: center; }
-  .gridbox input { width: 46px; }
+  .gridbox input { width: 5em; min-width: 70px; box-sizing: border-box; padding: 3px 4px; }
   kbd { background: var(--panel2); border: 1px solid var(--line); border-radius: 3px; padding: 0 4px; font-size: 11px; }
 </style>
 </head>
@@ -132,8 +132,8 @@
     <button id="outlines" title="Every line's box and name (O)">Outlines</button>
     <button id="masks" title="Masks applied as in the game: what a mask line covers shows only inside its shape — off: drawn whole">Masks</button>
     <button id="maskShapes" title="Each mask's shape, where it is (M): a pink area and edge, over what it masks">Mask shapes</button>
-    <button id="snap" title="Snap while dragging: the selection's edges and centre to the game screen's (edges, centre), to the lines next to it and what holds it — a guide names what it's aligned on. Hold Ctrl while dragging: no snapping; Shift: only horizontally or vertically">Snap</button>
-    <span class="gridbox"><button id="grid" title="A grid (G): drawn over the drawing; with Snap on, the selection's top left goes to it">Grid</button><input id="gridSize" type="number" min="1" max="200" step="1" title="Grid size (px)"></span>
+    <button id="snap" title="Snap to guides while dragging: the selection's edges and centre to the game screen's (edges, centre), to the lines next to it and what holds it — a guide names what it's aligned on. Hold Ctrl while dragging: no snapping at all; Shift: only horizontally or vertically">Snap</button>
+    <span class="gridbox"><button id="grid" title="A grid (G), drawn over the drawing: dragging, the selection's top left goes to it (with Snap too: where no guide is in reach). Ctrl while dragging: free">Grid</button><input id="gridSize" type="number" min="1" max="200" step="1" title="Grid size (px)"></span>
     <button id="fit" title="Fit (F)">Fit</button>
     <button id="reload" title="Read the files again (an SVG edited in Inkscape…); unsaved changes stay">Reload files</button>
     <span id="status"></span>

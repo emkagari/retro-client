@@ -1,0 +1,964 @@
+{
+ "base": "1.49.6",
+ "tolerance": 8,
+ "close": 0.01,
+ "extraImages": 37,
+ "graphics": {
+  "images/9.png": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 14"
+  },
+  "images/268.png": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 3"
+  },
+  "images/497.png": {
+   "status": "different",
+   "detail": "18.75 % of pixels, delta up to 63"
+  },
+  "images/503.png": {
+   "status": "different",
+   "detail": "8.12 % of pixels, delta up to 42"
+  },
+  "images/900.png": {
+   "status": "different",
+   "detail": "2.10 % of pixels, delta up to 36"
+  },
+  "shapes/10.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 13"
+  },
+  "shapes/24.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/85.svg": {
+   "status": "different",
+   "detail": "1.43 % of pixels, delta up to 37"
+  },
+  "shapes/92.svg": {
+   "status": "close",
+   "detail": "0.15 % of pixels, delta up to 85"
+  },
+  "shapes/98.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/180.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/238.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/239.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/269.svg": {
+   "status": "different",
+   "detail": "29.63 % of pixels, delta up to 24"
+  },
+  "shapes/288.svg": {
+   "status": "different",
+   "detail": "19.85 % of pixels, delta up to 44"
+  },
+  "shapes/295.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/498.svg": {
+   "status": "different",
+   "detail": "11.95 % of pixels, delta up to 42"
+  },
+  "shapes/504.svg": {
+   "status": "different",
+   "detail": "17.74 % of pixels, delta up to 74"
+  },
+  "shapes/509.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/539.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/559.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/572.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 9"
+  },
+  "shapes/584.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 5"
+  },
+  "shapes/660.svg": {
+   "status": "different",
+   "detail": "22.30 % of pixels, delta up to 255"
+  },
+  "shapes/676.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/696.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 7"
+  },
+  "shapes/697.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 3"
+  },
+  "shapes/698.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 3"
+  },
+  "shapes/699.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/701.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/702.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/703.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/712.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/732.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 7"
+  },
+  "shapes/734.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 6"
+  },
+  "shapes/762.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/763.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 4"
+  },
+  "shapes/783.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/802.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/808.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/811.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/827.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/829.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/831.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/833.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/840.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/860.svg": {
+   "status": "close",
+   "detail": "0.56 % of pixels, delta up to 255"
+  },
+  "shapes/879.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 3"
+  },
+  "shapes/901.svg": {
+   "status": "different",
+   "detail": "1.37 % of pixels, delta up to 36"
+  },
+  "shapes/905.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/907.svg": {
+   "status": "close",
+   "detail": "0.05 % of pixels, delta up to 14"
+  },
+  "shapes/909.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/935.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/949.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 6"
+  },
+  "shapes/952.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/955.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/957.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/958.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 5"
+  },
+  "shapes/964.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 4"
+  },
+  "shapes/965.svg": {
+   "status": "close",
+   "detail": "0.14 % of pixels, delta up to 10"
+  },
+  "shapes/970.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/971.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/972.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/979.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/980.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/987.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/991.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/993.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/995.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1009.svg": {
+   "status": "close",
+   "detail": "0.01 % of pixels, delta up to 28"
+  },
+  "shapes/1010.svg": {
+   "status": "close",
+   "detail": "0.01 % of pixels, delta up to 28"
+  },
+  "shapes/1011.svg": {
+   "status": "close",
+   "detail": "0.01 % of pixels, delta up to 25"
+  },
+  "shapes/1057.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 4"
+  },
+  "shapes/1085.svg": {
+   "status": "close",
+   "detail": "0.01 % of pixels, delta up to 255"
+  },
+  "shapes/1086.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1122.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 7"
+  },
+  "shapes/1168.svg": {
+   "status": "different",
+   "detail": "2.48 % of pixels, delta up to 255"
+  },
+  "shapes/1170.svg": {
+   "status": "close",
+   "detail": "0.01 % of pixels, delta up to 18"
+  },
+  "shapes/1174.svg": {
+   "status": "close",
+   "detail": "0.03 % of pixels, delta up to 19"
+  },
+  "shapes/1180.svg": {
+   "status": "close",
+   "detail": "0.01 % of pixels, delta up to 42"
+  },
+  "shapes/1182.svg": {
+   "status": "different",
+   "detail": "1.65 % of pixels, delta up to 36"
+  },
+  "shapes/1195.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1198.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1201.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1202.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1203.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1205.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1208.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1209.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1210.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1212.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1215.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1216.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1217.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1218.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1219.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1223.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1226.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1227.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1250.svg": {
+   "status": "close",
+   "detail": "0.27 % of pixels, delta up to 56"
+  },
+  "shapes/1252.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1262.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 7"
+  },
+  "shapes/1264.svg": {
+   "status": "close",
+   "detail": "0.39 % of pixels, delta up to 255"
+  },
+  "shapes/1272.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 7"
+  },
+  "shapes/1274.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1327.svg": {
+   "status": "close",
+   "detail": "0.06 % of pixels, delta up to 255"
+  },
+  "shapes/1338.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1339.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1340.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1348.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1350.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 3"
+  },
+  "shapes/1351.svg": {
+   "status": "close",
+   "detail": "0.04 % of pixels, delta up to 255"
+  },
+  "shapes/1352.svg": {
+   "status": "close",
+   "detail": "0.07 % of pixels, delta up to 255"
+  },
+  "shapes/1356.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1357.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1359.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1361.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1363.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1428.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1430.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1431.svg": {
+   "status": "close",
+   "detail": "0.02 % of pixels, delta up to 255"
+  },
+  "shapes/1432.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1434.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 20"
+  },
+  "shapes/1435.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1437.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 3"
+  },
+  "shapes/1442.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 3"
+  },
+  "shapes/1446.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1453.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1455.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1457.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1462.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1463.svg": {
+   "status": "close",
+   "detail": "0.63 % of pixels, delta up to 64"
+  },
+  "shapes/1465.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1469.svg": {
+   "status": "close",
+   "detail": "0.58 % of pixels, delta up to 28"
+  },
+  "shapes/1471.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1474.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1476.svg": {
+   "status": "close",
+   "detail": "0.26 % of pixels, delta up to 85"
+  },
+  "shapes/1481.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1482.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1484.svg": {
+   "status": "close",
+   "detail": "0.03 % of pixels, delta up to 255"
+  },
+  "shapes/1487.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1489.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1492.svg": {
+   "status": "close",
+   "detail": "0.02 % of pixels, delta up to 255"
+  },
+  "shapes/1495.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1498.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1500.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1502.svg": {
+   "status": "close",
+   "detail": "0.10 % of pixels, delta up to 255"
+  },
+  "shapes/1504.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1505.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1508.svg": {
+   "status": "close",
+   "detail": "0.02 % of pixels, delta up to 255"
+  },
+  "shapes/1518.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1522.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1527.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1534.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1546.svg": {
+   "status": "close",
+   "detail": "0.47 % of pixels, delta up to 255"
+  },
+  "shapes/1551.svg": {
+   "status": "different",
+   "detail": "2.35 % of pixels, delta up to 255"
+  },
+  "shapes/1609.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1611.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1613.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1615.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1617.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1619.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1632.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1633.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1635.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 3"
+  },
+  "shapes/1761.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1772.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1782.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1787.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1790.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1791.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1794.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1796.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/1799.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 3"
+  },
+  "shapes/1801.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1804.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 4"
+  },
+  "shapes/1806.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1808.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1810.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1813.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1815.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1817.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1819.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1821.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1823.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1825.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1827.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1829.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1831.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1833.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1835.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1837.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1839.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1898.svg": {
+   "status": "close",
+   "detail": "0.64 % of pixels, delta up to 255"
+  },
+  "shapes/1923.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1931.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1950.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1952.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1954.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1956.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1958.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/1960.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2016.svg": {
+   "status": "close",
+   "detail": "0.42 % of pixels, delta up to 127"
+  },
+  "shapes/2033.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2042.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2047.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2072.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2156.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2166.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2399.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2441.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2477.svg": {
+   "status": "different",
+   "detail": "2.68 % of pixels, delta up to 41"
+  },
+  "shapes/2479.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 6"
+  },
+  "shapes/2550.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2566.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2568.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2608.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2610.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2612.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2614.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2617.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/2635.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2637.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 3"
+  },
+  "shapes/2674.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2699.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/2702.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/2706.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 2"
+  },
+  "shapes/2792.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2795.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2872.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2875.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2946.svg": {
+   "status": "different",
+   "detail": "1.36 % of pixels, delta up to 16"
+  },
+  "shapes/2954.svg": {
+   "status": "different",
+   "detail": "1.33 % of pixels, delta up to 42"
+  },
+  "shapes/2960.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2965.svg": {
+   "status": "different",
+   "detail": "40.97 % of pixels, delta up to 254"
+  },
+  "shapes/2968.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2971.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2974.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  },
+  "shapes/2977.svg": {
+   "status": "close",
+   "detail": "0.00 % of pixels, delta up to 1"
+  }
+ }
+}

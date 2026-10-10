@@ -13,7 +13,11 @@
  *    export (git merge-file); conflicts are listed;
  * 4. compiles every file to list what the decompiler got wrong;
  * 5. src/ ← the export, in the repo's layout (classes/, timeline/…);
- * 6. retro.json → this version.
+ * 6. src/assets/ ← the new base's graphics (tools/assets.mjs); a graphic
+ *    edited for the previous base is found in the new one by its original
+ *    content (ids change between versions) and its edit carried over; new/
+ *    graphics are kept; those not found are listed;
+ * 7. retro.json → this version.
  *
  * Fix those files by hand (they're few: 2 for 1.49.5), until
  * `node tools/build.mjs --full` passes, then record the baseline:
@@ -22,7 +26,8 @@
 import { execFileSync, spawnSync } from "node:child_process";
 import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, relative, sep } from "node:path";
-import { ROOT, SRC, compileErrors, config, ffdec, fromFfdec, sourceFiles } from "./lib.mjs";
+import { ROOT, SRC, base, compileErrors, config, ffdec, fromFfdec, sourceFiles } from "./lib.mjs";
+import { ASSETS, assetFiles, assetHash, changedAssets, exportGraphics, extract } from "./assets.mjs";
 
 const args = process.argv.slice(2);
 const opt = (k) => (args.includes(k) ? args[args.indexOf(k) + 1] : undefined);
@@ -90,8 +95,20 @@ const r = ffdec(cfg, ["-onerror", "ignore", "-importScript", join(dir, "loader.s
 const errors = compileErrors(r.log).map((e) => e.replace(/file: (.+)$/, (_, f) => `file: src/${fromFfdec(relative(exported, f).split(sep).join("/"))}`));
 rmSync(out, { force: true });
 
+// Graphics edited for the previous base (and new ones): kept aside, src/ is replaced.
+const keptAssets = join(ROOT, ".tmp", "assets-kept");
+rmSync(keptAssets, { recursive: true, force: true });
+const editedAssets = [];
+if (existsSync(ASSETS) && existsSync(join(ROOT, "base", previous, "manifest.json"))) {
+  for (const f of changedAssets(base(previous).manifest)) {
+    mkdirSync(dirname(join(keptAssets, f)), { recursive: true });
+    copyFileSync(join(ASSETS, f), join(keptAssets, f));
+    if (!f.startsWith("new/")) editedAssets.push(f);
+  }
+}
+
 // Into src/, in the repo's layout (tools/lib.mjs: classes/, timeline/…).
-rmSync(SRC, { recursive: true, force: true });
+rmSync(SRC, { recursive: true, force: true, maxRetries: 5 });
 for (const f of files) {
   const to = join(SRC, fromFfdec(f));
   mkdirSync(dirname(to), { recursive: true });
@@ -99,6 +116,27 @@ for (const f of files) {
 }
 rmSync(tmp, { recursive: true, force: true });
 console.log(`src/: ${files.length} files`);
+
+// The new base's graphics, and the edits carried over by original content.
+extract(cfg, join(dir, "loader.swf"));
+const lostAssets = [];
+if (existsSync(keptAssets)) {
+  if (existsSync(join(keptAssets, "new"))) cpSync(join(keptAssets, "new"), join(ASSETS, "new"), { recursive: true });
+  if (editedAssets.length) {
+    const original = join(ROOT, ".tmp", "assets-previous");
+    exportGraphics(cfg, previousLoader, original);
+    const byContent = new Map(assetFiles().filter((f) => !f.startsWith("new/")).map((f) => [assetHash(join(ASSETS, f)), f]));
+    for (const f of editedAssets) {
+      const target = existsSync(join(original, f)) ? byContent.get(assetHash(join(original, f))) : undefined;
+      if (target) copyFileSync(join(keptAssets, f), join(ASSETS, target));
+      else lostAssets.push(f);
+    }
+    rmSync(original, { recursive: true, force: true, maxRetries: 5 });
+    console.log(`graphics edited for base ${previous}: ${editedAssets.length - lostAssets.length} carried over` +
+      (lostAssets.length ? `, ${lostAssets.length} not found in ${version} (changed or removed by Ankama): redo them from .tmp/assets-kept/:\n${lostAssets.map((f) => `  ${f}`).join("\n")}` : ""));
+  }
+}
+console.log(`src/assets/: ${assetFiles().length} files`);
 
 const retro = JSON.parse(readFileSync(join(ROOT, "retro.json"), "utf8"));
 writeFileSync(join(ROOT, "retro.json"), JSON.stringify({ ...retro, version }, null, 2) + "\n");

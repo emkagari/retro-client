@@ -1,0 +1,6114 @@
+{
+ "shapes/7": [
+  "Chaine_Lock"
+ ],
+ "images/9": [
+  "UI_Misc"
+ ],
+ "shapes/10": [
+  "UI_Misc"
+ ],
+ "shapes/12": [
+  "AchievementItem",
+  "AchievementItemRewards",
+  "AchievementObjectiveCheckboxItem",
+  "AchievementObjectiveProgressBarDetailsItem",
+  "AchievementObjectiveProgressBarItem",
+  "AchievementRewardItem",
+  "AchievementSynthesis",
+  "AchievementSynthesisBigItem",
+  "AchievementSynthesisItem",
+  "AlignmentViewer",
+  "AlignmentViewerOrder",
+  "AlignmentViewerTree",
+  "AlignmentViewerTreeItem",
+  "BannerSpriteInfos",
+  "BottomArrow",
+  "BtnDeleteCharacterDown",
+  "BtnDeleteCharacterUp",
+  "BtnResetCharacterDown",
+  "BtnResetCharacterUp",
+  "BuffViewer",
+  "Button",
+  "ButtonArchMonsterDown",
+  "ButtonArchMonsterUp",
+  "ButtonArrowCornerDown",
+  "ButtonArrowCornerUp",
+  "ButtonArrowDown",
+  "ButtonArrowUp",
+  "ButtonChatDown",
+  "ButtonChatUp",
+  "ButtonCheckDown",
+  "ButtonCheckUp",
+  "ButtonCloseDown",
+  "ButtonCloseUp",
+  "ButtonColorDown",
+  "ButtonColorUp",
+  "ButtonCraftDown",
+  "ButtonCraftDownInvert",
+  "ButtonCraftUp",
+  "ButtonCraftUpInvert",
+  "ButtonCrossDown",
+  "ButtonCrossUp",
+  "ButtonDecorationDown",
+  "ButtonDecorationUp",
+  "ButtonEjectDown",
+  "ButtonEjectUp",
+  "ButtonEmoteDown",
+  "ButtonEmoteUp",
+  "ButtonFlatRoundDown",
+  "ButtonFlatRoundLeft",
+  "ButtonHelpDown",
+  "ButtonHelpUp",
+  "ButtonJoinTaxCollectorDown",
+  "ButtonJoinTaxCollectorUp",
+  "ButtonLeftDown",
+  "ButtonLeftUp",
+  "ButtonLocateDown",
+  "ButtonLocateUp",
+  "ButtonManDown",
+  "ButtonManUp",
+  "ButtonMaximizeDown",
+  "ButtonMaximizeUp",
+  "ButtonMinimizeDown",
+  "ButtonMinimizeUp",
+  "ButtonMoinsDown",
+  "ButtonMoinsUp",
+  "ButtonMonsterDown",
+  "ButtonMonsterUp",
+  "ButtonMuteEnvironmentDown",
+  "ButtonMuteEnvironmentUp",
+  "ButtonMuteMusicDown",
+  "ButtonMuteMusicUp",
+  "ButtonMuteSoundsDown",
+  "ButtonMuteSoundsUp",
+  "ButtonNormalDown",
+  "ButtonNormalUp",
+  "ButtonPartyDown",
+  "ButtonPartyUp",
+  "ButtonPlusDown",
+  "ButtonPlusUp",
+  "ButtonRecipeDown",
+  "ButtonRecipeUp",
+  "ButtonResetDown",
+  "ButtonResetUp",
+  "ButtonRightDown",
+  "ButtonRightUp",
+  "ButtonSimpleRectangleUpDown",
+  "ButtonSitDown",
+  "ButtonSitUp",
+  "ButtonSpellsDown",
+  "ButtonSpellsUp",
+  "ButtonSquareDown",
+  "ButtonSquareUp",
+  "ButtonTabDown",
+  "ButtonTabUp",
+  "ButtonTimelineDown",
+  "ButtonTimelineUp",
+  "ButtonToggleDown",
+  "ButtonToggleUp",
+  "ButtonUnknownDown",
+  "ButtonUnknownUp",
+  "ButtonValidDown",
+  "ButtonValidUp",
+  "ButtonWomanDown",
+  "ButtonWomanUp",
+  "Card",
+  "CardFamily",
+  "CautionIcon",
+  "Chat",
+  "ChatFilters",
+  "ChooseCharacterServerState0",
+  "ChooseCharacterServerState1",
+  "ChooseCharacterServerState2",
+  "ChooseCharacterSprite",
+  "ChooseServerListItem",
+  "ClassCustomize",
+  "ClassInfosViewerSpellContainerHighlight",
+  "ColorPicker",
+  "ColorPickerColorsCross",
+  "ColorSelector",
+  "ConquestJoinViewer",
+  "ConquestStatsViewer",
+  "ConquestStatsViewerItem",
+  "ConquestZonesViewer",
+  "ConquestZonesViewerAreaItem",
+  "ConquestZonesViewerVillageItem",
+  "CraferListItem",
+  "CraftViewer",
+  "CraftViewerCraftItem",
+  "DataGrid",
+  "DeathCounter",
+  "DirectionChooserArrows",
+  "DofusLoader",
+  "DofusLoader_TripleFramerate",
+  "DraggableButton",
+  "EncyclopediaBestiaryMonsterDetails",
+  "EncyclopediaBestiaryViewer",
+  "EncyclopediaBestiaryViewerMonster",
+  "EncyclopediaCeremonialViewer",
+  "EncyclopediaConsumablesViewer",
+  "EncyclopediaConsumablesViewerConsumable",
+  "EncyclopediaCraftItem",
+  "EncyclopediaEquipmentDetails",
+  "EncyclopediaEquipmentsViewer",
+  "EncyclopediaEquipmentsViewerEquipment",
+  "EncyclopediaItemEffectItem",
+  "EncyclopediaRessourceDetails",
+  "EncyclopediaRessourcesViewer",
+  "EncyclopediaRessourcesViewerRessource",
+  "EvolvingItemsViewer",
+  "FightChallengeViewer",
+  "FilterCategoryViewer",
+  "FilterCheckViewer",
+  "FilterIntervalViewer",
+  "FilterLabelViewer",
+  "FilterList",
+  "FilterPropertyValueViewer",
+  "FilterSearchViewer",
+  "FilterTagViewer",
+  "GiftItem",
+  "GrayWaitBar",
+  "GridInventoryViewer",
+  "GuildBoostsViewer",
+  "GuildBoostsViewerSpell",
+  "GuildHousesViewer",
+  "GuildInformationsViewer",
+  "GuildMembersViewer",
+  "GuildMembersViewerMember",
+  "GuildMountParkViewer",
+  "Heart",
+  "Inventory",
+  "ItemSetViewer",
+  "ItemSetViewerItemBackground",
+  "ItemSetViewerItemBorder",
+  "ItemViewer",
+  "ItemViewerBigDescription",
+  "ItemViewerBigLite",
+  "ItemViewerItem",
+  "ItemViewerLite",
+  "ItemViewerProgressBar",
+  "JobOptionsViewer",
+  "ListInventoryViewer",
+  "LivingItemsViewer",
+  "LoaderBorder",
+  "LocateIcon",
+  "LookSelectorBackground",
+  "MapNavigator",
+  "MaskRect",
+  "MiniMap",
+  "MountParksViewerItem",
+  "MountViewer",
+  "MountWeight",
+  "MouseShortcuts",
+  "OptionsDisplayContent",
+  "OptionsGeneralContent",
+  "OptionsOptimizationContent",
+  "OptionsSoundContent",
+  "PlayerWeight",
+  "ProgressBar",
+  "ProgressBarDefaultRenderer",
+  "ProgressBarRectangleRenderer",
+  "ProgressBarSemiCornerRenderer",
+  "QuestStepListViewer",
+  "QuestStepViewer",
+  "RankViewer",
+  "Rectangle",
+  "ScrollBar",
+  "ScrollBarDownArrow",
+  "ScrollBarThumb",
+  "ScrollBarTrack",
+  "SeasonRewardBackground",
+  "SeasonRewardItem",
+  "Season_Gameplay",
+  "Season_Progress",
+  "ShortcutsChatReplacementPanel",
+  "SmileyContainerHighlight",
+  "Smileys",
+  "SpecializationViewer",
+  "SpellBoostViewer",
+  "SpellFullInfosViewer",
+  "SpellFullInfosViewerFalse",
+  "SpellFullInfosViewerItem",
+  "SpellFullInfosViewerTrue",
+  "SpellInfosViewer",
+  "SpellsItem",
+  "SpouseViewer",
+  "SpriteViewer",
+  "SquareEmblem",
+  "StarsDisplayer",
+  "StatsViewer",
+  "StatsViewerStatItem",
+  "StopSymbol",
+  "TaxCollectorViewerPlayer",
+  "TaxCollectorsViewer",
+  "TaxCollectorsViewerItem",
+  "TimelineItem",
+  "TimelineItemSummonedBg",
+  "TitleItem",
+  "TreeDots",
+  "UI_AchievementRewards",
+  "UI_AchievementRewardsViewer",
+  "UI_Achievements",
+  "UI_AskAlertServerContent",
+  "UI_AskCancelContent",
+  "UI_AskChooseNickNameContent",
+  "UI_AskCustomShortcutContent",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate",
+  "UI_AskLinkWarning",
+  "UI_AskMainMenuContent",
+  "UI_AskOkContent",
+  "UI_AskPayZoneInfosContent",
+  "UI_AskPrivateChatContent",
+  "UI_AskReportMessage",
+  "UI_AskSecretAnswerContent",
+  "UI_AskYesNoContent",
+  "UI_AskYesNoIgnoreContent",
+  "UI_AskYesNoWithStringContent",
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate",
+  "UI_Banner",
+  "UI_BannerAchievementIcon",
+  "UI_BannerBookIcon",
+  "UI_BannerClockArrowHours",
+  "UI_BannerClockArrowMinutes",
+  "UI_BannerClockBack",
+  "UI_BannerCompassArrow",
+  "UI_BannerCompassBack",
+  "UI_BannerCompassNoArrow",
+  "UI_BannerContainerBackground",
+  "UI_BannerContainerBorder",
+  "UI_BannerContainerHighLight",
+  "UI_BannerEncyclopediaIcon",
+  "UI_BannerEventIcon",
+  "UI_BannerFriendsIcon",
+  "UI_BannerGuildIcon",
+  "UI_BannerInventoryIcon",
+  "UI_BannerJobIcon",
+  "UI_BannerMapIcon",
+  "UI_BannerMountIcon",
+  "UI_BannerPvpIcon",
+  "UI_BannerSpellIcon",
+  "UI_BannerStatsIcon",
+  "UI_BannerTitleIcon",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuyPricesGrid",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_BigStoreContainerBackground",
+  "UI_BigStoreContainerHighlight",
+  "UI_BigStorePriceItem",
+  "UI_BigStorePriceItemNoBuy",
+  "UI_BigStoreSearch",
+  "UI_BigStoreSearchFullSoul",
+  "UI_BigStoreSell",
+  "UI_BigStoreSellPricesGrid",
+  "UI_BuffHighlight",
+  "UI_BuffInfos",
+  "UI_CardsCollection",
+  "UI_CardsCollectionContainerHighlight",
+  "UI_CardsRecycler",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate",
+  "UI_CenterInfo",
+  "UI_CenterText",
+  "UI_CharactersMigration",
+  "UI_ChooseCharacter",
+  "UI_ChooseFeed",
+  "UI_ChooseItemSkin",
+  "UI_ChooseNickName",
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_ChooseServer",
+  "UI_Cinematic",
+  "UI_Conquest",
+  "UI_Craft",
+  "UI_CrafterCard",
+  "UI_CrafterList",
+  "UI_CreateCharacter",
+  "UI_CreateGuild",
+  "UI_CustomSet",
+  "UI_CustomSetContainerBackground",
+  "UI_CustomSetContainerBorder",
+  "UI_CustomSetContainerHighLight",
+  "UI_CustomSetEdit",
+  "UI_DailyQuests",
+  "UI_DailyQuestsViewItem",
+  "UI_Debug",
+  "UI_Decraft",
+  "UI_DemoMode",
+  "UI_DirectionChooser",
+  "UI_DocumentBook",
+  "UI_DocumentParchment",
+  "UI_DocumentRoadSignLeft",
+  "UI_DocumentRoadSignRight",
+  "UI_EditPlayer",
+  "UI_EditSocialNoteContent",
+  "UI_Encyclopedia",
+  "UI_EncyclopediaDetailsWindow",
+  "UI_Exchange",
+  "UI_FightChallenge",
+  "UI_FightOptionButtons",
+  "UI_FightOptionToggleSpritesDown",
+  "UI_FightOptionToggleSpritesUp",
+  "UI_FightsInfos",
+  "UI_FightsInfosFightItem",
+  "UI_FloatingTips",
+  "UI_ForgemagusContainerBackground",
+  "UI_ForgemagusContainerHighlight",
+  "UI_ForgemagusCraft",
+  "UI_Friends",
+  "UI_FriendsConnectedItem",
+  "UI_FriendsDisconnectedItem",
+  "UI_GameOver",
+  "UI_GameResult",
+  "UI_GameResultLight",
+  "UI_GameResultPlayer",
+  "UI_GameResultPlayerLight",
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP",
+  "UI_GameResultSeparator",
+  "UI_GameResultTeam",
+  "UI_GameResultTeamPVP",
+  "UI_Gifts",
+  "UI_GiftsSprite",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate",
+  "UI_Guild",
+  "UI_GuildHouseRights",
+  "UI_GuildMemberInfos",
+  "UI_HistoryViewerOnCreate",
+  "UI_HouseSale",
+  "UI_Inventory",
+  "UI_InventoryContainerBackground",
+  "UI_InventoryContainerHighlight",
+  "UI_InventoryContainerHighlight_TripleFramerate",
+  "UI_InventorySearch",
+  "UI_Inventory_TripleFramerate",
+  "UI_ItemFound",
+  "UI_ItemSelector",
+  "UI_ItemSummoner",
+  "UI_ItemUtility",
+  "UI_ItemViewer",
+  "UI_JobViewer",
+  "UI_JoinFriend",
+  "UI_JoinFriend_TripleFramerate",
+  "UI_KeyCode",
+  "UI_KeyCodeContainer",
+  "UI_KeyCodeHighlight",
+  "UI_KeyCodeSymbolContainer",
+  "UI_KeyCodeSymbolHighlight",
+  "UI_KnownledgeBase",
+  "UI_Login",
+  "UI_Login_flagsMask",
+  "UI_MainMenu",
+  "UI_MakeMimibiote",
+  "UI_MakeReport",
+  "UI_MapExplorer",
+  "UI_MapExplorerSelectRectangle",
+  "UI_MemberRightItem",
+  "UI_ModReportCategoryItem",
+  "UI_ModReportObjectItem",
+  "UI_MonsterAndLookSelector",
+  "UI_Mount",
+  "UI_MountAncestorsViewer",
+  "UI_MountParkSale",
+  "UI_MountStorage",
+  "UI_MountViewer",
+  "UI_NewModReportAdmin",
+  "UI_NpcDialog",
+  "UI_NpcShop",
+  "UI_Options",
+  "UI_Party",
+  "UI_PartyItem",
+  "UI_PartyItemInfo",
+  "UI_PayZone",
+  "UI_PayZoneDialog",
+  "UI_PlayerInfos",
+  "UI_PlayerInfosEffectsItem",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_PopupHexaContent",
+  "UI_PopupQuantityWithDescriptionContent",
+  "UI_PopupQuatityContent",
+  "UI_PopupTextContent",
+  "UI_Prism",
+  "UI_PrismItem",
+  "UI_Quests",
+  "UI_QuestsAccount",
+  "UI_QuestsQuestItem",
+  "UI_QuestsRepeatable",
+  "UI_Register",
+  "UI_ReportPlayerToModeration",
+  "UI_SecureCraft",
+  "UI_SecureForgemagusCraft",
+  "UI_ServerEvenemential",
+  "UI_ServerInformations",
+  "UI_ServerList",
+  "UI_Shortcuts",
+  "UI_ShortcutsChatReplacementPanelEffectsItem",
+  "UI_ShortcutsItem",
+  "UI_ShortcutsPanelContainerBackground",
+  "UI_ShortcutsPanelContainerBorder",
+  "UI_ShortcutsPanelContainerHighlight",
+  "UI_SpellForget",
+  "UI_SpellForgetItem",
+  "UI_SpellInfos",
+  "UI_SpellViewerOnCreate",
+  "UI_Spells",
+  "UI_SpellsBoostContainerBackground",
+  "UI_SpellsBoostContainerBorder",
+  "UI_SpellsBoostContainerHighLight",
+  "UI_SpellsContainerBackground",
+  "UI_SpellsContainerBorder",
+  "UI_SpellsContainerHighLight",
+  "UI_StatsJob",
+  "UI_StatsJobContainerBackground",
+  "UI_StatsJobContainerBackground2",
+  "UI_StatsJobContainerBorder",
+  "UI_StatsJobContainerHighlight",
+  "UI_Storage",
+  "UI_Subway",
+  "UI_SubwayItem",
+  "UI_Survey",
+  "UI_SurveyNotification",
+  "UI_TaxCollectorStorage",
+  "UI_TemporaryEvent",
+  "UI_Timeline",
+  "UI_Tips",
+  "UI_TitleAndOrnament",
+  "UI_Tutorial",
+  "UI_WaitingQueue",
+  "UI_WantedParchment",
+  "UI_Waypoints",
+  "UI_WaypointsItem",
+  "UI_Zoom",
+  "VolumeSlider",
+  "VolumeSliderMarkerDefault",
+  "WantedStarsDisplayer",
+  "WhiteWaitBar",
+  "_mcDeathCounterHeadMore",
+  "mask"
+ ],
+ "shapes/15": [
+  "DofusLoader",
+  "DofusLoader_TripleFramerate"
+ ],
+ "shapes/20": [
+  "AchievementItem",
+  "AchievementItemRewards",
+  "AchievementObjectiveCheckboxItem",
+  "AchievementObjectiveProgressBarDetailsItem",
+  "AchievementObjectiveProgressBarItem",
+  "AchievementRewardItem",
+  "AchievementSynthesis",
+  "AchievementSynthesisBigItem",
+  "AchievementSynthesisItem",
+  "AchievementsCategoryItem",
+  "AlignmentViewer",
+  "AlignmentViewerFeatsItem",
+  "AlignmentViewerOrder",
+  "AlignmentViewerTree",
+  "AlignmentViewerTreeItem",
+  "ArtworkRotation",
+  "ArtworkRotationItem",
+  "BackgroundHidder",
+  "BannerSpriteInfos",
+  "BookPageIndex",
+  "BookPageIndexChapterItem",
+  "BookPageTitle",
+  "BuffViewer",
+  "Button",
+  "Card",
+  "CardFamily",
+  "Chat",
+  "ChatArea",
+  "ChatFilters",
+  "ChooseCharacterSprite",
+  "ChooseItemSkin",
+  "ChooseItemSkinItem",
+  "ChooseServerListItem",
+  "ChooseServerSprite",
+  "CircleBar",
+  "CircleChrono",
+  "ClassCustomize",
+  "ClassInfosViewer",
+  "Clock",
+  "ColorPicker",
+  "ColorSelector",
+  "ComboBox",
+  "Compass",
+  "ConquestJoinViewer",
+  "ConquestStatsViewer",
+  "ConquestStatsViewerItem",
+  "ConquestZonesViewer",
+  "ConquestZonesViewerAreaItem",
+  "ConquestZonesViewerVillageItem",
+  "ConsoleLogger",
+  "Container",
+  "ContainerGrid",
+  "CraferListItem",
+  "CraftViewer",
+  "CraftViewerCraftItem",
+  "DataGrid",
+  "DirectionChooserArrows",
+  "DofusLoader",
+  "DofusLoader_TripleFramerate",
+  "DraggableButton",
+  "Emblem",
+  "EncyclopediaBestiaryMonsterDetails",
+  "EncyclopediaBestiarySpellsItem",
+  "EncyclopediaBestiaryViewer",
+  "EncyclopediaBestiaryViewerMonster",
+  "EncyclopediaCeremonialViewer",
+  "EncyclopediaConsumablesViewer",
+  "EncyclopediaConsumablesViewerConsumable",
+  "EncyclopediaCraftItem",
+  "EncyclopediaEquipmentDetails",
+  "EncyclopediaEquipmentsViewer",
+  "EncyclopediaEquipmentsViewerEquipment",
+  "EncyclopediaItemEffectItem",
+  "EncyclopediaItemSetViewer",
+  "EncyclopediaRessourceDetails",
+  "EncyclopediaRessourcesViewer",
+  "EncyclopediaRessourcesViewerRessource",
+  "EvolvingItemsViewer",
+  "FightChallengeIcon",
+  "FightChallengeViewer",
+  "FighterEffectsReplacementPanel",
+  "FilterCategoryViewer",
+  "FilterCheckViewer",
+  "FilterIntervalViewer",
+  "FilterLabelViewer",
+  "FilterPropertyValueViewer",
+  "FilterSearchViewer",
+  "FilterTagViewer",
+  "Fps",
+  "GAPILoader",
+  "GiftItem",
+  "GridInventoryViewer",
+  "GuildBoostsViewer",
+  "GuildBoostsViewerSpell",
+  "GuildHousesViewer",
+  "GuildHousesViewerHouses",
+  "GuildInformationsViewer",
+  "GuildMembersViewer",
+  "GuildMembersViewerMember",
+  "GuildMountParkViewer",
+  "ItemSetViewer",
+  "ItemViewer",
+  "ItemViewerBigDescription",
+  "ItemViewerBigLite",
+  "ItemViewerEffects",
+  "ItemViewerItem",
+  "ItemViewerLite",
+  "JobOptionsViewer",
+  "JobViewerJobItem",
+  "JobViewerSkillItem",
+  "Label",
+  "List",
+  "ListInventoryViewer",
+  "ListInventoryViewerItem",
+  "ListInventoryViewerItemNoPrice",
+  "LivingItemsViewer",
+  "MapNavigator",
+  "MiniMap",
+  "MountParksViewerItem",
+  "MountStorageMountItem",
+  "MountViewer",
+  "MountWeight",
+  "MouseShortcuts",
+  "OptionsDisplayContent",
+  "OptionsGeneralContent",
+  "OptionsOptimizationContent",
+  "OptionsSoundContent",
+  "PlayerWeight",
+  "ProgressBar",
+  "QuestStepListViewer",
+  "QuestStepViewer",
+  "QuestionViewer",
+  "QuestionViewerAnswerItem",
+  "RankViewer",
+  "ScrollBar",
+  "SeasonRewardItem",
+  "Season_Gameplay",
+  "Season_Progress",
+  "ShortcutsChatReplacementPanel",
+  "Smileys",
+  "SpecializationViewer",
+  "SpellBoostViewer",
+  "SpellFullIcon",
+  "SpellFullInfosViewer",
+  "SpellFullInfosViewerItem",
+  "SpellInfosViewer",
+  "SpellsItem",
+  "SpouseViewer",
+  "SpriteViewer",
+  "SquareEmblem",
+  "StatsViewer",
+  "StatsViewerStatItem",
+  "StylizedRectangle",
+  "TaxCollectorViewerPlayer",
+  "TaxCollectorsViewer",
+  "TaxCollectorsViewerItem",
+  "TemporaryEventButton",
+  "TextArea",
+  "TextInput",
+  "TimelineItem",
+  "TitleItem",
+  "UI_AchievementRewards",
+  "UI_AchievementRewardsViewer",
+  "UI_Achievements",
+  "UI_AskAlertServer",
+  "UI_AskAlertServerContent",
+  "UI_AskCancel",
+  "UI_AskCancelContent",
+  "UI_AskChooseNickName",
+  "UI_AskChooseNickNameContent",
+  "UI_AskCustomShortcut",
+  "UI_AskCustomShortcutContent",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate",
+  "UI_AskLinkWarning",
+  "UI_AskMainMenu",
+  "UI_AskMainMenuContent",
+  "UI_AskOk",
+  "UI_AskOkContent",
+  "UI_AskOkWait",
+  "UI_AskPayZoneInfosContent",
+  "UI_AskPrivateChat",
+  "UI_AskPrivateChatContent",
+  "UI_AskReportMessage",
+  "UI_AskSecretAnswer",
+  "UI_AskSecretAnswerContent",
+  "UI_AskYesNo",
+  "UI_AskYesNoContent",
+  "UI_AskYesNoIgnore",
+  "UI_AskYesNoIgnoreContent",
+  "UI_AskYesNoWithString",
+  "UI_AskYesNoWithStringContent",
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate",
+  "UI_Banner",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuyPricesGrid",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_BigStorePriceItem",
+  "UI_BigStorePriceItemNoBuy",
+  "UI_BigStoreSearch",
+  "UI_BigStoreSearchFullSoul",
+  "UI_BigStoreSell",
+  "UI_BigStoreSellPricesGrid",
+  "UI_Buff",
+  "UI_BuffInfos",
+  "UI_CardsCollection",
+  "UI_CardsRecycler",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate",
+  "UI_CenterInfo",
+  "UI_CenterText",
+  "UI_ChallengeMenu",
+  "UI_CharactersMigration",
+  "UI_CharactersMigrationItem",
+  "UI_ChooseCharacter",
+  "UI_ChooseFeed",
+  "UI_ChooseItemSkin",
+  "UI_ChooseNickName",
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_ChooseServer",
+  "UI_Cinematic",
+  "UI_Conquest",
+  "UI_Craft",
+  "UI_CrafterCard",
+  "UI_CrafterList",
+  "UI_CreateCharacter",
+  "UI_CreateGuild",
+  "UI_CustomSet",
+  "UI_CustomSetEdit",
+  "UI_DailyQuests",
+  "UI_DailyQuestsViewItem",
+  "UI_Debug",
+  "UI_Decraft",
+  "UI_DemoMode",
+  "UI_DirectionChooser",
+  "UI_DocumentBook",
+  "UI_DocumentParchment",
+  "UI_DocumentRoadSignLeft",
+  "UI_DocumentRoadSignRight",
+  "UI_EditPlayer",
+  "UI_EditSocialNote",
+  "UI_EditSocialNoteContent",
+  "UI_Encyclopedia",
+  "UI_EncyclopediaDetailsWindow",
+  "UI_Exchange",
+  "UI_FightChallenge",
+  "UI_FightOptionButtons",
+  "UI_FightsInfos",
+  "UI_FightsInfosFightItem",
+  "UI_FightsInfosPlayerItem",
+  "UI_FloatingTips",
+  "UI_ForgemagusCraft",
+  "UI_Friends",
+  "UI_FriendsConnectedItem",
+  "UI_FriendsDisconnectedItem",
+  "UI_GameOver",
+  "UI_GameResult",
+  "UI_GameResultLight",
+  "UI_GameResultPlayer",
+  "UI_GameResultPlayerLight",
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP",
+  "UI_GameResultTeam",
+  "UI_GameResultTeamLight",
+  "UI_GameResultTeamLightPVP",
+  "UI_GameResultTeamPVP",
+  "UI_Gifts",
+  "UI_GiftsSprite",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate",
+  "UI_Guild",
+  "UI_GuildHouseRights",
+  "UI_GuildMemberInfos",
+  "UI_HistoryViewerOnCreate",
+  "UI_HouseSale",
+  "UI_Inventory",
+  "UI_InventorySearch",
+  "UI_Inventory_TripleFramerate",
+  "UI_ItemFound",
+  "UI_ItemSelector",
+  "UI_ItemSummoner",
+  "UI_ItemUtility",
+  "UI_ItemViewer",
+  "UI_JobViewer",
+  "UI_JoinFriend",
+  "UI_JoinFriend_TripleFramerate",
+  "UI_KeyCode",
+  "UI_KnownledgeBase",
+  "UI_KnownledgeBaseCategory",
+  "UI_KnownledgeBaseItem",
+  "UI_Login",
+  "UI_LoginNewsItem",
+  "UI_MainMenu",
+  "UI_MakeMimibiote",
+  "UI_MakeReport",
+  "UI_MapExplorer",
+  "UI_MapInfos",
+  "UI_MemberRightItem",
+  "UI_ModReportCategoryItem",
+  "UI_ModReportObjectItem",
+  "UI_MonsterAndLookSelector",
+  "UI_Mount",
+  "UI_MountAncestorsViewer",
+  "UI_MountParkSale",
+  "UI_MountStorage",
+  "UI_MountViewer",
+  "UI_MovableContainerBar",
+  "UI_NewModReportAdmin",
+  "UI_NpcDialog",
+  "UI_NpcShop",
+  "UI_Options",
+  "UI_Party",
+  "UI_PartyItem",
+  "UI_PayZone",
+  "UI_PayZoneDialog",
+  "UI_PayZoneDialog2",
+  "UI_PlayerInfos",
+  "UI_PlayerInfosEffectsItem",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_PopupHexa",
+  "UI_PopupHexaContent",
+  "UI_PopupQuantity",
+  "UI_PopupQuantityWithDescription",
+  "UI_PopupQuantityWithDescriptionContent",
+  "UI_PopupQuatityContent",
+  "UI_PopupText",
+  "UI_PopupTextContent",
+  "UI_Prism",
+  "UI_PrismItem",
+  "UI_Quests",
+  "UI_QuestsObjectivetItem",
+  "UI_QuestsQuestItem",
+  "UI_QuestsStepItem",
+  "UI_QuestsStepRewardItem",
+  "UI_Register",
+  "UI_ReportPlayerToModeration",
+  "UI_SecureCraft",
+  "UI_SecureForgemagusCraft",
+  "UI_ServerEvenemential",
+  "UI_ServerInformations",
+  "UI_ServerList",
+  "UI_ServersManagerRetry",
+  "UI_Shortcuts",
+  "UI_ShortcutsChatReplacementPanelEffectsItem",
+  "UI_ShortcutsItem",
+  "UI_SpellForget",
+  "UI_SpellForgetItem",
+  "UI_SpellInfos",
+  "UI_SpellViewerOnCreate",
+  "UI_Spells",
+  "UI_StatsJob",
+  "UI_Storage",
+  "UI_StringCourse",
+  "UI_StringCourse_TripleFramerate",
+  "UI_Subway",
+  "UI_SubwayItem",
+  "UI_Survey",
+  "UI_SurveyNotification",
+  "UI_SurveyQuestionItem",
+  "UI_TaxCollectorStorage",
+  "UI_TemporaryEvent",
+  "UI_Timeline",
+  "UI_Tips",
+  "UI_TitleAndOrnament",
+  "UI_Tutorial",
+  "UI_WaitingMessage",
+  "UI_WaitingQueue",
+  "UI_WantedParchment",
+  "UI_Waypoints",
+  "UI_WaypointsItem",
+  "UI_Zoom",
+  "VerticalChrono",
+  "VolumeSlider",
+  "Window"
+ ],
+ "shapes/22": [
+  "AchievementItem",
+  "AchievementItemRewards",
+  "AchievementObjectiveCheckboxItem",
+  "AchievementObjectiveProgressBarDetailsItem",
+  "AchievementObjectiveProgressBarItem",
+  "AchievementRewardItem",
+  "AchievementSynthesis",
+  "AchievementSynthesisBigItem",
+  "AchievementSynthesisItem",
+  "AlignmentViewer",
+  "Button",
+  "ButtonComboBoxDown",
+  "ButtonComboBoxUp",
+  "ButtonNormalDown",
+  "ButtonNormalUp",
+  "CardFamily",
+  "Chat",
+  "ChatFilters",
+  "ChooseCharacterSprite",
+  "CircleChrono",
+  "CircleChronoHalfDefault",
+  "ClassCustomize",
+  "ColorSelector",
+  "ComboBox",
+  "ConquestJoinViewer",
+  "ConquestStatsViewer",
+  "ConquestZonesViewer",
+  "CraftViewer",
+  "DataGrid",
+  "DirectionChooserArrows",
+  "DofusLoader",
+  "DofusLoader_TripleFramerate",
+  "DraggableButton",
+  "EncyclopediaBestiaryMonsterDetails",
+  "EncyclopediaBestiaryViewer",
+  "EncyclopediaCeremonialViewer",
+  "EncyclopediaConsumablesViewer",
+  "EncyclopediaConsumablesViewerConsumable",
+  "EncyclopediaEquipmentDetails",
+  "EncyclopediaEquipmentsViewer",
+  "EncyclopediaEquipmentsViewerEquipment",
+  "EncyclopediaItemEffectItem",
+  "EncyclopediaRessourceDetails",
+  "EncyclopediaRessourcesViewer",
+  "EncyclopediaRessourcesViewerRessource",
+  "EvolvingItemsViewer",
+  "FightChallengeViewer",
+  "FilterCategoryViewer",
+  "FilterCheckViewer",
+  "FilterPropertyValueViewer",
+  "FilterTagViewer",
+  "GiftItem",
+  "GridInventoryViewer",
+  "GuildBoostsViewer",
+  "GuildBoostsViewerSpell",
+  "GuildHousesViewer",
+  "GuildInformationsViewer",
+  "GuildMembersViewer",
+  "GuildMembersViewerMember",
+  "GuildMountParkViewer",
+  "ItemViewer",
+  "ItemViewerBigDescription",
+  "ItemViewerBigLite",
+  "ItemViewerItem",
+  "ItemViewerLite",
+  "JobOptionsViewer",
+  "ListInventoryViewer",
+  "LivingItemsViewer",
+  "MapNavigator",
+  "MountParksViewerItem",
+  "MountViewer",
+  "MountWeight",
+  "MouseShortcuts",
+  "OptionsDisplayContent",
+  "OptionsGeneralContent",
+  "OptionsOptimizationContent",
+  "OptionsSoundContent",
+  "PlayerWeight",
+  "ProgressBar",
+  "ProgressBarDefaultRenderer",
+  "QuestStepViewer",
+  "RankViewer",
+  "SeasonRewardItem",
+  "SpellFullInfosViewer",
+  "SpellFullInfosViewerItem",
+  "SpellsItem",
+  "SpouseViewer",
+  "StatsViewer",
+  "TaxCollectorsViewer",
+  "TaxCollectorsViewerItem",
+  "TitleItem",
+  "UI_AchievementRewards",
+  "UI_AchievementRewardsViewer",
+  "UI_Achievements",
+  "UI_AskAlertServerContent",
+  "UI_AskCancelContent",
+  "UI_AskChooseNickNameContent",
+  "UI_AskCustomShortcutContent",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate",
+  "UI_AskLinkWarning",
+  "UI_AskMainMenuContent",
+  "UI_AskOkContent",
+  "UI_AskPayZoneInfosContent",
+  "UI_AskPrivateChatContent",
+  "UI_AskReportMessage",
+  "UI_AskSecretAnswerContent",
+  "UI_AskYesNoContent",
+  "UI_AskYesNoIgnoreContent",
+  "UI_AskYesNoWithStringContent",
+  "UI_Banner",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuyPricesGrid",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_BigStorePriceItem",
+  "UI_BigStorePriceItemNoBuy",
+  "UI_BigStoreSearch",
+  "UI_BigStoreSearchFullSoul",
+  "UI_BigStoreSell",
+  "UI_BigStoreSellPricesGrid",
+  "UI_BuffInfos",
+  "UI_CardsCollection",
+  "UI_CardsRecycler",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate",
+  "UI_CharactersMigration",
+  "UI_ChooseCharacter",
+  "UI_ChooseFeed",
+  "UI_ChooseItemSkin",
+  "UI_ChooseNickName",
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_ChooseServer",
+  "UI_Cinematic",
+  "UI_Conquest",
+  "UI_Craft",
+  "UI_CrafterCard",
+  "UI_CrafterList",
+  "UI_CreateCharacter",
+  "UI_CreateGuild",
+  "UI_CustomSet",
+  "UI_CustomSetEdit",
+  "UI_DailyQuests",
+  "UI_DailyQuestsViewItem",
+  "UI_Debug",
+  "UI_Decraft",
+  "UI_DemoMode",
+  "UI_DirectionChooser",
+  "UI_DocumentBook",
+  "UI_DocumentParchment",
+  "UI_DocumentRoadSignLeft",
+  "UI_DocumentRoadSignRight",
+  "UI_EditPlayer",
+  "UI_EditSocialNoteContent",
+  "UI_Encyclopedia",
+  "UI_EncyclopediaDetailsWindow",
+  "UI_Exchange",
+  "UI_FightChallenge",
+  "UI_FightOptionButtons",
+  "UI_FightsInfos",
+  "UI_FloatingTips",
+  "UI_ForgemagusCraft",
+  "UI_Friends",
+  "UI_FriendsConnectedItem",
+  "UI_FriendsDisconnectedItem",
+  "UI_GameResult",
+  "UI_GameResultLight",
+  "UI_GameResultPlayer",
+  "UI_GameResultPlayerLight",
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP",
+  "UI_Gifts",
+  "UI_GiftsSprite",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate",
+  "UI_Guild",
+  "UI_GuildHouseRights",
+  "UI_GuildMemberInfos",
+  "UI_HistoryViewerOnCreate",
+  "UI_HouseSale",
+  "UI_Inventory",
+  "UI_InventorySearch",
+  "UI_Inventory_TripleFramerate",
+  "UI_ItemSelector",
+  "UI_ItemSummoner",
+  "UI_ItemUtility",
+  "UI_ItemViewer",
+  "UI_JobViewer",
+  "UI_KeyCode",
+  "UI_KnownledgeBase",
+  "UI_Login",
+  "UI_MainMenu",
+  "UI_MakeMimibiote",
+  "UI_MakeReport",
+  "UI_MapExplorer",
+  "UI_MemberRightItem",
+  "UI_MonsterAndLookSelector",
+  "UI_Mount",
+  "UI_MountAncestorsViewer",
+  "UI_MountParkSale",
+  "UI_MountStorage",
+  "UI_MountViewer",
+  "UI_NewModReportAdmin",
+  "UI_NpcShop",
+  "UI_Options",
+  "UI_Party",
+  "UI_PartyItem",
+  "UI_PayZone",
+  "UI_PlayerInfos",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_PopupHexaContent",
+  "UI_PopupQuantityWithDescriptionContent",
+  "UI_PopupQuatityContent",
+  "UI_PopupTextContent",
+  "UI_Prism",
+  "UI_PrismItem",
+  "UI_Quests",
+  "UI_Register",
+  "UI_ReportPlayerToModeration",
+  "UI_SecureCraft",
+  "UI_SecureForgemagusCraft",
+  "UI_ServerEvenemential",
+  "UI_ServerList",
+  "UI_Shortcuts",
+  "UI_ShortcutsItem",
+  "UI_SpellForget",
+  "UI_SpellInfos",
+  "UI_SpellViewerOnCreate",
+  "UI_Spells",
+  "UI_StatsJob",
+  "UI_Storage",
+  "UI_Subway",
+  "UI_SubwayItem",
+  "UI_Survey",
+  "UI_SurveyNotification",
+  "UI_SurveyQuestionItem",
+  "UI_TaxCollectorStorage",
+  "UI_TemporaryEvent",
+  "UI_Timeline",
+  "UI_Tips",
+  "UI_TitleAndOrnament",
+  "UI_Tutorial",
+  "UI_WaitingQueue",
+  "UI_WantedParchment",
+  "UI_Waypoints",
+  "UI_WaypointsItem",
+  "UI_Zoom"
+ ],
+ "shapes/24": [
+  "AchievementItem",
+  "AchievementItemRewards",
+  "AchievementObjectiveCheckboxItem",
+  "AchievementRewardItem",
+  "Button",
+  "ButtonComboBoxDown",
+  "ButtonComboBoxUp",
+  "ButtonNormalDown",
+  "ButtonNormalUp",
+  "Chat",
+  "ChatFilters",
+  "ChooseCharacterSprite",
+  "ClassCustomize",
+  "ColorSelector",
+  "ComboBox",
+  "ConquestJoinViewer",
+  "ConquestStatsViewer",
+  "ConquestZonesViewer",
+  "CraftViewer",
+  "DataGrid",
+  "DirectionChooserArrows",
+  "DofusLoader",
+  "DofusLoader_TripleFramerate",
+  "DraggableButton",
+  "EncyclopediaBestiaryMonsterDetails",
+  "EncyclopediaBestiaryViewer",
+  "EncyclopediaCeremonialViewer",
+  "EncyclopediaConsumablesViewer",
+  "EncyclopediaConsumablesViewerConsumable",
+  "EncyclopediaEquipmentDetails",
+  "EncyclopediaEquipmentsViewer",
+  "EncyclopediaEquipmentsViewerEquipment",
+  "EncyclopediaItemEffectItem",
+  "EncyclopediaRessourceDetails",
+  "EncyclopediaRessourcesViewer",
+  "EncyclopediaRessourcesViewerRessource",
+  "EvolvingItemsViewer",
+  "FightChallengeViewer",
+  "FilterCategoryViewer",
+  "FilterCheckViewer",
+  "FilterPropertyValueViewer",
+  "FilterTagViewer",
+  "GiftItem",
+  "GridInventoryViewer",
+  "GuildBoostsViewer",
+  "GuildBoostsViewerSpell",
+  "GuildHousesViewer",
+  "GuildInformationsViewer",
+  "GuildMembersViewer",
+  "GuildMembersViewerMember",
+  "GuildMountParkViewer",
+  "ItemViewer",
+  "ItemViewerBigDescription",
+  "ItemViewerBigLite",
+  "ItemViewerItem",
+  "ItemViewerLite",
+  "JobOptionsViewer",
+  "ListInventoryViewer",
+  "LivingItemsViewer",
+  "MapNavigator",
+  "MountParksViewerItem",
+  "MountViewer",
+  "MouseShortcuts",
+  "OptionsDisplayContent",
+  "OptionsGeneralContent",
+  "OptionsOptimizationContent",
+  "OptionsSoundContent",
+  "QuestStepViewer",
+  "RankViewer",
+  "SpellFullInfosViewer",
+  "SpellFullInfosViewerItem",
+  "SpellsItem",
+  "SpouseViewer",
+  "StatsViewer",
+  "TaxCollectorsViewer",
+  "TaxCollectorsViewerItem",
+  "TitleItem",
+  "UI_AchievementRewards",
+  "UI_AchievementRewardsViewer",
+  "UI_Achievements",
+  "UI_AskAlertServerContent",
+  "UI_AskCancelContent",
+  "UI_AskChooseNickNameContent",
+  "UI_AskCustomShortcutContent",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate",
+  "UI_AskLinkWarning",
+  "UI_AskMainMenuContent",
+  "UI_AskOkContent",
+  "UI_AskPayZoneInfosContent",
+  "UI_AskPrivateChatContent",
+  "UI_AskReportMessage",
+  "UI_AskSecretAnswerContent",
+  "UI_AskYesNoContent",
+  "UI_AskYesNoIgnoreContent",
+  "UI_AskYesNoWithStringContent",
+  "UI_Banner",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuyPricesGrid",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_BigStorePriceItem",
+  "UI_BigStorePriceItemNoBuy",
+  "UI_BigStoreSearch",
+  "UI_BigStoreSearchFullSoul",
+  "UI_BigStoreSell",
+  "UI_BigStoreSellPricesGrid",
+  "UI_BuffInfos",
+  "UI_CardsCollection",
+  "UI_CardsRecycler",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate",
+  "UI_CharactersMigration",
+  "UI_ChooseCharacter",
+  "UI_ChooseFeed",
+  "UI_ChooseItemSkin",
+  "UI_ChooseNickName",
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_ChooseServer",
+  "UI_Cinematic",
+  "UI_Conquest",
+  "UI_Craft",
+  "UI_CrafterCard",
+  "UI_CrafterList",
+  "UI_CreateCharacter",
+  "UI_CreateGuild",
+  "UI_CustomSet",
+  "UI_CustomSetEdit",
+  "UI_DailyQuests",
+  "UI_DailyQuestsViewItem",
+  "UI_Debug",
+  "UI_Decraft",
+  "UI_DemoMode",
+  "UI_DirectionChooser",
+  "UI_DocumentBook",
+  "UI_DocumentParchment",
+  "UI_DocumentRoadSignLeft",
+  "UI_DocumentRoadSignRight",
+  "UI_EditPlayer",
+  "UI_EditSocialNoteContent",
+  "UI_Encyclopedia",
+  "UI_EncyclopediaDetailsWindow",
+  "UI_Exchange",
+  "UI_FightChallenge",
+  "UI_FightOptionButtons",
+  "UI_FightsInfos",
+  "UI_FloatingTips",
+  "UI_ForgemagusCraft",
+  "UI_Friends",
+  "UI_FriendsConnectedItem",
+  "UI_FriendsDisconnectedItem",
+  "UI_GameResult",
+  "UI_GameResultLight",
+  "UI_Gifts",
+  "UI_GiftsSprite",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate",
+  "UI_Guild",
+  "UI_GuildHouseRights",
+  "UI_GuildMemberInfos",
+  "UI_HistoryViewerOnCreate",
+  "UI_HouseSale",
+  "UI_Inventory",
+  "UI_InventorySearch",
+  "UI_Inventory_TripleFramerate",
+  "UI_ItemSelector",
+  "UI_ItemSummoner",
+  "UI_ItemUtility",
+  "UI_ItemViewer",
+  "UI_JobViewer",
+  "UI_KeyCode",
+  "UI_KnownledgeBase",
+  "UI_Login",
+  "UI_MainMenu",
+  "UI_MakeMimibiote",
+  "UI_MakeReport",
+  "UI_MapExplorer",
+  "UI_MemberRightItem",
+  "UI_MonsterAndLookSelector",
+  "UI_Mount",
+  "UI_MountAncestorsViewer",
+  "UI_MountParkSale",
+  "UI_MountStorage",
+  "UI_MountViewer",
+  "UI_NewModReportAdmin",
+  "UI_NpcShop",
+  "UI_Options",
+  "UI_Party",
+  "UI_PartyItem",
+  "UI_PayZone",
+  "UI_PlayerInfos",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_PopupHexaContent",
+  "UI_PopupQuantityWithDescriptionContent",
+  "UI_PopupQuatityContent",
+  "UI_PopupTextContent",
+  "UI_Prism",
+  "UI_PrismItem",
+  "UI_Quests",
+  "UI_Register",
+  "UI_ReportPlayerToModeration",
+  "UI_SecureCraft",
+  "UI_SecureForgemagusCraft",
+  "UI_ServerEvenemential",
+  "UI_ServerList",
+  "UI_Shortcuts",
+  "UI_ShortcutsItem",
+  "UI_SpellForget",
+  "UI_SpellInfos",
+  "UI_SpellViewerOnCreate",
+  "UI_Spells",
+  "UI_StatsJob",
+  "UI_Storage",
+  "UI_Subway",
+  "UI_SubwayItem",
+  "UI_Survey",
+  "UI_SurveyNotification",
+  "UI_SurveyQuestionItem",
+  "UI_TaxCollectorStorage",
+  "UI_TemporaryEvent",
+  "UI_Timeline",
+  "UI_Tips",
+  "UI_TitleAndOrnament",
+  "UI_Tutorial",
+  "UI_WaitingQueue",
+  "UI_WantedParchment",
+  "UI_Waypoints",
+  "UI_WaypointsItem",
+  "UI_Zoom"
+ ],
+ "shapes/34": [
+  "AchievementItem",
+  "AchievementItemRewards",
+  "AchievementObjectiveCheckboxItem",
+  "AchievementRewardItem",
+  "Button",
+  "ButtonComboBoxDown",
+  "ButtonComboBoxUp",
+  "ButtonToggleDown",
+  "ButtonToggleUp",
+  "Chat",
+  "ChatFilters",
+  "ChooseCharacterSprite",
+  "ClassCustomize",
+  "ColorSelector",
+  "ComboBox",
+  "ComboBoxNormal",
+  "ConquestJoinViewer",
+  "ConquestStatsViewer",
+  "ConquestZonesViewer",
+  "CraftViewer",
+  "DataGrid",
+  "DirectionChooserArrows",
+  "DofusLoader",
+  "DofusLoader_TripleFramerate",
+  "DraggableButton",
+  "EncyclopediaBestiaryMonsterDetails",
+  "EncyclopediaBestiaryViewer",
+  "EncyclopediaCeremonialViewer",
+  "EncyclopediaConsumablesViewer",
+  "EncyclopediaConsumablesViewerConsumable",
+  "EncyclopediaEquipmentDetails",
+  "EncyclopediaEquipmentsViewer",
+  "EncyclopediaEquipmentsViewerEquipment",
+  "EncyclopediaItemEffectItem",
+  "EncyclopediaRessourceDetails",
+  "EncyclopediaRessourcesViewer",
+  "EncyclopediaRessourcesViewerRessource",
+  "EvolvingItemsViewer",
+  "FightChallengeViewer",
+  "FilterCategoryViewer",
+  "FilterCheckViewer",
+  "FilterPropertyValueViewer",
+  "FilterTagViewer",
+  "GiftItem",
+  "GridInventoryViewer",
+  "GuildBoostsViewer",
+  "GuildBoostsViewerSpell",
+  "GuildHousesViewer",
+  "GuildInformationsViewer",
+  "GuildMembersViewer",
+  "GuildMembersViewerMember",
+  "GuildMountParkViewer",
+  "ItemViewer",
+  "ItemViewerBigDescription",
+  "ItemViewerBigLite",
+  "ItemViewerItem",
+  "ItemViewerLite",
+  "JobOptionsViewer",
+  "ListInventoryViewer",
+  "LivingItemsViewer",
+  "MapNavigator",
+  "MountParksViewerItem",
+  "MountViewer",
+  "MouseShortcuts",
+  "OptionsDisplayContent",
+  "OptionsGeneralContent",
+  "OptionsOptimizationContent",
+  "OptionsSoundContent",
+  "QuestStepViewer",
+  "RankViewer",
+  "SpellFullInfosViewer",
+  "SpellFullInfosViewerItem",
+  "SpellsItem",
+  "SpouseViewer",
+  "StatsViewer",
+  "TaxCollectorsViewer",
+  "TaxCollectorsViewerItem",
+  "TitleItem",
+  "UI_AchievementRewards",
+  "UI_AchievementRewardsViewer",
+  "UI_Achievements",
+  "UI_AskAlertServerContent",
+  "UI_AskCancelContent",
+  "UI_AskChooseNickNameContent",
+  "UI_AskCustomShortcutContent",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate",
+  "UI_AskLinkWarning",
+  "UI_AskMainMenuContent",
+  "UI_AskOkContent",
+  "UI_AskPayZoneInfosContent",
+  "UI_AskPrivateChatContent",
+  "UI_AskReportMessage",
+  "UI_AskSecretAnswerContent",
+  "UI_AskYesNoContent",
+  "UI_AskYesNoIgnoreContent",
+  "UI_AskYesNoWithStringContent",
+  "UI_Banner",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuyPricesGrid",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_BigStorePriceItem",
+  "UI_BigStorePriceItemNoBuy",
+  "UI_BigStoreSearch",
+  "UI_BigStoreSearchFullSoul",
+  "UI_BigStoreSell",
+  "UI_BigStoreSellPricesGrid",
+  "UI_BuffInfos",
+  "UI_CardsCollection",
+  "UI_CardsRecycler",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate",
+  "UI_CharactersMigration",
+  "UI_ChooseCharacter",
+  "UI_ChooseFeed",
+  "UI_ChooseItemSkin",
+  "UI_ChooseNickName",
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_ChooseServer",
+  "UI_Cinematic",
+  "UI_Conquest",
+  "UI_Craft",
+  "UI_CrafterCard",
+  "UI_CrafterList",
+  "UI_CreateCharacter",
+  "UI_CreateGuild",
+  "UI_CustomSet",
+  "UI_CustomSetEdit",
+  "UI_DailyQuests",
+  "UI_DailyQuestsViewItem",
+  "UI_Debug",
+  "UI_Decraft",
+  "UI_DemoMode",
+  "UI_DirectionChooser",
+  "UI_DocumentBook",
+  "UI_DocumentParchment",
+  "UI_DocumentRoadSignLeft",
+  "UI_DocumentRoadSignRight",
+  "UI_EditPlayer",
+  "UI_EditSocialNoteContent",
+  "UI_Encyclopedia",
+  "UI_EncyclopediaDetailsWindow",
+  "UI_Exchange",
+  "UI_FightChallenge",
+  "UI_FightOptionButtons",
+  "UI_FightsInfos",
+  "UI_FloatingTips",
+  "UI_ForgemagusCraft",
+  "UI_Friends",
+  "UI_FriendsConnectedItem",
+  "UI_FriendsDisconnectedItem",
+  "UI_GameResult",
+  "UI_GameResultLight",
+  "UI_Gifts",
+  "UI_GiftsSprite",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate",
+  "UI_Guild",
+  "UI_GuildHouseRights",
+  "UI_GuildMemberInfos",
+  "UI_HistoryViewerOnCreate",
+  "UI_HouseSale",
+  "UI_Inventory",
+  "UI_InventorySearch",
+  "UI_Inventory_TripleFramerate",
+  "UI_ItemSelector",
+  "UI_ItemSummoner",
+  "UI_ItemUtility",
+  "UI_ItemViewer",
+  "UI_JobViewer",
+  "UI_KeyCode",
+  "UI_KnownledgeBase",
+  "UI_Login",
+  "UI_MainMenu",
+  "UI_MakeMimibiote",
+  "UI_MakeReport",
+  "UI_MapExplorer",
+  "UI_MemberRightItem",
+  "UI_MonsterAndLookSelector",
+  "UI_Mount",
+  "UI_MountAncestorsViewer",
+  "UI_MountParkSale",
+  "UI_MountStorage",
+  "UI_MountViewer",
+  "UI_NewModReportAdmin",
+  "UI_NpcShop",
+  "UI_Options",
+  "UI_Party",
+  "UI_PartyItem",
+  "UI_PayZone",
+  "UI_PlayerInfos",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_PopupHexaContent",
+  "UI_PopupQuantityWithDescriptionContent",
+  "UI_PopupQuatityContent",
+  "UI_PopupTextContent",
+  "UI_Prism",
+  "UI_PrismItem",
+  "UI_Quests",
+  "UI_Register",
+  "UI_ReportPlayerToModeration",
+  "UI_SecureCraft",
+  "UI_SecureForgemagusCraft",
+  "UI_ServerEvenemential",
+  "UI_ServerList",
+  "UI_Shortcuts",
+  "UI_ShortcutsItem",
+  "UI_SpellForget",
+  "UI_SpellInfos",
+  "UI_SpellViewerOnCreate",
+  "UI_Spells",
+  "UI_StatsJob",
+  "UI_Storage",
+  "UI_Subway",
+  "UI_SubwayItem",
+  "UI_Survey",
+  "UI_SurveyNotification",
+  "UI_SurveyQuestionItem",
+  "UI_TaxCollectorStorage",
+  "UI_TemporaryEvent",
+  "UI_Timeline",
+  "UI_Tips",
+  "UI_TitleAndOrnament",
+  "UI_Tutorial",
+  "UI_WaitingQueue",
+  "UI_WantedParchment",
+  "UI_Waypoints",
+  "UI_WaypointsItem",
+  "UI_Zoom"
+ ],
+ "shapes/53": [
+  "DofusLoader",
+  "DofusLoader_TripleFramerate",
+  "GrayWaitBar",
+  "UI_CenterText",
+  "WhiteWaitBar"
+ ],
+ "shapes/55": [
+  "DofusLoader",
+  "DofusLoader_TripleFramerate",
+  "UI_CenterText"
+ ],
+ "shapes/60": [
+  "DofusLoader",
+  "DofusLoader_TripleFramerate"
+ ],
+ "shapes/78": [
+  "GrayWaitBar",
+  "WhiteWaitBar"
+ ],
+ "shapes/83": [
+  "LoadingBanner"
+ ],
+ "images/84": [
+  "LoadingBanner",
+  "UI_CardsCollection"
+ ],
+ "shapes/85": [
+  "LoadingBanner"
+ ],
+ "shapes/92": [
+  "Season_Gameplay",
+  "SpriteViewer",
+  "UI_CharactersMigration",
+  "UI_CreateCharacter",
+  "UI_DailyQuests",
+  "UI_DailyQuestsViewItem",
+  "UI_EditPlayer",
+  "UI_GuildMemberInfos",
+  "UI_Inventory",
+  "UI_Inventory_TripleFramerate",
+  "UI_Quests",
+  "UI_ServerEvenemential",
+  "UI_TitleAndOrnament"
+ ],
+ "shapes/96": [
+  "ColorSelector",
+  "UI_CreateCharacter",
+  "UI_EditPlayer"
+ ],
+ "shapes/98": [
+  "ColorSelector",
+  "UI_CreateCharacter",
+  "UI_EditPlayer"
+ ],
+ "shapes/101": [
+  "ClassCustomize",
+  "ColorPicker",
+  "ColorPickerSliderCross",
+  "ColorSelector",
+  "ComboBox",
+  "ComboBoxButtonNormalIcon",
+  "ConquestZonesViewer",
+  "FilterCategoryViewer",
+  "FilterPropertyValueViewer",
+  "GridInventoryViewer",
+  "ListInventoryViewer",
+  "OptionsDisplayContent",
+  "OptionsGeneralContent",
+  "ScrollBar",
+  "ScrollBarDownArrow",
+  "ScrollBarUpArrow",
+  "Season_Progress",
+  "UI_Achievements",
+  "UI_AskReportMessage",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_BigStoreSell",
+  "UI_CardsRecycler",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate",
+  "UI_Craft",
+  "UI_CrafterList",
+  "UI_CreateCharacter",
+  "UI_CreateGuild",
+  "UI_Decraft",
+  "UI_EditPlayer",
+  "UI_Exchange",
+  "UI_ForgemagusCraft",
+  "UI_GuildMemberInfos",
+  "UI_Inventory",
+  "UI_Inventory_TripleFramerate",
+  "UI_ItemSelector",
+  "UI_ItemSummoner",
+  "UI_ItemUtility",
+  "UI_Login",
+  "UI_MakeMimibiote",
+  "UI_MonsterAndLookSelector",
+  "UI_MountStorage",
+  "UI_NpcShop",
+  "UI_Options",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_Register",
+  "UI_ReportPlayerToModeration",
+  "UI_SecureCraft",
+  "UI_SecureForgemagusCraft",
+  "UI_Shortcuts",
+  "UI_Spells",
+  "UI_Storage",
+  "UI_SurveyQuestionItem",
+  "UI_TaxCollectorStorage"
+ ],
+ "shapes/106": [],
+ "shapes/108": [
+  "HardReset"
+ ],
+ "shapes/110": [
+  "HardReset"
+ ],
+ "shapes/112": [],
+ "shapes/113": [],
+ "shapes/115": [],
+ "shapes/116": [],
+ "shapes/117": [],
+ "shapes/124": [
+  "EncyclopediaBestiaryMonsterDetails",
+  "ListInventoryViewerItemNoPrice",
+  "SpriteLoader",
+  "UI_Login"
+ ],
+ "shapes/127": [
+  "FilterTagViewer"
+ ],
+ "shapes/129": [
+  "FilterPropertyValueViewer"
+ ],
+ "shapes/131": [
+  "ButtonComboBoxDown",
+  "ButtonComboBoxUp",
+  "ButtonTransparentUp",
+  "ComboBox",
+  "ComboBoxNormal",
+  "ConquestZonesViewer",
+  "DataGrid",
+  "EncyclopediaBestiaryViewer",
+  "EncyclopediaCeremonialViewer",
+  "EncyclopediaConsumablesViewer",
+  "EncyclopediaEquipmentsViewer",
+  "EncyclopediaRessourcesViewer",
+  "FilterCategoryViewer",
+  "FilterPropertyValueViewer",
+  "GridInventoryViewer",
+  "GuildMembersViewer",
+  "GuildMountParkViewer",
+  "ListInventoryViewer",
+  "OptionsDisplayContent",
+  "OptionsGeneralContent",
+  "ScrollBar",
+  "ScrollBarUpArrow",
+  "Season_Progress",
+  "StatsViewer",
+  "TaxCollectorsViewer",
+  "UI_Achievements",
+  "UI_AskReportMessage",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuyPricesGrid",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_BigStoreSell",
+  "UI_BigStoreSellPricesGrid",
+  "UI_CardsRecycler",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate",
+  "UI_CharactersMigration",
+  "UI_Craft",
+  "UI_CrafterList",
+  "UI_Decraft",
+  "UI_Exchange",
+  "UI_FightsInfos",
+  "UI_ForgemagusCraft",
+  "UI_Friends",
+  "UI_Gifts",
+  "UI_GuildMemberInfos",
+  "UI_Inventory",
+  "UI_Inventory_TripleFramerate",
+  "UI_ItemSelector",
+  "UI_ItemSummoner",
+  "UI_ItemUtility",
+  "UI_Login",
+  "UI_MakeMimibiote",
+  "UI_MonsterAndLookSelector",
+  "UI_MountStorage",
+  "UI_NewModReportAdmin",
+  "UI_NpcShop",
+  "UI_Options",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_Quests",
+  "UI_Register",
+  "UI_ReportPlayerToModeration",
+  "UI_SecureCraft",
+  "UI_SecureForgemagusCraft",
+  "UI_ServerList",
+  "UI_Shortcuts",
+  "UI_Spells",
+  "UI_Storage",
+  "UI_SurveyQuestionItem",
+  "UI_TaxCollectorStorage"
+ ],
+ "shapes/150": [
+  "UI_JobViewer"
+ ],
+ "shapes/158": [
+  "AchievementObjectiveProgressBarDetailsItem",
+  "AchievementObjectiveProgressBarItem",
+  "AchievementSynthesis",
+  "AchievementSynthesisBigItem",
+  "AchievementSynthesisItem",
+  "AlignmentViewer",
+  "CardFamily",
+  "ConquestStatsViewer",
+  "ItemViewer",
+  "ItemViewerBigDescription",
+  "ItemViewerBigLite",
+  "ItemViewerLite",
+  "LivingItemsViewer",
+  "MountViewer",
+  "MountWeight",
+  "PlayerWeight",
+  "ProgressBar",
+  "ProgressBarDefaultRenderer",
+  "RankViewer",
+  "SeasonRewardItem",
+  "UI_Achievements",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_BigStoreSell",
+  "UI_CardsCollection",
+  "UI_CardsRecycler",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate",
+  "UI_ChooseFeed",
+  "UI_Craft",
+  "UI_Decraft",
+  "UI_Exchange",
+  "UI_ForgemagusCraft",
+  "UI_GameResultPlayer",
+  "UI_GameResultPlayerLight",
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP",
+  "UI_Gifts",
+  "UI_Guild",
+  "UI_Inventory",
+  "UI_Inventory_TripleFramerate",
+  "UI_ItemSelector",
+  "UI_ItemSummoner",
+  "UI_ItemViewer",
+  "UI_JobViewer",
+  "UI_MakeMimibiote",
+  "UI_Mount",
+  "UI_MountStorage",
+  "UI_MountViewer",
+  "UI_NpcShop",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_SecureCraft",
+  "UI_SecureForgemagusCraft",
+  "UI_StatsJob",
+  "UI_Storage",
+  "UI_TaxCollectorStorage",
+  "UI_TemporaryEvent"
+ ],
+ "shapes/160": [
+  "AchievementObjectiveProgressBarDetailsItem",
+  "AchievementObjectiveProgressBarItem",
+  "AchievementSynthesis",
+  "AchievementSynthesisBigItem",
+  "AchievementSynthesisItem",
+  "AlignmentViewer",
+  "CardFamily",
+  "ConquestStatsViewer",
+  "ItemViewer",
+  "ItemViewerBigDescription",
+  "ItemViewerBigLite",
+  "ItemViewerLite",
+  "LivingItemsViewer",
+  "MountViewer",
+  "MountWeight",
+  "PlayerWeight",
+  "ProgressBar",
+  "ProgressBarDefaultRenderer",
+  "RankViewer",
+  "SeasonRewardItem",
+  "UI_Achievements",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_BigStoreSell",
+  "UI_CardsCollection",
+  "UI_CardsRecycler",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate",
+  "UI_ChooseFeed",
+  "UI_Craft",
+  "UI_Decraft",
+  "UI_Exchange",
+  "UI_ForgemagusCraft",
+  "UI_GameResultPlayer",
+  "UI_GameResultPlayerLight",
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP",
+  "UI_Gifts",
+  "UI_Guild",
+  "UI_Inventory",
+  "UI_Inventory_TripleFramerate",
+  "UI_ItemSelector",
+  "UI_ItemSummoner",
+  "UI_ItemViewer",
+  "UI_JobViewer",
+  "UI_MakeMimibiote",
+  "UI_Mount",
+  "UI_MountStorage",
+  "UI_MountViewer",
+  "UI_NpcShop",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_SecureCraft",
+  "UI_SecureForgemagusCraft",
+  "UI_StatsJob",
+  "UI_Storage",
+  "UI_TaxCollectorStorage",
+  "UI_TemporaryEvent"
+ ],
+ "shapes/162": [
+  "AchievementObjectiveProgressBarDetailsItem",
+  "AchievementObjectiveProgressBarItem",
+  "AchievementSynthesis",
+  "AchievementSynthesisBigItem",
+  "AchievementSynthesisItem",
+  "AlignmentViewer",
+  "CardFamily",
+  "ConquestStatsViewer",
+  "ItemViewer",
+  "ItemViewerBigDescription",
+  "ItemViewerBigLite",
+  "ItemViewerLite",
+  "LivingItemsViewer",
+  "MountViewer",
+  "MountWeight",
+  "PlayerWeight",
+  "ProgressBar",
+  "ProgressBarDefaultRenderer",
+  "RankViewer",
+  "SeasonRewardItem",
+  "UI_Achievements",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_BigStoreSell",
+  "UI_CardsCollection",
+  "UI_CardsRecycler",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate",
+  "UI_ChooseFeed",
+  "UI_Craft",
+  "UI_Decraft",
+  "UI_Exchange",
+  "UI_ForgemagusCraft",
+  "UI_GameResultPlayer",
+  "UI_GameResultPlayerLight",
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP",
+  "UI_Gifts",
+  "UI_Guild",
+  "UI_Inventory",
+  "UI_Inventory_TripleFramerate",
+  "UI_ItemSelector",
+  "UI_ItemSummoner",
+  "UI_ItemViewer",
+  "UI_JobViewer",
+  "UI_MakeMimibiote",
+  "UI_Mount",
+  "UI_MountStorage",
+  "UI_MountViewer",
+  "UI_NpcShop",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_SecureCraft",
+  "UI_SecureForgemagusCraft",
+  "UI_StatsJob",
+  "UI_Storage",
+  "UI_TaxCollectorStorage",
+  "UI_TemporaryEvent"
+ ],
+ "shapes/169": [
+  "AchievementObjectiveProgressBarDetailsItem",
+  "AchievementObjectiveProgressBarItem",
+  "AchievementSynthesis",
+  "AchievementSynthesisBigItem",
+  "AchievementSynthesisItem",
+  "AlignmentViewer",
+  "CardFamily",
+  "ConquestStatsViewer",
+  "ItemViewer",
+  "ItemViewerBigDescription",
+  "ItemViewerBigLite",
+  "ItemViewerLite",
+  "LivingItemsViewer",
+  "MountViewer",
+  "MountWeight",
+  "PlayerWeight",
+  "ProgressBar",
+  "ProgressBarRectangleRenderer",
+  "RankViewer",
+  "SeasonRewardItem",
+  "UI_Achievements",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_BigStoreSell",
+  "UI_CardsCollection",
+  "UI_CardsRecycler",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate",
+  "UI_ChooseFeed",
+  "UI_Craft",
+  "UI_Decraft",
+  "UI_Exchange",
+  "UI_ForgemagusCraft",
+  "UI_GameResultPlayer",
+  "UI_GameResultPlayerLight",
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP",
+  "UI_Gifts",
+  "UI_Guild",
+  "UI_Inventory",
+  "UI_Inventory_TripleFramerate",
+  "UI_ItemSelector",
+  "UI_ItemSummoner",
+  "UI_ItemViewer",
+  "UI_JobViewer",
+  "UI_MakeMimibiote",
+  "UI_Mount",
+  "UI_MountStorage",
+  "UI_MountViewer",
+  "UI_NpcShop",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_SecureCraft",
+  "UI_SecureForgemagusCraft",
+  "UI_StatsJob",
+  "UI_Storage",
+  "UI_TaxCollectorStorage",
+  "UI_TemporaryEvent"
+ ],
+ "shapes/174": [
+  "CraftViewer",
+  "FightChallengeViewer",
+  "FilterSearchViewer",
+  "Loupe",
+  "UI_Achievements",
+  "UI_JobViewer",
+  "UI_Prism",
+  "UI_Subway",
+  "UI_TitleAndOrnament",
+  "UI_Waypoints"
+ ],
+ "shapes/176": [
+  "AchievementItemRewards",
+  "AchievementRewardItem",
+  "GridInventoryViewer",
+  "ItemViewer",
+  "KamaSymbol",
+  "ListInventoryViewer",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_BigStoreSell",
+  "UI_CardsRecycler",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate",
+  "UI_ChooseFeed",
+  "UI_Craft",
+  "UI_DailyQuestsViewItem",
+  "UI_Decraft",
+  "UI_Exchange",
+  "UI_ForgemagusCraft",
+  "UI_GameResultPlayerLight",
+  "UI_GameResultPlayerLightPVP",
+  "UI_Gifts",
+  "UI_HouseIndoor",
+  "UI_HouseSale",
+  "UI_Inventory",
+  "UI_Inventory_TripleFramerate",
+  "UI_ItemSelector",
+  "UI_ItemSummoner",
+  "UI_ItemViewer",
+  "UI_JobViewer",
+  "UI_MakeMimibiote",
+  "UI_MountParkSale",
+  "UI_MountStorage",
+  "UI_NpcShop",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_PrismItem",
+  "UI_QuestKamaSymbol",
+  "UI_SecureCraft",
+  "UI_SecureForgemagusCraft",
+  "UI_Storage",
+  "UI_SubwayItem",
+  "UI_TaxCollectorStorage",
+  "UI_WaypointsItem"
+ ],
+ "shapes/180": [
+  "ButtonCraftUp",
+  "ButtonCraftUpInvert",
+  "ButtonMainMenuUp",
+  "ButtonSpellsUp",
+  "ButtonTabDown",
+  "ButtonTabUp",
+  "ItemViewer",
+  "ItemViewerBigDescription",
+  "ItemViewerBigLite",
+  "Season_Gameplay",
+  "UI_ChooseFeed",
+  "UI_Exchange",
+  "UI_ForgemagusCraft",
+  "UI_Gifts",
+  "UI_GuildMemberInfos",
+  "UI_Inventory",
+  "UI_Inventory_TripleFramerate",
+  "UI_ItemSelector",
+  "UI_ItemSummoner",
+  "UI_ItemViewer",
+  "UI_JobViewer",
+  "UI_MountStorage",
+  "UI_NpcShop",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_SecureForgemagusCraft",
+  "UI_Storage",
+  "UI_TaxCollectorStorage"
+ ],
+ "shapes/200": [
+  "SpriteHealthBar"
+ ],
+ "shapes/202": [
+  "SpriteHealthBar"
+ ],
+ "shapes/204": [
+  "SpriteHealthBar"
+ ],
+ "shapes/207": [
+  "ButtonBannerRoundDown",
+  "ButtonBannerRoundInSearchDown",
+  "ButtonBannerRoundInSearchUp",
+  "ButtonBannerRoundUp",
+  "ButtonBannerRoundWaitResponseDown",
+  "ButtonBannerRoundWaitResponseUp",
+  "ButtonBannerRoundWaitResponseUp_TripleFramerate",
+  "ButtonMainMenuDown",
+  "ButtonMainMenuUp",
+  "ButtonRadioDown",
+  "ButtonRadioUp",
+  "Card",
+  "CreateCharacterSymbolHighlight",
+  "GuildHousesViewerHouses",
+  "JobViewerJobItem",
+  "PointsViewerAP",
+  "PointsViewerMP",
+  "QuestionViewerAnswerItem",
+  "SmileysHighlight",
+  "SpouseViewer",
+  "UI_Banner",
+  "UI_BannerClockArrowHours",
+  "UI_BannerClockArrowMinutes",
+  "UI_BannerClockBack",
+  "UI_BannerCompassBack",
+  "UI_Gifts"
+ ],
+ "shapes/209": [
+  "ChooseServerListItem",
+  "GuildMembersViewerMember",
+  "RankViewer",
+  "RankViewerPvpActive",
+  "RankViewerPvpInactive",
+  "SpouseViewer",
+  "TaxCollectorsViewerItem",
+  "UI_Conquest",
+  "UI_FriendsConnectedItem",
+  "UI_Party",
+  "UI_PartyItemInfo",
+  "pic_IN_MULTI"
+ ],
+ "shapes/212": [
+  "SeasonRewardItem"
+ ],
+ "shapes/217": [
+  "IconRequiredWhite",
+  "SeasonRewardItem"
+ ],
+ "shapes/235": [
+  "Season_Progress",
+  "UI_BannerAchievementIcon",
+  "UI_StatsJob"
+ ],
+ "shapes/238": [
+  "Season_Gameplay"
+ ],
+ "shapes/239": [
+  "Season_Gameplay"
+ ],
+ "shapes/241": [
+  "Season_Gameplay"
+ ],
+ "shapes/243": [
+  "QuestBook",
+  "QuestStepListViewer",
+  "QuestStepViewer",
+  "UI_BannerBookIcon"
+ ],
+ "shapes/248": [
+  "MiniMap"
+ ],
+ "shapes/250": [
+  "MiniMap"
+ ],
+ "shapes/256": [
+  "JobOptionsViewer"
+ ],
+ "shapes/262": [
+  "ButtonCloseDown",
+  "ButtonCloseUp",
+  "ButtonCrossDown",
+  "ButtonCrossUp",
+  "ButtonPlusDown",
+  "ChooseCharacterServerState0",
+  "GuildBoostsViewerSpell",
+  "JobOptionsViewer",
+  "RankViewer",
+  "RankViewerPvpInactive",
+  "SpellFullInfosViewer",
+  "UI_Conquest",
+  "UI_SpellInfos"
+ ],
+ "shapes/264": [
+  "ButtonCheckDown",
+  "ButtonValidDown",
+  "ButtonValidUp",
+  "ChooseCharacterServerState1",
+  "JobOptionsViewer",
+  "MissionCheck",
+  "RankViewer",
+  "RankViewerPvpActive",
+  "SpellFullInfosViewer",
+  "UI_AchievementRewardContainerBorder",
+  "UI_Conquest",
+  "UI_DailyQuests",
+  "UI_DailyQuestsViewItem",
+  "UI_FightOptionBlockJoinerDown",
+  "UI_FightOptionBlockJoinerExceptPartyMemberDown",
+  "UI_FightOptionBlockSpectatorDown",
+  "UI_FightOptionNeedHelpDown",
+  "UI_FightOptionNeedHelpDown_TripleFramerate",
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionToggleSpritesDown",
+  "UI_HideAchievementDown",
+  "UI_Quests",
+  "UI_QuestsObjectivetItem",
+  "UI_QuestsQuestItem",
+  "UI_QuestsStepItem",
+  "UI_SpellInfos",
+  "UI_WaypointsItem"
+ ],
+ "images/268": [
+  "Helper",
+  "Helper_TripleFramerate",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate"
+ ],
+ "shapes/269": [
+  "Helper",
+  "Helper_TripleFramerate"
+ ],
+ "shapes/271": [
+  "Helper",
+  "Helper_TripleFramerate",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate"
+ ],
+ "shapes/273": [
+  "Helper",
+  "Helper_TripleFramerate",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate"
+ ],
+ "shapes/275": [
+  "Helper",
+  "Helper_TripleFramerate",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate"
+ ],
+ "shapes/278": [
+  "Helper",
+  "Helper_TripleFramerate",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate"
+ ],
+ "shapes/280": [
+  "Helper",
+  "Helper_TripleFramerate",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate"
+ ],
+ "shapes/281": [
+  "Helper",
+  "Helper_TripleFramerate",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate"
+ ],
+ "shapes/284": [
+  "Helper",
+  "Helper_TripleFramerate",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate"
+ ],
+ "shapes/288": [
+  "Helper",
+  "Helper_TripleFramerate",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate"
+ ],
+ "shapes/291": [
+  "Helper",
+  "Helper_TripleFramerate"
+ ],
+ "shapes/295": [
+  "BannerSpriteInfos",
+  "DodgeAP",
+  "EncyclopediaBestiaryMonsterDetails",
+  "Helper",
+  "Helper_TripleFramerate",
+  "PointsViewerAP",
+  "SpellRarity",
+  "Star"
+ ],
+ "shapes/303": [
+  "HardResetSmall"
+ ],
+ "shapes/308": [
+  "GuildHousesViewer",
+  "GuildHousesViewerHouses",
+  "HouseIcon",
+  "UI_HouseIndoor",
+  "UI_HouseSale"
+ ],
+ "shapes/312": [
+  "FightChallengeViewer"
+ ],
+ "shapes/313": [
+  "FightChallengeViewer"
+ ],
+ "shapes/315": [
+  "FightChallengeViewer"
+ ],
+ "shapes/316": [],
+ "shapes/318": [
+  "FightChallengeViewer"
+ ],
+ "shapes/319": [
+  "FightChallengeViewer"
+ ],
+ "shapes/320": [],
+ "shapes/322": [
+  "FightChallengeViewer"
+ ],
+ "shapes/323": [
+  "FightChallengeViewer",
+  "SimpleSword",
+  "UI_BannerPvpIcon",
+  "UI_GameResultPlayerLightPVP"
+ ],
+ "shapes/325": [
+  "ChallengeOK",
+  "FightChallengeViewer",
+  "TemporaryEventItemOK"
+ ],
+ "shapes/327": [
+  "ChallengeKO",
+  "FightChallengeViewer"
+ ],
+ "shapes/332": [
+  "CraftViewer"
+ ],
+ "shapes/335": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/337": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/339": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/341": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/343": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/345": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/347": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/349": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/351": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/353": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/355": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/356": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/358": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/360": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/362": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/363": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/365": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/367": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/369": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/371": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/373": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/374": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/378": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/379": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/381": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/383": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/385": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/387": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/388": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/390": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/392": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/394": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/395": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/399": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/401": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/403": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/405": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/407": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/409": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/410": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/412": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/414": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/416": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/418": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/421": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/424": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/426": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/428": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/430": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/432": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/434": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/436": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/438": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/440": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/442": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/444": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/446": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/449": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/451": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/453": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/455": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/457": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/459": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/460": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/462": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/465": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/467": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/468": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/470": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/472": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/474": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/476": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/478": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/481": [
+  "ConquestStatsViewer"
+ ],
+ "shapes/490": [
+  "ClassInfosViewer"
+ ],
+ "shapes/492": [
+  "ClassCustomize"
+ ],
+ "shapes/494": [
+  "ShortcutsChatReplacementPanel"
+ ],
+ "images/497": [
+  "Card",
+  "CardFamily"
+ ],
+ "shapes/498": [
+  "Card",
+  "CardFamily"
+ ],
+ "shapes/499": [
+  "Card",
+  "CardFamily"
+ ],
+ "images/503": [
+  "Card",
+  "CardFamily",
+  "UI_KnownledgeBase"
+ ],
+ "shapes/504": [
+  "Card",
+  "CardFamily"
+ ],
+ "shapes/507": [
+  "Card",
+  "Inventory",
+  "UI_MountStorage"
+ ],
+ "shapes/509": [
+  "Card",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate"
+ ],
+ "shapes/512": [
+  "Card",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate"
+ ],
+ "shapes/521": [
+  "BannerSpriteInfos",
+  "EncyclopediaBestiaryMonsterDetails",
+  "SpellFullInfosViewer",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_MainMenu",
+  "UI_SpellInfos",
+  "UI_SpellViewerOnCreate"
+ ],
+ "shapes/523": [
+  "BannerSpriteInfos",
+  "Coeur",
+  "EncyclopediaBestiaryMonsterDetails"
+ ],
+ "shapes/525": [
+  "BannerSpriteInfos",
+  "EncyclopediaBestiaryMonsterDetails",
+  "IconMP",
+  "PointsViewerMP"
+ ],
+ "shapes/528": [
+  "BannerSpriteInfos",
+  "EncyclopediaBestiaryMonsterDetails",
+  "IconAir"
+ ],
+ "shapes/530": [
+  "BannerSpriteInfos",
+  "EncyclopediaBestiaryMonsterDetails",
+  "IconEarth"
+ ],
+ "shapes/532": [
+  "BannerSpriteInfos",
+  "EncyclopediaBestiaryMonsterDetails",
+  "IconFire"
+ ],
+ "shapes/534": [
+  "BannerSpriteInfos",
+  "EncyclopediaBestiaryMonsterDetails",
+  "IconWater"
+ ],
+ "shapes/536": [
+  "BannerSpriteInfos",
+  "EncyclopediaBestiaryMonsterDetails",
+  "IconNeutral"
+ ],
+ "shapes/539": [
+  "ArtworkRotation",
+  "ArtworkRotationItem"
+ ],
+ "shapes/544": [
+  "UI_Zoom"
+ ],
+ "shapes/546": [
+  "UI_Prism",
+  "UI_Waypoints"
+ ],
+ "shapes/548": [
+  "StarBorder",
+  "StarsDisplayer",
+  "UI_GameResult",
+  "UI_GameResultLight",
+  "UI_WantedParchment",
+  "WantedStarsDisplayer"
+ ],
+ "shapes/550": [
+  "StarBorder",
+  "StarsDisplayer",
+  "UI_GameResult",
+  "UI_GameResultLight",
+  "UI_WantedParchment",
+  "WantedStarsDisplayer"
+ ],
+ "images/554": [
+  "UI_DocumentParchment",
+  "UI_WantedParchment"
+ ],
+ "shapes/555": [
+  "UI_DocumentParchment",
+  "UI_WantedParchment"
+ ],
+ "shapes/559": [
+  "UI_Waiting",
+  "UI_Waiting_TripleFramerate"
+ ],
+ "images/571": [
+  "UI_TitleAndOrnament"
+ ],
+ "shapes/572": [
+  "UI_TitleAndOrnament"
+ ],
+ "shapes/573": [
+  "UI_TitleAndOrnament"
+ ],
+ "shapes/576": [],
+ "shapes/584": [
+  "UI_TemporaryEvent"
+ ],
+ "shapes/585": [
+  "TemporaryEventItemBackground",
+  "UI_TemporaryEvent"
+ ],
+ "shapes/649": [
+  "UI_BigStoreSell",
+  "UI_NpcShop",
+  "UI_PlayerShop",
+  "UI_PlayerShopModifier",
+  "UI_TaxCollectorStorage"
+ ],
+ "shapes/653": [
+  "UI_SurveyNotification"
+ ],
+ "shapes/657": [
+  "UI_Subway"
+ ],
+ "images/659": [
+  "UI_StringCourse",
+  "UI_StringCourse_TripleFramerate"
+ ],
+ "shapes/660": [
+  "UI_StringCourse",
+  "UI_StringCourse_TripleFramerate"
+ ],
+ "shapes/661": [
+  "UI_StringCourse",
+  "UI_StringCourse_TripleFramerate"
+ ],
+ "shapes/663": [
+  "UI_StringCourse",
+  "UI_StringCourse_TripleFramerate"
+ ],
+ "shapes/673": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_CustomSet",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate",
+  "UI_Inventory",
+  "UI_Inventory_TripleFramerate",
+  "UI_StatsJob"
+ ],
+ "shapes/676": [
+  "UI_HistoryViewerOnCreate",
+  "UI_SpellViewerOnCreate"
+ ],
+ "shapes/678": [
+  "UI_SpellViewerOnCreate"
+ ],
+ "shapes/679": [
+  "UI_SpellViewerOnCreate"
+ ],
+ "shapes/683": [
+  "JobViewerSkillItem",
+  "SpellBoostViewer",
+  "UI_FightsInfosFightItem"
+ ],
+ "shapes/686": [
+  "UI_Spells"
+ ],
+ "shapes/694": [
+  "UI_ServerList"
+ ],
+ "shapes/696": [
+  "UI_ServerInformations"
+ ],
+ "shapes/697": [],
+ "shapes/698": [],
+ "shapes/699": [],
+ "shapes/701": [],
+ "shapes/702": [],
+ "shapes/703": [],
+ "shapes/705": [
+  "ButtonChatDown",
+  "ButtonChatUp",
+  "ButtonDecorationDown",
+  "ButtonDecorationUp",
+  "ButtonEmoteDown",
+  "ButtonEmoteUp",
+  "ButtonFlatRoundDown",
+  "ButtonFlatRoundLeft",
+  "ButtonHelpDown",
+  "ButtonHelpUp",
+  "ButtonPartyDown",
+  "ButtonPartyUp",
+  "ButtonSitDown",
+  "ButtonSitUp",
+  "ButtonSpellsDown",
+  "ButtonSpellsUp",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_ItemFound"
+ ],
+ "shapes/707": [],
+ "shapes/710": [
+  "UI_ServerInformations"
+ ],
+ "shapes/712": [
+  "AchievementScore",
+  "UI_Achievements",
+  "UI_ServerEvenemential"
+ ],
+ "shapes/717": [
+  "UI_ForgemagusCraft",
+  "UI_SecureForgemagusCraft"
+ ],
+ "shapes/719": [],
+ "shapes/724": [
+  "PullArrow",
+  "PushArrow",
+  "UI_CardsRecycler",
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate",
+  "UI_Craft",
+  "UI_Decraft",
+  "UI_MountStorage",
+  "UI_SecureCraft"
+ ],
+ "shapes/732": [],
+ "shapes/733": [],
+ "shapes/734": [],
+ "shapes/735": [],
+ "shapes/737": [
+  "UI_Register"
+ ],
+ "shapes/739": [
+  "UI_Register"
+ ],
+ "shapes/742": [
+  "MissionStep",
+  "UI_DailyQuests",
+  "UI_Quests"
+ ],
+ "shapes/744": [
+  "Purse",
+  "UI_DailyQuests",
+  "UI_Quests"
+ ],
+ "shapes/746": [
+  "MissionCheck",
+  "UI_DailyQuests",
+  "UI_DailyQuestsViewItem",
+  "UI_Quests"
+ ],
+ "shapes/749": [
+  "UI_DailyQuests",
+  "UI_Quests"
+ ],
+ "shapes/760": [
+  "ButtonMaximizeDown",
+  "ButtonMaximizeUp",
+  "ButtonMinimizeDown",
+  "ButtonMinimizeUp",
+  "ButtonMoinsDown",
+  "ButtonMoinsUp",
+  "UI_CardsCollection",
+  "UI_PayZoneDialog2"
+ ],
+ "shapes/762": [
+  "UI_PayZoneDialog2"
+ ],
+ "shapes/763": [
+  "UI_PayZoneDialog2",
+  "UI_PayZoneIcon",
+  "UI_PayZoneIcon_TripleFramerate"
+ ],
+ "shapes/767": [],
+ "shapes/768": [],
+ "shapes/769": [],
+ "shapes/770": [],
+ "shapes/774": [
+  "UI_NpcDialog",
+  "UI_PayZoneDialog"
+ ],
+ "shapes/779": [
+  "UI_Party",
+  "UI_PartyItem"
+ ],
+ "shapes/780": [
+  "BottomArrow",
+  "ButtonArrowCornerDown",
+  "ButtonArrowCornerUp",
+  "ButtonArrowDown",
+  "ButtonArrowUp",
+  "ButtonBookPageLeftDown",
+  "ButtonBookPageLeftUp",
+  "ButtonBookPageRightDown",
+  "ButtonBookPageRightUp",
+  "ButtonColorDown",
+  "ButtonColorUp",
+  "ButtonLeftDown",
+  "ButtonLeftUp",
+  "ButtonPartyDown",
+  "ButtonPartyUp",
+  "ButtonRightDown",
+  "ButtonRightUp",
+  "ButtonTimelineDown",
+  "ButtonTimelineUp",
+  "FlagDirection",
+  "FlagDirectionBig",
+  "FlagDirectionSmall",
+  "PictoFlagDirection",
+  "UI_BannerClockArrowHours",
+  "UI_BannerClockArrowMinutes",
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_MapExplorer",
+  "UI_Party",
+  "UI_PartyItem",
+  "UI_WaypointItemArrow",
+  "UI_WaypointsItem"
+ ],
+ "shapes/783": [
+  "GuildMemberCrown",
+  "UI_Party",
+  "UI_PartyItem"
+ ],
+ "shapes/798": [
+  "UI_MountStorage"
+ ],
+ "shapes/800": [
+  "UI_MountStorage"
+ ],
+ "shapes/801": [
+  "UI_MountStorage"
+ ],
+ "shapes/802": [
+  "UI_MountStorage"
+ ],
+ "shapes/804": [
+  "UI_MountStorage"
+ ],
+ "shapes/808": [
+  "UI_MountStorage"
+ ],
+ "shapes/811": [
+  "UI_MountParkSale"
+ ],
+ "shapes/815": [
+  "UI_MountAncestorsViewer"
+ ],
+ "shapes/816": [
+  "UI_MountAncestorsViewer"
+ ],
+ "shapes/818": [
+  "UI_MountAncestorsViewer"
+ ],
+ "shapes/819": [
+  "UI_MountAncestorsViewer"
+ ],
+ "shapes/822": [
+  "UI_MountAncestorsViewer"
+ ],
+ "shapes/824": [
+  "UI_MountAncestorsViewer"
+ ],
+ "shapes/826": [
+  "UI_MountAncestorsViewer"
+ ],
+ "shapes/827": [
+  "UI_MountAncestorsViewer"
+ ],
+ "shapes/829": [
+  "UI_MountAncestorsViewer"
+ ],
+ "shapes/831": [
+  "UI_MountAncestorsViewer"
+ ],
+ "shapes/833": [
+  "UI_MountAncestorsViewer"
+ ],
+ "shapes/835": [
+  "HelpWithBack",
+  "UI_MountAncestorsViewer"
+ ],
+ "shapes/839": [
+  "UI_MonsterAndLookSelector"
+ ],
+ "shapes/840": [
+  "ChooseCharacterSprite",
+  "UI_ChooseCharacter",
+  "UI_Gifts",
+  "UI_MonsterAndLookSelector"
+ ],
+ "shapes/841": [
+  "ChooseCharacterSprite",
+  "UI_ChooseCharacter",
+  "UI_Gifts",
+  "UI_MonsterAndLookSelector"
+ ],
+ "shapes/844": [
+  "ChooseCharacterSprite",
+  "UI_ChooseCharacter",
+  "UI_Gifts",
+  "UI_MonsterAndLookSelector"
+ ],
+ "shapes/845": [
+  "ChooseCharacterSprite",
+  "UI_ChooseCharacter",
+  "UI_Gifts",
+  "UI_MonsterAndLookSelector"
+ ],
+ "shapes/847": [
+  "ButtonUnknownDown",
+  "ButtonUnknownUp",
+  "ChooseCharacterSprite",
+  "UI_ChooseCharacter",
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_Gifts",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate",
+  "UI_MonsterAndLookSelector"
+ ],
+ "shapes/854": [
+  "MapNavigator",
+  "MapNavigatorMoveCursor",
+  "UI_MapExplorer"
+ ],
+ "shapes/860": [
+  "UI_MakeMimibiote"
+ ],
+ "shapes/861": [
+  "UI_MakeMimibiote"
+ ],
+ "shapes/863": [
+  "UI_MakeMimibiote"
+ ],
+ "shapes/865": [
+  "UI_MakeMimibiote"
+ ],
+ "shapes/867": [
+  "UI_BigStoreBuy",
+  "UI_BigStoreBuy_TripleFramerate",
+  "UI_MainMenu"
+ ],
+ "shapes/871": [
+  "UI_Login"
+ ],
+ "shapes/872": [
+  "UI_Login"
+ ],
+ "shapes/874": [
+  "UI_Login"
+ ],
+ "shapes/875": [
+  "UI_Login",
+  "UI_LoginAdvencedBack"
+ ],
+ "shapes/877": [
+  "UI_Login"
+ ],
+ "shapes/879": [
+  "UI_Login"
+ ],
+ "shapes/881": [
+  "UI_Login"
+ ],
+ "shapes/883": [
+  "UI_Login"
+ ],
+ "images/884": [
+  "UI_Login"
+ ],
+ "images/885": [
+  "UI_Login"
+ ],
+ "images/886": [
+  "UI_Login"
+ ],
+ "images/887": [
+  "UI_Login"
+ ],
+ "images/888": [
+  "UI_Login"
+ ],
+ "shapes/889": [
+  "UI_Login"
+ ],
+ "shapes/890": [
+  "UI_Login"
+ ],
+ "shapes/891": [
+  "UI_Login"
+ ],
+ "shapes/892": [
+  "UI_Login"
+ ],
+ "shapes/893": [
+  "UI_Login"
+ ],
+ "images/894": [
+  "UI_Login"
+ ],
+ "shapes/895": [
+  "UI_Login"
+ ],
+ "shapes/897": [
+  "UI_Login"
+ ],
+ "shapes/898": [
+  "UI_Login"
+ ],
+ "shapes/899": [
+  "UI_Login"
+ ],
+ "images/900": [
+  "UI_Login"
+ ],
+ "shapes/901": [
+  "UI_Login"
+ ],
+ "shapes/902": [
+  "UI_Login"
+ ],
+ "shapes/905": [
+  "ButtonSubscribeDown",
+  "ButtonSubscribeUp"
+ ],
+ "shapes/907": [],
+ "shapes/909": [
+  "ButtonSubscribeDown",
+  "ButtonSubscribeUp"
+ ],
+ "shapes/911": [
+  "UI_Login"
+ ],
+ "shapes/913": [
+  "CautionIcon",
+  "ChooseCharacterServerState2",
+  "TaxCollectorsViewerItem",
+  "UI_ChooseCharacter",
+  "UI_Gifts",
+  "UI_Guild",
+  "UI_Login",
+  "UI_LoginAlertIcon"
+ ],
+ "shapes/917": [
+  "UI_Login"
+ ],
+ "shapes/919": [
+  "UI_Login"
+ ],
+ "shapes/920": [
+  "UI_ChooseCharacter",
+  "UI_ChooseServer",
+  "UI_Gifts",
+  "UI_Login"
+ ],
+ "shapes/923": [
+  "UI_ChooseCharacter",
+  "UI_ChooseServer",
+  "UI_Gifts",
+  "UI_Login"
+ ],
+ "shapes/925": [
+  "UI_ChooseCharacter",
+  "UI_ChooseServer",
+  "UI_Gifts",
+  "UI_Login"
+ ],
+ "shapes/928": [
+  "UI_ChooseCharacter",
+  "UI_ChooseServer",
+  "UI_Gifts",
+  "UI_Login"
+ ],
+ "shapes/931": [
+  "UI_Login"
+ ],
+ "shapes/933": [
+  "UI_Login"
+ ],
+ "shapes/935": [
+  "UI_Login"
+ ],
+ "shapes/936": [
+  "PurpleDofus",
+  "UI_Login"
+ ],
+ "shapes/939": [
+  "EmeraldDofus",
+  "UI_Login"
+ ],
+ "shapes/942": [
+  "TurquoiseDofus",
+  "UI_Login"
+ ],
+ "shapes/945": [
+  "EbonyDofus",
+  "UI_Login"
+ ],
+ "shapes/946": [
+  "EbonyDofus",
+  "UI_Login"
+ ],
+ "shapes/947": [
+  "EbonyDofus",
+  "UI_Login"
+ ],
+ "shapes/949": [
+  "IvoryDofus",
+  "UI_Login"
+ ],
+ "shapes/950": [
+  "IvoryDofus",
+  "UI_Login"
+ ],
+ "shapes/952": [
+  "IvoryDofus",
+  "UI_Login"
+ ],
+ "shapes/955": [
+  "OchreDofus",
+  "UI_Login"
+ ],
+ "shapes/956": [
+  "OchreDofus",
+  "UI_Login"
+ ],
+ "shapes/957": [
+  "OchreDofus",
+  "UI_Login"
+ ],
+ "shapes/958": [
+  "OchreDofus",
+  "UI_Login"
+ ],
+ "shapes/960": [
+  "OchreDofus",
+  "UI_Login"
+ ],
+ "shapes/962": [
+  "OchreDofus",
+  "UI_Login"
+ ],
+ "shapes/964": [
+  "OchreDofus",
+  "UI_Login"
+ ],
+ "shapes/965": [
+  "OchreDofus",
+  "UI_Login"
+ ],
+ "shapes/970": [
+  "UI_KnownledgeBase",
+  "UI_KnownledgeBaseCategory",
+  "UI_KnownledgeBaseItem"
+ ],
+ "shapes/971": [
+  "UI_KnownledgeBase",
+  "UI_KnownledgeBaseCategory",
+  "UI_KnownledgeBaseItem"
+ ],
+ "shapes/972": [
+  "UI_KnownledgeBase",
+  "UI_KnownledgeBaseCategory",
+  "UI_KnownledgeBaseItem"
+ ],
+ "shapes/974": [
+  "UI_KnownledgeBase",
+  "UI_KnownledgeBaseCategory",
+  "UI_KnownledgeBaseItem"
+ ],
+ "shapes/976": [
+  "UI_KnownledgeBase"
+ ],
+ "shapes/978": [
+  "UI_KnownledgeBase"
+ ],
+ "shapes/979": [
+  "UI_KnownledgeBase"
+ ],
+ "shapes/980": [
+  "UI_KnownledgeBase"
+ ],
+ "shapes/982": [
+  "QuestionMark",
+  "UI_FloatingTips",
+  "UI_KnownledgeBase",
+  "UI_KnownledgeBaseItem"
+ ],
+ "shapes/986": [
+  "UI_JoinFriend",
+  "UI_JoinFriend_TripleFramerate"
+ ],
+ "shapes/987": [
+  "UI_JoinFriend",
+  "UI_JoinFriend_TripleFramerate"
+ ],
+ "shapes/988": [],
+ "shapes/990": [],
+ "shapes/991": [],
+ "shapes/993": [],
+ "shapes/995": [],
+ "shapes/1000": [
+  "UI_JoinFriend",
+  "UI_JoinFriend_TripleFramerate"
+ ],
+ "shapes/1001": [
+  "UI_JoinFriend",
+  "UI_JoinFriend_TripleFramerate"
+ ],
+ "shapes/1002": [
+  "Exclamation",
+  "UI_JoinFriend",
+  "UI_JoinFriend_TripleFramerate"
+ ],
+ "shapes/1007": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate",
+  "UI_JoinFriend",
+  "UI_JoinFriend_TripleFramerate"
+ ],
+ "shapes/1009": [],
+ "shapes/1010": [],
+ "shapes/1011": [],
+ "shapes/1013": [],
+ "shapes/1016": [],
+ "shapes/1017": [],
+ "shapes/1018": [],
+ "shapes/1026": [
+  "UI_ItemUtility"
+ ],
+ "shapes/1034": [
+  "UI_CustomSet",
+  "UI_Inventory",
+  "UI_Inventory_TripleFramerate"
+ ],
+ "shapes/1044": [
+  "UI_HouseIndoor"
+ ],
+ "shapes/1046": [
+  "UI_HouseIndoor"
+ ],
+ "shapes/1048": [
+  "UI_HouseIndoor"
+ ],
+ "shapes/1051": [
+  "UI_HistoryViewerOnCreate"
+ ],
+ "shapes/1057": [
+  "UI_Guild"
+ ],
+ "shapes/1059": [
+  "UI_Exchange",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1061": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1063": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1065": [
+  "UI_ExchangeGridBackground",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1067": [
+  "Piece",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1068": [
+  "Piece",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1069": [
+  "Piece",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1071": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1073": [
+  "ItemViewerSpell",
+  "UI_CreateCharacter",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1075": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1076": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1082": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1083": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1084": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1085": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1086": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1087": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1088": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1089": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1090": [
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1091": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1092": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1093": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1094": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1096": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1097": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1099": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1100": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1101": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1103": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1106": [
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1109": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1110": [
+  "UI_ChooseReward",
+  "UI_ChooseReward_TripleFramerate",
+  "UI_GladiatroolShop",
+  "UI_GladiatroolShop_TripleFramerate"
+ ],
+ "shapes/1116": [
+  "UI_ChooseReward",
+  "UI_GladiatroolShop"
+ ],
+ "shapes/1122": [
+  "UI_Gifts"
+ ],
+ "shapes/1125": [
+  "UI_CharactersMigration",
+  "UI_Gifts"
+ ],
+ "shapes/1126": [
+  "UI_Gifts"
+ ],
+ "shapes/1128": [
+  "UI_Gifts"
+ ],
+ "shapes/1129": [
+  "UI_Gifts"
+ ],
+ "shapes/1142": [
+  "UI_GameOver"
+ ],
+ "shapes/1146": [
+  "ButtonCraftDown",
+  "ButtonCraftDownInvert",
+  "ButtonCraftUp",
+  "ButtonCraftUpInvert",
+  "ButtonSpellsUp",
+  "ProgressBarSemiCornerRenderer",
+  "UI_Friends"
+ ],
+ "shapes/1157": [
+  "FilterIntervalViewer"
+ ],
+ "shapes/1160": [
+  "FilterSearchViewer"
+ ],
+ "shapes/1165": [
+  "UI_Dragger"
+ ],
+ "images/1167": [
+  "UI_DocumentRoadSignLeft",
+  "UI_DocumentRoadSignRight"
+ ],
+ "shapes/1168": [
+  "UI_DocumentRoadSignRight"
+ ],
+ "images/1169": [
+  "Link",
+  "UI_DocumentRoadSignLeft",
+  "UI_DocumentRoadSignRight"
+ ],
+ "shapes/1170": [
+  "UI_DocumentRoadSignLeft",
+  "UI_DocumentRoadSignRight"
+ ],
+ "shapes/1174": [
+  "UI_DocumentRoadSignLeft"
+ ],
+ "images/1179": [
+  "UI_CardsCollection",
+  "UI_DocumentBook"
+ ],
+ "shapes/1180": [
+  "UI_CardsCollection",
+  "UI_DocumentBook"
+ ],
+ "shapes/1182": [
+  "DirectionChooserArrows",
+  "DirectionChooserShadow",
+  "UI_DirectionChooser"
+ ],
+ "shapes/1195": [
+  "UI_CreateCharacter"
+ ],
+ "shapes/1196": [],
+ "shapes/1198": [],
+ "shapes/1199": [],
+ "shapes/1201": [],
+ "shapes/1202": [],
+ "shapes/1203": [],
+ "shapes/1205": [],
+ "shapes/1206": [],
+ "shapes/1208": [],
+ "shapes/1209": [],
+ "shapes/1210": [],
+ "shapes/1212": [],
+ "shapes/1213": [],
+ "shapes/1215": [],
+ "shapes/1216": [],
+ "shapes/1217": [],
+ "shapes/1218": [],
+ "shapes/1219": [],
+ "shapes/1221": [],
+ "shapes/1223": [],
+ "shapes/1226": [],
+ "shapes/1227": [],
+ "shapes/1229": [
+  "UI_CreateCharacter"
+ ],
+ "shapes/1233": [
+  "UI_CrafterCard"
+ ],
+ "shapes/1240": [
+  "ChooseServerSprite",
+  "UI_ChooseServer"
+ ],
+ "shapes/1242": [
+  "ChooseServerSprite",
+  "UI_ChooseServer"
+ ],
+ "shapes/1244": [
+  "ChooseServerSprite",
+  "UI_ChooseServer"
+ ],
+ "shapes/1245": [
+  "Bonhomme",
+  "ChooseServerSprite",
+  "UI_BigStorePriceItem",
+  "UI_BigStorePriceItemNoBuy",
+  "UI_ChooseServer"
+ ],
+ "images/1248": [
+  "UI_ChooseServer"
+ ],
+ "images/1249": [
+  "UI_ChooseServer"
+ ],
+ "shapes/1250": [
+  "UI_ChooseServer"
+ ],
+ "shapes/1251": [
+  "UI_ChooseServer"
+ ],
+ "shapes/1252": [
+  "UI_ChooseServer"
+ ],
+ "images/1261": [
+  "UI_ChooseCharacter"
+ ],
+ "shapes/1262": [
+  "UI_ChooseCharacter"
+ ],
+ "images/1263": [
+  "UI_ChooseCharacter"
+ ],
+ "shapes/1264": [
+  "UI_ChooseCharacter"
+ ],
+ "shapes/1265": [
+  "UI_ChooseCharacter"
+ ],
+ "shapes/1268": [
+  "UI_CharactersMigration"
+ ],
+ "images/1270": [
+  "UI_CharactersMigration"
+ ],
+ "shapes/1271": [
+  "UI_CharactersMigration"
+ ],
+ "shapes/1272": [
+  "UI_CharactersMigration"
+ ],
+ "shapes/1273": [
+  "UI_CharactersMigration"
+ ],
+ "shapes/1274": [
+  "UI_CharactersMigration"
+ ],
+ "shapes/1275": [],
+ "shapes/1276": [],
+ "shapes/1277": [],
+ "shapes/1279": [
+  "UI_CharactersMigration"
+ ],
+ "shapes/1280": [
+  "UI_CharactersMigration"
+ ],
+ "shapes/1283": [],
+ "shapes/1284": [],
+ "shapes/1285": [],
+ "shapes/1287": [],
+ "shapes/1289": [],
+ "shapes/1291": [],
+ "shapes/1295": [
+  "UI_ChallengeMenu"
+ ],
+ "shapes/1297": [],
+ "shapes/1299": [],
+ "shapes/1302": [],
+ "shapes/1304": [],
+ "shapes/1307": [
+  "UI_ChallengeMenu"
+ ],
+ "shapes/1317": [
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate"
+ ],
+ "shapes/1319": [
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate"
+ ],
+ "shapes/1320": [
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate"
+ ],
+ "shapes/1321": [
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate"
+ ],
+ "shapes/1322": [
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate"
+ ],
+ "shapes/1327": [
+  "UI_CardsUpgrader",
+  "UI_CardsUpgrader_TripleFramerate"
+ ],
+ "shapes/1333": [
+  "FilterIcon9",
+  "UI_CardsCollection"
+ ],
+ "shapes/1334": [
+  "FilterIcon9",
+  "UI_CardsCollection"
+ ],
+ "shapes/1338": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1339": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1340": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1343": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1344": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1345": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1346": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1347": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1348": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1350": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1351": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1352": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1353": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1356": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1357": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1359": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1361": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1363": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1365": [
+  "UI_CardsCollection"
+ ],
+ "shapes/1380": [
+  "Heart",
+  "UI_Banner"
+ ],
+ "shapes/1382": [
+  "Heart",
+  "UI_Banner"
+ ],
+ "shapes/1384": [
+  "Heart",
+  "UI_Banner"
+ ],
+ "shapes/1390": [
+  "Heart",
+  "UI_Banner"
+ ],
+ "shapes/1397": [
+  "Chat",
+  "TemporaryEventButton",
+  "UI_Banner"
+ ],
+ "shapes/1399": [
+  "Chat",
+  "TemporaryEventButton",
+  "UI_Banner"
+ ],
+ "shapes/1401": [
+  "Chat",
+  "TemporaryEventButton",
+  "UI_Banner"
+ ],
+ "shapes/1403": [
+  "Chat",
+  "TemporaryEventButton",
+  "UI_Banner"
+ ],
+ "shapes/1405": [
+  "Chat",
+  "TemporaryEventButton",
+  "UI_Banner"
+ ],
+ "shapes/1407": [
+  "Chat",
+  "TemporaryEventButton",
+  "UI_Banner"
+ ],
+ "shapes/1411": [
+  "UI_Banner"
+ ],
+ "shapes/1413": [
+  "UI_Banner"
+ ],
+ "shapes/1422": [
+  "UI_Banner"
+ ],
+ "shapes/1423": [
+  "UI_Banner"
+ ],
+ "shapes/1428": [
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1429": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1430": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1431": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1432": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1434": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1435": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1437": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1438": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1440": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1442": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1443": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1445": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1446": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1448": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1450": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1451": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1453": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1454": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1455": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1456": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1457": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1458": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1462": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1463": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1465": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1466": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1468": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1469": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1471": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1473": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1474": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1475": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1476": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1478": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1479": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1480": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1481": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1482": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1484": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1486": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1487": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1488": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1489": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1492": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1495": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1498": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1500": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1502": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1504": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1505": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1508": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1510": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1511": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1513": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1518": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1522": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1525": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1527": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1528": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1529": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1531": [
+  "UI_AutomaticServer",
+  "UI_AutomaticServer_TripleFramerate"
+ ],
+ "shapes/1534": [
+  "UI_AutomaticServer"
+ ],
+ "images/1545": [
+  "UI_AskLinkWarning"
+ ],
+ "shapes/1546": [
+  "UI_AskLinkWarning"
+ ],
+ "images/1549": [
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate"
+ ],
+ "images/1550": [
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate"
+ ],
+ "shapes/1551": [
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate"
+ ],
+ "shapes/1559": [
+  "UI_Achievements"
+ ],
+ "shapes/1560": [
+  "UI_Achievements"
+ ],
+ "shapes/1562": [
+  "AchievementSynthesis",
+  "AchievementSynthesisBigItem",
+  "UI_Achievements"
+ ],
+ "shapes/1569": [
+  "EncyclopediaConsumablesViewerConsumable",
+  "EncyclopediaEquipmentsViewerEquipment",
+  "EncyclopediaRessourcesViewerRessource"
+ ],
+ "shapes/1573": [
+  "EncyclopediaRessourceDetails"
+ ],
+ "shapes/1574": [
+  "EncyclopediaRessourceDetails"
+ ],
+ "shapes/1576": [
+  "EncyclopediaItemEffectItem"
+ ],
+ "shapes/1579": [
+  "EncyclopediaEquipmentDetails",
+  "EncyclopediaItemSetViewer"
+ ],
+ "shapes/1581": [
+  "EncyclopediaEquipmentDetails"
+ ],
+ "shapes/1589": [
+  "EncyclopediaBestiarySpellsItem"
+ ],
+ "shapes/1591": [
+  "EncyclopediaBestiaryMonsterDetails"
+ ],
+ "shapes/1593": [
+  "EncyclopediaBestiaryMonsterDetails"
+ ],
+ "shapes/1594": [
+  "EncyclopediaBestiaryMonsterDetails",
+  "IconInit"
+ ],
+ "shapes/1598": [
+  "UI_EncyclopediaLootBorder"
+ ],
+ "shapes/1600": [
+  "UI_EncyclopediaLootBigBorder"
+ ],
+ "shapes/1602": [
+  "UI_EncyclopediaLootBigBackground"
+ ],
+ "shapes/1604": [
+  "UI_EncyclopediaLootBackground"
+ ],
+ "shapes/1606": [
+  "UI_EncyclopediaCraftItemContainer"
+ ],
+ "shapes/1609": [
+  "Roulette2_2"
+ ],
+ "shapes/1611": [
+  "Roulette2_1"
+ ],
+ "shapes/1613": [
+  "Roulette1_2"
+ ],
+ "shapes/1615": [
+  "Roulette1_1"
+ ],
+ "shapes/1617": [
+  "Roulette0_2"
+ ],
+ "shapes/1619": [
+  "Roulette0_1"
+ ],
+ "shapes/1632": [
+  "SpellIcon"
+ ],
+ "shapes/1633": [
+  "DeckIcon",
+  "SpellIcon"
+ ],
+ "shapes/1635": [
+  "DeckIcon"
+ ],
+ "shapes/1637": [
+  "TemporaryEventItemOK"
+ ],
+ "shapes/1655": [
+  "UI_SecureCraftGridHighlight"
+ ],
+ "shapes/1657": [
+  "UI_SecureCraftGridBackground"
+ ],
+ "shapes/1661": [
+  "UI_QuestsQuestItem",
+  "UI_QuestsStepItem"
+ ],
+ "shapes/1665": [
+  "UI_QuestsQuestItem"
+ ],
+ "shapes/1667": [
+  "UI_QuestsQuestItem"
+ ],
+ "shapes/1669": [
+  "UI_QuestsQuestItem"
+ ],
+ "shapes/1672": [
+  "ConquestZonesViewerAreaItem",
+  "Locate",
+  "LocateIcon",
+  "UI_BannerCompassArrow",
+  "UI_BannerMapIcon",
+  "UI_QuestsObjectivetItem",
+  "UI_WaypointItemLocate"
+ ],
+ "shapes/1674": [
+  "Help",
+  "UI_MainMenuHelp",
+  "UI_MainMenuSurvey",
+  "UI_QuestsObjectivetItem",
+  "UI_WaypointItemLocate"
+ ],
+ "shapes/1678": [
+  "AchievementItemRewards",
+  "AchievementRewardItem",
+  "UI_DailyQuestsViewItem",
+  "UI_QuestXP"
+ ],
+ "shapes/1680": [
+  "MissionProgress",
+  "UI_DailyQuestsViewItem"
+ ],
+ "shapes/1683": [
+  "UI_QuestsRepeatable"
+ ],
+ "shapes/1685": [
+  "UI_QuestsBubble"
+ ],
+ "shapes/1687": [
+  "UI_QuestsAccount"
+ ],
+ "shapes/1690": [
+  "UI_Percent"
+ ],
+ "shapes/1693": [
+  "UI_PopupQuantityWithDescriptionContent",
+  "UI_PopupQuatityContent",
+  "UI_PopupTextContent"
+ ],
+ "shapes/1697": [
+  "UI_PopupHexaContent"
+ ],
+ "shapes/1699": [
+  "UI_PopupQuantityOk"
+ ],
+ "shapes/1701": [
+  "NonDispellableIcon",
+  "UI_PlayerInfosEffectsItem",
+  "UI_ShortcutsChatReplacementPanelEffectsItem"
+ ],
+ "shapes/1705": [
+  "UI_PayZoneIcon",
+  "UI_PayZoneIcon_TripleFramerate"
+ ],
+ "shapes/1711": [
+  "OptionsGeneralContent"
+ ],
+ "shapes/1712": [
+  "OptionsGeneralContent"
+ ],
+ "shapes/1714": [
+  "OptionsDisplayContent"
+ ],
+ "shapes/1715": [
+  "OptionsDisplayContent"
+ ],
+ "shapes/1720": [
+  "MountStorageMountItem"
+ ],
+ "shapes/1722": [
+  "MountStorageMountItem"
+ ],
+ "shapes/1726": [
+  "UI_MapExplorerRectangle"
+ ],
+ "shapes/1727": [
+  "UI_MapExplorerRectangle"
+ ],
+ "shapes/1728": [
+  "UI_MapExplorerRectangle"
+ ],
+ "shapes/1730": [
+  "UI_MapExplorerFlag"
+ ],
+ "shapes/1731": [
+  "UI_MapExplorerFlag"
+ ],
+ "shapes/1733": [
+  "UI_MapExplorerFlag"
+ ],
+ "shapes/1736": [
+  "StarSymbol",
+  "UI_MainMenuSubscribe"
+ ],
+ "shapes/1739": [
+  "UI_MainMenuOptions"
+ ],
+ "shapes/1743": [
+  "BtnDeleteCharacterUp",
+  "CrossSmall",
+  "UI_MainMenuCross"
+ ],
+ "shapes/1745": [
+  "UI_MainMenuBugs"
+ ],
+ "shapes/1748": [
+  "PlusSmall"
+ ],
+ "shapes/1751": [
+  "LookSelectorHighlight"
+ ],
+ "shapes/1753": [
+  "LookSelectorBackground"
+ ],
+ "shapes/1755": [
+  "UI_LoginNewsItem"
+ ],
+ "shapes/1758": [
+  "Flag_en"
+ ],
+ "shapes/1760": [],
+ "shapes/1761": [],
+ "shapes/1763": [],
+ "shapes/1764": [],
+ "shapes/1766": [
+  "Flag_pt"
+ ],
+ "shapes/1768": [
+  "Flag_pt"
+ ],
+ "shapes/1772": [],
+ "shapes/1774": [
+  "Flag_nl"
+ ],
+ "shapes/1778": [
+  "Flag_it"
+ ],
+ "shapes/1782": [],
+ "shapes/1783": [
+  "Flag_fr"
+ ],
+ "shapes/1786": [],
+ "shapes/1787": [],
+ "images/1789": [
+  "Flag_es"
+ ],
+ "shapes/1790": [],
+ "shapes/1791": [
+  "Flag_es"
+ ],
+ "shapes/1794": [],
+ "shapes/1796": [],
+ "shapes/1797": [],
+ "shapes/1799": [],
+ "shapes/1801": [],
+ "shapes/1802": [],
+ "shapes/1804": [],
+ "shapes/1806": [
+  "News_Update_fr"
+ ],
+ "shapes/1808": [
+  "News_Update_es"
+ ],
+ "shapes/1810": [
+  "News_Update_de",
+  "News_Update_en"
+ ],
+ "shapes/1813": [
+  "News_Sondage_fr"
+ ],
+ "shapes/1815": [
+  "News_Sondage_es"
+ ],
+ "shapes/1817": [
+  "News_Sondage_en"
+ ],
+ "shapes/1819": [
+  "News_Sondage_de"
+ ],
+ "shapes/1821": [
+  "News_Shop"
+ ],
+ "shapes/1823": [
+  "News_Reboot"
+ ],
+ "shapes/1825": [
+  "News_News"
+ ],
+ "shapes/1827": [
+  "News_Maintenance"
+ ],
+ "shapes/1829": [
+  "News_Event"
+ ],
+ "shapes/1831": [
+  "News_Dedicaces"
+ ],
+ "shapes/1833": [
+  "News_Contest_fr"
+ ],
+ "shapes/1835": [
+  "News_Contest_es"
+ ],
+ "shapes/1837": [
+  "News_Contest_en"
+ ],
+ "shapes/1839": [
+  "News_Contest_de"
+ ],
+ "shapes/1841": [
+  "VulbisDofus"
+ ],
+ "shapes/1844": [
+  "CawotteDofus"
+ ],
+ "shapes/1852": [
+  "UI_KeyCodeSymbol9"
+ ],
+ "shapes/1854": [
+  "UI_KeyCodeSymbol8"
+ ],
+ "shapes/1856": [
+  "UI_KeyCodeSymbol7"
+ ],
+ "shapes/1858": [
+  "UI_KeyCodeSymbol6"
+ ],
+ "shapes/1860": [
+  "UI_KeyCodeSymbol5"
+ ],
+ "shapes/1862": [
+  "UI_KeyCodeSymbol4"
+ ],
+ "shapes/1864": [
+  "UI_KeyCodeSymbol3"
+ ],
+ "shapes/1866": [
+  "UI_KeyCodeSymbol2"
+ ],
+ "shapes/1868": [
+  "UI_KeyCodeSymbol1"
+ ],
+ "shapes/1870": [
+  "UI_KeyCodeSymbol0"
+ ],
+ "shapes/1872": [
+  "ExclamationPurple"
+ ],
+ "shapes/1874": [
+  "ExclamationGreen"
+ ],
+ "shapes/1876": [
+  "ExclamationBlue"
+ ],
+ "shapes/1878": [
+  "UI_MyMountGridBackground"
+ ],
+ "shapes/1880": [
+  "UI_MountGridBackground"
+ ],
+ "shapes/1882": [
+  "UI_InventoryGridHighlight"
+ ],
+ "shapes/1884": [
+  "UI_InventoryGridBackground"
+ ],
+ "shapes/1886": [
+  "UI_InventoryContainerHighlight",
+  "UI_InventoryContainerHighlight_TripleFramerate"
+ ],
+ "shapes/1890": [
+  "UI_DungeonKeyGridHighlight"
+ ],
+ "shapes/1892": [
+  "UI_DungeonKeyGridBackground"
+ ],
+ "shapes/1894": [
+  "UI_DailyQuestRewardContainer"
+ ],
+ "shapes/1896": [
+  "UI_InventoryMountIcon"
+ ],
+ "shapes/1898": [
+  "UI_IndicatorLight",
+  "UI_IndicatorLight_TripleFramerate"
+ ],
+ "shapes/1902": [
+  "UI_IndicatorArrow",
+  "UI_IndicatorArrow_TripleFramerate"
+ ],
+ "shapes/1904": [
+  "UI_IndicatorArrow",
+  "UI_IndicatorArrow_TripleFramerate"
+ ],
+ "shapes/1908": [
+  "UI_GiftsSprite"
+ ],
+ "shapes/1909": [
+  "UI_GiftsSprite"
+ ],
+ "shapes/1912": [
+  "ChooseCharacterSpriteSelect",
+  "UI_GiftsSprite"
+ ],
+ "shapes/1916": [
+  "Gift"
+ ],
+ "shapes/1923": [
+  "DeadHead",
+  "UI_FightsInfosPlayerItem",
+  "UI_GameResultPlayer",
+  "UI_GameResultPlayerPVP",
+  "_mcDeathCounterHead",
+  "_mcDeathCounterHeadMore"
+ ],
+ "shapes/1926": [
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP"
+ ],
+ "shapes/1927": [
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP"
+ ],
+ "shapes/1929": [
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP"
+ ],
+ "shapes/1931": [
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP"
+ ],
+ "shapes/1932": [
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP"
+ ],
+ "shapes/1934": [
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP"
+ ],
+ "shapes/1936": [
+  "UI_GameResultPlayerLightPVP",
+  "UI_GameResultPlayerPVP"
+ ],
+ "shapes/1942": [
+  "UI_GameResultPlayerLightPVP"
+ ],
+ "shapes/1943": [
+  "UI_GameResultPlayerLightPVP"
+ ],
+ "shapes/1946": [
+  "UI_GameResultPlayerLight"
+ ],
+ "shapes/1947": [
+  "UI_GameResultPlayerLight"
+ ],
+ "shapes/1950": [
+  "BonusXPx4_Round"
+ ],
+ "shapes/1952": [
+  "BonusXPx4"
+ ],
+ "shapes/1954": [
+  "BonusXPx3_Round"
+ ],
+ "shapes/1956": [
+  "BonusXPx3"
+ ],
+ "shapes/1958": [
+  "BonusXPx2_Round"
+ ],
+ "shapes/1960": [
+  "BonusXPx2"
+ ],
+ "shapes/1964": [
+  "avg",
+  "fpsWindow"
+ ],
+ "shapes/1967": [
+  "dot",
+  "fpsWindow"
+ ],
+ "shapes/1969": [
+  "fpsWindow"
+ ],
+ "shapes/1970": [
+  "fpsWindow"
+ ],
+ "shapes/1972": [
+  "fpsWindow"
+ ],
+ "shapes/1974": [
+  "fpsWindow"
+ ],
+ "shapes/1979": [
+  "fpsWindow"
+ ],
+ "shapes/1981": [
+  "fpsWindow"
+ ],
+ "shapes/1990": [
+  "UI_HideAchievementUp"
+ ],
+ "shapes/1992": [
+  "UI_HideAchievementDown"
+ ],
+ "shapes/1994": [
+  "UI_FightOptionToggleSpritesUp"
+ ],
+ "shapes/1995": [
+  "UI_FightOptionToggleSpritesDown",
+  "UI_FightOptionToggleSpritesUp"
+ ],
+ "shapes/1998": [
+  "UI_FightOptionToggleSpritesDown"
+ ],
+ "shapes/2000": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2002": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2004": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2006": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2008": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2010": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2012": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2014": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2016": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2018": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2021": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2023": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2025": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2028": [
+  "UI_FightOptionTacticModeDown",
+  "UI_FightOptionTacticModeUp"
+ ],
+ "shapes/2033": [
+  "UI_FightOptionNeedHelpDown",
+  "UI_FightOptionNeedHelpDown_TripleFramerate",
+  "UI_FightOptionNeedHelpUp",
+  "UI_FightOptionNeedHelpUp_TripleFramerate"
+ ],
+ "shapes/2039": [
+  "UI_FightOptionButtonCell"
+ ],
+ "shapes/2041": [
+  "UI_FightOptionBlockSpectatorUp"
+ ],
+ "shapes/2042": [
+  "UI_FightOptionBlockSpectatorDown",
+  "UI_FightOptionBlockSpectatorUp"
+ ],
+ "shapes/2045": [
+  "UI_FightOptionBlockSpectatorDown"
+ ],
+ "shapes/2047": [
+  "UI_FightOptionBlockJoinerDown",
+  "UI_FightOptionBlockJoinerUp"
+ ],
+ "shapes/2049": [
+  "UI_FightOptionBlockJoinerExceptPartyMemberDown",
+  "UI_FightOptionBlockJoinerExceptPartyMemberUp"
+ ],
+ "shapes/2051": [
+  "UI_FightOptionBlockJoinerExceptPartyMemberDown",
+  "UI_FightOptionBlockJoinerExceptPartyMemberUp"
+ ],
+ "shapes/2056": [
+  "UI_ExchangeGridHighlight"
+ ],
+ "shapes/2058": [
+  "UI_CardGridHighlight"
+ ],
+ "shapes/2060": [
+  "UI_CardGridBackground"
+ ],
+ "shapes/2062": [
+  "DirectionChooserArrowB",
+  "DirectionChooserArrowBL",
+  "DirectionChooserArrowBR",
+  "DirectionChooserArrowL",
+  "DirectionChooserArrowR",
+  "DirectionChooserArrowT",
+  "DirectionChooserArrowTL",
+  "DirectionChooserArrowTR"
+ ],
+ "shapes/2072": [
+  "BtnSubscribe"
+ ],
+ "shapes/2074": [
+  "BtnChooseServerUp"
+ ],
+ "shapes/2076": [
+  "BtnChooseServerDown"
+ ],
+ "shapes/2079": [
+  "TtgFamiliesGridHighlight"
+ ],
+ "shapes/2085": [
+  "ViewAllGiftsUp"
+ ],
+ "shapes/2087": [
+  "ViewAllGiftsDown"
+ ],
+ "shapes/2089": [
+  "ChooseCharacterBtnPlayUp"
+ ],
+ "shapes/2091": [
+  "ChooseCharacterBtnPlayDown"
+ ],
+ "shapes/2094": [
+  "UI_CardsCollectionContainerHighlight"
+ ],
+ "shapes/2097": [
+  "UI_CardsCollectionContainerBackground"
+ ],
+ "shapes/2105": [
+  "UI_BigStoreCategories"
+ ],
+ "shapes/2107": [
+  "BigStoreList"
+ ],
+ "shapes/2109": [
+  "BigStoreGrid"
+ ],
+ "shapes/2117": [
+  "UI_BannerTitleIcon"
+ ],
+ "shapes/2119": [
+  "UI_BannerStatsIcon"
+ ],
+ "shapes/2121": [
+  "UI_BannerSpellIcon"
+ ],
+ "shapes/2123": [
+  "UI_BannerPlayerShopIcon"
+ ],
+ "shapes/2125": [
+  "UI_BannerMountIcon"
+ ],
+ "shapes/2127": [
+  "UI_BannerMoreIcon"
+ ],
+ "shapes/2130": [
+  "UI_BannerLessIcon"
+ ],
+ "shapes/2132": [
+  "UI_BannerJobIcon"
+ ],
+ "shapes/2134": [
+  "UI_BannerInventoryIcon"
+ ],
+ "shapes/2136": [
+  "UI_BannerGuildIcon"
+ ],
+ "shapes/2138": [
+  "UI_BannerFriendsIcon"
+ ],
+ "shapes/2140": [
+  "Ethereal",
+  "UI_BannerEventIcon"
+ ],
+ "shapes/2143": [
+  "UI_BannerEncyclopediaIcon"
+ ],
+ "shapes/2148": [
+  "UI_BannerCompassNoArrow"
+ ],
+ "shapes/2156": [
+  "UI_BannerChatCommandAll"
+ ],
+ "shapes/2161": [
+  "UI_ChooseNickName"
+ ],
+ "shapes/2163": [
+  "UI_ChooseNickName"
+ ],
+ "shapes/2164": [
+  "UI_ChooseNickName"
+ ],
+ "shapes/2166": [
+  "UI_ChooseNickName"
+ ],
+ "shapes/2168": [
+  "UI_ChooseNickName"
+ ],
+ "shapes/2169": [
+  "UI_ChooseNickName"
+ ],
+ "shapes/2184": [
+  "UI_AchievementRewardContainerBorder"
+ ],
+ "shapes/2185": [
+  "UI_AchievementRewardContainerBorder"
+ ],
+ "shapes/2187": [
+  "UI_AchievementRewardContainer"
+ ],
+ "shapes/2189": [
+  "AchievementSynthesisItem"
+ ],
+ "shapes/2193": [
+  "AchievementRewardsIcon"
+ ],
+ "shapes/2197": [
+  "AchievementItemRewards",
+  "AchievementObjectiveCheckboxItem",
+  "AchievementObjectiveProgressBarDetailsItem",
+  "AchievementObjectiveProgressBarItem"
+ ],
+ "shapes/2202": [
+  "AchievementItemRewards"
+ ],
+ "shapes/2204": [
+  "AchievementItem"
+ ],
+ "shapes/2205": [
+  "AchievementItem"
+ ],
+ "shapes/2207": [
+  "AchievementItem"
+ ],
+ "shapes/2209": [
+  "AchievementItem"
+ ],
+ "shapes/2210": [
+  "AchievementItem"
+ ],
+ "shapes/2212": [
+  "TimelinePointer"
+ ],
+ "shapes/2213": [
+  "TimelinePointer"
+ ],
+ "shapes/2222": [
+  "Tower"
+ ],
+ "shapes/2224": [
+  "Key"
+ ],
+ "shapes/2226": [
+  "DungeonMap"
+ ],
+ "shapes/2228": [
+  "Dungeon"
+ ],
+ "shapes/2233": [
+  "TaxCollectorsViewerItem"
+ ],
+ "shapes/2235": [
+  "BonhommeBrun",
+  "TaxCollectorsViewerItem"
+ ],
+ "shapes/2238": [
+  "Link"
+ ],
+ "shapes/2242": [
+  "XPLockIcon"
+ ],
+ "shapes/2245": [
+  "SpellAcquireUnknown"
+ ],
+ "shapes/2247": [
+  "SpellAcquireDrop"
+ ],
+ "shapes/2249": [
+  "SpellAcquireCraft"
+ ],
+ "shapes/2253": [
+  "IconRequired",
+  "SpellFullInfosViewerTrue"
+ ],
+ "shapes/2255": [
+  "ConquestZonesViewerAreaItem",
+  "ConquestZonesViewerVillageItem",
+  "IconForbidden",
+  "SpellFullInfosViewerFalse"
+ ],
+ "shapes/2276": [
+  "PreloadSymbol"
+ ],
+ "shapes/2277": [
+  "PreloadSymbol"
+ ],
+ "shapes/2278": [
+  "PreloadSymbol"
+ ],
+ "shapes/2279": [
+  "PreloadSymbol"
+ ],
+ "shapes/2280": [
+  "PreloadSymbol"
+ ],
+ "shapes/2281": [
+  "PreloadSymbol"
+ ],
+ "shapes/2282": [
+  "PreloadSymbol"
+ ],
+ "shapes/2283": [
+  "PreloadSymbol"
+ ],
+ "shapes/2288": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2289": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2290": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2291": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2292": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2293": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2294": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2295": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2296": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2297": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2298": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2299": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2300": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2301": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2302": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2303": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2304": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2305": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2306": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2307": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2308": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2309": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2310": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2311": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2312": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2313": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2314": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2315": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2316": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2317": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2318": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2319": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2320": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2321": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2322": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2323": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2324": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2325": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2326": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2327": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2328": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2329": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2330": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2331": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2332": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2333": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2334": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2335": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2336": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2337": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2338": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2339": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2340": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2341": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2342": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2343": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2344": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2345": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2346": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2347": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2348": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2349": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2350": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2351": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2352": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2353": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2354": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2355": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2356": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2357": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2358": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2359": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2360": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2361": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2362": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2363": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2364": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2365": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2366": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2367": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2368": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2369": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2370": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2371": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2372": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2373": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2374": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2375": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2376": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2377": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2378": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2379": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2380": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2381": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2382": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2383": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2384": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2385": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2386": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2387": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2388": [
+  "CircleBar",
+  "CircleBarDefault",
+  "JobViewerJobItem"
+ ],
+ "shapes/2399": [
+  "ItemViewerUseHand"
+ ],
+ "shapes/2401": [
+  "ItemViewerTwoHand"
+ ],
+ "shapes/2403": [
+  "ItemViewerTarget"
+ ],
+ "shapes/2406": [
+  "ItemViewerDestroy"
+ ],
+ "shapes/2409": [
+  "ItemSetViewerItemBorder"
+ ],
+ "shapes/2413": [
+  "GuildMembersViewerMember"
+ ],
+ "shapes/2420": [
+  "ChallengeKO",
+  "ChallengeOK"
+ ],
+ "shapes/2429": [
+  "CraftResultOverHeadMiss"
+ ],
+ "shapes/2431": [
+  "CraftResultOverHeadCross"
+ ],
+ "shapes/2433": [
+  "CraftResultOverHeadBubble"
+ ],
+ "shapes/2439": [
+  "ConquestZonesViewerVillageItem"
+ ],
+ "shapes/2441": [
+  "ConquestZonesViewerVillageItem"
+ ],
+ "shapes/2444": [
+  "ConquestZonesViewerAreaItem",
+  "Equipped",
+  "FilterIcon0"
+ ],
+ "shapes/2449": [
+  "ZoomPlus"
+ ],
+ "shapes/2451": [
+  "ZoomMinous"
+ ],
+ "shapes/2453": [
+  "Water"
+ ],
+ "shapes/2456": [
+  "Tree"
+ ],
+ "shapes/2458": [
+  "Teleportation"
+ ],
+ "shapes/2460": [
+  "Summon"
+ ],
+ "shapes/2463": [
+  "Shield"
+ ],
+ "shapes/2465": [
+  "Save"
+ ],
+ "shapes/2467": [
+  "ReflectDamage"
+ ],
+ "shapes/2469": [
+  "Range"
+ ],
+ "shapes/2473": [
+  "Preview"
+ ],
+ "shapes/2475": [
+  "OfflineIcon"
+ ],
+ "shapes/2477": [
+  "OeufCasse"
+ ],
+ "shapes/2479": [
+  "Oeuf"
+ ],
+ "shapes/2481": [
+  "Eye",
+  "NoEye"
+ ],
+ "shapes/2483": [
+  "ButtonMuteEnvironmentDown",
+  "ButtonMuteMusicDown",
+  "ButtonMuteSoundsDown",
+  "NoEye"
+ ],
+ "shapes/2486": [
+  "Neutral"
+ ],
+ "shapes/2488": [
+  "Multi"
+ ],
+ "shapes/2490": [
+  "Move"
+ ],
+ "shapes/2492": [
+  "Load",
+  "LoadSmall"
+ ],
+ "shapes/2495": [
+  "ItemSet"
+ ],
+ "shapes/2496": [
+  "FilterIcon2",
+  "ItemSet"
+ ],
+ "shapes/2500": [
+  "InvocationStatic"
+ ],
+ "shapes/2502": [
+  "Invocation"
+ ],
+ "shapes/2504": [
+  "Invoc"
+ ],
+ "shapes/2506": [
+  "Invisible"
+ ],
+ "shapes/2508": [
+  "IconWisdom"
+ ],
+ "shapes/2510": [
+  "IconWaterDommage"
+ ],
+ "shapes/2512": [
+  "IconWaterBonus"
+ ],
+ "shapes/2514": [
+  "IconWaterAlt"
+ ],
+ "shapes/2516": [
+  "IconVita"
+ ],
+ "shapes/2518": [
+  "IconTimeDown"
+ ],
+ "shapes/2520": [
+  "IconTarget"
+ ],
+ "shapes/2522": [
+  "IconRollback"
+ ],
+ "shapes/2526": [
+  "IconRangeUp"
+ ],
+ "shapes/2528": [
+  "IconRangeBoostable"
+ ],
+ "shapes/2530": [
+  "IconPP"
+ ],
+ "shapes/2532": [
+  "IconNeutralDommage"
+ ],
+ "shapes/2534": [
+  "IconNeutralAlt"
+ ],
+ "shapes/2536": [
+  "IconLineSight"
+ ],
+ "shapes/2538": [
+  "IconLine"
+ ],
+ "shapes/2540": [
+  "IconFireDommage"
+ ],
+ "shapes/2542": [
+  "IconFireBonus"
+ ],
+ "shapes/2544": [
+  "IconFireAlt"
+ ],
+ "shapes/2546": [
+  "IconElementary"
+ ],
+ "shapes/2547": [
+  "IconElementary"
+ ],
+ "shapes/2548": [
+  "IconElementary"
+ ],
+ "shapes/2549": [
+  "IconElementary"
+ ],
+ "shapes/2550": [
+  "IconElementary"
+ ],
+ "shapes/2552": [
+  "IconEarthDommage"
+ ],
+ "shapes/2554": [
+  "IconEarthAlt"
+ ],
+ "shapes/2556": [
+  "IconBestElementDommage"
+ ],
+ "shapes/2558": [
+  "IconAllElementsBonus"
+ ],
+ "shapes/2560": [
+  "IconAirDommage"
+ ],
+ "shapes/2562": [
+  "IconAirBonus"
+ ],
+ "shapes/2564": [
+  "IconAirAlt"
+ ],
+ "shapes/2566": [
+  "IconAction"
+ ],
+ "shapes/2568": [
+  "Human"
+ ],
+ "shapes/2570": [
+  "HealGain"
+ ],
+ "shapes/2572": [
+  "HealBonus"
+ ],
+ "shapes/2574": [
+  "Heal"
+ ],
+ "shapes/2576": [
+  "Gold"
+ ],
+ "shapes/2578": [
+  "Ghost"
+ ],
+ "shapes/2580": [
+  "GetMount"
+ ],
+ "shapes/2581": [
+  "GetMount"
+ ],
+ "shapes/2583": [
+  "GetMount"
+ ],
+ "shapes/2584": [
+  "GetMount"
+ ],
+ "shapes/2586": [
+  "GetMount"
+ ],
+ "shapes/2587": [
+  "GetMount"
+ ],
+ "shapes/2590": [
+  "Get"
+ ],
+ "shapes/2592": [
+  "ForbiddenState"
+ ],
+ "shapes/2594": [
+  "Flag_us"
+ ],
+ "shapes/2597": [
+  "Flag_ru"
+ ],
+ "shapes/2601": [
+  "Flag_de"
+ ],
+ "shapes/2604": [
+  "Flag"
+ ],
+ "shapes/2606": [
+  "Fire"
+ ],
+ "shapes/2608": [
+  "FinalDamageReceived"
+ ],
+ "shapes/2610": [
+  "FinalDamageInflicted"
+ ],
+ "shapes/2612": [
+  "FilterIcon12"
+ ],
+ "shapes/2614": [
+  "FilterIcon11"
+ ],
+ "shapes/2616": [
+  "FilterIcon10"
+ ],
+ "shapes/2617": [
+  "FilterIcon10"
+ ],
+ "shapes/2621": [
+  "FilterIcon8"
+ ],
+ "shapes/2623": [
+  "FilterIcon7"
+ ],
+ "shapes/2625": [
+  "FilterIcon6"
+ ],
+ "shapes/2627": [
+  "FilterIcon5"
+ ],
+ "shapes/2629": [
+  "FilterIcon4"
+ ],
+ "shapes/2631": [
+  "FilterIcon3"
+ ],
+ "shapes/2633": [
+  "FilterIcon1"
+ ],
+ "shapes/2635": [
+  "Favorite"
+ ],
+ "shapes/2637": [
+  "FarmIcon"
+ ],
+ "shapes/2640": [
+  "Eye2"
+ ],
+ "shapes/2644": [
+  "Edit",
+  "EditSmall"
+ ],
+ "shapes/2647": [
+  "Earth"
+ ],
+ "shapes/2649": [
+  "doubleArrow"
+ ],
+ "shapes/2651": [
+  "Dojo"
+ ],
+ "shapes/2653": [
+  "Damage",
+  "DamagePhysical",
+  "DamageWeapon"
+ ],
+ "shapes/2656": [
+  "DamageTrap",
+  "DamageTrapPercent"
+ ],
+ "shapes/2657": [
+  "DamagePercent",
+  "DamageTrapPercent"
+ ],
+ "shapes/2660": [
+  "DamagePhysical",
+  "IconEarthBonus"
+ ],
+ "shapes/2662": [
+  "DamagePhysical",
+  "IconNeutralBonus"
+ ],
+ "shapes/2667": [
+  "CriticalHit"
+ ],
+ "shapes/2669": [
+  "CriticalFailure"
+ ],
+ "shapes/2671": [
+  "UI_ChatCautionIcon"
+ ],
+ "shapes/2674": [
+  "Ceremonial"
+ ],
+ "shapes/2676": [
+  "Center"
+ ],
+ "shapes/2678": [
+  "Candy"
+ ],
+ "shapes/2680": [],
+ "shapes/2681": [],
+ "shapes/2683": [],
+ "shapes/2684": [],
+ "shapes/2687": [
+  "Boost"
+ ],
+ "shapes/2689": [
+  "Air"
+ ],
+ "shapes/2691": [
+  "Chaine"
+ ],
+ "shapes/2694": [
+  "NewValid"
+ ],
+ "shapes/2696": [
+  "NewCross"
+ ],
+ "shapes/2699": [
+  "SeasonTitle_es",
+  "SeasonTitle_pt"
+ ],
+ "shapes/2702": [
+  "SeasonTitle_de",
+  "SeasonTitle_en",
+  "SeasonTitle_it",
+  "SeasonTitle_nl"
+ ],
+ "shapes/2706": [
+  "SeasonTitle_fr"
+ ],
+ "shapes/2709": [
+  "BtnResetCharacterDown",
+  "BtnResetCharacterUp",
+  "ButtonResetDown",
+  "ButtonResetUp",
+  "Recall"
+ ],
+ "shapes/2711": [
+  "BtnResetCharacterUp"
+ ],
+ "shapes/2713": [
+  "BtnResetCharacterDown"
+ ],
+ "shapes/2716": [
+  "BtnDeleteCharacterDown"
+ ],
+ "shapes/2718": [
+  "TransparentClip"
+ ],
+ "shapes/2720": [
+  "ButtonWomanDown",
+  "ButtonWomanUp"
+ ],
+ "shapes/2758": [
+  "ButtonSitUp"
+ ],
+ "shapes/2759": [
+  "ButtonSitUp"
+ ],
+ "shapes/2762": [
+  "ButtonSitDown"
+ ],
+ "shapes/2769": [
+  "ButtonResetDown",
+  "ButtonResetUp"
+ ],
+ "shapes/2774": [
+  "ButtonRecipeDown",
+  "ButtonRecipeUp"
+ ],
+ "shapes/2784": [
+  "ButtonPlusUp"
+ ],
+ "shapes/2792": [
+  "ButtonNextTurnUp"
+ ],
+ "shapes/2795": [
+  "ButtonNextTurnDown"
+ ],
+ "shapes/2798": [
+  "ButtonMuteSoundsDown",
+  "ButtonMuteSoundsUp"
+ ],
+ "shapes/2804": [
+  "ButtonMuteMusicDown",
+  "ButtonMuteMusicUp"
+ ],
+ "shapes/2810": [
+  "ButtonMuteEnvironmentDown",
+  "ButtonMuteEnvironmentUp"
+ ],
+ "shapes/2815": [
+  "ButtonMonsterDown",
+  "ButtonMonsterUp"
+ ],
+ "shapes/2834": [
+  "ButtonManDown",
+  "ButtonManUp"
+ ],
+ "shapes/2844": [
+  "ButtonLoginUp"
+ ],
+ "shapes/2846": [
+  "ButtonLoginMembersUp"
+ ],
+ "shapes/2848": [
+  "ButtonLoginMembersDown"
+ ],
+ "shapes/2850": [
+  "ButtonLoginDown"
+ ],
+ "shapes/2852": [
+  "ButtonLocateDown",
+  "ButtonLocateUp",
+  "LocateGrey"
+ ],
+ "shapes/2863": [
+  "ButtonLanguageFlagDown"
+ ],
+ "shapes/2869": [
+  "ButtonHelpDown",
+  "ButtonHelpUp"
+ ],
+ "shapes/2872": [
+  "ButtonGiveUpUp"
+ ],
+ "shapes/2875": [
+  "ButtonGiveUpDown"
+ ],
+ "shapes/2883": [
+  "ButtonEmoteDown",
+  "ButtonEmoteUp",
+  "Mouth"
+ ],
+ "shapes/2889": [
+  "ButtonEjectDown",
+  "ButtonEjectUp"
+ ],
+ "shapes/2895": [
+  "ButtonDownloadUp"
+ ],
+ "shapes/2896": [
+  "ButtonDecorationDown",
+  "ButtonDecorationUp",
+  "ButtonDownloadDown",
+  "ButtonDownloadUp"
+ ],
+ "shapes/2899": [
+  "ButtonDownloadDown"
+ ],
+ "images/2945": [
+  "ButtonBookPageRightDown",
+  "ButtonBookPageRightUp"
+ ],
+ "shapes/2946": [
+  "ButtonBookPageRightDown",
+  "ButtonBookPageRightUp"
+ ],
+ "images/2953": [
+  "ButtonBookPageLeftDown",
+  "ButtonBookPageLeftUp"
+ ],
+ "shapes/2954": [
+  "ButtonBookPageLeftDown",
+  "ButtonBookPageLeftUp"
+ ],
+ "shapes/2960": [
+  "ButtonBannerRoundWaitResponseUp",
+  "ButtonBannerRoundWaitResponseUp_TripleFramerate"
+ ],
+ "shapes/2965": [
+  "ButtonBannerRoundWaitResponseDown"
+ ],
+ "shapes/2968": [
+  "ButtonBannerRoundUp"
+ ],
+ "shapes/2971": [
+  "ButtonBannerRoundInSearchUp"
+ ],
+ "shapes/2974": [
+  "ButtonBannerRoundInSearchDown"
+ ],
+ "shapes/2977": [
+  "ButtonBannerRoundDown"
+ ],
+ "shapes/2988": [
+  "ButtonArchMonsterDown",
+  "ButtonArchMonsterUp"
+ ]
+}

@@ -8,8 +8,9 @@
  * bytecode, exactly. `--full` compiles every file (slower at runtime: the
  * compiler keeps the decompiled `_locN_` variables as named variables).
  *
- * Library clips the sources need first: new classes, src/symbols.json
- * (tools/symbols.mjs). `_root` is compiled by name (lib.mjs rootByName). Then
+ * Graphics first: the shapes and images of src/assets/ that differ from the
+ * base, and new ones (tools/assets.mjs). Then library clips the sources
+ * need: new classes, src/symbols.json (tools/symbols.mjs). `_root` is compiled by name (lib.mjs rootByName). Then
  * checks that no function preloads `_root`, and that every accessor still carries its property's name (the
  * compiler rebuilds `addProperty` from accessor names: a mismatch registers
  * another property) — tools/deob/src/check-accessors.ts.
@@ -19,6 +20,7 @@ import { copyFileSync, existsSync, mkdirSync, readFileSync, renameSync, rmSync, 
 import { dirname, join, relative, resolve, sep } from "node:path";
 import { ROOT, SRC, base, compileErrors, config, ffdec, fromFfdec, rootByName, sha256, sourceFiles, sourceHash, toFfdec } from "./lib.mjs";
 import { declaredSymbols, exportNames, withSymbols } from "./symbols.mjs";
+import { applyAssets, changedAssets } from "./assets.mjs";
 
 const args = process.argv.slice(2);
 const full = args.includes("--full");
@@ -49,24 +51,39 @@ for (const f of removed) console.warn(`warning: ${f} was deleted — a build can
 
 mkdirSync(dirname(out), { recursive: true });
 const symbols = declaredSymbols();
-if (changed.length === 0 && symbols.length === 0) {
+const graphics = changedAssets(b.manifest);
+if (changed.length === 0 && symbols.length === 0 && graphics.length === 0) {
   copyFileSync(b.loader, tmpOut);
   renameSync(tmpOut, out);
   console.log(`no change since base ${cfg.version}: ${out} is the base loader`);
   process.exit(0);
 }
 
-// Clips the sources need and the base lacks: new classes, src/symbols.json (tools/symbols.mjs).
+// Graphics: edited shapes / images re-imported, new ones added (tools/assets.mjs).
 let input = b.loader;
+if (graphics.length) {
+  const withGraphics = join(work, "base-with-assets.swf");
+  try {
+    const added = applyAssets(cfg, b.loader, withGraphics, graphics, work);
+    console.log(`graphics: ${graphics.length} file${graphics.length > 1 ? "s" : ""} from src/assets/${added.length ? ` (new: ${added.join(", ")})` : ""}`);
+  } catch (e) {
+    console.error(`\ngraphics: ${e.message}`);
+    process.exit(1);
+  }
+  input = withGraphics;
+}
+
+// Clips the sources need and the base lacks: new classes, src/symbols.json (tools/symbols.mjs).
 const classPath = (f) => f.slice("classes/".length, -".as".length).split("/").join(".");
 const baseNames = changed.some((f) => f.startsWith("classes/")) || symbols.length ? exportNames(b.loader) : new Set();
 const newClasses = changed.filter((f) => f.startsWith("classes/")).map(classPath).filter((c) => !baseNames.has(`__Packages.${c}`));
 const newSymbols = symbols.filter((s) => !baseNames.has(s));
 for (const s of symbols.filter((s) => baseNames.has(s))) console.warn(`warning: symbol ${s} (src/symbols.json) already exists in the base`);
 if (newClasses.length || newSymbols.length) {
+  const withAssets = input;
   input = join(work, "base-with-symbols.swf");
   mkdirSync(dirname(input), { recursive: true });
-  writeFileSync(input, withSymbols(b.loader, newClasses, newSymbols));
+  writeFileSync(input, withSymbols(withAssets, newClasses, newSymbols));
   for (const c of newClasses) console.log(`new class ${c}`);
   for (const s of newSymbols) console.log(`new symbol ${s}`);
 }

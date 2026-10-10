@@ -1806,11 +1806,39 @@ async function tabFor(file, fresh) {
   return t;
 }
 
-/** What code may lose when lines move into another clip: their instance names' paths. */
-function codeWarning(lines, into) {
-  const named = lines.filter((o) => o.name || o.actions);
+/**
+ * What code loses when lines of `src` move into another clip: the instance
+ * names its class reaches (this._tiAccount) aren't where it looks any more.
+ * Names its class doesn't use go without a word; a sprite without a class
+ * of its own (its parent's code may reach inside it), asked about all.
+ */
+async function codeWarning(src, lines, into) {
+  const code = src.file.startsWith("timeline/") ? await paramsOf(src.file) : null;
+  const named = lines.filter((o) => o.name && (!code?.uses || code.uses.includes(o.name)));
   if (!named.length) return true;
-  return confirm(`${named.map((o) => o.name ?? describe(o)).join(", ")}: code reaches ${named.length > 1 ? "them" : "it"} through the clips holding ${named.length > 1 ? "them" : "it"} (this.…${named[0].name ? `.${named[0].name}` : ""}) — moved into ${into}, that path changes. Move ${named.length > 1 ? "them" : "it"} anyway?`);
+  const names = named.map((o) => o.name), many = names.length > 1;
+  const who = code?.cls ? `${code.cls.split(".").pop()} (its class) uses` : "code may use";
+  const them = many ? "them" : "it";
+  return confirm(`${who} ${names.map((n) => `this.${n}`).join(", ")}: moved into ${into}, ${many ? "they're" : "it's"} no longer where it looks for ${them} — in the game, what it does with ${them} (texts, events, values set by code) is lost until the class changes.\n\nMove ${them} anyway?`);
+}
+/**
+ * Lines of `src` leaving it: their clip actions are its scripts and can't
+ * follow; what they set (on(construct)) goes along as their "params",
+ * compiled the same by the build. An error when one does more (onClipEvent,
+ * code): it stays.
+ */
+async function carryCheck(src, lines) {
+  const scripted = lines.filter((o) => o.actions);
+  if (!scripted.length) return null;
+  const p = src.file.startsWith("timeline/") ? await paramsOf(src.file) : {};
+  const bad = scripted.find((o) => !p.plain?.[1]?.includes(savedDepth(src, o)));
+  return bad ? `${bad.name ?? describe(bad)}: its clip actions do more than set its parameters (src/${src.file.replace(/[^/]+$/, "")}frame_1/PlaceObject…_${savedDepth(src, bad)}/) — they can't leave ${src.title}, so it stays` : null;
+}
+/** A copy of line `o` of `src` for another sprite: its clip actions' parameters as its own "params". */
+function carried(src, o) {
+  const out = { ...o };
+  if (o.actions) { delete out.actions; out.params = structuredClone(lineParams(src, o)); }
+  return out;
 }
 function checkMovable(d, idx) {
   if (d.kind !== "sprite" || !editable()) return "only a sprite's frame-1 lines move into others";
@@ -1882,7 +1910,11 @@ async function dropLines(As, B, zone) {
       if (holds(A.ref, dst.file)) { status(`${describe(o)} would hold itself`, "bad"); return; }
       if (o.mask || animatedDepths(src.json).has(o.depth)) { status(`${describe(o)}: ${o.mask ? "a mask" : "later frames move it"} — not moved`, "bad"); return; }
     }
-    if (!codeWarning(leaving.map((l) => l.o), dest.label)) return;
+    for (const [src, ls] of new Map(leaving.map((l) => [l.src, leaving.filter((x) => x.src === l.src).map((x) => x.o)]))) {
+      const why = await carryCheck(src, ls);
+      if (why) { status(why, "bad"); return; }
+      if (!(await codeWarning(src, ls, dest.label))) return;
+    }
     const srcs = [...new Map(leaving.map((l) => [l.src, l.A.label])).entries()];
     const counts = await Promise.all([dst, ...srcs.map(([t]) => t)].map(placements));
     const shared = [...srcs.map(([, label], k) => counts[k + 1] > 1 && `leaving ${label}, placed ${counts[k + 1]} times`), counts[0] > 1 && `joining ${dest.label}, placed ${counts[0]} times`].filter(Boolean);
@@ -1909,7 +1941,7 @@ async function dropLines(As, B, zone) {
       let from = l.A.chain, to = dest.chain;
       const viaDest = along(dest.path).find((x) => x.file === l.A.file), viaSrc = along(l.A.key.slice(0, l.A.key.lastIndexOf("/"))).find((x) => x.file === dest.file);
       if (viaDest) from = viaDest.chain; else if (viaSrc) to = viaSrc.chain;
-      l.moved = setMatrix({ ...l.o }, multiply(invert(to), multiply(from, matrixOf(l.o))));
+      l.moved = setMatrix(carried(l.src, l.o), multiply(invert(to), multiply(from, matrixOf(l.o))));
       l.moved.depth = freeDepth(dst.json);
       items(l.src).splice(items(l.src).indexOf(l.o), 1);
       list.push(l.moved);
@@ -1932,7 +1964,9 @@ async function group(idx, anchor = idx[0]) {
   const why = checkMovable(d, idx);
   if (why) { status(why, "bad"); return; }
   const lines = idx.map((i) => list[i]).sort((a, b) => a.depth - b.depth);
-  if (!codeWarning(lines, "the group")) return;
+  const cant = await carryCheck(d, lines);
+  if (cant) { status(cant, "bad"); return; }
+  if (!(await codeWarning(d, lines, "the group"))) return;
   const owner = (d.name ?? `sprite-${d.id}`).toLowerCase().replace(/[^a-z0-9_/-]/g, "-");
   const taken = (n) => S.lib.exports[n] !== undefined || S.freshByName.has(n) || S.tabs.some((t) => t.name === n);
   let n = 1;
@@ -1940,7 +1974,7 @@ async function group(idx, anchor = idx[0]) {
   const name = `${owner}/group-${n}`;
   const at = matrixOf(list[anchor]);
   const origin = [1, 0, 0, 1, at[4], at[5]];
-  const json = { frames: [{ place: lines.map((o, k) => setMatrix({ ...o, depth: k + 1 }, multiply(invert(origin), matrixOf(o)))) }] };
+  const json = { frames: [{ place: lines.map((o, k) => setMatrix({ ...carried(d, o), depth: k + 1 }, multiply(invert(origin), matrixOf(o)))) }] };
   snapshot();
   const placed = { depth: Math.min(...lines.map((o) => o.depth)), export: name, x: round20(at[4]), y: round20(at[5]) };
   for (const i of [...idx].sort((a, b) => b - a)) list.splice(i, 1);
@@ -1950,7 +1984,7 @@ async function group(idx, anchor = idx[0]) {
   await tabFor(`assets/new/${name}.json`, json);
   d.open.add(`/${placed.depth}`);
   changed();
-  status(`grouped into "${name}" (src/assets/new/${name}.json, written when saved): drag it, everything inside follows`, "good");
+  status(`grouped into "${name}" (src/assets/new/${name}.json, written with ${d.title} when saved): drag it, everything inside follows`, "good");
 }
 
 /** Ctrl+G: the first-level lines selected, grouped. */
@@ -1972,6 +2006,10 @@ async function ungroup(i) {
   if ((json?.frames?.length ?? 0) > 1) { status(`${describe(host)} is animated (${json.frames.length} frames): not ungrouped`, "bad"); return; }
   const kids = childList(ref, json).filter((it) => !it.o.mask);
   if (!kids.length) { status(`${describe(host)} is empty`, "bad"); return; }
+  // Its lines' clip actions stay in its definition: their parameters come along.
+  const def = S.tabs.find((t) => t.file === ref.file) ?? { file: ref.file, title: describe(host), saved: JSON.stringify(json) };
+  const cant = await carryCheck(def, kids.map((it) => it.o));
+  if (cant) { status(cant, "bad"); return; }
   snapshot();
   // Room for them at its depth: the lines above move up.
   const shift = kids.length - 1, map = new Map();
@@ -1979,7 +2017,7 @@ async function ungroup(i) {
   remapDepths(d.json, map);
   const m = matrixOf(host), base = host.depth;
   const out = kids.map((it, k) => {
-    const o = setMatrix({ ...it.o, depth: base + k }, multiply(m, matrixOf(it.o)));
+    const o = setMatrix({ ...carried(def, it.o), depth: base + k }, multiply(m, matrixOf(it.o)));
     if ("alpha" in host) { o.alpha = Math.round((o.alpha ?? 1) * host.alpha * 1e5) / 1e5; if (o.alpha === 1) delete o.alpha; }
     return o;
   });
@@ -2010,23 +2048,53 @@ async function saveTab(t) {
 }
 /** What saving did besides writing the files (scripts renamed, parameters written): shown once saved. */
 const saveNotes = [];
+/**
+ * Tabs `todo` and the new sprites they place that were never written (a
+ * group just made): the server checks a placement against what's exported,
+ * so those are written too (first).
+ */
+function withNewSprites(todo) {
+  const seen = new Set(todo), first = [];
+  const unwritten = new Map(S.tabs.filter((t) => t.saved === null && t.name).map((t) => [t.name, t]));
+  // What a sprite places before it (a group in a group: the inner one first).
+  const visit = (t) => {
+    const lines = [...(t.json.frames ?? []).flatMap((f) => f.place ?? []), ...(t.json.records ?? [])];
+    for (const o of lines) {
+      const n = typeof o.export === "string" && unwritten.get(o.export.toLowerCase());
+      if (n && !seen.has(n)) { seen.add(n); visit(n); first.push(n); }
+    }
+  };
+  todo.forEach(visit);
+  return [...first, ...todo];
+}
 async function save(all = false) {
-  const todo = all ? S.tabs.filter(isDirty) : D() && isDirty(D()) ? [D()] : [];
-  if (!todo.length) return;
+  const asked = all ? S.tabs.filter(isDirty) : D() && isDirty(D()) ? [D()] : [];
+  if (!asked.length) return;
+  const todo = withNewSprites(asked);
   saveNotes.length = 0;
   status("saving…");
   const errors = [];
   let created = false;
+  const failed = [];
   // Ours first: what the others place must exist to be checked.
   for (const t of todo.sort((a, b) => b.file.startsWith("assets/") - a.file.startsWith("assets/"))) {
-    try { created = (await saveTab(t)) || created; } catch (e) { errors.push(`${t.title} (src/${t.file}):\n  ${e.message}`); }
+    try { created = (await saveTab(t)) || created; } catch (e) {
+      // What places a new sprite that couldn't be written fails with it: said so.
+      const why = failed.filter((n) => e.message.includes(`"${n}"`)).map((n) => `\n  (${n} wasn't written: see why above)`).join("");
+      errors.push(`${t.title} (src/${t.file}):\n  ${e.message}${why}`);
+      if (t.name && t.saved === null) failed.push(t.name);
+    }
   }
   if (created) { await loadLibrary(); renderList(); }
   setDirty();
   resetDefs();
   await draw();
   if (errors.length) { status(`${errors.length} not saved: see below`, "bad"); log(errors.join("\n\n")); }
-  else { status(todo.length > 1 ? `saved ${todo.length} files` : `saved src/${todo[0].file}`, "good"); log(saveNotes.length ? saveNotes.join("\n") : null); }
+  else {
+    const extra = todo.filter((t) => !asked.includes(t));
+    status(todo.length > 1 ? `saved ${todo.length} files${extra.length && !all ? ` (with ${extra.map((t) => t.name).join(", ")}, which ${asked[0].title} places)` : ""}` : `saved src/${todo[0].file}`, "good");
+    log(saveNotes.length ? saveNotes.join("\n") : null);
+  }
 }
 
 async function build() {

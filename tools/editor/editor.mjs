@@ -131,6 +131,10 @@ function codeInfo(rel) {
   const texts = {}, hidden = [];
   if (!file || !existsSync(file)) return { texts, hidden };
   const lang = langTexts(), code = readFileSync(file, "utf8");
+  // The instance names its class reaches (this._tiAccount): moved into another clip, it doesn't find them.
+  let names = [];
+  try { names = JSON.parse(readFileSync(srcPath(rel), "utf8")).frames.flatMap((f) => (f.place ?? []).map((o) => o.name)).filter(Boolean); } catch { /* not a sprite */ }
+  const uses = [...new Set(names)].filter((n) => new RegExp(`\\b${n.replace(/\$/g, "\\$")}\\b`).test(code));
   for (const m of code.matchAll(/this\.(_\w+)\.(label|text|title|htmlText) = ([^;\n]+)/g)) {
     if (texts[m[1]]?.key) continue;
     const key = /^this\.api\.lang\.getText\("(\w+)"/.exec(m[3])?.[1];
@@ -143,7 +147,7 @@ function codeInfo(rel) {
   }
   // A clip used as a mask by code (setMask) doesn't show either.
   for (const m of code.matchAll(/\.setMask\(this\.(_\w+)\)/g)) if (!hidden.includes(m[1])) hidden.push(m[1]);
-  return { texts, hidden };
+  return { texts, hidden, cls, uses };
 }
 
 /**
@@ -178,9 +182,29 @@ function paramKeys(classes) {
 }
 
 /**
+ * Whether an on(construct) script only sets parameters to values (what a
+ * line's "params" compiles to): then a line leaving its sprite takes them
+ * along as its "params" — its script can't follow it.
+ */
+function plainConstruct(text) {
+  const lines = text.replace(/\r\n/g, "\n").split("\n").map((l) => l.trim()).filter(Boolean);
+  if (lines[0] !== "on(construct){" || lines.at(-1) !== "}") return false;
+  return lines.slice(1, -1).every((l) => {
+    // (A statement without effect the obfuscator left: 24901909 - 1;)
+    if (/^[\d\s+*-]+;$/.test(l)) return true;
+    const m = /^([A-Za-z_$][\w$]*) = (.+);$/.exec(l);
+    if (!m || /^_loc\d+_$/.test(m[1])) return false;
+    // A value JSON reads (not an expression the decompiler left, nor an escape it doesn't know).
+    const v = literal(m[2]);
+    return typeof v !== "string" || v !== m[2].trim();
+  });
+}
+
+/**
  * A sprite's components' parameters, from its clip actions
  * (frame_N/PlaceObject2_<id>_<name>_<depth>/…on(construct).as):
- * { frame: { depth: { label: "…", styleName: "…" } } }.
+ * { frame: { depth: { label: "…", styleName: "…" } } }; `plain`: { frame:
+ * [depths] } whose clip actions only set them (plainConstruct).
  */
 function placeParams(rel) {
   const out = {};
@@ -195,11 +219,12 @@ function placeParams(rel) {
     for (const place of readdirSync(join(dir, frame))) {
       const pm = /^PlaceObject\d?_.*_(\d+)$/.exec(place);
       if (!pm || !statSync(join(dir, frame, place)).isDirectory()) continue;
-      const params = {};
-      for (const f of readdirSync(join(dir, frame, place)).filter((x) => /construct|initialize/.test(x))) {
+      const params = {}, files = readdirSync(join(dir, frame, place));
+      for (const f of files.filter((x) => /construct|initialize/.test(x))) {
         for (const m of readFileSync(join(dir, frame, place, f), "utf8").matchAll(/^\s*(\w+) = (.+);\s*$/gm)) params[m[1]] = literal(m[2]);
       }
       if (Object.keys(params).length) ((out[fm[1]] ??= {})[pm[1]] = params);
+      if (files.length === 1 && files[0] === "CLIPACTIONRECORD on(construct).as" && plainConstruct(readFileSync(join(dir, frame, place, files[0]), "utf8"))) ((out.plain ??= {})[fm[1]] ??= []).push(Number(pm[1]));
     }
   }
   return out;

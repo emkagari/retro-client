@@ -120,12 +120,21 @@ texts keep their `%1`.
   into another sprite, it goes there. One `Ctrl+Z` takes the whole move
   back.
   **Group** (`Ctrl+G`) wraps the selection in a new sprite,
-  `src/assets/new/<this one>/group-N.json`, placed where it was;
+  `src/assets/new/<this one>/group-N.json`, placed where it was (written
+  with the sprite placing it, even with `Ctrl+S`);
   **Ungroup** (`Ctrl+Shift+G`) puts what a placed sprite holds in its place.
   Nothing moves on screen: positions are recomputed. Moving into or out of
   a sprite of the base changes its definition — the editor says how many
-  times it's placed first; a button's records stay in their button; an instance name (`_btnOk`) moved inside another clip is
-  reached by code through it (`this._group._btnOk`): the editor asks first.
+  times it's placed first; a button's records stay in their button.
+  **Code**: an instance name the sprite's class uses (`this._tiAccount` in
+  `Login`) isn't where the class looks once moved into another clip — the
+  editor asks first, naming them: in the game, what the class does with
+  them (texts, events, values) is lost until the class changes. Group what
+  only shows (a logo's shapes), not what code drives (fields, buttons). A
+  line's clip actions are its sprite's scripts and stay there: what they
+  set (`on(construct)`: `styleName`, `maxChars`…) goes along as its
+  `"params"`, compiled the same; one whose clip actions do more
+  (`onClipEvent`, code) doesn't leave its sprite.
   The sprites changed or created open as tabs, written when saved.
 - **Build** runs `tools/build.mjs` on what's saved and shows its output;
   restart the game to see it. **New sprite** opens a tab for

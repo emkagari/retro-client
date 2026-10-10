@@ -382,10 +382,65 @@ async function draw() {
   renderLayers();
 }
 
+/**
+ * A line inside a placed sprite (`path`: its depths from the top, "/65/13"):
+ * the line itself (`o`, in its definition's tab), what places it on screen
+ * (`chain`: its parents' matrices), whose definition it's in (`owner`).
+ */
+function nestedInfo(d = D()) {
+  if (!d?.nested) return null;
+  const depths = d.nested.split("/").slice(1).map(Number);
+  let list = currentList(), chain = [1, 0, 0, 1, 0, 0], owner = null, it = null;
+  for (let k = 0; k < depths.length; k++) {
+    it = list.find((x) => x.depth === depths[k]);
+    if (!it) return null;
+    if (k === depths.length - 1) break;
+    chain = multiply(chain, matrixOf(it.o));
+    const ref = refOf(it.o), json = hasChildren(ref) && knownJson(ref.file);
+    if (!json) return null;
+    owner = { file: ref.file, kind: ref.kind, label: describe(it.o), id: ref.id };
+    list = childList(ref, json);
+  }
+  const tab = owner && S.tabs.find((t) => t.file === owner.file);
+  if (!tab) return null;
+  const o = it.src === null ? it.o : items(tab)[it.src];
+  return { it, o, chain, owner, tab, editable: it.src !== null && !!o };
+}
+async function selectNested(path, ownerFile) {
+  const d = D();
+  await tabFor(ownerFile);
+  d.sel = null; d.nested = path;
+  drawSelection(); renderLayers(); renderInspector();
+}
+/** A move on screen (dx, dy) in the coordinates the nested line is placed in. */
+function toParent(n, dx, dy) {
+  const [a, b, c, dd] = invert(n.chain);
+  return [a * dx + c * dy, b * dx + dd * dy];
+}
+
+async function drawNested() {
+  const d = D(), n = nestedInfo(), ov = $("overlay");
+  if (!n) return;
+  const path = d.nested;
+  const id = await ensureDef(refOf(n.o), 1, path);
+  if (D() !== d || d.nested !== path) return;
+  // Measured where it is: its parents' placements, then its own.
+  const wrap = el("g", { visibility: "hidden" }), g = el("g", { transform: `matrix(${n.chain.join(" ")})` });
+  if (id) g.append(el("use", { href: `#${id}`, transform: transformOf(n.o) }));
+  wrap.append(g); ov.append(wrap);
+  const bb = wrap.getBBox();
+  wrap.remove();
+  d.nestedBox = bb.width || bb.height ? bb : null;
+  if (d.nestedBox) ov.append(el("rect", { x: bb.x, y: bb.y, width: bb.width, height: bb.height, fill: "none", stroke: "#e0a040", "stroke-width": 1.5, "stroke-dasharray": "5 3", "vector-effect": "non-scaling-stroke" }));
+  const [, , , , x, y] = multiply(n.chain, matrixOf(n.o)), k = 6 / view.k;
+  ov.append(el("path", { d: `M${x - k} ${y}H${x + k}M${x} ${y - k}V${y + k}`, stroke: "#6aa8e8", "stroke-width": 1.5, "vector-effect": "non-scaling-stroke" }));
+}
+
 function drawSelection() {
   const ov = $("overlay");
   ov.textContent = "";
   const d = D();
+  if (d?.nested) { drawNested(); return; }
   if (!d || d.sel === null) return;
   const node = $("content").querySelector(`.item[data-i="${d.sel}"]`);
   const o = items()?.[d.sel];
@@ -414,10 +469,11 @@ function remember() {
   clearTimeout(rememberTimer);
   rememberTimer = setTimeout(() => store.set("session", {
     active: S.active,
-    tabs: S.tabs.map((t) => ({ file: t.file, draft: isDirty(t) ? t.json : undefined, fresh: t.saved === null || undefined, view: t.view, screen: t.screen })),
+    tabs: S.tabs.filter((t) => !t.background || isDirty(t)).map((t) => ({ file: t.file, draft: isDirty(t) ? t.json : undefined, fresh: t.saved === null || undefined, view: t.view, screen: t.screen })),
   }), 300);
 }
-function snapshot(d = D()) { d.undo.push(JSON.stringify(d.json)); d.redo = []; }
+/** Before a change to tab `t` (the open one, or a definition edited from it): undo, in the open tab, takes it back. */
+function snapshot(t = D()) { D().undo.push({ file: t.file, json: JSON.stringify(t.json) }); D().redo = []; }
 /** Something changed in the open tab: what places it redraws too. */
 function changed() { resetDefs(); setDirty(); draw(); renderInspector(); }
 
@@ -426,6 +482,7 @@ function renderTabbar() {
   bar.textContent = "";
   if (!S.tabs.length) { bar.append(html("span", { className: "none" }, "No tab open")); return; }
   S.tabs.forEach((t, i) => {
+    if (t.background && !isDirty(t) && i !== S.active) return;
     const tab = html("div", { className: "tab" + (i === S.active ? " on" : ""), title: `src/${t.file}` });
     tab.append(html("span", { className: "label" }, t.title));
     if (isDirty(t)) tab.append(html("span", { className: "dot", title: "Unsaved changes" }, "●"));
@@ -468,6 +525,7 @@ async function open(file, { select } = {}) {
 async function activate(i) {
   S.active = i;
   const d = D();
+  if (d) d.background = false;
   resetDefs();
   setDirty();
   if (!d) { await draw(); renderInspector(); renderList(); return; }
@@ -498,7 +556,8 @@ function renderLayers() {
   const box = $("layers");
   box.textContent = "";
   const d = D();
-  $("up").disabled = $("down").disabled = $("remove").disabled = !d || d.sel === null || !editable();
+  $("up").disabled = $("down").disabled = !d || d.sel === null || !editable();
+  $("remove").disabled = !d || (d.sel === null || !editable()) && !nestedInfo(d)?.editable;
   $("group").disabled = !d || d.sel === null || !editable() || d.kind !== "sprite";
   const selRef = d && d.sel !== null ? refOf(items()?.[d.sel] ?? {}) : null;
   $("ungroup").disabled = $("group").disabled || !(selRef?.kind === "sprite" || selRef?.kind === "freshSprite");
@@ -510,7 +569,7 @@ function renderLayers() {
       const ref = refOf(it.o);
       const kids = hasChildren(ref);
       const top = level === 0;
-      const row = html("div", { className: "layer" + (top ? "" : " child") + (top && it.src !== null && it.src === d.sel ? " on" : "") });
+      const row = html("div", { className: "layer" + (top ? "" : " child") + ((top && it.src !== null && it.src === d.sel) || d.nested === key ? " on" : "") });
       row.style.paddingLeft = `${6 + level * 14}px`;
       const tw = html("span", { className: "tw" + (kids ? " can" : ""), title: kids ? "What it holds (its definition, shared by every placement)" : "" }, kids ? (d.open.has(key) ? "▾" : "▸") : "");
       tw.onclick = (e) => {
@@ -532,8 +591,8 @@ function renderLayers() {
         row.onclick = () => select(it.src);
         if (it.src !== null && editable()) dragRow(row, it, ref);
       } else {
-        row.title = `In ${owner.label}: double-click to edit it there`;
-        row.onclick = () => status(`${describe(it.o)}: in ${owner.label}'s definition (double-click: edit it there — every placement of ${owner.label} changes)`);
+        row.title = `In ${owner.label}'s definition: click to select it here, double-click to open it there`;
+        row.onclick = () => selectNested(key, owner.file);
         row.ondblclick = () => open(owner.file, { select: it.src ?? undefined });
       }
       box.append(row);
@@ -584,6 +643,7 @@ function dragRow(row, it, ref) {
 
 function select(i) {
   D().sel = i ?? null;
+  D().nested = null;
   drawSelection(); renderLayers(); renderInspector();
 }
 
@@ -603,7 +663,7 @@ function setScale(o, sx, sy) {
  * A JSON box applied as you type, as soon as it parses: a change like any
  * other (undo takes it back; only saving writes it).
  */
-function liveJson(value, apply, { height } = {}) {
+function liveJson(value, apply, { height, tab } = {}) {
   const ta = html("textarea", { value, spellcheck: false });
   if (height) ta.style.height = height;
   let fresh = true;
@@ -613,7 +673,7 @@ function liveJson(value, apply, { height } = {}) {
     try { j = JSON.parse(ta.value); } catch { ta.classList.add("invalid"); ta.title = "Not JSON yet: not applied"; return; }
     if (!j || typeof j !== "object") return;
     ta.classList.remove("invalid"); ta.title = "";
-    if (fresh) { snapshot(); fresh = false; }
+    if (fresh) { snapshot(tab); fresh = false; }
     apply(j);
     resetDefs(); setDirty(); draw();
   };
@@ -632,12 +692,21 @@ function renderInspector() {
     box.append(liveJson(JSON.stringify(d.json, null, 1), (j) => { d.json = j; }, { height: "60vh" }));
     return;
   }
-  const o = items()?.[d.sel];
-  if (d.sel === null || !o) {
+  const n = nestedInfo();
+  const o = n ? n.o : items()?.[d.sel];
+  if (!o || (!n && d.sel === null)) {
     box.append(html("div", { className: "hint" }, editable() ? "Select a layer, or drag something from the left onto the sprite." : "Frames after the first are shown, not edited here: edit them in the sprite.json."));
     return;
   }
-  const ro = !editable();
+  // A nested line is edited in its definition (its own tab): every placement of it changes.
+  const owner = n ? n.tab : d;
+  const ro = n ? !n.editable : !editable();
+  if (n) {
+    const where = html("div", { className: "hint" }, `In ${n.owner.label}'s definition (src/${n.owner.file}): every placement of ${n.owner.label} changes.${ro ? " A later frame's line: shown, not edited." : ""}`);
+    const go = html("button", {}, `Open ${n.owner.label}`);
+    go.onclick = () => open(n.owner.file, { select: n.it.src ?? undefined });
+    box.append(where, html("div", { className: "actions" }), go);
+  }
   const field = (label, value, set, type = "number") => {
     const row = html("div", { className: "row" });
     const input = html("input", { type, value: value ?? "", disabled: ro, step: "any" });
@@ -646,7 +715,7 @@ function renderInspector() {
     input.oninput = () => {
       const v = type === "number" ? (input.value === "" ? undefined : Number(input.value)) : input.value;
       if (type === "number" && v !== undefined && !Number.isFinite(v)) return;
-      if (fresh) { snapshot(); fresh = false; }
+      if (fresh) { snapshot(owner); fresh = false; }
       set(v);
       resetDefs(); setDirty(); draw();
     };
@@ -669,13 +738,13 @@ function renderInspector() {
     field("rotation", o.rotation ?? 0, (v) => { if (v) o.rotation = v; else delete o.rotation; });
   }
   if (!o.color) field("alpha", o.alpha ?? 1, (v) => { if (v === undefined || v === 1) delete o.alpha; else o.alpha = v; });
-  if (d.kind === "sprite") field("name", o.name ?? "", (v) => { if (v) o.name = v; else delete o.name; }, "text");
-  if (d.kind === "button") {
+  if (owner.kind === "sprite") field("name", o.name ?? "", (v) => { if (v) o.name = v; else delete o.name; }, "text");
+  if (owner.kind === "button") {
     const row = html("div", { className: "row" });
     const boxes = html("span");
     for (const s of ["up", "over", "down", "hit"]) {
       const c = html("input", { type: "checkbox", checked: o.states.includes(s), disabled: ro });
-      c.onchange = () => { snapshot(); o.states = ["up", "over", "down", "hit"].filter((x) => (x === s ? c.checked : o.states.includes(x))); changed(); };
+      c.onchange = () => { snapshot(owner); o.states = ["up", "over", "down", "hit"].filter((x) => (x === s ? c.checked : o.states.includes(x))); changed(); };
       const l = html("label", {});
       l.append(c, ` ${s} `);
       boxes.append(l);
@@ -687,7 +756,7 @@ function renderInspector() {
   if (hasChildren(ref) || (ref?.kind === "text" && ref.file)) { const b = html("button", {}, "Open it"); b.onclick = () => open(ref.file); actions.append(b); }
   if (ref?.id !== undefined) { const b = html("button", {}, "Where else"); b.onclick = () => showWhere(ref.id, describe(o)); actions.append(b); }
   box.append(actions);
-  if (!ro) box.append(liveJson(JSON.stringify(o), (j) => { items()[d.sel] = j; }));
+  if (!ro) box.append(liveJson(JSON.stringify(o), (j) => { items(owner)[n ? n.it.src : d.sel] = j; }, { tab: owner }));
   if (o.actions || o.name) box.append(html("div", { className: "hint" }, `${o.name ? `Code may reach it as this.${o.name}. ` : ""}${o.actions ? "It has clip actions (frame_1/PlaceObject2_….as)." : ""}`));
 }
 
@@ -743,10 +812,14 @@ function setupStage() {
     if (!D()) return;
     const item = e.target.closest?.("#content .item");
     const i = item && item.dataset.i !== "" ? Number(item.dataset.i) : null;
-    if (e.button === 0 && i !== null && editable()) {
+    // A nested line selected: dragging inside its box moves it (in its definition).
+    const n = e.button === 0 && nestedInfo(), b = D().nestedBox, p0 = toSprite(e);
+    if (n?.editable && b && p0.x >= b.x && p0.x <= b.x + b.width && p0.y >= b.y && p0.y <= b.y + b.height) {
+      drag = { kind: "nested", n, start: p0, x: n.o.x ?? 0, y: n.o.y ?? 0, moved: false, before: { file: n.tab.file, json: JSON.stringify(n.tab.json) } };
+    } else if (e.button === 0 && i !== null && editable()) {
       select(i);
       const o = items()[i];
-      drag = { kind: "move", start: toSprite(e), x: o.x ?? 0, y: o.y ?? 0, node: item.firstChild, moved: false, before: JSON.stringify(D().json) };
+      drag = { kind: "move", start: toSprite(e), x: o.x ?? 0, y: o.y ?? 0, node: item.firstChild, moved: false, before: { file: D().file, json: JSON.stringify(D().json) } };
     } else {
       if (i !== null) select(i);
       drag = { kind: "pan", sx: e.clientX, sy: e.clientY, vx: view.x, vy: view.y, moved: false, deselect: i === null };
@@ -759,6 +832,13 @@ function setupStage() {
       view.x = drag.vx + e.clientX - drag.sx; view.y = drag.vy + e.clientY - drag.sy;
       drag.moved ||= Math.abs(e.clientX - drag.sx) + Math.abs(e.clientY - drag.sy) > 3;
       applyView();
+    } else if (drag.kind === "nested") {
+      const p = toSprite(e), dx = p.x - drag.start.x, dy = p.y - drag.start.y;
+      const [lx, ly] = toParent(drag.n, dx, dy);
+      drag.n.o.x = round20(drag.x + lx); drag.n.o.y = round20(drag.y + ly);
+      drag.moved = true;
+      // Its box follows; the drawing, on release.
+      $("overlay").setAttribute("transform", `translate(${dx} ${dy})`);
     } else {
       const p = toSprite(e), o = items()[D().sel];
       o.x = round20(drag.x + p.x - drag.start.x); o.y = round20(drag.y + p.y - drag.start.y);
@@ -768,7 +848,7 @@ function setupStage() {
     }
   });
   const end = () => {
-    if (drag?.kind === "move" && drag.moved) { D().undo.push(drag.before); D().redo = []; changed(); }
+    if ((drag?.kind === "move" || drag?.kind === "nested") && drag.moved) { D().undo.push(drag.before); D().redo = []; $("overlay").removeAttribute("transform"); changed(); }
     if (drag?.kind === "pan" && !drag.moved && drag.deselect) select(null);
     drag = null;
   };
@@ -836,12 +916,24 @@ function undo(redo = false) {
   if (!d) return;
   const from = redo ? d.redo : d.undo, to = redo ? d.undo : d.redo;
   if (!from.length) return;
-  to.push(JSON.stringify(d.json));
-  d.json = JSON.parse(from.pop());
+  const e = from.pop(), t = S.tabs.find((x) => x.file === e.file);
+  if (!t) return undo(redo);
+  to.push({ file: e.file, json: JSON.stringify(t.json) });
+  t.json = JSON.parse(e.json);
   if (d.sel !== null && !items()?.[d.sel]) d.sel = null;
+  if (d.nested && !nestedInfo()) d.nested = null;
   changed();
 }
 function nudge(dx, dy) {
+  const n = nestedInfo();
+  if (n) {
+    if (!n.editable) return;
+    snapshot(n.tab);
+    const [lx, ly] = toParent(n, dx, dy);
+    n.o.x = round20((n.o.x ?? 0) + lx); n.o.y = round20((n.o.y ?? 0) + ly);
+    changed();
+    return;
+  }
   const o = items()?.[D()?.sel];
   if (!o || !editable()) return;
   snapshot();
@@ -849,7 +941,16 @@ function nudge(dx, dy) {
   changed();
 }
 function removeSel() {
-  const d = D();
+  const d = D(), n = nestedInfo();
+  if (n) {
+    if (!n.editable) return;
+    snapshot(n.tab);
+    items(n.tab).splice(n.it.src, 1);
+    d.nested = null;
+    changed();
+    status(`removed from ${n.owner.label}'s definition (every placement)`);
+    return;
+  }
   if (!d || d.sel === null || !editable()) return;
   snapshot();
   items().splice(d.sel, 1);
@@ -929,6 +1030,7 @@ async function tabFor(file, fresh) {
     const json = fresh ?? (await fetch(`/src/${file}`).then((r) => (r.ok ? r.json() : null)).catch(() => null));
     if (!json) throw new Error(`can't read src/${file}`);
     t = newTab(file, json, fresh ? null : JSON.stringify(json));
+    t.background = true;
     S.tabs.push(t);
   }
   return t;
@@ -1126,7 +1228,7 @@ function setupCommands() {
       const n = e.shiftKey ? 10 : 1;
       nudge(e.key === "ArrowLeft" ? -n : e.key === "ArrowRight" ? n : 0, e.key === "ArrowUp" ? -n : e.key === "ArrowDown" ? n : 0);
     } else if (e.key === "Delete" || e.key === "Backspace") removeSel();
-    else if (e.key === "Escape") select(null);
+    else if (e.key === "Escape") { if (D()) select(null); }
     else if (e.key === "f" || e.key === "F") fit();
   });
   window.addEventListener("beforeunload", (e) => { if (S.tabs.some(isDirty)) e.preventDefault(); });

@@ -39,8 +39,12 @@ build step.
 - **Right**: the layers — the sprite's own display list, top first, its
   depths and instance names as in the SWF. A placed sprite or button
   unfolds (▸) into what it holds: that's its definition, shared by every
-  placement (`ChooseServerSprite`, placed 5 times, is one sprite);
-  double-click a line inside to edit it there, in its own tab. ↑ ↓ swap
+  placement (`ChooseServerSprite`, placed 5 times, is one sprite).
+  Click a line inside to select it **in place**: its box shows where it is
+  on screen; drag it (inside its box), nudge it, remove it, edit it in the
+  inspector — that edits the definition, so every placement changes (its tab
+  appears, ●, written when saved; `Ctrl+Z` here takes it back). Double-click
+  opens the definition in its own tab. ↑ ↓ swap
   depths, ✕ removes, 👁 hides a line while you work — at any level, in that
   instance only (hiding `Bonhomme` in `_css4` leaves the 4 others); not saved. The
   inspector: depth, position, scale, rotation, alpha, instance name

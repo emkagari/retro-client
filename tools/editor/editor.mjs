@@ -262,8 +262,8 @@ function check(rel, json) {
  * A sprite's clip actions follow their lines to new depths: their scripts'
  * folders (frame_N/PlaceObject2_<id>_<name>_<depth>/) renamed, each line
  * matched as the build matches its clip actions (tools/sprites.mjs
- * clipActions: same frame, same thing placed, then its depth, its instance
- * name, or the only one). What was renamed, "from → to".
+ * clipActions: same frame, same thing placed, then its instance name, its
+ * depth, or the only one). What was renamed, "from → to".
  */
 const REF = ["export", "shape", "sprite", "text", "button", "morph", "video"];
 function planClipScripts(p, before, after) {
@@ -274,21 +274,50 @@ function planClipScripts(p, before, after) {
     const dir = join(dirname(p), `frame_${i + 1}`);
     for (const o of (fr.place ?? []).filter((x) => x.actions)) {
       const same = old.filter((x) => ref(x) === ref(o) && !taken.has(x));
-      const hit = same.find((x) => x.depth === o.depth) ?? (o.name !== undefined ? same.find((x) => x.name === o.name) : undefined) ?? (same.length === 1 ? same[0] : undefined);
+      // As the build matches it (tools/sprites.mjs clipActions): its instance name first.
+      const hit = (o.name !== undefined ? same.find((x) => x.name === o.name) : undefined) ?? same.find((x) => x.depth === o.depth) ?? (same.length === 1 ? same[0] : undefined);
       if (!hit) continue;
       taken.add(hit);
       if (hit.depth === o.depth || !existsSync(dir)) continue;
-      const from = readdirSync(dir).find((n) => n.startsWith("PlaceObject") && n.endsWith(`_${hit.depth}`) && /^PlaceObject\d?_/.test(n));
+      // (Two folders at that depth — a removed line's left with another's: the one placing the same.)
+      const at = readdirSync(dir).filter((n) => n.endsWith(`_${hit.depth}`) && /^PlaceObject\d?_/.test(n));
+      const from = at.find((n) => (o.export ? n.includes(`_${o.export}_`) : n.includes(`_${o.sprite ?? o.button ?? o.shape ?? o.text}_`))) ?? at[0];
       if (from) plan.push({ dir, from, to: from.replace(/_\d+$/, `_${o.depth}`) });
     }
   });
   return plan;
 }
+/**
+ * The renames done, in two steps (lines that swapped depths swap folders).
+ * A folder already where one goes, and not moving itself, is a removed
+ * line's (its script is dead — the build drops its clip actions with it):
+ * put aside in .tmp/editor-removed/ first, or the rename would fail half
+ * way. Any rename failing undoes those done: all or nothing.
+ */
 function moveClipScripts(plan) {
-  // In two steps: lines that swapped depths swap folders.
-  for (const x of plan) renameSync(join(x.dir, x.from), join(x.dir, `${x.from}.moving`));
-  for (const x of plan) renameSync(join(x.dir, `${x.from}.moving`), join(x.dir, x.to));
-  return plan.map((x) => `${x.from} → ${x.to}`);
+  const sources = new Set(plan.map((x) => join(x.dir, x.from)));
+  const stale = plan.map((x) => join(x.dir, x.to)).filter((t) => existsSync(t) && !sources.has(t));
+  const done = [];
+  const move = (from, to) => { mkdirSync(dirname(to), { recursive: true }); renameSync(from, to); done.push([from, to]); };
+  try {
+    const aside = join(ROOT, ".tmp", "editor-removed", new Date().toISOString().replace(/[:.]/g, "-"));
+    for (const t of stale) move(t, join(aside, relative(SRC, t)));
+    for (const x of plan) move(join(x.dir, x.from), join(x.dir, `${x.from}.moving`));
+    for (const x of plan) move(join(x.dir, `${x.from}.moving`), join(x.dir, x.to));
+  } catch (e) {
+    for (const [from, to] of done.reverse()) renameSync(to, from);
+    throw new Error(`clip actions' folders not renamed (nothing changed): ${e.message}`);
+  }
+  return [
+    ...plan.map((x) => `${x.from} → ${x.to}`),
+    ...stale.map((t) => `${relative(SRC, t).split(sep).join("/")}: a removed line's, put aside in .tmp/editor-removed/`),
+  ];
+}
+/** Folders an earlier save left half renamed (PlaceObject…_N.moving): their names say where each was. */
+function halfMoved(p) {
+  const dir = dirname(p);
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir).filter((f) => /^frame_\d+$/.test(f)).flatMap((f) => readdirSync(join(dir, f)).filter((n) => n.endsWith(".moving")).map((n) => `${f}/${n}`));
 }
 
 /** A value as AS2 source (a parameter in on(construct)). */
@@ -369,12 +398,15 @@ const server = createServer(async (req, res) => {
       }));
       let kind;
       try { kind = check(rel, json); } catch (e) { return send(res, 422, { error: e.message }); }
+      const left = halfMoved(p);
+      if (left.length) return send(res, 409, { error: `an earlier save stopped half way renaming clip actions' folders — put them back first (src/${dirname(rel)}/):\n  ${left.join("\n  ")}` });
       const plan = kind === "sprite" && rel.startsWith("timeline/") && existsSync(p) ? planClipScripts(p, JSON.parse(readFileSync(p, "utf8")), json) : [];
       const scripts = scripted.map((x) => ({ ...x, file: constructScript(p, x.frame, x.depth, plan) }));
       const lost = scripts.find((x) => !x.file);
       if (lost) return send(res, 422, { error: `${lost.label}: no on(construct) script in frame_${lost.frame}/PlaceObject…_${lost.depth}/ to set its parameters in` });
       mkdirSync(join(p, ".."), { recursive: true });
-      const moved = moveClipScripts(plan);
+      let moved;
+      try { moved = moveClipScripts(plan); } catch (e) { return send(res, 500, { error: e.message }); }
       for (const x of scripts) writeConstruct(x.file.after, x.params);
       writeFileSync(p, formatJson(kind, json));
       return send(res, 200, { ok: true, moved, scripts: scripts.map((x) => relative(SRC, x.file.after).split(sep).join("/")) });

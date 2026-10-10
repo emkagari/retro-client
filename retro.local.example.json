@@ -7,6 +7,7 @@
     "mac": "/Applications/Ankama/Retro/Dofus Retro.app"
   },
   "overlay": "C:/Users/me/retro-overlay",
+  "lang": "C:/Users/me/retro-server/data/lang/swf/lang_fr_1387.swf",
   "executable": { "windows": "Dofus Retro.exe" },
   "dev": { "login": "admin1", "password": "admin", "server": 2, "character": "MyCharacter" }
 }

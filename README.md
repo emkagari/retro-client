@@ -62,6 +62,7 @@ Copy `retro.local.example.json` to `retro.local.json` and set:
 | `upstream.mac` | the official app, `/Applications/Ankama/Retro/Dofus Retro.app` by default (or the folder holding it) |
 | `overlay` | optional: a folder of machine-specific files copied after `overlay/`, e.g. a `config.xml` pointing at another server |
 | `executable` | optional: the client executable's name |
+| `lang` | optional: a server's `lang_fr_….swf`, for the sprite editor to show the game's texts ([docs/EDITOR.md](docs/EDITOR.md)) |
 | `dev` | optional: auto login settings, see [Hot reload](#hot-reload) |
 
 ## Building and running

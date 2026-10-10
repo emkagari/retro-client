@@ -120,8 +120,10 @@ texts keep their `%1`.
   aligned on (its dashed box) and its name and edge (`_btnOK · centre`).
   Hold `Ctrl` while dragging: no snapping (Photoshop's key); `Shift`: only
   horizontally or vertically. **Grid** (`G`, its size beside it): drawn
-  faintly over the drawing; with Snap, the box's top left goes to it where
-  no guide is in reach. The arrows aren't snapped (a pixel is a pixel).
+  faintly over the drawing, and dragging puts the box's top left on it.
+  The two go together or alone: Snap alone, guides only; the grid alone,
+  the grid only; both, a guide in reach first, else the grid. `Ctrl`
+  frees the drag from both. The arrows aren't snapped (a pixel is a pixel).
 - **Several at once**: `Ctrl+click` a layer to add it to the selection (or
   take it out), `Shift+click` for the lines between it and the one selected,
   in one list; on the canvas `Shift+click` adds a graphic (`Shift+Ctrl`: the

@@ -13,6 +13,39 @@ then open <http://localhost:4777>. Nothing to install: three files in
 `tools/editor/` (the server, `index.html`, `editor.js`), no framework, no
 build step.
 
+## What code draws
+
+Most of an interface is **components** — `Button`, `Label`, `Window`,
+`Container`, `TextArea`… (ank's gapi, `src/classes/ank/gapi/controls/`). In
+the loader a component is only a transparent box (`boundingBox_mc`) and
+its parameters, its clip actions (`frame_1/PlaceObject2_48_Button_95/…
+on(construct).as`: `backgroundUp = "BtnChooseServerUp"`, `styleName`…):
+its class draws it in the game. **Components** (on by default) draws them
+as that code would, from the same parameters and styles
+(`DofusStylePackage`): a button's background stretched to its size and
+coloured by its style, its label and icon; a label's text in its font,
+size, colour and alignment; a window's frame and title; a loader's
+content; a grid's cells… Its size is its box's on screen, as the game
+measures it. Off: what the files hold.
+
+- **Texts** the class puts in them
+  (`this._btnSelect.label = this.api.lang.getText("SELECT")`) show as
+  their key, `‹SELECT›` — or as the player reads them, «Sélectionner»,
+  with the game's texts: a server's `lang_fr_….swf`, given as `lang` in
+  `retro.local.json` (or `--lang <file>`, `RETRO_LANG`). The layers show
+  them too. An empty text the code fills otherwise shows the instance's
+  name, dimmed (`‹_lblLevel›`).
+- **Hidden by code**: what the class hides as it starts
+  (`this._mcPlacer._visible = false` in `createChildren` or `init`: a
+  placer marking where code attaches something, a panel shown later) is
+  drawn faded, ⊘ in the layers.
+- **Outlines** (`O`): every line's box and name over the drawing — the
+  first level's, and those next to a nested line selected.
+
+It's an approximation: no hover or pressed states, scrollbars, list
+contents, or what code attaches at runtime (`attachMovie`); a lang file's
+texts keep their `%1`.
+
 ## Using it
 
 - **Tabs**: each sprite, button or text opens in its own tab, with its own
@@ -83,9 +116,9 @@ build step.
   later frames are edited in their sprite.json.
 - Texts are edited as JSON in the inspector; they're drawn with a system font
   (the game's are embedded in the loader), text fields as a dashed box.
-- What code draws at runtime — a `Window`'s frame, a `Button`'s label, a
-  component's skin — isn't there: the editor shows what the files place, as
-  FFDec's renders do. Filters (glow, shadow) aren't drawn.
+- Components are drawn from their parameters and styles (above), not by
+  running their code: states, scrollbars, list contents aren't there.
+  Filters (glow, shadow) aren't drawn.
 - Editing an SVG itself: use Inkscape (docs/ASSETS.md), then Reload files.
 - What code builds at runtime (`attachMovie` in a class) isn't in the
   layers: they show the files' hierarchy, not the running game's.

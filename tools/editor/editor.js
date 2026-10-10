@@ -41,6 +41,8 @@ const store = {
 const S = {
   lib: null, byId: new Map(), freshByName: new Map(),
   tabs: [], active: -1, tab: "Interfaces",
+  // Components drawn as their code draws them; every line's box and name over the drawing.
+  ui: null, components: store.get("components", true), outlines: store.get("outlines", false),
 };
 // For the DevTools (and tests): the editor's state.
 window.editorState = S;
@@ -71,6 +73,7 @@ async function loadLibrary() {
   S.lib = await api("/api/library");
   S.byId = new Map(S.lib.objects.map((o) => [o.id, o]));
   S.freshByName = new Map(S.lib.fresh.filter((f) => f.name).map((f) => [f.name, f]));
+  S.ui = await api("/api/ui").catch(() => null);
 }
 
 const TABS = {
@@ -177,14 +180,14 @@ function displayList(frames, n) {
     const fr = frames[i] ?? {};
     for (const d of fr.remove ?? []) st.delete(d);
     (fr.place ?? []).forEach((o, k) => {
-      if (!o.move) { st.set(o.depth, { o: { ...o }, src: i === 0 ? k : null }); return; }
+      if (!o.move) { st.set(o.depth, { o: { ...o }, src: i === 0 ? k : null, frame: i + 1 }); return; }
       const cur = st.get(o.depth);
       if (!cur) return;
       const m = { ...cur.o };
       const take = (keys) => { if (keys.some((r) => r in o)) { for (const r of keys) delete m[r]; for (const r of keys) if (r in o) m[r] = o[r]; } };
       take(REF); take(MATRIX); take(["alpha", "color"]);
       for (const r of ["name", "ratio", "mask", "filters", "blend"]) if (r in o) m[r] = o[r];
-      st.set(o.depth, { o: m, src: i === 0 ? k : null });
+      st.set(o.depth, { o: m, src: i === 0 ? k : null, frame: cur.frame });
     });
   }
   return [...st.entries()].sort((a, b) => a[0] - b[0]).map(([depth, v]) => ({ depth, ...v }));
@@ -199,7 +202,7 @@ function childList(ref, json) {
 const defs = () => $("defs");
 const defCache = new Map();
 let defSeq = 0;
-function resetDefs() { defCache.clear(); filterCache.clear(); defs().textContent = ""; }
+function resetDefs() { defCache.clear(); filterCache.clear(); measured.clear(); defs().textContent = ""; }
 
 /**
  * A def's id for what a placement shows, or null. Drawn once and used by
@@ -235,7 +238,7 @@ async function makeDef(ref, level, id, path) {
   } else if (hasChildren(ref)) {
     const json = await fileJsonKnown(ref.file);
     if (!json) return placeholder(g, `${ref.kind} ${ref.id ?? ref.file}`);
-    await drawList(g, childList(ref, json), level + 1, false, path);
+    await drawList(g, childList(ref, json), level + 1, false, path, ref.file);
   } else if (ref.kind === "text") {
     const json = ref.file && (await fileJsonKnown(ref.file));
     if (!json) return placeholder(g, `text ${ref.id}`);
@@ -302,11 +305,16 @@ function colorFilter(color) {
 }
 
 /** One placement drawn: a <use> of its def, moved, coloured. */
-async function drawItem(o, level, path) {
-  const id = await ensureDef(refOf(o), level, path);
-  const u = id ? el("use", { href: `#${id}` }) : el("g");
-  if (!id) placeholder(u, describe(o));
-  u.setAttribute("transform", transformOf(o));
+async function drawItem(o, level, path, params) {
+  const ref = refOf(o), comp = S.components && (await componentOf(ref));
+  let u;
+  if (comp) u = await drawComponent(o, comp, params ?? {}, level);
+  else {
+    const id = await ensureDef(ref, level, path);
+    u = id ? el("use", { href: `#${id}` }) : el("g");
+    if (!id) placeholder(u, describe(o));
+    u.setAttribute("transform", transformOf(o));
+  }
   if ("alpha" in o) u.setAttribute("opacity", o.alpha);
   if (o.color) u.setAttribute("filter", `url(#${colorFilter(o.color)})`);
   if (o.blend && BLENDS[o.blend]) u.style.mixBlendMode = BLENDS[o.blend];
@@ -318,10 +326,16 @@ async function drawItem(o, level, path) {
  * up to its own `mask`. `path`: where this list is, from the top (null: a
  * shared drawing, nothing hidden inside); a hidden line isn't drawn.
  */
-async function drawList(parent, list, level, interactive, path = "") {
+async function drawList(parent, list, level, interactive, path = "", file = null) {
   const hidden = D()?.hidden ?? new Set();
   const at = (it) => (path === null ? null : `${path}/${it.depth}`);
-  const nodes = await Promise.all(list.map((it) => (it.o.mask || (!interactive && hidden.has(at(it))) ? null : drawItem(it.o, level, at(it)))));
+  const params = file ? await paramsOf(file) : {};
+  // A component's parameters, and what its sprite's class puts in it (a text).
+  const paramsFor = (it) => { const p = params[it.frame ?? 1]?.[it.depth], code = it.o.name && params.texts?.[it.o.name]; return code ? { ...p, code } : p; };
+  const nodes = await Promise.all(list.map((it) => (it.o.mask || (!interactive && hidden.has(at(it))) ? null : drawItem(it.o, level, at(it), paramsFor(it)))));
+  // What the class hides as it starts: faded (still there to be moved: a placer marks where code puts something).
+  const codeHidden = (it) => S.components && !!it.o.name && !!params.hidden?.includes(it.o.name);
+  list.forEach((it, i) => { if (nodes[i] && codeHidden(it)) nodes[i].setAttribute("opacity", Number(nodes[i].getAttribute("opacity") ?? 1) * 0.2); });
   let clip = null;
   for (let i = 0; i < list.length; i++) {
     const it = list[i];
@@ -340,12 +354,307 @@ async function drawList(parent, list, level, interactive, path = "") {
     }
     let node = nodes[i];
     if (interactive) {
-      const w = el("g", { class: "item" + (hidden.has(at(it)) ? " hidden" : ""), "data-i": it.src ?? "", "data-depth": it.depth });
+      const w = el("g", { class: "item" + (hidden.has(at(it)) ? " hidden" : "") + (codeHidden(it) ? " codehidden" : ""), "data-i": it.src ?? "", "data-depth": it.depth });
       w.append(node);
       node = w;
     }
     (clip ? clip.g : parent).append(node);
   }
+}
+
+// --- Components: what the gapi's code draws -----------------------------------
+//
+// A Button, a Label, a Window… is, in the loader, a transparent
+// `boundingBox_mc` and parameters (its clip actions, on(construct)): its
+// class draws it in the game. Drawn here as that code would, from the same
+// parameters and styles (DofusStylePackage): ank/gapi/controls/*.as.
+
+// The loader's embedded fonts (Font1: Verdana; Font2: Verdana bold…).
+const FONTS = { Font1: ["Verdana", 0, 0], Font2: ["Verdana", 1, 0], Font3: ["monospace", 0, 0], Font4: ["Verdana", 0, 1], Font5: ["Verdana", 1, 1], Font6: ["'Pirata One', fantasy", 0, 0] };
+const hex = (n) => (typeof n === "number" && n >= 0 ? `#${n.toString(16).padStart(6, "0")}` : typeof n === "string" && /^0x[0-9a-f]+$/i.test(n) ? `#${n.slice(2).padStart(6, "0")}` : null);
+const tint = (n) => ({ mult: [0, 0, 0, 1], add: [(n >> 16) & 255, (n >> 8) & 255, n & 255, 0] });
+/** A style by name ("default", "": the class's own). */
+function styleOf(name, cls) {
+  const st = S.ui?.styles ?? {};
+  return (name && name !== "default" && name !== "none" && st[name]) || st[cls] || {};
+}
+const exportRef = (name) => (name ? refOf({ export: name }) : null);
+
+/** Each placement's parameters in a sprite (its clip actions), by frame and depth. */
+const paramCache = new Map();
+function paramsOf(file) {
+  if (!file.startsWith("timeline/")) return Promise.resolve({});
+  if (!paramCache.has(file)) paramCache.set(file, api(`/api/params?file=${encodeURIComponent(file)}`).catch(() => ({})).then((p) => (paramsKnown.set(file, p), p)));
+  return paramCache.get(file);
+}
+const paramsKnown = new Map();
+
+/** A drawing's box in its own coordinates (measured once per def). */
+const measured = new Map();
+async function measure(ref) {
+  const id = await ensureDef(ref, 1);
+  if (!id) return null;
+  if (!measured.has(id)) {
+    const w = el("g", { visibility: "hidden" });
+    w.append(el("use", { href: `#${id}` }));
+    $("svg").append(w);
+    const b = w.getBBox();
+    w.remove();
+    measured.set(id, b.width || b.height ? { x: b.x, y: b.y, width: b.width, height: b.height } : null);
+  }
+  return measured.get(id);
+}
+function boxUnder(m, b) {
+  const xs = [], ys = [];
+  for (const [x, y] of [[b.x, b.y], [b.x + b.width, b.y], [b.x, b.y + b.height], [b.x + b.width, b.y + b.height]]) { xs.push(m[0] * x + m[2] * y + m[4]); ys.push(m[1] * x + m[3] * y + m[5]); }
+  return { x: Math.min(...xs), y: Math.min(...ys), width: Math.max(...xs) - Math.min(...xs), height: Math.max(...ys) - Math.min(...ys) };
+}
+
+/** A component: a sprite of the base whose first frame holds a boundingBox_mc. */
+async function componentOf(ref) {
+  if (ref?.kind !== "sprite" || !ref.file || !S.ui) return null;
+  const json = knownJson(ref.file) ?? (await fileJsonKnown(ref.file));
+  const bb = json?.frames?.[0]?.place?.find((o) => o.name === "boundingBox_mc");
+  if (!bb) return null;
+  const name = S.byId.get(ref.id)?.name ?? `sprite ${ref.id}`;
+  return { name, cls: (S.ui.classes[name] ?? "").split(".").pop() || name, bb };
+}
+
+/**
+ * A component drawn: its size is its bounding box's on screen (the game then
+ * puts its scale back to 100%: a label's text isn't stretched), what it
+ * draws, in its own pixels.
+ */
+async function drawComponent(o, comp, p, level) {
+  const m = matrixOf(o), sx = Math.hypot(m[0], m[1]) || 1, sy = Math.hypot(m[2], m[3]) || 1;
+  const g = el("g", { transform: `matrix(${m[0] / sx} ${m[1] / sx} ${m[2] / sy} ${m[3] / sy} ${m[4]} ${m[5]})` });
+  const b = await measure(refOf(comp.bb));
+  const box = b ? boxUnder(matrixOf(comp.bb), b) : { x: 0, y: 0, width: 100, height: 100 };
+  const c = { w: box.width * sx, h: box.height * sy, p, o, comp, level, name: o.name ?? comp.name };
+  // What's under it shows through where it draws nothing; its own area stays clickable.
+  g.append(el("rect", { width: c.w, height: c.h, fill: "transparent" }));
+  await (COMPONENTS[comp.cls] ?? COMPONENTS[comp.name] ?? genericComponent)(g, c);
+  return g;
+}
+
+/** Lines of a wrapped text field, measured in its font. */
+const measureCtx = document.createElement("canvas").getContext("2d");
+function wrapLines(text, width, font) {
+  measureCtx.font = font;
+  const out = [];
+  for (const para of text.split(/\r?\n|\r/)) {
+    let line = "";
+    for (const word of para.split(" ")) {
+      const next = line ? `${line} ${word}` : word;
+      if (line && measureCtx.measureText(next).width > width) { out.push(line); line = word; } else line = next;
+    }
+    out.push(line);
+  }
+  return out;
+}
+/** A text field's text: its box, its style (font, size, colour, alignment); `wrap`: on several lines. */
+function drawLabel(g, { x = 0, y = 0, w, h, text, font, size = 12, color = 0, align = "left", bold, italic, dim, wrap }) {
+  if (!text || w <= 0 || h <= 0) return;
+  const box = el("svg", { x, y, width: w, height: h, overflow: "hidden" });
+  const [family, b, i] = FONTS[font] ?? [!font || font === "_sans" ? "Verdana, sans-serif" : `${font}, Verdana, sans-serif`, 0, 0];
+  const weight = b || bold ? "bold" : null, style = i || italic ? "italic" : null;
+  const anchor = { center: "middle", right: "end" }[align] ?? "start";
+  let ax = anchor === "middle" ? w / 2 : anchor === "end" ? w - 2 : 2;
+  const t = el("text", { x: ax, y: 2 + size, "font-family": family, "font-size": size, "font-weight": weight, "font-style": style, fill: hex(color) ?? "#000000", "text-anchor": anchor, opacity: dim ? 0.55 : null });
+  const plain = String(text).replace(/<br\s*\/?>/gi, "\n").replace(/<[^>]*>/g, "").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+  const css = `${style ?? ""} ${weight ?? ""} ${size}px ${family}`;
+  const lines = wrap ? wrapLines(plain, w - 4, css) : [plain.replace(/\s*[\r\n]+\s*/g, " ")];
+  // Wider than its box: its start shows (as Flash cuts it), not its end.
+  if (!wrap && anchor !== "start") { measureCtx.font = css; if (measureCtx.measureText(lines[0]).width > w - 4) { t.setAttribute("text-anchor", "start"); t.setAttribute("x", 2); ax = 2; } }
+  lines.slice(0, Math.ceil(h / size) + 1).forEach((line, k) => {
+    const span = el("tspan", { x: ax, dy: k ? size * 1.2 : 0 });
+    span.textContent = line;
+    t.append(span);
+  });
+  box.append(t);
+  g.append(box);
+}
+/**
+ * The text shown: its own; else what the class puts there (the game's text
+ * with a lang file, else its key: ‹SELECT›); else the instance's name, dimmed.
+ */
+function placeholderText(c, text) {
+  if (text) return { text };
+  if (c.p.code?.text) return { text: c.p.code.text };
+  return { text: `‹${c.p.code?.key ?? c.name}›`, dim: true };
+}
+function dashed(g, w, h, color = "#ffffff") {
+  g.append(el("rect", { width: w, height: h, fill: "none", stroke: color, "stroke-opacity": 0.35, "stroke-dasharray": "3 2", "vector-effect": "non-scaling-stroke" }));
+}
+/** UIBasicComponent.drawBorder: a bevelled frame. */
+function bevel(g, w, h) {
+  const line = (d, c) => g.append(el("path", { d, fill: "none", stroke: c, "stroke-opacity": 0.5, "vector-effect": "non-scaling-stroke" }));
+  line(`M0 0H${w}`, "#6f7777"); line(`M${w} 0V${h}`, "#919a99"); line(`M${w} ${h}H0`, "#d5dddd"); line(`M0 ${h}V0`, "#919a99");
+  line(`M1 1H${w - 1}`, "#cacccc"); line(`M${w - 1} 1V${h - 1}`, "#d5dddd"); line(`M${w - 1} ${h - 1}H1`, "#eeeeee"); line(`M1 ${h - 1}V1`, "#d5dddd");
+}
+/** drawRoundRect: corners (a number or { tl, tr, br, bl }), a colour or a gradient (colours, alphas, ratios). */
+function roundRect(g, x, y, w, h, r, color, alpha = 100, rot = 0, ratios) {
+  if (w <= 0 || h <= 0 || color === undefined) return;
+  const k = typeof r === "object" ? r : { tl: r ?? 0, tr: r ?? 0, br: r ?? 0, bl: r ?? 0 };
+  const [tl, tr, br, bl] = [k.tl, k.tr, k.br, k.bl].map((v) => Math.max(0, Math.min(v ?? 0, w / 2, h / 2)));
+  const d = `M${x + tl} ${y}H${x + w - tr}Q${x + w} ${y} ${x + w} ${y + tr}V${y + h - br}Q${x + w} ${y + h} ${x + w - br} ${y + h}H${x + bl}Q${x} ${y + h} ${x} ${y + h - bl}V${y + tl}Q${x} ${y} ${x + tl} ${y}Z`;
+  let fill = hex(color), opacity = (typeof alpha === "number" ? alpha : 100) / 100;
+  if (Array.isArray(color)) {
+    const id = `grad${++defSeq}`, gr = el("linearGradient", { id, gradientTransform: `rotate(${rot || 90} .5 .5)` });
+    color.forEach((c, i) => gr.append(el("stop", { offset: `${((ratios?.[i] ?? (i * 255) / Math.max(1, color.length - 1)) / 255) * 100}%`, "stop-color": hex(c), "stop-opacity": (Array.isArray(alpha) ? alpha[i] ?? 100 : 100) / 100 })));
+    defs().append(gr);
+    fill = `url(#${id})`; opacity = 1;
+  }
+  g.append(el("path", { d, fill: fill ?? "none", "fill-opacity": opacity }));
+}
+
+/** An export drawn in a box: "fit" (a Loader's scaleContent), "center" (its centre there), "middle" (an icon's box centred), "origin". */
+async function drawExport(g, name, w, h, mode, level) {
+  const ref = exportRef(name);
+  if (!ref || ref.kind === "missing") return false;
+  const id = await ensureDef(ref, level + 1);
+  if (!id) return false;
+  const b = await measure(ref);
+  let t = "";
+  if (b && mode === "fit") { const k = Math.min(w / b.width, h / b.height); t = `translate(${(w - b.width * k) / 2 - b.x * k} ${(h - b.height * k) / 2 - b.y * k}) scale(${k})`; }
+  else if (b && mode === "middle") t = `translate(${(w - b.width) / 2 - b.x} ${(h - b.height) / 2 - b.y})`;
+  else if (mode === "center") t = `translate(${w / 2} ${h / 2})`;
+  else if (b && mode === "stretch") t = `translate(${-b.x * (w / b.width)} ${-b.y * (h / b.height)}) scale(${w / b.width} ${h / b.height})`;
+  g.append(el("use", { href: `#${id}`, transform: t || null }));
+  return true;
+}
+
+/**
+ * A button's background (ButtonBackground.setSize): left_mc and right_mc as
+ * high as the button, keeping their ratio, middle_mc stretched between; each
+ * part's clips coloured by the style (bg_mc: bgcolor…). Another background:
+ * as it is (it has no setSize).
+ */
+async function drawSkin(g, name, w, h, st, suffix, level) {
+  const ref = exportRef(name);
+  if (!ref?.file) return;
+  if (!(S.ui.classes[name] ?? "").endsWith("ButtonBackground")) { await drawExport(g, name, w, h, "origin", level); return; }
+  const place = (knownJson(ref.file) ?? (await fileJsonKnown(ref.file)))?.frames?.[0]?.place ?? [];
+  const part = async (n) => { const o = place.find((x) => x.name === n); const b = o && (await measure(refOf(o))); return b ? { o, b, ys: h / b.height } : null; };
+  const [L, M, R] = await Promise.all([part("left_mc"), part("middle_mc"), part("right_mc")]);
+  const lw = L ? L.b.width * L.ys : 0, rw = R ? R.b.width * R.ys : 0;
+  const slice = async (pt, x, xs) => {
+    if (!pt) return;
+    const sg = el("g", { transform: `translate(${x} 0) scale(${xs} ${pt.ys})` });
+    const r = refOf(pt.o), json = hasChildren(r) && (knownJson(r.file) ?? (await fileJsonKnown(r.file)));
+    if (!json) { const id = await ensureDef(r, level + 1); if (id) sg.append(el("use", { href: `#${id}` })); }
+    else await drawList(sg, childList(r, json).map((it) => {
+      // Color.setRGB: the clip in that colour (-1: hidden).
+      const col = st[`${(it.o.name ?? "").split("_")[0]}${suffix}`];
+      return typeof col !== "number" ? it : { ...it, o: col === -1 ? { ...it.o, alpha: 0 } : { ...it.o, color: tint(col) } };
+    }), level + 2, false, null, r.file);
+    g.append(sg);
+  };
+  await slice(L, 0, (lw + 0.5) / (L?.b.width || 1));
+  await slice(M, lw, (w - lw - rw + 0.5) / (M?.b.width || 1));
+  await slice(R, w - rw, R?.ys ?? 1);
+}
+
+const labelStyle = (st, c, text, box) => ({ ...box, ...placeholderText(c, text), font: st.labelfont, size: st.labelsize, color: st.labelcolor, align: st.labelalign, bold: st.labelbold, italic: st.labelitalic });
+const COMPONENTS = {
+  async Button(g, c) {
+    const st = styleOf(c.p.styleName, "Button");
+    const bg = c.p.backgroundUp ?? "ButtonNormalUp";
+    if (bg !== "none") await drawSkin(g, bg, c.w, c.h, st, "color", c.level);
+    if (c.p.icon) await drawExport(g, c.p.icon, c.w, c.h, "middle", c.level);
+    if (c.p.label || c.p.code) {
+      const ls = styleOf(st.labelupstyle, "Label"), th = (ls.labelsize ?? 12) * 1.15;
+      drawLabel(g, labelStyle(ls, c, c.p.code && !c.p.code.code ? null : c.p.label, { y: (c.h - th) / 2 - 4, w: c.w, h: th + 6 }));
+    }
+  },
+  Label(g, c) {
+    drawLabel(g, labelStyle(styleOf(c.p.styleName, "Label"), c, c.p.text, { y: 1, w: c.w, h: c.h - 1, wrap: c.p.multiline || c.p.wordWrap }));
+  },
+  TextInput(g, c) {
+    dashed(g, c.w, c.h);
+    drawLabel(g, labelStyle(styleOf(c.p.styleName, "TextInput"), c, c.p.text, { y: 1, w: c.w, h: c.h - 1 }));
+  },
+  TextArea(g, c) {
+    const st = styleOf(c.p.styleName, "TextArea");
+    if (c.p.border) bevel(g, c.w, c.h); else dashed(g, c.w, c.h);
+    drawLabel(g, { x: 1, y: 1, w: c.w - 2, h: c.h - 2, ...placeholderText(c, c.p.text), font: st.font, size: st.size, color: st.color ?? 0, align: st.align, bold: st.bold, italic: st.italic, wrap: c.p.wordWrap !== false });
+  },
+  Window(g, c) {
+    const st = styleOf(c.p.styleName, "Window"), bw = st.borderwidth ?? 0, r = st.cornerradius ?? 0;
+    const inner = typeof r === "object" ? { tl: r.tl - bw, tr: r.tr - bw, br: r.bl - bw, bl: r.bl - bw } : r - bw;
+    roundRect(g, 0, 0, c.w, c.h, r, st.bordercolor);
+    roundRect(g, bw, bw, c.w - 2 * bw, c.h - 2 * bw, inner, st.backgroundcolor, st.backgroundalpha ?? 100, st.backgroundrotation, st.backgroundratio);
+    if (st.displaytitle !== false) {
+      roundRect(g, bw, bw, c.w - 2 * bw, st.titleheight ?? 0, typeof r === "object" ? { tl: r.tl - bw, tr: r.tr - bw, br: 0, bl: 0 } : { tl: r - bw, tr: r - bw, br: 0, bl: 0 }, st.titlecolor);
+      drawLabel(g, labelStyle(styleOf(st.titlestyle, "Label"), c, c.p.title, { x: 5, y: 5, w: c.w - 5, h: 25 }));
+    }
+    if (c.p.contentPath && c.p.contentPath !== "none") return drawExport(g, c.p.contentPath, c.w, c.h, "origin", c.level);
+  },
+  async Container(g, c) {
+    const bg = c.p.backgroundRenderer || "DefaultBackground";
+    if (bg === "DefaultBackground") bevel(g, c.w, c.h); else await drawExport(g, bg, c.w, c.h, "stretch", c.level);
+    const m = c.p.margin ?? 2, inner = el("g", { transform: `translate(${m} ${m})` });
+    g.append(inner);
+    if (c.p.contentPath) await drawExport(inner, c.p.contentPath, c.w - 2 * m, c.h - 2 * m, "fit", c.level);
+  },
+  async ContainerGrid(g, c) {
+    const st = styleOf(c.p.styleName, "ContainerGrid"), cols = c.p.visibleColumnCount || 1, rows = c.p.visibleRowCount || 1;
+    const cw = c.w / cols, ch = c.h / rows, bg = st.containerbackground ?? "DefaultBackground";
+    for (let i = 0; i < rows; i++) for (let j = 0; j < cols; j++) {
+      const cell = el("g", { transform: `translate(${j * cw} ${i * ch})` });
+      if (bg === "DefaultBackground" || !(await drawExport(cell, bg, cw, ch, "stretch", c.level))) bevel(cell, cw, ch);
+      g.append(cell);
+    }
+  },
+  async Loader(g, c) {
+    const path = c.p.contentPath;
+    if (path && (await drawExport(g, path, c.w, c.h, c.p.scaleContent ? "fit" : c.p.centerContent ? "center" : "origin", c.level))) return;
+    dashed(g, c.w, c.h, "#8ad");
+    drawLabel(g, { w: c.w, h: Math.min(c.h, 16), size: 9, color: 0x88aadd, align: "center", text: path ? path.split("/").pop() : `‹${c.name}›`, dim: true });
+  },
+  List(g, c) {
+    const st = styleOf(c.p.styleName, "List"), rh = c.p.rowHeight || 20, cols = [].concat(st.cellbgcolor ?? []);
+    for (let y = 0, i = 0; y < c.h; y += rh, i++) if (cols.length && cols[i % cols.length] >= 0) roundRect(g, 0, y, c.w, Math.min(rh, c.h - y), 0, cols[i % cols.length]);
+    dashed(g, c.w, c.h);
+  },
+  /** ComboBox.arrange: its background (a ButtonBackground) at its size, its open button (a Button), its label between. */
+  async ComboBox(g, c) {
+    const st = styleOf(c.p.styleName, "ComboBox"), bw = c.p.buttonWidth ?? 20, left = !!c.p.isButtonLeft;
+    await drawSkin(g, c.p.background || "ComboBoxNormal", c.w, c.h, st, "color", c.level);
+    const btn = el("g", { transform: `translate(${left ? 0 : c.w - bw} 0)` });
+    g.append(btn);
+    await COMPONENTS.Button(btn, { ...c, w: bw, h: c.h, p: { styleName: st.buttonstyle, icon: c.p.buttonIcon ?? "", backgroundUp: c.p.buttonBackgroundUp ?? "ButtonNormalUp" } });
+    const lm = c.p.labelLeftMargin ?? 4, rm = c.p.labelRightMargin ?? 0, tm = c.p.labelTopMargin ?? 0;
+    drawLabel(g, labelStyle(styleOf(st.labelstyle, "Label"), c, null, { x: (left ? bw : 0) + lm, y: tm, w: Math.max(c.w - bw - lm - rm, 0), h: c.h - tm - (c.p.labelBottomMargin ?? 0) }));
+  },
+  /** A title bar (titleHeight, titlebgcolor), then rows in its list's colours. */
+  DataGrid(g, c) {
+    const st = styleOf(c.p.styleName, "DataGrid"), th = c.p.titleHeight ?? 20;
+    if (hex(st.titlebgcolor)) roundRect(g, 0, 0, c.w, th, 0, typeof st.titlebgcolor === "string" ? parseInt(st.titlebgcolor, 16) : st.titlebgcolor);
+    const rows = el("g", { transform: `translate(0 ${th})` });
+    g.append(rows);
+    COMPONENTS.List(rows, { ...c, h: c.h - th, p: { ...c.p, styleName: st.liststyle } });
+  },
+  ProgressBar(g, c) {
+    const st = styleOf(c.p.styleName, "ProgressBar"), min = c.p.minimum ?? 0, max = c.p.maximum ?? 100;
+    const k = max > min ? Math.max(0, Math.min(1, ((c.p.value ?? (min + max) / 2) - min) / (max - min))) : 0.5;
+    roundRect(g, 0, 0, c.w, c.h, 0, st.bgcolor ?? 0x514a3c);
+    roundRect(g, 0, 0, c.w * (k || 0.5), c.h, 0, st.upcolor ?? 0xff6600);
+  },
+  BackgroundHidder(g, c) {
+    const st = styleOf(c.p.styleName, "BackgroundHidder");
+    roundRect(g, 0, 0, c.w, c.h, 0, st.backgroundcolor ?? 0, st.backgroundalpha ?? 10);
+  },
+  StylizedRectangle(g, c) {
+    const st = styleOf(c.p.styleName, "StylizedRectangle");
+    roundRect(g, 0, 0, c.w, c.h, st.cornerradius ?? 0, st.bgcolor ?? 0xffffff, st.alpha ?? 100);
+  },
+};
+COMPONENTS.SpriteLoader = COMPONENTS.Loader;
+/** Any other component: its box and its class. */
+function genericComponent(g, c) {
+  dashed(g, c.w, c.h, "#e0c080");
+  drawLabel(g, { w: c.w, h: Math.min(c.h, 16), size: 9, color: 0xe0c080, text: `${c.comp.cls} ‹${c.name}›`, dim: true });
 }
 
 // --- The open tab -----------------------------------------------------------
@@ -372,7 +681,7 @@ async function draw() {
   const d = D();
   const fresh = el("g");
   if (d?.kind === "text") drawText(fresh, d.json);
-  else if (d) await drawList(fresh, currentList(), 0, true);
+  else if (d) await drawList(fresh, currentList(), 0, true, "", d.file);
   if (seq !== drawSeq) return;
   $("content").replaceWith(fresh);
   fresh.id = "content";
@@ -471,15 +780,15 @@ async function linesAt(p, depth, area = Infinity) {
   return out;
 }
 /**
- * The first level's graphics under the pointer, top first — a component
- * that only shows its `boundingBox_mc` (a TextArea, a Label: hidden by the
- * game at once) after what's under it, so it doesn't catch every click.
+ * The first level's graphics under the pointer, top first (the layers'
+ * order) — what code hides or uses as a mask after the rest (faded: a
+ * placer, `_mcMask`), so it doesn't catch clicks meant for what shows.
  */
 function graphicsAt(e) {
-  const seen = new Set(), list = items() ?? [];
+  const seen = new Set();
   const under = document.elementsFromPoint(e.clientX, e.clientY).map((n) => n.closest?.("#content .item")).filter((n) => n && n.dataset.i !== "" && !seen.has(n) && seen.add(n));
-  const box = (n) => { const ref = refOf(list[Number(n.dataset.i)] ?? {}), place = hasChildren(ref) && knownJson(ref.file)?.frames?.[0]?.place; return !!place?.length && place.every((o) => o.name === "boundingBox_mc"); };
-  return [...under.filter((n) => !box(n)), ...under.filter(box)];
+  const hid = (n) => n.classList.contains("codehidden");
+  return [...under.filter((n) => !hid(n)), ...under.filter(hid)];
 }
 /**
  * Selects a line under the pointer: the deepest (`deepest`: of every graphic
@@ -526,7 +835,43 @@ async function drawNested() {
   ov.append(el("path", { d: `M${x - k} ${y}H${x + k}M${x} ${y - k}V${y + k}`, stroke: "#6aa8e8", "stroke-width": 1.5, "vector-effect": "non-scaling-stroke" }));
 }
 
+/**
+ * Outlines: every line's box and name (its instance name, or what it
+ * places) — the first level's, and the lines next to a nested one selected.
+ */
+let outlineSeq = 0;
+async function drawOutlines() {
+  const seq = ++outlineSeq, d = D(), g = el("g", { id: "outlineLayer", "pointer-events": "none" });
+  if (S.outlines && d && d.kind !== "text") {
+    const boxes = [];
+    for (const node of $("content").querySelectorAll(":scope > .item, :scope > g > .item")) {
+      if (node.classList.contains("mask") || node.classList.contains("hidden")) continue;
+      const it = currentList().find((x) => String(x.depth) === node.dataset.depth);
+      const bb = it && node.getBBox();
+      if (bb && (bb.width || bb.height)) boxes.push([bb, it.o]);
+    }
+    if (d.nested) {
+      const up = d.nested.slice(0, d.nested.lastIndexOf("/")), at = along(up).at(-1), json = knownJson(at.file);
+      if (json) for (const it of childList({ kind: kindOf(at.file) }, json)) {
+        const bb = !it.o.mask && (await boxOf(it.o, at.chain, `${up}/${it.depth}`));
+        if (bb) boxes.push([bb, it.o, true]);
+      }
+    }
+    if (seq !== outlineSeq) return;
+    const k = 1 / view.k;
+    for (const [bb, o, inner] of boxes) {
+      const color = inner ? "#e0a040" : "#5fc8e0";
+      g.append(el("rect", { x: bb.x, y: bb.y, width: bb.width, height: bb.height, fill: "none", stroke: color, "stroke-opacity": 0.8, "stroke-width": 1, "vector-effect": "non-scaling-stroke" }));
+      const t = el("text", { x: bb.x + 2 * k, y: bb.y + 10 * k, "font-size": 10 * k, "font-family": "Verdana, sans-serif", fill: color, stroke: "#000", "stroke-width": 2.5 * k, "paint-order": "stroke", "stroke-opacity": 0.8 });
+      t.textContent = o.name ?? describe(o);
+      g.append(t);
+    }
+  }
+  if (seq === outlineSeq) $("outlineLayer").replaceWith(g);
+}
+
 function drawSelection() {
+  drawOutlines();
   const ov = $("overlay");
   ov.textContent = "";
   const d = D();
@@ -536,7 +881,9 @@ function drawSelection() {
   const o = items()?.[d.sel];
   if (!o) return;
   if (node && !node.classList.contains("mask")) {
-    const bb = node.getBBox();
+    const bb = node.getBBox(), t = node.transform?.baseVal?.consolidate()?.matrix;
+    // (Being dragged: moved by its own translate.)
+    if (t) { bb.x += t.e; bb.y += t.f; }
     ov.append(el("rect", { x: bb.x, y: bb.y, width: bb.width, height: bb.height, fill: "none", stroke: "#e0a040", "stroke-width": 1.5, "vector-effect": "non-scaling-stroke" }));
   }
   const k = 6 / view.k, x = o.x ?? 0, y = o.y ?? 0;
@@ -660,8 +1007,11 @@ function renderLayers() {
   $("ungroup").disabled = $("group").disabled || !(selRef?.kind === "sprite" || selRef?.kind === "freshSprite");
   if (!d || d.kind === "text") { box.append(html("div", { className: "hint" }, d ? "A text: edit it in the inspector." : "")); return; }
   // Top first, as drawn; a placed sprite or button unfolds into its own list (its definition: shared by every placement).
+  const top0 = (level) => level === 0;
   // Each row knows its list: whose lines (`file`, `kind`) and where that list is on screen (`chain`).
   const rows = (list, level, path, owner, chain) => {
+    const loc0File = top0(level) ? d.file : owner.file;
+    if (!paramsKnown.has(loc0File) && loc0File.startsWith("timeline/")) paramsOf(loc0File).then(() => renderLayers());
     for (const it of list.slice().reverse()) {
       const key = `${path}/${it.depth}`;
       const ref = refOf(it.o);
@@ -685,6 +1035,10 @@ function renderLayers() {
       eye.onclick = (e) => { e.stopPropagation(); off ? d.hidden.delete(key) : d.hidden.add(key); resetDefs(); draw(); };
       row.append(eye);
       row.append(html("span", { className: "what" }, (it.o.mask ? "mask: " : "") + describe(it.o)));
+      const code = paramsKnown.get(loc0File);
+      const said = it.o.name && code?.texts?.[it.o.name];
+      if (said && !said.code) row.append(html("span", { className: "said", title: `Set by code: ${said.key}` }, `«${said.text ?? said.key}»`));
+      if (it.o.name && code?.hidden?.includes(it.o.name)) row.append(html("span", { className: "codehid", title: "Hidden by its class as it starts (_visible = false): drawn faded" }, "⊘"));
       if (it.o.name) row.append(html("span", { className: "name" }, it.o.name));
       const loc = { key, it, ref, top, chain, file: top ? d.file : owner.file, kind: top ? d.kind : owner.kind, label: top ? d.title : owner.label };
       if (top) row.onclick = () => select(it.src);
@@ -920,7 +1274,7 @@ function setupStage() {
       selectAt(e, true).then((n) => {
         if (drag !== wait) return;
         const d = D(), node = d.sel !== null && $("content").querySelector(`.item[data-i="${d.sel}"]`);
-        drag = n ? nestedDrag(n) : node && editable() ? { kind: "move", start: p0, x: items()[d.sel].x ?? 0, y: items()[d.sel].y ?? 0, node: node.firstChild, moved: false, before: { file: d.file, json: JSON.stringify(d.json) } } : null;
+        drag = n ? nestedDrag(n) : node && editable() ? { kind: "move", start: p0, x: items()[d.sel].x ?? 0, y: items()[d.sel].y ?? 0, node, moved: false, before: { file: d.file, json: JSON.stringify(d.json) } } : null;
       });
       return;
     }
@@ -931,7 +1285,7 @@ function setupStage() {
     } else if (e.button === 0 && i !== null && editable()) {
       select(i);
       const o = items()[i];
-      drag = { kind: "move", start: toSprite(e), x: o.x ?? 0, y: o.y ?? 0, node: item.firstChild, moved: false, before: { file: D().file, json: JSON.stringify(D().json) } };
+      drag = { kind: "move", start: toSprite(e), x: o.x ?? 0, y: o.y ?? 0, node: item, moved: false, before: { file: D().file, json: JSON.stringify(D().json) } };
     } else {
       if (i !== null) select(i);
       drag = { kind: "pan", sx: e.clientX, sy: e.clientY, vx: view.x, vy: view.y, moved: false, deselect: i === null };
@@ -955,7 +1309,8 @@ function setupStage() {
       const p = toSprite(e), o = items()[D().sel];
       o.x = round20(drag.x + p.x - drag.start.x); o.y = round20(drag.y + p.y - drag.start.y);
       drag.moved = true;
-      drag.node?.setAttribute("transform", transformOf(o));
+      // Moved as a whole while dragging (a component's drawing has its own transform); redrawn on release.
+      drag.node?.setAttribute("transform", `translate(${o.x - drag.x} ${o.y - drag.y})`);
       drawSelection();
     }
   });
@@ -1373,7 +1728,7 @@ function newSprite() {
 }
 
 async function reloadFiles() {
-  diskJson.clear(); loaded.clear(); shapeText.clear();
+  diskJson.clear(); loaded.clear(); shapeText.clear(); paramCache.clear();
   await loadLibrary();
   renderList();
   resetDefs();
@@ -1391,6 +1746,10 @@ function setupCommands() {
   $("fit").onclick = fit;
   $("reload").onclick = reloadFiles;
   $("screen").onclick = () => { const d = D(); if (!d) return; d.screen = !d.screen; draw(); remember(); };
+  const toggles = () => { $("components").classList.toggle("on", S.components); $("outlines").classList.toggle("on", S.outlines); };
+  $("components").onclick = () => { S.components = !S.components; store.set("components", S.components); toggles(); resetDefs(); draw(); };
+  $("outlines").onclick = () => { S.outlines = !S.outlines; store.set("outlines", S.outlines); toggles(); drawSelection(); };
+  toggles();
   $("whereUsed").onclick = () => {
     const d = D();
     if (d.id) return showWhere(d.id, `src/${d.file}`);
@@ -1421,6 +1780,7 @@ function setupCommands() {
     } else if (e.key === "Delete" || e.key === "Backspace") removeSel();
     else if (e.key === "Escape") selectUp();
     else if (e.key === "f" || e.key === "F") fit();
+    else if (e.key === "o" || e.key === "O") $("outlines").click();
   });
   window.addEventListener("beforeunload", (e) => { if (S.tabs.some(isDirty)) e.preventDefault(); });
   window.addEventListener("resize", applyView);

@@ -499,6 +499,9 @@ function renderLayers() {
   box.textContent = "";
   const d = D();
   $("up").disabled = $("down").disabled = $("remove").disabled = !d || d.sel === null || !editable();
+  $("group").disabled = !d || d.sel === null || !editable() || d.kind !== "sprite";
+  const selRef = d && d.sel !== null ? refOf(items()?.[d.sel] ?? {}) : null;
+  $("ungroup").disabled = $("group").disabled || !(selRef?.kind === "sprite" || selRef?.kind === "freshSprite");
   if (!d || d.kind === "text") { box.append(html("div", { className: "hint" }, d ? "A text: edit it in the inspector." : "")); return; }
   // Top first, as drawn; a placed sprite or button unfolds into its own list (its definition: shared by every placement).
   const rows = (list, level, path, owner) => {
@@ -525,8 +528,10 @@ function renderLayers() {
       row.append(eye);
       row.append(html("span", { className: "what" }, (it.o.mask ? "mask: " : "") + describe(it.o)));
       if (it.o.name) row.append(html("span", { className: "name" }, it.o.name));
-      if (top) row.onclick = () => select(it.src);
-      else {
+      if (top) {
+        row.onclick = () => select(it.src);
+        if (it.src !== null && editable()) dragRow(row, it, ref);
+      } else {
         row.title = `In ${owner.label}: double-click to edit it there`;
         row.onclick = () => status(`${describe(it.o)}: in ${owner.label}'s definition (double-click: edit it there — every placement of ${owner.label} changes)`);
         row.ondblclick = () => open(owner.file, { select: it.src ?? undefined });
@@ -540,6 +545,41 @@ function renderLayers() {
     }
   };
   rows(currentList(), 0, "", null);
+}
+
+/**
+ * A layer dragged onto another: its top or bottom edge puts it above or
+ * below; its middle, inside (a sprite) or grouped with it (anything else).
+ */
+let dragged = null;
+function dragRow(row, it, ref) {
+  row.draggable = true;
+  row.ondragstart = (e) => { dragged = it.src; row.classList.add("dragging"); e.dataTransfer.setData("application/x-layer", String(it.src)); e.dataTransfer.effectAllowed = "move"; };
+  row.ondragend = () => { dragged = null; row.classList.remove("dragging"); };
+  const zone = (e) => {
+    const r = row.getBoundingClientRect(), y = (e.clientY - r.top) / r.height;
+    return y < 0.3 ? "above" : y > 0.7 ? "below" : "into";
+  };
+  const clear = () => row.classList.remove("above", "below", "into");
+  row.ondragover = (e) => {
+    if (dragged === null || dragged === it.src) return;
+    e.preventDefault();
+    clear();
+    row.classList.add(zone(e));
+    row.title = { above: "above it", below: "below it", into: hasChildren(ref) && ref.kind !== "button" ? `into ${describe(it.o)}` : `grouped with ${describe(it.o)}` }[zone(e)];
+  };
+  row.ondragleave = clear;
+  row.ondrop = (e) => {
+    e.preventDefault();
+    clear();
+    const from = dragged;
+    dragged = null;
+    if (from === null || from === it.src) return;
+    const z = zone(e);
+    if (z !== "into") moveNextTo(from, it.src, z === "above");
+    else if ((ref?.kind === "sprite" || ref?.kind === "freshSprite") && ref.file) moveInto(from, it.src);
+    else group([it.src, from], it.src);
+  };
 }
 
 function select(i) {
@@ -816,18 +856,172 @@ function removeSel() {
   d.sel = null;
   changed();
 }
-/** Swaps depths with the next layer up (dir 1) or down (-1). */
-function restack(dir) {
-  const d = D(), o = items()?.[d?.sel];
-  if (!o || !editable()) return;
-  const list = currentList().filter((it) => it.src !== null);
-  const at = list.findIndex((it) => it.src === d.sel);
-  const other = list[at + dir];
-  if (!other) return;
+// --- Hierarchy: order, nesting, groups --------------------------------------
+
+/** a b c d tx ty products: m1 applied after m2 (a child placed by m2 inside a parent placed by m1). */
+function multiply([a1, b1, c1, d1, x1, y1], [a2, b2, c2, d2, x2, y2]) {
+  return [a1 * a2 + c1 * b2, b1 * a2 + d1 * b2, a1 * c2 + c1 * d2, b1 * c2 + d1 * d2, a1 * x2 + c1 * y2 + x1, b1 * x2 + d1 * y2 + y1];
+}
+function invert([a, b, c, d, x, y]) {
+  const k = a * d - b * c;
+  return [d / k, -b / k, -c / k, a / k, (c * y - d * x) / k, (b * x - a * y) / k];
+}
+/** A placement's matrix fields from a b c d tx ty (scale / rotation when it's one, the matrix otherwise). */
+function setMatrix(o, [a, b, c, d, tx, ty]) {
+  for (const k of MATRIX) delete o[k];
+  const r5 = (v) => Math.round(v * 1e5) / 1e5;
+  o.x = round20(tx); o.y = round20(ty);
+  if (Math.abs(b) < 1e-6 && Math.abs(c) < 1e-6) { setScale(o, r5(a), r5(d)); return o; }
+  const sx = Math.hypot(a, b), rot = Math.atan2(b, a), sy = (a * d - b * c) / sx;
+  if (Math.abs(-sy * Math.sin(rot) - c) < 1e-4 && Math.abs(sy * Math.cos(rot) - d) < 1e-4) {
+    setScale(o, r5(sx), r5(sy));
+    o.rotation = r5((rot * 180) / Math.PI);
+  } else o.matrix = [a, b, c, d].map(r5);
+  return o;
+}
+/** Every depth of a sprite renamed (frame 1's lines and what later frames move or remove there). */
+function remapDepths(json, map) {
+  for (const f of json.frames ?? []) {
+    for (const o of f.place ?? []) if (map.has(o.depth)) o.depth = map.get(o.depth);
+    if (f.remove) f.remove = f.remove.map((dd) => map.get(dd) ?? dd);
+  }
+}
+/** Depths that later frames still move or remove: their line can't leave frame 1 alone. */
+function animatedDepths(json) {
+  const out = new Set();
+  (json.frames ?? []).slice(1).forEach((f) => { for (const o of f.place ?? []) if (o.move) out.add(o.depth); for (const dd of f.remove ?? []) out.add(dd); });
+  return out;
+}
+const freeDepth = (json) => Math.max(0, ...(json.frames ?? []).flatMap((f) => (f.place ?? []).map((o) => o.depth)), ...(json.records ?? []).map((o) => o.depth)) + 1;
+
+/**
+ * Frame 1's lines in a new order (bottom first): the depths they had, given
+ * out again in that order — later frames follow them.
+ */
+function reorder(order) {
+  const d = D(), list = items();
+  const depths = order.map((i) => list[i].depth).sort((a, b) => a - b);
+  const map = new Map(order.map((i, k) => [list[i].depth, depths[k]]));
+  if (d.kind === "sprite") remapDepths(d.json, map); else for (const o of list) if (map.has(o.depth)) o.depth = map.get(o.depth);
+}
+/** The line `i` just above (`above`) or below the line `j`, among frame 1's. */
+function moveNextTo(i, j, above) {
+  const list = currentList().filter((it) => it.src !== null).map((it) => it.src);
+  const order = list.filter((k) => k !== i);
+  order.splice(order.indexOf(j) + (above ? 1 : 0), 0, i);
   snapshot();
-  const p = items()[other.src];
-  [o.depth, p.depth] = [p.depth, o.depth];
+  reorder(order);
   changed();
+}
+function restack(dir) {
+  const d = D();
+  if (!d || d.sel === null || !editable()) return;
+  const list = currentList().filter((it) => it.src !== null).map((it) => it.src);
+  const at = list.indexOf(d.sel), other = list[at + dir];
+  if (other === undefined) return;
+  moveNextTo(d.sel, other, dir > 0);
+}
+
+/** A tab for a file, opened behind the current one if it isn't (a change made there waits for its save). */
+async function tabFor(file, fresh) {
+  let t = S.tabs.find((x) => x.file === file);
+  if (!t) {
+    const json = fresh ?? (await fetch(`/src/${file}`).then((r) => (r.ok ? r.json() : null)).catch(() => null));
+    if (!json) throw new Error(`can't read src/${file}`);
+    t = newTab(file, json, fresh ? null : JSON.stringify(json));
+    S.tabs.push(t);
+  }
+  return t;
+}
+
+/** What code may lose when lines move into another clip: their instance names' paths. */
+function codeWarning(lines, into) {
+  const named = lines.filter((o) => o.name || o.actions);
+  if (!named.length) return true;
+  return confirm(`${named.map((o) => o.name ?? describe(o)).join(", ")}: code reaches ${named.length > 1 ? "them" : "it"} as this.${named[0].name ?? "…"} — inside ${into} it becomes this.<${into}'s instance name>.${named[0].name ?? "…"}. Move ${named.length > 1 ? "them" : "it"} anyway?`);
+}
+function checkMovable(d, idx) {
+  if (d.kind !== "sprite" || !editable()) return "only a sprite's frame-1 lines move into others";
+  const moving = animatedDepths(d.json);
+  const bad = idx.map((i) => items()[i]).find((o) => moving.has(o.depth) || o.mask);
+  return bad ? `${describe(bad)}: ${bad.mask ? "a mask" : "later frames move it"} — not moved` : null;
+}
+
+/** The line `i` into the sprite placed by line `j`: same place on screen; that sprite's definition changes. */
+async function moveInto(i, j) {
+  const d = D(), list = items(), o = list[i], host = list[j], ref = refOf(host);
+  const why = checkMovable(d, [i]);
+  if (why) { status(why, "bad"); return; }
+  if (!(ref?.kind === "sprite" || ref?.kind === "freshSprite") || !ref.file) { status(`${describe(host)} can't hold anything: drop on its top or bottom edge, or Group`, "bad"); return; }
+  if (!codeWarning([o], describe(host))) return;
+  if (ref.kind === "sprite") {
+    const where = await api(`/api/where?id=${ref.id}`).catch(() => []);
+    if (where.length > 1 && !confirm(`${describe(host)} is placed ${where.length} times: ${describe(o)} will show in every one. Go on?`)) return;
+  }
+  const t = await tabFor(ref.file);
+  if (t.file === d.file) { status("a sprite can't hold itself", "bad"); return; }
+  snapshot(); snapshot(t);
+  const inner = setMatrix({ ...o }, multiply(invert(matrixOf(host)), matrixOf(o)));
+  inner.depth = freeDepth(t.json);
+  items(t).push(inner);
+  list.splice(i, 1);
+  d.sel = list.indexOf(host);
+  d.open.add(`/${host.depth}`);
+  changed();
+  status(`${describe(o)} is in ${describe(host)} now (its tab: unsaved, Save all writes both)`, "good");
+}
+
+/** Lines `idx` wrapped in a new sprite (src/assets/new/<this one>/group-N.json), placed where the first was. */
+async function group(idx, anchor = idx[0]) {
+  const d = D(), list = items();
+  const why = checkMovable(d, idx);
+  if (why) { status(why, "bad"); return; }
+  const lines = idx.map((i) => list[i]).sort((a, b) => a.depth - b.depth);
+  if (!codeWarning(lines, "the group")) return;
+  const owner = (d.name ?? `sprite-${d.id}`).toLowerCase().replace(/[^a-z0-9_/-]/g, "-");
+  const taken = (n) => S.lib.exports[n] !== undefined || S.freshByName.has(n) || S.tabs.some((t) => t.name === n);
+  let n = 1;
+  while (taken(`${owner}/group-${n}`)) n++;
+  const name = `${owner}/group-${n}`;
+  const at = matrixOf(list[anchor]);
+  const origin = [1, 0, 0, 1, at[4], at[5]];
+  const json = { frames: [{ place: lines.map((o, k) => setMatrix({ ...o, depth: k + 1 }, multiply(invert(origin), matrixOf(o)))) }] };
+  snapshot();
+  const placed = { depth: Math.min(...lines.map((o) => o.depth)), export: name, x: round20(at[4]), y: round20(at[5]) };
+  for (const i of [...idx].sort((a, b) => b - a)) list.splice(i, 1);
+  list.push(placed);
+  d.sel = list.length - 1;
+  await tabFor(`assets/new/${name}.json`, json);
+  d.open.add(`/${placed.depth}`);
+  changed();
+  status(`grouped into "${name}" (src/assets/new/${name}.json, written when saved): drag it, everything inside follows`, "good");
+}
+
+/** What the placed sprite `i` holds, put in its place (positions composed); its definition stays as it is. */
+async function ungroup(i) {
+  const d = D(), list = items(), host = list[i], ref = refOf(host);
+  if (!editable() || d.kind !== "sprite") return;
+  if (!(ref?.kind === "sprite" || ref?.kind === "freshSprite")) { status(`${describe(host)} holds nothing to ungroup`, "bad"); return; }
+  if (host.color || host.filters || host.blend || host.mask || animatedDepths(d.json).has(host.depth)) { status(`${describe(host)}: coloured, filtered, a mask or animated — not ungrouped`, "bad"); return; }
+  const json = await fileJson(ref.file);
+  if ((json?.frames?.length ?? 0) > 1) { status(`${describe(host)} is animated (${json.frames.length} frames): not ungrouped`, "bad"); return; }
+  const kids = childList(ref, json).filter((it) => !it.o.mask);
+  if (!kids.length) { status(`${describe(host)} is empty`, "bad"); return; }
+  snapshot();
+  // Room for them at its depth: the lines above move up.
+  const shift = kids.length - 1, map = new Map();
+  for (const f of d.json.frames) for (const o of f.place ?? []) if (o.depth > host.depth) map.set(o.depth, o.depth + shift);
+  remapDepths(d.json, map);
+  const m = matrixOf(host), base = host.depth;
+  const out = kids.map((it, k) => {
+    const o = setMatrix({ ...it.o, depth: base + k }, multiply(m, matrixOf(it.o)));
+    if ("alpha" in host) { o.alpha = Math.round((o.alpha ?? 1) * host.alpha * 1e5) / 1e5; if (o.alpha === 1) delete o.alpha; }
+    return o;
+  });
+  list.splice(i, 1, ...out);
+  d.sel = i;
+  changed();
+  status(`${describe(host)}: its ${kids.length} line${kids.length > 1 ? "s" : ""} put in its place`, "good");
 }
 
 /** Saves a tab: checked by the server (the build's encoder), then written. */
@@ -912,6 +1106,8 @@ function setupCommands() {
   $("up").onclick = () => restack(1);
   $("down").onclick = () => restack(-1);
   $("remove").onclick = removeSel;
+  $("group").onclick = () => { const d = D(); if (d?.sel !== null) group([d.sel]); };
+  $("ungroup").onclick = () => { const d = D(); if (d?.sel !== null) ungroup(d.sel); };
   $("search").oninput = renderList;
   $("frame").onchange = () => { const d = D(); d.frame = Math.max(1, Number($("frame").value) || 1); d.sel = null; draw(); renderInspector(); };
   $("state").onchange = () => { D().state = $("state").value; draw(); };
@@ -922,7 +1118,8 @@ function setupCommands() {
     if (mod && e.key.toLowerCase() === "w") { e.preventDefault(); if (S.active >= 0) closeTab(S.active); return; }
     if (mod && (e.key === "PageDown" || e.key === "PageUp") && S.tabs.length) { e.preventDefault(); activate((S.active + (e.key === "PageDown" ? 1 : -1) + S.tabs.length) % S.tabs.length); return; }
     if (typing) return;
-    if (mod && e.key.toLowerCase() === "z") { e.preventDefault(); undo(e.shiftKey); }
+    if (mod && e.key.toLowerCase() === "g") { e.preventDefault(); if (D()?.sel != null) (e.shiftKey ? ungroup : (i) => group([i]))(D().sel); }
+    else if (mod && e.key.toLowerCase() === "z") { e.preventDefault(); undo(e.shiftKey); }
     else if (mod && e.key.toLowerCase() === "y") { e.preventDefault(); undo(true); }
     else if (e.key.startsWith("Arrow")) {
       e.preventDefault();

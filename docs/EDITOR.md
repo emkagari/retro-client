@@ -46,6 +46,18 @@ build step.
   inspector: depth, position, scale, rotation, alpha, instance name
   (`this._btnOk` in the class), a button record's states, and the line's
   JSON — applied as you type, as soon as it parses (undo takes it back).
+- **Hierarchy**: drag a layer onto another — its top or bottom edge puts
+  it above or below (the depths are given out again in that order; later
+  frames follow); its middle puts it **inside** a sprite (it becomes its
+  child: drag the sprite, it follows) or, on a shape, **groups** the two.
+  **Group** (`Ctrl+G`) wraps the selection in a new sprite,
+  `src/assets/new/<this one>/group-N.json`, placed where it was;
+  **Ungroup** (`Ctrl+Shift+G`) puts what a placed sprite holds in its place.
+  Nothing moves on screen: positions are recomputed. Moving into a sprite
+  of the base changes its definition — the editor says how many times it's
+  placed first; an instance name (`_btnOk`) moved inside another clip is
+  reached by code through it (`this._group._btnOk`): the editor asks first.
+  The sprites changed or created open as tabs, written when saved.
 - **Build** runs `tools/build.mjs` on what's saved and shows its output;
   restart the game to see it. **New sprite** opens a tab for
   `src/assets/new/<path>.json` (exported as `<path>`, docs/SPRITES.md),

@@ -39,6 +39,16 @@ measures it. Off: what the files hold.
   (`this._mcPlacer._visible = false` in `createChildren` or `init`: a
   placer marking where code attaches something, a panel shown later) is
   drawn faded, ⊘ in the layers.
+- **Parameters**: a component selected, the inspector lists its
+  parameters (`title`, `styleName`, `label`, `backgroundUp`,
+  `contentPath`…) — change one, it's drawn at once; **+ parameter** adds
+  one this component takes in the base's interfaces, with its usual value
+  (styles and exports offered as you type). A base sprite's line keeps
+  them in its script: saving rewrites
+  `frame_N/PlaceObject…/on(construct).as` (only the lines changed; the
+  build recompiles it). Any other line — in a new sprite, or placed in a
+  base sprite from the library — keeps them in its `"params"`, compiled
+  into its clip actions by the build (docs/SPRITES.md).
 - **Outlines** (`O`): every line's box and name over the drawing — the
   first level's, and those next to a nested line selected.
 

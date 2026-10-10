@@ -47,6 +47,7 @@ and what it `place`s — one per line:
 | `ratio` | a morph's progress (0 to 65535) |
 | `filters`, `blend` | `dropShadow`, `blur`, `glow`, `bevel`, `colorMatrix`; `multiply`, `screen`, `add`… |
 | `actions` | `true`: clip actions, compiled from `frame_N/PlaceObject2_….as` (leave it) |
+| `params` | a component's parameters, `{ "title": "…", "styleName": "LightBrownWindow" }`: compiled into its clip actions, `on(construct) { title = "…"; … }` — on a line without `actions` (a base line's are in its `on(construct).as`) |
 
 Numbers are exact: `0.59999` is the scale Ankama's tool stored (39321/65536),
 written with the digits that give it back.
@@ -103,6 +104,13 @@ sprites:
 
 From code: `attachMovie("panneau/fenetre", "_mcWindow", 10)`. A new sprite
 has no frame scripts: give it a class (`Object.registerClass`, docs/NEW-UI.md).
+Its components take their parameters from `params` (what an `on(construct)`
+would set: a window's `title` and `contentPath`, a button's `label`…):
+
+```json
+{ "depth": 1, "export": "Window", "x": 0, "y": 0, "scaleX": 3, "scaleY": 2, "name": "_winBg",
+  "params": { "title": "Ma fenêtre", "styleName": "LightBrownWindow", "contentPath": "panneau/contenu" } }
+```
 `new/panneau/fenetre.json` and `new/panneau/fenetre.svg` would both be
 `panneau/fenetre`: the build refuses them.
 

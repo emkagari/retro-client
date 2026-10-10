@@ -16,6 +16,7 @@
  *    buttons     a state's graphic moved: only that button changes; where lists it;
  *    errors      a typo, a wrong id, a cycle, two files of one name, two lines at one
  *                depth: refused, said where; clip actions follow a line to another depth;
+ *                a component's "params" compiled as on(construct);
  * 7. new base    an edit carried over to a base whose ids changed: ids mapped,
  *                merged with Ankama's change, or a conflict when both change one line.
  */
@@ -28,6 +29,7 @@ import {
   spriteFiles, spriteFolders, spriteHash, where, writeObject, writeSprite,
 } from "./sprites.mjs";
 import { exportsOf, parseSwf, writeSwf } from "./deob/src/swf.ts";
+import { decode, readPush } from "./deob/src/avm1.ts";
 
 const cfg = config();
 const b = base(cfg.version);
@@ -223,6 +225,13 @@ test("errors: refused, and said where", () => {
   const back = readSprite(writeSprite(LOGIN, ok, lib, was, "f.json"), lib);
   const actions = (r) => r.raws[0].find((x) => x.o.name === "_tiAccount").actions;
   check(back.raws[0].find((x) => x.o.name === "_tiAccount").o.depth === free && actions(back).equals(actions(was)), "_tiAccount's clip actions lost with its depth");
+  // A component's parameters ("params"): compiled as Flash does, on(construct) { key = value; }.
+  const withParams = readSprite(writeSprite(LOGIN, json({ export: "Window", name: "_winBg", params: { title: "Titre", styleName: "LightBrownWindow", n: 2.5, ok: true } }), lib, null, "f.json"), lib);
+  const a = withParams.raws[0][0].actions, size = a.readUInt32LE(10);
+  const pushed = decode(a.subarray(14, 14 + size)).filter((x) => x.code === 0x96).flatMap((x) => readPush(x).map((v) => v.v));
+  check(a.readUInt32LE(6) === 0x40000 && JSON.stringify(pushed) === JSON.stringify(["title", "Titre", "styleName", "LightBrownWindow", "n", 2.5, "ok", true]), `params compiled as ${JSON.stringify(pushed)}`);
+  throws(() => writeSprite(LOGIN, { frames: [{ place: [{ depth: 1, export: "Window", actions: true, params: { title: "x" } }] }] }, lib, was, "f.json"), "set them there", "params on a line with its own scripts");
+  throws(() => writeSprite(LOGIN, json({ export: "Window", params: { "not a name": 1 } }), lib, null, "f.json"), "isn't a name", "a parameter that isn't a name");
   const assets = join(work, "errors-assets");
   mkdirSync(join(assets, "new"), { recursive: true });
   writeFileSync(join(assets, "new", "a.json"), formatSprite(json({ export: "b" })));

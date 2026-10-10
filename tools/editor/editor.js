@@ -9,7 +9,7 @@ const SVG = "http://www.w3.org/2000/svg";
 const REF = ["export", "shape", "sprite", "text", "button", "morph", "video"];
 const MATRIX = ["x", "y", "scale", "scaleX", "scaleY", "rotation", "matrix"];
 // The key order the extraction writes (tools/sprites.mjs readPlace / readButton): an untouched line stays the same.
-const PLACE_ORDER = ["depth", "move", ...REF, "x", "y", "scale", "scaleX", "scaleY", "rotation", "matrix", "alpha", "color", "ratio", "name", "mask", "filters", "blend", "actions"];
+const PLACE_ORDER = ["depth", "move", ...REF, "x", "y", "scale", "scaleX", "scaleY", "rotation", "matrix", "alpha", "color", "ratio", "name", "mask", "filters", "blend", "actions", "params"];
 const RECORD_ORDER = ["depth", "states", ...REF, "x", "y", "scale", "scaleX", "scaleY", "rotation", "matrix", "alpha", "color", "filters", "blend"];
 const BLENDS = { multiply: "multiply", screen: "screen", lighten: "lighten", darken: "darken", difference: "difference", overlay: "overlay", hardlight: "hard-light", add: "plus-lighter" };
 const STORE = "retro-sprite-editor";
@@ -74,6 +74,14 @@ async function loadLibrary() {
   S.byId = new Map(S.lib.objects.map((o) => [o.id, o]));
   S.freshByName = new Map(S.lib.fresh.filter((f) => f.name).map((f) => [f.name, f]));
   S.ui = await api("/api/ui").catch(() => null);
+  // What a parameter may name: a style, an export (a background, a content, an icon).
+  const list = (id, values) => {
+    const dl = $(id) ?? document.body.appendChild(html("datalist", { id }));
+    dl.textContent = "";
+    for (const v of values) dl.append(html("option", { value: v }));
+  };
+  list("dl-styles", Object.keys(S.ui?.styles ?? {}).sort());
+  list("dl-exports", [...Object.keys(S.lib.exports), ...S.freshByName.keys()].sort());
 }
 
 const TABS = {
@@ -338,7 +346,11 @@ async function drawList(parent, list, level, interactive, path = "", file = null
   const at = (it) => (path === null ? null : `${path}/${it.depth}`);
   const params = file ? await paramsOf(file) : {};
   // A component's parameters, and what its sprite's class puts in it (a text).
-  const paramsFor = (it) => { const p = params[it.frame ?? 1]?.[it.depth], code = it.o.name && params.texts?.[it.o.name]; return code ? { ...p, code } : p; };
+  const tab = file && S.tabs.find((x) => x.file === file);
+  const paramsFor = (it) => {
+    const p = it.o.params ?? params[it.frame ?? 1]?.[tab && it.frame === 1 ? savedDepth(tab, it.o) : it.depth], code = it.o.name && params.texts?.[it.o.name];
+    return code ? { ...p, code } : p;
+  };
   list = list.filter((it) => !it.ignored);
   const nodes = await Promise.all(list.map((it) => (it.o.mask || (!interactive && hidden.has(at(it))) ? null : drawItem(it.o, level, at(it), paramsFor(it)))));
   // What the class hides as it starts: faded (still there to be moved: a placer marks where code puts something).
@@ -396,6 +408,35 @@ function paramsOf(file) {
   return paramCache.get(file);
 }
 const paramsKnown = new Map();
+
+/**
+ * A frame-1 line's depth as saved (its scripts' folders are named for it;
+ * moved and not saved yet, its depth differs): the saved line placing the
+ * same thing with the same name.
+ */
+const savedCache = new Map();
+function savedDepth(t, o) {
+  if (!t.saved) return o.depth;
+  if (!savedCache.has(t.saved)) { savedCache.clear(); savedCache.set(t.saved, JSON.parse(t.saved)); }
+  const ref = (x) => REF.map((k) => x[k] ?? "").join("|");
+  const same = (savedCache.get(t.saved).frames?.[0]?.place ?? []).filter((x) => x.actions && ref(x) === ref(o));
+  return (same.find((x) => x.depth === o.depth && x.name === o.name) ?? same.find((x) => x.name === o.name) ?? (same.length === 1 ? same[0] : null))?.depth ?? o.depth;
+}
+/** A line's parameters: its own ("params"), else its on(construct) script's (a base sprite's, as saved). */
+function lineParams(t, o) {
+  if (o.params) return o.params;
+  if (!o.actions || !t.file.startsWith("timeline/")) return {};
+  return paramsKnown.get(t.file)?.[1]?.[savedDepth(t, o)] ?? {};
+}
+/** What a component's class is, when what `ref` shows is one (its first frame holds a boundingBox_mc); null, or undefined while loading. */
+function componentClass(ref) {
+  if (ref?.kind !== "sprite" || !ref.file) return null;
+  const json = knownJson(ref.file);
+  if (json === undefined) return undefined;
+  if (!json?.frames?.[0]?.place?.some((o) => o.name === "boundingBox_mc")) return null;
+  const name = S.byId.get(ref.id)?.name;
+  return (S.ui?.classes[name] ?? "").split(".").pop() || name;
+}
 
 /** A drawing's box in its own coordinates (measured once per def). */
 const measured = new Map();
@@ -1237,12 +1278,80 @@ function renderInspector() {
     row.append(html("label", {}, "states"), boxes);
     box.append(row);
   }
+  paramsSection(box, owner, o, ro);
   const actions = html("div", { className: "actions" });
   if (hasChildren(ref) || (ref?.kind === "text" && ref.file)) { const b = html("button", {}, "Open it"); b.onclick = () => open(ref.file); actions.append(b); }
   if (ref?.id !== undefined) { const b = html("button", {}, "Where else"); b.onclick = () => showWhere(ref.id, describe(o)); actions.append(b); }
   box.append(actions);
   if (!ro) box.append(liveJson(JSON.stringify(o), (j) => { items(owner)[n ? n.it.src : d.sel] = j; }, { tab: owner }));
   if (o.actions || o.name) box.append(html("div", { className: "hint" }, `${o.name ? `Code may reach it as this.${o.name}. ` : ""}${o.actions ? "It has clip actions (frame_1/PlaceObject2_….as)." : ""}`));
+}
+
+/**
+ * A component's parameters (what on(construct) sets before its class builds
+ * it: a window's title, a button's label and background, a style…), edited
+ * here and drawn at once. A base sprite's line keeps them in its script
+ * (frame_N/PlaceObject…/on(construct).as, rewritten when saved); any other
+ * line, in its "params" (the build compiles them into its clip actions).
+ */
+function paramsSection(box, owner, o, ro) {
+  const ref = refOf(o), cls = componentClass(ref);
+  if (cls === undefined) { fileJsonKnown(ref.file).then(renderInspector); return; }
+  if (!cls || owner.kind !== "sprite") return;
+  if (o.actions && !o.params && owner.file.startsWith("timeline/") && !paramsKnown.has(owner.file)) { paramsOf(owner.file).then(renderInspector); return; }
+  const cur = lineParams(owner, o), known = S.ui?.paramKeys?.[cls] ?? {};
+  box.append(html("h4", { className: "params" }, `${cls} parameters`));
+  box.append(html("div", { className: "hint" }, o.actions
+    ? `Its on(construct) script (frame_1/PlaceObject…_${savedDepth(owner, o)}/), rewritten when saved.`
+    : `Compiled into its clip actions when built ("params"). Code may set more (its class: ${cls}).`));
+  let fresh = true;
+  const set = (key, value, redraw) => {
+    if (fresh) { snapshot(owner); fresh = false; }
+    const next = { ...lineParams(owner, o) };
+    if (value === undefined) delete next[key]; else next[key] = value;
+    if (!o.actions && !Object.keys(next).length) delete o.params; else o.params = next;
+    resetDefs(); setDirty(); draw();
+    // (The inspector isn't redrawn under a field being typed in.)
+    if (redraw) { document.activeElement?.blur?.(); renderInspector(); }
+  };
+  const listFor = (key) => (key === "styleName" ? "dl-styles" : /path$|^background|icon$|renderer$/i.test(key) ? "dl-exports" : undefined);
+  for (const [key, value] of Object.entries(cur)) {
+    const row = html("div", { className: "row p" });
+    let input;
+    if (typeof value === "boolean") {
+      input = html("input", { type: "checkbox", checked: value, disabled: ro });
+      input.onchange = () => set(key, input.checked);
+    } else if (typeof value === "number") {
+      input = html("input", { type: "number", value, step: "any", disabled: ro });
+      input.oninput = () => { if (input.value !== "" && Number.isFinite(Number(input.value))) set(key, Number(input.value)); };
+    } else if (typeof value === "string") {
+      input = html("input", { type: "text", value, disabled: ro });
+      if (listFor(key)) input.setAttribute("list", listFor(key));
+      input.oninput = () => set(key, input.value);
+    } else {
+      input = html("input", { type: "text", value: JSON.stringify(value), disabled: ro, title: "JSON: applied when it parses" });
+      input.oninput = () => { try { set(key, JSON.parse(input.value)); input.classList.remove("bad"); } catch { input.classList.add("bad"); } };
+    }
+    input.onblur = () => { fresh = true; };
+    const rm = html("button", { className: "x", title: `Remove ${key}`, disabled: ro }, "✕");
+    rm.onclick = () => set(key, undefined, true);
+    row.append(html("label", { title: key }, key), input, rm);
+    box.append(row);
+  }
+  if (ro) return;
+  // Another parameter: those this component takes in the base's interfaces, with their usual value.
+  const add = html("select", {});
+  add.append(html("option", { value: "" }, "+ parameter…"));
+  for (const k of Object.keys(known).filter((k) => !(k in cur)).sort()) add.append(html("option", { value: k }, `${k} (${JSON.stringify(known[k])})`));
+  add.append(html("option", { value: "*" }, "other…"));
+  add.onchange = () => {
+    const k = add.value === "*" ? prompt("Parameter name (a property of the component's class):") : add.value;
+    if (k && /^[A-Za-z_$][\w$]*$/.test(k)) set(k, k in known ? known[k] : "", true);
+    else add.value = "";
+  };
+  const row = html("div", { className: "row" });
+  row.append(html("label", {}, ""), add);
+  box.append(row);
 }
 
 async function showWhere(id, label) {
@@ -1761,13 +1870,21 @@ async function saveTab(t) {
   const created = t.saved === null;
   t.saved = JSON.stringify(t.json);
   diskJson.delete(t.file);
+  // Parameters of lines with their own scripts went into them: read back from there.
+  if (r.scripts?.length) { for (const f of t.json.frames ?? []) for (const o of f.place ?? []) if (o.actions) delete o.params; t.saved = JSON.stringify(t.json); }
   // Lines moved to other depths: their clip actions' scripts were renamed with them.
-  if (r.moved?.length) { paramCache.delete(t.file); paramsKnown.delete(t.file); log(`${t.title}: clip actions moved with their lines\n  ${r.moved.join("\n  ")}`); }
+  if (r.moved?.length || r.scripts?.length) {
+    paramCache.delete(t.file); paramsKnown.delete(t.file); resetDefs(); draw();
+    saveNotes.push(...[r.moved?.length && `${t.title}: clip actions moved with their lines\n  ${r.moved.join("\n  ")}`, r.scripts?.length && `${t.title}: parameters written in\n  ${r.scripts.map((f) => `src/${f}`).join("\n  ")}`].filter(Boolean));
+  }
   return created;
 }
+/** What saving did besides writing the files (scripts renamed, parameters written): shown once saved. */
+const saveNotes = [];
 async function save(all = false) {
   const todo = all ? S.tabs.filter(isDirty) : D() && isDirty(D()) ? [D()] : [];
   if (!todo.length) return;
+  saveNotes.length = 0;
   status("saving…");
   const errors = [];
   let created = false;
@@ -1780,7 +1897,7 @@ async function save(all = false) {
   resetDefs();
   await draw();
   if (errors.length) { status(`${errors.length} not saved: see below`, "bad"); log(errors.join("\n\n")); }
-  else { status(todo.length > 1 ? `saved ${todo.length} files` : `saved src/${todo[0].file}`, "good"); log(null); }
+  else { status(todo.length > 1 ? `saved ${todo.length} files` : `saved src/${todo[0].file}`, "good"); log(saveNotes.length ? saveNotes.join("\n") : null); }
 }
 
 async function build() {

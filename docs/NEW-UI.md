@@ -50,6 +50,29 @@ Examples, one branch each (independent of each other):
 
 `node tools/package.mjs --run`, then type `/hello` in the chat.
 
+## A window and a layout drawn in the editor
+
+Ankama's way, with the sprite editor (docs/EDITOR.md): a `Window` draws the
+frame and the title, and attaches the content clip its `contentPath`
+names; the class reaches what's inside through `content`.
+
+1. **The content**: **New sprite** → `monui/contenu`
+   (`src/assets/new/monui/contenu.json`). Drag buttons, labels, pictures of
+   ours onto it, name them (`_btnOk`), and set their parameters in the
+   inspector (`label`, `styleName`… — saved as `"params"`, compiled into
+   the loader: no code for that).
+2. **The window**, from the class — the init object is what an
+   `on(construct)` would set:
+   ```actionscript
+   this.attachMovie("Window", "_winBackground", 10, {contentPath: "monui/contenu", styleName: "LightBrownWindow", title: "Mon interface"});
+   ```
+   then, once built (`addToQueue`, as Ankama's classes do):
+   `this._winBackground.content._btnOk.addEventListener("click", this);`.
+   Or place the `Window` itself in a layout of yours, its parameters set in
+   the inspector.
+3. `"UI_MonUI": {}` in `src/symbols.json`, the registration, and
+   `loadUIComponent("MonUI", "MonUI")`, as above.
+
 ## Finding styles and components
 
 Copy from an existing interface: its clip's scripts under

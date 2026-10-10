@@ -166,6 +166,8 @@ function refOf(o) {
   return null;
 }
 const describe = (o) => o.export ?? REF.slice(1).filter((k) => k in o).map((k) => `${k} ${o[k]}`)[0] ?? (o.move ? "(move)" : "?");
+const canHold = (ref) => (ref?.kind === "sprite" || ref?.kind === "freshSprite") && !!ref.file;
+const ID = [1, 0, 0, 1, 0, 0];
 const hasChildren = (ref) => ref && (ref.kind === "sprite" || ref.kind === "freshSprite" || ref.kind === "button") && ref.file;
 
 /** The display list at frame n: what each depth holds, with the frame-1 line it comes from. */
@@ -410,7 +412,100 @@ async function selectNested(path, ownerFile) {
   const d = D();
   await tabFor(ownerFile);
   d.sel = null; d.nested = path;
+  openTo(d, path);
   drawSelection(); renderLayers(); renderInspector();
+  $("layers").querySelector(".layer.on")?.scrollIntoView({ block: "nearest" });
+}
+/** Escape: what holds the line selected (one level up), or nothing. */
+function selectUp() {
+  const d = D();
+  if (!d) return;
+  if (!d.nested) { select(null); return; }
+  const up = d.nested.slice(0, d.nested.lastIndexOf("/"));
+  if (up.lastIndexOf("/") === 0) {
+    const it = currentList().find((x) => `/${x.depth}` === up);
+    select(it?.src ?? null);
+  } else selectNested(up, along(up.slice(0, up.lastIndexOf("/"))).at(-1).file);
+}
+/** The tree unfolded down to `path` ("/65/13": 65 opens). */
+function openTo(d, path) {
+  const parts = path.split("/");
+  for (let k = 2; k < parts.length; k++) d.open.add(parts.slice(0, k).join("/"));
+}
+/** Where a line is drawn (`chain`: its list's place on screen), in the sprite's coordinates; null if empty. */
+async function boxOf(o, chain, path) {
+  const id = await ensureDef(refOf(o), 1, path);
+  if (!id) return null;
+  const wrap = el("g", { visibility: "hidden" }), g = el("g", { transform: `matrix(${chain.join(" ")})` });
+  g.append(el("use", { href: `#${id}`, transform: transformOf(o) }));
+  wrap.append(g); $("overlay").append(wrap);
+  const bb = wrap.getBBox();
+  wrap.remove();
+  return bb.width || bb.height ? bb : null;
+}
+/**
+ * The lines under point `p`, from the first level's (depth `depth`: the
+ * graphic clicked) down: in each placed sprite, the smallest box holding
+ * `p` (boxes: an approximation, good enough to pick a line).
+ */
+async function linesAt(p, depth, area = Infinity) {
+  const d = D(), top = currentList().find((it) => it.depth === depth);
+  if (!top || top.o.mask) return [];
+  const out = [{ path: `/${depth}`, it: top, chain: ID, owner: null, area }];
+  while (out.length < 12) {
+    const cur = out[out.length - 1], ref = refOf(cur.it.o);
+    if (!hasChildren(ref)) break;
+    const json = knownJson(ref.file) ?? (await fileJsonKnown(ref.file));
+    if (!json) break;
+    const chain = multiply(cur.chain, matrixOf(cur.it.o));
+    let best = null;
+    for (const it of childList(ref, json)) {
+      const path = `${cur.path}/${it.depth}`;
+      if (it.o.mask || d.hidden.has(path)) continue;
+      const bb = await boxOf(it.o, chain, path);
+      if (bb && p.x >= bb.x && p.x <= bb.x + bb.width && p.y >= bb.y && p.y <= bb.y + bb.height && (!best || bb.width * bb.height < best.area)) best = { it, path, area: bb.width * bb.height };
+    }
+    if (!best) break;
+    out.push({ path: best.path, it: best.it, chain, owner: ref.file, area: best.area });
+  }
+  return out;
+}
+/**
+ * The first level's graphics under the pointer, top first — a component
+ * that only shows its `boundingBox_mc` (a TextArea, a Label: hidden by the
+ * game at once) after what's under it, so it doesn't catch every click.
+ */
+function graphicsAt(e) {
+  const seen = new Set(), list = items() ?? [];
+  const under = document.elementsFromPoint(e.clientX, e.clientY).map((n) => n.closest?.("#content .item")).filter((n) => n && n.dataset.i !== "" && !seen.has(n) && seen.add(n));
+  const box = (n) => { const ref = refOf(list[Number(n.dataset.i)] ?? {}), place = hasChildren(ref) && knownJson(ref.file)?.frames?.[0]?.place; return !!place?.length && place.every((o) => o.name === "boundingBox_mc"); };
+  return [...under.filter((n) => !box(n)), ...under.filter(box)];
+}
+/**
+ * Selects a line under the pointer: the deepest (`deepest`: of every graphic
+ * there, the smallest — not a transparent text area over it), or one level
+ * below what's selected.
+ */
+async function selectAt(e, deepest) {
+  const d = D(), p = toSprite(e), under = graphicsAt(e);
+  if (!under.length) return null;
+  const cur = d.nested ?? (d.sel !== null && items()?.[d.sel] ? `/${items()[d.sel].depth}` : null);
+  let h;
+  if (deepest) {
+    for (const g of under) {
+      const bb = g.getBBox(), hits = await linesAt(p, Number(g.dataset.depth), bb.width * bb.height);
+      const last = hits[hits.length - 1];
+      if (last && (!h || last.area < h.area)) h = last;
+    }
+  } else {
+    const g = under.find((x) => cur?.startsWith(`/${x.dataset.depth}/`) || cur === `/${x.dataset.depth}`) ?? under[0];
+    const hits = await linesAt(p, Number(g.dataset.depth));
+    h = hits[Math.min(hits.findIndex((x) => x.path === cur) + 1, hits.length - 1)];
+  }
+  if (D() !== d || !h) return null;
+  if (!h.owner) { if (h.it.src !== null) select(h.it.src); return null; }
+  await selectNested(h.path, h.owner);
+  return nestedInfo();
 }
 /** A move on screen (dx, dy) in the coordinates the nested line is placed in. */
 function toParent(n, dx, dy) {
@@ -422,15 +517,10 @@ async function drawNested() {
   const d = D(), n = nestedInfo(), ov = $("overlay");
   if (!n) return;
   const path = d.nested;
-  const id = await ensureDef(refOf(n.o), 1, path);
-  if (D() !== d || d.nested !== path) return;
   // Measured where it is: its parents' placements, then its own.
-  const wrap = el("g", { visibility: "hidden" }), g = el("g", { transform: `matrix(${n.chain.join(" ")})` });
-  if (id) g.append(el("use", { href: `#${id}`, transform: transformOf(n.o) }));
-  wrap.append(g); ov.append(wrap);
-  const bb = wrap.getBBox();
-  wrap.remove();
-  d.nestedBox = bb.width || bb.height ? bb : null;
+  const bb = await boxOf(n.o, n.chain, path);
+  if (D() !== d || d.nested !== path) return;
+  d.nestedBox = bb;
   if (d.nestedBox) ov.append(el("rect", { x: bb.x, y: bb.y, width: bb.width, height: bb.height, fill: "none", stroke: "#e0a040", "stroke-width": 1.5, "stroke-dasharray": "5 3", "vector-effect": "non-scaling-stroke" }));
   const [, , , , x, y] = multiply(n.chain, matrixOf(n.o)), k = 6 / view.k;
   ov.append(el("path", { d: `M${x - k} ${y}H${x + k}M${x} ${y - k}V${y + k}`, stroke: "#6aa8e8", "stroke-width": 1.5, "vector-effect": "non-scaling-stroke" }));
@@ -472,8 +562,15 @@ function remember() {
     tabs: S.tabs.filter((t) => !t.background || isDirty(t)).map((t) => ({ file: t.file, draft: isDirty(t) ? t.json : undefined, fresh: t.saved === null || undefined, view: t.view, screen: t.screen })),
   }), 300);
 }
-/** Before a change to tab `t` (the open one, or a definition edited from it): undo, in the open tab, takes it back. */
-function snapshot(t = D()) { D().undo.push({ file: t.file, json: JSON.stringify(t.json) }); D().redo = []; }
+/**
+ * Before a change to tabs `ts` (the open one, definitions edited from it):
+ * one step of undo, in the open tab, takes them all back.
+ */
+function snapshot(...ts) {
+  if (!ts.length) ts = [D()];
+  D().undo.push({ list: [...new Set(ts)].map((t) => ({ file: t.file, json: JSON.stringify(t.json) })), at: { sel: D().sel, nested: D().nested } });
+  D().redo = [];
+}
 /** Something changed in the open tab: what places it redraws too. */
 function changed() { resetDefs(); setDirty(); draw(); renderInspector(); }
 
@@ -563,7 +660,8 @@ function renderLayers() {
   $("ungroup").disabled = $("group").disabled || !(selRef?.kind === "sprite" || selRef?.kind === "freshSprite");
   if (!d || d.kind === "text") { box.append(html("div", { className: "hint" }, d ? "A text: edit it in the inspector." : "")); return; }
   // Top first, as drawn; a placed sprite or button unfolds into its own list (its definition: shared by every placement).
-  const rows = (list, level, path, owner) => {
+  // Each row knows its list: whose lines (`file`, `kind`) and where that list is on screen (`chain`).
+  const rows = (list, level, path, owner, chain) => {
     for (const it of list.slice().reverse()) {
       const key = `${path}/${it.depth}`;
       const ref = refOf(it.o);
@@ -571,6 +669,7 @@ function renderLayers() {
       const top = level === 0;
       const row = html("div", { className: "layer" + (top ? "" : " child") + ((top && it.src !== null && it.src === d.sel) || d.nested === key ? " on" : "") });
       row.style.paddingLeft = `${6 + level * 14}px`;
+      row.dataset.key = key;
       const tw = html("span", { className: "tw" + (kids ? " can" : ""), title: kids ? "What it holds (its definition, shared by every placement)" : "" }, kids ? (d.open.has(key) ? "▾" : "▸") : "");
       tw.onclick = (e) => {
         e.stopPropagation();
@@ -587,45 +686,48 @@ function renderLayers() {
       row.append(eye);
       row.append(html("span", { className: "what" }, (it.o.mask ? "mask: " : "") + describe(it.o)));
       if (it.o.name) row.append(html("span", { className: "name" }, it.o.name));
-      if (top) {
-        row.onclick = () => select(it.src);
-        if (it.src !== null && editable()) dragRow(row, it, ref);
-      } else {
-        row.title = `In ${owner.label}'s definition: click to select it here, double-click to open it there`;
+      const loc = { key, it, ref, top, chain, file: top ? d.file : owner.file, kind: top ? d.kind : owner.kind, label: top ? d.title : owner.label };
+      if (top) row.onclick = () => select(it.src);
+      else {
+        row.title = `In ${owner.label}'s definition: click to select it here (drag it anywhere in the tree), double-click to open it there`;
         row.onclick = () => selectNested(key, owner.file);
         row.ondblclick = () => open(owner.file, { select: it.src ?? undefined });
       }
+      dragRow(row, loc, it.src !== null && (!top || editable()));
       box.append(row);
       if (kids && d.open.has(key)) {
         const json = knownJson(ref.file);
-        if (json) rows(childList(ref, json), level + 1, key, { file: ref.file, label: describe(it.o) });
+        if (json) rows(childList(ref, json), level + 1, key, { file: ref.file, kind: ref.kind === "button" ? "button" : "sprite", label: describe(it.o) }, multiply(chain, matrixOf(it.o)));
         else box.append(html("div", { className: "hint" }, "…"));
       }
     }
   };
-  rows(currentList(), 0, "", null);
+  rows(currentList(), 0, "", null, ID);
 }
 
 /**
- * A layer dragged onto another: its top or bottom edge puts it above or
- * below; its middle, inside (a sprite) or grouped with it (anything else).
+ * A layer dragged onto another, at any level of the tree: its top or bottom
+ * edge puts it above or below (in that line's list), its middle inside (a
+ * sprite) or grouped with it (anything else, both on the first level).
  */
 let dragged = null;
-function dragRow(row, it, ref) {
-  row.draggable = true;
-  row.ondragstart = (e) => { dragged = it.src; row.classList.add("dragging"); e.dataTransfer.setData("application/x-layer", String(it.src)); e.dataTransfer.effectAllowed = "move"; };
-  row.ondragend = () => { dragged = null; row.classList.remove("dragging"); };
+function dragRow(row, loc, movable) {
+  if (movable) {
+    row.draggable = true;
+    row.ondragstart = (e) => { dragged = loc; row.classList.add("dragging"); e.dataTransfer.setData("application/x-layer", loc.key); e.dataTransfer.effectAllowed = "move"; };
+    row.ondragend = () => { dragged = null; row.classList.remove("dragging"); };
+  }
   const zone = (e) => {
     const r = row.getBoundingClientRect(), y = (e.clientY - r.top) / r.height;
     return y < 0.3 ? "above" : y > 0.7 ? "below" : "into";
   };
   const clear = () => row.classList.remove("above", "below", "into");
   row.ondragover = (e) => {
-    if (dragged === null || dragged === it.src) return;
+    if (!dragged || dragged.key === loc.key || loc.key.startsWith(`${dragged.key}/`)) return;
     e.preventDefault();
     clear();
     row.classList.add(zone(e));
-    row.title = { above: "above it", below: "below it", into: hasChildren(ref) && ref.kind !== "button" ? `into ${describe(it.o)}` : `grouped with ${describe(it.o)}` }[zone(e)];
+    row.title = { above: "above it", below: "below it", into: canHold(loc.ref) ? `into ${describe(loc.it.o)}` : `grouped with ${describe(loc.it.o)}` }[zone(e)];
   };
   row.ondragleave = clear;
   row.ondrop = (e) => {
@@ -633,11 +735,7 @@ function dragRow(row, it, ref) {
     clear();
     const from = dragged;
     dragged = null;
-    if (from === null || from === it.src) return;
-    const z = zone(e);
-    if (z !== "into") moveNextTo(from, it.src, z === "above");
-    else if ((ref?.kind === "sprite" || ref?.kind === "freshSprite") && ref.file) moveInto(from, it.src);
-    else group([it.src, from], it.src);
+    if (from && from.key !== loc.key) dropLine(from, loc, zone(e)).catch((err) => status(err.message, "bad"));
   };
 }
 
@@ -810,12 +908,26 @@ function setupStage() {
   let drag = null;
   stage.addEventListener("pointerdown", (e) => {
     if (!D()) return;
-    const item = e.target.closest?.("#content .item");
+    const item = graphicsAt(e)[0] ?? null;
     const i = item && item.dataset.i !== "" ? Number(item.dataset.i) : null;
+    const p0 = toSprite(e);
+    const nestedDrag = (n) => (n?.editable ? { kind: "nested", n, start: p0, x: n.o.x ?? 0, y: n.o.y ?? 0, moved: false, before: { file: n.tab.file, json: JSON.stringify(n.tab.json) } } : null);
+    // Ctrl+click: the deepest line under the pointer, dragged at once.
+    if (e.button === 0 && (e.ctrlKey || e.metaKey) && item?.dataset.depth) {
+      const wait = { kind: "wait" };
+      drag = wait;
+      stage.setPointerCapture(e.pointerId);
+      selectAt(e, true).then((n) => {
+        if (drag !== wait) return;
+        const d = D(), node = d.sel !== null && $("content").querySelector(`.item[data-i="${d.sel}"]`);
+        drag = n ? nestedDrag(n) : node && editable() ? { kind: "move", start: p0, x: items()[d.sel].x ?? 0, y: items()[d.sel].y ?? 0, node: node.firstChild, moved: false, before: { file: d.file, json: JSON.stringify(d.json) } } : null;
+      });
+      return;
+    }
     // A nested line selected: dragging inside its box moves it (in its definition).
-    const n = e.button === 0 && nestedInfo(), b = D().nestedBox, p0 = toSprite(e);
+    const n = e.button === 0 && nestedInfo(), b = D().nestedBox;
     if (n?.editable && b && p0.x >= b.x && p0.x <= b.x + b.width && p0.y >= b.y && p0.y <= b.y + b.height) {
-      drag = { kind: "nested", n, start: p0, x: n.o.x ?? 0, y: n.o.y ?? 0, moved: false, before: { file: n.tab.file, json: JSON.stringify(n.tab.json) } };
+      drag = nestedDrag(n);
     } else if (e.button === 0 && i !== null && editable()) {
       select(i);
       const o = items()[i];
@@ -827,7 +939,7 @@ function setupStage() {
     stage.setPointerCapture(e.pointerId);
   });
   stage.addEventListener("pointermove", (e) => {
-    if (!drag) return;
+    if (!drag || drag.kind === "wait") return;
     if (drag.kind === "pan") {
       view.x = drag.vx + e.clientX - drag.sx; view.y = drag.vy + e.clientY - drag.sy;
       drag.moved ||= Math.abs(e.clientX - drag.sx) + Math.abs(e.clientY - drag.sy) > 3;
@@ -853,6 +965,9 @@ function setupStage() {
     drag = null;
   };
   stage.addEventListener("pointerup", end);
+  // Double-click: one level deeper, under the pointer (inside the sprite selected).
+  // (The pointer's captured: what's under it, not the event's target.)
+  stage.addEventListener("dblclick", (e) => { if (D()) selectAt(e, false); });
   stage.addEventListener("pointercancel", end);
   stage.addEventListener("wheel", (e) => {
     e.preventDefault();
@@ -916,10 +1031,13 @@ function undo(redo = false) {
   if (!d) return;
   const from = redo ? d.redo : d.undo, to = redo ? d.undo : d.redo;
   if (!from.length) return;
-  const e = from.pop(), t = S.tabs.find((x) => x.file === e.file);
-  if (!t) return undo(redo);
-  to.push({ file: e.file, json: JSON.stringify(t.json) });
-  t.json = JSON.parse(e.json);
+  const e = from.pop(), tab = (f) => S.tabs.find((x) => x.file === f);
+  const list = (e.list ?? [e]).filter((x) => tab(x.file));
+  if (!list.length) return undo(redo);
+  to.push({ list: list.map((x) => ({ file: x.file, json: JSON.stringify(tab(x.file).json) })), at: { sel: d.sel, nested: d.nested } });
+  for (const x of list) tab(x.file).json = JSON.parse(x.json);
+  // The selection as it was (a line moved elsewhere is selected where it's back).
+  if (e.at) { d.sel = e.at.sel; d.nested = e.at.nested; }
   if (d.sel !== null && !items()?.[d.sel]) d.sel = null;
   if (d.nested && !nestedInfo()) d.nested = null;
   changed();
@@ -999,11 +1117,16 @@ const freeDepth = (json) => Math.max(0, ...(json.frames ?? []).flatMap((f) => (f
  * Frame 1's lines in a new order (bottom first): the depths they had, given
  * out again in that order — later frames follow them.
  */
-function reorder(order) {
-  const d = D(), list = items();
+function reorder(order, t = D()) {
+  const list = items(t);
   const depths = order.map((i) => list[i].depth).sort((a, b) => a - b);
   const map = new Map(order.map((i, k) => [list[i].depth, depths[k]]));
-  if (d.kind === "sprite") remapDepths(d.json, map); else for (const o of list) if (map.has(o.depth)) o.depth = map.get(o.depth);
+  if (t.kind === "sprite") remapDepths(t.json, map); else for (const o of list) if (map.has(o.depth)) o.depth = map.get(o.depth);
+}
+/** Tab `t`'s editable lines, bottom first (the open tab's as shown, another's frame 1 or "up"). */
+function lineOrder(t) {
+  const list = t === D() ? currentList() : childList({ kind: t.kind }, t.json);
+  return list.filter((it) => it.src !== null).map((it) => it.src);
 }
 /** The line `i` just above (`above`) or below the line `j`, among frame 1's. */
 function moveNextTo(i, j, above) {
@@ -1040,7 +1163,7 @@ async function tabFor(file, fresh) {
 function codeWarning(lines, into) {
   const named = lines.filter((o) => o.name || o.actions);
   if (!named.length) return true;
-  return confirm(`${named.map((o) => o.name ?? describe(o)).join(", ")}: code reaches ${named.length > 1 ? "them" : "it"} as this.${named[0].name ?? "…"} — inside ${into} it becomes this.<${into}'s instance name>.${named[0].name ?? "…"}. Move ${named.length > 1 ? "them" : "it"} anyway?`);
+  return confirm(`${named.map((o) => o.name ?? describe(o)).join(", ")}: code reaches ${named.length > 1 ? "them" : "it"} through the clips holding ${named.length > 1 ? "them" : "it"} (this.…${named[0].name ? `.${named[0].name}` : ""}) — moved into ${into}, that path changes. Move ${named.length > 1 ? "them" : "it"} anyway?`);
 }
 function checkMovable(d, idx) {
   if (d.kind !== "sprite" || !editable()) return "only a sprite's frame-1 lines move into others";
@@ -1049,28 +1172,96 @@ function checkMovable(d, idx) {
   return bad ? `${describe(bad)}: ${bad.mask ? "a mask" : "later frames move it"} — not moved` : null;
 }
 
-/** The line `i` into the sprite placed by line `j`: same place on screen; that sprite's definition changes. */
-async function moveInto(i, j) {
-  const d = D(), list = items(), o = list[i], host = list[j], ref = refOf(host);
-  const why = checkMovable(d, [i]);
-  if (why) { status(why, "bad"); return; }
-  if (!(ref?.kind === "sprite" || ref?.kind === "freshSprite") || !ref.file) { status(`${describe(host)} can't hold anything: drop on its top or bottom edge, or Group`, "bad"); return; }
-  if (!codeWarning([o], describe(host))) return;
-  if (ref.kind === "sprite") {
-    const where = await api(`/api/where?id=${ref.id}`).catch(() => []);
-    if (where.length > 1 && !confirm(`${describe(host)} is placed ${where.length} times: ${describe(o)} will show in every one. Go on?`)) return;
+/** Whether what `ref` shows places `file`, at any depth (as far as it's loaded). */
+function holds(ref, file, seen = new Set()) {
+  if (!ref?.file || seen.has(ref.file)) return false;
+  if (ref.file === file) return true;
+  seen.add(ref.file);
+  const json = knownJson(ref.file);
+  const lines = json ? [...(json.frames ?? []).flatMap((f) => f.place ?? []), ...(json.records ?? [])] : [];
+  return lines.some((o) => holds(refOf(o), file, seen));
+}
+/** The lists along a path of the tree, from the open tab's down: each one's file and place on screen. */
+function along(path) {
+  const out = [{ file: D().file, chain: ID }];
+  let list = currentList(), chain = ID;
+  for (const depth of path.split("/").slice(1).map(Number)) {
+    const it = list.find((x) => x.depth === depth), ref = it && refOf(it.o), json = hasChildren(ref) && knownJson(ref.file);
+    if (!json) break;
+    chain = multiply(chain, matrixOf(it.o));
+    out.push({ file: ref.file, chain });
+    list = childList(ref, json);
   }
-  const t = await tabFor(ref.file);
-  if (t.file === d.file) { status("a sprite can't hold itself", "bad"); return; }
-  snapshot(); snapshot(t);
-  const inner = setMatrix({ ...o }, multiply(invert(matrixOf(host)), matrixOf(o)));
-  inner.depth = freeDepth(t.json);
-  items(t).push(inner);
-  list.splice(i, 1);
-  d.sel = list.indexOf(host);
-  d.open.add(`/${host.depth}`);
+  return out;
+}
+/** How many times a sprite of the base is placed (1 for the open tab or ours). */
+async function placements(t) {
+  if (t === D() || t.kind !== "sprite" || t.id === undefined) return 1;
+  return (await api(`/api/where?id=${t.id}`).catch(() => [])).length;
+}
+
+/**
+ * The line of row `A` dropped on row `B` (rows of the layers tree, at any
+ * level): above or below B, in B's list, or into the sprite B places. It
+ * stays where it is on screen (its matrix is recomputed for its new list);
+ * a definition it leaves or joins changes for every placement (its tab, ●).
+ */
+async function dropLine(A, B, zone) {
+  const d = D();
+  if (B.key.startsWith(`${A.key}/`)) { status("a line can't go inside itself", "bad"); return; }
+  if (zone === "into" && !canHold(B.ref)) {
+    if (A.top && B.top && editable()) return group([B.it.src, A.it.src], B.it.src);
+    status(`${describe(B.it.o)} can't hold anything: drop on its top or bottom edge`, "bad");
+    return;
+  }
+  const into = zone === "into";
+  const dest = into
+    ? { file: B.ref.file, chain: multiply(B.chain, matrixOf(B.it.o)), path: B.key, label: describe(B.it.o) }
+    : { file: B.file, chain: B.chain, path: B.key.slice(0, B.key.lastIndexOf("/")), label: B.label };
+  if ((A.top || dest.file === d.file) && !editable()) { status("frames after the first aren't edited here", "bad"); return; }
+  const src = await tabFor(A.file), dst = await tabFor(dest.file);
+  const o = items(src)[A.it.src];
+  if (!o) return;
+  let moved = o;
+  if (src === dst) {
+    // The same list (one definition, maybe seen through another placement): only the order changes.
+    snapshot(src);
+    const order = lineOrder(src).filter((k) => k !== A.it.src);
+    if (into) order.push(A.it.src); else order.splice(order.indexOf(B.it.src) + (zone === "above" ? 1 : 0), 0, A.it.src);
+    reorder(order, src);
+  } else {
+    if (src.kind === "button" || dst.kind === "button") { status("a button's records stay in their button (reorder them there)", "bad"); return; }
+    if (holds(A.ref, dst.file)) { status(`${describe(o)} would hold itself`, "bad"); return; }
+    if (o.mask || animatedDepths(src.json).has(o.depth)) { status(`${describe(o)}: ${o.mask ? "a mask" : "later frames move it"} — not moved`, "bad"); return; }
+    if (!codeWarning([o], dest.label)) return;
+    const [nSrc, nDst] = await Promise.all([placements(src), placements(dst)]);
+    const shared = [nSrc > 1 && `it leaves ${A.label}, placed ${nSrc} times`, nDst > 1 && `it joins ${dest.label}, placed ${nDst} times`].filter(Boolean);
+    if (shared.length && !confirm(`${describe(o)}: ${shared.join("; ")} — every placement changes. Go on?`)) return;
+    // One definition seen through two placements (out of _css3, into what _css4 holds): measured through the same one.
+    let from = A.chain, to = dest.chain;
+    const viaDest = along(dest.path).find((x) => x.file === A.file), viaSrc = along(A.key.slice(0, A.key.lastIndexOf("/"))).find((x) => x.file === dest.file);
+    if (viaDest) from = viaDest.chain; else if (viaSrc) to = viaSrc.chain;
+    moved = setMatrix({ ...o }, multiply(invert(to), multiply(from, matrixOf(o))));
+    moved.depth = freeDepth(dst.json);
+    snapshot(src, dst);
+    items(src).splice(A.it.src, 1);
+    const list = items(dst);
+    list.push(moved);
+    if (!into) {
+      const order = lineOrder(dst).filter((k) => k !== list.length - 1);
+      order.splice(order.indexOf(B.it.src) + (zone === "above" ? 1 : 0), 0, list.length - 1);
+      reorder(order, dst);
+    }
+  }
+  // Selected where it is now.
+  if (dst === d) { d.nested = null; d.sel = items(d).indexOf(moved); }
+  else {
+    d.sel = null;
+    d.nested = `${dest.path}/${moved.depth}`;
+    openTo(d, d.nested);
+  }
   changed();
-  status(`${describe(o)} is in ${describe(host)} now (its tab: unsaved, Save all writes both)`, "good");
+  status(src === dst ? `${describe(moved)}: depth ${moved.depth}` : `${describe(moved)} is in ${dest.label} now (unsaved: Save all writes ${A.file === dest.file ? "it" : "both"})`, "good");
 }
 
 /** Lines `idx` wrapped in a new sprite (src/assets/new/<this one>/group-N.json), placed where the first was. */
@@ -1228,7 +1419,7 @@ function setupCommands() {
       const n = e.shiftKey ? 10 : 1;
       nudge(e.key === "ArrowLeft" ? -n : e.key === "ArrowRight" ? n : 0, e.key === "ArrowUp" ? -n : e.key === "ArrowDown" ? n : 0);
     } else if (e.key === "Delete" || e.key === "Backspace") removeSel();
-    else if (e.key === "Escape") { if (D()) select(null); }
+    else if (e.key === "Escape") selectUp();
     else if (e.key === "f" || e.key === "F") fit();
   });
   window.addEventListener("beforeunload", (e) => { if (S.tabs.some(isDirty)) e.preventDefault(); });

@@ -41,7 +41,8 @@ build step.
   unfolds (▸) into what it holds: that's its definition, shared by every
   placement (`ChooseServerSprite`, placed 5 times, is one sprite);
   double-click a line inside to edit it there, in its own tab. ↑ ↓ swap
-  depths, ✕ removes, 👁 hides one while you work (not saved). The
+  depths, ✕ removes, 👁 hides a line while you work — at any level, in that
+  instance only (hiding `Bonhomme` in `_css4` leaves the 4 others); not saved. The
   inspector: depth, position, scale, rotation, alpha, instance name
   (`this._btnOk` in the class), a button record's states, and the line's
   JSON — applied as you type, as soon as it parses (undo takes it back).

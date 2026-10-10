@@ -13,7 +13,7 @@
 import { spawn } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, readFileSync, renameSync, statSync, writeFileSync } from "node:fs";
 import { createServer } from "node:http";
-import { dirname, extname, join, normalize, sep } from "node:path";
+import { dirname, extname, join, normalize, relative, sep } from "node:path";
 import { ROOT, SRC, base, config } from "../lib.mjs";
 import { assetFiles, exportName } from "../assets.mjs";
 import { context, fileId, fileKind, formatJson, objectFiles, readObject, where, writeObject, writeSprite } from "../sprites.mjs";
@@ -91,7 +91,7 @@ function uiInfo() {
     const text = readFileSync(f, "utf8");
     if (text.includes("registerClass")) for (const m of text.matchAll(/registerClass\("([^"]+)",\s*([\w.]+)\)/g)) classes[m[1]] ??= m[2];
   }
-  return (uiCache = { styles, classes });
+  return (uiCache = { styles, classes, paramKeys: paramKeys(classes) });
 }
 
 /** A lang_xx.swf's texts: { KEY: "text" } (each one a variable its actions set). */
@@ -144,6 +144,37 @@ function codeInfo(rel) {
   // A clip used as a mask by code (setMask) doesn't show either.
   for (const m of code.matchAll(/\.setMask\(this\.(_\w+)\)/g)) if (!hidden.includes(m[1])) hidden.push(m[1]);
   return { texts, hidden };
+}
+
+/**
+ * The parameters each component takes, as the base's interfaces set them
+ * (every on(construct) of src/timeline/sprites/): { Button: { label: "",
+ * styleName: "…" } } — each with its most frequent value, a default to start from.
+ */
+function paramKeys(classes) {
+  const seen = {};
+  const dir = join(SRC, "timeline", "sprites");
+  for (const sprite of readdirSync(dir)) for (const frame of readdirSync(join(dir, sprite)).filter((f) => /^frame_\d+$/.test(f))) {
+    for (const place of readdirSync(join(dir, sprite, frame))) {
+      const m = /^PlaceObject\d?_\d+_(.+)_\d+$/.exec(place);
+      if (!m) continue;
+      const cls = (classes[m[1]] ?? m[1]).split(".").pop(), at = join(dir, sprite, frame, place);
+      for (const f of readdirSync(at).filter((x) => x.includes("construct"))) {
+        for (const a of readFileSync(join(at, f), "utf8").matchAll(/^\s*(\w+) = (.+);\s*$/gm)) {
+          // Values only (the decompiler leaves a few expressions: _loc3_ + 1).
+          if (/^_loc\d+_$/.test(a[1]) || (typeof literal(a[2]) === "string" && !/^"/.test(a[2].trim()))) continue;
+          const counts = ((seen[cls] ??= {})[a[1]] ??= new Map());
+          counts.set(a[2], (counts.get(a[2]) ?? 0) + 1);
+        }
+      }
+    }
+  }
+  const out = {};
+  for (const [cls, keys] of Object.entries(seen)) {
+    out[cls] = {};
+    for (const [k, counts] of Object.entries(keys)) out[cls][k] = literal([...counts].sort((a, b) => b[1] - a[1])[0][0]);
+  }
+  return out;
 }
 
 /**
@@ -210,7 +241,7 @@ function check(rel, json) {
  * name, or the only one). What was renamed, "from → to".
  */
 const REF = ["export", "shape", "sprite", "text", "button", "morph", "video"];
-function moveClipScripts(p, before, after) {
+function planClipScripts(p, before, after) {
   const ref = (o) => REF.map((k) => o[k] ?? "").join("|");
   const plan = [];
   (after.frames ?? []).forEach((fr, i) => {
@@ -226,10 +257,50 @@ function moveClipScripts(p, before, after) {
       if (from) plan.push({ dir, from, to: from.replace(/_\d+$/, `_${o.depth}`) });
     }
   });
+  return plan;
+}
+function moveClipScripts(plan) {
   // In two steps: lines that swapped depths swap folders.
   for (const x of plan) renameSync(join(x.dir, x.from), join(x.dir, `${x.from}.moving`));
   for (const x of plan) renameSync(join(x.dir, `${x.from}.moving`), join(x.dir, x.to));
   return plan.map((x) => `${x.from} → ${x.to}`);
+}
+
+/** A value as AS2 source (a parameter in on(construct)). */
+function asLiteral(v) {
+  if (typeof v === "string") return JSON.stringify(v);
+  if (Array.isArray(v)) return `[${v.map(asLiteral).join(",")}]`;
+  if (v && typeof v === "object") return `{${Object.entries(v).map(([k, x]) => `${/^[A-Za-z_$][\w$]*$/.test(k) ? k : JSON.stringify(k)}:${asLiteral(x)}`).join(",")}}`;
+  return String(v);
+}
+/** The script holding a line's on(construct) (its folder named for its depth, after `plan`'s renames), or null. */
+function constructScript(p, frame, depth, plan) {
+  const dir = join(dirname(p), `frame_${frame}`);
+  if (!existsSync(dir)) return null;
+  const moved = plan.find((x) => x.dir === dir && x.to.endsWith(`_${depth}`));
+  const folder = moved ? moved.from : readdirSync(dir).find((n) => /^PlaceObject\d?_/.test(n) && n.endsWith(`_${depth}`) && !plan.some((x) => x.dir === dir && x.from === n));
+  if (!folder) return null;
+  const file = readdirSync(join(dir, folder)).find((f) => f.includes("construct"));
+  return file ? { before: join(dir, folder, file), after: join(dir, moved ? moved.to : folder, file) } : null;
+}
+/**
+ * A line's parameters written into its on(construct) script: an assignment
+ * changed where its value differs, added before the closing brace, removed
+ * when gone — every other line as it was (the build recompiles it).
+ */
+function writeConstruct(file, params) {
+  const lines = readFileSync(file, "utf8").replace(/\r\n/g, "\n").split("\n");
+  const done = new Set();
+  const out = lines.flatMap((line) => {
+    const m = /^(\s*)(\w+) = (.+);\s*$/.exec(line);
+    if (!m) return [line];
+    if (!(m[2] in params)) return [];
+    done.add(m[2]);
+    return JSON.stringify(literal(m[3])) === JSON.stringify(params[m[2]]) ? [line] : [`${m[1]}${m[2]} = ${asLiteral(params[m[2]])};`];
+  });
+  const close = out.map((l) => /^\}\s*$/.test(l)).lastIndexOf(true);
+  out.splice(close < 0 ? out.length : close, 0, ...Object.keys(params).filter((k) => !done.has(k)).map((k) => `   ${k} = ${asLiteral(params[k])};`));
+  writeFileSync(file, out.join("\n"));
 }
 
 const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json; charset=utf-8", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".gif": "image/gif" };
@@ -266,12 +337,22 @@ const server = createServer(async (req, res) => {
       if (!p) return send(res, 400, { error: "a path under src/" });
       let json;
       try { json = JSON.parse(await body(req)); } catch (e) { return send(res, 400, { error: `not JSON: ${e.message}` }); }
+      // A base sprite's line with its own clip actions: its parameters go to its on(construct) script.
+      const scripted = [];
+      if (rel.startsWith("timeline/sprites/")) (json.frames ?? []).forEach((fr, i) => (fr?.place ?? []).forEach((o) => {
+        if (o?.actions && o.params !== undefined) { scripted.push({ frame: i + 1, depth: o.depth, params: o.params, label: o.name ?? o.export ?? `depth ${o.depth}` }); delete o.params; }
+      }));
       let kind;
       try { kind = check(rel, json); } catch (e) { return send(res, 422, { error: e.message }); }
+      const plan = kind === "sprite" && rel.startsWith("timeline/") && existsSync(p) ? planClipScripts(p, JSON.parse(readFileSync(p, "utf8")), json) : [];
+      const scripts = scripted.map((x) => ({ ...x, file: constructScript(p, x.frame, x.depth, plan) }));
+      const lost = scripts.find((x) => !x.file);
+      if (lost) return send(res, 422, { error: `${lost.label}: no on(construct) script in frame_${lost.frame}/PlaceObject…_${lost.depth}/ to set its parameters in` });
       mkdirSync(join(p, ".."), { recursive: true });
-      const moved = kind === "sprite" && rel.startsWith("timeline/") && existsSync(p) ? moveClipScripts(p, JSON.parse(readFileSync(p, "utf8")), json) : [];
+      const moved = moveClipScripts(plan);
+      for (const x of scripts) writeConstruct(x.file.after, x.params);
       writeFileSync(p, formatJson(kind, json));
-      return send(res, 200, { ok: true, moved });
+      return send(res, 200, { ok: true, moved, scripts: scripts.map((x) => relative(SRC, x.file.after).split(sep).join("/")) });
     }
     if (req.method === "POST" && url.pathname === "/api/build") {
       if (building) return send(res, 409, { error: "a build is running" });

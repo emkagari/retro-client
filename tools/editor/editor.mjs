@@ -213,12 +213,16 @@ function placeParams(rel) {
   const dir = dirname(p);
   if (!existsSync(dir)) return out;
   Object.assign(out, codeInfo(rel));
+  // A removed line's folder left at a depth another line has now isn't that line's.
+  let json = null;
+  try { json = JSON.parse(readFileSync(p, "utf8")); } catch { /* none */ }
+  const lineThere = (frame, depth, folder) => !json || (json.frames?.[frame - 1]?.place ?? []).some((o) => o.actions && o.depth === depth && (!o.export || folder.includes(`_${o.export}_`)));
   for (const frame of readdirSync(dir)) {
     const fm = /^frame_(\d+)$/.exec(frame);
     if (!fm) continue;
     for (const place of readdirSync(join(dir, frame))) {
       const pm = /^PlaceObject\d?_.*_(\d+)$/.exec(place);
-      if (!pm || !statSync(join(dir, frame, place)).isDirectory()) continue;
+      if (!pm || !statSync(join(dir, frame, place)).isDirectory() || !lineThere(Number(fm[1]), Number(pm[1]), place)) continue;
       const params = {}, files = readdirSync(join(dir, frame, place));
       for (const f of files.filter((x) => /construct|initialize/.test(x))) {
         for (const m of readFileSync(join(dir, frame, place, f), "utf8").matchAll(/^\s*(\w+) = (.+);\s*$/gm)) params[m[1]] = literal(m[2]);
@@ -327,12 +331,19 @@ function asLiteral(v) {
   if (v && typeof v === "object") return `{${Object.entries(v).map(([k, x]) => `${/^[A-Za-z_$][\w$]*$/.test(k) ? k : JSON.stringify(k)}:${asLiteral(x)}`).join(",")}}`;
   return String(v);
 }
-/** The script holding a line's on(construct) (its folder named for its depth, after `plan`'s renames), or null. */
-function constructScript(p, frame, depth, plan) {
+/**
+ * The script holding a line's on(construct) (its folder named for its depth
+ * and what it places — PlaceObject2_121_TextInput_242 — after `plan`'s
+ * renames), or null: never another line's (a removed Label's folder at the
+ * same depth).
+ */
+function constructScript(p, frame, o, plan) {
   const dir = join(dirname(p), `frame_${frame}`);
   if (!existsSync(dir)) return null;
-  const moved = plan.find((x) => x.dir === dir && x.to.endsWith(`_${depth}`));
-  const folder = moved ? moved.from : readdirSync(dir).find((n) => /^PlaceObject\d?_/.test(n) && n.endsWith(`_${depth}`) && !plan.some((x) => x.dir === dir && x.from === n));
+  const mine = (n) => n.endsWith(`_${o.depth}`) && (o.export ? n.includes(`_${o.export}_`) : true);
+  const moved = plan.find((x) => x.dir === dir && mine(x.to));
+  const here = readdirSync(dir).filter((n) => /^PlaceObject\d?_/.test(n) && mine(n) && !plan.some((x) => x.dir === dir && x.from === n));
+  const folder = moved ? moved.from : here.length === 1 ? here[0] : null;
   if (!folder) return null;
   const file = readdirSync(join(dir, folder)).find((f) => f.includes("construct"));
   return file ? { before: join(dir, folder, file), after: join(dir, moved ? moved.to : folder, file) } : null;
@@ -394,16 +405,16 @@ const server = createServer(async (req, res) => {
       // A base sprite's line with its own clip actions: its parameters go to its on(construct) script.
       const scripted = [];
       if (rel.startsWith("timeline/sprites/")) (json.frames ?? []).forEach((fr, i) => (fr?.place ?? []).forEach((o) => {
-        if (o?.actions && o.params !== undefined) { scripted.push({ frame: i + 1, depth: o.depth, params: o.params, label: o.name ?? o.export ?? `depth ${o.depth}` }); delete o.params; }
+        if (o?.actions && o.params !== undefined) { scripted.push({ frame: i + 1, o: { depth: o.depth, export: o.export }, params: o.params, label: o.name ?? o.export ?? `depth ${o.depth}` }); delete o.params; }
       }));
       let kind;
       try { kind = check(rel, json); } catch (e) { return send(res, 422, { error: e.message }); }
       const left = halfMoved(p);
       if (left.length) return send(res, 409, { error: `an earlier save stopped half way renaming clip actions' folders — put them back first (src/${dirname(rel)}/):\n  ${left.join("\n  ")}` });
       const plan = kind === "sprite" && rel.startsWith("timeline/") && existsSync(p) ? planClipScripts(p, JSON.parse(readFileSync(p, "utf8")), json) : [];
-      const scripts = scripted.map((x) => ({ ...x, file: constructScript(p, x.frame, x.depth, plan) }));
+      const scripts = scripted.map((x) => ({ ...x, file: constructScript(p, x.frame, x.o, plan) }));
       const lost = scripts.find((x) => !x.file);
-      if (lost) return send(res, 422, { error: `${lost.label}: no on(construct) script in frame_${lost.frame}/PlaceObject…_${lost.depth}/ to set its parameters in` });
+      if (lost) return send(res, 422, { error: `${lost.label}: no on(construct) script in frame_${lost.frame}/PlaceObject…${lost.o.export ? `_${lost.o.export}` : ""}_${lost.o.depth}/ to set its parameters in` });
       mkdirSync(join(p, ".."), { recursive: true });
       let moved;
       try { moved = moveClipScripts(plan); } catch (e) { return send(res, 500, { error: e.message }); }

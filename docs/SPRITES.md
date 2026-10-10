@@ -51,6 +51,8 @@ and what it `place`s — one per line:
 Numbers are exact: `0.59999` is the scale Ankama's tool stored (39321/65536),
 written with the digits that give it back.
 
+With the mouse: the sprite editor, `./retro editor` (docs/EDITOR.md).
+
 ## Moving, resizing, adding
 
 Where is a graphic placed?

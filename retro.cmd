@@ -4,6 +4,7 @@ rem
 rem   retro build                 src/ -> build\loader.swf
 rem   retro play                  build, package from your official client, start the game
 rem   retro dev                   the same with hot reload and auto login (Ctrl+C to stop)
+rem   retro editor                the sprite editor: http://localhost:4777
 rem   retro release v1.49.5-r1    prepare a release (dist\release\)
 rem   retro help                  every command
 rem
@@ -36,6 +37,11 @@ if defined OVERLAY set MOUNTS=%MOUNTS% -v "%OVERLAY%:/overlay:ro" -e RETRO_OVERL
 
 if /i "%~1"=="play" goto play
 if /i "%~1"=="dev" goto dev
+if /i "%~1"=="editor" (
+  rem The editor's page, served from Docker on this machine's port 4777.
+  docker run --rm -it -p 127.0.0.1:4777:4777 -e RETRO_EDITOR_HOST=0.0.0.0 -v "%CD%:/work" %MOUNTS% %IMAGE% %*
+  exit /b !errorlevel!
+)
 docker run --rm -it -v "%CD%:/work" %MOUNTS% %IMAGE% %*
 exit /b %errorlevel%
 

@@ -4,6 +4,7 @@
 #   ./retro build                 src/ → build/loader.swf
 #   ./retro play                  build, package from your official client, start the game
 #   ./retro dev                   the same with hot reload and auto login (Ctrl+C to stop)
+#   ./retro editor                the sprite editor: http://localhost:4777
 #   ./retro release v1.49.5-r1    prepare a release (dist/release/)
 #   ./retro help                  every command
 #
@@ -53,6 +54,10 @@ case "${1:-help}" in
     done
     (cd "$client" && ./dofus1electron &)
     wait
+    ;;
+  editor)
+    # The editor's page, served from Docker on this machine's port 4777.
+    run -p 127.0.0.1:4777:4777 -e RETRO_EDITOR_HOST=0.0.0.0 "$IMAGE" "$@"
     ;;
   *)
     run "$IMAGE" "$@"

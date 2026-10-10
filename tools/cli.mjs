@@ -14,6 +14,7 @@ const COMMANDS = {
   package: ["package.mjs", "official client + build → dist/<platform>/  [--platform linux|windows] [--no-build]"],
   dev: ["dev.mjs", "build with hot reload, watch src/  [--platform …] [--no-run] [--no-login]"],
   release: ["release.mjs", "prepare a release in dist/release/  <tag: v1.49.5-r1>"],
+  editor: ["editor/editor.mjs", "the sprite editor, in the browser: http://localhost:4777  [--port <n>]"],
   sprites: ["sprites.mjs", "sprites, buttons, texts as JSON  extract | where <id | shapes/<id> | Export>"],
   "test-sprites": ["test-sprites.mjs", "non-regression tests of the sprites, buttons, texts: base → JSON → loader"],
   "test-assets": ["test-assets.mjs", "non-regression tests of the graphics: base → src/assets/ → loader  [--update]"],

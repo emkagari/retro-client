@@ -134,6 +134,7 @@ New interfaces: docs/NEW-UI.md (examples on the `example/*` branches: `example/h
 
 Graphics (every shape and image as SVG / PNG, `src/assets/`): docs/ASSETS.md.
 Sprites, buttons and texts (what each clip places and where, each button's states, each text — JSON): docs/SPRITES.md.
+The sprite editor (in the browser, `./retro editor`): docs/EDITOR.md.
 
 Builds and releases (GitHub Actions, version tags): docs/RELEASES.md.
 

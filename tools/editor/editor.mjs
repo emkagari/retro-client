@@ -11,17 +11,20 @@
  * Nothing to install: Node, as for the other tools.
  */
 import { spawn } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { createServer } from "node:http";
-import { extname, join, normalize, sep } from "node:path";
+import { dirname, extname, join, normalize, sep } from "node:path";
 import { ROOT, SRC, base, config } from "../lib.mjs";
 import { assetFiles, exportName } from "../assets.mjs";
 import { context, fileId, fileKind, formatJson, objectFiles, readObject, where, writeObject, writeSprite } from "../sprites.mjs";
 import { parseSwf } from "../deob/src/swf.ts";
+import { decode, readPool, readPush } from "../deob/src/avm1.ts";
 
 const args = process.argv.slice(2);
 const port = Number(args.includes("--port") ? args[args.indexOf("--port") + 1] : 4777);
 const host = process.env.RETRO_EDITOR_HOST ?? "127.0.0.1";
+// The game's texts (a server's lang_fr_….swf): what code puts in a label shows as the player reads it.
+const langFile = args.includes("--lang") ? args[args.indexOf("--lang") + 1] : process.env.RETRO_LANG ?? config().lang;
 const HERE = import.meta.dirname;
 
 const cfg = config();
@@ -53,6 +56,121 @@ function libraryIndex() {
   // Every id's kind (what a placement may name) and every export's id.
   out.kinds = Object.fromEntries(baseCtx.lib.kinds);
   out.exports = Object.fromEntries(baseCtx.lib.byName);
+  return out;
+}
+
+// --- What code draws: the gapi components (docs/EDITOR.md) -------------------
+
+/** Every `.as` file under a folder. */
+const asFiles = (dir) => readdirSync(dir, { recursive: true }).filter((f) => f.endsWith(".as")).map((f) => join(dir, f));
+
+/** A literal of the decompiled code (a style, a parameter) as JSON, or the text itself. */
+function literal(text) {
+  const t = text.trim();
+  try { return JSON.parse(t.replace(/([{,]\s*)([A-Za-z_]\w*)\s*:/g, '$1"$2":')); } catch { return t; }
+}
+
+/**
+ * What the components need to be drawn as the game draws them: the styles
+ * (ank's defaults, then Dofus's, as DofusCore loads them) and each export's
+ * class (Object.registerClass).
+ */
+let uiCache = null;
+function uiInfo() {
+  if (uiCache) return uiCache;
+  const styles = {}, classes = {};
+  for (const f of ["ank/gapi/styles/DefaultStylePackage.as", "dofus/graphics/gapi/styles/DofusStylePackage.as"]) {
+    const p = join(SRC, "classes", f);
+    if (!existsSync(p)) continue;
+    for (const m of readFileSync(p, "utf8").matchAll(/^\s*static var (\w+) = (\{.*\});\s*$/gm)) {
+      const v = literal(m[2]);
+      if (typeof v === "object") styles[m[1]] = v;
+    }
+  }
+  for (const f of asFiles(join(SRC, "classes"))) {
+    const text = readFileSync(f, "utf8");
+    if (text.includes("registerClass")) for (const m of text.matchAll(/registerClass\("([^"]+)",\s*([\w.]+)\)/g)) classes[m[1]] ??= m[2];
+  }
+  return (uiCache = { styles, classes });
+}
+
+/** A lang_xx.swf's texts: { KEY: "text" } (each one a variable its actions set). */
+let langCache = null;
+function langTexts() {
+  if (langCache) return langCache;
+  langCache = {};
+  if (!langFile || !existsSync(langFile)) return langCache;
+  const utf8 = (v) => Buffer.from(v, "latin1").toString("utf8");
+  for (const t of parseSwf(readFileSync(langFile)).tags) if (t.code === 12) {
+    let pool = [], stack = [];
+    for (const a of decode(t.data)) {
+      if (a.code === 0x88) pool = readPool(a).map(utf8);
+      else if (a.code === 0x96) for (const v of readPush(a)) stack.push(v.t === "const" ? pool[v.v] : v.t === "str" ? utf8(v.v) : v.v ?? null);
+      else if (a.code === 0x1d) { const value = stack.pop(), key = stack.pop(); if (typeof key === "string" && typeof value === "string") langCache[key] = value; }
+      else if (a.code === 0x4f) { stack.pop(); stack.pop(); stack.pop(); }
+      else if (a.code === 0x1c) { stack.pop(); stack.push(null); }
+      else if (a.code === 0x4e) { stack.pop(); stack.pop(); stack.push(null); }
+      else if (a.code === 0x17) stack.pop();
+    }
+  }
+  console.log(`texts: ${Object.keys(langCache).length} from ${langFile}`);
+  return langCache;
+}
+
+/**
+ * What a sprite's class does to its lines: the texts it puts in its
+ * components (`this._btnSelect.label = this.api.lang.getText("SELECT")`):
+ * `texts`, { _btnSelect: { key, text } } — `code` when it's something else
+ * (a name, a number…); what it hides as it starts (`_visible = false` in
+ * its constructor, createChildren or init: a placer, a panel shown later) or uses as a mask
+ * (setMask): `hidden`.
+ */
+function codeInfo(rel) {
+  const id = fileId(rel), name = id !== undefined ? baseCtx.lib.names.get(id) : null, cls = name && uiInfo().classes[name];
+  const file = cls && join(SRC, "classes", ...cls.split(".")) + ".as";
+  const texts = {}, hidden = [];
+  if (!file || !existsSync(file)) return { texts, hidden };
+  const lang = langTexts(), code = readFileSync(file, "utf8");
+  for (const m of code.matchAll(/this\.(_\w+)\.(label|text|title|htmlText) = ([^;\n]+)/g)) {
+    if (texts[m[1]]?.key) continue;
+    const key = /^this\.api\.lang\.getText\("(\w+)"/.exec(m[3])?.[1];
+    texts[m[1]] = key ? { key, text: lang[key] } : { code: true };
+  }
+  // Statements of the method itself (not in an if): its body's indentation.
+  const ctor = cls.split(".").pop();
+  for (const m of code.matchAll(new RegExp(`^   function (?:createChildren|init|${ctor})\\(\\)\\n   \\{\\n([\\s\\S]*?)\\n   \\}$`, "gm"))) {
+    for (const v of m[1].matchAll(/^      this\.(_\w+)\._visible = false;$/gm)) hidden.push(v[1]);
+  }
+  // A clip used as a mask by code (setMask) doesn't show either.
+  for (const m of code.matchAll(/\.setMask\(this\.(_\w+)\)/g)) if (!hidden.includes(m[1])) hidden.push(m[1]);
+  return { texts, hidden };
+}
+
+/**
+ * A sprite's components' parameters, from its clip actions
+ * (frame_N/PlaceObject2_<id>_<name>_<depth>/…on(construct).as):
+ * { frame: { depth: { label: "…", styleName: "…" } } }.
+ */
+function placeParams(rel) {
+  const out = {};
+  const p = srcPath(rel);
+  if (!p || !rel.startsWith("timeline/")) return out;
+  const dir = dirname(p);
+  if (!existsSync(dir)) return out;
+  Object.assign(out, codeInfo(rel));
+  for (const frame of readdirSync(dir)) {
+    const fm = /^frame_(\d+)$/.exec(frame);
+    if (!fm) continue;
+    for (const place of readdirSync(join(dir, frame))) {
+      const pm = /^PlaceObject\d?_.*_(\d+)$/.exec(place);
+      if (!pm || !statSync(join(dir, frame, place)).isDirectory()) continue;
+      const params = {};
+      for (const f of readdirSync(join(dir, frame, place)).filter((x) => /construct|initialize/.test(x))) {
+        for (const m of readFileSync(join(dir, frame, place, f), "utf8").matchAll(/^\s*(\w+) = (.+);\s*$/gm)) params[m[1]] = literal(m[2]);
+      }
+      if (Object.keys(params).length) ((out[fm[1]] ??= {})[pm[1]] = params);
+    }
+  }
   return out;
 }
 
@@ -100,6 +218,8 @@ const server = createServer(async (req, res) => {
       return existsSync(f) ? send(res, 200, readFileSync(f), TYPES[extname(f)]) : send(res, 404, "not found", "text/plain");
     }
     if (req.method === "GET" && url.pathname === "/api/library") return send(res, 200, libraryIndex());
+    if (req.method === "GET" && url.pathname === "/api/ui") return send(res, 200, uiInfo());
+    if (req.method === "GET" && url.pathname === "/api/params") return send(res, 200, placeParams(url.searchParams.get("file") ?? ""));
     // Files under src/ as they are on disk (edited shapes and sprites show as they are now).
     if (req.method === "GET" && url.pathname.startsWith("/src/")) {
       const p = srcPath(decodeURIComponent(url.pathname.slice(5)));

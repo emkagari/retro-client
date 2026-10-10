@@ -27,6 +27,9 @@ if [ -f retro.local.json ]; then
   if [ -n "$upstream" ] && [ -d "$upstream" ]; then mounts+=(-v "$upstream:$upstream:ro"); fi
   overlay=$(local_path overlay)
   if [ -n "$overlay" ] && [ -d "$overlay" ]; then mounts+=(-v "$overlay:$overlay:ro"); fi
+  # The editor's texts: a server's lang_fr_….swf ("lang", docs/EDITOR.md).
+  lang=$(local_path lang)
+  if [ -n "$lang" ] && [ -f "$lang" ]; then mounts+=(-v "$lang:$lang:ro"); fi
 fi
 
 tty=(); if [ -t 0 ] && [ -t 1 ]; then tty=(-it); fi

@@ -48,7 +48,9 @@ client — and `dev`; `ffdec` isn't needed with Docker.
 Copy `retro.local.example.json` to `retro.local.json` and set your paths:
 `ffdec`, `upstream.linux` / `upstream.windows` (the folder that holds
 `resources/app/retroclient`), optionally `overlay` (your machine-specific
-files, e.g. a `config.xml` pointing at your server) and `executable`.
+files, e.g. a `config.xml` pointing at your server), `executable`, and
+`lang` (a server's `lang_fr_….swf`: the sprite editor shows the game's
+texts, docs/EDITOR.md).
 
 ## Everyday use
 

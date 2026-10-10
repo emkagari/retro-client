@@ -27,13 +27,17 @@ docker build -t %IMAGE% . || exit /b 1
 rem The official client and the local overlay, from retro.local.json.
 set UPSTREAM=
 set OVERLAY=
+set LANGSWF=
 if exist retro.local.json (
   for /f "usebackq delims=" %%u in (`docker run --rm -v "%CD%:/work" --entrypoint node %IMAGE% /work/tools/local.mjs upstream.windows`) do set UPSTREAM=%%u
   for /f "usebackq delims=" %%u in (`docker run --rm -v "%CD%:/work" --entrypoint node %IMAGE% /work/tools/local.mjs overlay`) do set OVERLAY=%%u
+  for /f "usebackq delims=" %%u in (`docker run --rm -v "%CD%:/work" --entrypoint node %IMAGE% /work/tools/local.mjs lang`) do set LANGSWF=%%u
 )
 set MOUNTS=
 if defined UPSTREAM set MOUNTS=-v "%UPSTREAM%:/upstream/windows:ro" -e RETRO_UPSTREAM_WINDOWS=/upstream/windows
 if defined OVERLAY set MOUNTS=%MOUNTS% -v "%OVERLAY%:/overlay:ro" -e RETRO_OVERLAY=/overlay
+rem The editor's texts: a server's lang_fr_....swf ("lang", docs/EDITOR.md).
+if defined LANGSWF set MOUNTS=%MOUNTS% -v "%LANGSWF%:/lang/lang.swf:ro" -e RETRO_LANG=/lang/lang.swf
 
 if /i "%~1"=="play" goto play
 if /i "%~1"=="dev" goto dev

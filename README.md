@@ -4,9 +4,6 @@ The Dofus Retro client (1.49.5) as readable ActionScript 2 sources, a build
 that turns them back into the client's `loader.swf`, and packaging into the
 official Electron app — for Linux and Windows.
 
-> The code is Ankama's. Keep this repository **private**, and play the result
-> only on your own servers: a modified client breaks Ankama's terms.
-
 ## Layout
 
 | path | what |

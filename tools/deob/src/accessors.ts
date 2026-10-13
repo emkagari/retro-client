@@ -44,50 +44,56 @@ const note = (raw: string, name: string) => {
   (seen.get(raw) ?? seen.set(raw, new Set()).get(raw)!).add(name);
 };
 
-for (const site of codeSites(swf)) {
-  const acts = decode(site.code);
-  let pool: string[] = [];
-  /** Strings pushed by an action (constants resolved), or null. */
-  const strs = (a: Action): (string | null)[] | null => {
-    if (a.code !== OP.Push) return null;
-    try { return readPush(a).map((v) => (v.t === "str" ? v.v : v.t === "const" ? pool[v.v] ?? null : null)); } catch { return null; }
-  };
-  for (let i = 0; i < acts.length; i++) {
-    const a = acts[i]!;
-    if (a.code === OP.ConstantPool) { pool = readPool(a); continue; }
-    if (a.code !== OP.CallMethod || i < 5) continue;
-    const call = strs(acts[i - 1]!);
-    if (!call || call.length < 4 || call[call.length - 1] !== "addProperty") continue;
-    // The arguments: name, 3 — the rest of this push (obj, "addProperty") is the call.
-    const raw = readPush(acts[i - 1]!);
-    const count = raw[raw.length - 3];
-    if (!count || !("v" in count) || Number(count.v) !== 3) continue;
-    let prop = call[call.length - 4];
-    if (!prop) continue;
-    // Getter: `Push r, "<getter>"` `GetMember` just before; setter: the pair before that.
-    const member = (j: number) => {
-      if (j < 1 || acts[j]!.code !== OP.GetMember) return null;
-      const s = strs(acts[j - 1]!);
-      return s ? s[s.length - 1] ?? null : null;
+/** Property names inferred from one class, for its registrations in another: a set-only `classID`
+ * names it, a get-only one in a class scanned first has nothing to infer from — hence two passes. */
+const props = new Map<string, string>();
+for (let pass = 0; pass < 2; pass++) {
+  seen.clear();
+  for (const site of codeSites(swf)) {
+    const acts = decode(site.code);
+    let pool: string[] = [];
+    /** Strings pushed by an action (constants resolved), or null. */
+    const strs = (a: Action): (string | null)[] | null => {
+      if (a.code !== OP.Push) return null;
+      try { return readPush(a).map((v) => (v.t === "str" ? v.v : v.t === "const" ? pool[v.v] ?? null : null)); } catch { return null; }
     };
-    // Write-only property: a dummy function stands for the getter, the setter is right above it.
-    const dummy = (j: number) => acts[j]!.code === OP.DefineFunction || acts[j]!.code === OP.DefineFunction2;
-    const getter = dummy(i - 2) ? null : member(i - 2);
-    const setter = dummy(i - 2) ? member(i - 3) : getter !== null ? member(i - 4) : null;
-    if (looksObfuscated(prop)) {
-      // An obfuscated property whose getter or setter stayed readable (`__get__renderer`) names it.
-      const readable = [getter, setter].map((x) => (x && !looksObfuscated(x) ? /^__[gs]et__(.+)$/.exec(x)?.[1] : undefined)).find(Boolean);
-      // Else the matcher may have named an accessor after its property (`function classID(n)` is `set classID`).
-      const fromMatcher = [getter, setter].map((x) => (x && looksObfuscated(x) ? known.get(x) : undefined))
-        .find((n) => n !== undefined && !/^__[gs]et__/.test(n));
-      const inferred = readable ?? (known.has(prop) ? undefined : fromMatcher);
-      const name = inferred ?? known.get(prop);
-      if (!name) continue;
-      if (inferred) note(prop, inferred);
-      prop = name;
+    for (let i = 0; i < acts.length; i++) {
+      const a = acts[i]!;
+      if (a.code === OP.ConstantPool) { pool = readPool(a); continue; }
+      if (a.code !== OP.CallMethod || i < 5) continue;
+      const call = strs(acts[i - 1]!);
+      if (!call || call.length < 4 || call[call.length - 1] !== "addProperty") continue;
+      // The arguments: name, 3 — the rest of this push (obj, "addProperty") is the call.
+      const raw = readPush(acts[i - 1]!);
+      const count = raw[raw.length - 3];
+      if (!count || !("v" in count) || Number(count.v) !== 3) continue;
+      let prop = call[call.length - 4];
+      if (!prop) continue;
+      // Getter: `Push r, "<getter>"` `GetMember` just before; setter: the pair before that.
+      const member = (j: number) => {
+        if (j < 1 || acts[j]!.code !== OP.GetMember) return null;
+        const s = strs(acts[j - 1]!);
+        return s ? s[s.length - 1] ?? null : null;
+      };
+      // Write-only property: a dummy function stands for the getter, the setter is right above it.
+      const dummy = (j: number) => acts[j]!.code === OP.DefineFunction || acts[j]!.code === OP.DefineFunction2;
+      const getter = dummy(i - 2) ? null : member(i - 2);
+      const setter = dummy(i - 2) ? member(i - 3) : getter !== null ? member(i - 4) : null;
+      if (looksObfuscated(prop)) {
+        // An obfuscated property whose getter or setter stayed readable (`__get__renderer`) names it.
+        const readable = [getter, setter].map((x) => (x && !looksObfuscated(x) ? /^__[gs]et__(.+)$/.exec(x)?.[1] : undefined)).find(Boolean);
+        // Else the matcher may have named an accessor after its property (`function classID(n)` is `set classID`).
+        const fromMatcher = [getter, setter].map((x) => (x && looksObfuscated(x) ? known.get(x) : undefined))
+          .find((n) => n !== undefined && !/^__[gs]et__/.test(n));
+        const inferred = readable ?? (known.has(prop) ? undefined : fromMatcher);
+        const name = inferred ?? known.get(prop) ?? props.get(prop);
+        if (!name) continue;
+        if (inferred) { note(prop, inferred); props.set(prop, inferred); }
+        prop = name;
+      }
+      if (getter) note(getter, `__get__${prop}`);
+      if (setter) note(setter, `__set__${prop}`);
     }
-    if (getter) note(getter, `__get__${prop}`);
-    if (setter) note(setter, `__set__${prop}`);
   }
 }
 

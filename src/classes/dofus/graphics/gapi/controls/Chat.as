@@ -1,3 +1,4 @@
+928999200 - 1;
 class dofus.graphics.gapi.controls.Chat extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _bSmileysOpened;

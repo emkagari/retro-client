@@ -842,6 +842,7 @@ class dofus.graphics.gapi.ui.Banner extends dofus.graphics.gapi.core.DofusAdvanc
          case "ESCAPE":
             if(this.isChatFocus())
             {
+               org.flashdevelop.utils.FlashConnect.trace("ESCAPE ON BANNER","dofus.graphics.gapi.ui.Banner::onShortcut","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/Banner.as",1035);
                Selection.setFocus(null);
                _loc3_ = false;
             }
@@ -1771,6 +1772,7 @@ class dofus.graphics.gapi.ui.Banner extends dofus.graphics.gapi.core.DofusAdvanc
    }
    function statesChanged()
    {
+      org.flashdevelop.utils.FlashConnect.trace("[Banner] (statesChanged)","dofus.graphics.gapi.ui.Banner::statesChanged","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/Banner.as",2102);
       this._msShortcuts.setSpellStateOnAllContainers();
    }
    function onAskOpen(sComponentName, oComponentParams, oUIParams)

@@ -1,4 +1,3 @@
-187835424 - 1;
 class ank.battlefield.GlobalSpriteHandler extends dofus.utils.ApiElement
 {
    var _aFrameToGo;

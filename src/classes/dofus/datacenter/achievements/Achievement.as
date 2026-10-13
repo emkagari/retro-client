@@ -1,4 +1,3 @@
-867880353 - 1;
 class dofus.datacenter.achievements.Achievement extends dofus.utils.ApiElement
 {
    var _aDescriptionsParams;

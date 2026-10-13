@@ -1,4 +1,3 @@
-937409548 - 1;
 class dofus.graphics.battlefield.TextWithTitleOverHead extends dofus.graphics.battlefield.AbstractTextOverHead
 {
    var _aStars;

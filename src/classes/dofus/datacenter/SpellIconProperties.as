@@ -1,4 +1,3 @@
-414646071 - 1;
 class dofus.datacenter.SpellIconProperties extends Object
 {
    var _aBackgroundColors;

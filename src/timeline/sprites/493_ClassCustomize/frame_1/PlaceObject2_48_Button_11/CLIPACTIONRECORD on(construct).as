@@ -1,5 +1,4 @@
 on(construct){
-   608038975 - 1;
    backgroundDown = "ButtonCrossDown";
    backgroundUp = "ButtonCrossUp";
    enabled = true;

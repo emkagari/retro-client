@@ -25,6 +25,7 @@ class dofus.datacenter.Basics extends dofus.utils.ApiElement
    var aks_team2_starts;
    var aks_ticket;
    var allowedAdminCommands;
+   var api;
    var bIsLimited;
    var canUseSeeAllSpell;
    var chatParams;

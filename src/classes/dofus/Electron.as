@@ -1,3 +1,4 @@
+714783919 - 1;
 class dofus.Electron extends dofus.utils.ApiElement
 {
    var dispatchEvent;

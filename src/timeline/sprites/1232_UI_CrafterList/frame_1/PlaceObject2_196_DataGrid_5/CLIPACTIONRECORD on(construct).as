@@ -1,5 +1,4 @@
 on(construct){
-   927587714 - 1;
    cellRenderer = "CraferListItem";
    columnsProperties = [];
    columnsProperties[0] = "breedId";

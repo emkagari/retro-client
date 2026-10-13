@@ -1,4 +1,3 @@
-849419476 - 1;
 class dofus.graphics.gapi.ui.CreateGuild extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _bEnabled;

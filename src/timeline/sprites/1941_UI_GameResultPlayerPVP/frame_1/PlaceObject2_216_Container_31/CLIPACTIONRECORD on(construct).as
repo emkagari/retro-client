@@ -1,5 +1,4 @@
 on(construct){
-   178375390 - 1;
    backgroundRenderer = "";
    borderRenderer = "";
    dragAndDrop = false;

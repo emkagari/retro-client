@@ -1,6 +1,6 @@
 class dofus.graphics.gapi.ui.Exchange extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
-   var _bValidateDelayed;
+   var _bValidationDelayed;
    var _btnClose;
    var _btnFilterCards;
    var _btnFilterCeremonials;
@@ -43,7 +43,7 @@ class dofus.graphics.gapi.ui.Exchange extends dofus.graphics.gapi.core.DofusAdva
    static var READY_COLOR = {ra:70,rb:0,ga:70,gb:0,ba:70,bb:0};
    static var NON_READY_COLOR = {ra:100,rb:0,ga:100,gb:0,ba:100,bb:0};
    static var DELAY_BEFORE_VALIDATE = 3000;
-   var _bValidationDelayed = false;
+   var _bValidationPending = false;
    var _aSelectedSuperTypes = dofus.Constants.FILTER_EQUIPEMENT;
    var _nSelectedTypeID = 0;
    var _sCurrentItemSearch = "";
@@ -70,21 +70,21 @@ class dofus.graphics.gapi.ui.Exchange extends dofus.graphics.gapi.core.DofusAdva
       this._eaDataProvider.addEventListener("modelChanged",this);
       this.modelChanged();
    }
-   function set _nDistantReadyState(eaDistantDataProvider)
+   function set _mcBlinkPay(eaLocalDataProvider)
    {
       this._eaLocalDataProvider.removeEventListener("modelChange",this);
-      this._eaLocalDataProvider = eaDistantDataProvider;
+      this._eaLocalDataProvider = eaLocalDataProvider;
       this._eaLocalDataProvider.addEventListener("modelChanged",this);
       this.modelChanged();
    }
-   function set _mcBlinkPay(eaLocalDataProvider)
+   function set _nDistantReadyState(eaDistantDataProvider)
    {
       this._eaDistantDataProvider.removeEventListener("modelChange",this);
-      this._eaDistantDataProvider = eaLocalDataProvider;
+      this._eaDistantDataProvider = eaDistantDataProvider;
       this._eaDistantDataProvider.addEventListener("modelChanged",this);
       this.modelChanged();
    }
-   function set _winPay(eaReadyDataProvider)
+   function set _bValidateDelayed(eaReadyDataProvider)
    {
       this._eaReadyDataProvider.removeEventListener("modelChange",this);
       this._eaReadyDataProvider = eaReadyDataProvider;
@@ -184,9 +184,9 @@ class dofus.graphics.gapi.ui.Exchange extends dofus.graphics.gapi.core.DofusAdva
    function initData()
    {
       this.dataProvider = this.api.datacenter.Exchange.inventory;
-      this._nDistantReadyState = this.api.datacenter.Exchange.localGarbage;
-      this._mcBlinkPay = this.api.datacenter.Exchange.distantGarbage;
-      this._winPay = this.api.datacenter.Exchange.readyStates;
+      this._mcBlinkPay = this.api.datacenter.Exchange.localGarbage;
+      this._nDistantReadyState = this.api.datacenter.Exchange.distantGarbage;
+      this._bValidateDelayed = this.api.datacenter.Exchange.readyStates;
    }
    function updateData(eaDataProvider)
    {
@@ -612,7 +612,7 @@ class dofus.graphics.gapi.ui.Exchange extends dofus.graphics.gapi.core.DofusAdva
    }
    function localKamaChange(oEvent)
    {
-      this._bValidateDelayed.text = new ank.utils.ExtendedString(oEvent.value).addMiddleChar(this.api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
+      this._bValidationDelayed.text = new ank.utils.ExtendedString(oEvent.value).addMiddleChar(this.api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
       this._lblKama.text = new ank.utils.ExtendedString(this.api.datacenter.Player.Kama - oEvent.value).addMiddleChar(this.api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
       this.hideButtonValidate(true);
       this.onDataUpdated();

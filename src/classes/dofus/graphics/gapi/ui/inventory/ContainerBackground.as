@@ -1,3 +1,4 @@
+750438858 - 1;
 class dofus.graphics.gapi.ui.inventory.ContainerBackground extends ank.gapi.core.UIBasicComponent
 {
    var __height;

@@ -1,3 +1,4 @@
+269099309 - 1;
 class ank.battlefield.utils.Compressor extends ank.utils.Compressor
 {
    function Compressor()

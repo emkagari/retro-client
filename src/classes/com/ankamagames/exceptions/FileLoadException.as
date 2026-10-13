@@ -1,4 +1,3 @@
-731679061 - 1;
 class com.ankamagames.exceptions.FileLoadException extends com.ankamagames.exceptions.AbstractException
 {
    function FileLoadException(objectErrorSource, className, methodName, file)

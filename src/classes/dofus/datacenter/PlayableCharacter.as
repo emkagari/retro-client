@@ -11,7 +11,6 @@ class dofus.datacenter.PlayableCharacter extends ank.battlefield.datacenter.Spri
    var _lp;
    var _lpmax;
    var _mp;
-   var _mpinit;
    var _nPvpGain;
    var _name;
    var _sTransformGfxFile;
@@ -21,6 +20,7 @@ class dofus.datacenter.PlayableCharacter extends ank.battlefield.datacenter.Spri
    var api;
    var baseGfxFileName;
    var baseGfxFileName_;
+   var baseGfxFileName__;
    var broadcastMessage;
    var creatureModeApplied;
    var dispatchEvent;
@@ -164,11 +164,11 @@ class dofus.datacenter.PlayableCharacter extends ank.battlefield.datacenter.Spri
    }
    function get XP()
    {
-      return this._xp;
+      return this.baseGfxFileName__;
    }
    function set XP(value)
    {
-      this._xp = Number(value);
+      this.baseGfxFileName__ = Number(value);
       this.broadcastMessage("onSetXP",value);
    }
    function get LP()
@@ -215,11 +215,11 @@ class dofus.datacenter.PlayableCharacter extends ank.battlefield.datacenter.Spri
    }
    function get APinit()
    {
-      return this._team;
+      return this._xp;
    }
    function set APinit(value)
    {
-      this._team = Number(value);
+      this._xp = Number(value);
    }
    function get MP()
    {
@@ -237,11 +237,11 @@ class dofus.datacenter.PlayableCharacter extends ank.battlefield.datacenter.Spri
    }
    function get MPinit()
    {
-      return this._mpinit;
+      return this._summoned;
    }
    function set MPinit(value)
    {
-      this._mpinit = Number(value);
+      this._summoned = Number(value);
    }
    function get Kama()
    {
@@ -254,19 +254,19 @@ class dofus.datacenter.PlayableCharacter extends ank.battlefield.datacenter.Spri
    }
    function get Team()
    {
-      return this._summoned;
+      return this._team;
    }
    function set Team(value)
    {
-      this._summoned = Number(value);
+      this._team = Number(value);
    }
-   function get _apinit()
+   function get _mpinit()
    {
       return this._aAccessories[0];
    }
    function get ToolAnimation()
    {
-      var _loc2_ = this._apinit.unicID;
+      var _loc2_ = this._mpinit.unicID;
       var _loc3_ = this.api.lang.getItemUnicText(_loc2_);
       if(_loc3_.an == undefined)
       {

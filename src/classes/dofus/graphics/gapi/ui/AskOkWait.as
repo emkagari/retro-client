@@ -1,3 +1,4 @@
+439731002 - 1;
 class dofus.graphics.gapi.ui.AskOkWait extends ank.gapi.ui.FlyWindow
 {
    var _nInterval;

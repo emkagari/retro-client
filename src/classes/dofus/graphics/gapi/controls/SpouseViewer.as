@@ -1,4 +1,3 @@
-978930802 - 1;
 class dofus.graphics.gapi.controls.SpouseViewer extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnCompass;

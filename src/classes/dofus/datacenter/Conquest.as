@@ -1,4 +1,3 @@
-651351098 - 1;
 class dofus.datacenter.Conquest extends Object
 {
    var _cbdAlignBonus;

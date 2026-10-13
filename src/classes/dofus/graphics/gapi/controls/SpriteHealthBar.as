@@ -21,33 +21,33 @@ class dofus.graphics.gapi.controls.SpriteHealthBar extends dofus.graphics.gapi.c
    {
       super();
    }
-   function set lifeCurrentValue(nValue)
+   function set lifeCurrentValue(nValue_)
    {
-      this._nCurrentValue = nValue;
+      this._nCurrentValue = nValue_;
    }
    function get lifeCurrentValue()
    {
       return this._nCurrentValue;
    }
-   function set lifeMinValue(nValue)
+   function set lifeMinValue(nValue_)
    {
-      this._nMinValue = nValue;
+      this._nMinValue = nValue_;
    }
    function get lifeMinValue()
    {
       return this._nMinValue;
    }
-   function set lifeMaxValue(nValue)
+   function set lifeMaxValue(nValue_)
    {
-      this._nMaxValue = nValue;
+      this._nMaxValue = nValue_;
    }
    function get lifeMaxValue()
    {
       return this._nMaxValue;
    }
-   function set realWidth(nValue)
+   function set realWidth(nValue_)
    {
-      this._nWidth = nValue;
+      this._nWidth = nValue_;
    }
    function init()
    {

@@ -1,5 +1,4 @@
 on(construct){
-   567640405 - 1;
    cellRenderer = "ItemViewerItem";
    enabled = false;
    multipleSelection = false;

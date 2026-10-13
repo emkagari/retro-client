@@ -1,4 +1,3 @@
-656506150 - 1;
 class dofus.graphics.gapi.ui.TitleAndOrnament extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnClose;

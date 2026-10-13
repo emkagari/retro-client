@@ -90,6 +90,7 @@ class dofus.SaveTheWorld extends dofus.utils.ApiElement
    }
    function traceProgress()
    {
+      org.flashdevelop.utils.FlashConnect.trace("[?!!] Saving the world : " + ++this.nCount + "/" + this.nTotal + " (" + Math.round(this.nCount / this.nTotal * 100) + "%)","dofus.SaveTheWorld::traceProgress","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/SaveTheWorld.as",139);
       this.api.kernel.showMessage(undefined,"Saving the world : " + this.nCount + "/" + this.nTotal + " (" + Math.round(this.nCount / this.nTotal * 100) + "%)","DEBUG_LOG");
       this.nextAction();
    }
@@ -121,6 +122,7 @@ class dofus.SaveTheWorld extends dofus.utils.ApiElement
    }
    function onConnect(success)
    {
+      org.flashdevelop.utils.FlashConnect.trace("Socket connexion result : " + (!success ? "Failed! :((((((" : "OK! :)))))"),"dofus.SaveTheWorld::onConnect","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/SaveTheWorld.as",177);
       if(success)
       {
          this.runInnerQueue();
@@ -128,6 +130,7 @@ class dofus.SaveTheWorld extends dofus.utils.ApiElement
    }
    function onClose()
    {
+      org.flashdevelop.utils.FlashConnect.trace("Socket closed! :((((","dofus.SaveTheWorld::onClose","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/SaveTheWorld.as",184);
       dofus.SaveTheWorld.queue = [];
    }
 }

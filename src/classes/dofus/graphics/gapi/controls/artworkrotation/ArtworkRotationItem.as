@@ -1,4 +1,3 @@
-480807217 - 1;
 class dofus.graphics.gapi.controls.artworkrotation.ArtworkRotationItem extends ank.gapi.core.UIBasicComponent
 {
    var _ldrArtwork;

@@ -1,4 +1,3 @@
-874433992 - 1;
 class ank.utils.datacenter.MouseClick
 {
    var _bRightClick;

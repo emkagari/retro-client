@@ -1,3 +1,4 @@
+31149963 - 1;
 class dofus.graphics.gapi.ui.Buff extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var addToQueue;

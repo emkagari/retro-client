@@ -104,7 +104,7 @@ class dofus.graphics.gapi.ui.craft.SecureForgemagusCraft extends dofus.graphics.
    {
       this._eaCraftDataProvider = eaCraftDataProvider;
    }
-   function set _winPay(eaReadyDataProvider)
+   function set _bValidateDelayed(eaReadyDataProvider)
    {
       this._eaReadyDataProvider = eaReadyDataProvider;
    }
@@ -225,7 +225,7 @@ class dofus.graphics.gapi.ui.craft.SecureForgemagusCraft extends dofus.graphics.
       this.dataProvider = this.api.datacenter.Exchange.inventory;
       this.bagDataProvider = this.api.datacenter.Exchange.coopGarbage;
       this.craftDataProvider = this.api.datacenter.Exchange.distantGarbage;
-      this._winPay = this.api.datacenter.Exchange.readyStates;
+      this._bValidateDelayed = this.api.datacenter.Exchange.readyStates;
       this.updateCraftData();
       this.updateBagData();
       this.updateBagStateChange();

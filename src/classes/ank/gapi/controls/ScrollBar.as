@@ -1,8 +1,6 @@
-882367120 - 1;
 class ank.gapi.controls.ScrollBar extends ank.gapi.core.UIBasicComponent
 {
    var __height;
-   var _bHorizontal;
    var _mcHolder;
    var _nDragOffset;
    var _nMax;
@@ -26,6 +24,7 @@ class ank.gapi.controls.ScrollBar extends ank.gapi.core.UIBasicComponent
    var dispatchInterval;
    var down_mc;
    var getStyle;
+   var getStyle__;
    var height;
    var interval;
    var onRelease;
@@ -68,7 +67,7 @@ class ank.gapi.controls.ScrollBar extends ank.gapi.core.UIBasicComponent
    {
       return this._nPage;
    }
-   function set parent(tTarget)
+   function set _bHorizontal(tTarget)
    {
       if(tTarget == undefined)
       {
@@ -87,7 +86,7 @@ class ank.gapi.controls.ScrollBar extends ank.gapi.core.UIBasicComponent
          this.addToQueue({object:this,method:this.snapToTextField});
       }
    }
-   function get parent()
+   function get _bHorizontal()
    {
       return this._tTarget;
    }
@@ -129,7 +128,7 @@ class ank.gapi.controls.ScrollBar extends ank.gapi.core.UIBasicComponent
    }
    function set horizontal(bHorizontal)
    {
-      this._bHorizontal = bHorizontal;
+      this.getStyle__ = bHorizontal;
       this.arrange();
    }
    function setSize(nHeight)
@@ -265,7 +264,7 @@ class ank.gapi.controls.ScrollBar extends ank.gapi.core.UIBasicComponent
       super.size();
       this._nSize = this.__height;
       this.arrange();
-      if(this.parent != undefined)
+      if(this._bHorizontal != undefined)
       {
          this.setScrollPropertiesToTarget();
       }
@@ -276,7 +275,7 @@ class ank.gapi.controls.ScrollBar extends ank.gapi.core.UIBasicComponent
       {
          return undefined;
       }
-      if(this._bHorizontal)
+      if(this.getStyle__)
       {
          this._rotation = -90;
       }

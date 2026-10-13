@@ -1,4 +1,3 @@
-795812244 - 1;
 class dofus.graphics.gapi.ui.knownledgebase.KnownledgeBaseItem extends ank.gapi.core.UIBasicComponent
 {
    var _bWasArticle;

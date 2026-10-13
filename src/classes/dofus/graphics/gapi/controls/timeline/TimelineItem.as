@@ -54,7 +54,7 @@ class dofus.graphics.gapi.controls.timeline.TimelineItem extends dofus.graphics.
    function setHealthTeamColor()
    {
       var _loc2_ = new Color(this._mcHealth);
-      _loc2_.setRGB(dofus.Constants.TEAMS_COLOR[this._oData._summoned]);
+      _loc2_.setRGB(dofus.Constants.TEAMS_COLOR[this._oData._team]);
    }
    function updateHealth()
    {

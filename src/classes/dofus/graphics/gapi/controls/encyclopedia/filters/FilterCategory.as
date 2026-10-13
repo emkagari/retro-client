@@ -1,4 +1,3 @@
-116692890 - 1;
 class dofus.graphics.gapi.controls.encyclopedia.filters.FilterCategory implements dofus.graphics.gapi.controls.encyclopedia.filters.IFilterComposant
 {
    var _eaData;

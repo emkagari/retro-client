@@ -14,7 +14,7 @@
       { "depth": 11, "export": "ItemViewer", "x": 17, "y": 61, "name": "_itvItemViewer", "actions": true },
       { "depth": 41, "shape": 1059, "x": 373.1, "y": 333 },
       { "depth": 42, "export": "KamaSymbol", "x": 430.7, "y": 279.85 },
-      { "depth": 45, "export": "Label", "x": 449, "y": 279, "scaleX": 1.2398, "scaleY": 0.8, "name": "_bValidateDelayed", "actions": true },
+      { "depth": 45, "export": "Label", "x": 449, "y": 279, "scaleX": 1.2398, "scaleY": 0.8, "name": "_bValidationDelayed", "actions": true },
       { "depth": 46, "export": "Button", "x": 610, "y": 389, "scaleX": 1.2, "scaleY": 1.11111, "name": "_btnValidate", "actions": true },
       { "depth": 47, "export": "Button", "x": 168, "y": 389, "scaleX": 1.5, "scaleY": 1.11111, "name": "_btnPrivateChat", "actions": true },
       { "depth": 48, "export": "Button", "x": 707, "y": 69, "scaleX": 0.12001, "scaleY": 0.66669, "name": "_btnClose", "actions": true },

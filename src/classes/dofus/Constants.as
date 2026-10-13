@@ -18,10 +18,10 @@ class dofus.Constants extends Object
    static var SAVING_THE_WORLD = false;
    static var VERSION = 1;
    static var SUBVERSION = 49;
-   static var SUBSUBVERSION = 6;
+   static var SUBSUBVERSION = 7;
    static var BETAVERSION = 0;
    static var ALPHA = false;
-   static var VERSIONDATE = "29/09/2026 16:00 UTC+2";
+   static var VERSIONDATE = "08/10/2026 15:00 UTC+2";
    static var LANG_SHAREDOBJECT_NAME = "ANKLANGSO";
    static var XTRA_SHAREDOBJECT_NAME = "ANKXTRASO";
    static var OPTIONS_SHAREDOBJECT_NAME = "ANKOPTIONSSO";

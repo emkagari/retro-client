@@ -1,3 +1,4 @@
+123635729 - 1;
 class dofus.graphics.gapi.controls.encyclopedia.filters.FilterInterval implements dofus.graphics.gapi.controls.encyclopedia.filters.IFilterComposant
 {
    var _nDefaultMax;

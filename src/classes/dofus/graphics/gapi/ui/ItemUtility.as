@@ -1,4 +1,3 @@
-648834142 - 1;
 class dofus.graphics.gapi.ui.ItemUtility extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _bgh;

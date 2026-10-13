@@ -1,4 +1,3 @@
-220659250 - 1;
 class dofus.graphics.gapi.ui.PlayerShop extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnBuy;

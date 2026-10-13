@@ -1,3 +1,4 @@
+330785000 - 1;
 class dofus.datacenter.GuildInfos extends Object
 {
    var _bValid;
@@ -58,7 +59,7 @@ class dofus.datacenter.GuildInfos extends Object
    }
    function get emblem()
    {
-      return {backID:this._nBackEmblemID,backColor:this._nMaxMountParks,upID:this._nUpEmblemID,upColor:this._nXPMax};
+      return {backID:this._nBackEmblemID,backColor:this._nMaxMountParks,upID:this._nUpEmblemID,upColor:this._nBoostPoints};
    }
    function get playerRights()
    {
@@ -70,7 +71,7 @@ class dofus.datacenter.GuildInfos extends Object
    }
    function get xpmin()
    {
-      return this._nBoostPoints;
+      return this._nXPMax;
    }
    function get xpmax()
    {
@@ -200,7 +201,7 @@ class dofus.datacenter.GuildInfos extends Object
       this._nBackEmblemID = nBackEmblemID;
       this._nMaxMountParks = nBackEmblemColor;
       this._nUpEmblemID = nUpEmblemID;
-      this._nXPMax = nUpEmblemColor;
+      this._nBoostPoints = nUpEmblemColor;
       this._nBackEmblemColor = new dofus.datacenter.GuildRights(nPlayerRights);
       if(bUpdate)
       {
@@ -212,7 +213,7 @@ class dofus.datacenter.GuildInfos extends Object
    {
       this._eaHouses = bValid;
       this._nLevel = nLevel;
-      this._nBoostPoints = nXPMin;
+      this._nXPMax = nXPMin;
       this._nXP = nXP;
       this._nXPMin = nXPMax;
       this.dispatchEvent({type:"modelChanged",eventName:"general"});

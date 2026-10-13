@@ -1,5 +1,4 @@
 on(construct){
-   711775544 - 1;
    backgroundRenderer = "TemporaryEventItemBackground";
    borderRenderer = "";
    dragAndDrop = false;

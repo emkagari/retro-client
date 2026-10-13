@@ -1,3 +1,4 @@
+615327529 - 1;
 class dofus.aks.Items extends dofus.aks.Handler
 {
    var api;

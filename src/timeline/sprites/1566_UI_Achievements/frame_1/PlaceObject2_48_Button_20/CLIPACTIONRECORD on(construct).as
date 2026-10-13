@@ -1,5 +1,5 @@
 on(construct){
-   793309048 - 1;
+   788000491 - 1;
    backgroundDown = "ButtonCloseDown";
    backgroundUp = "ButtonCloseUp";
    enabled = true;

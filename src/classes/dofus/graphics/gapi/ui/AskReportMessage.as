@@ -1,4 +1,3 @@
-235987051 - 1;
 class dofus.graphics.gapi.ui.AskReportMessage extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnCancel;

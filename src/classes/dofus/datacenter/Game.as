@@ -1,6 +1,7 @@
 class dofus.datacenter.Game extends Object
 {
    var _aFightMonsters;
+   var _aTurnSequence;
    var _bFirstTurn;
    var _bRunning;
    var _bSpectator;
@@ -9,7 +10,6 @@ class dofus.datacenter.Game extends Object
    var _nInteractionType;
    var _nPlayerCount;
    var _nState;
-   var _oResults;
    var _sCurrentPlayerWithGlowID;
    var _sLastPlayerID;
    var api;
@@ -27,8 +27,8 @@ class dofus.datacenter.Game extends Object
    static var _bCreatureMode = false;
    static var _bLogMapDisconnections = false;
    static var _aResults = new ank.utils.ExtendedArray();
-   var _aTurnSequence = false;
-   var _sCurrentPlayerID = true;
+   var _sCurrentPlayerID = false;
+   var _oResults = true;
    var nTransmittingStates = 0;
    static var STATE_NONE = 0;
    static var STATE_MOVE_BIT = 1;
@@ -42,17 +42,17 @@ class dofus.datacenter.Game extends Object
    {
       return dofus.datacenter.Game._bLogMapDisconnections;
    }
-   function set isLoggingMapDisconnections(bLogMapDisconnections)
+   function set isLoggingMapDisconnections(bTacticMode)
    {
-      dofus.datacenter.Game._bLogMapDisconnections = bLogMapDisconnections;
+      dofus.datacenter.Game._bLogMapDisconnections = bTacticMode;
    }
    function get isFirstTurn()
    {
-      return this._sCurrentPlayerID;
+      return this._oResults;
    }
-   function set isFirstTurn(sCurrentPlayerID)
+   function set isFirstTurn(oResults)
    {
-      this._sCurrentPlayerID = sCurrentPlayerID;
+      this._oResults = oResults;
    }
    function get passiveTurn()
    {
@@ -62,9 +62,9 @@ class dofus.datacenter.Game extends Object
    {
       return dofus.datacenter.Game._bTacticMode;
    }
-   function set isTacticMode(bTacticMode)
+   function set isTacticMode(bLogMapDisconnections)
    {
-      dofus.datacenter.Game._bTacticMode = bTacticMode;
+      dofus.datacenter.Game._bTacticMode = bLogMapDisconnections;
    }
    function get isSpectatorBlocked()
    {
@@ -98,21 +98,21 @@ class dofus.datacenter.Game extends Object
    {
       dofus.datacenter.Game._bCreatureMode = bCreatureMode;
    }
-   function set playerCount(oResults)
+   function set playerCount(bRunning)
    {
-      this._oResults = Number(oResults);
+      this._bRunning = Number(bRunning);
    }
    function get playerCount()
    {
-      return this._oResults;
+      return this._bRunning;
    }
-   function set currentTableTurn(bSpectator)
+   function set currentTableTurn(bFirstTurn)
    {
-      this._bSpectator = Number(bSpectator);
+      this._bFirstTurn = Number(bFirstTurn);
    }
    function get currentTableTurn()
    {
-      return this._bSpectator;
+      return this._bFirstTurn;
    }
    function set currentPlayerID(nPlayerCount)
    {
@@ -122,13 +122,13 @@ class dofus.datacenter.Game extends Object
    {
       return this._nPlayerCount;
    }
-   function set lastPlayerID(bFirstTurn)
+   function set lastPlayerID(aTurnSequence)
    {
-      this._bFirstTurn = bFirstTurn;
+      this._aTurnSequence = aTurnSequence;
    }
    function get lastPlayerID()
    {
-      return this._bFirstTurn;
+      return this._aTurnSequence;
    }
    function set currentPlayerWithGlowID(sCurrentPlayerWithGlowID)
    {
@@ -155,21 +155,21 @@ class dofus.datacenter.Game extends Object
    {
       return this._nFightType;
    }
-   function set isSpectator(bRunning)
-   {
-      this._bRunning = bRunning;
-   }
-   function get isSpectator()
-   {
-      return this._bRunning;
-   }
-   function set turnSequence(nCurrentTableTurn)
+   function set isSpectator(nCurrentTableTurn)
    {
       this._nCurrentTableTurn = nCurrentTableTurn;
    }
-   function get turnSequence()
+   function get isSpectator()
    {
       return this._nCurrentTableTurn;
+   }
+   function set turnSequence(bSpectator)
+   {
+      this._bSpectator = bSpectator;
+   }
+   function get turnSequence()
+   {
+      return this._bSpectator;
    }
    function set results(sLastPlayerID)
    {
@@ -199,13 +199,13 @@ class dofus.datacenter.Game extends Object
    {
       return this._aFightMonsters = afightMonsters;
    }
-   function set isRunning(aTurnSequence)
+   function set isRunning(sCurrentPlayerID)
    {
-      this._aTurnSequence = aTurnSequence;
+      this._sCurrentPlayerID = sCurrentPlayerID;
    }
    function get isRunning()
    {
-      return this._aTurnSequence;
+      return this._sCurrentPlayerID;
    }
    function get isFight()
    {
@@ -219,15 +219,15 @@ class dofus.datacenter.Game extends Object
    {
       mx.events.EventDispatcher.initialize(this);
       this.api = _global.API;
-      this._aTurnSequence = false;
-      this._oResults = 0;
+      this._sCurrentPlayerID = false;
+      this._bRunning = 0;
       this._nPlayerCount = null;
-      this._bFirstTurn = null;
+      this._aTurnSequence = null;
       this._nState = 0;
-      this._nCurrentTableTurn = [];
+      this._bSpectator = [];
       this._sLastPlayerID = {};
       this._nInteractionType = 0;
-      this._bSpectator = 0;
+      this._bFirstTurn = 0;
       this.api.electron.addEventListener("onWindowFocusChanged",this);
    }
    function setInteractionType(sType)

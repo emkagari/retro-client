@@ -1,5 +1,4 @@
 on(construct){
-   682403165 - 1;
    autoLoad = true;
    centerContent = false;
    contentPath = "UI_QuestsBubble";

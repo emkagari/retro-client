@@ -1,3 +1,4 @@
+399959688 - 1;
 class dofus.graphics.gapi.ui.spells.SpellsItem extends ank.gapi.core.UIBasicComponent
 {
    var _btnBoost;

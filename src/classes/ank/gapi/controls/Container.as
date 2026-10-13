@@ -2,7 +2,6 @@ class ank.gapi.controls.Container extends ank.gapi.core.UIBasicComponent
 {
    var __height;
    var __width;
-   var _bDragAndDrop;
    var _bEnabled;
    var _bInitialized;
    var _lblText;
@@ -17,6 +16,7 @@ class ank.gapi.controls.Container extends ank.gapi.core.UIBasicComponent
    var _oTempVars;
    var _parent;
    var _sBorder;
+   var _sBorderName;
    var _sLabel;
    var _sLabelStyle;
    var addToQueue;
@@ -149,7 +149,7 @@ class ank.gapi.controls.Container extends ank.gapi.core.UIBasicComponent
       {
          return;
       }
-      this._bDragAndDrop = sBorder;
+      this._sBorderName = sBorder;
       this.attachBorder();
       if(this._bInitialized)
       {
@@ -445,7 +445,7 @@ class ank.gapi.controls.Container extends ank.gapi.core.UIBasicComponent
    }
    function attachBorder()
    {
-      this.attachMovie(this._bDragAndDrop,"_mcBorder",90);
+      this.attachMovie(this._sBorderName,"_mcBorder",90);
    }
    function attachHighlight()
    {

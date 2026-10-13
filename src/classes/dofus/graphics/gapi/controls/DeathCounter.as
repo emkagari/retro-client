@@ -1,4 +1,3 @@
-990599305 - 1;
 class dofus.graphics.gapi.controls.DeathCounter extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _mcPlacer;

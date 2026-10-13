@@ -4,7 +4,6 @@ class dofus.graphics.gapi.controls.MountWeight extends dofus.graphics.gapi.core.
    var _pbWeight;
    var _sStyleName;
    var addToQueue;
-   var api;
    var gapi;
    var initialized;
    static var CLASS_NAME = "MountWeight";

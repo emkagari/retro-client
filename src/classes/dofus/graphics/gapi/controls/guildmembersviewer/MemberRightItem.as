@@ -1,3 +1,4 @@
+546624081 - 1;
 class dofus.graphics.gapi.controls.guildmembersviewer.MemberRightItem extends ank.gapi.core.UIBasicComponent
 {
    var _bRightOriginalState;

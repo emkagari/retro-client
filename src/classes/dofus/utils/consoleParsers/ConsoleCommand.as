@@ -1,4 +1,3 @@
-264155503 - 1;
 class dofus.utils.consoleParsers.ConsoleCommand
 {
    var fExecute;

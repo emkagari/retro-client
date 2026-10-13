@@ -1,3 +1,4 @@
+636718986 - 1;
 class dofus.graphics.gapi.controls.encyclopedia.filters.FilterPropertyValue implements dofus.graphics.gapi.controls.encyclopedia.filters.IFilterComposant
 {
    var _eaData;

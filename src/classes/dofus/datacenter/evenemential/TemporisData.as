@@ -1,4 +1,3 @@
-113440257 - 1;
 class dofus.datacenter.evenemential.TemporisData
 {
    var aDungeonLadderDate;

@@ -1,3 +1,4 @@
+110790428 - 1;
 class ank.external.display.ScreenResolution extends ank.external.ExternalConnectorListerner
 {
    var dispatchEvent;

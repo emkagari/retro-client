@@ -1,4 +1,5 @@
 on(construct){
+   50674372 - 1;
    backgroundDown = "ButtonNormalDown";
    backgroundUp = "ButtonNormalUp";
    enabled = true;

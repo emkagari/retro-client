@@ -1,5 +1,4 @@
 on(construct){
-   580469999 - 1;
    cellRenderer = "AchievementsCategoryItem";
    enabled = true;
    multipleSelection = false;

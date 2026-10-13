@@ -72,6 +72,7 @@ class dofus.utils.Api extends Object
       var _loc2_ = dofus.DofusCore.getClip();
       this._oNetwork = _loc2_.GAPI;
       this._oNetwork.api = this;
+      org.flashdevelop.utils.FlashConnect.trace("[Api] (initializa) " + this._oNetwork.api,"dofus.utils.Api::initialize","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/utils/Api.as",144);
       this._oElectron = new dofus.Electron(this);
       this._oLang = new dofus.Kernel(this);
       this._oMouseClicksMemorizer = dofus.sounds.AudioManager.getInstance();

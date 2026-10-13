@@ -1,5 +1,4 @@
 on(construct){
-   124955075 - 1;
    backgroundRenderer = "UI_EncyclopediaCraftItemContainer";
    borderRenderer = "";
    dragAndDrop = false;

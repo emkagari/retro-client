@@ -168,9 +168,9 @@ class dofus.graphics.gapi.ui.NpcShop extends dofus.graphics.gapi.core.DofusAdvan
       var api = this.api;
       var _loc8_ = "POPUP_QUANTITY_NPC_SHOP";
       var sMoney = !this._oSelectedItem.hasCustomMoneyItemId ? " " + api.lang.getText("KAMAS") : "x " + new dofus.datacenter.Item(0,this._oSelectedItem.customMoneyItemId).name;
-      var _loc9_ = [function(nMin, nMax, nValue)
+      var _loc9_ = [function(nMin, nMax, nValue_)
       {
-         var _loc5_ = nValue * nPrice;
+         var _loc5_ = nValue_ * nPrice;
          var _loc6_ = new ank.utils.ExtendedString(_loc5_).addMiddleChar(api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
          _loc6_ += sMoney;
          return _loc6_;

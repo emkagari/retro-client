@@ -1,3 +1,4 @@
+131148930 - 1;
 class dofus.utils.nameChecker.CheckResults extends dofus.utils.ApiElement
 {
    var FAILED_ON_BEGINNING_WITH_PROHIBED_WORDS_CHECK;

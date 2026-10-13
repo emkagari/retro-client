@@ -47,6 +47,7 @@ class dofus.utils.LangFileLoader extends ank.utils.QueueEmbedMovieClip
          this._mcl.addListener(this);
          this._progressTimer = _global.setInterval(this.onTimedProgress,1000);
          this._timerID = _global.setInterval(this.onEventNotCall,5000);
+         org.flashdevelop.utils.FlashConnect.trace("[LangFileLoader] (loadWithNextURL) -> Chargement de " + _loc3_,"dofus.utils.LangFileLoader::loadWithNextURL","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/utils/LangFileLoader.as",90);
          this._mcl.loadClip(_loc3_,this._mc);
       }
       else
@@ -146,6 +147,7 @@ class dofus.utils.LangFileLoader extends ank.utils.QueueEmbedMovieClip
          if(this._bUseMultiSO)
          {
             _loc3_ = this._sSharedObjectName + "_" + this._aData[_loc2_].key;
+            org.flashdevelop.utils.FlashConnect.trace("[LangFileLoader] (processFile) Enregistrement dans " + _loc3_,"dofus.utils.LangFileLoader::processFile","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/utils/LangFileLoader.as",240);
             this._so = ank.utils.SharedObjectFix.getLocal(_loc3_);
          }
          this._so.data[this._aData[_loc2_].key] = this._aData[_loc2_].value;
@@ -153,6 +155,7 @@ class dofus.utils.LangFileLoader extends ank.utils.QueueEmbedMovieClip
          _loc2_ = _loc2_ + 1;
       }
       this._nStart += this._nStep;
+      org.flashdevelop.utils.FlashConnect.trace("[LangFileLoader] (processFile) Flush des données","dofus.utils.LangFileLoader::processFile","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/utils/LangFileLoader.as",249);
       if(this._so.flush(1000000000) == false)
       {
          this.broadcastMessage("onCantWrite",this._mc);

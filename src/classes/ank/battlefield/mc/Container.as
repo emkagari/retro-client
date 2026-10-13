@@ -48,6 +48,7 @@ class ank.battlefield.mc.Container extends MovieClip
          {
             this.ExternalContainer.clear();
          }
+         org.flashdevelop.utils.FlashConnect.trace("LOAD " + this.minDepth,"ank.battlefield.mc.Container::clear","C:\\Dev\\Projects\\client\\src\\ank-common\\classes/ank/battlefield/mc/Container.as",89);
          _loc3_.loadClip(this.minDepth,this.ExternalContainer);
       }
       else

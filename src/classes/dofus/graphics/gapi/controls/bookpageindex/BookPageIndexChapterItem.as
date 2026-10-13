@@ -1,4 +1,3 @@
-92291608 - 1;
 class dofus.graphics.gapi.controls.bookpageindex.BookPageIndexChapterItem extends ank.gapi.core.UIBasicComponent
 {
    var __height;

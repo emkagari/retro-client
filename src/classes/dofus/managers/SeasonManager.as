@@ -1,3 +1,4 @@
+606042217 - 1;
 class dofus.managers.SeasonManager extends Object
 {
    var api;
@@ -20,9 +21,9 @@ class dofus.managers.SeasonManager extends Object
    {
       return this.eaRewards;
    }
-   function set score(nValue)
+   function set score(nValue_)
    {
-      this.nScore = nValue;
+      this.nScore = nValue_;
    }
    function get score()
    {

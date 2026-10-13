@@ -199,7 +199,7 @@ class dofus.graphics.battlefield.DofusBattlefield extends ank.battlefield.Battle
             }
             if(_loc4_)
             {
-               if(getTimer() - this.api.datacenter.Basics.gfx_lastActionTime < dofus.Constants.CLICK_MIN_DELAY && (_loc3_ == undefined || !_loc3_._bIsMerchant))
+               if(getTimer() - this.api.datacenter.Basics.gfx_lastActionTime < dofus.Constants.CLICK_MIN_DELAY && (_loc3_ == undefined || !_loc3_._bDied))
                {
                   ank.utils.Logger.err("T trop rapide du clic");
                   return null;
@@ -1039,7 +1039,7 @@ class dofus.graphics.battlefield.DofusBattlefield extends ank.battlefield.Battle
             if(_loc10_ != "")
             {
                _loc15_ = dofus.Constants.OVERHEAD_TEXT_TITLE;
-               this.addSpriteOverHeadItem(_loc6_.id,"text",dofus.graphics.battlefield.TextWithTitleOverHead,[_loc10_,_loc4_,_loc7_,_loc5_,this.api.lang.getText("LEVEL") + " " + _loc6_._bForceWalk,_loc15_,_loc6_.bonusValue]);
+               this.addSpriteOverHeadItem(_loc6_.id,"text",dofus.graphics.battlefield.TextWithTitleOverHead,[_loc10_,_loc4_,_loc7_,_loc5_,this.api.lang.getText("LEVEL") + " " + _loc6_._bNoFlip,_loc15_,_loc6_.bonusValue]);
             }
             this.selectSprite(_loc6_.id,true);
             return undefined;

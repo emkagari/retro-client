@@ -1,4 +1,3 @@
-172662866 - 1;
 class dofus.graphics.gapi.ui.customset.CustomSetEdit extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnClose;

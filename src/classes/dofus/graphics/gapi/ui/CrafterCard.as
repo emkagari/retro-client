@@ -26,7 +26,6 @@ class dofus.graphics.gapi.ui.CrafterCard extends dofus.graphics.gapi.core.DofusA
    var _oCrafter;
    var _winBg;
    var addToQueue;
-   var api;
    var unloadThis;
    static var CLASS_NAME = "CrafterCard";
    function CrafterCard()

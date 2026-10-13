@@ -1,4 +1,3 @@
-772236386 - 1;
 class dofus.managers.ServersManager extends dofus.utils.ApiElement
 {
    var _aServers;

@@ -1,4 +1,3 @@
-627266301 - 1;
 this.onRelease = function()
 {
    _parent.turnOn();

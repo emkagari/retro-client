@@ -5,7 +5,7 @@ on(construct){
    min = 0;
    page = 1;
    scrollPosition = 0;
-   parent = "";
+   _bHorizontal = "";
    snapTo = "none";
    styleName = "BrownScrollBar";
 }

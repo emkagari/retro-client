@@ -1,3 +1,4 @@
+503817617 - 1;
 class dofus.aks.InventoryShortcuts extends dofus.aks.Handler
 {
    var api;

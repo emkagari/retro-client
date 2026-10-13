@@ -1,4 +1,5 @@
 on(construct){
+   82861466 - 1;
    backgroundRenderer = "UI_InventoryContainerBackground";
    borderRenderer = "";
    dragAndDrop = true;

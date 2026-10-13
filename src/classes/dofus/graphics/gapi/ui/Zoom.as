@@ -1,3 +1,4 @@
+392989777 - 1;
 class dofus.graphics.gapi.ui.Zoom extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnCancel;

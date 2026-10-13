@@ -1,4 +1,3 @@
-54435850 - 1;
 class ank.gapi.controls.Loader extends ank.gapi.core.UIBasicComponent
 {
    var __height;

@@ -5,6 +5,7 @@ class dofus.datacenter.ConquestZoneData extends dofus.utils.ApiElement
    var _nAlignment;
    var _nPrismMap;
    var _nSubAreaId;
+   var api;
    var areaName;
    function ConquestZoneData(id, alignment, fighting, prism, attackable)
    {

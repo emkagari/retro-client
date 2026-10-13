@@ -1,3 +1,4 @@
+80494073 - 1;
 class dofus.graphics.gapi.ui.achievements.AchievementSynthesisItem extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _lblName;

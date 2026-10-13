@@ -1,3 +1,4 @@
+68941165 - 1;
 class dofus.graphics.gapi.controls.AchievementSynthesis extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _aData;

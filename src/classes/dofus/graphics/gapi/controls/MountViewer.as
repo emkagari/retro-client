@@ -60,7 +60,6 @@ class dofus.graphics.gapi.controls.MountViewer extends dofus.graphics.gapi.core.
    var _pbTired;
    var _pbXP;
    var addToQueue;
-   var api;
    var gapi;
    var gotoAndStop;
    var initialized;

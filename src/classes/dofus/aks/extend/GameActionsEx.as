@@ -1,4 +1,3 @@
-247520502 - 1;
 class dofus.aks.extend.GameActionsEx
 {
    var _parent;

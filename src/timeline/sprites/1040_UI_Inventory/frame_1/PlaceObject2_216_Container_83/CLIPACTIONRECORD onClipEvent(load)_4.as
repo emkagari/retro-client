@@ -1,5 +1,4 @@
 onClipEvent(load){
-   73440606 - 1;
    function §\x1e\x11\n§(eventObj)
    {
       _parent.dblClickItem({target:this});

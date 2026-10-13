@@ -1,4 +1,5 @@
 onClipEvent(load){
+   757489264 - 1;
    function §\x1e\x11\t§(eventObj)
    {
       _parent.selectItem({target:this});

@@ -3,18 +3,18 @@ class dofus.datacenter.MonsterGroup extends ank.battlefield.datacenter.Sprite
    var _aIDList;
    var _aLevelsList;
    var _aNamesList;
-   var _bNoFlip;
+   var _bAllDirections;
    var api;
    var id;
    var _sDefaultAnimation = "static";
-   var _bIsUncarrying = false;
-   var _bAllDirections = true;
+   var _bSpriteNoFlip = false;
+   var _bForceRun = true;
    var _nAlignmentIndex = -1;
    function MonsterGroup(sID, clipClass, sGfxFile, cellNum, dir, bonus)
    {
       super();
       this.api = _global.API;
-      this._bNoFlip = bonus;
+      this._bAllDirections = bonus;
       this.initialize(sID,clipClass,sGfxFile,cellNum,dir,null);
    }
    function set name(value)
@@ -95,13 +95,13 @@ class dofus.datacenter.MonsterGroup extends ank.battlefield.datacenter.Sprite
    function alertChatText()
    {
       var _loc2_ = this.api.datacenter.Map;
-      return "Groupe niveau " + this._bForceWalk + " en " + _loc2_.x + "," + _loc2_.y + " : <br/>" + this.getName("<br/>");
+      return "Groupe niveau " + this._bNoFlip + " en " + _loc2_.x + "," + _loc2_.y + " : <br/>" + this.getName("<br/>");
    }
    function set Level(value)
    {
       this._aLevelsList = value.split(",");
    }
-   function get _bForceWalk()
+   function get _bNoFlip()
    {
       var _loc2_ = 0;
       var _loc3_ = 0;
@@ -132,7 +132,7 @@ class dofus.datacenter.MonsterGroup extends ank.battlefield.datacenter.Sprite
    }
    function get bonusValue()
    {
-      return this._bNoFlip;
+      return this._bAllDirections;
    }
    function get alignment()
    {

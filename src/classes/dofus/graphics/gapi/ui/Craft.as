@@ -1,4 +1,3 @@
-607637889 - 1;
 class dofus.graphics.gapi.ui.Craft extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _aGarbageMemory;
@@ -117,17 +116,17 @@ class dofus.graphics.gapi.ui.Craft extends dofus.graphics.gapi.core.DofusAdvance
       this._eaDataProvider.addEventListener("modelChanged",this);
       this.modelChanged();
    }
-   function set _nDistantReadyState(eaDistantDataProvider)
+   function set _mcBlinkPay(eaLocalDataProvider)
    {
       this._eaLocalDataProvider.removeEventListener("modelChanged",this);
-      this._eaLocalDataProvider = eaDistantDataProvider;
+      this._eaLocalDataProvider = eaLocalDataProvider;
       this._eaLocalDataProvider.addEventListener("modelChanged",this);
       this.modelChanged();
    }
-   function set _mcBlinkPay(eaLocalDataProvider)
+   function set _nDistantReadyState(eaDistantDataProvider)
    {
       this._eaDistantDataProvider.removeEventListener("modelChanged",this);
-      this._eaDistantDataProvider = eaLocalDataProvider;
+      this._eaDistantDataProvider = eaDistantDataProvider;
       this._eaDistantDataProvider.addEventListener("modelChanged",this);
       this.modelChanged();
    }
@@ -241,8 +240,8 @@ class dofus.graphics.gapi.ui.Craft extends dofus.graphics.gapi.core.DofusAdvance
    function initData()
    {
       this.dataProvider = this.api.datacenter.Exchange.inventory;
-      this._nDistantReadyState = this.api.datacenter.Exchange.localGarbage;
-      this._mcBlinkPay = this.api.datacenter.Exchange.distantGarbage;
+      this._mcBlinkPay = this.api.datacenter.Exchange.localGarbage;
+      this._nDistantReadyState = this.api.datacenter.Exchange.distantGarbage;
    }
    function saveGridMaxSize()
    {
@@ -1015,7 +1014,7 @@ class dofus.graphics.gapi.ui.Craft extends dofus.graphics.gapi.core.DofusAdvance
    {
       var _loc3_ = new ank.utils.ExtendedArray();
       _loc3_.push(oItem);
-      this._mcBlinkPay = _loc3_;
+      this._nDistantReadyState = _loc3_;
    }
    function dblClickItem(oEvent)
    {

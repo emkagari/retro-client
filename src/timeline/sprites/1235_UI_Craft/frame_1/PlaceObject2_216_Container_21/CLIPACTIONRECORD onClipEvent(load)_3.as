@@ -1,4 +1,5 @@
 onClipEvent(load){
+   545219769 - 1;
    function §\x1e\x11\x0b§(eventObj)
    {
       _parent.dragItem({target:this});

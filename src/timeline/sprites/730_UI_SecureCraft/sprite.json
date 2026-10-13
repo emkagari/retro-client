@@ -48,8 +48,8 @@
       { "depth": 67, "export": "Window", "x": 9, "y": 259, "scaleX": 3.35709, "scaleY": 0.80072, "name": "_winOrder", "actions": true },
       { "depth": 68, "button": 726, "x": 132.1, "y": 313.05, "scaleX": 0.58334, "scaleY": 0.97087, "name": "_mcPayKama" },
       { "depth": 70, "export": "KamaSymbol", "x": 184.8, "y": 315.8, "scaleX": 1, "scaleY": 0.97087, "name": "\u001d\u000e\u000e" },
-      { "depth": 73, "export": "Label", "x": 132.1, "y": 314.95, "scaleX": 0.52008, "scaleY": 0.7767, "name": "_lblKamaPayment", "actions": true },
-      { "depth": 74, "export": "Label", "x": 12.1, "y": 314.55, "scaleX": 1.19998, "scaleY": 0.8, "name": "_nKamaPaymentIfSuccess", "actions": true },
+      { "depth": 73, "export": "Label", "x": 132.1, "y": 314.95, "scaleX": 0.52008, "scaleY": 0.7767, "name": "_lblKamaPaymentAmount", "actions": true },
+      { "depth": 74, "export": "Label", "x": 12.1, "y": 314.55, "scaleX": 1.19998, "scaleY": 0.8, "name": "_sCurrentDragSource", "actions": true },
       { "depth": 75, "export": "Label", "x": 257.45, "y": 313.9, "scaleX": 0.66745, "scaleY": 0.7767, "name": "_lblPayIfSuccessKamaTotal", "actions": true },
       { "depth": 76, "export": "KamaSymbol", "x": 325.4, "y": 315.8, "scaleX": 1, "scaleY": 0.97087, "name": "\u001d\u000e\u000e" },
       { "depth": 79, "export": "Label", "x": 205.5, "y": 313.9, "scaleX": 0.16325, "scaleY": 0.8, "actions": true },
@@ -65,9 +65,9 @@
       { "depth": 94, "export": "Label", "x": 222.2, "y": 288.6, "scaleX": 0.18509, "scaleY": 0.8, "name": "_lblQty1", "actions": true },
       { "depth": 95, "export": "Label", "x": 241.1, "y": 288.6, "scaleX": 0.16325, "scaleY": 0.8, "actions": true },
       { "depth": 96, "sprite": 728, "x": 236.45, "y": 313.05, "name": "_mcBlinkPayIfSuccess_TripleFramerate" },
-      { "depth": 98, "sprite": 729, "x": 236.45, "y": 313.05, "name": "_sCurrentDragTarget" },
+      { "depth": 98, "sprite": 729, "x": 236.45, "y": 313.05, "name": "_sDropTargetGrid" },
       { "depth": 100, "sprite": 728, "x": 236.45, "y": 287.45, "name": "_mcBlinkPay_TripleFramerate" },
-      { "depth": 102, "sprite": 729, "x": 236.45, "y": 287.45, "name": "_sCurrentDragSource" }
+      { "depth": 102, "sprite": 729, "x": 236.45, "y": 287.45, "name": "_sCurrentDragTarget" }
     ]
   }
  ]

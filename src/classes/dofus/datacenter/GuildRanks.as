@@ -1,4 +1,3 @@
-474781643 - 1;
 class dofus.datacenter.GuildRanks
 {
    var _oNameList;

@@ -22,6 +22,7 @@ class ank.utils.Logger
    }
    static function log(txt, sSource)
    {
+      org.flashdevelop.utils.FlashConnect.trace(txt,"ank.utils.Logger::log","C:\\Dev\\Projects\\client\\src\\ank-common\\classes/ank/utils/Logger.as",49);
       ank.utils.Logger.LC.send("loggerOut","log",txt);
       if(txt.length < ank.utils.Logger.MAX_LOG_SIZE)
       {
@@ -35,6 +36,7 @@ class ank.utils.Logger
    static function err(txt)
    {
       txt = "ERROR : " + txt;
+      org.flashdevelop.utils.FlashConnect.trace(txt,"ank.utils.Logger::err","C:\\Dev\\Projects\\client\\src\\ank-common\\classes/ank/utils/Logger.as",70);
       ank.utils.Logger.LC.send("loggerOut","err",txt);
       ank.utils.Logger._instance._errors.push(txt);
    }

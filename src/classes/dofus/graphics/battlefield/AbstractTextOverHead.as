@@ -1,4 +1,3 @@
-238986833 - 1;
 class dofus.graphics.battlefield.AbstractTextOverHead extends ank.gapi.core.UIBasicComponent
 {
    var _height;

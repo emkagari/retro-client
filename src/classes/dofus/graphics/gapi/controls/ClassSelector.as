@@ -1,3 +1,4 @@
+873663424 - 1;
 class dofus.graphics.gapi.controls.ClassSelector extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var addToQueue;

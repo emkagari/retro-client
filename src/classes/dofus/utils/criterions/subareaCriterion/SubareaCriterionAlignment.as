@@ -1,4 +1,3 @@
-369539626 - 1;
 class dofus.utils.criterions.subareaCriterion.SubareaCriterionAlignment extends dofus.utils.ApiElement implements dofus.utils.criterions.ICriterion
 {
    var _aSubarea;

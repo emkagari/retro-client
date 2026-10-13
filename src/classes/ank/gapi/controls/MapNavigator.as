@@ -1,4 +1,3 @@
-820370204 - 1;
 class ank.gapi.controls.MapNavigator extends ank.gapi.core.UIAdvancedComponent
 {
    var __height;

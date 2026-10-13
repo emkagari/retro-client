@@ -1,11 +1,10 @@
-82045703 - 1;
 class ank.battlefield.datacenter.Sprite extends Object
 {
    var _aAccessories;
    var _bClear;
-   var _bForceRun;
    var _bInMove;
    var _bInSpellAnimation;
+   var _bIsUncarrying;
    var _bVisible;
    var _eoLinkedChilds;
    var _nCellNumValue;
@@ -47,12 +46,12 @@ class ank.battlefield.datacenter.Sprite extends Object
    var _sStartAnimation = "static";
    var _nSpeedModerator = 1;
    var _bHidden = false;
-   var _bIsUncarrying = true;
-   var _bAllDirections = false;
+   var _bSpriteNoFlip = true;
+   var _bForceRun = false;
    var _bIsPendingClearing = false;
    var _bUncarryingSprite = false;
    var bInCreaturesMode = false;
-   var _bSpriteNoFlip = false;
+   var _bIsUncarryingSprite = false;
    var creatureModeApplied = false;
    var _bIsInvisibleInFight = false;
    function Sprite(nID, fClipClass, sGfxFile, nCellNum, nDir)
@@ -94,13 +93,13 @@ class ank.battlefield.datacenter.Sprite extends Object
    {
       return this.id == this.api.datacenter.Player.ID;
    }
-   function set uncarryingSprite(bNoFlip)
+   function set uncarryingSprite(bForceWalk)
    {
-      this._bSpriteNoFlip = bNoFlip;
+      this._bIsUncarryingSprite = bForceWalk;
    }
    function get uncarryingSprite()
    {
-      return this._bSpriteNoFlip;
+      return this._bIsUncarryingSprite;
    }
    function get hasChilds()
    {
@@ -132,27 +131,27 @@ class ank.battlefield.datacenter.Sprite extends Object
    }
    function hasCarriedChild()
    {
-      return this._oCarriedParent != undefined;
+      return this._sMoveAnimation != undefined;
    }
    function hasCarriedParent()
    {
-      return this._sMoveAnimation != undefined;
+      return this._oCarriedParent != undefined;
    }
    function get carriedChild()
    {
-      return this._oCarriedParent;
+      return this._sMoveAnimation;
    }
-   function set carriedChild(o)
+   function set carriedChild(sMoveAnimation)
    {
-      this._oCarriedParent = o;
+      this._sMoveAnimation = sMoveAnimation;
    }
    function get carriedParent()
    {
-      return this._sMoveAnimation;
+      return this._oCarriedParent;
    }
-   function set carriedParent(sMoveAnimation)
+   function set carriedParent(o)
    {
-      this._sMoveAnimation = sMoveAnimation;
+      this._oCarriedParent = o;
    }
    function get creationInstant()
    {
@@ -283,7 +282,7 @@ class ank.battlefield.datacenter.Sprite extends Object
       if(!value)
       {
          this._nFutureCellNum = -1;
-         this._bForceRun = undefined;
+         this._bIsUncarrying = undefined;
          this._sMoveSpeedType = undefined;
       }
       this._bClear = value;
@@ -294,11 +293,11 @@ class ank.battlefield.datacenter.Sprite extends Object
    }
    function get _nCellNum()
    {
-      return this._bForceRun;
+      return this._bIsUncarrying;
    }
-   function set _nCellNum(bForceRun)
+   function set _nCellNum(bUncarrying)
    {
-      this._bForceRun = bForceRun;
+      this._bIsUncarrying = bUncarrying;
    }
    function get _nDirection()
    {
@@ -383,19 +382,19 @@ class ank.battlefield.datacenter.Sprite extends Object
    }
    function get allDirections()
    {
-      return this._bIsUncarrying;
+      return this._bSpriteNoFlip;
    }
-   function set allDirections(bUncarrying)
+   function set allDirections(bNoFlip)
    {
-      this._bIsUncarrying = bUncarrying;
+      this._bSpriteNoFlip = bNoFlip;
    }
    function get forceWalk()
    {
-      return this._bAllDirections;
+      return this._bForceRun;
    }
-   function set forceWalk(bForceWalk)
+   function set forceWalk(bForceRun)
    {
-      this._bAllDirections = bForceWalk;
+      this._bForceRun = bForceRun;
    }
    function get forceRun()
    {

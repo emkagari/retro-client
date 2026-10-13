@@ -1,4 +1,3 @@
-400090414 - 1;
 class ank.gapi.controls.Label extends ank.gapi.core.UIBasicComponent
 {
    var __height;

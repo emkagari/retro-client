@@ -72,7 +72,6 @@ class dofus.graphics.gapi.controls.spellfullinfosvieweritem.SpellFullInfosViewer
             {
                this._ldrElement.contentPath = dofus.datacenter.Effect.getIconNameFromID(_loc6_);
             }
-            org.flashdevelop.utils.FlashConnect.trace(dofus.datacenter.Effect.getIconNameFromID(_loc6_),"dofus.graphics.gapi.controls.spellfullinfosvieweritem.SpellFullInfosViewerItem::setValue","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/controls/spellfullinfosvieweritem/SpellFullInfosViewerItem.as",94);
          }
          else if(_loc7_ != undefined)
          {

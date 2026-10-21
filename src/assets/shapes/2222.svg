@@ -2,7 +2,7 @@
 <svg xmlns:ffdec="https://www.free-decompiler.com/flash" xmlns:xlink="http://www.w3.org/1999/xlink" ffdec:objectType="shape" height="33.15px" width="21.9px" xmlns="http://www.w3.org/2000/svg">
   <g transform="matrix(1.0, 0.0, 0.0, 1.0, 11.05, 20.75)">
     <path d="M-0.4 -10.05 L-0.4 -20.7" ffdec:has-small-stroke="true" ffdec:original-stroke-width="0.05" fill="none" stroke="#595959" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.0"/>
-    <path d="M5.85 -18.25 L0.85 -15.25 0.85 -20.75 5.85 -18.25" fill="#ff0000" fill-rule="evenodd" stroke="none"/>
+    <path d="M0.85 -15.25 L0.85 -20.75 5.85 -18.25 0.85 -15.25" fill="#ff0000" fill-rule="evenodd" stroke="none"/>
     <path d="M2.7 9.3 L7.75 9.3 7.75 12.4 2.7 12.4 2.7 9.3" fill="#b7b7b7" fill-rule="evenodd" stroke="none"/>
     <path d="M2.7 9.3 L2.7 12.4 -2.5 12.4 -2.5 9.3 2.7 9.3" fill="#a6a6a6" fill-rule="evenodd" stroke="none"/>
     <path d="M-5.95 12.4 L-7.7 12.4 -7.7 9.3 -5.95 9.3 -5.95 12.4" fill="#808080" fill-rule="evenodd" stroke="none"/>

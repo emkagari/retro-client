@@ -97,10 +97,8 @@ class dofus.graphics.gapi.ui.ChooseNickName extends dofus.graphics.gapi.core.Dof
       {
          case "_btnOk":
             _loc3_ = this._tiNickName.text;
-            org.flashdevelop.utils.FlashConnect.trace(this._tiNickName.text,"dofus.graphics.gapi.ui.ChooseNickName::click","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/ChooseNickName.as",146);
             if(_loc3_.length > 2)
             {
-               org.flashdevelop.utils.FlashConnect.trace("oua","dofus.graphics.gapi.ui.ChooseNickName::click","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/ChooseNickName.as",149);
                if(_loc3_.toUpperCase() != this.api.datacenter.Player.login.toUpperCase())
                {
                   if(this._nState == 2)
@@ -131,7 +129,6 @@ class dofus.graphics.gapi.ui.ChooseNickName extends dofus.graphics.gapi.core.Dof
    {
       if(sShortcut == "ACCEPT_CURRENT_DIALOG" || sShortcut == "CTRL_STATE_CHANGED_OFF")
       {
-         org.flashdevelop.utils.FlashConnect.trace(this,"dofus.graphics.gapi.ui.ChooseNickName::onShortcut","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/ChooseNickName.as",190);
          this.click({target:this._btnOk});
          return false;
       }

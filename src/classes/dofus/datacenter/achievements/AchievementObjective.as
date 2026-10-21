@@ -41,6 +41,8 @@ class dofus.datacenter.achievements.AchievementObjective extends dofus.utils.Api
       dofus.datacenter.achievements.AchievementObjective.OBJECTIVES_TYPE_NEEDS_DETAILS[26] = true;
       dofus.datacenter.achievements.AchievementObjective.OBJECTIVES_TYPE_NEEDS_DETAILS[31] = true;
       dofus.datacenter.achievements.AchievementObjective.OBJECTIVES_TYPE_NEEDS_DETAILS[32] = true;
+      dofus.datacenter.achievements.AchievementObjective.OBJECTIVES_TYPE_NEEDS_DETAILS[34] = true;
+      dofus.datacenter.achievements.AchievementObjective.OBJECTIVES_TYPE_NEEDS_DETAILS[36] = true;
    }
    function get ID()
    {

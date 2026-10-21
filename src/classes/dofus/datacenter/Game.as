@@ -42,17 +42,17 @@ class dofus.datacenter.Game extends Object
    {
       return dofus.datacenter.Game._bLogMapDisconnections;
    }
-   function set isLoggingMapDisconnections(bTacticMode)
+   function set isLoggingMapDisconnections(bLogMapDisconnections)
    {
-      dofus.datacenter.Game._bLogMapDisconnections = bTacticMode;
+      dofus.datacenter.Game._bLogMapDisconnections = bLogMapDisconnections;
    }
    function get isFirstTurn()
    {
       return this._oResults;
    }
-   function set isFirstTurn(oResults)
+   function set isFirstTurn(bFirstTurn)
    {
-      this._oResults = oResults;
+      this._oResults = bFirstTurn;
    }
    function get passiveTurn()
    {
@@ -62,9 +62,9 @@ class dofus.datacenter.Game extends Object
    {
       return dofus.datacenter.Game._bTacticMode;
    }
-   function set isTacticMode(bLogMapDisconnections)
+   function set isTacticMode(bTacticMode)
    {
-      dofus.datacenter.Game._bTacticMode = bLogMapDisconnections;
+      dofus.datacenter.Game._bTacticMode = bTacticMode;
    }
    function get isSpectatorBlocked()
    {
@@ -98,33 +98,33 @@ class dofus.datacenter.Game extends Object
    {
       dofus.datacenter.Game._bCreatureMode = bCreatureMode;
    }
-   function set playerCount(bRunning)
+   function set playerCount(nPlayerCount)
    {
-      this._bRunning = Number(bRunning);
+      this._bRunning = Number(nPlayerCount);
    }
    function get playerCount()
    {
       return this._bRunning;
    }
-   function set currentTableTurn(bFirstTurn)
+   function set currentTableTurn(nCurrentTableTurn)
    {
-      this._bFirstTurn = Number(bFirstTurn);
+      this._bFirstTurn = Number(nCurrentTableTurn);
    }
    function get currentTableTurn()
    {
       return this._bFirstTurn;
    }
-   function set currentPlayerID(nPlayerCount)
+   function set currentPlayerID(aTurnSequence)
    {
-      this._nPlayerCount = nPlayerCount;
+      this._nPlayerCount = aTurnSequence;
    }
    function get currentPlayerID()
    {
       return this._nPlayerCount;
    }
-   function set lastPlayerID(aTurnSequence)
+   function set lastPlayerID(sCurrentPlayerID)
    {
-      this._aTurnSequence = aTurnSequence;
+      this._aTurnSequence = sCurrentPlayerID;
    }
    function get lastPlayerID()
    {
@@ -155,17 +155,17 @@ class dofus.datacenter.Game extends Object
    {
       return this._nFightType;
    }
-   function set isSpectator(nCurrentTableTurn)
+   function set isSpectator(bSpectator)
    {
-      this._nCurrentTableTurn = nCurrentTableTurn;
+      this._nCurrentTableTurn = bSpectator;
    }
    function get isSpectator()
    {
       return this._nCurrentTableTurn;
    }
-   function set turnSequence(bSpectator)
+   function set turnSequence(bRunning)
    {
-      this._bSpectator = bSpectator;
+      this._bSpectator = bRunning;
    }
    function get turnSequence()
    {
@@ -199,9 +199,9 @@ class dofus.datacenter.Game extends Object
    {
       return this._aFightMonsters = afightMonsters;
    }
-   function set isRunning(sCurrentPlayerID)
+   function set isRunning(oResults)
    {
-      this._sCurrentPlayerID = sCurrentPlayerID;
+      this._sCurrentPlayerID = oResults;
    }
    function get isRunning()
    {

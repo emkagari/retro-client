@@ -122,7 +122,6 @@ class dofus.managers.GameManager extends dofus.utils.ApiElement
       {
          _loc3_.pvpGain = 0;
       }
-      org.flashdevelop.utils.FlashConnect.trace("SHOW_PVP_GAIN_WARNING_POPUP : " + this.api.lang.getConfigText("SHOW_PVP_GAIN_WARNING_POPUP") + " (" + _loc3_.pvpGain + ")","dofus.managers.GameManager::askAttack","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/GameManager.as",207);
       switch(_loc3_.pvpGain)
       {
          case -1:
@@ -562,7 +561,6 @@ class dofus.managers.GameManager extends dofus.utils.ApiElement
                   _loc9_ = this.api.kernel.SpellsBoostsManager.getSpellModificator(dofus.managers.SpellsBoostsManager.ACTION_BOOST_SPELL_DMG,nSpell);
                }
             }
-            org.flashdevelop.utils.FlashConnect.trace("getSpellEffects " + _loc7_,"dofus.managers.GameManager::getSpellEffects","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/GameManager.as",824);
             _loc10_ = new dofus.datacenter.Effect(undefined,_loc8_,_loc7_[1],_loc7_[2],_loc7_[3],_loc7_[8],_loc7_[4],undefined,_loc9_,_loc7_[6],_loc7_[7]);
             _loc10_.probability = _loc7_[5];
             _loc4_.push(_loc10_);

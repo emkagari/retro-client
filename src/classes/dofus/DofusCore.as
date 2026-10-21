@@ -42,7 +42,6 @@ class dofus.DofusCore extends ank.utils.QueueEmbedMovieClip
    }
    function initApi()
    {
-      org.flashdevelop.utils.FlashConnect.trace("[DofusCore] (initApi) Etape 3","dofus.DofusCore::initApi","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/DofusCore.as",102);
       _global.API = new dofus.utils.Api();
       _global.API.initialize();
       this.addToQueue({object:this,method:this.checkNodesAndContinue});
@@ -76,7 +75,6 @@ class dofus.DofusCore extends ank.utils.QueueEmbedMovieClip
    }
    function startGame()
    {
-      org.flashdevelop.utils.FlashConnect.trace("[DofusCore] (startGame) Etape 5 : fin","dofus.DofusCore::startGame","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/DofusCore.as",157);
       _global.API.kernel.start();
    }
    function forceMouseOver()

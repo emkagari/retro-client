@@ -2,7 +2,7 @@
 <svg xmlns:ffdec="https://www.free-decompiler.com/flash" xmlns:xlink="http://www.w3.org/1999/xlink" ffdec:objectType="shape" height="18.4px" width="24.4px" xmlns="http://www.w3.org/2000/svg">
   <g transform="matrix(1.0, 0.0, 0.0, 1.0, 0.0, 0.0)">
     <path d="M23.15 16.5 L1.65 16.5 1.65 1.85 23.15 1.85 23.15 16.5" fill="#b22234" fill-rule="evenodd" stroke="none"/>
-    <path d="M23.15 14.8 L1.65 14.8 M1.65 12.55 L23.15 12.55 M23.15 10.3 L1.65 10.3 M1.65 8.05 L23.15 8.05 M23.15 5.8 L1.65 5.8 M1.65 3.55 L23.15 3.55" fill="none" stroke="#ffffff" stroke-linecap="butt" stroke-linejoin="miter-clip" stroke-miterlimit="4.0" stroke-width="1.0"/>
+    <path d="M1.65 3.55 L23.15 3.55 M23.15 5.8 L1.65 5.8 M1.65 8.05 L23.15 8.05 M23.15 10.3 L1.65 10.3 M1.65 12.55 L23.15 12.55 M23.15 14.8 L1.65 14.8" fill="none" stroke="#ffffff" stroke-linecap="butt" stroke-linejoin="miter-clip" stroke-miterlimit="4.0" stroke-width="1.0"/>
     <path d="M10.25 9.75 L1.65 9.75 1.65 1.85 10.25 1.85 10.25 9.75" fill="#3c3b6e" fill-rule="evenodd" stroke="none"/>
     <path d="M2.5 2.7 L2.55 3.0 2.35 2.8 2.15 3.0 2.25 2.7 2.05 2.5 2.3 2.5 2.35 2.2 2.45 2.5 2.7 2.5 2.5 2.7" fill="#ffffff" fill-rule="evenodd" stroke="none"/>
     <path d="M2.3 4.1 L2.35 3.75 2.45 4.1 2.7 4.1 2.5 4.25 2.55 4.6 2.35 4.4 2.15 4.6 2.25 4.25 2.05 4.1 2.3 4.1" fill="#ffffff" fill-rule="evenodd" stroke="none"/>
@@ -54,8 +54,8 @@
     <path d="M9.55 5.35 L9.6 5.65 9.85 5.65 9.65 5.85 9.75 6.15 9.55 5.95 9.35 6.15 9.4 5.85 9.2 5.65 9.45 5.65 9.55 5.35" fill="#ffffff" fill-rule="evenodd" stroke="none"/>
     <path d="M9.55 6.9 L9.6 7.25 9.85 7.25 9.65 7.45 9.75 7.75 9.55 7.55 9.35 7.75 9.4 7.45 9.2 7.25 9.45 7.25 9.55 6.9" fill="#ffffff" fill-rule="evenodd" stroke="none"/>
     <path d="M9.55 9.1 L9.35 9.3 9.4 9.0 9.2 8.8 9.45 8.8 9.55 8.5 9.6 8.8 9.85 8.8 9.65 9.0 9.75 9.3 9.55 9.1" fill="#ffffff" fill-rule="evenodd" stroke="none"/>
-    <path d="M21.6 16.5 Q22.45 16.45 22.5 15.55 L22.5 2.8 Q22.45 1.9 21.6 1.9 L2.8 1.9 Q1.9 1.85 1.9 2.8 L1.9 15.55 Q1.9 16.45 2.8 16.5 L21.6 16.5 M24.4 2.8 L24.4 15.55 Q24.4 18.35 21.6 18.4 L2.8 18.4 Q0.0 18.35 0.0 15.55 L0.0 2.8 Q0.0 -0.05 2.8 0.0 L21.6 0.0 Q24.4 -0.05 24.4 2.8" fill="#948474" fill-rule="evenodd" stroke="none"/>
-    <path d="M22.0 16.05 Q22.0 16.45 21.6 16.55 L2.85 16.55 Q2.4 16.5 2.4 16.05 L2.4 2.85 2.5 2.5 2.8 2.45 21.6 2.45 22.0 2.85 22.0 16.05" fill="url(#gradient0)" fill-rule="evenodd" stroke="none"/>
+    <path d="M24.4 15.55 Q24.4 18.35 21.6 18.4 L2.8 18.4 Q0.0 18.35 0.0 15.55 L0.0 2.8 Q0.0 -0.05 2.8 0.0 L21.6 0.0 Q24.4 -0.05 24.4 2.8 L24.4 15.55 M21.6 16.5 Q22.45 16.45 22.5 15.55 L22.5 2.8 Q22.45 1.9 21.6 1.9 L2.8 1.9 Q1.9 1.85 1.9 2.8 L1.9 15.55 Q1.9 16.45 2.8 16.5 L21.6 16.5" fill="#948474" fill-rule="evenodd" stroke="none"/>
+    <path d="M21.6 16.55 L2.85 16.55 Q2.4 16.5 2.4 16.05 L2.4 2.85 2.5 2.5 2.8 2.45 21.6 2.45 22.0 2.85 22.0 16.05 Q22.0 16.45 21.6 16.55" fill="url(#gradient0)" fill-rule="evenodd" stroke="none"/>
   </g>
   <defs>
     <linearGradient gradientTransform="matrix(0.0, -0.0121, 0.0089, 0.0, 11.8, 9.75)" gradientUnits="userSpaceOnUse" id="gradient0" spreadMethod="pad" x1="-819.2" x2="819.2">

@@ -145,17 +145,17 @@ class dofus.graphics.gapi.ui.SecureCraft extends dofus.graphics.gapi.core.DofusA
       this._eaDataProvider.addEventListener("modelChanged",this);
       this.modelChanged({target:this._eaDataProvider});
    }
-   function set _mcBlinkPay(eaLocalDataProvider)
+   function set _mcBlinkPay(eaDistantDataProvider)
    {
       this._eaLocalDataProvider.removeEventListener("modelChange",this);
-      this._eaLocalDataProvider = eaLocalDataProvider;
+      this._eaLocalDataProvider = eaDistantDataProvider;
       this._eaLocalDataProvider.addEventListener("modelChanged",this);
       this.modelChanged({target:this._eaLocalDataProvider});
    }
-   function set _nDistantReadyState(eaDistantDataProvider)
+   function set _nDistantReadyState(eaLocalDataProvider)
    {
       this._eaDistantDataProvider.removeEventListener("modelChange",this);
-      this._eaDistantDataProvider = eaDistantDataProvider;
+      this._eaDistantDataProvider = eaLocalDataProvider;
       this._eaDistantDataProvider.addEventListener("modelChanged",this);
       this.modelChanged({target:this._eaDistantDataProvider});
    }

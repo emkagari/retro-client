@@ -26,7 +26,6 @@ class dofus.aks.Infos extends dofus.aks.Handler
          default:
             _loc3_ = "2";
       }
-      org.flashdevelop.utils.FlashConnect.trace("[Infos] (sendScreenInfo) " + "Ir" + Stage.width + ";" + Stage.height + ";" + _loc3_ + "," + Stage.displayState,"dofus.aks.Infos::sendScreenInfo","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/Infos.as",62);
       this.aks.send("Ir" + Stage.width + ";" + Stage.height + ";" + _loc3_);
       Stage.scaleMode = _loc2_;
    }

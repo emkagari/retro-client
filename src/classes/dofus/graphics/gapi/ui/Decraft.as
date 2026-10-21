@@ -175,12 +175,10 @@ class dofus.graphics.gapi.ui.Decraft extends dofus.graphics.gapi.core.DofusAdvan
       {
          case this._btnRecycle:
             this.doRecycle();
-            return;
+            break;
          case this._btnClose:
             this.callClose();
-            return;
          default:
-            org.flashdevelop.utils.FlashConnect.trace(oEvent.target._name,"dofus.graphics.gapi.ui.Decraft::click","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/Decraft.as",279);
             return;
       }
    }

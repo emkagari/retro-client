@@ -274,9 +274,9 @@ class ank.gapi.controls.Container extends ank.gapi.core.UIBasicComponent
    {
       return this._bHighlightOnFront;
    }
-   function set id(nId)
+   function set id(nId_)
    {
-      this._nId = nId;
+      this._nId = nId_;
    }
    function get id()
    {

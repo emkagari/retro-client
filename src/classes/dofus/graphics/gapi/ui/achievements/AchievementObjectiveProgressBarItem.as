@@ -45,11 +45,11 @@ class dofus.graphics.gapi.ui.achievements.AchievementObjectiveProgressBarItem ex
       var _loc3_ = "";
       if(this._oAchievementObjective.needsDetails)
       {
-         _loc3_ = " - " + this._oAchievementObjective.description;
+         _loc3_ += " - " + this._oAchievementObjective.description;
       }
       else if(dofus.Constants.DEBUG)
       {
-         _loc3_ = " (" + this._oAchievementObjective.ID + ")";
+         _loc3_ += " (" + this._oAchievementObjective.ID + ")";
       }
       this._lblDescription.text = _loc2_ + "/" + this._nMaxValue + _loc3_;
    }

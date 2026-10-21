@@ -9,6 +9,7 @@ class dofus.graphics.gapi.ui.CrafterList extends dofus.graphics.gapi.core.DofusA
    var _lblJob;
    var _winBackground;
    var addToQueue;
+   var api;
    var initialized;
    static var CLASS_NAME = "CrafterList";
    function CrafterList()

@@ -23,7 +23,6 @@ class dofus.managers.StreamingDisplayManager extends dofus.utils.ApiElement
    }
    function displayAdvice(id)
    {
-      org.flashdevelop.utils.FlashConnect.trace("[StreamingDisplayManager] (displayAdvice) " + id,"dofus.managers.StreamingDisplayManager::displayAdvice","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/StreamingDisplayManager.as",56);
       fscommand("display",id);
       var _loc3_ = this.getDisplaysSharedObject();
       if(_loc3_.data["display" + id] == undefined)

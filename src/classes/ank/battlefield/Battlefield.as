@@ -846,12 +846,10 @@ class ank.battlefield.Battlefield extends MovieClip
       }
       if(this.gridHandler.bGridVisible)
       {
-         org.flashdevelop.utils.FlashConnect.trace("[Battlefield] (drawGrid) Effacage de la grille","ank.battlefield.Battlefield::drawGrid","C:\\Dev\\Projects\\client\\src\\ank-common\\classes/ank/battlefield/Battlefield.as",1166);
          this.removeGrid();
       }
       else
       {
-         org.flashdevelop.utils.FlashConnect.trace("[Battlefield] (drawGrid) Dessin de la grille","ank.battlefield.Battlefield::drawGrid","C:\\Dev\\Projects\\client\\src\\ank-common\\classes/ank/battlefield/Battlefield.as",1171);
          this.gridHandler.draw(bAll);
       }
    }

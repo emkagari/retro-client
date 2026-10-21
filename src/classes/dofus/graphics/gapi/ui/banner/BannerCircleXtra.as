@@ -194,7 +194,6 @@ class dofus.graphics.gapi.ui.banner.BannerCircleXtra extends ank.gapi.core.UIBas
       var _loc12_ = null;
       if(bShow)
       {
-         org.flashdevelop.utils.FlashConnect.trace("show","dofus.graphics.gapi.ui.banner.BannerCircleXtra::showCircleXtra","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/banner/BannerCircleXtra.as",241);
          for(var k in _loc8_)
          {
             oComponentParams[k] = _loc8_[k];

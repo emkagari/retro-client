@@ -15,6 +15,7 @@ class dofus.managers.AchievementDescriptionManager
             _loc6_[1] = _loc5_.lang.getMonstersText(aParams[1]).n;
             break;
          case 3:
+         case 35:
             _loc6_ = [_loc5_.lang.getMonstersText(aParams[0]).n];
             break;
          case 11:

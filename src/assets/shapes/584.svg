@@ -9,7 +9,7 @@
     <path d="M370.8 103.4 L370.8 262.45 203.95 262.45 203.95 102.15 206.0 102.15 206.0 103.4 370.8 103.4" fill="url(#gradient5)" fill-rule="evenodd" stroke="none"/>
     <path d="M538.0 262.45 L538.0 103.05 M538.0 295.45 L538.0 262.45 M203.95 295.45 L203.95 304.65 Q203.95 314.95 214.3 315.0 L370.8 315.0 527.65 315.0 Q538.0 314.95 538.0 304.65 L538.0 295.45 M203.95 102.15 L203.95 262.45 203.95 295.45" fill="none" stroke="#484137" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
     <path d="M527.1 93.0 Q534.1 93.0 536.35 97.7 L536.35 116.65 205.65 116.65 205.65 97.7 Q207.9 93.0 214.9 93.0 L527.1 93.0" fill="#302825" fill-rule="evenodd" stroke="none"/>
-    <path d="M531.6 337.0 L531.6 337.55 528.05 337.55 529.8 337.4 531.6 337.0" fill="url(#gradient6)" fill-rule="evenodd" stroke="none"/>
+    <path d="M531.6 337.55 L528.05 337.55 529.8 337.4 531.6 337.0 531.6 337.55" fill="url(#gradient6)" fill-rule="evenodd" stroke="none"/>
     <path d="M204.0 102.8 Q204.0 98.65 205.65 96.2 208.15 92.45 214.35 92.45 L527.65 92.45 Q533.85 92.45 536.35 96.2 538.0 98.65 538.0 102.8" fill="none" stroke="#484137" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
   </g>
   <defs>

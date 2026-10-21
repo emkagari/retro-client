@@ -3,6 +3,7 @@ class dofus.graphics.gapi.ui.Buff extends dofus.graphics.gapi.core.DofusAdvanced
    var addToQueue;
    var gapi;
    static var CLASS_NAME = "Buff";
+   static var FIRST_CONTAINER = 17;
    static var LAST_CONTAINER = 27;
    function Buff()
    {
@@ -19,7 +20,7 @@ class dofus.graphics.gapi.ui.Buff extends dofus.graphics.gapi.core.DofusAdvanced
    }
    function addListeners()
    {
-      var _loc2_ = 20;
+      var _loc2_ = dofus.graphics.gapi.ui.Buff.FIRST_CONTAINER;
       var _loc3_;
       while(_loc2_ <= dofus.graphics.gapi.ui.Buff.LAST_CONTAINER)
       {
@@ -44,7 +45,7 @@ class dofus.graphics.gapi.ui.Buff extends dofus.graphics.gapi.core.DofusAdvanced
    function updateData()
    {
       var _loc2_ = [];
-      var _loc3_ = 20;
+      var _loc3_ = dofus.graphics.gapi.ui.Buff.FIRST_CONTAINER;
       while(_loc3_ <= dofus.graphics.gapi.ui.Buff.LAST_CONTAINER)
       {
          _loc2_[_loc3_] = true;
@@ -66,7 +67,7 @@ class dofus.graphics.gapi.ui.Buff extends dofus.graphics.gapi.core.DofusAdvanced
          if(!_global.isNaN(_loc6_.position))
          {
             _loc7_ = _loc6_.position;
-            if(_loc7_ < 20 && (_loc7_ > dofus.graphics.gapi.ui.Buff.LAST_CONTAINER && (_loc7_ < dofus.datacenter.GladiatroolManager.LAST_GLADIATROOL_CONTAINER && _loc7_ > dofus.datacenter.GladiatroolManager.LAST_GLADIATROOL_CONTAINER)))
+            if(_loc7_ < dofus.graphics.gapi.ui.Buff.FIRST_CONTAINER && (_loc7_ > dofus.graphics.gapi.ui.Buff.LAST_CONTAINER && (_loc7_ < dofus.datacenter.GladiatroolManager.LAST_GLADIATROOL_CONTAINER && _loc7_ > dofus.datacenter.GladiatroolManager.LAST_GLADIATROOL_CONTAINER)))
             {
                continue;
             }
@@ -80,7 +81,7 @@ class dofus.graphics.gapi.ui.Buff extends dofus.graphics.gapi.core.DofusAdvanced
             _loc2_[_loc7_] = false;
          }
       }
-      var _loc9_ = 20;
+      var _loc9_ = dofus.graphics.gapi.ui.Buff.FIRST_CONTAINER;
       var _loc10_;
       while(_loc9_ <= dofus.graphics.gapi.ui.Buff.LAST_CONTAINER)
       {

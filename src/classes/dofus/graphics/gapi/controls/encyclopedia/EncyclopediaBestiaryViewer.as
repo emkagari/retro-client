@@ -194,7 +194,6 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryViewer exten
    function updateData()
    {
       var _loc2_ = new ank.utils.ExtendedArray();
-      org.flashdevelop.utils.FlashConnect.trace("Filtre de " + dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryViewer._eaData.length + " monstres","dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryViewer::updateData","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/controls/encyclopedia/EncyclopediaBestiaryViewer.as",262);
       var _loc3_ = 0;
       var _loc4_;
       while(_loc3_ < dofus.graphics.gapi.controls.encyclopedia.EncyclopediaBestiaryViewer._eaData.length)

@@ -50,6 +50,7 @@ class dofus.datacenter.achievements.Achievement extends dofus.utils.ApiElement
       dofus.datacenter.achievements.Achievement.MONSTER_TYPES[3] = true;
       dofus.datacenter.achievements.Achievement.MONSTER_TYPES[5] = true;
       dofus.datacenter.achievements.Achievement.MONSTER_TYPES[33] = true;
+      dofus.datacenter.achievements.Achievement.MONSTER_TYPES[35] = true;
    }
    function get ID()
    {

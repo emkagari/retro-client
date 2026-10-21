@@ -33,7 +33,6 @@ class dofus.datacenter.Craft extends Object
    function get difficultyValue()
    {
       var _loc2_ = this.api.datacenter.Player.getJobInfo(this._nDifficulty.job).level;
-      org.flashdevelop.utils.FlashConnect.trace(this._nDifficulty.job + " " + this.api.datacenter.Player.getJobInfo(this._nDifficulty.job) + " " + _loc2_,"dofus.datacenter.Craft::difficulty","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/datacenter/Craft.as",67);
       if(this._aItems.length < Number(this._nDifficulty.param1) - 4)
       {
          return 1;

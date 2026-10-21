@@ -89,17 +89,17 @@ class dofus.graphics.gapi.ui.ForgemagusCraft extends dofus.graphics.gapi.core.Do
       this._eaDataProvider.addEventListener("modelChanged",this);
       this.modelChanged();
    }
-   function set _mcBlinkPay(eaLocalDataProvider)
+   function set _mcBlinkPay(eaDistantDataProvider)
    {
       this._eaLocalDataProvider.removeEventListener("modelChanged",this);
-      this._eaLocalDataProvider = eaLocalDataProvider;
+      this._eaLocalDataProvider = eaDistantDataProvider;
       this._eaLocalDataProvider.addEventListener("modelChanged",this);
       this.modelChanged();
    }
-   function set _nDistantReadyState(eaDistantDataProvider)
+   function set _nDistantReadyState(eaLocalDataProvider)
    {
       this._eaDistantDataProvider.removeEventListener("modelChanged",this);
-      this._eaDistantDataProvider = eaDistantDataProvider;
+      this._eaDistantDataProvider = eaLocalDataProvider;
       this._eaDistantDataProvider.addEventListener("modelChanged",this);
       this.modelChanged();
    }

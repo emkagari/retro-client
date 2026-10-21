@@ -189,35 +189,35 @@ class ank.gapi.controls.PopupMenu extends ank.gapi.core.UIBasicComponent
       {
          _loc6_.styleName = this.getStyle().labeldisabledstyle;
       }
-      _loc5_.createEmptyMovieClip("bg",10);
-      this.drawRoundRect(_loc5_.bg,0,0,1,_loc7_,0,this.getStyle().itembgcolor);
-      _loc5_.bg.over = false;
+      _loc5_.createEmptyMovieClip("bg_",10);
+      this.drawRoundRect(_loc5_.bg_,0,0,1,_loc7_,0,this.getStyle().itembgcolor);
+      _loc5_.bg_.over = false;
       _loc5_._y = nY;
       _loc5_._x = nXStart;
       var _loc8_;
       if(i.bEnabled)
       {
-         _loc5_.bg.onRelease = function()
+         _loc5_.bg_.onRelease = function()
          {
             i.fn.apply(i.obj,i.args);
             this._parent._parent._parent.remove();
          };
-         _loc5_.bg.onRollOver = function()
+         _loc5_.bg_.onRollOver = function()
          {
             this._parent._parent._parent.onItemOver(this,true);
          };
-         _loc5_.bg.onRollOut = _loc5_.bg.onReleaseOutside = function()
+         _loc5_.bg_.onRollOut = _loc5_.bg_.onReleaseOutside = function()
          {
             this._parent._parent._parent.onItemOut(this,true);
          };
       }
       else
       {
-         _loc5_.bg.onPress = function()
+         _loc5_.bg_.onPress = function()
          {
          };
-         _loc5_.bg.useHandCursor = false;
-         _loc8_ = new Color(_loc5_.bg);
+         _loc5_.bg_.useHandCursor = false;
+         _loc8_ = new Color(_loc5_.bg_);
          if(i.bStatic)
          {
             _loc8_.setRGB(this.getStyle().itemstaticbgcolor);
@@ -250,7 +250,7 @@ class ank.gapi.controls.PopupMenu extends ank.gapi.core.UIBasicComponent
          _loc6_ = this._aColumnsMaxSize[_loc5_.column];
       }
       _loc4_._lbl.setSize(_loc6_,ank.gapi.controls.PopupMenu.ITEM_HEIGHT);
-      _loc4_.bg._width = _loc6_;
+      _loc4_.bg_._width = _loc6_;
    }
    function layoutContent(x, y, bMaximize, bUseRightCorner)
    {
@@ -382,7 +382,7 @@ class ank.gapi.controls.PopupMenu extends ank.gapi.core.UIBasicComponent
          if(_loc4_ != undefined)
          {
             _loc5_ = this._mcItems["item" + _loc3_];
-            this.onItemOver(_loc5_.bg);
+            this.onItemOver(_loc5_.bg_);
             break;
          }
          _loc3_ = _loc3_ + 1;
@@ -403,7 +403,7 @@ class ank.gapi.controls.PopupMenu extends ank.gapi.core.UIBasicComponent
          if(_loc4_ != undefined)
          {
             _loc5_ = this._mcItems["item" + _loc3_];
-            this.onItemOver(_loc5_.bg);
+            this.onItemOver(_loc5_.bg_);
             break;
          }
          _loc3_ = _loc3_ - 1;
@@ -416,7 +416,7 @@ class ank.gapi.controls.PopupMenu extends ank.gapi.core.UIBasicComponent
       while(_loc2_ < this._aItems.length)
       {
          _loc3_ = this._mcItems["item" + _loc2_];
-         this.onItemOut(_loc3_.bg);
+         this.onItemOut(_loc3_.bg_);
          _loc2_ = _loc2_ + 1;
       }
    }
@@ -429,7 +429,7 @@ class ank.gapi.controls.PopupMenu extends ank.gapi.core.UIBasicComponent
       {
          _loc3_ = this._aItems[_loc2_];
          _loc4_ = this._mcItems["item" + _loc2_];
-         if(_loc4_.bg.over)
+         if(_loc4_.bg_.over)
          {
             _loc3_.fn.apply(_loc3_.obj,_loc3_.args);
             this.remove();
@@ -454,7 +454,7 @@ class ank.gapi.controls.PopupMenu extends ank.gapi.core.UIBasicComponent
          if(_loc4_ != undefined)
          {
             _loc5_ = this._mcItems["item" + _loc3_];
-            if(_loc5_.bg.over)
+            if(_loc5_.bg_.over)
             {
                _loc6_ = _loc3_ + 1;
                while(_loc6_ < _loc2_.length)
@@ -463,7 +463,7 @@ class ank.gapi.controls.PopupMenu extends ank.gapi.core.UIBasicComponent
                   if(_loc7_ != undefined)
                   {
                      _loc8_ = this._mcItems["item" + _loc6_];
-                     this.onItemOver(_loc8_.bg);
+                     this.onItemOver(_loc8_.bg_);
                      return undefined;
                   }
                   _loc6_ = _loc6_ + 1;
@@ -490,7 +490,7 @@ class ank.gapi.controls.PopupMenu extends ank.gapi.core.UIBasicComponent
          if(_loc4_ != undefined)
          {
             _loc5_ = this._mcItems["item" + _loc3_];
-            if(_loc5_.bg.over)
+            if(_loc5_.bg_.over)
             {
                _loc6_ = _loc3_ - 1;
                while(_loc6_ >= 0)
@@ -499,7 +499,7 @@ class ank.gapi.controls.PopupMenu extends ank.gapi.core.UIBasicComponent
                   if(_loc7_ != undefined)
                   {
                      _loc8_ = this._mcItems["item" + _loc6_];
-                     this.onItemOver(_loc8_.bg);
+                     this.onItemOver(_loc8_.bg_);
                      return undefined;
                   }
                   _loc6_ = _loc6_ - 1;

@@ -190,7 +190,6 @@ class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaEquipmentsViewer ext
    function updateData()
    {
       var _loc2_ = new ank.utils.ExtendedArray();
-      org.flashdevelop.utils.FlashConnect.trace("Filtre de " + dofus.graphics.gapi.controls.encyclopedia.EncyclopediaEquipmentsViewer._eaData.length + " objets","dofus.graphics.gapi.controls.encyclopedia.EncyclopediaEquipmentsViewer::updateData","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/controls/encyclopedia/EncyclopediaEquipmentsViewer.as",268);
       var _loc3_ = 0;
       var _loc4_;
       while(_loc3_ < dofus.graphics.gapi.controls.encyclopedia.EncyclopediaEquipmentsViewer._eaData.length)

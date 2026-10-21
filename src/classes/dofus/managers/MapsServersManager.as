@@ -116,15 +116,12 @@ class dofus.managers.MapsServersManager extends dofus.managers.ServersManager
          if(_loc5_ && !this._bPreloadCall)
          {
             this._bPreloadCall = true;
-            org.flashdevelop.utils.FlashConnect.trace("preload","dofus.managers.MapsServersManager::parseMap","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/MapsServersManager.as",146);
             this.api.gfx.loadManager.loadFiles([dofus.Constants.CLIPS_PERSOS_PATH + (this.api.datacenter.Player.Guild * 10 + this.api.datacenter.Player.Sex) + ".swf",dofus.Constants.CLIPS_PERSOS_PATH + "9059.swf",dofus.Constants.CLIPS_PERSOS_PATH + "9091.swf",dofus.Constants.CLIPS_PERSOS_PATH + "1219.swf",dofus.Constants.CLIPS_PERSOS_PATH + "101.swf",dofus.Constants.GFX_ROOT_PATH + "g0.swf",dofus.Constants.GFX_ROOT_PATH + "o0.swf"]);
          }
       }
-      org.flashdevelop.utils.FlashConnect.trace("===== Build Map =====","dofus.managers.MapsServersManager::parseMap","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/MapsServersManager.as",157);
       this._bCustomFileCall = false;
       if(this.api.network.Game.nLastMapIdReceived != _loc3_ && (this.api.network.Game.nLastMapIdReceived != -1 && this.api.lang.getConfigText("CHECK_MAP_FILE_ID")))
       {
-         org.flashdevelop.utils.FlashConnect.trace("Donnée de map ne correspondant pas à la carte courante","dofus.managers.MapsServersManager::parseMap","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/MapsServersManager.as",164);
          this.api.gfx.onMapLoaded();
          return undefined;
       }
@@ -146,7 +143,6 @@ class dofus.managers.MapsServersManager extends dofus.managers.ServersManager
       var _loc22_ = oData.canUseObject != 1 ? false : true;
       var _loc23_ = oData.canUseInventory != 1 ? false : true;
       var _loc24_ = oData.canChangeCharac != 1 ? false : true;
-      org.flashdevelop.utils.FlashConnect.trace("[MapServiceManager] (parseMap) Map " + _loc3_ + " : " + _loc18_,"dofus.managers.MapsServersManager::parseMap","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/MapsServersManager.as",193);
       this.api.datacenter.Basics.aks_current_map_id = _loc3_;
       this.api.kernel.TipsManager.onNewMap(_loc3_);
       this.api.kernel.StreamingDisplayManager.onNewMap(_loc3_);
@@ -168,7 +164,6 @@ class dofus.managers.MapsServersManager extends dofus.managers.ServersManager
          this.api.kernel.NightManager.setReferenceTime(this.api.network.Basics.lastReceivedReferenceTime,this.api.kernel.OptionsManager.getOption("NightMode"),_loc25_);
       }
       this._bBuildingMap = false;
-      org.flashdevelop.utils.FlashConnect.trace("===== Map Built =====","dofus.managers.MapsServersManager::parseMap","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/managers/MapsServersManager.as",229);
    }
    function onComplete(mc)
    {

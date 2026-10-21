@@ -5,7 +5,7 @@
     <path d="M529.9 119.6 L528.15 119.45 531.7 119.45 531.7 120.0 529.95 119.6 529.9 119.6" fill="url(#gradient1)" fill-rule="evenodd" stroke="none"/>
     <path d="M490.35 120.0 L526.6 120.0 529.8 120.3 Q534.35 121.2 536.0 125.1 L536.0 143.65 205.75 143.65 205.75 124.7 Q208.0 120.0 215.0 120.0 L484.35 120.0 490.35 120.0" fill="#302825" fill-rule="evenodd" stroke="none"/>
     <path d="M490.35 119.45 L490.35 120.0 484.35 120.0 484.35 119.45 490.35 119.45" fill="url(#gradient2)" fill-rule="evenodd" stroke="none"/>
-    <path d="M529.9 364.4 L531.7 364.0 531.7 364.55 528.15 364.55 529.9 364.4" fill="url(#gradient3)" fill-rule="evenodd" stroke="none"/>
+    <path d="M531.7 364.0 L531.7 364.55 528.15 364.55 529.9 364.4 531.7 364.0" fill="url(#gradient3)" fill-rule="evenodd" stroke="none"/>
     <path d="M529.9 119.6 L528.15 119.45 490.35 119.45 484.35 119.45 214.45 119.45 Q208.25 119.45 205.75 123.2 204.1 125.65 204.1 129.8 M529.9 119.6 L529.95 119.6 531.7 120.0 Q534.45 120.75 536.0 122.8 537.9 125.3 537.95 129.8" fill="none" stroke="#484137" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
   </g>
   <defs>

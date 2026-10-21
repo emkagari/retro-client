@@ -19,6 +19,5 @@ class dofus.graphics.gapi.ui.CenterInfo extends dofus.graphics.gapi.ui.CenterTex
    {
       super.initText();
       this._lblWhiteDesc.text = this._sDesc;
-      org.flashdevelop.utils.FlashConnect.trace(this._sDesc,"dofus.graphics.gapi.ui.CenterInfo::initText","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/CenterInfo.as",49);
    }
 }

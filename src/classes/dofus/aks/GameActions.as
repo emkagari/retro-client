@@ -431,7 +431,6 @@ class dofus.aks.GameActions extends dofus.aks.Handler
             _loc49_ = _loc7_;
             _loc50_ = this.api.datacenter.Sprites.getItemAt(_loc49_);
             _loc51_ = _loc50_.mc;
-            org.flashdevelop.utils.FlashConnect.trace("[mort] idSprite : " + _loc49_ + "  mc :" + _loc51_,"dofus.aks.GameActions::onActions","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/GameActions.as",489);
             if(_loc51_ == undefined)
             {
                return undefined;
@@ -748,7 +747,6 @@ class dofus.aks.GameActions extends dofus.aks.Handler
             _loc11_.addAction(87,false,this.api.gfx,this.api.gfx.setObject2Frame,[_loc128_,_loc129_]);
             break;
          case 208:
-            org.flashdevelop.utils.FlashConnect.trace("effect 208","dofus.aks.GameActions::onActions","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/aks/GameActions.as",1010);
             _loc130_ = _loc7_.split(",");
             _loc131_ = this.api.datacenter.Sprites.getItemAt(_loc6_);
             _loc132_ = Number(_loc130_[0]);

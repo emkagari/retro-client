@@ -2,7 +2,7 @@
 <svg xmlns:ffdec="https://www.free-decompiler.com/flash" xmlns:xlink="http://www.w3.org/1999/xlink" ffdec:objectType="shape" height="14.65px" width="22.5px" xmlns="http://www.w3.org/2000/svg">
   <g transform="matrix(1.0, 0.0, 0.0, 1.0, 0.5, 0.0)">
     <path d="M21.5 14.65 L0.0 14.65 0.0 0.0 21.5 0.0 21.5 14.65" fill="#b22234" fill-rule="evenodd" stroke="none"/>
-    <path d="M0.0 1.7 L21.5 1.7 M21.5 3.95 L0.0 3.95 M0.0 6.2 L21.5 6.2 M21.5 8.45 L0.0 8.45 M0.0 10.7 L21.5 10.7 M21.5 12.95 L0.0 12.95" fill="none" stroke="#ffffff" stroke-linecap="butt" stroke-linejoin="miter-clip" stroke-miterlimit="4.0" stroke-width="1.0"/>
+    <path d="M21.5 12.95 L0.0 12.95 M0.0 10.7 L21.5 10.7 M21.5 8.45 L0.0 8.45 M0.0 6.2 L21.5 6.2 M21.5 3.95 L0.0 3.95 M0.0 1.7 L21.5 1.7" fill="none" stroke="#ffffff" stroke-linecap="butt" stroke-linejoin="miter-clip" stroke-miterlimit="4.0" stroke-width="1.0"/>
     <path d="M8.6 7.9 L0.0 7.9 0.0 0.0 8.6 0.0 8.6 7.9" fill="#3c3b6e" fill-rule="evenodd" stroke="none"/>
     <path d="M0.85 0.85 L0.9 1.15 0.7 0.95 0.5 1.15 0.6 0.85 0.4 0.65 0.65 0.65 0.7 0.35 0.8 0.65 1.05 0.65 0.85 0.85" fill="#ffffff" fill-rule="evenodd" stroke="none"/>
     <path d="M0.65 2.25 L0.7 1.9 0.8 2.25 1.05 2.25 0.85 2.4 0.9 2.75 0.7 2.55 0.5 2.75 0.6 2.4 0.4 2.25 0.65 2.25" fill="#ffffff" fill-rule="evenodd" stroke="none"/>

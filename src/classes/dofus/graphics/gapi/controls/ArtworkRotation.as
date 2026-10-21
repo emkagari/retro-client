@@ -59,7 +59,7 @@ class dofus.graphics.gapi.controls.ArtworkRotation extends ank.gapi.core.UIBasic
       }
       this._nCurrentSex = nSex;
       var piy = 0;
-      var px = 0;
+      var px_ = 0;
       var py = 0;
       var t = 0;
       var bSwaped = false;
@@ -73,7 +73,7 @@ class dofus.graphics.gapi.controls.ArtworkRotation extends ank.gapi.core.UIBasic
          {
             this._i -= (this._i - this._di) / 3;
             piy = py;
-            px = 70 * Math.cos(this._i);
+            px_ = 70 * Math.cos(this._i);
             py = 50 * Math.sin(this._i);
             if(piy < 0 && py >= 0 || piy >= 0 && py < 0)
             {
@@ -84,9 +84,9 @@ class dofus.graphics.gapi.controls.ArtworkRotation extends ank.gapi.core.UIBasic
                }
             }
             t = py / 1.5;
-            this._ariMan._x = px;
+            this._ariMan._x = px_;
             this._ariMan._y = py;
-            this._ariWoman._x = - px;
+            this._ariWoman._x = - px_;
             this._ariWoman._y = - py;
             this._ariMan._xscale = 100 + t;
             this._ariMan._yscale = 100 + t;

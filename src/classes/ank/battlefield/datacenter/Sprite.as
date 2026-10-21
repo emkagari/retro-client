@@ -295,9 +295,9 @@ class ank.battlefield.datacenter.Sprite extends Object
    {
       return this._bIsUncarrying;
    }
-   function set _nCellNum(bUncarrying)
+   function set _nCellNum(bNoFlip)
    {
-      this._bIsUncarrying = bUncarrying;
+      this._bIsUncarrying = bNoFlip;
    }
    function get _nDirection()
    {
@@ -384,9 +384,9 @@ class ank.battlefield.datacenter.Sprite extends Object
    {
       return this._bSpriteNoFlip;
    }
-   function set allDirections(bNoFlip)
+   function set allDirections(bForceWalk)
    {
-      this._bSpriteNoFlip = bNoFlip;
+      this._bSpriteNoFlip = bForceWalk;
    }
    function get forceWalk()
    {

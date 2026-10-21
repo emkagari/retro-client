@@ -453,7 +453,6 @@ class dofus.graphics.gapi.ui.Login extends dofus.graphics.gapi.core.DofusAdvance
       this._btnBackToNews.label = this.api.lang.getText("BACK_TO_NEWS");
       this._lblGoToStatus.text = this.api.lang.getText("GO_TO_STATUS");
       this._lblRememberMe.text = this.api.lang.getText("REMEMBER_ME");
-      org.flashdevelop.utils.FlashConnect.trace("api.config.isStreaming : " + _global.CONFIG.isStreaming,"dofus.graphics.gapi.ui.Login::initTexts","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/Login.as",584);
       if(_global.CONFIG.isStreaming)
       {
          this._lblAccount.text = this.api.lang.getText("STREAMING_LOGIN_ACCOUNT");
@@ -818,7 +817,6 @@ class dofus.graphics.gapi.ui.Login extends dofus.graphics.gapi.core.DofusAdvance
    {
       var _loc3_ = this.api.ui.getUIComponent("ChooseNickName");
       var _loc4_ = this.api.ui.getUIComponent("AskOkOnLogin");
-      org.flashdevelop.utils.FlashConnect.trace(sShortcut,"dofus.graphics.gapi.ui.Login::onShortcut","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/Login.as",1017);
       if(sShortcut == "ACCEPT_CURRENT_DIALOG" && (Selection.getFocus() != undefined && (_loc3_ == undefined && _loc4_ == undefined || _loc3_ == null && _loc4_ == null)))
       {
          this.onLogin(this._tiAccount.text,this._tiPassword.text);
@@ -959,7 +957,6 @@ class dofus.graphics.gapi.ui.Login extends dofus.graphics.gapi.core.DofusAdvance
             _loc7_.push(_loc6_[(_loc8_ + _loc9_) % _loc6_.length]);
             _loc9_ = _loc9_ + 1;
          }
-         org.flashdevelop.utils.FlashConnect.trace("[Login] (onLogin) IP : " + _loc7_,"dofus.graphics.gapi.ui.Login::onLogin","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/Login.as",1240);
          this.api.datacenter.Basics.aks_connection_server = _loc7_;
          this._sServerIP = String(_loc7_.shift());
       }
@@ -1037,7 +1034,6 @@ class dofus.graphics.gapi.ui.Login extends dofus.graphics.gapi.core.DofusAdvance
             }
             else
             {
-               org.flashdevelop.utils.FlashConnect.trace("open : " + this.api.lang.getConfigText("REGISTER_POPUP_LINK"),"dofus.graphics.gapi.ui.Login::click","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/Login.as",1336);
                this.getURL(this.api.lang.getConfigText("REGISTER_POPUP_LINK"),"_blank");
             }
             return;

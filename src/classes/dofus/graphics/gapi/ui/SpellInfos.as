@@ -47,7 +47,6 @@ class dofus.graphics.gapi.ui.SpellInfos extends dofus.graphics.gapi.core.DofusAd
    }
    function initData()
    {
-      org.flashdevelop.utils.FlashConnect.trace("initData " + this._oSpell,"dofus.graphics.gapi.ui.SpellInfos::initData","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/graphics/gapi/ui/SpellInfos.as",89);
       if(this._oSpell != undefined)
       {
          this._sfivSpellFullInfosViewer.spell = this._oSpell;

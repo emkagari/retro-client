@@ -40,6 +40,10 @@ class dofus.managers.AchievementObjectiveManager
          case 31:
          case 32:
             return _loc4_.lang.getMountText(oChallengeParams.model).n;
+         case 34:
+         case 35:
+         case 36:
+            return _loc4_.lang.getItemUnicText(oChallengeParams.items[0]).n;
          case 99:
             return _loc4_.lang.getFightChallenge(oChallengeParams.challenge).n;
          default:

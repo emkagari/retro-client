@@ -2,7 +2,7 @@
 <svg xmlns:ffdec="https://www.free-decompiler.com/flash" xmlns:xlink="http://www.w3.org/1999/xlink" ffdec:objectType="shape" height="423.05px" width="324.4px" xmlns="http://www.w3.org/2000/svg">
   <g transform="matrix(1.0, 0.0, 0.0, 1.0, -3.05, -23.75)">
     <path d="M3.55 446.3 L324.95 446.3" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.0"/>
-    <path d="M251.2 260.7 L251.05 265.7 256.15 262.7 257.05 264.25 251.75 267.15 257.05 270.0 256.15 271.55 251.05 268.55 251.2 273.55 249.3 273.55 249.45 268.55 244.45 271.55 243.45 270.0 248.9 267.15 243.45 264.25 244.45 262.7 249.45 265.7 249.3 260.7 251.2 260.7" fill="#ff9900" fill-rule="evenodd" stroke="none"/>
+    <path d="M251.05 265.7 L256.15 262.7 257.05 264.25 251.75 267.15 257.05 270.0 256.15 271.55 251.05 268.55 251.2 273.55 249.3 273.55 249.45 268.55 244.45 271.55 243.45 270.0 248.9 267.15 243.45 264.25 244.45 262.7 249.45 265.7 249.3 260.7 251.2 260.7 251.05 265.7" fill="#ff9900" fill-rule="evenodd" stroke="none"/>
     <path d="M3.55 172.3 L324.95 172.3" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.0"/>
     <path d="M3.55 425.3 L324.95 425.3" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.0"/>
     <path d="M251.2 95.65 L251.05 100.65 256.15 97.65 257.05 99.2 251.75 102.1 257.05 104.95 256.15 106.5 251.05 103.5 251.2 108.5 249.3 108.5 249.45 103.5 244.45 106.5 243.45 104.95 248.9 102.1 243.45 99.2 244.45 97.65 249.45 100.65 249.3 95.65 251.2 95.65" fill="#ff9900" fill-rule="evenodd" stroke="none"/>

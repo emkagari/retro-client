@@ -1612,8 +1612,7 @@
   "LoadingBanner"
  ],
  "images/84": [
-  "LoadingBanner",
-  "UI_CardsCollection"
+  "LoadingBanner"
  ],
  "shapes/85": [
   "LoadingBanner"
@@ -3151,6 +3150,7 @@
   "UI_Login"
  ],
  "images/900": [
+  "TurquoiseDofus",
   "UI_Login"
  ],
  "shapes/901": [
@@ -3626,7 +3626,6 @@
   "UI_DocumentRoadSignRight"
  ],
  "images/1169": [
-  "Link",
   "UI_DocumentRoadSignLeft",
   "UI_DocumentRoadSignRight"
  ],
@@ -4182,7 +4181,8 @@
  ],
  "images/1550": [
   "UI_AskGameBegin",
-  "UI_AskGameBegin_TripleFramerate"
+  "UI_AskGameBegin_TripleFramerate",
+  "UI_ChooseServer"
  ],
  "shapes/1551": [
   "UI_AskGameBegin",
@@ -6110,5 +6110,11 @@
  "shapes/2988": [
   "ButtonArchMonsterDown",
   "ButtonArchMonsterUp"
+ ],
+ "shapes/21204": [
+  "Helper",
+  "Helper_TripleFramerate",
+  "UI_AskGameBegin",
+  "UI_AskGameBegin_TripleFramerate"
  ]
 }

@@ -98,9 +98,9 @@ class ank.gapi.controls.TextArea extends ank.gapi.core.UIBasicComponent
    {
       return this._bEditable;
    }
-   function set autoHeight(bAutoHeight)
+   function set autoHeight(bEditable)
    {
-      this._bAutoHeight = bAutoHeight;
+      this._bAutoHeight = bEditable;
       if(this._bInitialized)
       {
          this.addToQueue({object:this,method:this.setTextFieldProperties});
@@ -122,9 +122,9 @@ class ank.gapi.controls.TextArea extends ank.gapi.core.UIBasicComponent
    {
       return this._bSelectable;
    }
-   function set wordWrap(bEditable)
+   function set wordWrap(bAutoHeight)
    {
-      this.getStyle_ = bEditable;
+      this.getStyle_ = bAutoHeight;
       if(this._bInitialized)
       {
          this.addToQueue({object:this,method:this.setTextFieldProperties});

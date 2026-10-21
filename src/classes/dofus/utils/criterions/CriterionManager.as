@@ -64,7 +64,6 @@ class dofus.utils.criterions.CriterionManager
       }
       if(_loc7_ == null || !_loc7_.check())
       {
-         org.flashdevelop.utils.FlashConnect.trace(new com.ankamagames.exceptions.NullPointerException(dofus.utils.criterions.CriterionManager,"CriterionManager","parseCriterion","criterionToReturn"),"dofus.utils.criterions.CriterionManager::parseCriterion","C:\\Dev\\Projects\\client\\src\\core\\classes/dofus/utils/criterions/CriterionManager.as",73);
          return null;
       }
       return _loc7_;

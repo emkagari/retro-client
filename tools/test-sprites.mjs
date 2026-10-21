@@ -73,6 +73,16 @@ const ctx = context(baseSwf);
 const objects = objectFiles(baseSwf);
 const tagOf = (swf, id) => swf.tags.find((t) => [39, 34, 37, 11, 33].includes(t.code) && t.data.readUInt16LE(0) === id);
 const count = (kind) => [...objects.values()].filter((o) => o.kind === kind).length;
+// What the tests edit, found by what it is: ids change between bases.
+const firstObject = (code, pick) => [...objects].find(([id, o]) => o.code === code && pick(readObject(tagOf(baseSwf, id), ctx).json))?.[0];
+/** The login logo: UI_Login's depth 225. */
+const LOGO = readSprite(spriteTag(baseSwf, LOGIN).data, lib).json.frames[0].place.find((o) => o.depth === 225)?.shape;
+/** A text field filled by code: no text of its own. */
+const FIELD = firstObject(37, (j) => !("text" in j) && j.font !== undefined);
+/** The static text "News". */
+const NEWS = firstObject(11, (j) => j.records?.[0]?.text === "News");
+/** A button with actions, its first state a shape. */
+const BUTTON = firstObject(34, (j) => j.actions === true && j.records?.[0]?.shape !== undefined);
 
 test("inventory: one JSON per sprite, button and text, as extracted from the base", () => {
   const files = new Set(spriteFiles());
@@ -116,8 +126,8 @@ test("identity: nothing edited, the base's bytes", () => {
 test("move: the login logo 50 px to the right, only its line changes", () => {
   const src = scratchSrc("move", [loginFile]);
   const text = readFileSync(join(src, loginFile), "utf8");
-  const line = text.split("\n").find((l) => l.includes('"shape": 901'));
-  check(line, `${loginFile}: no placement of shape 901`);
+  const line = text.split("\n").find((l) => l.includes(`"shape": ${LOGO}`));
+  check(line, `${loginFile}: no placement of shape ${LOGO}`);
   const x = JSON.parse(line.trim().replace(/,$/, "")).x;
   writeFileSync(join(src, loginFile), text.replace(line, line.replace(`"x": ${x},`, `"x": ${x + 50},`)));
   const out = join(work, "move.swf");
@@ -126,10 +136,10 @@ test("move: the login logo 50 px to the right, only its line changes", () => {
   const changed = swf.tags.map((t, i) => (t.data.equals(baseSwf.tags[i].data) ? -1 : i)).filter((i) => i >= 0);
   check(changed.length === 1 && swf.tags[changed[0]].code === 39 && swf.tags[changed[0]].data.readUInt16LE(0) === LOGIN, `changed tags: ${changed.join(", ")}`);
   const now = readSprite(swf.tags[changed[0]].data, lib), was = readSprite(spriteTag(baseSwf, LOGIN).data, lib);
-  const logo = now.json.frames[0].place.find((o) => o.shape === 901);
+  const logo = now.json.frames[0].place.find((o) => o.shape === LOGO);
   check(logo.x === x + 50, `logo at x ${logo.x}, expected ${x + 50}`);
-  const others = now.raws[0].filter((r) => r.o.shape !== 901).map((r) => r.raw.toString("hex")).join();
-  check(others === was.raws[0].filter((r) => r.o.shape !== 901).map((r) => r.raw.toString("hex")).join(), "other placements' bytes changed");
+  const others = now.raws[0].filter((r) => r.o.shape !== LOGO).map((r) => r.raw.toString("hex")).join();
+  check(others === was.raws[0].filter((r) => r.o.shape !== LOGO).map((r) => r.raw.toString("hex")).join(), "other placements' bytes changed");
   return [`x ${x} → ${logo.x}`];
 });
 
@@ -141,7 +151,7 @@ test("new: new/test/*.json sprites, exported, defined before use, drawn", () => 
   writeFileSync(join(assets, "new", "test", "cadre.json"), formatSprite({ frames: [{ place: [{ depth: 1, export: "test/fenetre", x: 10, y: 10, scale: 2 }] }] }));
   writeFileSync(join(assets, "new", "test", "fenetre.json"), formatSprite({ frames: [{ place: [
     { depth: 1, export: "test/fond", x: 0, y: 0 },
-    { depth: 2, shape: 901, x: 70, y: 0, scale: 0.25, alpha: 0.5 },
+    { depth: 2, shape: LOGO, x: 70, y: 0, scale: 0.25, alpha: 0.5 },
   ] }] }));
   const files = ["new/test/Fond.svg", "new/test/cadre.json", "new/test/fenetre.json"];
   const withGraphics = join(work, "new-graphics.swf"), out = join(work, "new.swf");
@@ -165,29 +175,29 @@ test("new: new/test/*.json sprites, exported, defined before use, drawn", () => 
   // FFDec names the folder after the export, "/" as %2F.
   const png = join(work, "new-render", `DefineSprite_${ids.get("test/cadre")}_test%2Fcadre`, "1.png");
   check(r.ok && existsSync(png), `test/cadre not rendered by FFDec${existsSync(join(work, "new-render")) ? "" : ` (${r.log.trim().split("\n").pop()})`}`);
-  return ["test/cadre places test/fenetre (test/fond + shape 901): rendered by FFDec"];
+  return [`test/cadre places test/fenetre (test/fond + shape ${LOGO}): rendered by FFDec`];
 });
 
 test("texts: a field's text and a static text changed", () => {
-  // A text field filled by code (813, no text of its own): given one.
-  const field = readObject(tagOf(baseSwf, 813), ctx);
-  check(!("text" in field.json), "text 813 has a text already");
-  const withText = readObject({ code: 37, data: writeObject(37, 813, { ...field.json, text: "Bonjour" }, ctx, field, "813") }, ctx).json;
-  check(withText.text === "Bonjour" && withText.font === field.json.font, `813 reads back ${JSON.stringify(withText)}`);
-  // A static text ("News", 878): its letters reordered, with their widths.
-  const stat = readObject(tagOf(baseSwf, 878), ctx), rec = stat.json.records[0];
-  check(rec.text === "News", `878 reads "${rec.text}"`);
+  // A text field filled by code (no text of its own): given one.
+  const field = readObject(tagOf(baseSwf, FIELD), ctx);
+  check(!("text" in field.json), `text ${FIELD} has a text already`);
+  const withText = readObject({ code: 37, data: writeObject(37, FIELD, { ...field.json, text: "Bonjour" }, ctx, field, String(FIELD)) }, ctx).json;
+  check(withText.text === "Bonjour" && withText.font === field.json.font, `${FIELD} reads back ${JSON.stringify(withText)}`);
+  // A static text ("News"): its letters reordered, with their widths.
+  const stat = readObject(tagOf(baseSwf, NEWS), ctx), rec = stat.json.records[0];
+  check(rec.text === "News", `${NEWS} reads "${rec.text}"`);
   const order = [3, 2, 1, 0];
   const json = { ...stat.json, records: [{ ...rec, text: order.map((i) => rec.text[i]).join(""), advances: order.map((i) => rec.advances[i]) }] };
-  const again = readObject({ code: 11, data: writeObject(11, 878, json, ctx, stat, "878") }, ctx).json.records[0];
-  check(again.text === "sweN" && JSON.stringify(again.advances) === JSON.stringify(json.records[0].advances), `878 reads back ${JSON.stringify(again)}`);
-  throws(() => writeObject(11, 878, { ...stat.json, records: [{ ...rec, text: "N\u4e00ws" }] }, ctx, stat, "878.json"), "has no", "a character the font lacks");
-  throws(() => writeObject(11, 878, { ...stat.json, records: [{ ...rec, text: "Newss" }] }, ctx, stat, "878.json"), "one width per character", "a width missing");
-  return ['813: "Bonjour"; 878: "News" → "sweN"'];
+  const again = readObject({ code: 11, data: writeObject(11, NEWS, json, ctx, stat, String(NEWS)) }, ctx).json.records[0];
+  check(again.text === "sweN" && JSON.stringify(again.advances) === JSON.stringify(json.records[0].advances), `${NEWS} reads back ${JSON.stringify(again)}`);
+  throws(() => writeObject(11, NEWS, { ...stat.json, records: [{ ...rec, text: "N\u4e00ws" }] }, ctx, stat, `${NEWS}.json`), "has no", "a character the font lacks");
+  throws(() => writeObject(11, NEWS, { ...stat.json, records: [{ ...rec, text: "Newss" }] }, ctx, stat, `${NEWS}.json`), "one width per character", "a width missing");
+  return [`${FIELD}: "Bonjour"; ${NEWS}: "News" → "sweN"`];
 });
 
 test("buttons: a state's graphic moved, only that button changes", () => {
-  const id = 125, file = objects.get(id).file;
+  const id = BUTTON, file = objects.get(id).file;
   const src = scratchSrc("button", [file]);
   const json = JSON.parse(readFileSync(join(src, file), "utf8"));
   const shape = json.records[0].shape;
@@ -209,11 +219,11 @@ test("buttons: a state's graphic moved, only that button changes", () => {
 test("errors: refused, and said where", () => {
   const was = readSprite(spriteTag(baseSwf, LOGIN).data, lib);
   const json = (o) => ({ frames: [{ place: [{ depth: 1, ...o }] }] });
-  throws(() => writeSprite(LOGIN, json({ shape: 901, scal: 2 }), lib, was, "f.json"), 'f.json, frame 1, place #1: unknown key "scal"', "a typo");
+  throws(() => writeSprite(LOGIN, json({ shape: LOGO, scal: 2 }), lib, was, "f.json"), 'f.json, frame 1, place #1: unknown key "scal"', "a typo");
   throws(() => writeSprite(LOGIN, json({ shape: LOGIN }), lib, was, "f.json"), `${LOGIN} is a sprite, not a shape`, "a sprite's id as a shape");
   throws(() => writeSprite(LOGIN, json({ export: "Nope" }), lib, was, "f.json"), 'no symbol exported as "Nope"', "an unknown export");
-  throws(() => writeSprite(LOGIN, json({ export: "Button", shape: 901 }), lib, was, "f.json"), "one of export, shape", "two things placed");
-  throws(() => writeSprite(LOGIN, { frames: [{ place: [{ depth: 1, shape: 901, actions: true }] }] }, lib, null, "f.json"), "clip actions are compiled", "clip actions added");
+  throws(() => writeSprite(LOGIN, json({ export: "Button", shape: LOGO }), lib, was, "f.json"), "one of export, shape", "two things placed");
+  throws(() => writeSprite(LOGIN, { frames: [{ place: [{ depth: 1, shape: LOGO, actions: true }] }] }, lib, null, "f.json"), "clip actions are compiled", "clip actions added");
   const assets = join(work, "errors-assets");
   mkdirSync(join(assets, "new"), { recursive: true });
   writeFileSync(join(assets, "new", "a.json"), formatSprite(json({ export: "b" })));
@@ -224,17 +234,17 @@ test("errors: refused, and said where", () => {
 });
 
 test("new base: an edit carried over, ids mapped, merged or in conflict", () => {
-  // A "next base": shape 901 renumbered (as ids change between versions), and
+  // A "next base": the logo's shape renumbered (as ids change between versions), and
   // Ankama moving another placement of UI_Login.
   const next = parseSwf(readFileSync(b.loader));
   const NEW_ID = 30001;
   check(!library(next).kinds.has(NEW_ID), `id ${NEW_ID} taken`);
-  next.tags.find((t) => [2, 22, 32, 83].includes(t.code) && t.data.readUInt16LE(0) === 901).data.writeUInt16LE(NEW_ID, 0);
+  next.tags.find((t) => [2, 22, 32, 83].includes(t.code) && t.data.readUInt16LE(0) === LOGO).data.writeUInt16LE(NEW_ID, 0);
   const login = spriteTag(next, LOGIN);
   const original = readSprite(login.data, lib), theirs = original.json;
   const moved = theirs.frames[0].place.find((o) => o.depth === 5);
   moved.x += 3;
-  for (const o of theirs.frames[0].place) if (o.shape === 901) o.shape = NEW_ID;
+  for (const o of theirs.frames[0].place) if (o.shape === LOGO) o.shape = NEW_ID;
   const nextLib = library(next);
   nextLib.kinds.set(NEW_ID, "shape");
   login.data = writeSprite(LOGIN, theirs, nextLib, original, "next base");
@@ -242,8 +252,8 @@ test("new base: an edit carried over, ids mapped, merged or in conflict", () => 
   writeFileSync(nextFile, writeSwf(next));
   const graphics = graphicHashes(join(SRC, "assets"), assetHash);
   const nextGraphics = new Map(graphics);
-  nextGraphics.set(NEW_ID, graphics.get(901));
-  nextGraphics.delete(901);
+  nextGraphics.set(NEW_ID, graphics.get(LOGO));
+  nextGraphics.delete(LOGO);
 
   const run = (edit, name) => {
     const dir = join(work, name);
@@ -256,7 +266,7 @@ test("new base: an edit carried over, ids mapped, merged or in conflict", () => 
     return { r, text: readFileSync(target, "utf8") };
   };
   // The logo moved: carried over, with its new id, and Ankama's own move kept.
-  const a = run((p) => { p.find((o) => o.shape === 901).x += 50; }, "carry");
+  const a = run((p) => { p.find((o) => o.shape === LOGO).x += 50; }, "carry");
   check(a.r.carried.length === 1, `not carried: ${JSON.stringify(a.r)}`);
   const logo = JSON.parse(a.text).frames[0].place.find((o) => o.depth === 225);
   check(logo.shape === NEW_ID, `the logo places shape ${logo.shape}, expected ${NEW_ID} (its id in the next base)`);
@@ -264,7 +274,7 @@ test("new base: an edit carried over, ids mapped, merged or in conflict", () => 
   // Both moved depth 5: a conflict, with markers.
   const c = run((p) => { p.find((o) => o.depth === 5).x += 9; }, "conflict");
   check(c.r.conflicts.length === 1 && c.text.includes("<<<<<<< new base"), `no conflict: ${JSON.stringify(c.r)}`);
-  return [`shape 901 → ${NEW_ID}; merged with Ankama's change; a conflict when both change the same placement`];
+  return [`shape ${LOGO} → ${NEW_ID}; merged with Ankama's change; a conflict when both change the same placement`];
 });
 
 console.log(failed ? `\n${failed} test(s) failed` : `\nall ${passed} tests passed`);

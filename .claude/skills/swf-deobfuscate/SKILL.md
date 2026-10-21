@@ -97,7 +97,11 @@ unique):
    `function classID(n)` is `set classID`). Retro 1.49.5: 1 024 unnamed ids →
    116, 500 matcher names corrected. With `--extra by-role.json` it also names
    the accessors of a property named by hand (run it again after pass 3).
-2. **From the previous sources** (an upgrade) — `node tools/deob/src/align.ts
+2. **From the previous base** (an upgrade) — a member keeps its id from one
+   version to the next: pass the names the previous base applied
+   (`base/<previous>/names/applied.json`) FIRST in every `--extra` list, and
+   unchanged code gets exactly the previous names (Retro 1.49.8: 0 leftovers,
+   no member renamed). For a base without it, `node tools/deob/src/align.ts
    .tmp/deob-<v> --ref src/classes --out .tmp/deob-<v>/by-role.json` names a
    leftover from the same line of the previous sources (by-role names, setter
    parameters, clip names). Run it on sources decompiled with the accessors

@@ -39,20 +39,26 @@ grep -E 'static var (SUB|SUBSUB)?VERSION' .tmp/deob-1.50.0/scripts/scripts/__Pac
 
 ## 2. Name accessors and what's left
 
+The obfuscator gives a member the same id from one version to the next, so
+the names the previous base really applied (`base/<previous>/names/applied.json`,
+`$PREV` below) name everything the new version kept — exactly as before.
+Without them, the matcher's votes would move private members' names between
+ids at each version (see § 4). The new registrations come after them
+(`accessors.json` wins), then names by role:
+
 ```bash
-node tools/deob/src/accessors.ts .tmp/deob-1.50.0
+PREV=base/1.49.8/names/applied.json
+node tools/deob/src/accessors.ts .tmp/deob-1.50.0 --extra $PREV
 node tools/deob/src/rename-only.ts .tmp/deob-1.50.0 --ref src/classes \
-  --extra .tmp/deob-1.50.0/accessors.json --ffdec $FFDEC     # decompiles with accessors named
+  --extra $PREV,.tmp/deob-1.50.0/accessors.json --ffdec $FFDEC     # decompiles with these names
 node tools/deob/src/align.ts .tmp/deob-1.50.0 --ref src/classes --out .tmp/deob-1.50.0/by-role.json
 node tools/deob/src/leftovers.ts .tmp/deob-1.50.0/scripts/scripts/__Packages
 ```
 
-`accessors.ts` names getters/setters from their registrations; `align.ts`
-names leftovers from the same lines of the previous sources (most are names
-the previous version had: by-role names, setter parameters, clip names). What
-`leftovers.ts` still lists is mostly new code: add names by role to
-`by-role.json` (`{ "_o1b1812": "_nLoadingCount" }`). Rules (also in the
-`swf-deobfuscate` skill, § 5):
+(A base without `applied.json`: leave `$PREV` out; `align.ts` then recovers
+the previous names it can.) What `leftovers.ts` still lists is new code: add
+names by role to `by-role.json` (`{ "_o1b1812": "_nLoadingCount" }`). Rules
+(also in the `swf-deobfuscate` skill, § 5):
 
 - **never a name already present in the code** (`grep -rw <name>` in
   `.tmp/deob-1.50.0/scripts`): the obfuscator reuses an id for different
@@ -64,9 +70,9 @@ the previous version had: by-role names, setter parameters, clip names). What
 Then, with every name:
 
 ```bash
-node tools/deob/src/accessors.ts .tmp/deob-1.50.0 --extra .tmp/deob-1.50.0/by-role.json
+node tools/deob/src/accessors.ts .tmp/deob-1.50.0 --extra $PREV,.tmp/deob-1.50.0/by-role.json
 node tools/deob/src/rename-only.ts .tmp/deob-1.50.0 --ref src/classes \
-  --extra .tmp/deob-1.50.0/accessors.json,.tmp/deob-1.50.0/by-role.json \
+  --extra $PREV,.tmp/deob-1.50.0/accessors.json,.tmp/deob-1.50.0/by-role.json \
   --out .tmp/deob-1.50.0/runnable.swf --runnable --ffdec $FFDEC
 node tools/deob/src/check-accessors.ts .tmp/deob-1.50.0/runnable.swf
 ```
@@ -79,6 +85,7 @@ with another id belongs to a property still unnamed: name the property.
 
 ```bash
 mkdir -p .tmp/names && cp .tmp/deob-1.50.0/{names,accessors,by-role}.json .tmp/names/
+cp .tmp/deob-1.50.0/runnable.names.json .tmp/names/applied.json     # the next upgrade's $PREV
 node tools/new-base.mjs 1.50.0 .tmp/deob-1.50.0/runnable.swf --upstream $OFFICIAL --names .tmp/names
 ```
 
@@ -98,6 +105,7 @@ in `.tmp/assets-kept/`, `.tmp/sprites-kept/`), and sprite conflicts are
 marked `<<<<<<<` like code. Then:
 
 ```bash
+git add -A src base/1.50.0                               # manifest.mjs counts tracked files only
 node tools/manifest.mjs 1.50.0 --upstream $OFFICIAL     # build.mjs needs it
 node tools/build.mjs --full                              # every file compiles
 node tools/test-assets.mjs --update && node tools/test-sprites.mjs  # graphics and sprites round trip

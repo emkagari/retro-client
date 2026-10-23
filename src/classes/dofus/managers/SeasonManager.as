@@ -1,4 +1,3 @@
-606042217 - 1;
 class dofus.managers.SeasonManager extends Object
 {
    var api;

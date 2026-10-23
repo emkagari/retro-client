@@ -242,6 +242,22 @@ export function renameSwf(swf: Swf, rn: (s: string) => string,
   return renameTimeline(swf, rn);
 }
 
+/**
+ * Where a PlaceObject2's clip actions start, or -1: none (PlaceObject3's
+ * come after filters: not handled, none seen).
+ */
+export function clipActionsAt(tag: { code: number; data: Buffer }): number {
+  const d = tag.data, f = d[0]!;
+  if (tag.code !== TAG.PlaceObject2 || !(f & 0x80)) return -1;
+  let p = 3;
+  if (f & 0x02) p += 2;
+  if (f & 0x04) p = skipMatrix(d, p);
+  if (f & 0x08) p = skipCxformAlpha(d, p);
+  if (f & 0x10) p += 2;
+  if (f & 0x20) p = cstr(d, p)[1];
+  return p + (f & 0x40 ? 2 : 0);
+}
+
 /** Bit reader over a buffer, from byte `p`. */
 function bits(b: Buffer, p: number) {
   let bit = p * 8;
@@ -263,8 +279,8 @@ const skipCxformAlpha = (b: Buffer, p: number) => {
   return r.end();
 };
 
-/** Clip actions (`onClipEvent`) with their code renamed; sizes follow. */
-function renameClipActions(b: Buffer, version: number, rn: (s: string) => string): Buffer {
+/** Clip actions (`onClipEvent`) with each record's code through `f`; sizes follow. */
+export function mapClipActions(b: Buffer, version: number, f: (code: Buffer) => Buffer): Buffer {
   const fl = version >= 6 ? 4 : 2;
   const parts: Buffer[] = [b.subarray(0, 2 + fl)];
   let p = 2 + fl;
@@ -275,9 +291,7 @@ function renameClipActions(b: Buffer, version: number, rn: (s: string) => string
     const size = b.readUInt32LE(p); p += 4;
     const keyPress = fl === 4 && (flags[2]! & 0x02) !== 0;
     const key = keyPress ? b.subarray(p, p + 1) : Buffer.alloc(0);
-    // Clip actions are obfuscated too, and the clean step only sees DoAction/DoInitAction.
-    const raw = b.subarray(p + key.length, p + size);
-    const code = renameCode(cleanCode(raw, { folded: 0, realBranches: 0, overlaps: 0, outside: 0 }), rn);
+    const code = f(b.subarray(p + key.length, p + size));
     p += size;
     const n = Buffer.alloc(4); n.writeUInt32LE(key.length + code.length);
     parts.push(n, key, code);
@@ -287,13 +301,13 @@ function renameClipActions(b: Buffer, version: number, rn: (s: string) => string
 
 /**
  * A button's actions (`on(release)`…: DefineButton2's BUTTONCONDACTIONs),
- * cleaned then renamed; record sizes follow. Null: no actions.
+ * each record's code through `f`; record sizes follow. Null: no actions.
  *
  *   ButtonId u16, flags u8, ActionOffset u16 (from this field to the first
  *   record; 0: none), characters…, then records: CondActionSize u16 (from
  *   this field to the next record; 0: last), conditions u16, actions…End.
  */
-function renameButtonActions(d: Buffer, rn: (s: string) => string): Buffer | null {
+export function mapButtonActions(d: Buffer, f: (code: Buffer) => Buffer): Buffer | null {
   const offset = d.readUInt16LE(3);
   if (offset === 0) return null;
   let p = 3 + offset;
@@ -302,7 +316,7 @@ function renameButtonActions(d: Buffer, rn: (s: string) => string): Buffer | nul
     const size = d.readUInt16LE(p);
     const end = size === 0 ? d.length : p + size;
     const cond = d.subarray(p + 2, p + 4);
-    const code = renameCode(cleanCode(d.subarray(p + 4, end), { folded: 0, realBranches: 0, overlaps: 0, outside: 0 }), rn);
+    const code = f(d.subarray(p + 4, end));
     records.push(Buffer.concat([cond, code]));
     if (size === 0) break;
     p = end;
@@ -323,11 +337,13 @@ function renameButtonActions(d: Buffer, rn: (s: string) => string): Buffer | nul
  */
 export function renameTimeline(swf: Swf, rn: (s: string) => string): { renamed: number; skipped: number } {
   let renamed = 0, skipped = 0;
+  // Clip and button actions are obfuscated too, and the clean step only sees DoAction/DoInitAction.
+  const code = (c: Buffer) => renameCode(cleanCode(c, { folded: 0, realBranches: 0, overlaps: 0, outside: 0 }), rn);
   for (const { tag, replace } of namedTags(swf)) {
     const d = tag.data;
     try {
       if (tag.code === TAG.DefineButton2) {
-        const actions = renameButtonActions(d, rn);
+        const actions = mapButtonActions(d, code);
         if (actions && !actions.equals(d)) { replace(actions); renamed++; }
       } else if (tag.code === TAG.FrameLabel) {
         const [s, q] = cstr(d, 0);
@@ -363,7 +379,7 @@ export function renameTimeline(swf: Swf, rn: (s: string) => string): { renamed: 
           if (po3) skipped++;                        // filters before the actions: not handled (none seen)
           else {
             const cd = f & 0x40 ? 2 : 0;
-            const actions = renameClipActions(tail.subarray(cd), swf.version, rn);
+            const actions = mapClipActions(tail.subarray(cd), swf.version, code);
             if (!actions.equals(tail.subarray(cd))) { tail = Buffer.concat([tail.subarray(0, cd), actions]); changed = true; }
           }
         }

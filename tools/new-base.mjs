@@ -23,13 +23,17 @@
  *    edits merged (git merge-file); conflicts and sprites not found are listed;
  * 8. retro.json → this version.
  *
+ * The current version again (a rule added to the deobfuscator, the base
+ * cleaned again: tools/deob/src/reclean.ts) is a new base like another: the
+ * previous one is the base it replaces, and its hand fixes are carried over.
+ *
  * Fix those files by hand (they're few: 2 for 1.49.5), until
  * `node tools/build.mjs --full` passes, then record the baseline:
  * `node tools/manifest.mjs <version> --upstream <official loader.swf>`.
  */
 import { execFileSync, spawnSync } from "node:child_process";
 import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from "node:fs";
-import { dirname, join, relative, sep } from "node:path";
+import { dirname, join, relative, resolve, sep } from "node:path";
 import { ROOT, SRC, base, compileErrors, config, ffdec, fromFfdec, sourceFiles } from "./lib.mjs";
 import { ASSETS, assetFiles, assetHash, changedAssets, exportGraphics, extract } from "./assets.mjs";
 import { carrySprites, changedSprites, extractSprites, graphicHashes } from "./sprites.mjs";
@@ -44,9 +48,17 @@ if (!version || !runnable || !upstream) {
 }
 const cfg = config();
 const dir = join(ROOT, "base", version);
+// The previous base: retro.json's, the one src/ was exported from (the same version installed again: put aside first).
+const previous = cfg.version;
+let previousLoader = join(ROOT, "base", previous, "loader.swf");
+if (previous === version && existsSync(previousLoader)) {
+  mkdirSync(join(ROOT, ".tmp"), { recursive: true });
+  copyFileSync(previousLoader, join(ROOT, ".tmp", "base-replaced.swf"));
+  previousLoader = join(ROOT, ".tmp", "base-replaced.swf");
+}
 mkdirSync(dir, { recursive: true });
 copyFileSync(runnable, join(dir, "loader.swf"));
-if (opt("--names")) cpSync(opt("--names"), join(dir, "names"), { recursive: true });
+if (opt("--names") && resolve(opt("--names")) !== join(dir, "names")) cpSync(opt("--names"), join(dir, "names"), { recursive: true });
 console.log(`base/${version}/loader.swf installed`);
 
 /** FFDec export of a base (its layout), LF, accessors made recompilable: what src/ starts from. */
@@ -69,10 +81,8 @@ const exported = exportSources(join(dir, "loader.swf"), tmp);
 const files = sourceFiles(exported);
 
 // The previous base's hand fixes: src/ against that base's own export.
-const previous = cfg.version;
-const previousLoader = join(ROOT, "base", previous, "loader.swf");
 const carried = [], conflicts = [], gone = [];
-if (previous !== version && existsSync(previousLoader)) {
+if (existsSync(previousLoader)) {
   const oldTmp = join(ROOT, ".tmp", "export-previous");
   const old = exportSources(previousLoader, oldTmp);
   for (const f of sourceFiles(old)) {

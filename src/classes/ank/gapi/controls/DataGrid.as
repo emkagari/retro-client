@@ -1,4 +1,3 @@
-76576565 - 1;
 class ank.gapi.controls.DataGrid extends ank.gapi.core.UIBasicComponent
 {
    var __height;

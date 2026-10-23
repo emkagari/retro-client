@@ -1,4 +1,3 @@
-165734887 - 1;
 class dofus.datacenter.LocalPlayer extends dofus.utils.ApiElement
 {
    var Achievements;

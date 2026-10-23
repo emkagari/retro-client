@@ -134,6 +134,12 @@ Symptoms: many `§§push`/`§§pop`, odd `while(true)` / `if(!(true and true))`,
   `stats.ts` until *into the middle* and *after an End* are 0.
 - Cleaning a readable build must change (almost) nothing: regression check
   `node tools/deob/src/run-clean.ts <readable.swf> .tmp/x.swf`.
+- A dead statement left in the sources (`816236712 - 1;`: a value computed
+  then popped) = a peephole rule missing in `clean.ts`. Once taught, an
+  installed base needn't be deobfuscated again: `node tools/deob/src/reclean.ts
+  base/<v>/loader.swf .tmp/reclean.swf`, then `tools/new-base.mjs <v>
+  .tmp/reclean.swf …` installs it again (hand fixes carried over;
+  docs/UPGRADING.md).
 
 ## 7. Putting a deobfuscated loader in a client
 

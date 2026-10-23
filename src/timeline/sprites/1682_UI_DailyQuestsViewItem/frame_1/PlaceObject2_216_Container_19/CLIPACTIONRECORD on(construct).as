@@ -1,5 +1,4 @@
 on(construct){
-   841499318 - 1;
    backgroundRenderer = "UI_DailyQuestRewardContainer";
    borderRenderer = "";
    dragAndDrop = false;

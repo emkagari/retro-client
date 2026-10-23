@@ -1,4 +1,3 @@
-859795789 - 1;
 class dofus.graphics.gapi.controls.ItemSetViewer extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnClose;

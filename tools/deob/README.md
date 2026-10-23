@@ -38,6 +38,9 @@ by hand: `dofus.SaveTheWorld`, `_srvId`, `_xSocket`, `TCP_HOST`,
   `x & x` on a big constant, `!!x` around them.
 - **Jumps into the middle of instructions** (1 779) and **dead code after
   `End`** (363 000 of 648 000 actions): a linear disassembly is wrong.
+- **Dead statements**: `816236712 - 1;` (`Push n; Decrement; Pop`), ~300 in
+  Retro 1.49.7, at the start of classes and clip actions — another value and
+  place each version (a diff of 500 files between two versions otherwise).
 - **Identifiers** (classes, packages, members, parameters) renamed to 1-3
   control characters (`\x1b\r\x04`), sometimes invalid UTF-8 — consistently:
   one real name ↔ one obfuscated string everywhere. Names the player needs
@@ -50,12 +53,13 @@ by hand: `dofus.SaveTheWorld`, `_srvId`, `_xSocket`, `TCP_HOST`,
 |---|---|---|
 | SWF / tags / code sites | `src/swf.ts` | DoAction + DoInitAction, root and inside sprites |
 | AVM1 decode/encode | `src/avm1.ts` | strings kept as BYTES (latin1) — invalid UTF-8 survives |
-| control-flow cleaning | `src/clean.ts` | recursive descent from the entry (not linear), a small stack model folds predicates (constants, `getTimer` truthy, `x op x`…), only reachable code is re-emitted, blocks chained in execution order, relay jumps when a branch exceeds 32 KB, peephole removes the leftovers (`Push c; Not; Pop`…) |
+| control-flow cleaning | `src/clean.ts` | recursive descent from the entry (not linear), a small stack model folds predicates (constants, `getTimer` truthy, `x op x`…), only reachable code is re-emitted, blocks chained in execution order, relay jumps when a branch exceeds 32 KB, peephole removes the leftovers (`Push c; Not; Pop`…) and dead statements (`Push n; Decrement; Pop`, constants combined then popped) |
 | AS2 parsing | `src/as2.ts` | FFDec class exports → classes, members, tokens; `§…§` and `["\x…"]` → raw identifier tokens |
 | name recovery | `src/match.ts` | classes paired on literals + surviving names (IDF-weighted Jaccard), members paired, bodies aligned by a Myers diff where unknown names are wildcards → votes; 4 rounds, names kept unique |
 | renaming | `src/rename.ts` | constant pools, pushed strings, function names/params, class export names; jumps and container sizes recomputed. Parameters: per function (see below) |
 | orchestration | `src/deob.ts` | clean → decompile → match → rename → (pass 2) → decompile |
 | re-rename a run | `src/rename-only.ts` | parameters + names.json on an existing run's clean.swf, one decompile |
+| clean again | `src/reclean.ts` | a runnable.swf / installed base cleaned by the current rules (clip and button actions too): only blocks that get shorter change |
 | diagnostics | `src/stats.ts`, `src/dump.ts`, `src/quality.ts`, `src/leftovers.ts` | opcode/pattern stats, readable p-code of one block, readability metrics, unnamed ids |
 
 ## Parameters: per function, not global

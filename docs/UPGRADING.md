@@ -107,6 +107,19 @@ git add -A && git commit -m "Upstream 1.50.0"
 
 Keep `base/<previous>/` until main is merged and tested; remove it after.
 
+**The deobfuscator improved** (a cleaning rule added in `tools/deob/src/clean.ts`):
+the current base can take it without a new deobfuscation — cleaned again,
+then installed again like a new base (its hand fixes carried over):
+
+```bash
+node tools/deob/src/reclean.ts base/1.49.7/loader.swf .tmp/reclean.swf
+node tools/new-base.mjs 1.49.7 .tmp/reclean.swf --upstream $OFFICIAL
+```
+
+then the rest of this section, from `git add`. Do it on the oldest base the
+next upgrade compares with: dead code left in one version and removed in the
+next shows as a change.
+
 ## 4. Merge into main
 
 ```bash

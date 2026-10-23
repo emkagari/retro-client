@@ -1,4 +1,3 @@
-180128468 - 1;
 class ank.battlefield.mc.BubbleThink extends ank.battlefield.mc.Bubble
 {
    var _bg;

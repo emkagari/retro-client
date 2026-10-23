@@ -1,4 +1,3 @@
-575451017 - 1;
 class com.ankamagames.tools.Logger
 {
    var _buffer;

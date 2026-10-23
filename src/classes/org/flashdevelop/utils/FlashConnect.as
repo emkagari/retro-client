@@ -1,4 +1,3 @@
-710119103 - 1;
 class org.flashdevelop.utils.FlashConnect
 {
    static var counter;

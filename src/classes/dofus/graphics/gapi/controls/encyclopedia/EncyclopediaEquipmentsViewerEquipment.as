@@ -1,4 +1,3 @@
-376159687 - 1;
 class dofus.graphics.gapi.controls.encyclopedia.EncyclopediaEquipmentsViewerEquipment extends ank.gapi.core.UIBasicComponent
 {
    var _btnViewCraft;

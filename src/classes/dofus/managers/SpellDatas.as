@@ -1,4 +1,3 @@
-993006317 - 1;
 class dofus.managers.SpellDatas
 {
    var spellIDByLevelID;

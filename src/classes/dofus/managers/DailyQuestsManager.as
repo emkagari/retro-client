@@ -1,4 +1,3 @@
-707608967 - 1;
 class dofus.managers.DailyQuestsManager extends Object
 {
    var _bCanCollectReward;

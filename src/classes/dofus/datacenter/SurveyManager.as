@@ -1,4 +1,3 @@
-100518671 - 1;
 class dofus.datacenter.SurveyManager
 {
    var eaQuestions;

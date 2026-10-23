@@ -1,4 +1,3 @@
-546540685 - 1;
 class ank.battlefield.mc.Zone extends MovieClip
 {
    var _mcZone;

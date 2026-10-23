@@ -1,4 +1,3 @@
-39610582 - 1;
 class ank.gapi.controls.list.DefaultCellRenderer extends ank.gapi.core.UIBasicComponent
 {
    var __height;

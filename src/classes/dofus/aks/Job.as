@@ -1,4 +1,3 @@
-607439194 - 1;
 class dofus.aks.Job extends dofus.aks.Handler
 {
    var api;

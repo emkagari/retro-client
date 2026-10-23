@@ -1,4 +1,3 @@
-458035165 - 1;
 class dofus.datacenter.Subway extends dofus.datacenter.Hint
 {
    var _nCost;

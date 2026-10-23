@@ -1,4 +1,3 @@
-80957585 - 1;
 class dofus.graphics.gapi.ui.KnownledgeBase extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnClose;

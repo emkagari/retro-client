@@ -1,4 +1,3 @@
-613161905 - 1;
 if(count >= 30)
 {
    gotoAndStop("slowdown");

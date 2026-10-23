@@ -1,4 +1,3 @@
-976098366 - 1;
 class dofus.datacenter.ItemDrop extends dofus.datacenter.Item
 {
    var _bHasDropConditions;

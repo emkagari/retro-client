@@ -1,4 +1,3 @@
-714042271 - 1;
 class ank.external.ExternalConnectorListerner
 {
    var _oParams;

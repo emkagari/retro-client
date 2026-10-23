@@ -1,4 +1,3 @@
-604304261 - 1;
 class dofus.utils.consoleParsers.ChatConsoleParser extends dofus.utils.consoleParsers.AbstractConsoleParser
 {
    var _aWhisperHistory;

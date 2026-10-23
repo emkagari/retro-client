@@ -1,4 +1,3 @@
-652286155 - 1;
 class dofus.graphics.gapi.controls.inventoryviewer.InventoryEquipmentFilter implements dofus.graphics.gapi.controls.inventoryviewer.IInventoryFilter
 {
    function InventoryEquipmentFilter()

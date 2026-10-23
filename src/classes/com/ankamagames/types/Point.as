@@ -1,4 +1,3 @@
-991656350 - 1;
 class com.ankamagames.types.Point
 {
    var x;

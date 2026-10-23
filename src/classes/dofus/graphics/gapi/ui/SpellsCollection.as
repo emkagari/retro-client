@@ -1,4 +1,3 @@
-963055636 - 1;
 class dofus.graphics.gapi.ui.SpellsCollection extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnClose;

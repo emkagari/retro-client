@@ -227,8 +227,15 @@ export function cleanRegion(buf: Buffer, start: number, end: number, stats: Clea
 }
 
 const PURE_BINARY = new Set<number>([OP.And, OP.Or, OP.BitAnd, OP.BitOr, OP.BitXor, OP.Equals2, OP.StrictEquals, OP.Less2, OP.Greater]);
+/** Pure on constants (on an object, they'd call its valueOf). */
+const CONST_BINARY = new Set<number>([OP.Add, OP.Add2, OP.Subtract, OP.Multiply, OP.Divide, OP.Modulo, OP.BitLShift, OP.BitRShift,
+  OP.BitURShift, OP.Equals, OP.Less, OP.StringEquals, OP.StringLess, OP.StringGreater, OP.StringAdd]);
+const isConst = (v: PushValue) => v.t !== "reg" && v.t !== "const";
 
-/** Removes what the folded predicates leave behind: values pushed only to be popped. */
+/**
+ * Removes what the folded predicates leave behind, and the obfuscator's dead
+ * statements (`816236712 - 1;`: Push, Decrement, Pop): values pushed only to be popped.
+ */
 function peephole(items: Item[], jumpedTo: Set<number>): Item[] {
   let changed = true;
   let out = items;
@@ -252,8 +259,18 @@ function peephole(items: Item[], jumpedTo: Set<number>): Item[] {
           i++; changed = true; continue;
         }
       }
+      // `Push … a b <arithmetic> Pop`, a and b constants → `Push …`.
+      if (x.kind === "raw" && x.code === OP.Push && y?.kind === "raw" && CONST_BINARY.has(y.code) && isRaw(z, OP.Pop) && !target(y) && !target(z)) {
+        const vals = (() => { try { return readPush({ offset: 0, code: OP.Push, body: x.body, size: 0 }); } catch { return null; } })();
+        if (vals && vals.length >= 2 && isConst(vals.at(-1)!) && isConst(vals.at(-2)!)) {
+          vals.splice(-2);
+          if (vals.length) res.push({ ...x, body: encodePush(vals) });
+          else if (x.key !== undefined) res.push({ kind: "raw", code: -1, body: Buffer.alloc(0), key: x.key });
+          i += 2; changed = true; continue;
+        }
+      }
       // `<unary pure op> Pop` → `Pop` (the op's input is dropped instead).
-      if (x.kind === "raw" && [OP.Not, OP.CharToAscii, OP.MBCharToAscii, OP.Increment, OP.ToNumber, OP.ToInteger].includes(x.code as never) && isRaw(y, OP.Pop) && !target(y)) {
+      if (x.kind === "raw" && [OP.Not, OP.CharToAscii, OP.MBCharToAscii, OP.Increment, OP.Decrement, OP.ToNumber, OP.ToInteger].includes(x.code as never) && isRaw(y, OP.Pop) && !target(y)) {
         res.push({ kind: "raw", code: OP.Pop, body: Buffer.alloc(0), key: x.key }); i++; changed = true; continue;
       }
       // `<binary pure op> Pop` → `Pop Pop` (both operands dropped); `PushDuplicate Pop` → nothing.
@@ -270,7 +287,6 @@ function peephole(items: Item[], jumpedTo: Set<number>): Item[] {
         if (x.key !== undefined) res.push({ kind: "raw", code: -1, body: Buffer.alloc(0), key: x.key });
         i++; changed = true; continue;
       }
-      void z;
       res.push(x);
     }
     out = res;

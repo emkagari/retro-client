@@ -1,4 +1,3 @@
-873309310 - 1;
 class com.ankamagames.exceptions.InvalidOperationException extends com.ankamagames.exceptions.AbstractException
 {
    function InvalidOperationException(objectErrorSource, className, methodName, msg)

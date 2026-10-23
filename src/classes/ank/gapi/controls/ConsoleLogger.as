@@ -1,4 +1,3 @@
-606504983 - 1;
 class ank.gapi.controls.ConsoleLogger extends ank.gapi.core.UIBasicComponent
 {
    var __height;

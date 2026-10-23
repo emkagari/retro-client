@@ -1,4 +1,3 @@
-520468592 - 1;
 class dofus.aks.Key extends dofus.aks.Handler
 {
    var api;

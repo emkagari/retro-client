@@ -1,4 +1,3 @@
-123998094 - 1;
 class dofus.aks.Achievements extends dofus.aks.Handler
 {
    var addToQueue;

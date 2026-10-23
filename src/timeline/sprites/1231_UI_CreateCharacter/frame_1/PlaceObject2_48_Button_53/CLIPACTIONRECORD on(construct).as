@@ -1,5 +1,4 @@
 on(construct){
-   790380204 - 1;
    backgroundDown = "ChooseCharacterBtnPlayDown";
    backgroundUp = "ChooseCharacterBtnPlayUp";
    enabled = true;

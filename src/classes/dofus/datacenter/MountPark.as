@@ -1,4 +1,3 @@
-945154862 - 1;
 class dofus.datacenter.MountPark extends Object
 {
    var _nMapID;

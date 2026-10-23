@@ -1,5 +1,4 @@
 on(construct){
-   245487008 - 1;
    enabled = true;
    html = false;
    multiline = false;

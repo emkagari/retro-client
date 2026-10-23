@@ -1,4 +1,3 @@
-682318563 - 1;
 class dofus.graphics.battlefield.EffectsOverHead extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _aEffects;

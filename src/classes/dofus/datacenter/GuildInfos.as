@@ -1,4 +1,3 @@
-330785000 - 1;
 class dofus.datacenter.GuildInfos extends Object
 {
    var _bValid;

@@ -1,4 +1,3 @@
-430378721 - 1;
 class dofus.managers.GameManager extends dofus.utils.ApiElement
 {
    var _bFightActivity;

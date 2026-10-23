@@ -1,4 +1,3 @@
-520073044 - 1;
 class dofus.graphics.gapi.controls.inventoryviewer.InventoryCeremonialFilter implements dofus.graphics.gapi.controls.inventoryviewer.IInventoryFilter
 {
    function InventoryCeremonialFilter()

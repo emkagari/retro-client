@@ -1,4 +1,3 @@
-545823324 - 1;
 class dofus.datacenter.spellscollection.SpellsDeck
 {
    var _eoSpells;

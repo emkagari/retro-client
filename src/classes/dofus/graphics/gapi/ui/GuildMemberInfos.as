@@ -1,4 +1,3 @@
-992470957 - 1;
 class dofus.graphics.gapi.ui.GuildMemberInfos extends dofus.graphics.gapi.core.DofusAdvancedComponent
 {
    var _btnCancel;

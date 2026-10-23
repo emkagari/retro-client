@@ -1,4 +1,3 @@
-291389389 - 1;
 class dofus.aks.Aks extends dofus.utils.ApiElement
 {
    var Account;

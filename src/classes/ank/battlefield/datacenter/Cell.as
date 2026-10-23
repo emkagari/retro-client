@@ -1,4 +1,3 @@
-701053814 - 1;
 class ank.battlefield.datacenter.Cell extends Object
 {
    var allSpritesOn;

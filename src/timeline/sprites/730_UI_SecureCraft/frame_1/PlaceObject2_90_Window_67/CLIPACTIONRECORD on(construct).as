@@ -1,5 +1,4 @@
 on(construct){
-   151580619 - 1;
    interceptMouseEvent = false;
    contentPath = "none";
    enabled = true;

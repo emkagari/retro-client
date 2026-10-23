@@ -1,4 +1,3 @@
-138604787 - 1;
 class ank.gapi.controls.RightClickContextMenu extends ContextMenu
 {
    var onSelect;

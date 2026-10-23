@@ -1,4 +1,3 @@
-738103675 - 1;
 class dofus.sounds.AudioManager extends dofus.utils.ApiElement
 {
    var addToQueue;

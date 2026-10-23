@@ -96,11 +96,25 @@ merged into the new export; conflicts are listed (`<<<<<<<` markers). It sets
 `retro.json` to 1.50.0 and lists what doesn't compile back. Fix those — same
 meaning, compilable form.
 
+**Character ids are kept.** Ankama's compiler numbers shapes, images,
+sprites, buttons and texts in order: one added near the start shifts every id
+after it (1.49.8: all of them), and with them every file of `src/assets/` and
+`src/timeline/` — and an id written in a `sprite.json` would name another
+graphic. So `new-base.mjs` first renumbers the runnable (`tools/ids.mjs`):
+each character takes the id it had in the previous base, found by its export
+name, then by where a character found shows it (a sprite's frame and depth, a
+button's record, a text's font, a shape's bitmap), then by its content, then
+by its place among the definitions; a new one takes an id above any used. It
+prints how many it found each way (1.49.7 → 1.49.8: 3 696 kept, 1 new, 2
+gone). `base/1.50.0/ids.json` lists the runnable's ids that changed (to find
+a character of the official client in the base). The diff then shows what
+Ankama changed — about half the shapes come back re-encoded each version
+(same drawing, edges in another order): that's theirs.
+
 It also extracts the new base's graphics (`src/assets/`, docs/ASSETS.md) and
-sprites (`sprite.json`, docs/SPRITES.md), and carries yours over: ids change
-between versions, so an edited graphic is found by its original content, an
-edited sprite by what it places (or its export name), its ids mapped to the
-new base's and its edits merged. What it couldn't carry over is listed (kept
+sprites (`sprite.json`, docs/SPRITES.md), and carries yours over: an edited
+graphic when Ankama left it as it was, an edited sprite's edits merged into
+theirs. What it couldn't carry over is listed (kept
 in `.tmp/assets-kept/`, `.tmp/sprites-kept/`), and sprite conflicts are
 marked `<<<<<<<` like code. Then:
 

@@ -85,11 +85,13 @@ round trip.
 
 ## Upgrades
 
-`tools/new-base.mjs` extracts the new base's graphics. A graphic edited for
-the previous base is found in the new one by its original content (ids
-change: 17 of 1 126 between 1.49.5 and 1.49.6) and its edit carried over;
-`new/` is kept. One Ankama changed or removed is listed: redo it from
-`.tmp/assets-kept/`.
+`tools/new-base.mjs` extracts the new base's graphics. Ankama's compiler
+numbers characters in order, so one added near the start shifts every id
+after it (1.49.8: all of them); the new base is renumbered first
+(`tools/ids.mjs`, docs/UPGRADING.md): each graphic keeps its id, and its
+file its name. A graphic edited for the previous base is carried over when
+Ankama left it as it was; `new/` is kept. One Ankama changed or removed is
+listed: redo it from `.tmp/assets-kept/`.
 
 `node tools/assets.mjs extract` re-extracts the current base's graphics
 (it overwrites `src/assets/shapes` and `images`).

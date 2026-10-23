@@ -164,12 +164,13 @@ same keys as a placement (position, scale, colour, filters, blend).
 ## A new base
 
 `tools/new-base.mjs` extracts the new base's sprites, buttons and texts and
-carries yours over: each edited one is found in the new base by what it
-holds (ids change between versions) or by its export name, its ids are mapped to the new
-base's, and your edits are merged into Ankama's version (`git merge-file`).
-Both changing the same line: a conflict to resolve (`<<<<<<<` markers); a
-sprite Ankama removed or changed beyond recognition is listed, kept in
-`.tmp/sprites-kept/`.
+carries yours over. The new base is renumbered first (`tools/ids.mjs`,
+docs/UPGRADING.md): each character keeps the id it had, so a sprite keeps its
+folder, and an id you wrote in a `sprite.json` (yours in `new/` too) still
+means what it meant. Your edits are merged into Ankama's version (`git
+merge-file`). Both changing the same line: a conflict to resolve (`<<<<<<<`
+markers); a sprite Ankama removed is listed, kept in `.tmp/sprites-kept/`,
+and so is an id an edit places that the new base no longer has.
 
 ## Tests
 
@@ -178,7 +179,8 @@ one JSON per sprite, button and text as extracted from the base; every one
 re-encoded to its exact bytes; nothing edited keeps the loader's bytes; a
 moved placement changes only its line; new sprites are exported, defined
 before use and drawn; texts and buttons edited; mistakes are refused; an
-edit is carried over to a base whose ids changed.
+base renumbered at random keeps every reference; a next base whose ids all
+moved gets them back, and an edit is carried over to it.
 
 `node tools/sprites.mjs extract` re-extracts the current base's sprites,
 buttons and texts (it overwrites every one).

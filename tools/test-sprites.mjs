@@ -15,17 +15,22 @@
  * 6. texts       a field's text and a static text changed; a character the font lacks refused;
  *    buttons     a state's graphic moved: only that button changes; where lists it;
  *    errors      a typo, a wrong id, a cycle, two files of one name: refused, said where;
- * 7. new base    an edit carried over to a base whose ids changed: ids mapped,
- *                merged with Ankama's change, or a conflict when both change one line.
+ * 7. ids         the base renumbered at random: every reference follows (placements,
+ *                fonts, bitmap fills), and numbered back, the base's bytes;
+ *    new base    a next base whose ids all moved (one inserted near the start)
+ *                and whose logo was re-encoded: every character found again,
+ *                its id kept; an edit carried over, merged with Ankama's
+ *                change, or a conflict when both change one line.
  */
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { ROOT, SRC, base, config, ffdec } from "./lib.mjs";
-import { applyAssets, assetHash } from "./assets.mjs";
+import { applyAssets } from "./assets.mjs";
 import {
-  applySprites, carrySprites, context, formatJson, formatSprite, graphicHashes, library, objectFiles, readObject, readSprite,
+  applySprites, carrySprites, context, formatJson, formatSprite, library, mapRefs, objectFiles, readObject, readSprite,
   spriteFiles, spriteFolders, spriteHash, where, writeObject, writeSprite,
 } from "./sprites.mjs";
+import { idSites, keepIds, renumber } from "./ids.mjs";
 import { exportsOf, parseSwf, writeSwf } from "./deob/src/swf.ts";
 
 const cfg = config();
@@ -233,48 +238,79 @@ test("errors: refused, and said where", () => {
   throws(() => applyAssets(cfg, b.loader, join(work, "errors2.swf"), ["new/a.json", "new/a.svg"], join(work, "errors-work"), assets), 'both exported as "a"', "a.json and a.svg");
 });
 
-test("new base: an edit carried over, ids mapped, merged or in conflict", () => {
-  // A "next base": the logo's shape renumbered (as ids change between versions), and
-  // Ankama moving another placement of UI_Login.
-  const next = parseSwf(readFileSync(b.loader));
-  const NEW_ID = 30001;
-  check(!library(next).kinds.has(NEW_ID), `id ${NEW_ID} taken`);
-  next.tags.find((t) => [2, 22, 32, 83].includes(t.code) && t.data.readUInt16LE(0) === LOGO).data.writeUInt16LE(NEW_ID, 0);
-  const login = spriteTag(next, LOGIN);
-  const original = readSprite(login.data, lib), theirs = original.json;
-  const moved = theirs.frames[0].place.find((o) => o.depth === 5);
-  moved.x += 3;
-  for (const o of theirs.frames[0].place) if (o.shape === LOGO) o.shape = NEW_ID;
-  const nextLib = library(next);
-  nextLib.kinds.set(NEW_ID, "shape");
-  login.data = writeSprite(LOGIN, theirs, nextLib, original, "next base");
+/** Each character's id (a definition's first two bytes), in order. */
+const charIds = (swf) => swf.tags.filter((t) => idSites(t).def).map((t) => t.data.readUInt16LE(0));
+
+test("ids: the base renumbered at random, every reference follows", () => {
+  const ids = charIds(baseSwf);
+  // A shuffle (the same each run), as a map and its inverse.
+  const shuffled = [...ids];
+  let seed = 7;
+  for (let i = shuffled.length - 1; i > 0; i--) { seed = (seed * 48271) % 2147483647; const j = seed % (i + 1); [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; }
+  const map = new Map(ids.map((id, i) => [id, shuffled[i]])), back = new Map(ids.map((id, i) => [shuffled[i], id]));
+  const swf = renumber(baseSwf, map), now = context(swf);
+  check(swf.tags.every((t, i) => t.data.length === baseSwf.tags[i].data.length), "a tag's length changed");
+  const problems = [];
+  for (const [id, { kind }] of objects) {
+    const was = mapRefs(readObject(tagOf(baseSwf, id), ctx).json, (i) => map.get(i));
+    if (JSON.stringify(readObject(tagOf(swf, map.get(id)), now).json) !== JSON.stringify(was)) problems.push(`${kind} ${id} (now ${map.get(id)}): what it shows isn't the same`);
+  }
+  let bitmaps = 0;
+  baseSwf.tags.forEach((t, i) => {
+    const before = idSites(t).sites.map((s) => t.data.readUInt16LE(s.at)), after = idSites(swf.tags[i]).sites.map((s) => swf.tags[i].data.readUInt16LE(s.at));
+    if (before.some((v, k) => (map.get(v) ?? v) !== after[k])) problems.push(`tag ${t.code} #${i}: a reference not renumbered`);
+    if ([2, 22, 32, 83].includes(t.code)) bitmaps += before.length;
+  });
+  check(!problems.length, problems.slice(0, 20).join("\n"));
+  check(writeSwf(renumber(swf, back)).equals(writeSwf(baseSwf)), "numbered back: not the base's bytes");
+  return [`${ids.length} characters, ${bitmaps} bitmap fills: every reference follows; numbered back, the base's bytes`];
+});
+
+test("new base: ids kept, an edit carried over, merged or in conflict", () => {
+  // A "next base": a character inserted near the start (every id after it one more), the
+  // logo's shape re-encoded by Ankama's compiler, and Ankama moving another placement of UI_Login.
+  const ids = charIds(baseSwf);
+  const from = ids.toSorted((x, y) => x - y)[5];
+  const shift = new Map(ids.filter((id) => id >= from).map((id) => [id, id + 1]));
+  const next = renumber(baseSwf, shift);
+  const at = (id) => shift.get(id) ?? id;
+  next.tags.find((t) => [2, 22, 32, 83].includes(t.code) && t.data.readUInt16LE(0) === at(LOGO)).data[3] ^= 1;
+  const login = spriteTag(next, at(LOGIN)), nextLib = library(next);
+  const original = readSprite(login.data, nextLib), theirs = structuredClone(original.json);
+  theirs.frames[0].place.find((o) => o.depth === 5).x += 3;
+  login.data = writeSprite(at(LOGIN), theirs, nextLib, original, "next base");
+
+  const r = keepIds(baseSwf, next);
+  check(!r.added.length && !r.removed.length, `new: ${r.added.join(", ")}; gone: ${r.removed.join(", ")}`);
+  const wrong = ids.filter((id) => r.map.get(at(id)) !== id);
+  check(!wrong.length, `ids not kept: ${wrong.slice(0, 10).map((id) => `${id} → ${r.map.get(at(id))}`).join(", ")}`);
+  const renumbered = renumber(next, r.map);
+  const changed = renumbered.tags.map((t, i) => (t.data.equals(baseSwf.tags[i].data) ? -1 : t.data.readUInt16LE(0))).filter((id) => id >= 0);
+  check(changed.length === 2 && changed.includes(LOGIN) && changed.includes(LOGO), `tags changed: ${changed.join(", ")}`);
   const nextFile = join(work, "next.swf");
-  writeFileSync(nextFile, writeSwf(next));
-  const graphics = graphicHashes(join(SRC, "assets"), assetHash);
-  const nextGraphics = new Map(graphics);
-  nextGraphics.set(NEW_ID, graphics.get(LOGO));
-  nextGraphics.delete(LOGO);
+  writeFileSync(nextFile, writeSwf(renumbered));
+  const nextJson = readSprite(spriteTag(renumbered, LOGIN).data, library(renumbered)).json;
 
   const run = (edit, name) => {
     const dir = join(work, name);
-    const target = join(dir, objectFiles(next, dir).get(LOGIN).file);
+    const target = join(dir, objectFiles(renumbered, dir).get(LOGIN).file);
     mkdirSync(join(target, ".."), { recursive: true });
-    writeFileSync(target, formatSprite(theirs));
+    writeFileSync(target, formatSprite(nextJson));
     const mine = readSprite(spriteTag(baseSwf, LOGIN).data, lib).json;
     edit(mine.frames[0].place);
-    const r = carrySprites([{ file: loginFile, text: formatSprite(mine) }], b.loader, nextFile, graphics, nextGraphics, dir);
+    const r = carrySprites([{ file: loginFile, text: formatSprite(mine) }], b.loader, nextFile, dir);
     return { r, text: readFileSync(target, "utf8") };
   };
-  // The logo moved: carried over, with its new id, and Ankama's own move kept.
+  // The logo moved: carried over, and Ankama's own move kept.
   const a = run((p) => { p.find((o) => o.shape === LOGO).x += 50; }, "carry");
   check(a.r.carried.length === 1, `not carried: ${JSON.stringify(a.r)}`);
-  const logo = JSON.parse(a.text).frames[0].place.find((o) => o.depth === 225);
-  check(logo.shape === NEW_ID, `the logo places shape ${logo.shape}, expected ${NEW_ID} (its id in the next base)`);
-  check(JSON.parse(a.text).frames[0].place.find((o) => o.depth === 5).x === moved.x, "Ankama's change lost");
+  const place = JSON.parse(a.text).frames[0].place;
+  check(place.find((o) => o.depth === 225).x === nextJson.frames[0].place.find((o) => o.depth === 225).x + 50, "the logo's move lost");
+  check(place.find((o) => o.depth === 5).x === nextJson.frames[0].place.find((o) => o.depth === 5).x, "Ankama's change lost");
   // Both moved depth 5: a conflict, with markers.
   const c = run((p) => { p.find((o) => o.depth === 5).x += 9; }, "conflict");
   check(c.r.conflicts.length === 1 && c.text.includes("<<<<<<< new base"), `no conflict: ${JSON.stringify(c.r)}`);
-  return [`shape ${LOGO} → ${NEW_ID}; merged with Ankama's change; a conflict when both change the same placement`];
+  return [`ids from ${from} on moved, logo re-encoded: ${r.map.size} found again (${Object.entries(r.found).map(([k, v]) => `${v} by ${k}`).join(", ")}); merged with Ankama's change; a conflict when both change the same placement`];
 });
 
 console.log(failed ? `\n${failed} test(s) failed` : `\nall ${passed} tests passed`);

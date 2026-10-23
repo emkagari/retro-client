@@ -171,8 +171,11 @@ changes nothing but ids:
    `clean.swf` next to it.
    `new-base.mjs` also extracts the base's graphics (`src/assets/`) and
    sprites (`src/timeline/sprites/…/sprite.json`) and carries edited ones
-   over, ids mapped (they change between versions): relay what it lists as
-   not carried over or in conflict; after the baseline, `test-assets.mjs
+   over. It first renumbers the runnable so each character keeps its
+   previous base's id (`tools/ids.mjs`: Ankama's compiler shifts them all
+   when one is added): relay its `ids:` line (kept / new / gone — many new
+   means characters weren't found again, say so) and what it lists as not
+   carried over or in conflict; after the baseline, `test-assets.mjs
    --update` and `test-sprites.mjs` must pass (docs/ASSETS.md, docs/SPRITES.md).
 4. If it breaks, have the user try `clean.swf` too: clean works → a renaming
    trap (find the new kind of named place, extend `renameTimeline` /

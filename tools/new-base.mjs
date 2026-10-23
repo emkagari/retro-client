@@ -4,7 +4,10 @@
  *
  *   node tools/new-base.mjs <version> <runnable.swf> --upstream <official loader.swf> [--names <dir>]
  *
- * 1. base/<version>/loader.swf ← runnable.swf (and names/ ← --names dir);
+ * 1. base/<version>/loader.swf ← runnable.swf, renumbered: each character
+ *    keeps the id it had in the previous base (tools/ids.mjs; ids.json: the
+ *    runnable's ids that changed), so src/assets/ and src/timeline/ keep their
+ *    files and only what Ankama changed differs (and names/ ← --names dir);
  * 2. FFDec export of it, line endings LF, accessors made recompilable
  *    (tools/deob/src/source-accessors.ts);
  * 3. the previous base's hand fixes carried over: the previous base is
@@ -14,13 +17,11 @@
  * 4. compiles every file to list what the decompiler got wrong;
  * 5. src/ ← the export, in the repo's layout (classes/, timeline/…);
  * 6. src/assets/ ← the new base's graphics (tools/assets.mjs); a graphic
- *    edited for the previous base is found in the new one by its original
- *    content (ids change between versions) and its edit carried over; new/
- *    graphics are kept; those not found are listed;
+ *    edited for the previous base is carried over when Ankama left it as it
+ *    was; new/ graphics are kept; the others are listed;
  * 7. src/timeline/… ← the new base's sprites, buttons and texts as JSON
- *    (tools/sprites.mjs); one edited for the previous base is found
- *    in the new one by what it places (ids change), its ids mapped, and its
- *    edits merged (git merge-file); conflicts and sprites not found are listed;
+ *    (tools/sprites.mjs); the edits of one edited for the previous base are
+ *    merged into it (git merge-file); conflicts and sprites gone are listed;
  * 8. retro.json → this version.
  *
  * The current version again (a rule added to the deobfuscator, the base
@@ -36,7 +37,9 @@ import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, renameSync, 
 import { dirname, join, relative, resolve, sep } from "node:path";
 import { ROOT, SRC, base, compileErrors, config, ffdec, fromFfdec, sourceFiles } from "./lib.mjs";
 import { ASSETS, assetFiles, assetHash, changedAssets, exportGraphics, extract } from "./assets.mjs";
-import { carrySprites, changedSprites, extractSprites, graphicHashes } from "./sprites.mjs";
+import { carrySprites, changedSprites, extractSprites } from "./sprites.mjs";
+import { describe, idsJson, keepIds, renumber } from "./ids.mjs";
+import { parseSwf, writeSwf } from "./deob/src/swf.ts";
 
 const args = process.argv.slice(2);
 const opt = (k) => (args.includes(k) ? args[args.indexOf(k) + 1] : undefined);
@@ -57,7 +60,14 @@ if (previous === version && existsSync(previousLoader)) {
   previousLoader = join(ROOT, ".tmp", "base-replaced.swf");
 }
 mkdirSync(dir, { recursive: true });
-copyFileSync(runnable, join(dir, "loader.swf"));
+if (existsSync(previousLoader)) {
+  // Each character keeps its id (tools/ids.mjs): its files in src/ keep their names.
+  const swf = parseSwf(readFileSync(runnable));
+  const ids = keepIds(parseSwf(readFileSync(previousLoader)), swf);
+  writeFileSync(join(dir, "loader.swf"), writeSwf(renumber(swf, ids.map)));
+  writeFileSync(join(dir, "ids.json"), idsJson(ids.map));
+  console.log(describe(ids));
+} else copyFileSync(runnable, join(dir, "loader.swf"));
 if (opt("--names") && resolve(opt("--names")) !== join(dir, "names")) cpSync(opt("--names"), join(dir, "names"), { recursive: true });
 console.log(`base/${version}/loader.swf installed`);
 
@@ -142,41 +152,37 @@ for (const f of files) {
 rmSync(tmp, { recursive: true, force: true });
 console.log(`src/: ${files.length} files`);
 
-// The new base's graphics and sprites, and the edits carried over by original content.
+// The new base's graphics and sprites, and the edits carried over (ids kept: the same files).
 extract(cfg, join(dir, "loader.swf"));
 const extracted = extractSprites(join(dir, "loader.swf"));
 console.log(`src/timeline/: ${extracted.sprite} sprite.json, ${extracted.button} button.json, ${extracted.text} texts`);
 const original = join(ROOT, ".tmp", "assets-previous");
-if (editedAssets.length || editedSprites.length) exportGraphics(cfg, previousLoader, original);
+if (editedAssets.length) exportGraphics(cfg, previousLoader, original);
 const lostAssets = [];
 if (existsSync(keptAssets)) {
   if (existsSync(join(keptAssets, "new"))) cpSync(join(keptAssets, "new"), join(ASSETS, "new"), { recursive: true });
   if (editedAssets.length) {
-    const byContent = new Map(assetFiles().filter((f) => !f.startsWith("new/")).map((f) => [assetHash(join(ASSETS, f)), f]));
+    // Carried over where the new base's is the previous one's (an SVG can't be merged).
     for (const f of editedAssets) {
-      const target = existsSync(join(original, f)) ? byContent.get(assetHash(join(original, f))) : undefined;
-      if (target) copyFileSync(join(keptAssets, f), join(ASSETS, target));
+      const same = existsSync(join(original, f)) && existsSync(join(ASSETS, f)) && assetHash(join(original, f)) === assetHash(join(ASSETS, f));
+      if (same) copyFileSync(join(keptAssets, f), join(ASSETS, f));
       else lostAssets.push(f);
     }
     console.log(`graphics edited for base ${previous}: ${editedAssets.length - lostAssets.length} carried over` +
-      (lostAssets.length ? `, ${lostAssets.length} not found in ${version} (changed or removed by Ankama): redo them from .tmp/assets-kept/:\n${lostAssets.map((f) => `  ${f}`).join("\n")}` : ""));
+      (lostAssets.length ? `, ${lostAssets.length} changed or removed by Ankama in ${version}: redo them from .tmp/assets-kept/:\n${lostAssets.map((f) => `  ${f}`).join("\n")}` : ""));
   }
 }
 console.log(`src/assets/: ${assetFiles().length} files`);
 
-// Sprites, buttons, texts: found by what they hold (ids change), their ids mapped, their edits merged into the new base's.
+// Sprites, buttons, texts: their edits merged into the new base's.
 let spriteConflicts = [];
 if (editedSprites.length) {
-  // Graphics by original content: the previous base's export, the new one's src/assets/ (as extracted, before edits carried over).
-  const fresh = join(ROOT, ".tmp", "assets-current");
-  exportGraphics(cfg, join(dir, "loader.swf"), fresh);
-  const r = carrySprites(editedSprites, previousLoader, join(dir, "loader.swf"), graphicHashes(original, assetHash), graphicHashes(fresh, assetHash));
-  rmSync(fresh, { recursive: true, force: true, maxRetries: 5 });
+  const r = carrySprites(editedSprites, previousLoader, join(dir, "loader.swf"));
   spriteConflicts = r.conflicts;
   console.log(`sprites edited for base ${previous}: ${r.carried.length} carried over` +
     r.carried.filter((c) => c.note).map((c) => `\n  src/${c.to}${c.note}`).join("") +
     (r.conflicts.length ? `, ${r.conflicts.length} with conflicts (<<<<<<< markers) to resolve:\n${r.conflicts.map((c) => `  src/${c.to}${c.note}`).join("\n")}` : "") +
-    (r.lost.length ? `\n${r.lost.length} not found in ${version} (redo them from .tmp/sprites-kept/):\n${r.lost.map((l) => `  ${l.file}: ${l.why}`).join("\n")}` : ""));
+    (r.lost.length ? `\n${r.lost.length} gone in ${version} (redo them from .tmp/sprites-kept/):\n${r.lost.map((l) => `  ${l.file}: ${l.why}`).join("\n")}` : ""));
 }
 rmSync(original, { recursive: true, force: true, maxRetries: 5 });
 

@@ -62,7 +62,7 @@ export const spriteHash = (file) => createHash("sha256").update(readFileSync(fil
 
 // --- Bits -------------------------------------------------------------------
 
-class BitReader {
+export class BitReader {
   constructor(buf, at) { this.buf = buf; this.bit = at * 8; }
   u(n) { let v = 0; for (let i = 0; i < n; i++, this.bit++) v = v * 2 + ((this.buf[this.bit >> 3] >> (7 - (this.bit & 7))) & 1); return v; }
   s(n) { const v = this.u(n); return n && v >= 2 ** (n - 1) ? v - 2 ** n : v; }
@@ -103,7 +103,7 @@ const hex2 = (n) => n.toString(16).padStart(2, "0");
 
 // --- Matrix -----------------------------------------------------------------
 
-function readMatrix(r) {
+export function readMatrix(r) {
   const m = { a: 65536, b: 0, c: 0, d: 65536 };
   if (r.u(1)) { const n = r.u(5); m.a = r.s(n); m.d = r.s(n); }
   if (r.u(1)) { const n = r.u(5); m.b = r.s(n); m.c = r.s(n); }
@@ -160,7 +160,7 @@ const hasMatrix = (o) => ["x", "y", "scale", "scaleX", "scaleY", "rotation", "ma
 
 // --- Colour transform -------------------------------------------------------
 
-function readCxform(r) {
+export function readCxform(r) {
   const hasAdd = r.u(1), hasMult = r.u(1), n = r.u(4);
   const cx = {};
   if (hasMult) cx.mult = [r.s(n), r.s(n), r.s(n), r.s(n)];
@@ -213,7 +213,7 @@ function flagFields(byte, onTop) {
 const flagByte = (f, onTop) => (f.inner ? 0x80 : 0) | (f.knockout ? 0x40 : 0) | (f.composite ? 0x20 : 0) | (onTop && f.onTop ? 0x10 : 0) | ((f.passes ?? 1) & (onTop ? 0x0f : 0x1f));
 
 /** A FILTERLIST: the filters and the bytes read. */
-function readFilters(b, at) {
+export function readFilters(b, at) {
   const filters = [];
   let p = at + 1;
   for (let i = 0; i < b[at]; i++) {
@@ -273,7 +273,7 @@ export const tagBytes = (code, data) => Buffer.concat([
   data,
 ]);
 /** The tags inside a DefineSprite: { code, data, raw } (raw: with its header). */
-function innerTags(data) {
+export function innerTags(data) {
   const out = [];
   let p = 4;
   while (p + 2 <= data.length) {
@@ -863,19 +863,8 @@ export function applySprites(input, output, edited, fresh, base, { src = SRC, as
 
 // --- A new base -------------------------------------------------------------
 
-/** Each shape / image's hash, by id, from a folder of graphics (shapes/<id>.svg, images/<id>.png…). */
-export function graphicHashes(dir, hash) {
-  const out = new Map();
-  for (const kind of ["shapes", "images"]) {
-    if (!existsSync(join(dir, kind))) continue;
-    for (const f of readdirSync(join(dir, kind))) { const id = Number(f.split(".")[0]); if (id) out.set(id, hash(join(dir, kind, f))); }
-  }
-  return out;
-}
-
-const sha = (s) => createHash("sha256").update(s).digest("hex");
 /** A JSON with each id it refers to (what is placed, a font) replaced by `map(id)` (exported symbols keep their name). */
-function mapRefs(v, map) {
+export function mapRefs(v, map) {
   if (Array.isArray(v)) return v.map((x) => mapRefs(x, map));
   if (v && typeof v === "object") {
     return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, typeof x === "number" && ((REF_KEYS.includes(k) && k !== "export") || k === "font") ? map(x) : mapRefs(x, map)]));
@@ -884,72 +873,30 @@ function mapRefs(v, map) {
 }
 
 /**
- * Each character's fingerprint: what it is, not its id, which changes from a
- * version to the next. Shapes and images: their file's hash (`graphics`);
- * sprites, buttons, texts: their JSON, ids by fingerprint (not their
- * scripts: their bytecode changes with every version); the rest: their bytes.
- */
-export function fingerprints(swf, graphics) {
-  const ctx = context(swf);
-  const tags = new Map();
-  for (const t of swf.tags) if ((KIND[t.code] || [10, 48, 75].includes(t.code)) && t.data.length >= 2) tags.set(t.data.readUInt16LE(0), t);
-  const fps = new Map(), busy = new Set();
-  const fp = (id) => {
-    if (fps.has(id)) return fps.get(id);
-    const t = tags.get(id);
-    if (!t) return `none:${id}`;
-    if (busy.has(id)) return `cycle:${id}`;
-    busy.add(id);
-    let h;
-    if (graphics.has(id)) h = graphics.get(id);
-    else if (objectKind(t.code)) { try { h = sha(JSON.stringify(mapRefs(readObject(t, ctx).json, fp))); } catch { h = sha(t.data.subarray(2)); } }
-    else h = sha(Buffer.concat([u16(t.code), t.data.subarray(2)]));
-    busy.delete(id);
-    fps.set(id, h);
-    return h;
-  };
-  for (const id of tags.keys()) fp(id);
-  return fps;
-}
-
-/**
  * Sprites, buttons and texts edited for the previous base, carried over to the
- * new one (already extracted in `src`): each found by its original's
- * fingerprint (or its export name), its ids mapped to the new base's, its
- * edits merged into the new base's file (git merge-file).
+ * new one (already extracted in `src`). The new base was renumbered from the
+ * previous one (tools/ids.mjs): each has kept its id, so its file is the
+ * one of the same id, and its edits are merged into the new base's (git merge-file).
  * `edited`: [{ file, text }] (paths of the previous base, the edited text).
  */
-export function carrySprites(edited, previous, current, previousGraphics, currentGraphics, src = SRC) {
+export function carrySprites(edited, previous, current, src = SRC) {
   const prevSwf = parseSwf(readFileSync(previous)), newSwf = parseSwf(readFileSync(current));
   const prevCtx = context(prevSwf), newLib = library(newSwf);
-  const prevFp = fingerprints(prevSwf, previousGraphics), newFp = fingerprints(newSwf, currentGraphics);
-  const byFp = new Map();
-  for (const [id, h] of newFp) byFp.set(h, [...(byFp.get(h) ?? []), id]);
-  // Its id if it still holds the same thing, else the nearest id holding it (alike clips are many: empty ones…).
-  const counterpart = (id) => {
-    const h = prevFp.get(id);
-    if (newFp.get(id) === h) return id;
-    const ids = byFp.get(h);
-    return ids ? ids.reduce((a, b) => (Math.abs(b - id) < Math.abs(a - id) ? b : a)) : undefined;
-  };
-  const unmapped = new Set();
-  const map = (id) => { const n = counterpart(id); if (n === undefined) { unmapped.add(id); return id; } return n; };
   const files = objectFiles(newSwf, src);
   const result = { carried: [], conflicts: [], lost: [] };
   for (const { file, text } of edited) {
-    const prevId = fileId(file), kind = fileKind(file);
-    const was = definition(prevSwf, prevId, kind);
-    const name = prevCtx.lib.names.get(prevId);
-    const newId = name && newLib.byName.has(name) ? newLib.byName.get(name) : counterpart(prevId);
-    const target = files.get(newId);
-    if (!was || !target || target.kind !== kind) { result.lost.push({ file, why: "not found in the new base" }); continue; }
+    const id = fileId(file), kind = fileKind(file);
+    const was = definition(prevSwf, id, kind), target = files.get(id);
+    if (!was || !target || target.kind !== kind) { result.lost.push({ file, why: "not in the new base (removed by Ankama)" }); continue; }
     let mine;
     try { mine = JSON.parse(text); } catch (e) { result.lost.push({ file, why: e.message }); continue; }
-    unmapped.clear();
-    const ours = formatJson(kind, mapRefs(mine, map));
-    const original = formatJson(kind, mapRefs(readObject(was, prevCtx).json, map));
+    // What it places that the new base no longer has: the build will say so; said now.
+    const gone = new Set();
+    mapRefs(mine, (i) => { if (!newLib.kinds.has(i)) gone.add(i); return i; });
+    const ours = formatJson(kind, mine);
+    const original = formatJson(kind, readObject(was, prevCtx).json);
     const path = join(src, target.file);
-    const note = unmapped.size ? ` (ids not found in the new base, kept: ${[...unmapped].join(", ")})` : "";
+    const note = gone.size ? ` (ids no longer in the new base: ${[...gone].join(", ")})` : "";
     if (original === readFileSync(path, "utf8")) { writeFileSync(path, ours); result.carried.push({ file, to: target.file, note }); continue; }
     // Ankama changed it too: their side, the previous original as base, ours.
     const tmp = join(ROOT, ".tmp", "sprite-merge");

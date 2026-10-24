@@ -20,9 +20,9 @@ git tag v1.49.5-r1
 git push origin v1.49.5-r1
 ```
 
-The CI builds that commit and publishes the release `v1.49.5-r1` with
-`retro-client-v1.49.5-r1.zip` and notes listing the pull requests and
-commits since the previous tag.
+The CI builds that commit and publishes the release `v1.49.5-r1`: its only
+file is `loader.swf`, and its notes list the pull requests and commits since
+the previous tag.
 
 **Tags**: `v<official Dofus Retro version>-r<n>`
 
@@ -37,19 +37,11 @@ release fits. The CI refuses a tag whose version isn't `retro.json`'s.
 
 ## What a release holds
 
-Not a whole client — Ankama's files aren't ours to publish:
+`loader.swf` alone, the one file we change — Ankama's files aren't ours to
+publish. The official client holds the same loader on Linux, Windows and
+macOS, so one build fits all three; it goes in `resources/app/retroclient/`
+(macOS: `Dofus Retro.app/Contents/Resources/app/retroclient/`).
 
-```
-retro-client-v1.49.5-r1/
-  resources/app/retroclient/loader.swf   our loader
-  …                                      overlay/ files
-  retro-release.json                     versions, commit, the official loader it replaces (sha256)
-  README.txt                             how to install it
-```
-
-A player copies their official client folder, copies the archive's content
-over the copy, and starts the copy with its executable (not Ankama's
-launcher: it would restore the official files).
-
-`node tools/release.mjs v1.49.5-r1` prepares the same folder locally
-(`dist/release/`), to check it before tagging.
+`node tools/release.mjs v1.49.5-r1` prepares the same locally,
+`dist/release/v1.49.5-r1/loader.swf` and `notes.md`, to check them before
+tagging.

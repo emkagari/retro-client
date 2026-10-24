@@ -3,7 +3,8 @@
 # - push / pull request: build the loader (tools/build.mjs: compile + checks),
 #   keep it as an artifact for 14 days. No release.
 # - tag v<official version>-r<n> (v1.49.5-r1…): build, then publish a GitHub
-#   release with the patch archive (tools/release.mjs). -rcN / -betaN: prerelease.
+#   release with the loader, the same for Linux, Windows and macOS, and notes
+#   saying where it goes (tools/release.mjs). -rcN / -betaN: prerelease.
 #
 # Built in the Dockerfile's image (Node, Java, FFDec), as ./retro does
 # locally. Nothing of Ankama's client is needed: the base loader and src/
@@ -44,9 +45,7 @@ jobs:
 
       - name: Release files
         if: startsWith(github.ref, 'refs/tags/v')
-        run: |
-          docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/work" retro-client release "$GITHUB_REF_NAME"
-          cd dist/release && zip -qr "retro-client-$GITHUB_REF_NAME.zip" "retro-client-$GITHUB_REF_NAME"
+        run: docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/work" retro-client release "$GITHUB_REF_NAME"
 
       - name: Loader artifact
         if: "!startsWith(github.ref, 'refs/tags/v')"
@@ -63,5 +62,6 @@ jobs:
         run: |
           flags=""
           case "$GITHUB_REF_NAME" in *-rc*|*-beta*) flags="--prerelease" ;; esac
-          gh release create "$GITHUB_REF_NAME" "dist/release/retro-client-$GITHUB_REF_NAME.zip" \
-            --title "$GITHUB_REF_NAME" --generate-notes $flags
+          # notes.md first, then GitHub's list of changes.
+          gh release create "$GITHUB_REF_NAME" "dist/release/$GITHUB_REF_NAME/loader.swf" \
+            --title "$GITHUB_REF_NAME" --notes "$(cat "dist/release/$GITHUB_REF_NAME/notes.md")" --generate-notes $flags

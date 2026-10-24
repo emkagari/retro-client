@@ -1,7 +1,7 @@
 /**
  * Development loop with hot reload:
  *
- *   node tools/dev.mjs [--platform linux|windows] [--no-run] [--no-login]
+ *   node tools/dev.mjs [--platform linux|windows|mac] [--no-run] [--no-login]
  *
  * Builds with the hot reload class (build --dev), packages, starts the game,
  * then watches src/. A saved class is compiled into a patch (tools/hot.mjs),
@@ -20,20 +20,20 @@
 import { execFileSync, spawn } from "node:child_process";
 import { mkdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { ROOT, SRC, config, sourceFiles } from "./lib.mjs";
+import { ROOT, SRC, clientPath, config, distDir, hostPlatform, sourceFiles } from "./lib.mjs";
 import { makePatch } from "./hot.mjs";
 import { assetFiles } from "./assets.mjs";
 import { spriteFiles } from "./sprites.mjs";
 
 const args = process.argv.slice(2);
-const platform = args.includes("--platform") ? args[args.indexOf("--platform") + 1] : (process.platform === "win32" ? "windows" : "linux");
+const platform = args.includes("--platform") ? args[args.indexOf("--platform") + 1] : hostPlatform();
 const cfg = config();
 const node = (script, extra = []) => execFileSync(process.execPath, [join(ROOT, "tools", script), ...extra], { stdio: "inherit" });
 const time = () => new Date().toTimeString().slice(0, 8);
 
 node("build.mjs", ["--dev"]);
 node("package.mjs", ["--no-build", "--platform", platform]);
-const hot = join(ROOT, "dist", platform, "resources", "app", "retroclient", "hot");
+const hot = join(distDir(platform), clientPath(platform, "resources/app/retroclient/hot"));
 rmSync(hot, { recursive: true, force: true });
 mkdirSync(hot, { recursive: true });
 let version = 0;

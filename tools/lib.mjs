@@ -19,11 +19,34 @@ export function config() {
   // In the Docker image (./retro, retro.cmd), paths differ from the host's.
   if (process.env.RETRO_FFDEC) cfg.ffdec = process.env.RETRO_FFDEC;
   if (process.env.RETRO_OVERLAY) cfg.overlay = process.env.RETRO_OVERLAY;
-  for (const platform of ["linux", "windows"]) {
+  for (const platform of PLATFORMS) {
     const dir = process.env[`RETRO_UPSTREAM_${platform.toUpperCase()}`];
     if (dir) cfg.upstream[platform] = dir;
   }
   return cfg;
+}
+
+/**
+ * The official client's platforms. Its files are the same on each (the
+ * loader too), but not where they are: Linux and Windows keep them in
+ * resources/ next to the executable, macOS in the app bundle's
+ * Contents/Resources/ ("Dofus Retro.app", in /Applications/Ankama/Retro).
+ * Paths inside a client (overlay/, a release) are written the Linux/Windows
+ * way; clientPath() turns one into the platform's.
+ */
+export const PLATFORMS = ["linux", "windows", "mac"];
+export const hostPlatform = () => ({ win32: "windows", darwin: "mac" })[process.platform] ?? "linux";
+export const clientPath = (platform, rel) =>
+  platform === "mac" && rel.startsWith("resources/") ? "Contents/Resources/" + rel.slice("resources/".length) : rel;
+
+/** The packaged client (tools/package.mjs), a copy of the official one: on macOS, a .app (a bundle only with that name). */
+export const distDir = (platform) => join(ROOT, "dist", platform, ...(platform === "mac" ? ["Dofus Retro.app"] : []));
+
+/** The official client of a platform, as retro.local.json's upstream.<platform> sets it (macOS: the .app or its folder). */
+export function upstreamDir(cfg, platform) {
+  const dir = cfg.upstream?.[platform];
+  if (platform === "mac" && dir && !dir.endsWith(".app") && existsSync(join(dir, "Dofus Retro.app"))) return join(dir, "Dofus Retro.app");
+  return dir;
 }
 
 /** The base of a client version: the deobfuscated loader the sources come from. */

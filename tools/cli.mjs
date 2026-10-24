@@ -11,7 +11,7 @@ import { ROOT } from "./lib.mjs";
 
 const COMMANDS = {
   build: ["build.mjs", "src/ → build/loader.swf  [--full] [--dev] [--out <file>]"],
-  package: ["package.mjs", "official client + build → dist/<platform>/  [--platform linux|windows] [--no-build]"],
+  package: ["package.mjs", "official client + build → dist/<platform>/  [--platform linux|windows|mac] [--no-build]"],
   dev: ["dev.mjs", "build with hot reload, watch src/  [--platform …] [--no-run] [--no-login]"],
   release: ["release.mjs", "prepare a release in dist/release/  <tag: v1.49.5-r1>"],
   sprites: ["sprites.mjs", "sprites, buttons, texts as JSON  extract | where <id | shapes/<id> | Export>"],

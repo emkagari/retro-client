@@ -3,7 +3,8 @@
   "java": "java",
   "upstream": {
     "windows": "C:/Users/me/AppData/Local/Programs/Dofus Retro",
-    "linux": "/home/me/Ankama/Retro"
+    "linux": "/home/me/Ankama/Retro",
+    "mac": "/Applications/Ankama/Retro/Dofus Retro.app"
   },
   "overlay": "C:/Users/me/retro-overlay",
   "executable": { "windows": "Dofus Retro.exe" },

@@ -2,7 +2,7 @@
 
 The Dofus Retro client as readable ActionScript 2 sources, a build that turns
 them back into the client's `loader.swf`, and packaging into the official
-Electron app, for Linux and Windows. The client version in use is set in
+Electron app, for Linux, Windows and macOS. The client version in use is set in
 `retro.json`.
 
 ## Layout
@@ -22,9 +22,12 @@ Electron app, for Linux and Windows. The client version in use is set in
 
 ## Requirements
 
-**With Docker** (Linux or Windows, nothing else to install): the `retro` /
-`retro.cmd` scripts run every tool in an image holding Node, Java and FFDec,
-built on first use. The game itself runs on the host.
+**With Docker** (Linux, macOS or Windows, nothing else to install): the
+`retro` / `retro.cmd` scripts run every tool in an image holding Node, Java
+and FFDec, built on first use. The game itself runs on the host.
+On macOS, Docker Desktop shares only some folders with its containers:
+add `/Applications` (Settings → Resources → File sharing) if the official
+client is still there.
 
 ```bash
 ./retro build        # Windows: retro build
@@ -43,7 +46,10 @@ built on first use. The game itself runs on the host.
 - **Java 11+** and **FFDec** (JPEXS Free Flash Decompiler, 26 or later), which
   compiles the ActionScript. On Windows, `ffdec-cli.exe` works too.
 - **The official Dofus Retro client** for the platform, installed by Ankama's
-  launcher: the build reuses its Electron app, Flash plugin and assets.
+  launcher: the build reuses its Electron app, Flash plugin and assets. Its
+  files are the same on every platform, the official `loader.swf` included;
+  on macOS they're inside the app, `Dofus Retro.app/Contents/Resources/`
+  instead of `resources/` (the tools map one to the other).
 
 ## Configuration
 
@@ -53,6 +59,7 @@ Copy `retro.local.example.json` to `retro.local.json` and set:
 |---|---|
 | `ffdec` | path to `ffdec.jar` (not needed with Docker) |
 | `upstream.linux` / `upstream.windows` | the official client's folder, the one holding `resources/app/retroclient` |
+| `upstream.mac` | the official app, `/Applications/Ankama/Retro/Dofus Retro.app` by default (or the folder holding it) |
 | `overlay` | optional: a folder of machine-specific files copied after `overlay/`, e.g. a `config.xml` pointing at another server |
 | `executable` | optional: the client executable's name |
 | `dev` | optional: auto login settings, see [Hot reload](#hot-reload) |
@@ -81,7 +88,8 @@ Two checks keep a recompiled class equivalent to the original:
 - Every `get x()` / `set x()` must still match its property, since the
   compiler registers properties from accessor names.
 
-`dist/<platform>/` is a full copy of the official client, made once; later
+`dist/<platform>/` is a full copy of the official client (on macOS the app,
+`dist/mac/Dofus Retro.app`), made once; later
 runs only replace the loader and the overlay files. Ankama's launcher must not
 update it: start it with `--run` or its executable, not through the launcher.
 

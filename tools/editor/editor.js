@@ -415,6 +415,33 @@ function styleOf(name, cls) {
   return (name && name !== "default" && name !== "none" && st[name]) || st[cls] || {};
 }
 const exportRef = (name) => (name ? refOf({ export: name }) : null);
+/**
+ * The component a style is for: the one the base's interfaces give it to
+ * most (styleUse), else guessed from its keys (a title: a Window's…).
+ */
+function styleComponent(name) {
+  const use = S.ui?.styleUse?.[name];
+  if (use) return Object.entries(use).sort((a, b) => b[1] - a[1])[0][0];
+  const st = S.ui?.styles?.[name] ?? {}, h = (k) => k in st;
+  if (h("titlestyle") || h("titleheight")) return "Window";
+  if (h("labelupstyle") || h("labeldownstyle") || h("bgdowncolor")) return "Button";
+  if (h("liststyle") && h("buttonstyle")) return "ComboBox";
+  if (h("cellrendererstyle")) return "List";
+  if (h("titlebgcolor")) return "DataGrid";
+  if (h("containerbackground")) return "ContainerGrid";
+  if (h("labelenabledstyle")) return "PopupMenu";
+  if (h("sbthumbcolor")) return "ScrollBar";
+  if (h("labelfont")) return "Label";
+  if (h("font") && h("scrollbarstyle")) return "TextArea";
+  if (h("cornerradius") && h("bgcolor")) return "StylizedRectangle";
+  return null;
+}
+/** The styles a component of class `cls` may take: its own first (given to it, or made for it), then the others. */
+function stylesFor(cls) {
+  const all = Object.keys(S.ui?.styles ?? {}).sort((a, b) => a.localeCompare(b));
+  const mine = all.filter((n) => S.ui.styleUse?.[n]?.[cls] || styleComponent(n) === cls);
+  return { mine, others: all.filter((n) => !mine.includes(n)) };
+}
 
 /** Each placement's parameters in a sprite (its clip actions), by frame and depth. */
 const paramCache = new Map();
@@ -1579,6 +1606,21 @@ function paramsSection(box, owner, o, ro) {
     } else if (typeof value === "number") {
       input = html("input", { type: "number", value, step: "any", disabled: ro });
       input.oninput = () => { if (input.value !== "" && Number.isFinite(Number(input.value))) set(key, Number(input.value)); };
+    } else if (key === "styleName" && typeof value === "string" && S.ui?.styles) {
+      // A list: this component's styles first, then every other one.
+      input = html("select", { disabled: ro, title: "Its style (DofusStylePackage): those this component is given in the base first" });
+      const { mine, others } = stylesFor(cls);
+      if (!S.ui.styles[value]) input.append(html("option", { value }, value === "" || value === "default" || value === "none" ? `${value || "(empty)"}: ${cls}'s own` : `${value} (unknown)`));
+      const group = (label, names) => {
+        if (!names.length) return;
+        const g = html("optgroup", { label });
+        for (const n of names) g.append(html("option", { value: n }, n));
+        input.append(g);
+      };
+      group(`${cls} (${mine.length})`, mine);
+      group(`Others (${others.length})`, others);
+      input.value = value;
+      input.onchange = () => { set(key, input.value); fresh = true; };
     } else if (typeof value === "string") {
       input = html("input", { type: "text", value, disabled: ro });
       if (listFor(key)) input.setAttribute("list", listFor(key));

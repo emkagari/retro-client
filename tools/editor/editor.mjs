@@ -91,7 +91,7 @@ function uiInfo() {
     const text = readFileSync(f, "utf8");
     if (text.includes("registerClass")) for (const m of text.matchAll(/registerClass\("([^"]+)",\s*([\w.]+)\)/g)) classes[m[1]] ??= m[2];
   }
-  return (uiCache = { styles, classes, paramKeys: paramKeys(classes) });
+  return (uiCache = { styles, classes, ...paramKeys(classes) });
 }
 
 /** A lang_xx.swf's texts: { KEY: "text" } (each one a variable its actions set). */
@@ -153,10 +153,11 @@ function codeInfo(rel) {
 /**
  * The parameters each component takes, as the base's interfaces set them
  * (every on(construct) of src/timeline/sprites/): { Button: { label: "",
- * styleName: "…" } } — each with its most frequent value, a default to start from.
+ * styleName: "…" } } — each with its most frequent value, a default to start from;
+ * `styleUse`: { style: { Button: n } }, which components each style is given to.
  */
 function paramKeys(classes) {
-  const seen = {};
+  const seen = {}, styleUse = {};
   const dir = join(SRC, "timeline", "sprites");
   for (const sprite of readdirSync(dir)) for (const frame of readdirSync(join(dir, sprite)).filter((f) => /^frame_\d+$/.test(f))) {
     for (const place of readdirSync(join(dir, sprite, frame))) {
@@ -167,6 +168,7 @@ function paramKeys(classes) {
         for (const a of readFileSync(join(at, f), "utf8").matchAll(/^\s*(\w+) = (.+);\s*$/gm)) {
           // Values only (the decompiler leaves a few expressions: _loc3_ + 1).
           if (/^_loc\d+_$/.test(a[1]) || (typeof literal(a[2]) === "string" && !/^"/.test(a[2].trim()))) continue;
+          if (a[1] === "styleName" && typeof literal(a[2]) === "string") { const u = (styleUse[literal(a[2])] ??= {}); u[cls] = (u[cls] ?? 0) + 1; }
           const counts = ((seen[cls] ??= {})[a[1]] ??= new Map());
           counts.set(a[2], (counts.get(a[2]) ?? 0) + 1);
         }
@@ -178,7 +180,7 @@ function paramKeys(classes) {
     out[cls] = {};
     for (const [k, counts] of Object.entries(keys)) out[cls][k] = literal([...counts].sort((a, b) => b[1] - a[1])[0][0]);
   }
-  return out;
+  return { paramKeys: out, styleUse };
 }
 
 /**

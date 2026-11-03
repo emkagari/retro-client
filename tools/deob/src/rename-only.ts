@@ -37,7 +37,23 @@ for (const file of (opt("--extra") ?? "").split(",").filter(Boolean)) {
 }
 log(`${names.size} names from ${join(run, "names.json")}; matching the raw export for parameters…`);
 const r = match(readClasses(ref), readClasses(join(run, "pass0", "scripts", "__Packages")));
-log(`parameters of ${r.params.size} functions`);
+// The matcher pairs a class's members by their bodies, names unknown: look-alike
+// members (setters of one line, `this._x = v`) get paired by chance, and one's
+// parameters named after another's. A member whose final name its reference
+// class has (same kind, same arity) takes that member's parameters instead
+// (an accessor named __set__x here is `function set x` in the reference).
+let by_name = 0;
+for (const [target_class, reference_class] of r.classes) for (const member of target_class.members) {
+  if (!member.kind.endsWith("function") || !member.params.length) continue;
+  const name = (names.get(member.name) ?? member.name).replace(/^__[gs]et__/, "");
+  const same = reference_class.members.filter((m) => m.kind === member.kind && m.name === name && m.params.length === member.params.length);
+  if (same.length !== 1) continue;
+  const key = paramKey(target_class.path, member.name, member.params.length);
+  const list = member.params.map((p, k) => (isObf(p) && !isObf(same[0]!.params[k]!) ? same[0]!.params[k]! : p));
+  if (JSON.stringify(r.params.get(key)) !== JSON.stringify(list)) by_name++;
+  r.params.set(key, list);
+}
+log(`parameters of ${r.params.size} functions (${by_name} taken from the reference member of the same name)`);
 
 const swf = parseSwf(readFileSync(join(run, "clean.swf")));
 // --runnable: a loader that must still run (see `runnable`); unknown ids keep their bytes.

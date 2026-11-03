@@ -18,6 +18,7 @@ const COMMANDS = {
   "test-sprites": ["test-sprites.mjs", "non-regression tests of the sprites, buttons, texts: base → JSON → loader"],
   "test-assets": ["test-assets.mjs", "non-regression tests of the graphics: base → src/assets/ → loader  [--update]"],
   manifest: ["manifest.mjs", "record src/ as the base's baseline  <version> [--upstream <official loader.swf>]"],
+  "official-loader": ["official-loader.mjs", "an official loader.swf from Ankama's CDN → .tmp/official-<v>/  [<version>|<release>]"],
   "new-base": ["new-base.mjs", "install a new base (docs/UPGRADING.md)  <version> <runnable.swf> --upstream <loader.swf>"],
   deob: ["deob/src/deob.ts", "deobfuscate a client SWF (the swf-deobfuscate skill)  <target.swf> --ref <dir> --out <dir>"],
 };
@@ -26,7 +27,7 @@ const [command, ...args] = process.argv.slice(2);
 if (!command || command === "help" || !COMMANDS[command]) {
   if (command && command !== "help") console.error(`unknown command: ${command}\n`);
   console.log("commands:");
-  for (const [name, [, what]] of Object.entries(COMMANDS)) console.log(`  ${name.padEnd(12)} ${what}`);
+  for (const [name, [, what]] of Object.entries(COMMANDS)) console.log(`  ${name.padEnd(16)} ${what}`);
   process.exit(command && command !== "help" ? 2 : 0);
 }
 const r = spawnSync(process.execPath, [join(ROOT, "tools", COMMANDS[command][0]), ...args], { stdio: "inherit" });

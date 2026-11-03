@@ -24,7 +24,9 @@ Two situations:
 - **A newer official Retro client** → the goal is a new base for this repo:
   follow `docs/UPGRADING.md` (it runs §§ 3–5 below with the repo's own
   sources as reference, then `tools/new-base.mjs`). Names carry over: same
-  code, same names.
+  code, same names. `node tools/official-loader.mjs <version>` downloads the
+  official loader from Ankama's CDN; when versions were skipped, install each
+  in turn (one `upstream` commit per version).
 - **Another client** (emulator build, older version) → §§ 1–5, then § 7 to
   try it in game.
 

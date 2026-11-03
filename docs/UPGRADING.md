@@ -7,10 +7,24 @@ so `git merge` then shows mostly what Ankama changed — and conflicts only
 where our changes meet theirs.
 
 Commands below for version `1.50.0`; `$OFFICIAL` = a **copy** of the new
-official `resources/app/retroclient/loader.swf` (the launcher may update the
-installed one while you work), `$FFDEC` = your ffdec.jar. Each step runs from
-the repo root; a separate worktree keeps your own branch untouched:
-`git worktree add ../retro-client-upgrade upstream`.
+official `resources/app/retroclient/loader.swf`, `$FFDEC` = your ffdec.jar.
+Each step runs from the repo root; a separate worktree keeps your own branch
+untouched: `git worktree add ../retro-client-upgrade upstream`.
+
+The official loader comes from Ankama's CDN, no install needed (the same on
+every platform):
+
+```bash
+node tools/official-loader.mjs 1.50.0     # → .tmp/official-1.50.0/loader.swf ($OFFICIAL)
+```
+
+**One version at a time**: when two came out (1.49.9 then 1.49.10), install
+both in turn, each a commit of `upstream`, so each diff shows one version's
+changes. The CDN only names the current release; Ankama's launcher keeps the
+list from its last check (`zaap/repositories/repositories.json` in its data
+folder: `~/.config` on Linux, `%APPDATA%` on Windows, `~/Library/Application
+Support` on macOS), which `official-loader.mjs` reads for the one before. An older one needs its
+release name (`6.0_1.49.9.5673.465-64394b4`).
 
 ## 0. Start from up-to-date tools
 
@@ -80,6 +94,16 @@ node tools/deob/src/check-accessors.ts .tmp/deob-1.50.0/runnable.swf
 `rename-only` must end with four `ok`; `check-accessors` should list only
 accessors whose id is made of blanks (`"\t\n"`): step 3 handles those. One
 with another id belongs to a property still unnamed: name the property.
+
+Parameters are renamed by the obfuscator in each function, so they don't
+carry over by id: a function takes the parameters of the reference member of
+its final name (an accessor `__set__x` those of `function set x`). Look-alike
+members — setters of one line, `this._x = v` — would otherwise be paired by
+chance, each named after another's parameters (1.49.9: 59 setters).
+
+`--ref` is the previous version's sources: once step 3 has replaced `src/`,
+redoing this step needs them from git —
+`git archive HEAD src/classes | tar -x -C .tmp/ref` then `--ref .tmp/ref/src/classes`.
 
 ## 3. Install the base and its sources
 

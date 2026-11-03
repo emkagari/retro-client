@@ -2,7 +2,7 @@
 <svg xmlns:ffdec="https://www.free-decompiler.com/flash" xmlns:xlink="http://www.w3.org/1999/xlink" ffdec:objectType="shape" height="12.25px" width="13.0px" xmlns="http://www.w3.org/2000/svg">
   <g transform="matrix(1.0, 0.0, 0.0, 1.0, 6.5, 6.1)">
     <path d="M-2.8 -5.35 Q-1.05 -5.25 0.0 -3.8 Q1.05 -5.25 2.95 -5.35 Q5.95 -5.05 5.75 -1.5 Q5.55 1.05 0.0 5.4 Q-5.55 1.05 -5.75 -1.5 Q-5.95 -5.05 -2.8 -5.35" fill="#602706" fill-rule="evenodd" stroke="none"/>
-    <path d="M2.95 -5.35 Q5.95 -5.05 5.75 -1.5 5.55 1.05 0.0 5.4 -5.55 1.05 -5.75 -1.5 -5.95 -5.05 -2.8 -5.35 -1.05 -5.25 0.0 -3.8 1.05 -5.25 2.95 -5.35 Z" fill="none" stroke="#602706" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path d="M5.75 -1.5 Q5.55 1.05 0.0 5.4 -5.55 1.05 -5.75 -1.5 -5.95 -5.05 -2.8 -5.35 -1.05 -5.25 0.0 -3.8 1.05 -5.25 2.95 -5.35 5.95 -5.05 5.75 -1.5 Z" fill="none" stroke="#602706" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
     <path d="M-2.8 -5.35 Q-1.1 -5.3 0.0 -3.8 Q1.1 -5.3 3.0 -5.35 Q6.0 -5.05 5.75 -1.5 Q5.5 1.05 0.0 5.4 Q-5.5 1.05 -5.75 -1.5 Q-6.0 -5.05 -2.8 -5.35" fill="url(#gradient0)" fill-rule="evenodd" stroke="none"/>
   </g>
   <defs>

@@ -733,6 +733,7 @@
   "UI_DemoMode",
   "UI_DirectionChooser",
   "UI_DocumentBook",
+  "UI_DocumentNoBackground",
   "UI_DocumentParchment",
   "UI_DocumentRoadSignLeft",
   "UI_DocumentRoadSignRight",
@@ -2258,10 +2259,12 @@
   "UI_WaypointsItem"
  ],
  "images/268": [
+  "EmeraldDofus",
   "Helper",
   "Helper_TripleFramerate",
   "UI_AskGameBegin",
-  "UI_AskGameBegin_TripleFramerate"
+  "UI_AskGameBegin_TripleFramerate",
+  "UI_Login"
  ],
  "shapes/269": [
   "Helper",
@@ -3626,6 +3629,7 @@
   "UI_DocumentRoadSignRight"
  ],
  "images/1169": [
+  "Link",
   "UI_DocumentRoadSignLeft",
   "UI_DocumentRoadSignRight"
  ],
@@ -4181,8 +4185,7 @@
  ],
  "images/1550": [
   "UI_AskGameBegin",
-  "UI_AskGameBegin_TripleFramerate",
-  "UI_ChooseServer"
+  "UI_AskGameBegin_TripleFramerate"
  ],
  "shapes/1551": [
   "UI_AskGameBegin",
@@ -4708,14 +4711,12 @@
   "UI_HideAchievementDown"
  ],
  "shapes/1994": [
+  "UI_FightOptionToggleSpritesDown",
   "UI_FightOptionToggleSpritesUp"
  ],
  "shapes/1995": [
   "UI_FightOptionToggleSpritesDown",
   "UI_FightOptionToggleSpritesUp"
- ],
- "shapes/1998": [
-  "UI_FightOptionToggleSpritesDown"
  ],
  "shapes/2000": [
   "UI_FightOptionTacticModeDown",
@@ -6110,11 +6111,5 @@
  "shapes/2988": [
   "ButtonArchMonsterDown",
   "ButtonArchMonsterUp"
- ],
- "shapes/21204": [
-  "Helper",
-  "Helper_TripleFramerate",
-  "UI_AskGameBegin",
-  "UI_AskGameBegin_TripleFramerate"
  ]
 }

@@ -2,6 +2,7 @@ class dofus.managers.InteractionsManager extends dofus.utils.ApiElement
 {
    var _playerManager;
    var _state;
+   var api;
    static var STATE_MOVE_SINGLE = 0;
    static var STATE_SELECT = 1;
    function InteractionsManager(playerManager, oAPI)

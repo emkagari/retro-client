@@ -1,5 +1,6 @@
 class dofus.aks.Game extends dofus.aks.Handler
 {
+   var addToQueue;
    var aks;
    var api;
    var extendIn;
@@ -575,6 +576,11 @@ class dofus.aks.Game extends dofus.aks.Handler
       if(Number(_loc4_) == this.api.datacenter.Map.id)
       {
          this.api.gfx.onMapLoaded();
+         return undefined;
+      }
+      if(this.api.kernel.DocumentsServersManager.isLoading)
+      {
+         this.addToQueue({object:this,method:this.onMapData,params:[sExtraData]});
          return undefined;
       }
       this.api.gfx.showContainer(false);

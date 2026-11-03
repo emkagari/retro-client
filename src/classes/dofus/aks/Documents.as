@@ -1,5 +1,6 @@
 class dofus.aks.Documents extends dofus.aks.Handler
 {
+   var addToQueue;
    var aks;
    var api;
    function Documents(oAKS, oAPI)
@@ -16,6 +17,11 @@ class dofus.aks.Documents extends dofus.aks.Handler
       var _loc5_;
       if(bSuccess)
       {
+         if(this.api.kernel.MapsServersManager.isLoading)
+         {
+            this.addToQueue({object:this,method:this.onCreate,params:[bSuccess,sExtraData]});
+            return undefined;
+         }
          _loc4_ = sExtraData;
          _loc5_ = this.api.config.language;
          this.api.ui.loadUIComponent("CenterText","CenterText",{text:this.api.lang.getText("LOADING"),background:false},{bForceLoad:true});

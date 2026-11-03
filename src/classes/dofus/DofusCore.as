@@ -337,6 +337,7 @@ class dofus.DofusCore extends ank.utils.QueueEmbedMovieClip
       Object.registerClass("UI_Waiting",dofus.graphics.gapi.ui.Waiting);
       Object.registerClass("UI_Waiting_TripleFramerate",dofus.graphics.gapi.ui.Waiting);
       Object.registerClass("UI_DocumentParchment",dofus.graphics.gapi.ui.DocumentParchment);
+      Object.registerClass("UI_DocumentNoBackground",dofus.graphics.gapi.ui.DocumentNoBackground);
       Object.registerClass("UI_DocumentBook",dofus.graphics.gapi.ui.DocumentBook);
       Object.registerClass("UI_Cinematic",dofus.graphics.gapi.ui.Cinematic);
       Object.registerClass("UI_MapInfos",dofus.graphics.gapi.ui.MapInfos);

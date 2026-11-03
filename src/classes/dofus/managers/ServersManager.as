@@ -67,6 +67,10 @@ class dofus.managers.ServersManager extends dofus.utils.ApiElement
    {
       return this._oCurrentServer.url + this._sFolder;
    }
+   function get isLoading()
+   {
+      return this._sFile != undefined;
+   }
    function clearTimer()
    {
       _global.clearInterval(this._timerID);

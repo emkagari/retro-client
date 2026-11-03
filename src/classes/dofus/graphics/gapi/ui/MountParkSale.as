@@ -11,6 +11,7 @@ class dofus.graphics.gapi.ui.MountParkSale extends dofus.graphics.gapi.core.Dofu
    var _txtPrice;
    var _winBackground;
    var addToQueue;
+   var api;
    var defaultPrice;
    var gapi;
    var instance;

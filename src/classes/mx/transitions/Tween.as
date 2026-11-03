@@ -124,9 +124,9 @@ class mx.transitions.Tween
       }
       return this.func(t,this.begin,this.change,this._duration);
    }
-   function set finish(f_)
+   function set finish(f__)
    {
-      this.change = f_ - this.begin;
+      this.change = f__ - this.begin;
    }
    function get finish()
    {

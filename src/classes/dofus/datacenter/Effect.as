@@ -102,7 +102,7 @@ class dofus.datacenter.Effect extends Object
    {
       var _loc3_ = this.api.lang.getEffectText(this._nType).d;
       var _loc4_ = [this._nParam1,this._nParam2,this._nParam3,this._sParam4];
-      var _loc5_;
+      var _loc5_ = false;
       var _loc6_;
       var _loc7_;
       var _loc8_;
@@ -118,8 +118,21 @@ class dofus.datacenter.Effect extends Object
       var _loc18_;
       var _loc19_;
       var _loc20_;
+      var _loc21_;
+      var _loc22_;
+      var _loc23_;
+      var _loc24_;
+      var _loc25_;
       switch(this._nType)
       {
+         case 5:
+         case 6:
+         case 2127:
+            _loc5_ = this._nParam1 > 1;
+            break;
+         case 9:
+            _loc5_ = this._nParam2 > 1;
+            break;
          case 10:
             _loc4_[2] = this.api.lang.getEmoteText(this._nParam3).n;
             break;
@@ -139,17 +152,17 @@ class dofus.datacenter.Effect extends Object
             _loc4_[0] = this.api.lang.getSpellText(this._nParam1).n;
             break;
          case 601:
-            _loc5_ = this.api.lang.getMapText(this._nParam2);
-            _loc4_[0] = this.api.lang.getMapSubAreaName(_loc5_.sa);
-            _loc4_[1] = _loc5_.x;
-            _loc4_[2] = _loc5_.y;
+            _loc6_ = this.api.lang.getMapText(this._nParam2);
+            _loc4_[0] = this.api.lang.getMapSubAreaName(_loc6_.sa);
+            _loc4_[1] = _loc6_.x;
+            _loc4_[2] = _loc6_.y;
             break;
          case 603:
             _loc4_[2] = this.api.lang.getJobText(this._nParam3).n;
             break;
          case 604:
-            _loc6_ = this.api.datacenter.Spell.getSpellFromLevelID(this._nParam3).id;
-            _loc4_[2] = this.api.lang.getSpellText(_loc6_).n;
+            _loc7_ = this.api.datacenter.Spell.getSpellFromLevelID(this._nParam3).id;
+            _loc4_[2] = this.api.lang.getSpellText(_loc7_).n;
             break;
          case 614:
             _loc4_[0] = this._nParam3;
@@ -186,8 +199,8 @@ class dofus.datacenter.Effect extends Object
             break;
          case 722:
          case 300:
-            _loc7_ = this.api.datacenter.Spell.getSpellFromLevelID(this._nParam3).id;
-            _loc4_[2] = this.api.lang.getSpellText(_loc7_).n;
+            _loc8_ = this.api.datacenter.Spell.getSpellFromLevelID(this._nParam3).id;
+            _loc4_[2] = this.api.lang.getSpellText(_loc8_).n;
             break;
          case 724:
          case 2187:
@@ -209,18 +222,18 @@ class dofus.datacenter.Effect extends Object
             else
             {
                this._nParam3 = this._nParam3 != undefined ? this._nParam3 : 0;
-               _loc8_ = String(Math.floor(this._nParam2) / 100).split(".");
-               _loc9_ = Number(_loc8_[0]);
-               _loc10_ = this._nParam2 - _loc9_ * 100;
-               _loc11_ = String(Math.floor(this._nParam3) / 100).split(".");
-               _loc12_ = Number(_loc11_[0]);
-               _loc13_ = this._nParam3 - _loc12_ * 100;
-               _loc14_ = "";
+               _loc9_ = String(Math.floor(this._nParam2) / 100).split(".");
+               _loc10_ = Number(_loc9_[0]);
+               _loc11_ = this._nParam2 - _loc10_ * 100;
+               _loc12_ = String(Math.floor(this._nParam3) / 100).split(".");
+               _loc13_ = Number(_loc12_[0]);
+               _loc14_ = this._nParam3 - _loc13_ * 100;
+               _loc15_ = "";
                if(this._nType == dofus.datacenter.Item.OBJECT_ACTION_LINK_ACCOUNT || this._nType == dofus.datacenter.Item.OBJECT_ACTION_LINK_CHARACTER)
                {
-                  _loc14_ = ": ";
+                  _loc15_ = ": ";
                }
-               _loc4_[0] = _loc14_ + ank.utils.PatternDecoder.getDescription(this.api.lang.getConfigText("DATE_FORMAT"),[this._nParam1,new ank.utils.ExtendedString(_loc9_ + 1).addLeftChar("0",2),new ank.utils.ExtendedString(_loc10_).addLeftChar("0",2),_loc12_,new ank.utils.ExtendedString(_loc13_).addLeftChar("0",2)]);
+               _loc4_[0] = _loc15_ + ank.utils.PatternDecoder.getDescription(this.api.lang.getConfigText("DATE_FORMAT"),[this._nParam1,new ank.utils.ExtendedString(_loc10_ + 1).addLeftChar("0",2),new ank.utils.ExtendedString(_loc11_).addLeftChar("0",2),_loc13_,new ank.utils.ExtendedString(_loc14_).addLeftChar("0",2)]);
             }
             break;
          case 806:
@@ -242,6 +255,11 @@ class dofus.datacenter.Effect extends Object
             {
                _loc4_[0] = this.api.lang.getItemUnicText(this._nParam3).n;
             }
+            break;
+         case 788:
+         case 811:
+         case 963:
+            _loc5_ = this._nParam3 > 1;
             break;
          case 814:
             _loc4_[0] = this.api.lang.getItemUnicText(this._nParam1).n;
@@ -276,8 +294,8 @@ class dofus.datacenter.Effect extends Object
          case 939:
          case 940:
          case 969:
-            _loc15_ = new dofus.datacenter.Item(-1,Number(_loc4_[2]),1,0,"",0);
-            _loc4_[2] = _loc15_.name;
+            _loc16_ = new dofus.datacenter.Item(-1,Number(_loc4_[2]),1,0,"",0);
+            _loc4_[2] = _loc16_.name;
             break;
          case 649:
          case 960:
@@ -303,62 +321,70 @@ class dofus.datacenter.Effect extends Object
             }
             else
             {
-               _loc16_ = _loc4_[0] + _loc4_[2];
-               _loc17_ = _loc4_[1] + _loc4_[2];
-               _loc4_[0] = _loc16_;
-               _loc4_[1] = _loc16_ * 3 - 14;
-               _loc4_[2] = _loc17_;
-               _loc4_[3] = _loc17_ * 3 - 14;
+               _loc17_ = _loc4_[0] + _loc4_[2];
+               _loc18_ = _loc4_[1] + _loc4_[2];
+               _loc4_[0] = _loc17_;
+               _loc4_[1] = _loc17_ * 3 - 14;
+               _loc4_[2] = _loc18_;
+               _loc4_[3] = _loc18_ * 3 - 14;
             }
             break;
          case 2172:
          case 2173:
-            _loc18_ = new dofus.datacenter.Spell(this._nParam3,1);
+            _loc19_ = new dofus.datacenter.Spell(this._nParam3,1);
             _loc4_[1] = this._nParam2;
-            _loc4_[2] = _loc18_.name;
+            _loc4_[2] = _loc19_.name;
             break;
          case 2165:
          case 2166:
-            _loc19_ = "";
+            _loc20_ = "";
             switch(this._nParam1)
             {
                case 10:
-                  _loc19_ = this.api.lang.getText("FORCE");
+                  _loc20_ = this.api.lang.getText("FORCE");
                   break;
                case 13:
-                  _loc19_ = this.api.lang.getText("CHANCE");
+                  _loc20_ = this.api.lang.getText("CHANCE");
                   break;
                case 14:
-                  _loc19_ = this.api.lang.getText("AGILITY");
+                  _loc20_ = this.api.lang.getText("AGILITY");
                   break;
                case 15:
-                  _loc19_ = this.api.lang.getText("INTELLIGENCE");
+                  _loc20_ = this.api.lang.getText("INTELLIGENCE");
             }
-            _loc4_[0] = _loc19_;
+            _loc4_[0] = _loc20_;
             _loc4_[2] = this._nParam3;
             break;
          case 2051:
             _loc3_ = ank.utils.PatternDecoder.combine(_loc3_,null,_loc4_[0] <= 1);
             break;
          case 2190:
-            _loc20_ = this._nParam1 * Math.pow(32,6) + this._nParam2 * Math.pow(32,3) + this._nParam3;
-            _loc4_[0] = new ank.utils.ExtendedString(_loc20_).addMiddleChar(this.api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
+            _loc21_ = this._nParam1 * Math.pow(32,6) + this._nParam2 * Math.pow(32,3) + this._nParam3;
+            _loc4_[0] = new ank.utils.ExtendedString(_loc21_).addMiddleChar(this.api.lang.getConfigText("THOUSAND_SEPARATOR"),3);
+            break;
+         case 2196:
+            _loc22_ = this.param2 * 32768 + this.param3;
+            _loc23_ = _loc22_ * 60000;
+            _loc24_ = _loc23_ - new Date().getTime();
+            _loc25_ = Math.max(0,Math.floor(_loc24_ / 60000));
+            _loc4_[0] = _loc25_;
+            _loc5_ = _loc25_ > 1;
             break;
          case 300:
       }
-      var _loc21_;
-      var _loc22_;
+      var _loc26_;
+      var _loc27_;
       var _loc0_;
       if(this.api.lang.getEffectText(this._nType).j && this.api.kernel.OptionsManager.getOption("ViewDicesDammages"))
       {
-         _loc21_ = this._sParam4.toLowerCase().split("d");
-         _loc21_[1] = _loc21_[1].split("+");
-         if(!(_loc21_[0] == undefined || (_loc21_[1] == undefined || (_loc21_[1][0] == undefined || _loc21_[1][0] == undefined))))
+         _loc26_ = this._sParam4.toLowerCase().split("d");
+         _loc26_[1] = _loc26_[1].split("+");
+         if(!(_loc26_[0] == undefined || (_loc26_[1] == undefined || (_loc26_[1][0] == undefined || _loc26_[1][0] == undefined))))
          {
-            _loc22_ = "";
-            _loc22_ += !(_loc21_[0] != "0" && _loc21_[1][0] != "0") ? "" : _loc21_[0] + "d" + _loc21_[1][0];
-            _loc22_ += _loc21_[1][1] == "0" ? "" : (_loc22_ == "" ? "" : "+") + _loc21_[1][1];
-            _loc4_[0] = _loc22_;
+            _loc27_ = "";
+            _loc27_ += !(_loc26_[0] != "0" && _loc26_[1][0] != "0") ? "" : _loc26_[0] + "d" + _loc26_[1][0];
+            _loc27_ += _loc26_[1][1] == "0" ? "" : (_loc27_ == "" ? "" : "+") + _loc26_[1][1];
+            _loc4_[0] = _loc27_;
             var _temp_4 = _loc4_;
             var _temp_3 = 1;
             var _temp_2 = _loc4_;
@@ -368,35 +394,36 @@ class dofus.datacenter.Effect extends Object
             _temp_4[_temp_3] = _loc0_;
          }
       }
-      var _loc23_ = "";
+      var _loc28_ = "";
       if(this._nPropability > 0 && this._nPropability != undefined)
       {
-         _loc23_ += " - " + this.api.lang.getText("IN_CASE_PERCENT",[this._nPropability]) + ": ";
+         _loc28_ += " - " + this.api.lang.getText("IN_CASE_PERCENT",[this._nPropability]) + ": ";
       }
-      var _loc24_;
+      var _loc29_;
       if(this._nType == 666)
       {
-         _loc23_ += this.api.lang.getText("DO_NOTHING");
+         _loc28_ += this.api.lang.getText("DO_NOTHING");
       }
       else
       {
-         _loc24_ = ank.utils.PatternDecoder.getDescription(_loc3_,_loc4_);
-         _loc23_ += _loc24_;
+         _loc29_ = ank.utils.PatternDecoder.getDescription(_loc3_,_loc4_);
+         _loc28_ += _loc29_;
       }
       if(this._nModificator > 0 && this.api.kernel.SpellsBoostsManager.isBoostedHealingOrDamagingEffect(this._nType))
       {
-         _loc23_ += " " + this.api.lang.getText("BOOSTED_SPELLS_EFFECT_COMPLEMENT",[this._nModificator]);
+         _loc28_ += " " + this.api.lang.getText("BOOSTED_SPELLS_EFFECT_COMPLEMENT",[this._nModificator]);
       }
+      _loc28_ = ank.utils.PatternDecoder.combine(_loc28_,"n",!_loc5_);
       if(!bShowRemainingTurns)
       {
-         return _loc23_;
+         return _loc28_;
       }
-      var _loc25_ = this.getTurnCountStr(false);
-      if(_loc25_.length == 0)
+      var _loc30_ = this.getTurnCountStr(false);
+      if(_loc30_.length == 0)
       {
-         return _loc23_;
+         return _loc28_;
       }
-      return _loc23_ + " (" + _loc25_ + ")";
+      return _loc28_ + " (" + _loc30_ + ")";
    }
    function get characteristic()
    {

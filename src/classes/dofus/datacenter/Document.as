@@ -2,6 +2,7 @@ class dofus.datacenter.Document extends Object
 {
    var _aChapters;
    var _aPages;
+   var _nIconID;
    var _sAuthor;
    var _sCSS;
    var _sSubTitle;
@@ -26,6 +27,8 @@ class dofus.datacenter.Document extends Object
             return "DocumentRoadSignLeft";
          case "roadsignright":
             return "DocumentRoadSignRight";
+         case "custombackground":
+            return "DocumentNoBackground";
          default:
             return;
       }
@@ -41,6 +44,10 @@ class dofus.datacenter.Document extends Object
    function get author()
    {
       return this._sAuthor;
+   }
+   function get iconID()
+   {
+      return this._nIconID;
    }
    function get pageCount()
    {
@@ -136,6 +143,9 @@ class dofus.datacenter.Document extends Object
             _loc15_ = this.api.kernel.DocumentsServersManager.getCurrentServer() + "#1/#2.#1";
             _loc14_ = ank.utils.PatternDecoder.replace(_loc14_,_loc15_);
             this._aPages.push({text:_loc14_,cssFile:this._sCSS});
+            break;
+         case "custombackground":
+            this._nIconID = mcSwfData.iconID;
          default:
             return;
       }

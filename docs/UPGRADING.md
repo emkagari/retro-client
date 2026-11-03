@@ -132,8 +132,10 @@ by its place among the definitions; a new one takes an id above any used. It
 prints how many it found each way (1.49.7 → 1.49.8: 3 696 kept, 1 new, 2
 gone). `base/1.50.0/ids.json` lists the runnable's ids that changed (to find
 a character of the official client in the base). The diff then shows what
-Ankama changed — about half the shapes come back re-encoded each version
-(same drawing, edges in another order): that's theirs.
+Ankama changed. When Ankama's compiler re-encodes its shapes, more than
+half come back as the same SVG (docs/ASSETS.md; 1.49.10: 229 of 402); the
+rest differ by a twip here and there, or in the order of their paths: that's
+theirs.
 
 It also extracts the new base's graphics (`src/assets/`, docs/ASSETS.md) and
 sprites (`sprite.json`, docs/SPRITES.md), and carries yours over: an edited

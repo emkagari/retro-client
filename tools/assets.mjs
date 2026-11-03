@@ -73,7 +73,7 @@ function emptyDir(dir) {
   for (const f of readdirSync(dir)) unlinkSync(join(dir, f));
 }
 
-/** Shapes and images of a SWF into dir/shapes, dir/images (FFDec's own export). */
+/** Shapes and images of a SWF into dir/shapes, dir/images (FFDec's own export, shapes in a fixed order). */
 export function exportGraphics(cfg, loader, dir) {
   const tmp = `${dir}.export`;
   rmSync(tmp, { recursive: true, force: true, maxRetries: 5 });
@@ -81,9 +81,71 @@ export function exportGraphics(cfg, loader, dir) {
   if (!r.ok) throw new Error(r.log);
   for (const kind of KINDS) {
     emptyDir(join(dir, kind));
-    if (existsSync(join(tmp, kind))) for (const f of readdirSync(join(tmp, kind))) renameSync(join(tmp, kind, f), join(dir, kind, f));
+    if (existsSync(join(tmp, kind))) for (const f of readdirSync(join(tmp, kind))) {
+      if (kind === "shapes") writeFileSync(join(dir, kind, f), canonical_svg(readFileSync(join(tmp, kind, f), "utf8")));
+      else renameSync(join(tmp, kind, f), join(dir, kind, f));
+    }
   }
   rmSync(tmp, { recursive: true, force: true, maxRetries: 5 });
+}
+
+/**
+ * A shape's SVG whatever order Ankama's compiler wrote its edges in (it
+ * changes from one version to the next, the drawing doesn't): a filled path
+ * (evenodd: only its edges count) rechained from its edges in a fixed order,
+ * gradients numbered in order of use. Paths keep their order, strokes their
+ * subpaths: reordered, they import back differently (test-assets.mjs).
+ */
+export function canonical_svg(svg) {
+  const point = (tokens, i) => `${tokens[i]} ${tokens[i + 1]}`;
+  // Edges [from, control or null, to] of a path's d.
+  const edges_of = (d) => {
+    const tokens = d.split(/\s+|(?=[MLQZ])|(?<=[MLQZ])/).filter(Boolean), edges = [];
+    let command, start, at;
+    for (let i = 0; i < tokens.length; ) {
+      if (/^[MLQZ]$/.test(tokens[i])) command = tokens[i++];
+      if (command === "M") { at = start = point(tokens, i); i += 2; command = "L"; }
+      else if (command === "Z") { if (at !== start) edges.push([at, null, start]); at = start; }
+      else {
+        const control = command === "Q" ? point(tokens, i) : null;
+        const to = point(tokens, (i += command === "Q" ? 2 : 0));
+        i += 2;
+        edges.push([at, control, to]);
+        at = to;
+      }
+    }
+    return edges;
+  };
+  const step = ([, control], to) => (control ? ` Q${control} ${to}` : ` L${to}`);
+  const fill = (d) => {
+    const edges = edges_of(d), at_point = new Map();
+    for (const edge of edges) for (const end of [edge[0], edge[2]]) at_point.set(end, [...(at_point.get(end) ?? []), edge]);
+    if ([...at_point.values()].some((list) => list.length % 2)) return d;      // not closed loops: as is
+    const other = (edge, end) => (edge[0] === end ? edge[2] : edge[0]);
+    const key = (edge, from) => `${edge[1] ?? ""}>${other(edge, from)}`;
+    const low = (edge) => (edge[0] < edge[2] ? edge[0] : edge[2]);
+    const used = new Set(), loops = [];
+    for (const first of [...edges].sort((a, b) => low(a).localeCompare(low(b)) || key(a, low(a)).localeCompare(key(b, low(b))))) {
+      if (used.has(first)) continue;
+      const start = low(first);
+      let at = start, loop = `M${start}`;
+      for (let edge = first; edge; edge = at === start ? null : at_point.get(at).filter((e) => !used.has(e)).sort((a, b) => key(a, at).localeCompare(key(b, at)))[0]) {
+        used.add(edge);
+        at = other(edge, at);
+        loop += step(edge, at);
+      }
+      loops.push(loop);
+    }
+    return loops.join(" ");
+  };
+  svg = svg.replace(/<path d="([^"]*)"([^>]*fill-rule="evenodd"[^>]*)\/>/g, (_, d, rest) => `<path d="${fill(d)}"${rest}/>`);
+  const gradient_tag = /<(linear|radial)Gradient[^>]*? id="(gradient\d+)"[\s\S]*?<\/\1Gradient>/g;
+  const gradients = new Map([...svg.matchAll(gradient_tag)].map(([tag, , id]) => [id, tag.replace(` id="${id}"`, "")]));
+  const order = [...new Set([...[...svg.matchAll(/url\(#(gradient\d+)\)/g)].map((m) => m[1]), ...gradients.keys()])];
+  const renamed = new Map(order.map((id, k) => [id, `gradient${k}`]));
+  let next = 0;
+  return svg.replace(/url\(#(gradient\d+)\)/g, (_, id) => `url(#${renamed.get(id)})`)
+    .replace(gradient_tag, () => { const id = order[next++]; return gradients.get(id).replace(/gradientUnits="[^"]*"/, (units) => `${units} id="${renamed.get(id)}"`); });
 }
 
 /** For each shape / image id: the exported symbols showing it, through nested sprites. */

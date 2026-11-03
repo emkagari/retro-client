@@ -9,6 +9,11 @@ The loader's graphics live in `src/assets/` as plain files, like its code:
 | `new/<Name>.svg` / `.png` | a graphic of ours, exported by its path in lower case: `new/ui/<Name>.svg` → `ui/<name>` |
 | `index.json` | for each shape / image: the exported symbols showing it |
 
+A shape's SVG is FFDec's, its filled paths rechained in a fixed order
+(`canonical_svg` in `tools/assets.mjs`): Ankama's compiler writes a shape's
+edges in another order at each version, and the same drawing then gives the
+same file.
+
 ## Editing a graphic
 
 1. Find it: `index.json` lists, for each file, the symbols it appears in

@@ -102,7 +102,7 @@
   },
   "shapes/676.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 2"
+   "detail": "0.00 % of pixels, delta up to 210"
   },
   "shapes/696.svg": {
    "status": "close",
@@ -134,7 +134,7 @@
   },
   "shapes/712.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 2"
+   "detail": "0.02 % of pixels, delta up to 119"
   },
   "shapes/732.svg": {
    "status": "close",
@@ -150,7 +150,7 @@
   },
   "shapes/763.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 4"
+   "detail": "0.19 % of pixels, delta up to 255"
   },
   "shapes/783.svg": {
    "status": "close",
@@ -162,11 +162,11 @@
   },
   "shapes/808.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.26 % of pixels, delta up to 255"
   },
   "shapes/811.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 2"
+   "detail": "0.03 % of pixels, delta up to 255"
   },
   "shapes/827.svg": {
    "status": "close",
@@ -186,7 +186,7 @@
   },
   "shapes/840.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.14 % of pixels, delta up to 255"
   },
   "shapes/860.svg": {
    "status": "close",
@@ -194,7 +194,7 @@
   },
   "shapes/879.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 3"
+   "detail": "0.00 % of pixels, delta up to 220"
   },
   "shapes/901.svg": {
    "status": "different",
@@ -218,7 +218,7 @@
   },
   "shapes/949.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 6"
+   "detail": "0.31 % of pixels, delta up to 255"
   },
   "shapes/952.svg": {
    "status": "close",
@@ -230,7 +230,7 @@
   },
   "shapes/957.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.24 % of pixels, delta up to 255"
   },
   "shapes/958.svg": {
    "status": "close",
@@ -254,7 +254,7 @@
   },
   "shapes/972.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 2"
+   "detail": "0.24 % of pixels, delta up to 158"
   },
   "shapes/979.svg": {
    "status": "close",
@@ -270,7 +270,7 @@
   },
   "shapes/991.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.05 % of pixels, delta up to 255"
   },
   "shapes/993.svg": {
    "status": "close",
@@ -278,19 +278,23 @@
   },
   "shapes/995.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.13 % of pixels, delta up to 255"
+  },
+  "shapes/1007.svg": {
+   "status": "close",
+   "detail": "0.02 % of pixels, delta up to 255"
   },
   "shapes/1009.svg": {
    "status": "close",
-   "detail": "0.01 % of pixels, delta up to 28"
+   "detail": "0.03 % of pixels, delta up to 94"
   },
   "shapes/1010.svg": {
    "status": "close",
-   "detail": "0.01 % of pixels, delta up to 28"
+   "detail": "0.03 % of pixels, delta up to 28"
   },
   "shapes/1011.svg": {
    "status": "close",
-   "detail": "0.01 % of pixels, delta up to 25"
+   "detail": "0.03 % of pixels, delta up to 25"
   },
   "shapes/1057.svg": {
    "status": "close",
@@ -302,11 +306,11 @@
   },
   "shapes/1086.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.02 % of pixels, delta up to 170"
   },
   "shapes/1122.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 7"
+   "detail": "0.00 % of pixels, delta up to 116"
   },
   "shapes/1168.svg": {
    "status": "different",
@@ -338,7 +342,7 @@
   },
   "shapes/1201.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.22 % of pixels, delta up to 255"
   },
   "shapes/1202.svg": {
    "status": "close",
@@ -346,23 +350,23 @@
   },
   "shapes/1203.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.22 % of pixels, delta up to 255"
   },
   "shapes/1205.svg": {
    "status": "close",
    "detail": "0.00 % of pixels, delta up to 2"
   },
   "shapes/1208.svg": {
-   "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "status": "different",
+   "detail": "1.36 % of pixels, delta up to 255"
   },
   "shapes/1209.svg": {
    "status": "close",
    "detail": "0.00 % of pixels, delta up to 1"
   },
   "shapes/1210.svg": {
-   "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "status": "different",
+   "detail": "1.36 % of pixels, delta up to 255"
   },
   "shapes/1212.svg": {
    "status": "close",
@@ -434,7 +438,7 @@
   },
   "shapes/1339.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 2"
+   "detail": "0.14 % of pixels, delta up to 233"
   },
   "shapes/1340.svg": {
    "status": "close",
@@ -442,7 +446,7 @@
   },
   "shapes/1348.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.14 % of pixels, delta up to 228"
   },
   "shapes/1350.svg": {
    "status": "close",
@@ -450,7 +454,7 @@
   },
   "shapes/1351.svg": {
    "status": "close",
-   "detail": "0.04 % of pixels, delta up to 255"
+   "detail": "0.05 % of pixels, delta up to 255"
   },
   "shapes/1352.svg": {
    "status": "close",
@@ -458,7 +462,7 @@
   },
   "shapes/1356.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.12 % of pixels, delta up to 64"
   },
   "shapes/1357.svg": {
    "status": "close",
@@ -466,15 +470,15 @@
   },
   "shapes/1359.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.12 % of pixels, delta up to 64"
   },
   "shapes/1361.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.12 % of pixels, delta up to 64"
   },
   "shapes/1363.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.12 % of pixels, delta up to 64"
   },
   "shapes/1428.svg": {
    "status": "close",
@@ -482,19 +486,19 @@
   },
   "shapes/1430.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.00 % of pixels, delta up to 255"
   },
   "shapes/1431.svg": {
    "status": "close",
-   "detail": "0.02 % of pixels, delta up to 255"
+   "detail": "0.06 % of pixels, delta up to 255"
   },
   "shapes/1432.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.06 % of pixels, delta up to 255"
   },
   "shapes/1434.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 20"
+   "detail": "0.01 % of pixels, delta up to 155"
   },
   "shapes/1435.svg": {
    "status": "close",
@@ -506,7 +510,7 @@
   },
   "shapes/1442.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 3"
+   "detail": "0.10 % of pixels, delta up to 202"
   },
   "shapes/1446.svg": {
    "status": "close",
@@ -514,7 +518,7 @@
   },
   "shapes/1453.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.03 % of pixels, delta up to 238"
   },
   "shapes/1455.svg": {
    "status": "close",
@@ -534,7 +538,7 @@
   },
   "shapes/1465.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.03 % of pixels, delta up to 90"
   },
   "shapes/1469.svg": {
    "status": "close",
@@ -542,15 +546,15 @@
   },
   "shapes/1471.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.02 % of pixels, delta up to 196"
   },
   "shapes/1474.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.07 % of pixels, delta up to 255"
   },
   "shapes/1476.svg": {
    "status": "close",
-   "detail": "0.26 % of pixels, delta up to 85"
+   "detail": "0.30 % of pixels, delta up to 255"
   },
   "shapes/1481.svg": {
    "status": "close",
@@ -586,7 +590,7 @@
   },
   "shapes/1500.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.06 % of pixels, delta up to 255"
   },
   "shapes/1502.svg": {
    "status": "close",
@@ -594,7 +598,7 @@
   },
   "shapes/1504.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.02 % of pixels, delta up to 88"
   },
   "shapes/1505.svg": {
    "status": "close",
@@ -610,11 +614,11 @@
   },
   "shapes/1522.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.06 % of pixels, delta up to 255"
   },
   "shapes/1527.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.12 % of pixels, delta up to 213"
   },
   "shapes/1534.svg": {
    "status": "close",
@@ -658,11 +662,11 @@
   },
   "shapes/1633.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 2"
+   "detail": "0.08 % of pixels, delta up to 186"
   },
   "shapes/1635.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 3"
+   "detail": "0.21 % of pixels, delta up to 37"
   },
   "shapes/1761.svg": {
    "status": "close",
@@ -790,7 +794,7 @@
   },
   "shapes/1950.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.29 % of pixels, delta up to 16"
   },
   "shapes/1952.svg": {
    "status": "close",
@@ -798,7 +802,7 @@
   },
   "shapes/1954.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.29 % of pixels, delta up to 16"
   },
   "shapes/1956.svg": {
    "status": "close",
@@ -806,7 +810,7 @@
   },
   "shapes/1958.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.29 % of pixels, delta up to 16"
   },
   "shapes/1960.svg": {
    "status": "close",
@@ -838,7 +842,7 @@
   },
   "shapes/2166.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.53 % of pixels, delta up to 255"
   },
   "shapes/2399.svg": {
    "status": "close",
@@ -886,7 +890,7 @@
   },
   "shapes/2617.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 2"
+   "detail": "0.79 % of pixels, delta up to 255"
   },
   "shapes/2635.svg": {
    "status": "close",
@@ -938,7 +942,7 @@
   },
   "shapes/2960.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.52 % of pixels, delta up to 255"
   },
   "shapes/2965.svg": {
    "status": "different",
@@ -946,11 +950,11 @@
   },
   "shapes/2968.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.52 % of pixels, delta up to 255"
   },
   "shapes/2971.svg": {
    "status": "close",
-   "detail": "0.00 % of pixels, delta up to 1"
+   "detail": "0.52 % of pixels, delta up to 255"
   },
   "shapes/2974.svg": {
    "status": "close",

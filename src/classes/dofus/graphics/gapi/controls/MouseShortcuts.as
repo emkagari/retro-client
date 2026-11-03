@@ -19,6 +19,7 @@ class dofus.graphics.gapi.controls.MouseShortcuts extends dofus.graphics.gapi.co
    var _ctrCC;
    var _currentOverContainer;
    var addToQueue;
+   var api;
    var gapi;
    var setMovieClipTransform;
    static var TAB_SPELLS = "Spells";
